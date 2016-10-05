@@ -1,18 +1,3 @@
-BATTLEGROUND C
---------------
-STYLES: Colors
-STYLES: Races select sidebar
-STYLES: View switch sidebar
-STYLES: View switch fixes
-STYLES: Dataviz pane
-STYLES: Legends
-MOBILE: Breakpoints
-MOBILE: Responsive layout
-MOBILE: Responsive styling
-MOBILE: Responsive finish
-DATA: Conditional data loads per race
-PREZ: EV cartogram pour
-
 BATTLEGROUND D
 --------------
 DATA: New data source pour

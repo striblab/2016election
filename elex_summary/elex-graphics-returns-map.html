@@ -161,6 +161,8 @@ font-weight: bold;
   }
   
 .swingBlock {float:right;width:10px;height:10px;background-color:#fff;border:2px solid orange;}
+
+#done { display:none; }
     
 </style>
 
@@ -244,7 +246,9 @@ font-weight: bold;
 <div class="timestamp"><span class="mn-timestamp" id="mn-timestamp">As of 8:00 p.m.: XX% precincts reporting</span></div>
 </div>
  
-</div>  
+</div>
+
+<div id="done"></div> 
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -271,10 +275,7 @@ font-weight: bold;
 // var apiStringMNS = "data/mnsenate.json";
 
 var apiStringCounty = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
-
 var apiStringSenate = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
-var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-gov/full.json";
-
 var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
 var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnhouse-by-district/full.json";
 var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
@@ -285,17 +286,13 @@ var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn
 d3.json(apiStringCounty, function(error, jsonCounty) {
 d3.json(apiStringSenate, function(error, jsonSenate) {
 d3.json(apiStringHouse, function(error, jsonHouse) {
-d3.json(apiStringGov, function(error, jsonGov) {
 d3.json(apiStringMNH, function(error, jsonMNH) {
 d3.json(apiStringMNS, function(error, jsonMNS) {
 
 // var dataUS = jsonUS;
 var dataCounty = jsonCounty;
-
 var dataSenate = jsonSenate;
 var dataHouse = jsonHouse;
-var dataGov = jsonGov;
-
 var dataMNH = jsonMNH;
 var dataMNS = jsonMNS;
 
@@ -1066,9 +1063,9 @@ mapSpill("president",dataCounty);
 
 $(document).ready(function() {
  $.ajaxSetup({ cache: false });
+ $("#done").html("DONE");
 });
 
-});
 });
 });
 });
