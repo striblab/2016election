@@ -16,17 +16,11 @@ page.open('http://striblab.github.io/2016election/elex_summary/elex-graphics-mob
   };
 
 window.setTimeout(function () {
-  var testIt = document.getElementById('done').innerHTML;
-  var done = "DONE";
-  if (testIt == done){
-  page.render('frontpage_bars_mobile.png');
-  phantom.exit();
-  } else {
-    window.setTimeout(function () {
-      page.render('frontpage_bars_mobile.png');
-      phantom.exit();
-    }, 3000);
-  }
+  // var testMe = document.querySelector('#done').innerHTML;
+  // if (testMe == "DONE"){
+    page.render('frontpage_bars_mobile.png');
+    phantom.exit(); 
+  // } 
 }, 5000);
 
 });
