@@ -1,0 +1,163 @@
+7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400
+
+http://customersupport.ap.org/doc/AP_Elections_API_Developer_Guide.pdf
+
+https://api.ap.org/v2/reports?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&electionDate=2008-11-04&geo=US
+
+https://api.ap.org/v2/elections/{electionDate}?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400[{OtherParameters}]
+
+https://api.ap.org/v2/elections/2016-03-01?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&statePostal=MN&officeID=P&raceTypeID=E,S&level=RU
+
+https://api.ap.org/v2/elections/2016-11-08?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G&level=county&party=GOP&national=true&test=true
+
+
+https://api.ap.org/v2/reports?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400[{OptionalParameters}]
+
+
+https://api.ap.org/v2/reports?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&electionDate=2008-11-04
+
+level=state (states)
+level=RU (counties)
+district (cd)
+FIPScode (FIPS areas and NE counties)
+
+
+Data
+------------
+https://api.ap.org/v2/elections/2008-11-04?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G&level=state
+
+President 2008
+-States
+-Counties
+-Carto
+-Precinct
+
+President 2012
+-States
+https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G&level=state
+
+-Counties
+https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G&level=RU
+
+-Carto
+-Precinct
+
+President 2016
+-States
+-Counties
+-Carto
+-Precinct
+
+Governor 2008
+-States
+-Counties
+-Carto
+-Precinct
+
+Governor 2010
+-States
+-Counties
+-Carto
+-Precinct
+
+Governor 2012
+-States
+-Counties
+-Carto
+-Precinct
+
+Governor 2014
+-States
+-Counties
+-Carto
+-Precinct
+
+Governor 2016
+-States
+-Counties
+-Carto
+-Precinct
+
+Senate 2008
+-States
+-Counties
+-Carto
+-Precinct
+
+Senate 2010
+-States
+-Counties
+-Carto
+-Precinct
+
+Senate 2012
+-States
+-Counties
+-Carto
+-Precinct
+
+Senate 2014
+-States
+-Counties
+-Carto
+-Precinct
+
+Senate 2016
+-States
+-Counties
+-Carto
+-Precinct
+
+House 2008
+-CD
+-Carto
+-Precinct
+
+House 2010
+-CD
+-Carto
+-Precinct
+
+House 2012
+-CD
+-Carto
+-Precinct
+
+House 2014
+-CD
+-Carto
+-Precinct
+
+House 2016
+-CD
+-Carto
+-Precinct
+
+Minnesota House 2008
+-District
+-Precinct
+
+Minnesota House 2010
+-District
+-Precinct
+
+Minnesota House 2012
+-District
+-Precinct
+
+Minnesota House 2014
+-District
+-Precinct
+
+Minnesota House 2016
+-District
+-Precinct
+
+Caucuses 2008
+-District
+
+Caucuses 2012
+-District
+
+Caucuses 2016
+-District

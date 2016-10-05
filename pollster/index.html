@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <title>Minnesota Polling Aggregates</title>
+    <meta name="description" content="Minnesota Polling Aggregates">
+    <meta name="author" content="Frey Hargarten - StarTribune">
+
+    <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" /> 
+
+    <style>
+        body, p { margin:0; padding:0; font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+        #wrapper { width:100%; margin-right:auto; margin-left:auto; text-align:center; }
+
+        a { color:steelblue; }
+
+        #filter input:focus { width: 100% !important; }
+        #filter input { width: 100% !important; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; border-radius:0 !important; }
+
+        #chart .c3-line, #chartUS .c3-line { stroke-width:4px !important; }
+        .chatter { padding-bottom:10px; }
+
+        .pctBox { display:inline-block; width:33%; text-align:center; }
+
+        .timestamp { font-size:.8em; text-align:center; color:#888; padding-top:10px; padding-bottom:10px; text-align:left !important; }
+        .source { padding-top:10px; text-align:left !important; color:#888; }
+        .source a { color:steelblue; }
+        .cell a { color:#000; }
+        .adjacent { width:45%; display:inline-block; text-align:left; }
+        .fBlock { width:48%; display:inline-block; text-align:left; }
+        .fNum { text-align:right; }
+        .fTop { border-bottom:1px solid #bbb; margin-bottom:4px; }
+
+        .filter { display:inline-block; width:60px; margin:12px; opacity:.5; }
+        .filter:hover, .selected3 { opacity:1 !important; cursor:pointer; background-color:#fff !important; color:#000 !important; }
+        .filter img { width:100%; }
+
+        .selected { margin:0 !important; }
+        .spread { font-weight:900; text-align:right !important; }
+
+        .tinycharts { display:inline-block; width:49%; }
+
+        .name, .chartTitle, .pollster, .chatter { text-align:left !important; }
+
+        .major { color:#fff !important; }
+
+        .pollster-chart, #chart, #chartUS, #chartFinance { width:100%; height:300px; }
+
+        .republican { color:#8C1B17; fill:#8C1B17 !important; pointer-events: all; font-weight:bold; }
+        .r1 { background-color:#C68985; fill:#C68985 !important; color:white !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0;}
+        .r2 { background-color:#A5484D; fill:#A5484D !important; color:white !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0;}
+        .r3 { background-color:#A52129; fill:#A52129 !important; color:white !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0;}
+        .r4 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0;}
+        .r0 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0;}
+        .mid { background-color:#bbb; fill:#bbb !important; color:black !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0; }
+        .blank { background-color:#fff; fill:#bbb !important; color:black !important; pointer-events: all; font-weight:bold; }
+        .democrat { color:#3F88C5; fill:#3F88C5 !important; pointer-events: all; font-weight:bold; }
+        .ind { color:#aaaaaa; fill:#aaaaaa !important; pointer-events: all; font-weight:bold; }
+        .d1 { background-color:#ABCEE8; fill:#ABCEE8 !important; color:white !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0;}
+        .d2 { background-color:#5ca5c3; fill:#5ca5c3 !important; color:white !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0;}
+        .d3 { background-color:#4f97c4; fill:#4f97c4 !important; color:white !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0;}
+        .d4 { background-color:#3f88c5; fill:#3f88c5 !important; color:white !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0;}
+        .d0 { background-color:#3F88C5; fill:#3F88C5 !important; color:white !important; pointer-events: all; font-weight:bold; padding: 5px 0 5px 0;}
+        .text { fill:#ffffff !important;  }
+
+        h4 { color:#000; text-align:left; }
+
+        .card { font-size:0.8em; }
+        .cell { display:inline-block; width:10%; text-align:center; overflow-x:hidden; }
+        .first { text-align:left; overflow-x:hidden; white-space:nowrap; width:20%; }
+        .th { font-weight:900; font-size:0.8em; }
+        .th:hover { background-color:#333; color:#fff; cursor:pointer; }
+
+        @media (max-width:800px) {
+          .tinycharts { display:inline-block; width:100%; }
+          .pctBox { width:32% !important; }
+          .adjacent { width:100%; padding-bottom:10px; }
+          #wrapper { width:100%; }
+          .card, .th { font-size:0.7em; background-color:#fff; }
+          .cell { width:43% !important; overflow-x:hidden; white-space:nowrap; }
+          .major, .keep { width:16% !important; }
+          .bigNum { font-size:2.3em; }
+          .kill { display:none !important; }
+          .canLabel { font-size:0.7em; }
+          .pollster-chart, #chart { width:100%; height:250px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrapper">
+
+<!-- 392909811 -->
+
+<!-- <div class='filter selected3' data="card" id="mn"><img src="img/mnbutton.png" /><p>Minnesota</p></div> <div class='filter' data="RPM" id="us"><img src="img/usbutton.png" /><p>National</p></div> -->
+
+<div id="mnpolls" class="poll">
+<!-- <div class="chartTitle">Minnesota poll tracker: Clinton vs. Trump</div> -->
+<h4>Latest Star Tribune Minnesota Poll results</h4>
+<br />
+<div class="pctBox">
+<div class="bigNum d3" id="clintonMN">0%</div>
+<div class='canLabel'>Clinton</div>
+</div>
+<div class="pctBox">
+<div class="bigNum r3" id="trumpMN">0%</div>
+<div class='canLabel'>Trump</div>
+</div>
+<div class="pctBox">
+<div class="bigNum mid" id="otherMN">0%</div>
+<div class='canLabel'>Undecided/Other</div>
+</div>
+
+<div class="breaker"></div>
+
+<div class="hide">
+  <!-- <div id="chart"></div> -->
+  <div class="tinycharts">
+    <h4>Star Tribune Minnesota Poll</h4>
+    <div id="stribChart"></div>
+  </div>
+  <div class="tinycharts">
+    <h4>Ipsos/Reuters</h4>
+    <div id="irChart"></div>
+  </div>
+  <div class="tinycharts">
+    <h4>Google Consumer Surveys</h4>
+    <div id="gcsChart"></div>
+  </div>
+  <div class="tinycharts">
+    <h4>Morning Consult</h4>
+    <div id="mcChart"></div>
+  </div>
+  <div class="tinycharts">
+    <h4>SurveyUSA/KSTP-TV</h4>
+    <div id="kstpChart"></div>
+  </div>
+  <div class="tinycharts">
+    <h4>Washington Post/SurveyMonkey</h4>
+    <div id="wapoChart"></div>
+  </div>
+</div>
+
+  <iframe  style="display:none;" class="pollster-chart" src="http://elections.huffingtonpost.com/pollster/2016-minnesota-president-trump-vs-clinton.desktop.svg" scrolling="no" frameborder="no"></iframe>
+
+<!--   <div class="breaker"></div> -->
+
+<div id="filter"><input type="search" id="filter_box" placeholder="Search polls"></input></div>
+  <div id="pollTable">
+    <div class='cell th first' data="pollster">Pollster</div><div class='cell th selected kill first' data="updated">Date</div><div class='cell th kill' data="observations">Sample</div><div class='cell kill th' data="mode">Type</div><div class='cell th keep' data="clinton">Clinton</div><div class='cell th keep' data="trump">Trump</div><div class='cell th keep' data="undecided">UND/OTHER</div><div class='cell spread kill th' data="spread">Spread</div>
+  </div>
+</div>
+
+<!-- <div class="source">Source: <a href="http://elections.huffingtonpost.com/pollster" target="new_">HuffPost Pollster</a>, <a href="http://projects.fivethirtyeight.com/2016-election-forecast/minnesota/#plus" target="new_">FiveThirtyEight 2016 Election Forecast</a></div> -->
+
+<div class="breaker"></div>
+
+<div class="slide" id="finance" style="display:none;">
+<div class="chartTitle">Campaign finance tracker: Clinton vs. Trump</div>
+<div class="chatter">Clinton has vastly outraised Trump across most regions of Minnesota. <a href="ftp://ftp.fec.gov/FEC/Presidential_Map/2016/P00003392/P00003392-MN.zip" target="new_">The Clinton campaign has raised</a> <span class='democrat'>$2,673,669</span> from donors in the state <a href="ftp://ftp.fec.gov/FEC/Presidential_Map/2016/P80001571/P80001571-MN.zip">compared to Trump's</a> <span class='republican'>$362,588</span> as of the FEC's most recent <a href="http://www.fec.gov/disclosurep/pnational.do" target="new_">filings</a>.</div>
+<div id="chartFinance"></div>
+<div id="regionChart">
+  <div class="adjacent">
+    <div class="fTop"><div class="fBlock"><h4>Clinton</h4></div><div class="fBlock fNum"><span class='democrat'>$2,673,669</span></div></div>
+    <div class="fBlock">Twin Cities</div><div class="fBlock fNum">$1,837,566</div>
+    <div class="fBlock">Suburbs</div><div class="fBlock fNum">$582,841</div>
+    <div class="fBlock">Duluth</div><div class="fBlock fNum">$28,439</div>
+    <div class="fBlock">Iron Range</div><div class="fBlock fNum">$25,473</div>
+    <div class="fBlock">Northern</div><div class="fBlock fNum">$43,824</div>
+    <div class="fBlock">Central</div><div class="fBlock fNum">$30,117</div>
+    <div class="fBlock">Southern</div><div class="fBlock fNum">$120,009</div>
+  </div>
+  <div class="adjacent">
+    <div class="fTop"><div class="fBlock"><h4>Trump</h4></div><div class="fBlock fNum"><span class='republican'>$362,588</span></div></div>
+    <div class="fBlock">Twin Cities</div><div class="fBlock fNum">$112,326</div>
+    <div class="fBlock">Suburbs</div><div class="fBlock fNum">$140,790</div>
+    <div class="fBlock">Duluth</div><div class="fBlock fNum">$6,159</div>
+    <div class="fBlock">Iron Range</div><div class="fBlock fNum">$9,249</div>
+    <div class="fBlock">Northern</div><div class="fBlock fNum">$13,216</div>
+    <div class="fBlock">Central</div><div class="fBlock fNum">$35,591</div>
+    <div class="fBlock">Southern</div><div class="fBlock fNum">$44,733</div>
+  </div>
+</div>
+</div>
+
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+//http://elections.huffingtonpost.com/pollster/2016-minnesota-president-trump-vs-clinton
+
+d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1T7sXD_Vvp60707sC6g_Ws7trmpsMHXwz2dl7S-oW67k&sheet=pollster", function(error, dataLoad) {
+
+
+var data = dataLoad.pollster;
+
+$(".filter").click(function()  { 
+  $(".filter").removeClass("selected3");
+  $(this).addClass("selected3");
+});
+
+$("#mn").click(function()  { 
+  $(".poll").hide();
+  $("#mnpolls").show();
+});
+
+$("#us").click(function()  { 
+  $(".poll").hide();
+  $("#uspolls").show();
+});
+
+$(".th").click(function() {
+  $(".th").removeClass("selected");
+  $(this).addClass("selected");
+  if ($(this).hasClass("toggled")) { $(this).removeClass("toggled"); var sorted = "ascend"; }
+  else if ($(this).hasClass("selected")) { $(this).addClass("toggled"); var sorted ="descend"; } 
+  tableSort("#pollTable",data,$(this).attr("data"),sorted);
+  tableSort("#pollTableUS",data,$(this).attr("data"),sorted);
+});
+
+//SELECTION TABLES
+function tableSort(container,data,column,sorted){
+   
+  d3.select(container).selectAll(".card").sort(function(a, b) {
+          if (column == "pollster") { 
+        if (sorted == "descend") { return d3.descending(a.pollster, b.pollster); }
+        if (sorted == "ascend") { return d3.ascending(a.pollster, b.pollster); }
+     }
+          if (column == "updated") { 
+        if (sorted == "descend") { return d3.descending(a.index, b.index); }
+        if (sorted == "ascend") { return d3.ascending(a.index, b.index); }
+     }
+          if (column == "clinton") { 
+        if (sorted == "descend") { return d3.descending(a.clinton, b.clinton); }
+        if (sorted == "ascend") { return d3.ascending(a.clinton, b.clinton); }
+     }
+          if (column == "trump") { 
+        if (sorted == "descend") { return d3.descending(a.trump, b.trump); }
+        if (sorted == "ascend") { return d3.ascending(a.trump, b.trump); }
+     }
+          if (column == "undecided") { 
+        if (sorted == "descend") { return d3.descending(a.undecided, b.undecided); }
+        if (sorted == "ascend") { return d3.ascending(a.undecided, b.undecided); }
+     }
+          if (column == "observations") { 
+        if (sorted == "descend") { return d3.descending(a.observations, b.observations); }
+        if (sorted == "ascend") { return d3.ascending(a.observations, b.observations); }
+     }
+          if (column == "spread") { 
+        if (sorted == "descend") { return d3.descending(a.spread, b.spread); }
+        if (sorted == "ascend") { return d3.ascending(a.spread, b.spread); }
+     }
+          if (column == "mode") { 
+        if (sorted == "descend") { return d3.descending(a.mode, b.mode); }
+        if (sorted == "ascend") { return d3.ascending(a.mode, b.mode); }
+     }
+    }).transition().duration(500);
+}
+
+function spillPolls(container, data){
+d3.select(container).selectAll(".card")
+  .data(data.sort(function(a, b) { return d3['descending'](a.entry_date, b.entry_date); })).enter().append("div")
+  .attr("class",function(d) { return "card"; })
+  .html(function(d){ 
+     var color_scaleD = d3.scale.linear().domain([0, 1]).range(['#ABCEE8', '#3f88c5']);
+     var color_scaleR = d3.scale.linear().domain([0, 1]).range(['#C68985', '#8C1B17']);
+     var color_scaleU = d3.scale.linear().domain([0, 1]).range(['#CCC', '#636363']);
+     var color_scaleO = d3.scale.linear().domain([0, 1]).range(['#C7E5B5', '#118241']);
+
+     if (d.spread < 0) { var pColor = '#8C1B17'; var spread = d3.format("+.0f")(d.spread * -1) + " Trump" }
+     else if (d.spread == 0) { var pColor = '#aaaaaa'; var spread = "EVEN"; }
+     else { var pColor = '#3F88C5'; var spread = d3.format("+.0f")(d.spread) + " Clinton" }
+
+    return "<div class='cell first'><a href='" + d.source_url + "' target='new_'>" + d.pollster + "</a></div><div class='cell kill first'>" + d3.time.format("%m/%d/%Y")(new Date(d.start_date)) + "-" + d3.time.format("%m/%d/%Y")(new Date(d.end_date)) + "</div><div class='cell kill'>" + d.observations + " " + d.population + "</div><div class='cell kill'>" + d.mode + "</div><div class='cell major' style='background-color:" + color_scaleD(d.clinton) + "'>" + d3.format("%")(d.clinton) + "</div><div class='cell major' style='background-color:" + color_scaleR(d.trump) + "'>" + d3.format("%")(d.trump) + "</div><div class='cell major' style='background-color:" + color_scaleU(d.undecided) + "'>" + d3.format("%")(d.undecided) + "</div><div class='cell kill spread' style='color:" + pColor + "'>" + spread + "</div>";
+  });
+
+     $('#filter_box, #filter_box2').keyup(function(i){
+        $('.card').hide();
+        var txt = $(this).val();
+        $('.card').each(function(){
+           if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+               $(this).show();
+           }
+        });
+    });
+}
+
+
+function spillChart(container, data, filter){
+var clintonAxis = [];
+var trumpAxis = [];
+var uAxis = [];
+var oAxis = [];
+var clintonNum = [];
+var trumpNum = [];
+var clintonLine = [];
+var trumpLine = [];
+var uNum = [];
+var oNum = [];
+
+clintonAxis[0] = 'clinton_x';
+trumpAxis[0] = 'trump_x';
+uAxis[0] = 'u_x';
+oAxis[0] = 'o_x';
+clintonNum[0] = 'Clinton';
+trumpNum[0] = 'Trump';
+uNum[0] = 'Undecided/Other';
+oNum[0] = 'Other';
+
+var index = 1;
+
+for (var i=0; i < data.length; i++){
+  // if (data[i].pollster != "Google Consumer Surveys" && data[i].observations >= 500){
+  if (data[i].pollster == filter){
+  clintonAxis[index] = new Date(data[i].entry_date); //d3.time.format("%m-%d-%Y")(new Date(data[i].entry_date));
+  trumpAxis[index] = d3.time.format("%m-%d-%Y")(new Date(data[i].entry_date));
+  uAxis[index] = d3.time.format("%m-%d-%Y")(new Date(data[i].entry_date));
+  oAxis[index] = d3.time.format("%m-%d-%Y")(new Date(data[i].entry_date));
+  clintonNum[index] = data[i].clinton;
+  trumpNum[index] = data[i].trump;
+  uNum[index] = data[i].undecided;
+  oNum[index] = data[i].other;
+  index++;
+ }
+}
+
+var  padding = {
+        top: 20,
+        right: 30,
+        bottom: 20,
+        left: 40,
+    };
+
+var chart = c3.generate({
+      bindto: container,
+      padding: padding,
+      point: {
+        r: 3
+    },
+    data: {
+        x: 'clinton_x',
+        colors:  { 
+          'Clinton': "#3F88C5",
+          'Trump': "#8C1B17",
+          'Undecided/Other': "#888888"
+        },
+        columns: [
+            clintonAxis,
+            clintonNum,
+            trumpNum,
+            uNum
+        ],
+        type: 'line'
+    },
+    axis: {
+      y: {
+            max: 0.5,
+            min: 0,
+            padding: {bottom: 0, top:0},
+            tick: {
+             count: 3,
+             values: [0,0.25,0.50],
+             format: d3.format('%')
+            }
+        },
+        x: {
+            type: 'timeseries',
+            // categories: ['Contributions'],
+            tick: {
+                format: "%m-%d-%Y",
+                count: 3,
+                multiline: false
+            }
+          }
+        },
+        tooltip: {
+      contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+          var $$ = this, config = $$.config,
+              titleFormat = config.tooltip_format_title || defaultTitleFormat,
+              nameFormat = config.tooltip_format_name || function (name) { return name; },
+              valueFormat = config.tooltip_format_value || defaultValueFormat,
+              text, i, title, value, name, bgcolor;
+          for (i = 0; i < d.length; i++) {
+              if (! (d[i] && (d[i].value || d[i].value === 0))) { continue; }
+
+              if (! text) {
+                  title = titleFormat ? titleFormat(d[i].x) : d[i].x;
+                  text = "<table class='" + $$.CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
+              }
+
+              var pollster = "";
+
+              name = nameFormat(d[i].name);
+              value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
+              bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
+
+              // console.log(title);
+
+              for (var k=0; k < data.length; k++){
+                if (d3.time.format("%m-%d-%Y")(new Date(data[k].entry_date)) == title){
+                  pollster = "<td class='value pollster' colspan='2'>" + data[k].pollster + " (" + data[k].mode + ")</td>";
+                  break;
+                }
+              }
+
+              if (name != "Undecided/Other") { pollster = ""; }
+
+              text += "<tr class='" + $$.CLASS.tooltipName + "-" + d[i].id + "'>";
+              text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
+              text += "<td class='value'>" + value + "</td>";
+              text += "</tr><tr>";
+              text +=  pollster;
+              text += "</tr>";
+              
+          }
+          return text + "</table>";
+      }
+    }
+});
+
+      $("#clintonMN").html(d3.format("%")(data[data.length-1].clinton));
+      $("#trumpMN").html(d3.format("%")(data[data.length-1].trump));
+      $("#otherMN").html(d3.format("%")(data[data.length-1].undecided));
+
+}
+
+// spillChart("#chart", data);
+spillChart("#stribChart", data, "Star Tribune Minnesota Poll");
+spillChart("#irChart", data, "Ipsos/Reuters");
+spillChart("#mcChart", data, "Morning Consult");
+spillChart("#gcsChart", data, "Google Consumer Surveys");
+spillChart("#wapoChart", data, "WaPo/SurveyMonkey");
+spillChart("#kstpChart", data, "SurveyUSA/KSTP-TV");
+spillPolls("#pollTable", data);
+
+// function chartFinance(){
+
+//     d3.csv("./data/prez.csv", function(d) {
+//   return {
+//     candidate: d.candidate,
+//     total: +d.total,
+//     where: d.where,
+//     region: d.region
+//   };
+// }, function(error, rows) {
+
+// var dataT = rows;
+
+// var  padding = {
+//         top: 20,
+//         right: 60,
+//         bottom: 20,
+//         left: 90,
+//     };
+
+// var chartFinance = c3.generate({
+//       bindto: "#chartFinance",
+//       padding: padding,
+//         data: {
+//                 x: 'x',
+//                 columns: [
+//                     ['x','Clinton','Trump'],
+//                     ['Twin Cities', 1837566, 112326],
+//                     ['Suburbs', 582841, 140790],
+//                     ['Central', 30117, 35591],
+//                     ['Duluth', 28439, 6159],
+//                     ['Iron Range', 25473, 9249],
+//                     ['Northern', 43824, 13216],
+//                     ['Southern', 120009, 44733]
+//                 ],
+//             type: 'bar',
+//             colors:  { 
+//               'Twin Cities': function(d) { 
+//                 // console.log(d)
+//                   if (d.index == 1) { return "#8C1B17"; }
+//                   else { return "#3f88c5"; }
+//               },              
+//               'Suburbs': function(d) { 
+//                   if (d.index == 1) { return "#8C1B17"; }
+//                   else { return "#3f88c5"; }
+//               },
+//               'Central': function(d) { 
+//                   if (d.index == 1) { return "#8C1B17"; }
+//                   else { return "#3f88c5"; }
+//               },
+//               'Duluth': function(d) { 
+//                   if (d.index == 1) { return "#8C1B17"; }
+//                   else { return "#3f88c5"; }
+//               },
+//               'Iron Range': function(d) { 
+//                   if (d.index == 1) { return "#8C1B17"; }
+//                   else { return "#3f88c5"; }
+//               },
+//               'Northern': function(d) { 
+//                   if (d.index == 1) { return "#8C1B17"; }
+//                   else { return "#3f88c5"; }
+//               },              
+//               'Southern': function(d) { 
+//                   if (d.index == 1) { return "#8C1B17"; }
+//                   else { return "#3f88c5"; }
+//               }
+//             },
+//             groups: [
+//                 ['Twin Cities','Suburbs','Central','Duluth','Iron Range','Northern','Southern']
+//             ]
+//             },
+//             legend: {
+//                 show: false
+//             },
+//             axis: {
+//               y: {
+//                     min: 0,
+//                     padding: {bottom: 0, top: 0},
+//                     tick: {
+//                      count: 4,
+//                      format: d3.format('$,.0f')
+//                     }
+//                 },
+//                 x: {
+//                     type: 'category'
+//                     // categories: ['Trump','Clinton']
+//                 }
+//             },        
+//             tooltip: {
+//       contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+//           var $$ = this, config = $$.config,
+//               titleFormat = config.tooltip_format_title || defaultTitleFormat,
+//               nameFormat = config.tooltip_format_name || function (name) { return name; },
+//               valueFormat = config.tooltip_format_value || defaultValueFormat,
+//               text, i, title, value, name, bgcolor;
+//           for (i = 0; i < d.length; i++) {
+//               if (! (d[i] && (d[i].value || d[i].value === 0))) { continue; }
+
+//               if (! text) {
+//                   title = titleFormat ? titleFormat(d[i].x) : d[i].x;
+//                   text = "<table class='" + $$.CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
+//               }
+
+//               name = nameFormat(d[i].name);
+//               value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
+//               bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
+
+//               if (d[i].index == 1) { bgcolor = "#8C1B17"; }
+//               else { bgcolor = "#3f88c5"; }
+
+//               text += "<tr class='" + $$.CLASS.tooltipName + "-" + d[i].id + "'>";
+//               text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
+//               text += "<td class='value'>" + value + "</td>";
+//               text += "</tr><tr>";
+//               text += "</tr>";
+              
+//           }
+//           return text + "</table>";
+//       }
+//     }
+// });
+// });
+// }
+
+// chartFinance();
+
+});
+</script>
+
+</body>
+</html>

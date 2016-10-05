@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Star Tribune election results</title>
+  <meta name="generator" content="BBEdit 10.5" />
+  
+  
+<style type="text/css">
+
+
+@font-face {
+font-family: "Benton Sans RE";
+src: url("http://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-2.eot?") format("embedded-opentype"),
+url("http://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-3.woff") format("woff"),
+url("http://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-1.ttf") format("truetype"),
+url("http://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-4.svg#web") format("svg");
+font-style: normal;
+font-weight: normal;
+}
+@font-face {
+font-family: "Benton Sans RE";
+src: url("http://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-2.eot?") format("embedded-opentype"),
+url("http://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-3.woff") format("woff"),
+url("http://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-1.ttf") format("truetype"),
+url("http://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-4.svg#web") format("svg");
+font-style: normal;
+font-weight: bold;
+}
+                                                    
+@font-face{
+  font-family:"Poynter Serif RE";
+  src:url("http://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-2.eot");
+  src:url("http://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-2.eot?") format("embedded-opentype"),url("http://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-3.woff") format("woff"),url("http://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-1.ttf") format("truetype");
+  font-style:normal;
+  font-weight:normal
+}
+
+@font-face{
+  font-family:"Poynter Serif RE";
+  src:url("http://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-2.eot");
+  src:url("http://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-2.eot?") format("embedded-opentype"),url("http://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-3.woff") format("woff"),url("http://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-1.ttf") format("truetype");
+  font-style:normal;
+  font-weight:bold
+}
+
+@font-face {
+  font-family: "Whitman Display Condensed Bold";
+  src: url("http://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-2.eot");
+  src: url("http://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-2.eot?") format("embedded-opentype"),
+       url("http://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-3.woff") format("woff"),
+       url("http://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+#us-pop-trump {}
+#us-pop-clinton {}
+#mn-pop-trump {}
+#mn-pop-clinton {}
+#us-timestamp {}
+#mn-timestamp {}
+  
+.resultsMap {width:640px;min-height:340px;background-color:#fff; margin: 50px auto;} 
+  
+.demBlue {color:#21409A;}
+.repRed {color:#DA2128;}
+
+.demBlueKey {background-color:#21409A;}
+.demLean {background-color:#7584a6;}
+.tossUp {background-color:#999;}
+.repLean {background-color:#b78181;}
+.repRedKey {background-color:#DA2128;}
+  
+  
+.graphicLabel {
+    float:left;
+    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
+    font-weight:bold;
+    font-size:12px;
+    line-height:13px;
+    height:14px;
+    margin-bottom:18px;
+    width:20%;
+  }
+
+  
+.keyHolder {display:block;float:right;margin-bottom:18px;}
+  
+  .keyLabel {
+    float:left;
+    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
+    font-weight:normal;
+    font-size:12px;
+    line-height:13px;
+    height:14px;
+    margin:0 0 0 7px;
+ 
+  }
+  
+.keyBlock {float:left;width:10px;height:10px;margin-left:15px;border:1px solid #999;}
+  
+  
+.timestamp {
+    float:left;
+    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
+    font-weight:normal;
+    font-size:11px;
+    line-height:16px;
+    color:#999;
+}
+
+  #usMap { float:left;width:380px;min-height:240px;margin: -10px 20px 10px 0px; }
+  #mnMap {float:right;width:240px;min-height:240px;margin: -10px 0px 10px 0px; }
+
+  .usTimestamp {float:left;width:340px;min-height:20px;background-color:white; margin: 10px 20px 0px 0px; }
+  .mnTimestamp {float:right;width:240px;min-height:20px;background-color:white; margin: 10px 0px 0px 0px; }
+
+  .popBarUS {display:block;float:left;width:340px;height:32px;margin-right:20px;background-color:#fff;z-index:10}
+  .popBarMN {display:block;float:right;width:240px;height:32px;margin-right:0px;background-color:#fff;z-index:10}
+  
+  .numberBox {float:right;width:60px;text-align:center}
+  
+.popvoteLabel {
+    float:left;
+    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
+    font-weight:normal;
+    font-size:9px;
+    line-height:14px;
+    color:#666;
+    text-align:left;
+  }
+  
+.popvote {    
+    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
+    font-weight:bold;
+    font-size:9px;
+    line-height:14px;
+    color:#333;
+    text-align:center;
+  }
+  
+.popNum {
+    text-align:center;
+    font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
+    font-weight:bold;
+    font-size:18px;
+    line-height:18px;
+    margin-bottom:1px;
+  }
+
+.swing { 
+  float:right;
+    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
+    font-weight:bold;
+    font-size:11px;
+    line-height:16px;
+    color:#333;
+    text-align:right;
+  margin-left:5px;
+  }
+  
+.swingBlock {float:right;width:10px;height:10px;background-color:#fff;border:2px solid orange;}
+    
+</style>
+
+
+</head>
+<body>
+  
+<div id="snapshot">
+<div class="resultsMap">
+  
+<!--KEYS-->
+<div class="graphicLabel">PRESIDENTIAL RACE</div>
+  
+<div class="keyHolder">
+  <div class="keyBlock demBlueKey"></div>
+    <div class="keyLabel">Clinton</div>
+  
+   <div class="keyBlock demLean"></div>
+    <div class="keyLabel">Leaning</div>
+  
+     <div class="keyBlock tossUp"></div>
+    <div class="keyLabel">Toss-up</div>
+  
+    <div class="keyBlock demLean"></div>
+    <div class="keyLabel">Leaning</div>
+  
+    <div class="keyBlock repRedKey"></div>
+    <div class="keyLabel">Trump
+  </div>
+</div>
+
+  
+<!--RESULTS ROW-->
+<div class="popBarUS">   
+  <div class="popvoteLabel">U.S. electoral votes</div>
+
+  <div class="numberBox"> 
+    <div class="popNum repRed"><span class="us-pop-trump" id="us-gop-pop"></span></div>
+    <div class="popvote">TRUMP</div>
+  </div>  
+
+  <div class="numberBox"> 
+    <div class="popNum demBlue"><span class="us-pop-clinton" id="us-dem-pop"></span></div>
+    <div class="popvote">CLINTON</div>
+  </div>
+</div>   
+
+<div class="popBarMN"> 
+  <div class="popvoteLabel">MN popular vote</div>
+
+  <div class="numberBox"> 
+    <div class="popNum repRed"><span class="mn-pop-trump" id="mn-gop-pop">XX%</span></div>
+    <div class="popvote">TRUMP</div>
+  </div>  
+
+  <div class="numberBox"> 
+    <div class="popNum demBlue"><span class="mn-pop-clinton" id="mn-dem-pop">XX%</span></div>
+    <div class="popvote">CLINTON</div>
+  </div>
+</div>
+
+  
+<!--MAP ROW  -->
+<div>
+<div id="usMap" class="map geo"><svg id="USMAP" width="340" height="240" viewBox="0 0 770 400" preserveAspectRatio="xMidYMid"></svg></div>
+</div>
+ 
+<div>
+<div id="mnMap" class="mapState map geo"><svg id="MNHOUSE" width="240" height="240" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+</div>
+
+  
+<!--TIMESTAMP ROW-->
+<div class="usTimestamp">
+    <div class="timestamp"><!-- <span class="us-timestamp">As of 8:00 p.m.: XX% precincts reporting</span> --></div>
+    <div class="swing">Swing state</div>
+    <div class="swingBlock"></div>
+</div>
+
+<div class="mnTimestamp">
+<div class="timestamp"><span class="mn-timestamp" id="mn-timestamp">As of 8:00 p.m.: XX% precincts reporting</span></div>
+</div>
+ 
+</div>  
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<script>
+// var apiStringUS = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G";
+// var apiStringCounty = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G&level=RU";
+
+// var apiStringSenate = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=S&raceTypeID=G&level=RU";
+// var apiStringGov = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=G&raceTypeID=G&level=RU";
+
+// var apiStringHouse = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=H&raceTypeID=G&level=RU";
+// var apiStringMNH = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&statePostal=MN&officeID=Y&raceTypeID=G";
+// var apiStringMNS = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&statePostal=MN&officeID=Z&raceTypeID=G";
+
+// var apiStringCounty = "data/prezCounty.json";
+
+// var apiStringSenate = "data/senate.json";
+// var apiStringGov = "data/gov.json";
+
+// var apiStringHouse = "data/house.json";
+// var apiStringMNH = "data/mnhouse.json";
+// var apiStringMNS = "data/mnsenate.json";
+
+var apiStringCounty = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
+
+var apiStringSenate = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
+var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-gov/full.json";
+
+var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
+var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnhouse-by-district/full.json";
+var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
+
+// var apiString = "./data/" + year + "_" + race + "_" + district + "_" + geo +".json"
+
+// d3.json(apiStringUS, function(error, jsonUS) {
+d3.json(apiStringCounty, function(error, jsonCounty) {
+d3.json(apiStringSenate, function(error, jsonSenate) {
+d3.json(apiStringHouse, function(error, jsonHouse) {
+d3.json(apiStringGov, function(error, jsonGov) {
+d3.json(apiStringMNH, function(error, jsonMNH) {
+d3.json(apiStringMNS, function(error, jsonMNS) {
+
+// var dataUS = jsonUS;
+var dataCounty = jsonCounty;
+
+var dataSenate = jsonSenate;
+var dataHouse = jsonHouse;
+var dataGov = jsonGov;
+
+var dataMNH = jsonMNH;
+var dataMNS = jsonMNS;
+
+//data fetching function
+function fetchData(district,state,type,dataCompare,race,ev,label){
+
+  //base: officeName
+  //.reportingUnits[i]: .reportingunitName, statePostal, stateName, precinctsReporting, precinctsTotal, precinctsReportingPct, lastUpdated, level, fipsCode
+  //.reportingUnits[i].candidates[k]: first, last, party, voteCount, winner, incumbent
+
+//USHOUSE, MNHOUSE, MNSENATE SPECIFIC
+  //base: seatName, seatNum
+
+var stateName = '';
+var statePostal = '';
+var precinctsReporting = 0;
+var precinctsTotal = 0;
+var precinctsReportingPct = 0;
+var lastUpdated = 0;
+
+var fipsCode = '';
+var seatName = '';
+var seatNum = '';
+
+var firstR = '';
+var lastR = '';
+var partyR = '';
+var incumbentR = false;
+var voteCountR = 0;
+var winnerR = '';
+var pctR = 0;
+
+var firstD = '';
+var lastD = '';
+var partyD = '';
+var incumbentD = false;
+var voteCountD = 0;
+var winnerD = '';
+var pctD = 0;
+
+var voteCountO = 0;
+var pctO = 0;
+
+var voteCountT = 0;
+
+
+  for (var i=0; i < dataCompare.races.length; i++) {
+   if (race == "ushouse" || race == "mnhouse" || race == "mnsenate"){
+      if (dataCompare.races[i].seatName == district) {
+     for (var j=0; j < dataCompare.races[i].reportingUnits.length; j++) {
+         if (dataCompare.races[i].reportingUnits[j].stateName == state){
+              stateName = dataCompare.races[i].reportingUnits[j].stateName;
+              statePostal = dataCompare.races[i].reportingUnits[j].statePostal;
+              precinctsReporting = dataCompare.races[i].reportingUnits[j].precinctsReporting;
+              precinctsTotal = dataCompare.races[i].reportingUnits[j].precinctsTotal;
+              precinctsReportingPct = dataCompare.races[i].reportingUnits[j].precinctsReportingPct;
+              lastUpdated = dataCompare.races[i].reportingUnits[j].lastUpdated;
+
+           for (var k=0; k < dataCompare.races[i].reportingUnits[j].candidates.length; k++) {
+              if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP") {
+                firstR = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastR = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyR = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentR = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountR = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerR = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "Dem") {
+                firstD = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastD = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyD = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentD = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountD = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerD = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else {
+                voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+              }
+           } //end k loop
+         } //end if
+     } //end j loop
+    } //end if
+     
+   } else {
+     for (var j=0; j < dataCompare.races[i].reportingUnits.length; j++) {
+       if (state != null){
+         if (dataCompare.races[i].reportingUnits[j].stateName == state){
+              stateName = dataCompare.races[i].reportingUnits[j].stateName;
+              statePostal = dataCompare.races[i].reportingUnits[j].statePostal;
+              precinctsReporting = dataCompare.races[i].reportingUnits[j].precinctsReporting;
+              precinctsTotal = dataCompare.races[i].reportingUnits[j].precinctsTotal;
+              precinctsReportingPct = dataCompare.races[i].reportingUnits[j].precinctsReportingPct;
+              lastUpdated = dataCompare.races[i].reportingUnits[j].lastUpdated;
+
+           for (var k=0; k < dataCompare.races[i].reportingUnits[j].candidates.length; k++) { 
+              if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP") {
+                firstR = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastR = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyR = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentR = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountR = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerR = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "Dem") {
+                firstD = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastD = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyD = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentD = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountD = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerD = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else {
+                voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+              }
+           } //end k loop
+         }
+      } else {
+         if (dataCompare.races[i].reportingUnits[j].fipsCode == district){
+              stateName = dataCompare.races[i].reportingUnits[j].stateName;
+              statePostal = dataCompare.races[i].reportingUnits[j].statePostal;
+              precinctsReporting = dataCompare.races[i].reportingUnits[j].precinctsReporting;
+              precinctsTotal = dataCompare.races[i].reportingUnits[j].precinctsTotal;
+              precinctsReportingPct = dataCompare.races[i].reportingUnits[j].precinctsReportingPct;
+              lastUpdated = dataCompare.races[i].reportingUnits[j].lastUpdated;
+
+           for (var k=0; k < dataCompare.races[i].reportingUnits[j].candidates.length; k++) { 
+              if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP") {
+                firstR = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastR = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyR = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentR = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountR = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerR = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "Dem") {
+                firstD = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastD = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyD = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentD = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountD = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerD = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else {
+                voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+              }
+           } //end k loop
+         }
+      }
+     } //end j loop
+   }
+   } //end i loop
+
+   voteCountT = voteCountR + voteCountD + voteCountO;
+   pctR = voteCountR / voteCountT;
+   pctD = voteCountD / voteCountT;
+   pctO = voteCountO / voteCountT;
+
+  var evString = "";
+  var stateString = state;
+
+  if (ev != null) { evString = "<span class='ev'> - " + ev + " electoral votes</span>"; }
+  if (label != null) { stateString = label; } else { stateString = state; }
+
+  if (type == "tooltip"){
+      if (pctR >= .80) { var colorR = "r4"; } 
+      else if (pctR >= .70) { var colorR = "r3"; } 
+      else if (pctR >= .60) { var colorR = "r2"; } 
+      else if (pctR >= 0) { var colorR = "r1"; } 
+      if (pctD >= .80) { var colorD = "d4"; }
+      else if (pctD >= .70) { var colorD = "d3"; } 
+      else if (pctD >= .60) { var colorD = "d2"; } 
+      else if (pctD >= 0) { var colorD = "d1"; } 
+
+    if (pctR > pctD) { return "<div class='districtName'>" + stateString + "</div><div class='candidate'>" + lastR + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div><div class='smallbreak'></div><div class='candidate'>" + lastD + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div>"; }
+    else { return "<div class='districtName'>" + stateString + "</div><div class='candidate'>" + lastD + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div><div class='smallbreak'></div><div class='candidate'>" + lastR + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div>"; }
+  } //end tooltip
+
+  // if (type == "colors"){
+  //   if (pctR > pctD) { 
+  //     if (pctR >= .80) { return "r4"; } 
+  //     else if (pctR >= .70) { return "r3"; } 
+  //     else if (pctR >= .60) { return "r2"; } 
+  //     else if (pctR >= 0) { return "r1"; } 
+  //   }
+  //   else if (pctD > pctR) { 
+  //     if (pctD >= .80) { return "d4"; } 
+  //     else if (pctD >= .70) { return "d3"; } 
+  //     else if (pctD >= .60) { return "d2"; } 
+  //     else if (pctD >= 0) { return "d1"; } 
+  //   }
+  //   else  { return 'mid'; }
+  // } //end colors
+
+  if (type == "colors"){
+    if (pctR > pctD) { 
+      if (pctR >= .80) { return "#8C1B17"; } 
+      else if (pctR >= .70) { return "#A52129"; } 
+      else if (pctR >= .60) { return "#A5484D"; } 
+      else if (pctR >= 0) { return "#C68985"; } 
+    }
+    else if (pctD > pctR) { 
+      if (pctD >= .80) { return "#3f88c5"; } 
+      else if (pctD >= .70) { return "#4f97c4"; } 
+      else if (pctD >= .60) { return "#5ca5c3"; } 
+      else if (pctD >= 0) { return "#ABCEE8"; } 
+    }
+    else  { return 'mid'; }
+  } //end colors
+
+
+  if (type == "winner"){
+    if (winnerD == "X") { return "DEM Win"; }
+    else if (winnerR == "X") { return "GOP Win"; }
+    else if (pctD > pctR) { return "DEM Lean"; }
+    else if (pctR > pctD) { return "GOP Lean"; }
+  }
+
+  if (type == "votesR"){
+    return voteCountR;
+  }
+
+  if (type == "votesD"){
+    return voteCountD;
+  }
+
+  if (type == "votesT"){
+    return voteCountT;
+  }
+
+
+  if (type == "votesPCTR"){
+    return pctR;
+  }
+
+  if (type == "votesPCTD"){
+    return pctD;
+  }
+
+  if (type == "table"){
+      if (pctR >= .80) { var colorR = "r4"; } 
+      else if (pctR >= .70) { var colorR = "r3"; } 
+      else if (pctR >= .60) { var colorR = "r2"; } 
+      else if (pctR >= 0) { var colorR = "r1"; } 
+      if (pctD >= .80) { var colorD = "d4"; } 
+      else if (pctD >= .70) { var colorD = "d3"; } 
+      else if (pctD >= .60) { var colorD = "d2"; } 
+      else if (pctD >= 0) { var colorD = "d1"; }
+
+    if (pctR > pctD) { return "<div class='districtName'>" + stateString + " " + evString + "</div><div class='resultsRow'><div>Candidate</div><div class='counts'>#</div><div class='pct'>%</div></div><div class='resultsRow'><div class='candidate'>" + firstR + " " + lastR + "</div><div class='counts'>" + d3.format(",")(voteCountR) + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div></div><div class='resultsRow'><div class='candidate'>" + firstD + " " + lastD + "</div><div class='counts'>" + d3.format(",")(voteCountD) + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div></div><div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>" + d3.format(",")(voteCountO) + "</div><div class='pct independent'>" + d3.format("%")(pctO) + "</div></div><div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>"; }
+    else { return "<div class='districtName'>" + stateString +  " " + evString + "</div><div class='resultsRow'><div>Candidate</div><div class='counts'>#</div><div class='pct'>%</div></div><div class='resultsRow'><div class='candidate'>" + firstD + " " + lastD + "</div><div class='counts'>" + d3.format(",")(voteCountD) + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div></div><div class='resultsRow'><div class='candidate'>" + firstR + " " + lastR + "</div><div class='counts'>" + d3.format(",")(voteCountR) + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div></div><div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>" + d3.format(",")(voteCountO) + "</div><div class='pct independent'>" + d3.format("%")(pctO) + "</div></div><div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>"; }
+  } //end table
+
+  if (type == "pct"){
+    return precinctsReportingPct;
+  }
+
+  if (type == "timestamp"){
+    return lastUpdated;
+  }
+
+}//end fetchData
+
+
+//CRUNCH KEY RESULTS
+function prezCrunch(){
+
+  var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+
+  var evList = [9,3,11,6,55,9,7,3,3,29,16,4,4,20,11,6,6,8,8,4,10,11,16,10,6,10,3,5,6,4,14,5,29,15,3,18,7,7,20,4,9,3,11,38,6,3,13,12,5,10,3];
+
+  var dTally = 0;
+  var rTally = 0;
+
+  for (var i=0; i < stateList.length; i++){
+    var updated = fetchData(null,stateList[i],"winner",dataCounty,"president",null,null);
+
+    if (updated == "GOP Win") { rTally += evList[i]; }
+    else if (updated == "DEM Win") { dTally += evList[i]; }
+
+  }
+
+  $("#demPres").html(dTally);
+  $("#repPres").html(rTally);
+  $("#demBarPres").css("width", d3.format("%")(dTally/538));
+  $("#repBarPres").css("width", d3.format("%")(rTally/538));
+
+}
+
+//MAPPAGE
+function mapReshade(container, shape, subject, race, dataCompare, visible, demoData, demoData2) {
+d3.selectAll(container + " svg g path")
+      .data(us.features)
+      .style("opacity",visible)
+      .attr("class", function(d){
+        return "orange2";
+        });
+
+} //end mapReshade
+
+function mapColor(d, race, dataCompare, demoData, demoData2){
+  
+if (race == "president"){
+  var color_scaleD = d3.scale.linear().domain([.48,1]).range(['#67B4C2','#022642']);
+  var color_scaleR = d3.scale.linear().domain([.48,1]).range(['#FF8572','#4E0002']);
+
+  for (var i=0; i < dataCompare.length; i++){
+    var district = d;
+    if (district == dataCompare[i].district){
+      if (dataCompare[i].party == "GOP") { 
+        return color_scaleR(dataCompare[i].r_pct);
+        if (dataCompare[i].r_pct >= .80) { return "r4"; }
+        else if (dataCompare[i].r_pct >= .70) { return "r3"; }
+        else if (dataCompare[i].r_pct >= .60) { return "r2"; }
+        else if (dataCompare[i].r_pct >= .50) { return "r1"; }
+      }
+      if (dataCompare[i].party == "DEM") { 
+        return color_scaleD(dataCompare[i].d_pct);
+        if (dataCompare[i].d_pct >= .80) { return "d4"; }
+        else if (dataCompare[i].d_pct >= .70) { return "d3"; }
+        else if (dataCompare[i].d_pct >= .60) { return "d2"; }
+        else if (dataCompare[i].d_pct >= .50) { return "d1"; }
+      }
+    }
+  }
+}
+
+
+if (race == "county"){
+  var color_scaleD = d3.scale.linear().domain([48,100]).range(['#67B4C2','#022642']);
+  var color_scaleR = d3.scale.linear().domain([48,100]).range(['#FF8572','#4E0002']);
+
+  for (var i=0; i < dataCompare.length; i++){
+    var district = d;
+    if (Number(district) == Number(dataCompare[i].FIPS)){
+      if (dataCompare[i].winner == "GOP") { 
+        return color_scaleR(dataCompare[i].r_pct);
+        if (dataCompare[i].r_pct >= 80) { return "r4"; }
+        else if (dataCompare[i].r_pct >= 70) { return "r3"; }
+        else if (dataCompare[i].r_pct >= 60) { return "r2"; }
+        else if (dataCompare[i].r_pct >= 50) { return "r1"; }
+      }
+      if (dataCompare[i].winner == "DEM") { 
+        return color_scaleD(dataCompare[i].d_pct);
+        if (dataCompare[i].d_pct >= 80) { return "d4"; }
+        else if (dataCompare[i].d_pct >= 70) { return "d3"; }
+        else if (dataCompare[i].d_pct >= 60) { return "d2"; }
+        else if (dataCompare[i].d_pct >= 50) { return "d1"; }
+    }
+  }
+ }
+}
+
+    return "#ddd";
+} //end mapColor
+
+function mapTips(d, subject, dataCompare, level){
+
+if (subject == "president"){
+for (var i=0; i < dataCompare.length; i++){
+  var district = d;
+
+  if (district == dataCompare[i].district){
+      if (dataCompare[i].party == "GOP") { 
+        if  (dataCompare[i].PCT2012 >= .80) { return "<div class='name'><strong>" + dataCompare[i].district + "</strong></div><div>" + dataCompare[i].candidate + "</div><div class='r4'>" +  d3.format("%")(dataCompare[i].PCT2012) + " 2012 WIN</div><div>" + dataCompare[i].ev + " electoral votes</div>"; }
+        else if  (dataCompare[i].PCT2012 >= .70) { return "<div><strong>" + d.district + "</strong></div><div>" + dataCompare[i].candidate + "</div><div class='r3'>" +  d3.format("%")(dataCompare[i].PCT2012) + " 2012 WIN</div><div>" + dataCompare[i].ev + " electoral votes</div>"; }
+        else if  (dataCompare[i].PCT2012 >= .60) { return "<div><strong>" + dataCompare[i].district + "</strong></div><div>" + dataCompare[i].candidate + "</div><div class='r2'>" +  d3.format("%")(dataCompare[i].PCT2012) + " 2012 WIN</div><div>" + dataCompare[i].ev + " electoral votes</div>"; }
+        else if  (dataCompare[i].PCT2012 >= .50) { return "<div><strong>" + dataCompare[i].district + "</strong></div><div>" + dataCompare[i].candidate + "</div><div class='r1'>" +  d3.format("%")(dataCompare[i].PCT2012) + " 2012 WIN</div><div>" + dataCompare[i].ev + " electoral votes</div>"; }
+      }
+      else if (dataCompare[i].party == "DEM") { 
+        if  (dataCompare[i].PCT2012 >= .80) { return "<div class='name'><strong>" + dataCompare[i].district + "</strong></div><div>" + dataCompare[i].candidate + "</div><div class='d4'>" +  d3.format("%")(dataCompare[i].PCT2012) + " 2012 WIN</div><div>" + dataCompare[i].ev + " electoral votes</div>"; }
+        else if  (dataCompare[i].PCT2012 >= .70) { return "<div><strong>" + dataCompare[i].district + "</strong></div><div>" + dataCompare[i].candidate + "</div><div class='d3'>" +  d3.format("%")(d.PCT2012) + " 2012 WIN</div><div>" + dataCompare[i].ev + " electoral votes</div>"; }
+        else if  (dataCompare[i].PCT2012 >= .60) { return "<div><strong>" + dataCompare[i].district + "</strong></div><div>" + dataCompare[i].candidate + "</div><div class='d2'>" +  d3.format("%")(d.PCT2012) + " 2012 WIN</div><div>" + dataCompare[i].ev + " electoral votes</div>"; }
+        else if  (dataCompare[i].PCT2012 >= .50) { return "<div><strong>" + dataCompare[i].district + "</strong></div><div>" + dataCompare[i].candidate + "</div><div class='d1'>" +  d3.format("%")(dataCompare[i].PCT2012) + " 2012 WIN</div><div>" + dataCompare[i].ev + " electoral votes</div>"; }
+      }
+    } 
+  }
+ return "<div><strong>" + district + "</strong></div>";
+}
+else if (subject == "county"){
+for (var i=0; i < dataCompare.length; i++){
+  var district = d;
+
+  if (Number(district) == Number(dataCompare[i].FIPS)){
+      if (dataCompare[i].winner == "GOP") { 
+        if  (dataCompare[i].r_pct >= 80) { return "<div class='name'><strong>" + dataCompare[i].county + " County , " + dataCompare[i].ab + "</strong></div><div>Romney</div><div class='r4'>" +  dataCompare[i].r_pct + "% 2012 WIN</div>"; }
+        else if  (dataCompare[i].r_pct >= 70) { return "<div class='name'><strong>" + dataCompare[i].county + " County , " + dataCompare[i].ab + "</strong></div><div>Romney</div><div class='r3'>" +  dataCompare[i].r_pct + "% 2012 WIN</div>"; }
+        else if  (dataCompare[i].r_pct >= 60) { return "<div class='name'><strong>" + dataCompare[i].county + " County , " + dataCompare[i].ab + "</strong></div><div>Romney</div><div class='r2'>" +  dataCompare[i].r_pct + "% 2012 WIN</div>"; }
+        else if  (dataCompare[i].r_pct >= 50) { return "<div class='name'><strong>" + dataCompare[i].county + " County , " + dataCompare[i].ab + "</strong></div><div>Romney</div><div class='r1'>" +  dataCompare[i].r_pct + "% 2012 WIN</div>"; }
+      }
+      else if (dataCompare[i].winner == "DEM") { 
+        if  (dataCompare[i].d_pct >= 80) { return "<div class='name'><strong>" + dataCompare[i].county + " County , " + dataCompare[i].ab + "</strong></div><div>Obama</div><div class='d4'>" +  dataCompare[i].d_pct + "% 2012 WIN</div>"; }
+        else if  (dataCompare[i].d_pct >= 70) { return "<div class='name'><strong>" + dataCompare[i].county + " County , " + dataCompare[i].ab + "</strong></div><div>Obama</div><div class='d3'>" +  dataCompare[i].d_pct + "% 2012 WIN</div>"; }
+        else if  (dataCompare[i].d_pct >= 60) { return "<div class='name'><strong>" + dataCompare[i].county + " County , " + dataCompare[i].ab + "</strong></div><div>Obama</div><div class='d2'>" +  dataCompare[i].d_pct + "% 2012 WIN</div>"; }
+        else if  (dataCompare[i].d_pct >= 50) { return "<div class='name'><strong>" + dataCompare[i].county + " County , " + dataCompare[i].ab + "</strong></div><div>Obama</div><div class='d1'>" +  dataCompare[i].d_pct + "% 2012 WIN</div>"; }
+      }
+   } 
+ }
+
+return "<div><strong>" + district + "</strong></div>";
+
+}
+
+} //end mapTips
+
+
+function mapBuild(container, boxContainer, chartContainer, shape, race, geo, level, dataCompare, index, visible) {
+
+if (geo=="us") { var width = 340, height = 240, centered; var projection = d3.geo.albersUsa().scale(1000).translate([400, 210]); }
+else if (geo=="mn") { var width = 240, height = 240, centered; var projection = d3.geo.albersUsa().scale(5037).translate([50, 970]); }
+else if (geo=="metro") { var width = 240, height = 240, centered; var projection = d3.geo.mercator().scale([16500]).center([-92.403259,44.988113]); }
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select(container + " svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// svg.append("rect")
+//     .attr("class", "background " + race + " " + level)
+//     .attr("width", width)
+//     .attr("height", height);
+
+var g = svg.append("g").attr("class", "mappage states " + race + " " + level);
+
+d3.json("shapefiles/" + shape, function(error, us) {
+
+  g.selectAll("path")
+      .data(us.features)
+    .enter().append("path")
+      .attr("d", path)
+      // .on("click", clicked)
+      .attr("id", function(d) { var str = d.properties.NAME + "_" + geo; return str.replace(new RegExp(" ", "g"),"-"); })
+      .attr("precinctName", function(d){ return d.properties.NAME })
+      .style("fill", function(d){
+         if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"colors",dataCompare,race); }
+         else if (race == "county") { return fetchData(d.properties.GEOID,null,"colors",dataCompare,race); }
+         else if (race == "pct") { return mapColor(d.properties.PCTCODE, race, dataCompare); }
+         else if (race == "house") { return fetchData(d.properties.NAME,d.properties.NAME,"colors",dataCompare,race); }
+         else if (race == "mnsenate" || race == "mnhouse") { return fetchData("District " + d.properties.DISTRICT,"Minnesota","colors",dataCompare,race); }
+        })
+//        .on("mousedown", function(d, i){
+
+//         var str = d.properties.NAME; 
+//         $(".district").removeClass("selected");
+//         // $("#" + str.replace(new RegExp(" ", "g"),"-")).addClass("selected");
+        
+      
+// if (race == "president" || race == "senate" ||  race == "governors"){ $("#infobox").html(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)); }
+// else if (race == "county"){ $("#infobox").html(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
+// else if (race == "mnsenate" || race == "mnhouse") { $("#infobox").html(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); }
+
+// else if (race == "pct"){
+//               $("#candidatePCTR, #candidatePCTD").removeClass("d4");
+//               $("#candidatePCTR, #candidatePCTD").removeClass("d3");
+//               $("#candidatePCTR, #candidatePCTD").removeClass("d2");
+//               $("#candidatePCTR, #candidatePCTD").removeClass("d1");
+//               $("#candidatePCTR, #candidatePCTD").removeClass("r4");
+//               $("#candidatePCTR, #candidatePCTD").removeClass("r3");
+//               $("#candidatePCTR, #candidatePCTD").removeClass("r2");
+//               $("#candidatePCTR, #candidatePCTD").removeClass("r1");
+//               $("#pctReported").html(0);
+//               $("#pctAll").html(0);
+//               $("#pctPCT").html(0);
+
+//     for (var i=0; i < dataCompare.length; i++){
+//     if (Number(d.properties.PCTCODE) == Number(dataCompare[i].pct_id)){
+//       if (dataCompare[i].party_id == "R" && dataCompare[i].vote_pct >= 48) { 
+//         $("#candidatePCTR").html(dataCompare[i].vote_pct + "%");
+//         $("#candidateVotesR").html(0);
+//         $("#candidatePCTR").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
+//       }
+//       if (dataCompare[i].party_id == "DFL" && dataCompare[i].vote_pct >= 48) { 
+//         $("#candidateVotesD").html(0);
+//         $("#candidatePCTD").html(dataCompare[i].vote_pct + "%");
+//         $("#candidatePCTD").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
+//       }
+//     }
+//   }
+// }
+//        })
+      .style("stroke-width", function(d){
+        if (d.properties.NAME == "Arizona" || d.properties.NAME == "Colorado" || d.properties.NAME == "Florida" || d.properties.NAME == "Georgia" || d.properties.NAME == "Iowa" || d.properties.NAME == "Maine" || d.properties.NAME == "Michigan" || d.properties.NAME == "Minnesota" || d.properties.NAME == "Nevada" || d.properties.NAME == "New Hampshire" || d.properties.NAME == "North Carolina" || d.properties.NAME == "Ohio" || d.properties.NAME == "Pennsylvania" || d.properties.NAME == "Virginia" || d.properties.NAME == "Wisconsin") { return "5px"; }
+        else { return "1px"; }
+      })
+      .style("stroke", function(d){
+        if (d.properties.NAME == "Arizona" || d.properties.NAME == "Colorado" || d.properties.NAME == "Florida" || d.properties.NAME == "Georgia" || d.properties.NAME == "Iowa" || d.properties.NAME == "Maine" || d.properties.NAME == "Michigan" || d.properties.NAME == "Minnesota" || d.properties.NAME == "Nevada" || d.properties.NAME == "New Hampshire" || d.properties.NAME == "North Carolina" || d.properties.NAME == "Ohio" || d.properties.NAME == "Pennsylvania" || d.properties.NAME == "Virginia" || d.properties.NAME == "Wisconsin") { return "orange"; }
+        else { return "#fff"; }
+      });
+      // .call(d3.helper.tooltip(function(d, i){
+      //    if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race); }
+      //    else if (race == "county") { return fetchData(d.properties.GEOID,null,"tooltip",dataCompare,race,"Minnesota",d.properties.NAME); }
+      //    else if (race == "pct") { return mapTips(d, race, dataCompare, level); }
+      //    else if (race == "mnsenate" || race == "mnhouse") { return fetchData("District " + d.properties.DISTRICT,"Minnesota","tooltip",dataCompare,race,null,"District " + d.properties.DISTRICT); }
+      // }));
+
+  g.append("path")
+      //.datum(topojson.mesh(us, us.features, function(a, b) { return a !== b; }))
+      .attr("class", "state-borders")
+      .attr("d", path);
+
+});
+
+var zoom = d3.behavior.zoom()
+    .on("zoom",function() {
+        g.attr("transform","translate("+
+            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+        g.selectAll("circle")
+            .attr("d", path.projection(projection));
+        g.selectAll("path")
+            .attr("d", path.projection(projection));
+
+  });
+
+$(".zoom").click(function() {
+  clicked2();
+  $("#infobox").html("");
+  $(".bar").removeClass("selected");
+  d3.selectAll("rect").classed('active', false); 
+  d3.selectAll("rect").classed('faded', false); 
+  d3.selectAll("text").classed('active', false); 
+  d3.selectAll("text").classed('faded', false); 
+  $("#candidatePCTR").html("47.2%");
+  $("#candidatePCTD").html("51.1%");
+  $("#candidatePCTR, #candidatePCTD").removeClass("d4");
+  $("#candidatePCTR, #candidatePCTD").removeClass("d3");
+  $("#candidatePCTR, #candidatePCTD").removeClass("d2");
+  $("#candidatePCTR, #candidatePCTD").removeClass("d1");
+  $("#candidatePCTR, #candidatePCTD").removeClass("r4");
+  $("#candidatePCTR, #candidatePCTD").removeClass("r3");
+  $("#candidatePCTR, #candidatePCTD").removeClass("r2");
+  $("#candidatePCTR, #candidatePCTD").removeClass("r1");
+});
+
+$(".uszoom").click(function() {
+  clicked2();
+});
+
+$(".mnzoom").click(function() {
+    $("#pctzoom").show();
+    mnzoom();
+});
+
+$(".metrozoom").click(function() {
+    $("#pctzoom").show();
+    metrozoom();
+});
+
+function clicked(d) {
+  var x, y, k;
+
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    console.log(centroid + " " + x + " " + y);
+    k = 3;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 3;
+    centered = null;
+  }
+
+  g.selectAll("." + race + " path")
+      .classed("faded", true)
+      .classed("active", centered && function(d) { return d === centered; });
+
+  g.transition()
+      .duration(750)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      // .style("stroke-width", 1.5 / k + "px");
+
+  g.selectAll("path").style("stroke-width", "0");
+}
+
+function mnzoom(d) {
+  var x, y, k;
+
+    var centroid = path.centroid(d);
+    x = 429.8542649319006;
+    y = 76.27472769218944;
+    k = 5;
+
+  g.transition()
+      .duration(750)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      .style("stroke-width", "0");
+
+  g.selectAll("path").style("stroke-width", "0");
+}
+
+function metrozoom(d) {
+  var x, y, k;
+
+    var centroid = path.centroid(d);
+    x = 439.8542649319006;
+    y = 103.27472769218944;
+    k = 25;
+
+  g.transition()
+      .duration(750)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      .style("stroke-width", "0");
+
+  g.selectAll("path").style("stroke-width", "0");
+}
+
+function clicked2(d) {
+  var x, y, k;
+
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 1;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 1;
+    centered = null;
+  }
+
+  g.selectAll("." + race + " path")
+      .classed("faded", false)
+      .classed("active", centered && function(d) { return d === centered; });
+
+  g.transition()
+      .duration(750)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      // .style("stroke-width","0.5px");
+
+  g.selectAll("path").style("stroke-width", "0");
+}
+
+d3.helper = {};
+
+d3.helper.tooltip = function(accessor){
+    return function(selection){
+        var tooltipDiv;
+        var bodyNode = d3.select('body').node();
+        selection.on("mouseover", function(d, i){
+            // Clean up lost tooltips
+            d3.select('body').selectAll('div.tooltip').remove();
+            // Append tooltip
+            tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px')
+                .style('position', 'absolute')
+                .style('z-index', 1001);
+            // Add text using the accessor function
+            var tooltipText = accessor(d, i) || '';
+            // Crop text arbitrarily
+            //tooltipDiv.style('width', function(d, i){return (tooltipText.length > 80) ? '300px' : null;})
+            //    .html(tooltipText);
+        })
+        .on('mousemove', function(d, i) {
+            // Move tooltip
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px');
+            var tooltipText = accessor(d, i) || '';
+            tooltipDiv.html(tooltipText);
+        })
+        .on("mouseout", function(d, i){
+            // Remove tooltip
+            tooltipDiv.remove();
+        });
+
+    };
+};
+
+//RESPONSIVENESS
+
+if (race != "mnsenate" && race != "mnhouse"){
+var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
+
+$(window).on("resize", function() {
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+  var targetWidth2 = chart2.parent().width();
+  chart2.attr("width", targetWidth2);
+  chart2.attr("height", targetWidth2 / aspect);
+});
+} else {
+var aspect = 320 / 350, chart = $(".map svg"), chart2 = $(".carto svg");
+
+$(window).on("resize", function() {
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+  var targetWidth2 = chart2.parent().width();
+  chart2.attr("width", targetWidth2);
+  chart2.attr("height", targetWidth2 / aspect);
+});
+
+}
+
+
+} //end mapBuild
+
+function mapShow(container, race){
+ d3.selectAll(".mappage").each(function(i){
+  if (!d3.select(this).classed(race)) { d3.select(this).style("display","none"); }
+  else { d3.select(this).style("display","block"); }
+ });
+} //end mapShow
+
+
+function mapSpill(race,data){
+
+if (race == "president"){
+  mapBuild("#usMap", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
+  mapBuild("#mnMap", "#districtName", "#chart", "counties.json", race, "mn", "county", data);
+}
+
+
+} //end mapSpill
+
+// if (race == "president"){ var dataStuff = dataCounty; }
+// if (race == "senate"){ var dataStuff = dataSenate; }
+// if (race == "governors"){ var dataStuff = dataGov; }
+// if (race == "mnsenate"){ var dataStuff = dataMNS; }
+// if (race == "mnhouse"){ var dataStuff = dataMNH; }
+// if (race == "house"){ var dataStuff = dataHouse; }
+
+// // mapSpill(race,dataStuff);
+
+function prezCrunch(){
+
+  var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+
+  var evList = [9,3,11,6,55,9,7,3,3,29,16,4,4,20,11,6,6,8,8,4,10,11,16,10,6,10,3,5,6,4,14,5,29,15,3,18,7,7,20,4,9,3,11,38,6,3,13,12,5,10,3];
+
+  var dTally = 0;
+  var rTally = 0;
+
+  for (var i=0; i < stateList.length; i++){
+    var updated = fetchData(null,stateList[i],"winner",dataCounty,"president",null,null);
+
+    if (updated == "GOP Win") { rTally += evList[i]; }
+    else if (updated == "DEM Win") { dTally += evList[i]; }
+
+  }
+
+  $("#us-dem-pop").html(dTally);
+  $("#us-gop-pop").html(rTally);
+
+}
+
+function raceCrunch(){
+
+  var dPctMN = fetchData("Minnesota","Minnesota","votesD",dataCounty,"president");
+  var rPctMN = fetchData("Minnesota","Minnesota","votesR",dataCounty,"president");
+  var totalMN = fetchData("Minnesota","Minnesota","votesT",dataCounty,"president");
+
+  $("#mn-dem-pop").html(d3.format("%")(dPctMN/totalMN));
+  $("#mn-gop-pop").html(d3.format("%")(rPctMN/totalMN));
+
+  mnPct = fetchData(null,"Minnesota","pct",dataCounty,"president",null,null);
+  mnTime = fetchData(null,"Minnesota","timestamp",dataCounty,"president",null,null);
+
+  $("#mn-timestamp").html("As of " + (new Date(mnTime).getHours() - 12) + ":" + new Date(mnTime).getMinutes() + " p.m. " + mnPct + "% precincts reporting");
+
+}
+
+raceCrunch();
+prezCrunch();
+mapSpill("president",dataCounty);
+
+$(document).ready(function() {
+ $.ajaxSetup({ cache: false });
+});
+
+});
+});
+});
+});
+});
+});
+</script>
+</html>

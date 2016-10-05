@@ -1,0 +1,44 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'phantomjs' ]
+2 info using npm@2.15.5
+3 info using node@v4.4.5
+4 verbose install initial load of /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/package.json
+5 verbose readDependencies loading dependencies from /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/package.json
+6 silly cache add args [ 'phantomjs', null ]
+7 verbose cache add spec phantomjs
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'phantomjs',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: 'phantomjs',
+8 silly cache add   spec: '/Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/phantomjs',
+8 silly cache add   type: 'local' }
+9 silly addLocalTarball shasum (computed) a43f2cf8c4b49f4e05f9a8e1d9d4ac17d202c270
+10 verbose addTmpTarball /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/phantomjs not in flight; adding
+11 verbose correctMkdir /Users/hargaja/.npm correctMkdir not in flight; initializing
+12 verbose addTmpTarball validating metadata from /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/phantomjs
+13 verbose tar unpack /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/phantomjs
+14 verbose tar unpacking to /var/folders/s9/02q26dsj16756_5tthtcm891540_w8/T/npm-46194-b251c4c8/unpack-8bfb7448047a
+15 silly gentlyRm /var/folders/s9/02q26dsj16756_5tthtcm891540_w8/T/npm-46194-b251c4c8/unpack-8bfb7448047a is being purged
+16 verbose gentlyRm don't care about contents; nuking /var/folders/s9/02q26dsj16756_5tthtcm891540_w8/T/npm-46194-b251c4c8/unpack-8bfb7448047a
+17 silly gunzTarPerm modes [ '755', '644' ]
+18 error not a package /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/phantomjs
+19 error addLocal Could not install /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/phantomjs
+20 verbose stack Error: ENOENT: no such file or directory, open '/var/folders/s9/02q26dsj16756_5tthtcm891540_w8/T/npm-46194-b251c4c8/unpack-8bfb7448047a/package.json'
+20 verbose stack     at Error (native)
+21 verbose cwd /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin
+22 error Darwin 14.0.0
+23 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "phantomjs"
+24 error node v4.4.5
+25 error npm  v2.15.5
+26 error path /var/folders/s9/02q26dsj16756_5tthtcm891540_w8/T/npm-46194-b251c4c8/unpack-8bfb7448047a/package.json
+27 error code ENOENT
+28 error errno -2
+29 error syscall open
+30 error enoent ENOENT: no such file or directory, open '/var/folders/s9/02q26dsj16756_5tthtcm891540_w8/T/npm-46194-b251c4c8/unpack-8bfb7448047a/package.json'
+30 error enoent This is most likely not a problem with npm itself
+30 error enoent and is related to npm not being able to find a file.
+31 verbose exit [ -2, true ]

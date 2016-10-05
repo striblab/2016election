@@ -1,0 +1,292 @@
+<script>
+//MINNESOTA GOVERNOR
+$.getJSON('json/mngov.json', function(json2) {
+
+//LOAD DATA AND COLOR VARIABLES
+var county_mngov = [];
+var precinct_mngov = [];
+var candidate1_mngov = [];
+var candidate2_mngov = [];
+var votes_count1_mngov = [];
+var votes_count2_mngov = [];
+var precint_overall_mngov = 0;
+var votes_all1_mngov = 0;
+var votes_all2_mngov = 0;
+
+           for ( var i = 0; i < 86; i++ ) {
+county_mngov[i] = json2.results[i]['name'];
+precinct_mngov[i] = Number(json2.results[i]['precincts_reporting']);
+candidate1_mngov[i] = json2.results[i]['candidates'][0]['name'];
+candidate2_mngov[i] = json2.results[i]['candidates'][2]['name'];
+votes_count1_mngov[i] = Number(json2.results[i]['candidates'][0]['votes']);
+votes_count2_mngov[i] = Number(json2.results[i]['candidates'][2]['votes']);
+precint_overall_mngov = precinct_mngov[i] + precint_overall_mngov;
+votes_all1_mngov = votes_count1_mngov[i] + votes_all1_mngov;
+votes_all2_mngov = votes_count2_mngov[i] + votes_all2_mngov;
+                    }
+ });
+
+//MN SENATE
+$.getJSON('json/mnsenate.json', function(json2) {
+
+//LOAD DATA AND COLOR VARIABLES
+var county_mnsen = [];
+var precinct_mnsen = [];
+var candidate1_mnsen = [];
+var candidate2_mnsen = [];
+var votes_count1_mnsen = [];
+var votes_count2_mnsen = [];
+var precinct_overall_mnsen = 0;
+var votes_all1_mnsen = 0;
+var votes_all2_mnsen = 0;
+
+dfl_safe = "#506fb3";
+gop_safe = "#d46354";
+dfl_lean = "#8493c8";
+gop_lean = "#f48072";
+basecolor = "#ddd";
+
+           for ( var i = 0; i < 86; i++ ) {
+county_mnsen[i] = json2.results[i]['name'];
+precinct_mnsen[i] = Number(json2.results[i]['precincts_reporting']);
+candidate1_mnsen[i] = json2.results[i]['candidates'][1]['name'];
+candidate2_mnsen[i] = json2.results[i]['candidates'][3]['name'];
+votes_count1_mnsen[i] = Number(json2.results[i]['candidates'][1]['votes']);
+votes_count2_mnsen[i] = Number(json2.results[i]['candidates'][3]['votes']);
+var precinct_overall_mnsen = precinct_mnsen[i] + precinct_overall_mnsen;
+var votes_all1_mngov = votes_count1_mnsen[i] + votes_all1_mngov;
+var votes_all2_mngov = votes_count2_mnsen[i] + votes_all2_mngov;
+                    }
+ });
+
+//MNLEG HOUSE OF REPRESENTATIVES
+$.getJSON('json/mnhouse.json', function(json2) {
+
+//LOAD DATA AND COLOR VARIABLES
+var district_mnleg = [];
+var precinct_mnleg = [];
+var total_prec_mnleg = [];
+var percent_prec_mnleg = [];
+var candidate1_mnleg = [];
+var candidate2_mnleg = [];
+var party1_mnleg = [];
+var party2_mnleg = [];
+var votes_count1_mnleg = [];
+var votes_count2_mnleg = [];
+var votes_percent1_mnleg = [];
+var votes_percent2_mnleg = [];
+var in_status1_mnleg = [];
+var in_status2_mnleg = [];
+
+           for ( var i = 0; i < 124; i++ ) {
+district_mnleg[i] = json2.results[0]['items'][i]['header'];
+precinct_mnleg[i] = Number(json2.results[0]['items'][i]['items'][0]['precincts_reporting']);
+total_prec_mnleg[i] = Number(json2.results[0]['items'][i]['items'][0]['total_precincts']);
+percent_prec_mnleg[i] = Number(json2.results[0]['items'][i]['items'][0]['percent_of_precincts']);
+candidate1_mnleg[i] = json2.results[0]['items'][i]['items'][0]['items'][0]['first_name']+ ' ' + json2.results[0]['items'][i]['items'][0]['items'][0]['last_name']; //GOT IT
+candidate2_mnleg[i] = json2.results[0]['items'][i]['items'][0]['items'][1]['first_name']+ ' ' + json2.results[0]['items'][i]['items'][0]['items'][1]['last_name']; //GOT IT
+party1_mnleg[i] = json2.results[0]['items'][i]['items'][0]['items'][0]['party_abbreviation'];
+party2_mnleg[i] = json2.results[0]['items'][i]['items'][0]['items'][1]['party_abbreviation'];
+votes_count1_mnleg[i] = Number(json2.results[0]['items'][i]['items'][0]['items'][0]['votes']);
+votes_count2_mnleg[i] = Number(json2.results[0]['items'][i]['items'][0]['items'][1]['votes']);
+votes_percent1_mnleg[i] = Number(json2.results[0]['items'][i]['items'][0]['items'][0]['percent_of_votes']);
+votes_percent2_mnleg[i] = Number(json2.results[0]['items'][i]['items'][0]['items'][1]['percent_of_votes']);
+in_status1_mnleg[i] = json2.results[0]['items'][i]['items'][0]['items'][0]['is_incumbent'];
+in_status2_mnleg[i] = json2.results[0]['items'][i]['items'][0]['items'][1]['is_incumbent'];
+                    }
+ });
+
+//MN U.S. REPRESENTATIVES
+$.getJSON('json/mnreps.json', function(json2) {
+
+//LOAD DATA AND COLOR VARIABLES
+var time_updated = new Date(json2.last_update_timestamp);
+var district_mnrep = [];
+var precinct_rep_mnrep = []
+var total_prec_mnrep = [];
+var percent_prec_mnrep = [];
+var candidate1_mnrep = [];
+var candidate2_mnrep = [];
+var party1_mnrep = [];
+var party2_mnrep = []
+var votes_count1_mnrep = [];
+var votes_count2_mnrep = [];
+var votes_percent1_mnrep = [];
+var votes_percent2_mnrep = [];
+var in_status1_mnrep = [];
+var in_status2_mnrep = [];
+
+for ( i = 0; i < 8; i++ ) {
+district_mnrep[i] = json2.results[0]['items'][0]['items'][i]['header'];
+precinct_rep_mnrep[i] = Number(json2.results[0]['items'][0]['items'][i]['precincts_reporting']);
+total_prec_mnrep[i] = Number(json2.results[0]['items'][0]['items'][i]['total_precincts']);
+percent_prec_mnrep[i] = Number(json2.results[0]['items'][0]['items'][i]['percent_of_precincts']);
+candidate1_mnrep[i] = json2.results[0]['items'][0]['items'][i]['items'][0]['first_name']+ ' ' + json2.results[0]['items'][0]['items'][i]['items'][0]['last_name'];
+candidate2_mnrep[i] = json2.results[0]['items'][0]['items'][i]['items'][1]['first_name']+ ' ' + json2.results[0]['items'][0]['items'][i]['items'][1]['last_name'];
+party1_mnrep[i] = json2.results[0]['items'][0]['items'][i]['items'][0]['party_abbreviation'];
+party2_mnrep[i] = json2.results[0]['items'][0]['items'][i]['items'][1]['party_abbreviation'];
+votes_count1_mnrep[i] = Number(json2.results[0]['items'][0]['items'][i]['items'][0]['votes']);
+votes_count2_mnrep[i] = Number(json2.results[0]['items'][0]['items'][i]['items'][1]['votes']);
+votes_percent1_mnrep[i] = Number(json2.results[0]['items'][0]['items'][i]['items'][0]['percent_of_votes']);
+votes_percent2_mnrep[i] = Number(json2.results[0]['items'][0]['items'][i]['items'][1]['percent_of_votes']);
+in_status1_mnrep[i] = json2.results[0]['items'][0]['items'][i]['items'][0]['is_incumbent'];
+in_status2_mnrep[i] = json2.results[0]['items'][0]['items'][i]['items'][1]['is_incumbent'];               
+}
+
+ });
+
+//US GOVERNORS
+$.getJSON('json/usgov.json', function(json2) {
+
+//LOAD DATA AND COLOR VARIABLES
+var state_usgov = [];
+var precinct_usgov = [];
+var total_prec_usgov = [];
+var percent_prec_usgov = [];
+var candidate1_usgov = [];
+var candidate2_usgov = [];
+var party1_usgov = [];
+var party2_usgov = [];
+var votes_count1_usgov = [];
+var votes_count2_usgov = [];
+var votes_percent1_usgov = [];
+var votes_percent2_usgov = [];
+var in_status1_usgov = [];
+var in_status2_usgov = [];
+
+dfl_safe = "#506fb3";
+gop_safe = "#d46354";
+dfl_lean = "#8493c8";
+gop_lean = "#f48072";
+basecolor = "#ddd";
+
+           for ( i = 0; i < 36; i++ ) {
+state_usgov[i+1] = json2.results[i]['header'];
+precinct_usgov[i+1] = Number(json2.results[i]['items'][0]['items'][0]['precincts_reporting']);
+total_prec_usgov[i+1] = Number(json2.results[i]['items'][0]['items'][0]['total_precincts']);
+percent_prec_usgov[i+1] = Number(json2.results[i]['items'][0]['items'][0]['percent_of_precincts']);
+candidate1_usgov[i+1] = json2.results[i]['items'][0]['items'][0]['items'][0]['first_name']+ ' ' + json2.results[i]['items'][0]['items'][0]['items'][0]['last_name']; //GOT IT
+candidate2_usgov[i+1] = json2.results[i]['items'][0]['items'][0]['items'][1]['first_name']+ ' ' + json2.results[i]['items'][0]['items'][0]['items'][1]['last_name']; //GOT IT
+party1_usgov[i+1] = json2.results[i]['items'][0]['items'][0]['items'][0]['party_abbreviation'];
+party2_usgov[i+1] = json2.results[i]['items'][0]['items'][0]['items'][1]['party_abbreviation'];
+votes_count1_usgov[i+1] = Number(json2.results[i]['items'][0]['items'][0]['items'][0]['votes']);
+votes_count2_usgov[i+1] = Number(json2.results[i]['items'][0]['items'][0]['items'][1]['votes']);
+votes_percent1_usgov[i+1] = Number(json2.results[i]['items'][0]['items'][0]['items'][0]['percent_of_votes']);
+votes_percent2_usgov[i+1] = Number(json2.results[i]['items'][0]['items'][0]['items'][1]['percent_of_votes']);
+in_status1_usgov[i+1] = json2.results[i]['items'][0]['items'][0]['items'][0]['is_incumbent'];
+in_status2_usgov[i+1] = json2.results[i]['items'][0]['items'][0]['items'][1]['is_incumbent'];
+}
+ });
+
+//US SENATE
+$.getJSON('json/ussenate.json', function(json2) {
+
+//LOAD DATA AND COLOR VARIABLES
+var state_ussen = [];
+var precinct_ussen = [];
+var total_prec_ussen = [];
+var percent_prec_ussen = [];
+var candidate1_ussen = [];
+var candidate2_ussen = [];
+var party1_ussen = [];
+var party2_ussen = [];
+var votes_count1_ussen = [];
+var votes_count2_ussen = [];
+var votes_percent1_ussen = [];
+var votes_percent2_ussen = [];
+var in_status1_ussen = [];
+var in_status2_ussen = [];
+
+           for ( i = 0; i < 33; i++ ) {
+state_ussen[i+1] = json2.results[i]['header'];
+precinct_ussen[i+1] = Number(json2.results[i]['items'][0]['items'][0]['precincts_reporting']);
+total_prec_ussen[i+1] = Number(json2.results[i]['items'][0]['items'][0]['total_precincts']);
+percent_prec_ussen[i+1] = Number(json2.results[i]['items'][0]['items'][0]['percent_of_precincts']);
+candidate1_ussen[i+1] = json2.results[i]['items'][0]['items'][0]['items'][0]['first_name']+ ' ' + json2.results[i]['items'][0]['items'][0]['items'][0]['last_name'];
+candidate2_ussen[i+1] = json2.results[i]['items'][0]['items'][0]['items'][1]['first_name']+ ' ' + json2.results[i]['items'][0]['items'][0]['items'][1]['last_name'];
+party1_ussen[i+1] = json2.results[i]['items'][0]['items'][0]['items'][0]['party_abbreviation'];
+party2_ussen[i+1] = json2.results[i]['items'][0]['items'][0]['items'][1]['party_abbreviation'];
+votes_count1_ussen[i+1] = Number(json2.results[i]['items'][0]['items'][0]['items'][0]['votes']);
+votes_count2_ussen[i+1] = Number(json2.results[i]['items'][0]['items'][0]['items'][1]['votes']);
+votes_percent1_ussen[i+1] = Number(json2.results[i]['items'][0]['items'][0]['items'][0]['percent_of_votes']);
+votes_percent2_ussen[i+1] = Number(json2.results[i]['items'][0]['items'][0]['items'][1]['percent_of_votes']);
+in_status1_ussen[i+1] = json2.results[i]['items'][0]['items'][0]['items'][0]['is_incumbent'];
+in_status2_ussen[i+1] = json2.results[i]['items'][0]['items'][0]['items'][1]['is_incumbent'];
+}
+ });
+
+
+//US HOUSE OF REPRESENTATIVES
+$.getJSON('json/usreps.json', function(json2) {
+
+//LOAD DATA AND COLOR VARIABLES
+var state_usrep = [];
+var district_usrep = [];
+var precinct_rep_usrep = [];
+var total_prec_usrep = [];
+var percent_prec_usrep = [];
+var candidate1_usrep = [];
+var candidate2_usrep = [];
+var party1_usrep = [];
+var party2_usrep = [];
+var votes_count1_usrep = [];
+var votes_count2_usrep = [];
+var votes_percent1_usrep = [];
+var votes_percent2_usrep = [];
+var in_status1_usrep = [];
+var in_status2_usrep = [];
+var winner1_usrep = [];
+var winner2_usrep = [];
+
+dfl_safe = "#506fb3";
+gop_safe = "#d46354";
+dfl_lean = "#8493c8";
+gop_lean = "#f48072";
+basecolor = "#ddd";
+
+var states = json2.results;
+
+             for ( i = 0; i < 18; i++ ) {
+state_usrep[i] = states[i]['header'];
+district_usrep[i] = [];
+precinct_rep_usrep[i] = [];
+total_prec_usrep[i] = [];
+percent_prec_usrep[i] = [];
+candidate1_usrep[i] = [];
+candidate2_usrep[i] = [];
+party1_usrep[i] = [];
+party2_usrep[i] = [];
+votes_count1_usrep[i] = [];
+votes_count2_usrep[i] = [];
+votes_percent1_usrep[i] = [];
+votes_percent2_usrep[i] = [];
+in_status1_usrep[i] = [];
+in_status2_usrep[i] = [];
+winner1_usrep[i] = [];
+winner2_usrep[i] = [];
+
+      for ( j = 0; j < json2.results[i].items[0].items.length; j++ ) {
+district_usrep[i][j] = json2.results[i].items[0].items[j]['header'];
+precinct_rep_usrep[i][j] = Number(json2.results[i].items[0].items[j]['precints_reporting']);
+total_prec_usrep[i][j] = Number(json2.results[i].items[0].items[j]['total_precincts']);
+percent_prec_usrep[i][j] = Number(json2.results[i].items[0].items[j]['percent_of_precincts']);
+candidate1_usrep[i][j] = json2.results[i].items[0].items[j]['items'][0]['last_name'];
+candidate2_usrep[i][j] = json2.results[i].items[0].items[j]['items'][1]['last_name'];
+party1_usrep[i][j] = json2.results[i].items[0].items[j]['items'][0]['party_abbreviation'];
+party2_usrep[i][j] = json2.results[i].items[0].items[j]['items'][1]['party_abbreviation'];
+votes_count1_usrep[i][j] = Number(json2.results[i].items[0].items[j]['items'][0]['votes']);
+votes_count2_usrep[i][j] = Number(json2.results[i].items[0].items[j]['items'][1]['votes']);
+votes_percent1_usrep[i][j] = Number(json2.results[i].items[0].items[j]['items'][0]['percent_of_votes']);
+votes_percent2_usrep[i][j] = Number(json2.results[i].items[0].items[j]['items'][1]['percent_of_votes']);
+in_status1_usrep[i][j] = json2.results[i].items[0].items[j]['items'][0]['is_incumbent'];
+in_status2_usrep[i][j] = json2.results[i].items[0].items[j]['items'][1]['is_incumbent'];
+winner1_usrep[i][j] = json2.results[i].items[0].items[j]['items'][0]['is_winner'];
+winner2_usrep[i][j] = json2.results[i].items[0].items[j]['items'][1]['is_winner'];
+      }
+}
+ });
+
+
+
+
+</script>

@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)http://localhost/journalism/_archive/2016election/20140812-gop-map/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Control of the Minnesota House">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="http://apps.startribune.com/news/tileserver/mnleg.png">
+	<meta property="og:description" content="I predicted a DFL Minnesota House majority after the 2014 midterm elections. Take the quiz and make your prediction!">
+	<link rel="image_src" href="http://localhost/journalism/_archive/2016election/20140812-gop-map/mnleg.png">
+	<script id="facebook-jssdk" src="./index_files/sdk.js"></script><script type="text/javascript" async="" src="./index_files/ga.js"></script><script async="" src="./index_files/analytics.js"></script>
+    <title>Minnesota 2014 Midterm Elections</title>
+
+<!--STYLESHEETS-->
+<link rel="stylesheet" href="./index_files/bootstrap.min.css">
+<link href="./index_files/mapbox.css" rel="stylesheet">
+<link href="./index_files/leaflet.fullscreen.css" rel="stylesheet">
+<link href="./index_files/nv.d3.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./index_files/bootstrap-theme.min.css">
+<link href="./index_files/jquery.dataTables.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./index_files/startribune_dataviz_styles.css">
+
+<style type="text/css">
+    #wrapper { width:100%; }
+	body { overflow-x: hidden; }
+	input[type=radio].css-checkbox { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+	input[type=radio].css-checkbox + label.css-label { background-position: 0 0; background-repeat: no-repeat; cursor: pointer; display: inline-block; float: left; font-size: 15px; height: 15px; line-height: 15px; padding-left: 20px; vertical-align: middle; }
+	input[type=radio].css-checkbox + label.css-label2 { background-position: 0 0; background-repeat: no-repeat; cursor: pointer; display: inline-block; float: left; font-size: 15px; height: 15px; line-height: 15px; padding-left: 20px; vertical-align: middle; }
+	input[type=radio].css-checkbox:checked + label.css-label { background-position: 0 -15px; }
+	input[type=radio].css-checkbox:checked + label.css-label2 { background-position: 0 -15px; }
+	.css-label { background-image: url(lite-blue-check.png); }
+	.css-label2 { background-image: url(lite-red-check.png); }
+	#menu_main { margin-left: -1px !important; position: relative; width:100%; z-index: 10003; }
+	.btn-primary { background-color: #e0e0e0 !important; color:#000 !important; background-image: linear-gradient(to bottom,#e0e0e0 0,#e0e0e0 100%) !important; border-color: #fff !important; border-radius: 0 !important; box-shadow: none !important; color: #000; font-size: 1em; line-height: 130%; padding: 6px !important; text-align: center !important; width:120px; }
+	.last-btn { width: 128px; }
+	.first-btn { }
+	.btn-primary input[type=radio] { display: none !important; }
+	.btn-primary:hover { background-color: #378f00 !important; background-image: linear-gradient(to bottom,#378f00 0,#378f00 100%) !important; border-color: #fff !important; border-radius: 0 !important; border-size: 2px; box-shadow: none !important; color: #eee !important; }
+	.btn-primary:checked { background-color: #999 !important; background-image: linear-gradient(to bottom,#999 0,#999 100%) !important; border-color: #fff !important; border-radius: 0 !important; border-size: 2px; box-shadow: none !important; color: #fff !important; }
+	.active { background-color:#fff !important; background-image: linear-gradient(to bottom,#000 0,#000 100%) !important; border-color: none !important; color: #fff !important; font-weight: bold; }
+	.label { padding: 10%; }
+	a:hover { color: #000 !important; }
+	.round { background-color: #61bd1a !important; background-image: linear-gradient(to bottom,#61bd1a 0,#61bd1a 100%) !important; border-radius: 6px !important; padding: 24px; }
+	.round:hover { background-color: #378f00 !important; border-radius: 6px !important; }
+	circle:hover { opacity: .8; stroke: black; stroke-width: 2px; }
+	.label { fill: black; font-size: 16px; }
+	.leaflet-control-layers-list { right: 0; top: 0; }
+	body { margin: 0; overflow-y: hidden; padding: 0; }
+	#map { background: transparent; cursor: pointer; height: 510px; width: 476px; }
+	.outerMap { background: #efefef; height: 547px; margin-top: 7%; position: relative; width: 476px; z-index: 1; }
+	.leaflet-container { }
+	#wrapper { border: 0 solid #d7d7d7; bottom: 0; height: 100%; left: 0; position: absolute; top: 0; }
+	#captureMe { border-color: black; border-style: none; height: 100%; margin: auto; width: 60%; }
+	#chart { background: transparent; cursor: pointer; height: 400px; position: absolute; right: 5%; top: 30%; width: 460px; z-index: 1; }
+	.leaflet-control-zoom { display: none; visibility: hidden; }
+	.table { display: table; width: 100%; }
+	.header { display: table-header-group; font-weight: bold; }
+	.rowGroup { display: table-row-group; }
+	.row { display: table-row; }
+	.cell { display: table-cell; width: 25%; }
+	input[type=reset] { background: transparent; border: 0; border-radius: 18px; color: #000; color: #0b478d !important; font-family: Arial; font-size: 1em; moz-border-radius: 28; padding: 8px 20px 10px 20px; text-decoration: none; webkit-border-radius: 28; }
+	input[type=reset]:hover { background: transparent; border: 0; text-decoration: underline; }
+	input[type=submit]:hover { background: #378f00; border: 0; text-decoration: none; }
+	input[type=submit] { background: #61bd1a; border: 0; border-radius: 6px; color: #fff; font-family: Arial; font-size: 1em; moz-border-radius: 6; padding: 12px; text-decoration: none; webkit-border-radius: 6; width: 50%; }
+	#tracker { background: #fff; display: none; height: 800px; position: absolute; top: 64px; width: 100%; z-index: 5; }
+	#thanks { background: white; display: none; float: right; font-size: 22px; height: 300px; position: absolute; right: 10%; top: 10%; width: 35%; }
+	#tally { background: white; bottom: 0; display: none; float: right; font-size: 22px; left: 10%; position: absolute; width: 35%; }
+	#paint_me { background: transparent; cursor: pointer; display: none; height: 550px; padding: 0 0 0 24px; position: absolute; right: 1px; top: 64px; width: 483px; z-index: 1; }
+	#paint_me label { font-size: 1em !important; }
+	#tallyMeR { color: #a7706b; }
+	#tallyMeD { color: #79B0C5; }
+	#tallyMeR2 { color: #a7706b; }
+	#tallyMeD2 { color: #79B0C5; }
+	.partyR { color: #a7706b; font-weight: bold; }
+	.partyD { color: #79B0C5; font-weight: bold; }
+	circle { stroke: none; }
+	.explain_text { background: transparent; height: 600px; padding: 0 0 0 24px; position: absolute; right: 1px; top: 64px; width: 483px; z-index: 1; }
+	#2004_text { display: none; }
+	#2006_text { display: none; }
+	#2008_text { display: none; }
+	#2010_text { display: none; }
+	#2012_text { display: block; }
+	#lean_text { display: none; }
+	#unopposed_text { display: none; }
+	#rematch_text { display: none; }
+	#open_text { display: none; }
+	#vul_text { display: none; }
+	#marriage_text { display: none; }
+	#prez_text { display: none; }
+	#gov_text { display: none; }
+	#survey { background: #efefef; clear: right; cursor: pointer; display: inline; float: right; left: 0px; padding: 18px; position: absolute; top: 0px; width: 476px; z-index: 1; }
+	#survey label { border: none; }
+	label.vote { background-color: #61bd1a; padding: 12px !important; width: 310px; }
+	label.results { background: none !important; color: #0b478d !important; float: right; padding: 12px !important; }
+	label.results:hover { background: none !important; color: #0b478d !important; float: right; padding: 12px !important; text-decoration: underline; }
+	label.round { background-color: transparent; background-image: none !important; }
+	label.round.vote { background-color: #61bd1a !important; background-image: none !important; color: #fff; }
+	label.round.vote:hover { background-color: #378f00 !important; background-image: none !important; color: #efefef !important; }
+	label.round:hover { background-color: transparent; background-image: none !important; color: #fff; }
+	#survey div { display: inline; font-weight: bold; width: 160px; }
+	svg { margin: 0 !important; }
+	small { font-size: 14px; line-height: 50% !important; }
+	#zoomMe { bottom: -9px !important; cursor: pointer; position: absolute !important; right: 0px !important; z-index: 10006; }
+	.zoomCheckbox input[type="checkbox"] { cursor: pointer; display: none; }
+	.zoomCheckbox input[type="checkbox"]+label { background: url('img/see-metro-zoom.png') no-repeat 12px 8px; cursor: pointer; font-weight: normal !important; height: 36px; padding: 9px 18px 9px 42px; width: 170px; }
+	.zoomCheckbox input[type="checkbox"]:checked + label { background: url('img/see-all-zoom.png') no-repeat 12px 8px; color: #fff; cursor: pointer; font-weight: normal !important; width: 170px; }
+	.zoomCheckbox input[type="checkbox"]:checked + label.metroOn { display: none; }
+	.zoomCheckbox input[type="checkbox"]:checked + label.metroOff { display: inline; }
+	.zoomCheckbox input[type="checkbox"]:checked + label.metroOn { display: inline; }
+	.zoomCheckbox input[type="checkbox"]:checked + label.metroOff { display: none; }
+	h1, h3, h5, h6 { font-family: "Popular"; margin-top: 0; }
+	h4 { font-size: 14px !important; }
+	#container { display: table; font-size: 10px !important; width: 100%; }
+	#row { display: table-row; font-size: 10px !important; }
+	#left, #right, #middle { display: table-cell; font-size: 1.1em !important; }
+	.candidates { left: 0; position: absolute; top: 635px; width: 100%; z-index: 9998; }
+	.hidden_candidates { display: none; font-size: .85em !important; }
+	td { font-size: .85em !important; }
+	#ballot_filter { display: none; }
+	#ballot_length { display: none; }
+	.DFL-cell { width: 25% !important; }
+	.GOP-cell { width: 25% !important; }
+	.dataTables_scroll { overflow-x: hidden !important; }
+	.dataTables_scrollBody { overflow-x: hidden !important; }
+	.District-cell { width: 10% !important; }
+	.dataTables_info { display: none !important; }
+	.dataTables_scrollBody { border-bottom: 1px solid #ccc !important; border-top: 1px solid #ccc; }
+	.dataTables_scrollHeadInner { box-sizing: border-box !important; display: none !important; padding: 0 !important; padding-right: 0 !important; width: 100% !important; }
+	.GOP-cell { text-transform: capitalize !important; text-transform: lowercase !important; }
+	.DFL-cell { text-transform: capitalize !important; text-transform: lowercase !important; }
+	.leaflet-popup-pane { position: relative; z-index: 3 !important; }
+	.leaflet-popup-content { font-size: .9em; }
+	.leaflet-popup-content h3 { font-family: helvetica,arial,sans-serif; font-size: 1.2em; font-weight: bold; line-height: 120%; margin-bottom: 0; padding-right: 18px; padding-top: 0px; }
+	.headLink { color: #0b478d; font-family: helvetica,arial,sans-serif; font-size: .65em; }
+	.active, li.active { background-color:#fff !important; border-color: none !important; color: #fff !important; font-weight: bold; }
+
+    </style>
+  <style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+<body>
+
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./index_files/xd_arbiter.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./index_files/xd_arbiter(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+
+<div id="wrapper">
+	<div class="btn-group" id="menu_main" data-toggle="buttons">
+		<label class="btn btn-primary first-btn active" id="2012HouseWin"><input type="radio" id="2012HouseWin2" name="options" onchange="map.removeLayer(party);party.addTo(map);setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;map&#39;, &#39;block&#39;);setVisibility(&#39;chart&#39;, &#39;block&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;block&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);document.getElementById(&#39;metro&#39;).checked = false;setVisibility(&#39;zoomMe&#39;, &#39;block&#39;);setVisibility(&#39;now&#39;, &#39;block&#39;);setVisibility(&#39;safe_can&#39;, &#39;none&#39;);setVisibility(&#39;rematch_can&#39;, &#39;none&#39;);setVisibility(&#39;open_can&#39;, &#39;none&#39;);setVisibility(&#39;marriage_can&#39;, &#39;none&#39;);setVisibility(&#39;prez_can&#39;, &#39;none&#39;);setVisibility(&#39;gov_can&#39;, &#39;none&#39;);setVisibility(&#39;vul_can&#39;, &#39;none&#39;);map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Current<br>Standing</label>
+		<label class="btn btn-primary" id="lean"><input type="radio" id="unopposed2" name="options" onchange="map.removeLayer(lean);lean.addTo(map);setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;map&#39;, &#39;block&#39;);setVisibility(&#39;chart&#39;, &#39;block&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);map.setView([46.8527,-93.5595], 6);flipGrid.addTo(map);flipControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;block&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);setVisibility(&#39;vul_text&#39;, &#39;none&#39;);document.getElementById(&#39;metro&#39;).checked = false;setVisibility(&#39;zoomMe&#39;, &#39;block&#39;);setVisibility(&#39;now&#39;, &#39;none&#39;);setVisibility(&#39;safe_can&#39;, &#39;block&#39;);setVisibility(&#39;rematch_can&#39;, &#39;none&#39;);setVisibility(&#39;open_can&#39;, &#39;none&#39;);setVisibility(&#39;marriage_can&#39;, &#39;none&#39;);setVisibility(&#39;prez_can&#39;, &#39;none&#39;);setVisibility(&#39;gov_can&#39;, &#39;none&#39;);setVisibility(&#39;vul_can&#39;, &#39;none&#39;);map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(dataControl);map.removeLayer(dataGrid);">Swing<br>Seats</label>
+		<label class="btn btn-primary" id="RaceStatus"><input type="radio" id="lean2" name="options" onchange="map.removeLayer(vulnerable);vulnerable.addTo(map);setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;map&#39;, &#39;block&#39;);setVisibility(&#39;chart&#39;, &#39;block&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);setVisibility(&#39;vul_text&#39;, &#39;block&#39;);document.getElementById(&#39;metro&#39;).checked = false;setVisibility(&#39;zoomMe&#39;, &#39;block&#39;);setVisibility(&#39;now&#39;, &#39;none&#39;);setVisibility(&#39;safe_can&#39;, &#39;none&#39;);setVisibility(&#39;rematch_can&#39;, &#39;none&#39;);setVisibility(&#39;open_can&#39;, &#39;none&#39;);setVisibility(&#39;marriage_can&#39;, &#39;none&#39;);setVisibility(&#39;prez_can&#39;, &#39;none&#39;);setVisibility(&#39;gov_can&#39;, &#39;none&#39;);setVisibility(&#39;vul_can&#39;, &#39;block&#39;);map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Seat<br>Vulnerability</label>
+		<label class="btn btn-primary" id="rematch"><input type="radio" id="rematch3" name="options" onchange="map.removeLayer(rematch);rematch.addTo(map);setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;map&#39;, &#39;block&#39;);setVisibility(&#39;chart&#39;, &#39;block&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);map.setView([46.8527,-93.5595], 6);rematchGrid.addTo(map);rematchControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;block&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);setVisibility(&#39;vul_text&#39;, &#39;none&#39;);document.getElementById(&#39;metro&#39;).checked = false;setVisibility(&#39;zoomMe&#39;, &#39;block&#39;);setVisibility(&#39;now&#39;, &#39;none&#39;);setVisibility(&#39;safe_can&#39;, &#39;none&#39;);setVisibility(&#39;rematch_can&#39;, &#39;block&#39;);setVisibility(&#39;open_can&#39;, &#39;none&#39;);setVisibility(&#39;marriage_can&#39;, &#39;none&#39;);setVisibility(&#39;prez_can&#39;, &#39;none&#39;);setVisibility(&#39;gov_can&#39;, &#39;none&#39;);setVisibility(&#39;vul_can&#39;, &#39;none&#39;);map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(dataControl);map.removeLayer(dataGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Political<br>Rematches</label>
+		<label class="btn btn-primary" id="openseat"><input type="radio" id="openseat2" name="options" onchange="map.removeLayer(openseat);openseat.addTo(map);setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;map&#39;, &#39;block&#39;);setVisibility(&#39;chart&#39;, &#39;block&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;block&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);setVisibility(&#39;vul_text&#39;, &#39;none&#39;);document.getElementById(&#39;metro&#39;).checked = false;setVisibility(&#39;zoomMe&#39;, &#39;block&#39;);setVisibility(&#39;now&#39;, &#39;none&#39;);setVisibility(&#39;safe_can&#39;, &#39;none&#39;);setVisibility(&#39;rematch_can&#39;, &#39;none&#39;);setVisibility(&#39;open_can&#39;, &#39;block&#39;);setVisibility(&#39;marriage_can&#39;, &#39;none&#39;);setVisibility(&#39;prez_can&#39;, &#39;none&#39;);setVisibility(&#39;gov_can&#39;, &#39;none&#39;);setVisibility(&#39;vul_can&#39;, &#39;none&#39;);map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Open<br>Seats</label>
+		<label class="btn btn-primary" id="MarriageFlags"><input type="radio" id="marriage2" name="options" onchange="map.removeLayer(marriage);map.removeLayer(dataGrid);map.removeLayer(dataControl);marriage.addTo(map);marriageGrid.addTo(map);marriageControl.addTo(map);setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;map&#39;, &#39;block&#39;);setVisibility(&#39;chart&#39;, &#39;block&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);map.setView([46.8527,-93.5595], 6);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;block&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);setVisibility(&#39;vul_text&#39;, &#39;none&#39;);document.getElementById(&#39;metro&#39;).checked = false;setVisibility(&#39;zoomMe&#39;, &#39;block&#39;);setVisibility(&#39;now&#39;, &#39;none&#39;);setVisibility(&#39;safe_can&#39;, &#39;none&#39;);setVisibility(&#39;rematch_can&#39;, &#39;none&#39;);setVisibility(&#39;open_can&#39;, &#39;none&#39;);setVisibility(&#39;marriage_can&#39;, &#39;block&#39;);setVisibility(&#39;prez_can&#39;, &#39;none&#39;);setVisibility(&#39;gov_can&#39;, &#39;none&#39;);setVisibility(&#39;vul_can&#39;, &#39;none&#39;);map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Marriage<br>Amendment</label>
+		<label class="btn btn-primary" id="PresFlag"><input type="radio" id="marriage2" name="options" onchange="map.removeLayer(prez);prez.addTo(map);setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;map&#39;, &#39;block&#39;);setVisibility(&#39;chart&#39;, &#39;block&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);map.setView([46.8527,-93.5595], 6);prezGrid.addTo(map);prezControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;block&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);setVisibility(&#39;vul_text&#39;, &#39;none&#39;);document.getElementById(&#39;metro&#39;).checked = false;setVisibility(&#39;zoomMe&#39;, &#39;block&#39;);setVisibility(&#39;now&#39;, &#39;none&#39;);setVisibility(&#39;safe_can&#39;, &#39;none&#39;);setVisibility(&#39;rematch_can&#39;, &#39;none&#39;);setVisibility(&#39;open_can&#39;, &#39;none&#39;);setVisibility(&#39;marriage_can&#39;, &#39;none&#39;);setVisibility(&#39;prez_can&#39;, &#39;block&#39;);setVisibility(&#39;gov_can&#39;, &#39;none&#39;);setVisibility(&#39;vul_can&#39;, &#39;none&#39;);map.removeLayer(dataControl);map.removeLayer(dataGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Presidential<br>Factors</label>
+		<label class="btn btn-primary last-btn" id="GovFlag"><input type="radio" id="marriage2" name="options" onchange="map.removeLayer(gov);gov.addTo(map);setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;map&#39;, &#39;block&#39;);setVisibility(&#39;chart&#39;, &#39;block&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);map.setView([46.8527,-93.5595], 6);govGrid.addTo(map);govControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;block&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);setVisibility(&#39;vul_text&#39;, &#39;none&#39;);document.getElementById(&#39;metro&#39;).checked = false;setVisibility(&#39;zoomMe&#39;, &#39;block&#39;);setVisibility(&#39;now&#39;, &#39;none&#39;);setVisibility(&#39;safe_can&#39;, &#39;none&#39;);setVisibility(&#39;rematch_can&#39;, &#39;none&#39;);setVisibility(&#39;open_can&#39;, &#39;none&#39;);setVisibility(&#39;marriage_can&#39;, &#39;none&#39;);setVisibility(&#39;prez_can&#39;, &#39;none&#39;);setVisibility(&#39;gov_can&#39;, &#39;block&#39;);setVisibility(&#39;vul_can&#39;, &#39;none&#39;);map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(dataControl);map.removeLayer(dataGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Gubernatorial<br>Factors</label>
+	</div>
+
+<div class="breaker"></div>
+
+<div id="paint_me">
+<h3>Make a prediction &nbsp;&nbsp;<a class="headLink" href="http://localhost/journalism/_archive/2016election/20140812-gop-map/#" onclick="map.setView([46.8527,-93.5595], 6);">zoom back</a></h3> 
+<form id="form1" name="form1" action="http://localhost/journalism/_archive/2016election/20140812-gop-map/index.php" method="post">
+<div id="casting">
+<div id="ballot_wrapper" class="dataTables_wrapper no-footer"><div id="ballot_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="ballot"></label></div><div class="dataTables_scroll"><div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;"><div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width: 100px; padding-right: 0px;"><table cellspacing="0" width="100%" class="dataTable no-footer" role="grid" style="margin-left: 0px; width: 100px;"><thead>
+    <tr role="row"><th class="District-cell sorting_asc" tabindex="0" aria-controls="ballot" rowspan="1" colspan="1" style="width: 10%;" aria-sort="ascending" aria-label="District: activate to sort column ascending">District</th><th class="DFL-cell sorting" tabindex="0" aria-controls="ballot" rowspan="1" colspan="1" style="width: 25%;" aria-label="DFL: activate to sort column ascending">DFL</th><th class="-cell sorting" tabindex="0" aria-controls="ballot" rowspan="1" colspan="1" style="width: 0px;" aria-label=": activate to sort column ascending"></th><th class="GOP-cell sorting" tabindex="0" aria-controls="ballot" rowspan="1" colspan="1" style="width: 25%;" aria-label="GOP: activate to sort column ascending">GOP</th><th class="-cell sorting" tabindex="0" aria-controls="ballot" rowspan="1" colspan="1" style="width: 0px;" aria-label=": activate to sort column ascending"></th><th class="Type-cell sorting" tabindex="0" aria-controls="ballot" rowspan="1" colspan="1" style="width: 0px;" aria-label="Type: activate to sort column ascending">Type</th></tr>
+  </thead></table></div></div><div class="dataTables_scrollBody" style="overflow: auto; height: 450px; width: 100%;"><table id="ballot" cellspacing="0" width="100%" class="dataTable no-footer" role="grid" aria-describedby="ballot_info" style="width: 100%;"><thead>
+    <tr role="row" style="height: 0px;"><th class="District-cell sorting" aria-controls="ballot" rowspan="1" colspan="1" style="width: 10%; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">District</div></th><th class="DFL-cell sorting" aria-controls="ballot" rowspan="1" colspan="1" style="width: 25%; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">DFL</div></th><th class="-cell sorting" aria-controls="ballot" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;"></div></th><th class="GOP-cell sorting" aria-controls="ballot" rowspan="1" colspan="1" style="width: 25%; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">GOP</div></th><th class="-cell sorting" aria-controls="ballot" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;"></div></th><th class="Type-cell sorting" aria-controls="ballot" rowspan="1" colspan="1" style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 0px;"><div class="dataTables_sizing" style="height:0;overflow:hidden;">Type</div></th></tr>
+  </thead>
+  
+  <tbody>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <tr style="display:none;" role="row" class="odd">
+      <td class="District-cell sorting_1">-</td>
+      <td class="DFL-cell"></td>
+      <td class="-cell"></td>
+      <td class="GOP-cell"></td>
+      <td class="-cell"></td>
+      <td class="Type-cell"></td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">01B</td>
+      <td class="DFL-cell">ERIC BERGESON</td>
+      <td class="-cell"><input type="radio" value="1" name="01B" id="01Bd" class="d css-checkbox" onclick="map.removeLayer(dem23);dem23.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="01Bd" class="css-label"></label></td>
+      <td class="GOP-cell">DEBRA (DEB) KIEL</td>
+      <td class="-cell"><input type="radio" value="2" name="01B" id="01Br" class="r css-checkbox" onclick="map.removeLayer(rep23);rep23.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="01Br" class="css-label2"></label></td>
+      <td class="Type-cell">Watch</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">02A</td>
+      <td class="DFL-cell">DAVE ERICKSON</td>
+      <td class="-cell"><input type="radio" value="1" name="02A" id="02Ad" class="d css-checkbox" onclick="map.removeLayer(dem1);dem1.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="02Ad" class="css-label"></label></td>
+      <td class="GOP-cell">ROGER HANCOCK</td>
+      <td class="-cell"><input type="radio" value="2" name="02A" id="02Ar" class="r css-checkbox" onclick="map.removeLayer(rep1);rep1.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="02Ar" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">02B</td>
+      <td class="DFL-cell">DAVID SOBIESKI</td>
+      <td class="-cell"><input type="radio" value="1" name="02B" id="02Bd" class="d css-checkbox" onclick="map.removeLayer(dem24);dem24.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="02Bd" class="css-label"></label></td>
+      <td class="GOP-cell">STEVE GREEN</td>
+      <td class="-cell"><input type="radio" value="2" name="02B" id="02Br" class="r css-checkbox" onclick="map.removeLayer(rep24);rep24.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="02Br" class="css-label2"></label></td>
+      <td class="Type-cell">Watch</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">04A</td>
+      <td class="DFL-cell">BEN LIEN</td>
+      <td class="-cell"><input type="radio" value="1" name="04A" id="04Ad" class="d css-checkbox" onclick="map.removeLayer(dem2);dem2.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="04Ad" class="css-label"></label></td>
+      <td class="GOP-cell">BRIAN E. GRAMER</td>
+      <td class="-cell"><input type="radio" value="2" name="04A" id="04Ar" class="r css-checkbox" onclick="map.removeLayer(rep2);rep2.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="04Ar" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">04B</td>
+      <td class="DFL-cell">PAUL MARQUART</td>
+      <td class="-cell"><input type="radio" value="1" name="04B" id="04Bd" class="d css-checkbox" onclick="map.removeLayer(dem25);dem25.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="04Bd" class="css-label"></label></td>
+      <td class="GOP-cell">JARED LADUKE</td>
+      <td class="-cell"><input type="radio" value="2" name="04B" id="04Br" class="r css-checkbox" onclick="map.removeLayer(rep25);rep25.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="04Br" class="css-label2"></label></td>
+      <td class="Type-cell">Watch</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">05A</td>
+      <td class="DFL-cell">JOHN PERSELL</td>
+      <td class="-cell"><input type="radio" value="1" name="05A" id="05Ad" class="d css-checkbox" onclick="map.removeLayer(dem11);dem11.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="05Ad" class="css-label"></label></td>
+      <td class="GOP-cell">PHILLIP NELSON</td>
+      <td class="-cell"><input type="radio" value="2" name="05A" id="05Ar" class="r css-checkbox" onclick="map.removeLayer(rep11);rep11.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="05Ar" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">10A</td>
+      <td class="DFL-cell">JOHN WARD</td>
+      <td class="-cell"><input type="radio" value="1" name="10A" id="10Ad" class="d css-checkbox" onclick="map.removeLayer(dem26);dem26.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="10Ad" class="css-label"></label></td>
+      <td class="GOP-cell">JOSHUA HEINTZEMAN</td>
+      <td class="-cell"><input type="radio" value="2" name="10A" id="10Ar" class="r css-checkbox" onclick="map.removeLayer(rep26);rep26.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="10Ar" class="css-label2"></label></td>
+      <td class="Type-cell">Watch</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">10B</td>
+      <td class="DFL-cell">JOE RADINOVICH</td>
+      <td class="-cell"><input type="radio" value="1" name="10B" id="10Bd" class="d css-checkbox" onclick="map.removeLayer(dem3);dem3.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="10Bd" class="css-label"></label></td>
+      <td class="GOP-cell">DALE K LUECK</td>
+      <td class="-cell"><input type="radio" value="2" name="10B" id="10Br" class="r css-checkbox" onclick="map.removeLayer(rep3);rep3.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="10Br" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">11B</td>
+      <td class="DFL-cell">TIM FAUST</td>
+      <td class="-cell"><input type="radio" value="1" name="11B" id="11Bd" class="d css-checkbox" onclick="map.removeLayer(dem4);dem4.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="11Bd" class="css-label"></label></td>
+      <td class="GOP-cell">JASON RARICK</td>
+      <td class="-cell"><input type="radio" value="2" name="11B" id="11Br" class="r css-checkbox" onclick="map.removeLayer(rep4);rep4.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="11Br" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">12A</td>
+      <td class="DFL-cell">JAY MCNAMAR</td>
+      <td class="-cell"><input type="radio" value="1" name="12A" id="12Ad" class="d css-checkbox" onclick="map.removeLayer(dem5);dem5.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="12Ad" class="css-label"></label></td>
+      <td class="GOP-cell">JEFF BACKER</td>
+      <td class="-cell"><input type="radio" value="2" name="12A" id="12Ar" class="r css-checkbox" onclick="map.removeLayer(rep5);rep5.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="12Ar" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">13A</td>
+      <td class="DFL-cell">EMILY JENSEN</td>
+      <td class="-cell"><input type="radio" value="1" name="13A" id="13Ad" class="d css-checkbox" onclick="map.removeLayer(dem6);dem6.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="13Ad" class="css-label"></label></td>
+      <td class="GOP-cell">JEFF HOWE</td>
+      <td class="-cell"><input type="radio" value="2" name="13A" id="13Ar" class="r css-checkbox" onclick="map.removeLayer(rep6);rep6.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="13Ar" class="css-label2"></label>  </td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">14B</td>
+      <td class="DFL-cell">ZACHARY </td>
+      <td class="-cell"><input type="radio" value="1" name="14B" id="14Bd" class="d css-checkbox" onclick="map.removeLayer(dem7);dem7.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="14Bd" class="css-label"></label></td>
+      <td class="GOP-cell">JIM KNOBLACH</td>
+      <td class="-cell"><input type="radio" value="2" name="14B" id="14Br" class="r css-checkbox" onclick="map.removeLayer(rep7);rep7.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="14Br" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">15A</td>
+      <td class="DFL-cell">JAMES RITTENOUR</td>
+      <td class="-cell"><input type="radio" value="1" name="15A" id="15Ad" class="d css-checkbox" onclick="map.removeLayer(dem27);dem27.addTo(map);map.setView([46.8527,-93.5595], 6);" checked="true"><label for="15Ad" class="css-label"></label></td>
+      <td class="GOP-cell">SONDRA ERICKSON</td>
+      <td class="-cell"><input type="radio" value="2" name="15A" id="15Ar" class="r css-checkbox" onclick="map.removeLayer(rep27);rep27.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="15Ar" class="css-label2"></label></td>
+      <td class="Type-cell">Watch</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">17A</td>
+      <td class="DFL-cell">ANDREW FALK</td>
+      <td class="-cell"><input type="radio" value="1" name="17A" id="17Ad" class="d css-checkbox" onclick="map.removeLayer(dem28);dem28.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="17Ad" class="css-label"></label></td>
+      <td class="GOP-cell">TIM MILLER</td>
+      <td class="-cell"><input type="radio" value="2" name="17A" id="17Ar" class="r css-checkbox" onclick="map.removeLayer(rep28);rep28.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="17Ar" class="css-label2"></label></td>
+      <td class="Type-cell">Watch</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">17B</td>
+      <td class="DFL-cell">MARY SAWATZKY</td>
+      <td class="-cell"><input type="radio" value="1" name="17B" id="17Bd" class="d css-checkbox" onclick="map.removeLayer(dem8);dem8.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="17Bd" class="css-label"></label></td>
+      <td class="GOP-cell">DAVE BAKER</td>
+      <td class="-cell"><input type="radio" value="2" name="17B" id="17Br" class="r css-checkbox" onclick="map.removeLayer(rep8);rep8.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="17Br" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">24A</td>
+      <td class="DFL-cell">BEVERLY CASHMAN</td>
+      <td class="-cell"><input type="radio" value="1" name="24A" id="24Ad" class="d css-checkbox" onclick="map.removeLayer(dem9);dem9.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="24Ad" class="css-label"></label></td>
+      <td class="GOP-cell">JOHN PETERSBURG</td>
+      <td class="-cell"><input type="radio" value="2" name="24A" id="24Ar" class="r css-checkbox" onclick="map.removeLayer(rep9);rep9.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="24Ar" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">24B</td>
+      <td class="DFL-cell">PATTI FRITZ</td>
+      <td class="-cell"><input type="radio" value="1" name="24B" id="24Bd" class="d css-checkbox" onclick="map.removeLayer(dem10);dem10.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="24Bd" class="css-label"></label></td>
+      <td class="GOP-cell">BRIAN DANIELS</td>
+      <td class="-cell"><input type="radio" value="2" name="24B" id="24Br" class="r css-checkbox" onclick="map.removeLayer(rep10);rep10.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="24Br" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">27A</td>
+      <td class="DFL-cell">SHANNON SAVICK</td>
+      <td class="-cell"><input type="radio" value="1" name="27A" id="27Ad" class="d css-checkbox" onclick="map.removeLayer(dem12);dem12.addTo(map);map.setView([46.8527,-93.5595], 6);" checked=""><label for="27Ad" class="css-label"></label></td>
+      <td class="GOP-cell">PEGGY BENNETT</td>
+      <td class="-cell"><input type="radio" value="2" name="27A" id="27Ar" class="r css-checkbox" onclick="map.removeLayer(rep12);rep12.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="27Ar" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">32B</td>
+      <td class="DFL-cell">LAURIE J. WARNER</td>
+      <td class="-cell"><input type="radio" value="1" name="32B" id="32Bd" class="d css-checkbox" onclick="map.removeLayer(dem29);dem29.addTo(map);map.setView([46.8527,-93.5595], 6);" checked="checked"><label for="32Bd" class="css-label" checked=""></label></td>
+      <td class="GOP-cell">BOB BARRETT</td>
+      <td class="-cell"><input type="radio" value="2" name="32B" id="32Br" class="r css-checkbox" onclick="map.removeLayer(rep29);rep29.addTo(map);map.setView([46.8527,-93.5595], 6);"><label for="32Br" class="css-label2"></label></td>
+      <td class="Type-cell">Watch</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">36A</td>
+      <td class="DFL-cell">JEFFERSON FIETEK</td>
+      <td class="-cell"><input type="radio" value="1" name="36A" id="36Ad" class="d css-checkbox" onclick="map.removeLayer(dem13);dem13.addTo(map);map.setView([45.1656,-93.3687], 10);"><label for="36Ad" class="css-label"></label></td>
+      <td class="GOP-cell">MARK W. UGLEM</td>
+      <td class="-cell"><input type="radio" value="2" name="36A" id="36Ar" class="r css-checkbox" onclick="map.removeLayer(rep13);rep13.addTo(map);map.setView([45.1656,-93.3687], 10);" checked=""><label for="36Ar" class="css-label2"></label> </td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">42B</td>
+      <td class="DFL-cell">BARB YARUSSO</td>
+      <td class="-cell"><input type="radio" value="1" name="42B" id="42Bd" class="d css-checkbox" onclick="map.removeLayer(dem14);dem14.addTo(map);map.setView([45.0502,-93.1015], 10);" checked=""><label for="42Bd" class="css-label"></label></td>
+      <td class="GOP-cell">RANDY JESSUP</td>
+      <td class="-cell"><input type="radio" value="2" name="42B" id="42Br" class="r css-checkbox" onclick="map.removeLayer(rep14);rep14.addTo(map);map.setView([45.0502,-93.1015], 10);"><label for="42Br" class="css-label2"></label> </td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">44A</td>
+      <td class="DFL-cell">AUDREY BRITTON</td>
+      <td class="-cell"><input type="radio" value="1" name="44A" id="44Ad" class="d css-checkbox" onclick="map.removeLayer(dem15);dem15.addTo(map);map.setView([45.0396,-93.4716], 10);"><label for="44Ad" class="css-label"></label></td>
+      <td class="GOP-cell">SARAH ANDERSON</td>
+      <td class="-cell"><input type="radio" value="2" name="44A" id="44Ar" class="r css-checkbox" onclick="map.removeLayer(rep15);rep15.addTo(map);map.setView([45.0396,-93.4716], 10);" checked=""><label for="44Ar" class="css-label2"></label> </td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">48A</td>
+      <td class="DFL-cell">YVONNE SELCER</td>
+      <td class="-cell"><input type="radio" value="1" name="48A" id="48Ad" class="d css-checkbox" onclick="map.removeLayer(dem16);dem16.addTo(map);map.setView([44.8919,-93.4771], 10);" checked=""><label for="48Ad" class="css-label"></label></td>
+      <td class="GOP-cell">KIRK STENSRUD</td>
+      <td class="-cell"><input type="radio" value="2" name="48A" id="48Ar" class="r css-checkbox" onclick="map.removeLayer(rep16);rep16.addTo(map);map.setView([44.8919,-93.4771], 10);"><label for="48Ar" class="css-label2"></label> </td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">49A</td>
+      <td class="DFL-cell">RON ERHARDT</td>
+      <td class="-cell"><input type="radio" value="1" name="49A" id="49Ad" class="d css-checkbox" onclick="map.removeLayer(dem17);dem17.addTo(map);map.setView([44.8975,-93.3601], 10);" checked=""><label for="49Ad" class="css-label"></label></td>
+      <td class="GOP-cell">DARIO ANSELMO</td>
+      <td class="-cell"><input type="radio" value="2" name="49A" id="49Ar" class="r css-checkbox" onclick="map.removeLayer(rep17);rep17.addTo(map);map.setView([44.8975,-93.3601], 10);"><label for="49Ar" class="css-label2"></label> </td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">49B</td>
+      <td class="DFL-cell">PAUL ROSENTHAL</td>
+      <td class="-cell"><input type="radio" value="1" name="49B" id="49Bd" class="d css-checkbox" onclick="map.removeLayer(dem18);dem18.addTo(map);map.setView([44.8498,-93.3779], 10);" checked=""><label for="49Bd" class="css-label"></label></td>
+      <td class="GOP-cell">BARB SUTTER</td>
+      <td class="-cell"><input type="radio" value="2" name="49B" id="49Br" class="r css-checkbox" onclick="map.removeLayer(rep18);rep18.addTo(map);map.setView([44.8498,-93.3779], 10);"><label for="49Br" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">51A</td>
+      <td class="DFL-cell">SANDRA MASIN</td>
+      <td class="-cell"><input type="radio" value="1" name="51A" id="51Ad" class="d css-checkbox" onclick="map.removeLayer(dem19);dem19.addTo(map);map.setView([44.8130,-93.2217], 10);" checked=""><label for="51Ad" class="css-label"></label></td>
+      <td class="GOP-cell">ANDREA TODD-HARLIN</td>
+      <td class="-cell"><input type="radio" value="2" name="51A" id="51Ar" class="r css-checkbox" onclick="map.removeLayer(rep19);rep19.addTo(map);map.setView([44.8130,-93.2217], 10);"><label for="51Ar" class="css-label2"></label> </td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">51B</td>
+      <td class="DFL-cell">LAURIE HALVERSON</td>
+      <td class="-cell"><input type="radio" value="1" name="51B" id="51Bd" class="d css-checkbox" onclick="map.removeLayer(dem20);dem20.addTo(map);map.setView([44.8042,-93.1379], 10);" checked=""><label for="51Bd" class="css-label"></label></td>
+      <td class="GOP-cell">JEN WILSON</td>
+      <td class="-cell"><input type="radio" value="2" name="51B" id="51Br" class="r css-checkbox" onclick="map.removeLayer(rep20);rep20.addTo(map);map.setView([44.8042,-93.1379], 10);"><label for="51Br" class="css-label2"></label> </td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="odd">
+      <td class="District-cell sorting_1">54A</td>
+      <td class="DFL-cell">DAN SCHOEN</td>
+      <td class="-cell"><input type="radio" value="1" name="54A" id="54Ad" class="d css-checkbox" onclick="map.removeLayer(dem21);dem21.addTo(map);map.setView([44.8271,-92.9731], 10);" checked=""><label for="54Ad" class="css-label"></label></td>
+      <td class="GOP-cell">MATTHEW KOWALSKI</td>
+      <td class="-cell"><input type="radio" value="2" name="54A" id="54Ar" class="r css-checkbox" onclick="map.removeLayer(rep21);rep21.addTo(map);map.setView([44.8271,-92.9731], 10);"><label for="54Ar" class="css-label2"></label> </td>
+      <td class="Type-cell">Swing</td>
+    </tr><tr role="row" class="even">
+      <td class="District-cell sorting_1">56B</td>
+      <td class="DFL-cell">WILL MORGAN</td>
+      <td class="-cell"><input type="radio" value="1" name="56B" id="56Bd" class="d css-checkbox" onclick="map.removeLayer(dem22);dem22.addTo(map);map.setView([44.7548,-93.347], 10);" checked=""><label for="56Bd" class="css-label"></label></td>
+      <td class="GOP-cell">ROZ PETERSON</td>
+      <td class="-cell"><input type="radio" value="2" name="56B" id="56Br" class="r css-checkbox" onclick="map.removeLayer(rep22);rep22.addTo(map);map.setView([44.7548,-93.347], 10);"><label for="56Br" class="css-label2"></label></td>
+      <td class="Type-cell">Swing</td>
+    </tr></tbody>
+</table></div></div><div class="dataTables_info" id="ballot_info" role="status" aria-live="polite">Showing 1 to 30 of 30 entries</div></div>
+</div>
+<div class="predictThis" style="width:100%;position:absolute;bottom:0;padding-left:30%;"><input type="submit" id="Vote" name="Vote" value="Vote!" onclick="setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;chart&#39;, &#39;none&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;thanks&#39;, &#39;block&#39;);"><input type="reset" onclick="map.removeLayer(paint_me);paint_me.addTo(map);map.setView([46.8527,-93.5595], 6);" value="Reset"></div>
+</form>
+</div>
+
+
+<div id="2010_text" class="explain_text">
+</div>
+<div id="2008_text" class="explain_text">
+</div>
+<div id="2006_text" class="explain_text">
+</div>
+<div id="2004_text" class="explain_text">
+</div>
+<div id="2012_text" class="explain_text">
+<h3>The Upcoming Election</h3>
+The 2012 election gave Democrats control of the Minnesota House and Senate, in a year that saw heavy turnout for Democratic President Obama. With only the 134-seat House up for election this year, Republicans need a net increase of seven seats to regain House control. Currently the DFL holds 73 seats and the GOP has 61 seats.
+</div>
+<div id="lean_text" class="explain_text">
+<h3>Current Leanings</h3>
+All but three of the 22 swing districts during this midterm campaign are in DFL-held districts.
+</div>
+<div id="unopposed_text" class="explain_text">
+<h3>Shifting Between Parties</h3>
+Only 22 of the 134 House seats are in swing districts where the member elected in 2012 was of a different party than the one voters picked in 2010.  Some of these 22 districts have changed parties frequently: 11 districts have changed party hands in each of the last two elections and four districts have seesawed between party picks in three of the last elections.  Apart from the swing seats, most seats have been either historic party strongholds or have leaned towards one party in recent elections.
+</div>
+<div id="rematch_text" class="explain_text">
+<h3>Political Rematches</h3>
+In 23 districts voters will choose from the same candidates that faced off two years ago.  Thirteen of these seats are currently held by a DFL member, including three seats that were won by a margin of 2 percent or less. Ten incumbent Republicans will face the same challenger, including two seats where the margin of victory was less than 5 percent.
+</div>
+<div id="open_text" class="explain_text">
+<h3>Filling the Empty Seats</h3>
+Most of the 15 open seats are in Republican-leaning districts, presenting an uphill battle to Democrats trying add seats to their House majority.
+</div>
+<div id="marriage_text" class="explain_text">
+<h3>Marriage Amendment Fallout</h3>
+In 17 House districts where the majority of voters approved a constitutional amendment to constitutionally ban sex-marriage in 2012, the House member voted to legalize same sex marriage in 2013. Fifteen of those members are Democrats.
+</div>
+<div id="prez_text" class="explain_text">
+<h3>Presidential Election Factors</h3>
+In nine House districts, 2012 voters opted for Republican presidential candidate Mitt Romney and a Democratic state House member. In four House districts, voters picked Democratic President Obama and a Republican House member.
+</div>
+<div id="gov_text" class="explain_text">
+<h3>Gubernatorial Leanings</h3>
+Only one Republican House member represents a district that backed Democratic Gov. Mark Dayton in 2010. But 20 DFL House members currently represent districts Republican gubernatorial candidate Tom Emmer won in 2010.
+</div>
+<div id="vul_text" class="explain_text">
+<h3>Seat Vulnerability</h3>
+The most vulnerable seats this election cycle are in DFL-held districts.
+</div>
+
+
+</div>
+
+
+		
+<div class="candidates">
+<div id="prez_can" class="hidden_candidates">
+<h3>Races to watch for effects of presidential leanings</h3>
+<div id="container">
+  <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyR">21A</h4>
+  		<p><strong>Kelly(R)</strong><br>Schoen(D)</p>
+  	</div>
+
+  	<div id="middle">
+  		<h4 class="partyR">28B</h4>
+  		<p><strong>Davids(R)</strong><br>Pieper(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">57A</h4>
+    	<p><strong>Mack(R)</strong><br>Slaten(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">54B</h4>
+    	<p><strong>McNamara(R)</strong><br>Folken(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">02A</h4>
+    	<p><strong>Erickson(D)</strong><br>Hancock(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">10B</h4>
+    	<p><strong>Radinovich(D)</strong><br>Lueck(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">11B</h4>
+    	<p><strong>Faust(D)</strong><br>Rarick(R)</p>
+  	</div>
+
+	</div>
+ <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyD">17B</h4>
+  		<p><strong>Sawatzky(D)</strong><br>Baker(R)</p>
+  	</div>
+
+  	<div id="middle">
+  		<h4 class="partyD">24B</h4>
+  		<p><strong>Fritz(D)</strong><br>Daniels(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">04B</h4>
+    	<p><strong>Marquart(D)</strong><br>Laduke(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">10A</h4>
+    	<p><strong>Ward(D)</strong><br>Heintzeman(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">12A</h4>
+    	<p><strong>McNamar(D)</strong><br>Backer(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">17A</h4>
+    	<p><strong>Falk(D)</strong><br>Miller(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD"></h4>
+    	<p></p>
+  	</div>
+
+	</div>
+</div>
+</div>
+
+<div id="vul_can" class="hidden_candidates">
+<h3>Races for vulnerable seats</h3>
+<div id="container">
+  <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyD">48A</h4>
+  		<p><strong>Selcer(D)</strong><br>Stensrud(R)</p>
+  	</div>
+
+  	<div id="middle">
+  		<h4 class="partyD">11B</h4>
+  		<p><strong>Faust(D)</strong><br>Rarick(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">42A</h4>
+    	<p><strong>Yarusso(D)</strong><br>Jessup(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">51A</h4>
+    	<p><strong>Masin(D)</strong><br>Harlin(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">54A</h4>
+    	<p><strong>Schoen(D)</strong><br>Kowalski(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">49B</h4>
+    	<p><strong>Sutter(D)</strong><br>Rosenthal(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">10B</h4>
+    	<p><strong>Lueck(D)</strong><br>Radinovich(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">56B</h4>
+    	<p><strong>Peterson(D)</strong><br>Morgan(R)</p>
+  	</div>
+
+	</div>
+
+  <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyD">27A</h4>
+  		<p><strong>Savick(D)</strong><br>Bennett(R)</p>
+  	</div>
+
+  	<div id="middle">
+  		<h4 class="partyD">02A</h4>
+  		<p><strong>Erickson(D)</strong><br>Hancock(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">02A</h4>
+    	<p><strong>Erickson(D)</strong><br>Hancock(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">05B</h4>
+    	<p><strong>Anzelc(D)</strong><br>Eichorn(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">14B</h4>
+    	<p><strong>Dorholt(D)</strong><br>Knoblach(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">17B</h4>
+    	<p><strong>Baker(D)</strong><br>Sawatzky(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">24B</h4>
+    	<p><strong>Fritz(D)</strong><br>Daniels(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD"></h4>
+    	<p></p>
+  	</div>
+
+	</div>
+</div>
+
+</div>
+
+<div id="marriage_can" class="hidden_candidates">
+<h3>Races to watch for effects of the marriage amendment</h3>
+<div id="container">
+  <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyD">02A</h4>
+  		<p><strong>Erickson(D)</strong><br>Hancock(R)</p>
+  	</div>
+
+  	<div id="middle">
+  		<h4 class="partyD">03A</h4>
+  		<p><strong>Dill(D)</strong><br>Johnson(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">05A</h4>
+    	<p>Nelson(R)<br>Persell(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">05B</h4>
+    	<p><strong>Anzelc(D)</strong><br>Eichorn(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">06A</h4>
+    	<p>Melin(D)<br>Weber(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">06B</h4>
+    	<p><strong>Metsa(D)</strong><br>Matasich(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">11A</h4>
+    	<p><strong>Sundin(D)</strong><br>Hafvenstein(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">10B</h4>
+    	<p><strong>Radinovich(D)</strong><br>Lueck(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">10A</h4>
+    	<p><strong>Ward(D)</strong><br>Heintzeman(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">11B</h4>
+    	<p><strong>Faust(D)</strong><br>Rarick(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">04B</h4>
+    	<p><strong>Marquart(D)</strong><br>Laduke(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">12A</h4>
+    	<p><strong>McNamar(D)</strong><br>Backer(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyD">17A</h4>
+    	<p><strong>Falk(D)</strong><br>Miller(R)</p>
+  	</div>
+
+	</div>
+ <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyD">27A</h4>
+  		<p><strong>Savick(D)</strong><br>Bennett(R)</p>
+  	</div>
+
+  	<div id="middle">
+  		<h4 class="partyD">27B</h4>
+  		<p><strong>Poppe(D)</strong><br>Schminke(R)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">55B</h4>
+    	<p><strong>Albright(R)</strong><br>Burkart(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">58A</h4>
+    	<p><strong>Koznick(R)</strong><br>Willingham(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">57A</h4>
+    	<p><strong>Folken(R)</strong><br>Mack(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">58B</h4>
+    	<p><strong>Garofalo(R)</strong><br>Vagts(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">57B</h4>
+    	<p><strong>Wills(R)</strong><br>Packard(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">54BA</h4>
+    	<p><strong>McNamara(R)</strong><br>Slaten(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">39B</h4>
+    	<p><strong>Lohmer(R)</strong><br>Degree(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">39A</h4>
+    	<p><strong>Dettmer(R)</strong><br>Stender(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">37B</h4>
+    	<p><strong>Sanders(R)</strong><br>Witt(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">38B</h4>
+    	<p><strong>Dean(R)</strong><br>Pariseau(D)</p>
+  	</div>
+
+  	<div id="right">
+    	<h4 class="partyR">14A</h4>
+    	<p><strong>Erickson(R)</strong><br>Wolgamott(D)</p>
+  	</div>
+
+	</div>
+</div>
+</div>
+
+<div id="safe_can" class="hidden_candidates">
+<h3>Races for swings seats</h3>
+<div id="container">
+  <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyD">02A</h4>
+  		<p><strong>Erickson(D)</strong><br>Hancock(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">04A</h4>
+  		<p><strong>Lien(D)</strong><br>Gramer(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">05A</h4>
+  		<p><strong>Nelson(D)</strong><br>Persell(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">10B</h4>
+  		<p><strong>Radinovich(D)</strong><br>Lueck(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">11B</h4>
+  		<p><strong>Rarick(D)</strong><br>Faust(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">12A</h4>
+  		<p><strong>McNamar(D)</strong><br>Backer(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">13A</h4>
+  		<p><strong>Jensen(D)</strong><br>Home(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">14B</h4>
+  		<p><strong>Zachary(D)</strong><br>Knoblach(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">17B</h4>
+  		<p><strong>Sawatzky(D)</strong><br>Baker(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">24A</h4>
+  		<p><strong>Petersburg(R)</strong><br>Cashman(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">24B</h4>
+  		<p><strong>Fritz(D)</strong><br>Daniels(R)</p>
+  	</div>
+
+  </div>
+ <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyD">27A</h4>
+  		<p><strong>Savick(D)</strong><br>Bennett(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">32B</h4>
+  		<p><strong>Warner(D)</strong><br>Barrett(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">36A</h4>
+  		<p><strong>Uglem(R)</strong><br>Fietek(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">42B</h4>
+  		<p><strong>Yarusso(D)</strong><br>Jessup(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">44A</h4>
+  		<p><strong>Britton(D)</strong><br>Anderson(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">48A</h4>
+  		<p><strong>Selcer(D)</strong><br>Stensrud(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">49A</h4>
+  		<p><strong>Erhardt(D)</strong><br>Anselmo(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">51A</h4>
+    	<p><strong>Masin(D)</strong><br>Harlin(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">51B</h4>
+  		<p><strong>Halverson(D)</strong><br>Wilson(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">54A</h4>
+  		<p><strong>Schoen(D)</strong><br>Kowalski(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">56B</h4>
+  		<p><strong>Morgan(D)</strong><br>Peterson(R)</p>
+  	</div>
+
+	</div>
+</div>
+</div>
+
+<div id="gov_can" class="hidden_candidates">
+<h3>Races to watch for effects of gubernatorial leanings</h3>
+<div id="container">
+  <div id="row">
+  	<div id="right">
+    	<h4 class="partyR">01B</h4>
+    	<p><strong>Kiel(R)</strong><br>Bergeson(D)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">02A</h4>
+    	<p><strong>Erickson(D)</strong><br>Hancock(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">04B</h4>
+    	<p><strong>Marquart(D)</strong><br>Laduke(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">12A</h4>
+    	<p><strong>Mcnamar(D)</strong><br>Backer(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">17A</h4>
+    	<p><strong>Falk(D)</strong><br>Miller(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">17B</h4>
+    	<p><strong>Sawatzky(D)</strong><br>Baker(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">25B</h4>
+    	<p><strong>Norton(D)</strong><br></p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">48A</h4>
+    	<p><strong>Selcer(D)</strong><br>Stensrud(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">36B</h4>
+    	<p><strong>Hortman(D)</strong><br>Crema(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">42A</h4>
+    	<p><strong>Yarusso(D)</strong><br>Jessup(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">44B</h4>
+    	<p>Rutzick(R)<br>Applebaum(D)</p>
+  	</div>
+
+	</div>
+ <div id="row">
+
+  	<div id="right">
+    	<h4 class="partyD">49B</h4>
+    	<p><strong>Rosenthal(D)</strong><br>Sutter(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">51A</h4>
+    	<p><strong>Masin(D)</strong><br>Harlin(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">51B</h4>
+    	<p><strong>Halverson(D)</strong><br>Wilson(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">56B</h4>
+    	<p><strong>Morgan(D)</strong><br>Peterson(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">52B</h4>
+    	<p><strong>Atkins(D)</strong><br>Lee(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">24B</h4>
+    	<p><strong>Fritz(D)</strong><br>Daniels(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">11B</h4>
+    	<p><strong>Faust(D)</strong><br>Rarick(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">10B</h4>
+    	<p><strong>Lueck(D)</strong><br>Radinovich(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD">10A</h4>
+    	<p><strong>Ward(D)</strong><br>Heintzeman(R)</p>
+  	</div>
+  	<div id="right">
+    	<h4 class="partyD"></h4>
+    	<p></p>
+  	</div>
+
+	</div>
+</div>
+</div>
+
+<div id="now">
+<div id="container">
+  <div id="row">
+
+	</div>
+  <div id="row">
+
+
+	</div>
+</div>
+</div>
+
+<div id="open_can" class="hidden_candidates">
+<h3>Races for open seats</h3>
+<div id="container">
+  <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyR">20A</h4>
+  		<p>Vogel(R)<br>Lofgren(D)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyR">26B</h4>
+  		<p>Pierson(R)<br>Wright(D)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyR">47A</h4>
+  		<p>Gieseke(D)<br>Nash(R)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyR">58A</h4>
+  		<p>Koznick(R)<br>Willingham(D)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyR">56A</h4>
+  		<p>Christensen(R)<br>Kimmel(D)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyR">35A</h4>
+  		<p>Perovich(D)<br>Whelan(R)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyR">30B</h4>
+  		<p>Shimek(D)<br>Lucero(D)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyR">53BA</h4>
+  		<p><strong>Fenton(R)</strong><br>Hendrikson(D)</p>
+  	</div>
+
+  </div>
+ <div id="row">
+  	<div id="left">
+  		<h4 class="partyR">55A</h4>
+  		<p><strong>Loonan(R)</strong><br>Whiting(D)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyD">64B</h4>
+  		<p>Pinto(D)<br>Surman(R)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyD">46B</h4>
+  		<p>Youakim(D)<br>Bjornson(R)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyD">19B</h4>
+  		<p>Considine(D)<br>Kruse(R)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyD">07A</h4>
+  		<p>Schultz(D)<br>Hall(R)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyD">40B</h4>
+  		<p><strong>Hilstrom(D)</strong><br>Marvin(R)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyD">44B</h4>
+  		<p>Rutzick(D)<br>Applebaum(D)</p>
+  	</div>
+  	<div id="left">
+  		<h4 class="partyD"></h4>
+  		<p></p>
+  	</div>
+
+</div>
+</div>
+</div>
+
+<div id="unopposed_can" class="hidden_candidates">
+
+</div>
+
+<div id="rematch_can" class="hidden_candidates">
+<h3>Races featuring political rematches</h3>
+<div id="container">
+  <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyR">38A</h4>
+  		<p><strong>Runbeck(R)</strong><br>Davern(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyR">38B</h4>
+  		<p><strong>Dean(R)</strong><br>Pariseau(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyR">33A</h4>
+  		<p><strong>Hertaus(R)</strong><br>Mikkelson(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyR">39B</h4>
+  		<p><strong>Lohmer(R)</strong><br>Degree(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyR">44A</h4>
+  		<p><strong>Anderson(R)</strong><br>Britton(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyR">32A</h4>
+  		<p><strong>Johnson(R)</strong><br>Gammel(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyR">22B</h4>
+  		<p><strong>Hamilton(R)</strong><br>Avenel-Navara(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyR">35B</h4>
+  		<p><strong>Scott(R)</strong><br>Beard(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyR">01A</h4>
+  		<p><strong>Fabian(R)</strong><br>Patterson(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyR">15B</h4>
+  		<p><strong>Newburger(R)</strong><br>Johnson(D)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">02A</h4>
+  		<p><strong>Erickson(D)</strong><br>Hancock(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">06A</h4>
+  		<p>Melin(D)<br>Weber(R)</p>
+  	</div>
+
+
+  </div>
+  <div id="row">
+
+  	<div id="left">
+  		<h4 class="partyD">10B</h4>
+  		<p><strong>Lueck(D)</strong><br>Radinovich(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">37A</h4>
+  		<p><strong>Benz(D)</strong><br>Newton(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">60A</h4>
+  		<p><strong>Millsop(D)</strong><br>Loeffler(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">67B</h4>
+  		<p><strong>Quinn(D)</strong><br>Johnson(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">56B</h4>
+  		<p><strong>Peterson(D)</strong><br>Morgan(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">17A</h4>
+  		<p><strong>Miller(D)</strong><br>Falk(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">43A</h4>
+  		<p><strong>Fischer(D)</strong><br>Stout(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">26A</h4>
+  		<p><strong>Leibling(D)</strong><br>Bly(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">07B</h4>
+  		<p><strong>Simonson(D)</strong><br>Silvers(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">52A</h4>
+  		<p><strong>Hansen(D)</strong><br>Blum(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD">48A</h4>
+  		<p><strong>Selcer(D)</strong><br>Stensrud(R)</p>
+  	</div>
+
+  	<div id="left">
+  		<h4 class="partyD"></h4>
+  		<p></p>
+  	</div>
+
+	</div>
+</div>
+</div>
+</div>
+
+<div id="chart"><svg width="800" height="500"><circle class="node" cx="201.71402422438925" cy="151.07727358821052" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="145.46650811415256" cy="197.5632269951885" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="392.3133975761546" cy="153.10287439316102" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="216.37113518832479" cy="165.9504650486295" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="404.9753905063613" cy="174.49341852106048" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="371.8828457956072" cy="184.0554325769121" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="384.1023808437567" cy="162.68326827216816" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="368.61355454179613" cy="173.99578143409784" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="367.00540552998393" cy="221.2085454792348" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="402.27836015009893" cy="187.0469253362218" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="317.5015370516636" cy="200.30790616496975" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="316.4300987970076" cy="186.5103850356395" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="378.0153257456527" cy="226.38760299847436" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="316.583060728163" cy="157.32845041105085" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="123.7540717619679" cy="183.17145048754438" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="208.5898295769737" cy="177.1280436402212" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="123.83496469716071" cy="202.78391561382938" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="128.26252480992795" cy="216.15905924076293" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="379.07946284405597" cy="213.9454823848453" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="391.21774820488" cy="207.65619576199924" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="338.6896670981444" cy="159.70260789235363" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="393.4704426243872" cy="168.57603524700585" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="355.0792456607488" cy="214.0107059609746" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="200.6287095328149" cy="188.45533478726816" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="179.24319591041908" cy="162.14532108505895" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="153.14058082049613" cy="160.31781509419218" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="169.43294475171382" cy="138.62756344416462" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="378.5142318149538" cy="152.0193378229881" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="185.01191437018812" cy="220.51720976477142" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="141.82206262401883" cy="165.60207452506822" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="185.52859659264448" cy="207.1592496433264" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="154.96146363808958" cy="222.7931533062777" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="347.283975367848" cy="135.10606603134434" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="315.03309190118927" cy="170.89363082703417" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="184.07788404243834" cy="140.2085249010073" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="191.26022391759992" cy="232.22885252865575" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="325.21557973437876" cy="178.2644113999368" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="331.76399846541284" cy="219.1088094132679" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="203.79156578191603" cy="164.21625393494668" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="372.89017562995895" cy="163.51028894671416" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="176.41302232316664" cy="184.99738612517453" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="191.25885502561243" cy="164.48205541386602" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="183.51211448538385" cy="173.74226351988142" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="142.8670531191283" cy="186.09592079796863" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="196.82838097525303" cy="175.3410092274494" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="161.35126515399432" cy="149.73049052153954" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="175.29812679797752" cy="212.57760053108598" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="361.01168909147134" cy="132.31242023925972" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="177.82587971274057" cy="232.338121650187" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="389.3784904926489" cy="233.8232773479491" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="360.9506190620448" cy="163.4238452032618" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="162.30876583448355" cy="234.46222333937524" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="403.8819238132964" cy="160.65676654664807" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="381.94952117017624" cy="201.7077357644142" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="356.9859920611665" cy="172.40018484193718" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="155.60879085640335" cy="138.0950904747157" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="202.75788561405787" cy="225.0270391016752" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="177.11044325023568" cy="198.02277032107727" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="172.42131837309455" cy="172.5763509832674" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="188.47848885141596" cy="152.39507749128" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="147.1850066540884" cy="232.87681697336814" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="156.61914275809272" cy="200.12866188637565" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="135.12021101221032" cy="154.45061403648396" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="213.9931206647499" cy="189.3470625796256" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="141.2758305936289" cy="220.42274119163503" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="147.5895051138851" cy="149.0191889694141" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="154.03413886122138" cy="188.23975244096" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="166.95902177573404" cy="160.6073480759651" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="149.28761790705818" cy="210.30007678671723" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="159.82830349692648" cy="169.6643827043497" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="196.5710005978644" cy="213.6623883919835" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="329.0079109339365" cy="151.49192710530332" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="306.9917704903298" cy="207.85913775691935" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="168.80871889267996" cy="223.13038390563207" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="161.50848348207913" cy="212.7048005341472" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="132.76874483998597" cy="193.12788148917303" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="207.38425645822366" cy="200.25226233760415" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="210.201872201555" cy="213.34511977125158" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="349.06424428297095" cy="202.98135411270673" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="318.776057643889" cy="214.369351239455" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="365.6826568718016" cy="152.75195799897776" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="333.6860614928803" cy="138.5929547867185" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="353.3869992563287" cy="191.84332483905112" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="326.9292328273509" cy="164.91586787404495" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="336.5521156309666" cy="172.40057611488663" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="368.315788986583" cy="209.77965687298587" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="196.32702817286687" cy="200.95277790109787" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="341.5298104339628" cy="211.22325948572282" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="391.59566315242057" cy="194.24927246130088" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="342.61418733864616" cy="147.62093707456145" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="376.88749263147844" cy="239.49033771074014" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="344.30561990416504" cy="191.2074853118153" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="168.1964968864874" cy="203.46368927360956" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="127.97818447517284" cy="166.22059248564724" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="391.9633878376455" cy="180.83011308131125" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="175.07868660148932" cy="150.2627745818211" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="385.4620523407261" cy="141.03183699761723" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="348.0785902222339" cy="236.7182467068206" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="344.4254701052307" cy="223.00147365931895" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="372.7062213760129" cy="198.15068681311507" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="413.64797176716144" cy="206.89299171781136" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="347.3957631629025" cy="167.25138079640675" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="364.11040815460086" cy="236.20579186929206" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="359.78268639694926" cy="202.58877264602668" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="328.563196665006" cy="206.6197541396453" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="187.04143022665377" cy="194.22840605908604" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="402.41055262152025" cy="214.5360356299111" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="136.7778331638485" cy="206.36433884201318" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="163.54054742003063" cy="180.4275160537775" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="221.87703383490944" cy="178.53525115241368" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="220.27450185153305" cy="201.8504314079385" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="326.8393958940953" cy="192.6927439416148" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="166.22808213783713" cy="191.72445260607262" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="188.8529885763955" cy="183.81316809483573" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="149.60919960708085" cy="175.73481422627057" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="135.43921306586995" cy="176.8776659139728" r="5" style="fill: rgb(121, 176, 197);"></circle><circle class="node" cx="356.1035033647861" cy="226.3948127103547" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="305.0051839131604" cy="179.99678954707682" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="371.4533959735539" cy="140.80175535940012" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="381.4248535858603" cy="188.34931670090182" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="364.7434230838606" cy="192.13290422557938" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="347.1009964354582" cy="179.66399943765654" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="305.58184272663874" cy="193.99505682058546" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="359.42406156334135" cy="182.07939930355803" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="413.6839600014573" cy="193.02170688529944" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="335.09060598854427" cy="232.36250463576047" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="356.38320762880875" cy="144.2217693280236" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="337.3984415125241" cy="199.0304007105492" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="402.21851291731144" cy="200.6116789654118" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="322.0405220125456" cy="227.7576894174084" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="390.4067124425598" cy="220.59218804974677" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="380.96672871363955" cy="174.74862435767443" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="351.8945052549093" cy="155.82344626517244" r="5" style="fill: rgb(167, 112, 107);"></circle><circle class="node" cx="335.27028393528786" cy="184.56480383934002" r="5" style="fill: rgb(167, 112, 107);"></circle><text class="label" transform="translate(162.25, 93.75)">GOP</text><text class="label" transform="translate(349.75, 93.75)">DFL</text></svg></div>
+
+<div class="outerMap">
+	<div id="survey">
+	<label class="btn btn-primary round vote" id="Predict">
+	<input type="radio" id="predict2" name="options" onchange="setVisibility(&#39;paint_me&#39;, &#39;block&#39;);map.removeLayer(paint_me);paint_me.addTo(map);setVisibility(&#39;chart&#39;, &#39;none&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;map&#39;, &#39;block&#39;);setVisibility(&#39;tracker&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;block&#39;);map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);setVisibility(&#39;vul_text&#39;, &#39;none&#39;);document.getElementById(&#39;metro&#39;).checked = false;setVisibility(&#39;zoomMe&#39;, &#39;none&#39;);setVisibility(&#39;now&#39;, &#39;none&#39;);setVisibility(&#39;safe_can&#39;, &#39;none&#39;);setVisibility(&#39;rematch_can&#39;, &#39;none&#39;);setVisibility(&#39;open_can&#39;, &#39;none&#39;);setVisibility(&#39;marriage_can&#39;, &#39;none&#39;);setVisibility(&#39;prez_can&#39;, &#39;none&#39;);setVisibility(&#39;gov_can&#39;, &#39;none&#39;);setVisibility(&#39;vul_can&#39;, &#39;none&#39;);"> Make Your Election 2014 Predictions
+	</label>
+	<label class="btn btn-primary round results" id="Results">
+	<input type="radio" id="predict2" name="options" onchange="setVisibility(&#39;map&#39;, &#39;none&#39;);setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;chart&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);setVisibility(&#39;tracker&#39;, &#39;block&#39;);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);setVisibility(&#39;vul_text&#39;, &#39;none&#39;);setVisibility(&#39;zoomMe&#39;, &#39;none&#39;);document.getElementById(&#39;metro&#39;).checked = false;setVisibility(&#39;now&#39;, &#39;none&#39;);setVisibility(&#39;safe_can&#39;, &#39;none&#39;);setVisibility(&#39;rematch_can&#39;, &#39;none&#39;);setVisibility(&#39;open_can&#39;, &#39;none&#39;);setVisibility(&#39;marriage_can&#39;, &#39;none&#39;);setVisibility(&#39;prez_can&#39;, &#39;none&#39;);setVisibility(&#39;gov_can&#39;, &#39;none&#39;);setVisibility(&#39;vul_can&#39;, &#39;none&#39;);"> See Results
+	</label>
+	</div>
+	
+	
+	<div id="zoomMe" class="zoomCheckbox"><input type="checkbox" id="metro" name="zoomMetro" onclick="if (document.getElementById(&#39;metro&#39;).checked) {map.setView([44.9648,-93.2519], 9);} else {map.setView([46.8527,-93.5595], 6);}" value="1"><label for="metro"></label></div><div id="map" class="leaflet-container leaflet-fade-anim" tabindex="0" style="position: relative;"><div class="leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-tile-pane"><div class="leaflet-layer"><div class="leaflet-tile-container"></div><div class="leaflet-tile-container"></div></div><div class="leaflet-layer"><div class="leaflet-tile-container"></div><div class="leaflet-tile-container leaflet-zoom-animated"><img class="leaflet-tile leaflet-tile-loaded" src="./index_files/22.png" style="height: 256px; width: 256px; left: 144px; top: 115px;"><img class="leaflet-tile leaflet-tile-loaded" src="./index_files/21.png" style="height: 256px; width: 256px; left: 144px; top: -141px;"><img class="leaflet-tile leaflet-tile-loaded" src="./index_files/22(1).png" style="height: 256px; width: 256px; left: -112px; top: 115px;"><img class="leaflet-tile leaflet-tile-loaded" src="./index_files/22(2).png" style="height: 256px; width: 256px; left: 400px; top: 115px;"><img class="leaflet-tile leaflet-tile-loaded" src="./index_files/23.png" style="height: 256px; width: 256px; left: 144px; top: 371px;"><img class="leaflet-tile leaflet-tile-loaded" src="./index_files/21(1).png" style="height: 256px; width: 256px; left: -112px; top: -141px;"><img class="leaflet-tile leaflet-tile-loaded" src="./index_files/21(2).png" style="height: 256px; width: 256px; left: 400px; top: -141px;"><img class="leaflet-tile leaflet-tile-loaded" src="./index_files/23(1).png" style="height: 256px; width: 256px; left: -112px; top: 371px;"><img class="leaflet-tile leaflet-tile-loaded" src="./index_files/23(2).png" style="height: 256px; width: 256px; left: 400px; top: 371px;"></div></div></div><div class="leaflet-objects-pane"><div class="leaflet-shadow-pane"></div><div class="leaflet-overlay-pane"></div><div class="leaflet-marker-pane"></div><div class="leaflet-popup-pane"></div></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="http://localhost/journalism/_archive/2016election/20140812-gop-map/#" title="Zoom in">+</a><a class="leaflet-control-zoom-out" href="http://localhost/journalism/_archive/2016election/20140812-gop-map/#" title="Zoom out">-</a></div></div><div class="leaflet-top leaflet-right"><div class="leaflet-control-grid map-tooltip leaflet-control" style="display: none;"><a class="close" href="http://localhost/journalism/_archive/2016election/20140812-gop-map/#" title="close">close</a><div class="map-tooltip-content"></div></div><div class="leaflet-control-grid map-tooltip leaflet-control" style="display: none;"><a class="close" href="http://localhost/journalism/_archive/2016election/20140812-gop-map/#" title="close">close</a><div class="map-tooltip-content"></div></div></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="map-legends wax-legends leaflet-control" style="display: none;"></div><div class="leaflet-control-attribution leaflet-control"></div></div></div></div></div>
+<div id="thanks"><h3>Thanks for submitting your prediction. Your data have been tabulated into the overall <a href="http://localhost/journalism/_archive/2016election/20140812-gop-map/#" onclick="setVisibility(&#39;map&#39;, &#39;none&#39;);setVisibility(&#39;paint_me&#39;, &#39;none&#39;);setVisibility(&#39;chart&#39;, &#39;none&#39;);setVisibility(&#39;tally&#39;, &#39;none&#39;);setVisibility(&#39;tracker&#39;, &#39;block&#39;);setVisibility(&#39;2006_text&#39;, &#39;none&#39;);setVisibility(&#39;2008_text&#39;, &#39;none&#39;);setVisibility(&#39;2010_text&#39;, &#39;none&#39;);setVisibility(&#39;2012_text&#39;, &#39;none&#39;);setVisibility(&#39;lean_text&#39;, &#39;none&#39;);setVisibility(&#39;unopposed_text&#39;, &#39;none&#39;);setVisibility(&#39;rematch_text&#39;, &#39;none&#39;);setVisibility(&#39;open_text&#39;, &#39;none&#39;);setVisibility(&#39;marriage_text&#39;, &#39;none&#39;);setVisibility(&#39;prez_text&#39;, &#39;none&#39;);setVisibility(&#39;2004_text&#39;, &#39;none&#39;);setVisibility(&#39;gov_text&#39;, &#39;none&#39;);setVisibility(&#39;thanks&#39;, &#39;none&#39;);setVisibility(&#39;vul_text&#39;, &#39;none&#39;);document.getElementById(&#39;Results&#39;).className = &#39;active btn btn-primary round&#39;;document.getElementById(&#39;Predict&#39;).className = &#39;btn btn-primary round&#39;;">survey results</a>.</h3>
+<br>
+You predicted <label for="61" id="tallyMeR2">61</label> GOP seats and <label for="73" id="tallyMeD2">73</label> DFL seats resulting in <label id="house_control2" for="DFL">DFL Control</label> of the Minnesota House of Representatives. <br>
+
+<div class="fb-share-button fb_iframe_widget" data-href="http://apps.startribune.com/news/tileserver/index.php" data-type="button_count" data-width="300" fb-xfbml-state="parsed" fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;href=http%3A%2F%2Fapps.startribune.com%2Fnews%2Ftileserver%2Findex.php&amp;locale=en_GB&amp;sdk=joey&amp;type=button_count&amp;width=300"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe name="f338700285f6ec" width="300px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:share_button Facebook Social Plugin" src="./index_files/share_button.html" style="border: none; visibility: hidden;"></iframe></span></div>
+</div>
+
+<div id="tally">
+<center>134 House Seats - <label id="house_control" for="DFL">DFL Control</label><br>
+DFL Seats <label for="73" id="tallyMeD">73</label> | <label for="61" id="tallyMeR">61</label> GOP Seats</center>
+<br>
+</div>
+
+<div id="tracker">
+<center><h3>Readers predict a <font color="#79B0C5"><strong>DFL</strong></font> majority in the Minnesota House of Representatives</h3>
+<svg style="height:460px;width:800px;"> <g class="nvd3 nv-wrap nv-multiBarHorizontalChart" transform="translate(30,30)"><g><g class="nv-x nv-axis"><g class="nvd3 nv-wrap nv-axis"><g><g class="tick major" transform="translate(0,7.560137457044674)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">01B</text></g><g class="tick major" transform="translate(0,21.305841924398628)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">02A</text></g><g class="tick major" transform="translate(0,35.05154639175258)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">02B</text></g><g class="tick major" transform="translate(0,48.79725085910653)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">04A</text></g><g class="tick major" transform="translate(0,62.542955326460486)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">04B</text></g><g class="tick major" transform="translate(0,76.28865979381445)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">10A</text></g><g class="tick major" transform="translate(0,90.03436426116839)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">10B</text></g><g class="tick major" transform="translate(0,103.78006872852234)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">11B</text></g><g class="tick major" transform="translate(0,117.5257731958763)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">12A</text></g><g class="tick major" transform="translate(0,131.27147766323026)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">13A</text></g><g class="tick major" transform="translate(0,145.01718213058422)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">14B</text></g><g class="tick major" transform="translate(0,158.76288659793815)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">15A</text></g><g class="tick major" transform="translate(0,172.5085910652921)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">17A</text></g><g class="tick major" transform="translate(0,186.25429553264607)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">17B</text></g><g class="tick major" transform="translate(0,200)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">24A</text></g><g class="tick major" transform="translate(0,213.74570446735396)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">24B</text></g><g class="tick major" transform="translate(0,227.49140893470792)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">05A</text></g><g class="tick major" transform="translate(0,241.23711340206188)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">27A</text></g><g class="tick major" transform="translate(0,254.98281786941584)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">32B</text></g><g class="tick major" transform="translate(0,268.7285223367698)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">36A</text></g><g class="tick major" transform="translate(0,282.47422680412376)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">42B</text></g><g class="tick major" transform="translate(0,296.21993127147766)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">44A</text></g><g class="tick major" transform="translate(0,309.9656357388316)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">48A</text></g><g class="tick major" transform="translate(0,323.7113402061856)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">49A</text></g><g class="tick major" transform="translate(0,337.45704467353954)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">49B</text></g><g class="tick major" transform="translate(0,351.2027491408935)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">51A</text></g><g class="tick major" transform="translate(0,364.94845360824746)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">51B</text></g><g class="tick major" transform="translate(0,378.6941580756014)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">54A</text></g><g class="tick major" transform="translate(0,392.4398625429553)" style="opacity: 1;"><line x2="750" y2="0"></line><text x="-5" dy=".32em" y="0" style="text-anchor: end;">56B</text></g><path class="domain" d="M0,0H0V400H0"></path><text class="nv-axislabel" transform="rotate(-90)" y="-63" x="-0.6872852233676977" style="text-anchor: middle;"></text></g></g></g><g class="nv-y nv-axis" transform="translate(0,400)"><g class="nv-zeroLine"><line x1="0" x2="0" y1="0" y2="-400"></line></g><g class="nvd3 nv-wrap nv-axis"><g><g class="tick major" transform="translate(0,0)" style="opacity: 1;"><line y2="-400" x2="0"></line></g><g class="tick major" transform="translate(149.99999999998502,0)" style="opacity: 1;"><line y2="-400" x2="0"></line><text y="3" dy=".71em" x="0" style="text-anchor: middle;">20%</text></g><g class="tick major" transform="translate(299.99999999997004,0)" style="opacity: 1;"><line y2="-400" x2="0"></line><text y="3" dy=".71em" x="0" style="text-anchor: middle;">40%</text></g><g class="tick major" transform="translate(449.99999999995504,0)" style="opacity: 1;"><line y2="-400" x2="0"></line><text y="3" dy=".71em" x="0" style="text-anchor: middle;">60%</text></g><g class="tick major" transform="translate(599.9999999999401,0)" style="opacity: 1;"><line y2="-400" x2="0"></line><text y="3" dy=".71em" x="0" style="text-anchor: middle;">80%</text></g><path class="domain" d="M0,0V0H750V0"></path><text class="nv-axislabel" text-anchor="middle" y="36" x="375"></text></g><g class="nv-axisMaxMin" transform="translate(0,0)"><text dy=".71em" y="3" transform="rotate(0 0,0)" style="text-anchor: middle;">0%</text></g><g class="nv-axisMaxMin" transform="translate(750,0)"><text dy=".71em" y="3" transform="rotate(0 0,0)" style="text-anchor: middle;">100%</text></g></g></g><g class="nv-barsWrap"><g class="nvd3 nv-wrap nv-multibarHorizontal" transform="translate(0,0)"><defs></defs><g><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(167, 112, 107); stroke: rgb(167, 112, 107);"><g transform="translate(0,1.374570369720459)" class="nv-bar positive"><rect width="272.7272727269727" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,15.120274543762207)" class="nv-bar positive"><rect width="272.7272727269727" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,28.86598014831543)" class="nv-bar positive"><rect width="68.18181818181819" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,42.6116828918457)" class="nv-bar positive"><rect width="136.36363636348636" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,56.35738754272461)" class="nv-bar positive"><rect width="68.18181818181819" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,70.10309600830078)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,83.84880065917969)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,97.5945053100586)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,111.3402099609375)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,125.08590698242188)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,138.8316192626953)" class="nv-bar positive"><rect width="68.18181818181819" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,152.5773162841797)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,166.32302856445312)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,180.0687255859375)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,193.81443786621094)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,207.5601348876953)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,221.30584716796875)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,235.05154418945312)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,248.79725646972656)" class="nv-bar positive"><rect width="136.36363636348636" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,262.54296875)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,276.2886657714844)" class="nv-bar positive"><rect width="68.18181818181819" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,290.03436279296875)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,303.7800598144531)" class="nv-bar positive"><rect width="68.18181818181819" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,317.5257873535156)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,331.271484375)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,345.0171813964844)" class="nv-bar positive"><rect width="68.18181818181819" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,358.76287841796875)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,372.50860595703125)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,386.2543029785156)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g></g><g class="nv-group nv-series-1" style="stroke-opacity: 1; fill-opacity: 0.75; fill: rgb(121, 176, 197); stroke: rgb(121, 176, 197);"><g transform="translate(272.7272644042969,1.374570369720459)" class="nv-bar positive"><rect width="477.27272727295235" height="12.371134020618557"></rect><text></text></g><g transform="translate(272.7272644042969,15.120274543762207)" class="nv-bar positive"><rect width="477.27272727295235" height="12.371134020618557"></rect><text></text></g><g transform="translate(68.18181610107422,28.86598014831543)" class="nv-bar positive"><rect width="681.8181818181818" height="12.371134020618557"></rect><text></text></g><g transform="translate(136.36363220214844,42.6116828918457)" class="nv-bar positive"><rect width="613.6363636364388" height="12.371134020618557"></rect><text></text></g><g transform="translate(68.18181610107422,56.35738754272461)" class="nv-bar positive"><rect width="681.8181818181818" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,70.10309600830078)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,83.84880065917969)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,97.5945053100586)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,111.3402099609375)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(750,125.08590698242188)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(68.18181610107422,138.8316192626953)" class="nv-bar positive"><rect width="681.8181818181818" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,152.5773162841797)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,166.32302856445312)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,180.0687255859375)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(750,193.81443786621094)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,207.5601348876953)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,221.30584716796875)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,235.05154418945312)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(136.36363220214844,248.79725646972656)" class="nv-bar positive"><rect width="613.6363636364388" height="12.371134020618557"></rect><text></text></g><g transform="translate(750,262.54296875)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(68.18181610107422,276.2886657714844)" class="nv-bar positive"><rect width="681.8181818181818" height="12.371134020618557"></rect><text></text></g><g transform="translate(750,290.03436279296875)" class="nv-bar positive"><rect width="0" height="12.371134020618557"></rect><text></text></g><g transform="translate(68.18181610107422,303.7800598144531)" class="nv-bar positive"><rect width="681.8181818181818" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,317.5257873535156)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,331.271484375)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(68.18181610107422,345.0171813964844)" class="nv-bar positive"><rect width="681.8181818181818" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,358.76287841796875)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,372.50860595703125)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g><g transform="translate(0,386.2543029785156)" class="nv-bar positive"><rect width="749.9999999999251" height="12.371134020618557"></rect><text></text></g></g></g></g></g></g><g class="nv-legendWrap" transform="translate(180,-30)"><g class="nvd3 nv-legend" transform="translate(0,5)"><g transform="translate(478,5)"><g class="nv-series" transform="translate(0,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(167, 112, 107); stroke: rgb(167, 112, 107);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8">GOP</text></g><g class="nv-series" transform="translate(46,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(121, 176, 197); stroke: rgb(121, 176, 197);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8">DFL</text></g></g></g></g><g class="nv-controlsWrap" transform="translate(0,-30)"><g class="nvd3 nv-legend" transform="translate(0,5)"><g transform="translate(40,5)"><g class="nv-series disabled" transform="translate(0,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(68, 68, 68); stroke: rgb(68, 68, 68);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8">Grouped</text></g><g class="nv-series" transform="translate(70,5)"><circle class="nv-legend-symbol" r="5" style="stroke-width: 2; fill: rgb(68, 68, 68); stroke: rgb(68, 68, 68);"></circle><text text-anchor="start" class="nv-legend-text" dy=".32em" dx="8">Stacked</text></g></g></g></g></g></g></svg>
+<h4>Among vulnerable districts, totals from 11 readers project <font color="#79B0C5"><strong>25</strong></font> DFL wins and <font color="#a7706b"><strong>4</strong></font> GOP wins.<br>
+</h4><h4>If all other races go as expected, the chamber would be broken down by <font color="#79B0C5"><strong>73</strong></font> DFL seats and <font color="#a7706b"><strong>61</strong></font> GOP seats.</h4>
+</center>
+</div>
+
+
+
+
+
+<!--SCRIPTS-->
+<script src="./index_files/jquery.min.js"></script>
+<script src="./index_files/d3.js"></script>
+<script src="./index_files/d3.min.js"></script>
+<script src="./index_files/underscore-min.map"></script>
+<script src="./index_files/underscore-min.js"></script>
+<script src="./index_files/bootstrap.min.js"></script>
+<script src="./index_files/mapbox.js"></script>
+<script src="./index_files/Leaflet.fullscreen.min.js"></script>
+<script src="./index_files/leaflet-omnivore.min.js"></script>
+<script src="./index_files/d3.v3.js"></script>
+<script src="./index_files/nv.d3.js"></script>
+<script src="./index_files/utils.js"></script>
+<script src="./index_files/tooltip.js"></script>
+<script src="./index_files/legend.js"></script>
+<script src="./index_files/axis.js"></script>
+<script src="./index_files/multiBarHorizontal.js"></script>
+<script src="./index_files/multiBarHorizontalChart.js"></script>
+<script src="./index_files/stream_layers.js"></script>
+<script src="./index_files/jquery.form.js"></script> 
+<script src="./index_files/jquery.dataTables.min.js"></script> 
+
+<script language="JavaScript">
+$('#32Bd').attr('checked','checked');
+
+function setVisibility(id, visibility) {
+document.getElementById(id).style.display = visibility;
+}
+
+
+$(document).ready(function() {
+    $("input").click(function(event) {
+        updateTotal();
+    });
+});
+
+function updateTotal() {
+    var totalR = 57;
+    var totalD = 48;
+    $("input:checked.r").each(function() {
+       totalR += parseFloat(this.value) - 1;
+    });
+    $('#tallyMeR').text(totalR);
+    $('#tallyMeR2').text(totalR);
+
+    $("input:checked.d").each(function() {
+       totalD += parseFloat(this.value);
+    });
+    $('#tallyMeD').text(totalD);
+    $('#tallyMeD2').text(totalD);
+
+if (totalR > totalD){
+    $('#house_control').text("GOP control");
+    $('#house_control2').text("GOP control");
+var rep = "GOP";
+return rep;
+}
+else if (totalR == totalD){
+    $('#house_control').text("Even Split");
+    $('#house_control2').text("Even Split");
+}
+else {
+    $('#house_control').text("DFL Control");
+    $('#house_control2').text("DFL Control");
+var dfl = "DFL";
+return dfl;
+}
+}
+
+</script>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-45101494-1']);
+    _gaq.push(['_setDomainName', 'delimited.io']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script> 
+    $(document).ready(function() { 
+        $('#form1').ajaxForm(function() { 
+           //alert('form was submitted');
+        }); 
+    }); 
+
+$(document).ready(function(){
+    $('#ballot').dataTable({"iDisplayLength":134,"scrollY":"450px","scrollCollapse":true,"paging":false,"scrollx":false});
+});
+</script> 
+
+    <script>
+      d3.csv('data/race.csv', function (error, data) {
+
+        var width = 800, height = 500;
+        var fill = d3.scale.ordinal().range(['#79B0C5','#a7706b'])
+        var svg = d3.select("#chart").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        for (var j = 0; j < data.length; j++) {
+          data[j].radius = +data[j].comb / 4;
+          data[j].x = Math.random() * width;
+          data[j].y = Math.random() * height;
+        }
+
+        var padding = 4;
+        var maxRadius = d3.max(_.pluck(data, 'radius'));
+
+
+        var getCenters = function (vname, size) {
+          var centers, map;
+          centers = _.uniq(_.pluck(data, vname)).map(function (d) {
+            return {name: d, value: 1};
+          });
+
+          map = d3.layout.pack().size(size);
+          map.nodes({children: centers});
+
+          return centers;
+        };
+
+        var nodes = svg.selectAll("circle")
+          .data(data);
+
+        nodes.enter().append("circle")
+          .attr("class", "node")
+          .attr("cx", function (d) { return d.x; })
+          .attr("cy", function (d) { return d.y; })
+          .attr("r", 2)
+          .style("fill", function (d) { return fill(d.party); })
+          .on("mouseover", function (d) { showPopover.call(this, d); })
+          .on("mouseout", function (d) { removePopovers(); })
+
+        nodes.transition().duration(1000)
+          .attr("r", function (d) { return d.radius; })
+
+        var force = d3.layout.force();
+
+        draw('party');
+
+        $( ".btn" ).click(function() {
+          draw(this.id);
+        });
+
+        function draw (varname) {
+          var centers = getCenters(varname, [530, 375]);
+          force.on("tick", tick(centers, varname));
+          labels(centers)
+          force.start();
+        }
+
+        function tick (centers, varname) {
+          var foci = {};
+          for (var i = 0; i < centers.length; i++) {
+            foci[centers[i].name] = centers[i];
+          }
+          return function (e) {
+            for (var i = 0; i < data.length; i++) {
+              var o = data[i];
+              var f = foci[o[varname]];
+              o.y += (f.y - o.y) * e.alpha;
+              o.x += (f.x - o.x) * e.alpha;
+            }
+            nodes.each(collide(.11))
+              .attr("cx", function (d) { return d.x; })
+              .attr("cy", function (d) { return d.y; });
+          }
+        }
+
+        function labels (centers) {
+          svg.selectAll(".label").remove();
+
+          svg.selectAll(".label")
+          .data(centers).enter().append("text")
+          .attr("class", "label")
+          .text(function (d) { return d.name })
+          .attr("transform", function (d) {
+            return "translate(" + (d.x - ((d.name.length)*3)) + ", " + (d.y - d.r) + ")";
+          });
+        }
+
+        function removePopovers () {
+          $('.popover').each(function() {
+            $(this).remove();
+          }); 
+        }
+
+        function showPopover (d) {
+          $(this).popover({
+            placement: 'auto top',
+            container: 'body',
+            trigger: 'manual',
+            html : true,
+            content: function() { 
+              return "District " + d.district + "<br/>" + d.leg + "<br/>" + d.unopposed +
+                     "<br/>Party: " + d.party + "<br/>Term: " + d.term; }
+          });
+          $(this).popover('show')
+        }
+
+        function collide(alpha) {
+          var quadtree = d3.geom.quadtree(data);
+          return function(d) {
+            var r = d.radius + maxRadius + padding,
+                nx1 = d.x - r,
+                nx2 = d.x + r,
+                ny1 = d.y - r,
+                ny2 = d.y + r;
+            quadtree.visit(function(quad, x1, y1, x2, y2) {
+              if (quad.point && (quad.point !== d)) {
+                var x = d.x - quad.point.x,
+                    y = d.y - quad.point.y,
+                    l = Math.sqrt(x * x + y * y),
+                    r = d.radius + quad.point.radius + padding;
+                if (l < r) {
+                  l = (l - r) / l * alpha;
+                  d.x -= x *= l;
+                  d.y -= y *= l;
+                  quad.point.x += x;
+                  quad.point.y += y;
+                }
+              }
+              return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+            });
+          };
+        }
+      });
+    </script>
+
+<script>
+//Set the map boundaries
+var southWest = L.latLng(-94.2957,44.5239),
+    northEast = L.latLng(-92.5488,45.7177),
+    bounds = L.latLngBounds(southWest, northEast);
+
+//Make the map object
+var map = L.mapbox.map('map', {
+      attributionControl: false,
+      infoControl: 'Jeff Hargarten',
+        maxBounds: bounds,
+gridControl: false // Disable default gridControl interactivity.
+    });
+
+map.setView([46.8527,-93.5595], 6);
+
+var openseat = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_open.tilejson', {format: 'png'});
+var lean = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_lean.tilejson', {format: 'png'});
+var prez = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_prez.tilejson', {format: 'png'});
+var gov = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_gov.tilejson', {format: 'png'});
+var marriage = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_marriage.tilejson', {format: 'png'});
+var unopposed = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_unopposed.tilejson', {format: 'png'});
+var rematch = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_rematch.tilejson', {format: 'png'});
+var now = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2012.tilejson', {format: 'png'});
+var now2 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2010.tilejson', {format: 'png'});
+var now3 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2008.tilejson', {format: 'png'});
+var now4 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2006.tilejson', {format: 'png'});
+var now5 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2004.tilejson', {format: 'png'});
+var party = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2012.tilejson', {format: 'png'}).addTo(map);
+var paint_me = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_predict.tilejson', {format: 'png'});
+var vulnerable = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_vul.tilejson', {format: 'png'});
+
+var dem1 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/02Ad.tilejson', {format: 'png'});
+var rep1 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/02Ar.tilejson', {format: 'png'});
+var dem2 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/04Ad.tilejson', {format: 'png'});
+var rep2 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/04Ar.tilejson', {format: 'png'});
+var dem3 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/10Bd.tilejson', {format: 'png'});
+var rep3 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/10Br.tilejson', {format: 'png'});
+var dem4 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/11Bd.tilejson', {format: 'png'});
+var rep4 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/11Br.tilejson', {format: 'png'});
+var dem5 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/12Ad.tilejson', {format: 'png'});
+var rep5 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/12Ar.tilejson', {format: 'png'});
+var dem6 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/13Ad.tilejson', {format: 'png'});
+var rep6 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/13Ar.tilejson', {format: 'png'});
+var dem7 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/14Bd.tilejson', {format: 'png'});
+var rep7 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/14Br.tilejson', {format: 'png'});
+var dem8 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/17Bd.tilejson', {format: 'png'});
+var rep8 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/17Br.tilejson', {format: 'png'});
+var dem9 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/24Ad.tilejson', {format: 'png'});
+var rep9 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/24Ar.tilejson', {format: 'png'});
+var dem10 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/24Bd.tilejson', {format: 'png'});
+var rep10 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/24Br.tilejson', {format: 'png'});
+var dem11 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/05Ad.tilejson', {format: 'png'});
+var rep11 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/05Ar.tilejson', {format: 'png'});
+var dem12 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/27Ad.tilejson', {format: 'png'});
+var rep12 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/27Ar.tilejson', {format: 'png'});
+var dem13 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/36Ad.tilejson', {format: 'png'});
+var rep13 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/36Ar.tilejson', {format: 'png'});
+var dem14 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/42Bd.tilejson', {format: 'png'});
+var rep14 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/42Br.tilejson', {format: 'png'});
+var dem15 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/44Ad.tilejson', {format: 'png'});
+var rep15 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/44Ar.tilejson', {format: 'png'});
+var dem16 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/48Ad.tilejson', {format: 'png'});
+var rep16 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/48Ar.tilejson', {format: 'png'});
+var dem17 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/49Ad.tilejson', {format: 'png'});
+var rep17 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/49Ar.tilejson', {format: 'png'});
+var dem18 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/49Bd.tilejson', {format: 'png'});
+var rep18 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/49Br.tilejson', {format: 'png'});
+var dem19 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/51Ad.tilejson', {format: 'png'});
+var rep19 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/51Ar.tilejson', {format: 'png'});
+var dem20 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/51Bd.tilejson', {format: 'png'});
+var rep20 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/51Br.tilejson', {format: 'png'});
+var dem21 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/54Ad.tilejson', {format: 'png'});
+var rep21 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/54Ar.tilejson', {format: 'png'});
+var dem22 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/56Bd.tilejson', {format: 'png'});
+var rep22 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/56Br.tilejson', {format: 'png'});
+var dem23 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/01Bd.tilejson', {format: 'png'});
+var rep23 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/01Br.tilejson', {format: 'png'});
+var dem24 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/02Bd.tilejson', {format: 'png'});
+var rep24 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/02Br.tilejson', {format: 'png'});
+var dem25 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/04Bd.tilejson', {format: 'png'});
+var rep25 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/04Br.tilejson', {format: 'png'});
+var dem26 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/10Ad.tilejson', {format: 'png'});
+var rep26 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/10Ar.tilejson', {format: 'png'});
+var dem27 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/15Ad.tilejson', {format: 'png'});
+var rep27 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/15Ar.tilejson', {format: 'png'});
+var dem28 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/17Ad.tilejson', {format: 'png'});
+var rep28 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/17Ar.tilejson', {format: 'png'});
+var dem29 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/32Bd.tilejson', {format: 'png'});
+var rep29 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/32Br.tilejson', {format: 'png'});
+
+
+
+//Pull interactive, data-infused vector layers from the .mbtiles hosted on the server
+var dataTiles = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/main_grid.tilejson');
+var dataGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/main_grid.tilejson').addTo(map);
+var dataControl = L.mapbox.gridControl(dataGrid).addTo(map);
+
+var prezGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/prez_grid.tilejson');
+var prezControl = L.mapbox.gridControl(prezGrid);
+
+var rematchGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/rematch_grid.tilejson');
+var rematchControl = L.mapbox.gridControl(rematchGrid);
+
+var flipGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/flip_grid.tilejson');
+var flipControl = L.mapbox.gridControl(flipGrid);
+
+var govGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/gov_grid.tilejson');
+var govControl = L.mapbox.gridControl(govGrid);
+
+//Pull interactive, data-infused vector layers from the .mbtiles hosted on the server
+var marriageGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/marriage_grid.tilejson');
+var marriageControl = L.mapbox.gridControl(marriageGrid);
+
+
+//dataTiles.addTo(map);
+
+//Add the legend to the map
+//map.legendControl.addLegend(document.getElementById('wrapper').innerHTML);
+
+//Make the tooltip follow the mouse
+dataControl.options.follow = true;
+marriageControl.options.follow = true;
+prezControl.options.follow = true;
+govControl.options.follow = true;
+flipControl.options.follow = true;
+rematchControl.options.follow = true;
+
+function addLayer(layer) {
+openseat.addTo(map);
+//var box = document.getElementById(layer);
+//map.removeLayer(layer);
+//if (!box.checked){ map.removeLayer(layer); }
+//if (box.checked) { layer.addTo(map); }
+}
+
+map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+if (map.tap) map.tap.disable();
+
+</script>
+
+<script>
+var chart;
+nv.addGraph(function() {
+  chart = nv.models.multiBarHorizontalChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .margin({top: 30, right: 20, bottom: 30, left: 30})
+      //.showValues(true)
+      .tooltips(false)
+      //.barColor(#a7706b,#ff0000)
+      .transitionDuration(250)
+      .stacked(true)
+      //.showControls(false);
+
+  chart.yAxis
+      .tickFormat(d3.format(',.0%'));
+
+  d3.select('#tracker svg')
+      .datum(rep_data)
+      .call(chart);
+
+  nv.utils.windowResize(chart.update);
+
+  chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
+
+  return chart;
+});
+</script>
+
+<script>
+rep_data = [ 
+  {
+    key: 'GOP',
+    color: '#a7706b',
+    values: [
+      { 
+        "label" : "01B" ,
+        "value" : 0.363636363636      } ,
+      { 
+        "label" : "02A" ,
+        "value" : 0.363636363636      } , 
+      { 
+        "label" : "02B" ,
+        "value" : 0.0909090909091      } ,
+      { 
+        "label" : "04A" ,
+        "value" : 0.181818181818      } , 
+      { 
+        "label" : "04B" ,
+        "value" : 0.0909090909091      } , 
+      { 
+        "label" : "10A" ,
+        "value" : 0      } , 
+      { 
+        "label" : "10B" ,
+        "value" : 0      } , 
+      { 
+        "label" : "11B" ,
+        "value" : 0      } , 
+      {
+        "label" : "12A" ,
+        "value" : 0      } , 
+      { 
+        "label" : "13A" ,
+        "value" : 1      } , 
+      { 
+        "label" : "14B" ,
+        "value" : 0.0909090909091      } , 
+      { 
+        "label" : "15A" ,
+        "value" : 0      } , 
+      {
+        "label" : "17A" ,
+        "value" : 0      } , 
+      {
+        "label" : "17B" ,
+        "value" : 0      } , 
+      { 
+        "label" : "24A" ,
+        "value" : 1      },
+      { 
+        "label" : "24B" ,
+        "value" : 0      },
+      { 
+        "label" : "05A" ,
+        "value" : 0      },
+      { 
+        "label" : "27A" ,
+        "value" : 0      },
+      { 
+        "label" : "32B" ,
+        "value" : 0.181818181818      },
+      { 
+        "label" : "36A" ,
+        "value" : 1      },
+      { 
+        "label" : "42B" ,
+        "value" : 0.0909090909091      },
+      { 
+        "label" : "44A" ,
+        "value" : 1      },
+      { 
+        "label" : "48A" ,
+        "value" : 0.0909090909091      },
+      { 
+        "label" : "49A" ,
+        "value" : 0      },
+      { 
+        "label" : "49B" ,
+        "value" : 0      },
+      { 
+        "label" : "51A" ,
+        "value" : 0.0909090909091      },
+      { 
+        "label" : "51B" ,
+        "value" : 0      },
+      { 
+        "label" : "54A" ,
+        "value" : 0      },
+      { 
+        "label" : "56B" ,
+        "value" : 0      }
+    ]
+  },
+  {
+    key: 'DFL',
+    color: '#79B0C5',
+    values: [
+      { 
+        "label" : "01B" ,
+        "value" : 0.636363636364      } ,
+      { 
+        "label" : "02A" ,
+        "value" : 0.636363636364      } , 
+      { 
+        "label" : "02B" ,
+        "value" : 0.909090909091      } ,
+      { 
+        "label" : "04A" ,
+        "value" : 0.818181818182      } , 
+      { 
+        "label" : "04B" ,
+        "value" : 0.909090909091      } , 
+      { 
+        "label" : "10A" ,
+        "value" : 1      } , 
+      { 
+        "label" : "10B" ,
+        "value" : 1      } , 
+      { 
+        "label" : "11B" ,
+        "value" : 1      } , 
+      {
+        "label" : "12A" ,
+        "value" : 1      } , 
+      { 
+        "label" : "13A" ,
+        "value" : 0      } , 
+      { 
+        "label" : "14B" ,
+        "value" : 0.909090909091      } , 
+      { 
+        "label" : "15A" ,
+        "value" : 1      } , 
+      {
+        "label" : "17A" ,
+        "value" : 1      } , 
+      {
+        "label" : "17B" ,
+        "value" : 1      } , 
+      { 
+        "label" : "24A" ,
+        "value" : 0      },
+      { 
+        "label" : "24B" ,
+        "value" : 1      },
+      { 
+        "label" : "05A" ,
+        "value" : 1      },
+      { 
+        "label" : "27A" ,
+        "value" : 1      },
+      { 
+        "label" : "32B" ,
+        "value" : 0.818181818182      },
+      { 
+        "label" : "36A" ,
+        "value" : 0      },
+      { 
+        "label" : "42B" ,
+        "value" : 0.909090909091      },
+      { 
+        "label" : "44A" ,
+        "value" : 0      },
+      { 
+        "label" : "48A" ,
+        "value" : 0.909090909091      },
+      { 
+        "label" : "49A" ,
+        "value" : 1      },
+      { 
+        "label" : "49B" ,
+        "value" : 1      },
+      { 
+        "label" : "51A" ,
+        "value" : 0.909090909091      },
+      { 
+        "label" : "51B" ,
+        "value" : 1      },
+      { 
+        "label" : "54A" ,
+        "value" : 1      },
+      { 
+        "label" : "56B" ,
+        "value" : 1      }
+    ]
+  }
+];
+
+</script>
+  
+</body></html>

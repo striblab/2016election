@@ -1,0 +1,139 @@
+BATTLEGROUND C
+--------------
+STYLES: Colors
+STYLES: Races select sidebar
+STYLES: View switch sidebar
+STYLES: View switch fixes
+STYLES: Dataviz pane
+STYLES: Legends
+MOBILE: Breakpoints
+MOBILE: Responsive layout
+MOBILE: Responsive styling
+MOBILE: Responsive finish
+DATA: Conditional data loads per race
+PREZ: EV cartogram pour
+
+BATTLEGROUND D
+--------------
+DATA: New data source pour
+RAY: Scripts test
+RAY: Finish
+MNHOUSE: Metro shape
+MNSENATE: Metro shape
+PREZ: Results Update
+MNHOUSE: Results Update
+HOUSE: Results Update
+MNSENATE: Results Update
+DATA: Update counter
+PREZ: EV cartogram data hookup
+PREZ: EV cartogram colors
+
+BATTLEGROUND E
+--------------
+PREZ: Power bar
+PREZ: Minnesota by county isolate
+PREZ: Metro by county isolate
+PREZ: Minnesota projection transition
+PREZ: Tables finish
+PREZ: Johnson surface
+PREZ: County state names
+PREZ: Other surface
+PREZ: Submerge PCT
+PREZ: Winner algorithm
+PREZ: Lean/wins coloring
+PREZ: Show counties on state click
+
+BATTLEGROUND F
+--------------
+MNHOUSE: Power balance bar
+MNHOUSE: Carto pour
+MNHOUSE: Carto data hookup
+MNHOUSE: Carto colors
+MNHOUSE: Table pour
+MNHOUSE: Table finish
+MNSENATE: Power balance bar
+MNSENATE: Carto pour
+MNSENATE: Carto data hookup
+MNSENATE: Carto colors
+MNSENATE: Table pour
+MNSENATE: Table finish
+
+BATTLEGROUND G
+--------------
+SEN: Results Update
+SEN: Power balance bar
+SEN: Kill PCT
+SEN: Table pour
+SEN: Table finish
+SEN: No race handling
+SEN: County state names
+SEN: Carto pour
+SEN: Carto data hookup
+SEN: Carto colors
+SEN: Lean/wins coloring
+SEN: Show counties on state click
+
+BATTLEGROUND H
+--------------
+HOUSE: Results return
+HOUSE: Map color
+HOUSE: Minnesota table pour
+HOUSE: Minnesota table finish
+HOUSE: Minnesota view isolate
+HOUSE: Minnesota projection transition
+HOUSE: Winner algorithm
+HOUSE: Lean/wins coloring
+HOUSE: Tooltips
+HOUSE: Carto pour
+HOUSE: Carto data bind
+HOUSE: Carto color
+
+BATTLEGROUND I
+--------------
+HOUSE: Power balance bar
+HOUSE: Race results clicky
+GOV: Results Update
+GOV: Power balance bar
+GOV: Table pour
+GOV: Table finish
+GOV: No race handling
+GOV: Carto pour
+GOV: Carto data hookup
+GOV: Carto colors
+GOV: Lean/wins coloring
+GOV: Show counties on state click
+
+BATTLEGROUND J
+--------------
+DATA: Live data test
+Style fixes
+Final touches
+MNSENATE: Unopposed/no race handling
+MNHOUSE: Unopposed/no race handling
+
+ELECTION NIGHT
+--------------
+VOTE
+FLAWLESSNESS
+
+BATTLEGROUND K
+--------------
+POMO: MNDIVIDE NEW DATA POUR
+POMO: MNDIVIDE CHATTER
+POMO: MNDIVIDE STYLE
+POMO: MNDIVIDE STAGE
+POMO: MNDIVIDE FINISH
+POMO: Precinct data
+
+BATTLEGROUND L
+--------------
+POMO: Archive data
+POMO: Migrate to CSV
+POMO: Migrate to JSON
+POMO: TURNOUT Update
+POMO: IRONRANGE analysis
+POMO: VOTER analysis
+POMO: MNSENATE Update
+POMO: MNHOUSE Update
+POMO: MNCD Update
+POMO: CAMPFI Update

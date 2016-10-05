@@ -1,0 +1,426 @@
+Obama,Romney,Undecided,Other,poll_id,pollster,start_date,end_date,sample_subpopulation,sample_size,mode,partisanship,partisan_affiliation
+47.0,47.0,6.0,,16674,Politico/GWU/Battleground,2012-11-04,2012-11-05,Likely Voters,1000,Live Phone,Nonpartisan,None
+49.0,47.0,3.0,,16733,YouGov/Economist,2012-11-03,2012-11-05,Likely Voters,740,Internet,Nonpartisan,None
+48.0,48.0,4.0,,16681,Gravis Marketing,2012-11-03,2012-11-05,Likely Voters,872,Automated Phone,Nonpartisan,None
+50.0,49.0,,1.0,16679,IBD/TIPP,2012-11-03,2012-11-05,Likely Voters,712,Live Phone,Nonpartisan,None
+48.0,49.0,,,16677,Rasmussen,2012-11-03,2012-11-05,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,47.0,6.0,,16670,JZ Analytics/Newsmax,2012-11-03,2012-11-05,Likely Voters,1041,Internet,Nonpartisan,None
+49.0,48.0,,,16669,UPI/CVOTER,2012-11-03,2012-11-05,Likely Voters,3000,Live Phone,Nonpartisan,None
+48.0,46.0,4.0,2.0,16655,Ipsos/Reuters (Web),2012-11-01,2012-11-05,Likely Voters,4725,Internet,Nonpartisan,None
+49.0,49.0,1.0,1.0,16636,ARG,2012-11-02,2012-11-04,Likely Voters,1200,Live Phone,Nonpartisan,None
+50.0,48.0,3.0,,16610,PPP (D-Americans United for Change),2012-11-02,2012-11-04,Likely Voters,1200,Automated Phone,Pollster,Dem
+49.0,49.0,2.0,,16606,CNN,2012-11-02,2012-11-04,Likely Voters,693,Live Phone,Nonpartisan,None
+50.0,47.0,1.0,1.0,16658,ABC/Post,2012-11-01,2012-11-04,Likely Voters,2345,Live Phone,Nonpartisan,None
+48.0,49.0,,,16641,Gallup,2012-11-01,2012-11-04,Likely Voters,2551,Live Phone,Nonpartisan,None
+50.0,48.0,2.0,,16640,DailyKos/SEIU/PPP (D),2012-11-01,2012-11-04,Likely Voters,1300,Automated Phone,Pollster,Dem
+48.0,48.0,2.0,2.0,16634,Monmouth,2012-11-01,2012-11-04,Likely Voters,1417,IVR/Live Phone,Nonpartisan,None
+49.0,45.0,,1.0,16617,Democracy Corps (D),2012-11-01,2012-11-04,Likely Voters,1080,Live Phone,Pollster,Dem
+51.0,48.0,,1.0,16676,Angus-Reid,2012-11-01,2012-11-03,Likely Voters,1019,Internet,Nonpartisan,None
+48.0,47.0,3.0,2.0,16546,NBC/WSJ,2012-11-01,2012-11-03,Likely Voters,1475,Live Phone,Nonpartisan,None
+49.0,47.0,3.0,,16573,YouGov,2012-10-31,2012-11-03,Likely Voters,36472,Internet,Nonpartisan,None
+48.0,45.0,,3.0,16568,Pew,2012-10-31,2012-11-03,Likely Voters,2709,Live Phone,Nonpartisan,None
+49.0,48.0,,,16520,UPI/CVOTER,2012-11-02,2012-11-02,Likely Voters,1074,Live Phone,Nonpartisan,None
+48.0,48.0,2.0,1.0,16498,Rasmussen,2012-10-31,2012-11-02,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,46.0,7.0,,16463,Purple Strategies,2012-10-31,2012-11-01,Likely Voters,1000,IVR/Online,Nonpartisan,None
+48.0,46.0,6.0,,16483,JZ Analytics/Newsmax,2012-10-30,2012-11-01,Likely Voters,1030,Internet,Nonpartisan,None
+49.0,48.0,3.0,,16442,PPP (D-Americans United for Change),2012-10-30,2012-11-01,Likely Voters,1200,Automated Phone,Pollster,Dem
+48.0,48.0,3.0,,16544,Politico/GWU/Battleground,2012-10-29,2012-11-01,Likely Voters,1000,Live Phone,Nonpartisan,None
+48.0,48.0,,,16459,UPI/CVOTER,2012-10-26,2012-11-01,Likely Voters,1094,Live Phone,Nonpartisan,None
+49.0,49.0,,,16540,Washington Times/JZ Analytics,2012-10-29,2012-10-31,Likely Voters,800,Live Phone,Nonpartisan,None
+49.0,48.0,,,16436,ABC/Post,2012-10-28,2012-10-31,Likely Voters,1293,Live Phone,Nonpartisan,None
+47.0,46.0,4.0,3.0,16379,Ipsos/Reuters (Web),2012-10-27,2012-10-31,Likely Voters,4085,Internet,Nonpartisan,None
+46.0,46.0,6.0,1.0,16385,FOX,2012-10-28,2012-10-30,Likely Voters,1128,Live Phone,Nonpartisan,None
+47.0,49.0,,,16363,Rasmussen,2012-10-28,2012-10-30,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,43.0,11.0,1.0,16425,High Point University,2012-10-22,2012-10-30,Registered Voters,805,Live Phone,Nonpartisan,None
+46.0,47.0,7.0,,16339,JZ Analytics/Newsmax,2012-10-27,2012-10-29,Likely Voters,1073,Internet,Nonpartisan,None
+48.0,47.0,1.0,,16365,YouGov/Economist,2012-10-26,2012-10-28,Likely Voters,688,Internet,Nonpartisan,None
+48.0,49.0,3.0,,16259,PPP (D-Americans United for Change),2012-10-26,2012-10-28,Likely Voters,1200,Automated Phone,Pollster,Dem
+50.0,45.0,,,16380,United Technologies/National Journal,2012-10-25,2012-10-28,Likely Voters,713,Live Phone,Nonpartisan,None
+48.0,47.0,3.0,1.0,16346,CBS/Times,2012-10-25,2012-10-28,Likely Voters,563,Live Phone,Nonpartisan,None
+49.0,49.0,3.0,,16322,DailyKos/SEIU/PPP (D),2012-10-25,2012-10-28,Likely Voters,1400,Automated Phone,Pollster,Dem
+48.0,48.0,3.0,1.0,16284,ARG,2012-10-25,2012-10-28,Likely Voters,1200,Live Phone,Nonpartisan,None
+47.0,47.0,6.0,,16283,Pew,2012-10-24,2012-10-28,Likely Voters,1495,Live Phone,Nonpartisan,None
+46.0,51.0,,,16279,Gallup,2012-10-22,2012-10-28,Likely Voters,2700,Live Phone,Nonpartisan,None
+47.0,50.0,,,16236,Rasmussen,2012-10-25,2012-10-27,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,49.0,1.0,2.0,16257,ABC/Post,2012-10-24,2012-10-27,Likely Voters,1278,Live Phone,Nonpartisan,None
+45.0,44.0,7.0,,16244,IBD/TIPP,2012-10-22,2012-10-27,Likely Voters,942,Live Phone,Nonpartisan,None
+47.0,46.0,5.0,3.0,16209,Ipsos/Reuters (Web),2012-10-22,2012-10-26,Likely Voters,1237,Internet,Nonpartisan,None
+47.0,48.0,5.0,1.0,16310,NPR,2012-10-23,2012-10-25,Likely Voters,1000,Live Phone,Pollster,Dem
+48.0,48.0,3.0,,16177,PPP (D-Americans United for Change),2012-10-23,2012-10-25,Likely Voters,1200,Automated Phone,Pollster,Dem
+49.0,48.0,3.0,,16258,Politico/GWU/Battleground,2012-10-22,2012-10-25,Likely Voters,1000,Live Phone,Nonpartisan,None
+48.0,48.0,,,16216,UPI/CVOTER,2012-10-19,2012-10-25,Likely Voters,1203,Live Phone,Nonpartisan,None
+47.0,50.0,,,16130,Rasmussen,2012-10-22,2012-10-24,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,49.0,,,16125,ABC/Post,2012-10-20,2012-10-23,Likely Voters,1394,Live Phone,Nonpartisan,None
+45.0,47.0,8.0,,16135,AP-GfK,2012-10-19,2012-10-23,Likely Voters,839,Live Phone,Nonpartisan,None
+47.0,49.0,4.0,,16072,PPP (D-Americans United for Change),2012-10-20,2012-10-22,Likely Voters,1200,Automated Phone,Pollster,Dem
+48.0,46.0,2.0,,16066,YouGov/Economist,2012-10-20,2012-10-22,Likely Voters,803,Internet,Nonpartisan,None
+47.0,49.0,2.0,2.0,16016,Rasmussen,2012-10-19,2012-10-21,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,48.0,4.0,,16074,DailyKos/SEIU/PPP (D),2012-10-18,2012-10-21,Likely Voters,1300,Automated Phone,Pollster,Dem
+47.0,49.0,3.0,1.0,16025,ARG,2012-10-18,2012-10-21,Likely Voters,1200,Live Phone,Nonpartisan,None
+49.0,46.0,3.0,2.0,16024,Democracy Corps (D),2012-10-18,2012-10-21,Likely Voters,1000,Live Phone,Pollster,Dem
+45.0,48.0,5.0,3.0,16023,Monmouth,2012-10-18,2012-10-21,Likely Voters,1402,IVR/Live Phone,Nonpartisan,None
+47.0,43.0,7.0,,16038,IBD/TIPP,2012-10-16,2012-10-21,Likely Voters,885,Live Phone,Nonpartisan,None
+45.0,51.0,,,16026,Gallup,2012-10-15,2012-10-21,Likely Voters,2700,Live Phone,Nonpartisan,None
+50.0,47.0,3.0,,16013,Washington Times/JZ Analytics,2012-10-18,2012-10-20,Likely Voters,800,Live Phone,Nonpartisan,None
+48.0,46.0,5.0,1.0,16057,CBS,2012-10-17,2012-10-20,Likely Voters,790,Live Phone,Nonpartisan,None
+47.0,47.0,4.0,3.0,16000,NBC/WSJ,2012-10-17,2012-10-20,Likely Voters,816,Live Phone,Nonpartisan,None
+46.0,45.0,6.0,2.0,15996,Ipsos/Reuters (Web),2012-10-16,2012-10-20,Likely Voters,1368,Internet,Nonpartisan,None
+49.0,47.0,4.0,,15976,PPP (D-Americans United for Change),2012-10-17,2012-10-19,Likely Voters,1200,Automated Phone,Pollster,Dem
+44.0,46.0,10.0,,15965,Gravis Marketing,2012-10-18,2012-10-18,Likely Voters,805,Automated Phone,Nonpartisan,None
+48.0,48.0,,,15944,Rasmussen,2012-10-16,2012-10-18,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,49.0,4.0,,16012,Politico/GWU/Battleground,2012-10-14,2012-10-18,Likely Voters,1000,Live Phone,Nonpartisan,None
+46.0,48.0,,,15987,UPI/CVOTER,2012-10-11,2012-10-18,Likely Voters,1254,Live Phone,Nonpartisan,None
+48.0,45.0,6.0,1.0,15952,UConn/Hartford Courant,2012-10-11,2012-10-16,Likely Voters,1023,Live Phone,Nonpartisan,None
+47.0,46.0,3.0,,15873,YouGov/Economist,2012-10-13,2012-10-15,Likely Voters,826,Internet,Nonpartisan,None
+47.0,49.0,,,15817,Rasmussen,2012-10-13,2012-10-15,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,45.0,7.0,3.0,15806,Ipsos/Reuters (Web),2012-10-11,2012-10-15,Likely Voters,1864,Internet,Nonpartisan,None
+47.0,46.0,5.0,,15832,IBD/TIPP,2012-10-10,2012-10-15,Likely Voters,931,Live Phone,Nonpartisan,None
+46.0,50.0,4.0,,15824,DailyKos/SEIU/PPP (D),2012-10-12,2012-10-14,Likely Voters,1600,Automated Phone,Pollster,Dem
+47.0,48.0,4.0,1.0,15782,ARG,2012-10-11,2012-10-14,Likely Voters,1200,Live Phone,Nonpartisan,None
+47.0,49.0,,,15796,Gallup,2012-10-08,2012-10-14,Likely Voters,2700,Live Phone,Nonpartisan,None
+47.0,44.0,9.0,,15776,JZ Analytics/Newsmax,2012-10-12,2012-10-13,Likely Voters,863,Internet,Nonpartisan,None
+49.0,46.0,2.0,2.0,15778,ABC/Post,2012-10-10,2012-10-13,Likely Voters,923,Live Phone,Nonpartisan,None
+48.0,49.0,,,15761,Rasmussen,2012-10-10,2012-10-12,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,48.0,3.0,,15781,Politico/GWU/Battleground,2012-10-07,2012-10-11,Likely Voters,1000,Live Phone,Nonpartisan,None
+46.0,47.0,5.0,2.0,15702,Monmouth,2012-10-08,2012-10-10,Likely Voters,1360,IVR/Live Phone,Nonpartisan,None
+44.0,45.0,7.0,3.0,15669,Ipsos/Reuters (Web),2012-10-06,2012-10-10,Likely Voters,1027,Internet,Nonpartisan,None
+46.0,49.0,,,15686,UPI/CVOTER,2012-10-04,2012-10-10,Likely Voters,1110,Live Phone,Nonpartisan,None
+45.0,46.0,7.0,2.0,15675,FOX,2012-10-07,2012-10-09,Likely Voters,1092,Live Phone,Nonpartisan,None
+47.0,48.0,4.0,1.0,15643,Rasmussen,2012-10-07,2012-10-09,Likely Voters,1500,Automated Phone,Nonpartisan,None
+44.0,49.0,7.0,,15663,IBD/TIPP,2012-10-04,2012-10-09,Likely Voters,757,Live Phone,Nonpartisan,None
+49.0,46.0,2.0,,15646,YouGov/Economist,2012-10-06,2012-10-08,Likely Voters,763,Internet,Nonpartisan,None
+47.0,48.0,4.0,1.0,15626,ARG,2012-10-05,2012-10-08,Likely Voters,1200,Live Phone,Nonpartisan,None
+45.0,45.0,10.0,,15625,Washington Times/JZ Analytics,2012-10-05,2012-10-07,Likely Voters,800,Live Phone,Nonpartisan,None
+47.0,49.0,4.0,,15619,DailyKos/SEIU/PPP (D),2012-10-04,2012-10-07,Likely Voters,1300,Automated Phone,Pollster,Dem
+45.0,49.0,6.0,,15602,Pew,2012-10-04,2012-10-07,Likely Voters,1112,Live Phone,Nonpartisan,None
+50.0,45.0,,,15596,Gallup,2012-10-01,2012-10-07,Registered Voters,3050,Live Phone,Nonpartisan,None
+47.0,49.0,,,15571,Rasmussen,2012-10-04,2012-10-06,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,44.0,,,15558,Ipsos/Reuters (Web),2012-10-01,2012-10-05,Likely Voters,1434,Internet,Nonpartisan,None
+46.0,47.0,7.0,,15562,Clarus,2012-10-04,2012-10-04,Likely Voters,590,Live Phone,Nonpartisan,None
+49.0,48.0,3.0,,15584,Politico/GWU/Battleground,2012-10-01,2012-10-04,Likely Voters,1000,Live Phone,Nonpartisan,None
+49.0,47.0,,,15511,Rasmussen,2012-10-01,2012-10-03,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,45.0,6.0,,15561,Clarus,2012-10-02,2012-10-02,Likely Voters,590,Live Phone,Nonpartisan,None
+49.0,45.0,6.0,,15543,McLaughlin (R-American Conservative Union),2012-09-30,2012-10-02,Likely Voters,1000,Live Phone,Pollster,Rep
+49.0,44.0,2.0,,15515,YouGov/Economist,2012-09-29,2012-10-01,Likely Voters,785,Internet,Nonpartisan,None
+50.0,47.0,4.0,,15442,CNN,2012-09-28,2012-09-30,Likely Voters,783,Live Phone,Nonpartisan,None
+48.0,45.0,,,15423,Rasmussen,2012-09-28,2012-09-30,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,47.0,,,15484,United Technologies/National Journal,2012-09-27,2012-09-30,Likely Voters,789,Live Phone,Nonpartisan,None
+49.0,45.0,6.0,,15473,DailyKos/SEIU/PPP (D),2012-09-27,2012-09-30,Likely Voters,1100,Automated Phone,Pollster,Dem
+49.0,46.0,5.0,,15432,ARG,2012-09-27,2012-09-30,Likely Voters,1200,Live Phone,Nonpartisan,None
+51.0,44.0,3.0,2.0,15489,NPR,2012-09-26,2012-09-30,Likely Voters,800,Live Phone,Pollster,Dem
+49.0,46.0,3.0,2.0,15480,NBC/WSJ,2012-09-26,2012-09-30,Likely Voters,832,Live Phone,Nonpartisan,None
+49.0,45.0,4.0,3.0,15449,Quinnipiac,2012-09-25,2012-09-30,Likely Voters,1912,Live Phone,Nonpartisan,None
+49.0,45.0,,,15438,Gallup,2012-09-24,2012-09-30,Registered Voters,3050,Live Phone,Nonpartisan,None
+50.0,41.0,9.0,,15450,Washington Times/JZ Analytics,2012-09-27,2012-09-29,Likely Voters,800,Live Phone,Nonpartisan,None
+49.0,47.0,3.0,,15419,ABC/Post,2012-09-26,2012-09-29,Likely Voters,813,Live Phone,Nonpartisan,None
+49.0,46.0,,,15437,UPI/CVOTER,2012-09-23,2012-09-29,Likely Voters,855,Live Phone,Nonpartisan,None
+47.0,42.0,8.0,3.0,15403,Ipsos/Reuters (Web),2012-09-24,2012-09-28,Likely Voters,855,Internet,Nonpartisan,None
+47.0,46.0,4.0,3.0,15373,Rasmussen,2012-09-25,2012-09-27,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,43.0,8.0,3.0,15467,Merriman,2012-09-24,2012-09-27,Registered Voters,981,Automated Phone,Nonpartisan,None
+49.0,47.0,,,15420,Politico/GWU/Battleground,2012-09-24,2012-09-27,Likely Voters,1000,Live Phone,Nonpartisan,None
+48.0,43.0,7.0,1.0,15368,FOX,2012-09-24,2012-09-26,Likely Voters,1092,Live Phone,Nonpartisan,None
+48.0,43.0,3.0,,15321,YouGov/Economist,2012-09-22,2012-09-24,Registered Voters,943,Internet,Nonpartisan,None
+47.0,46.0,4.0,3.0,15284,Rasmussen,2012-09-22,2012-09-24,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,43.0,7.0,1.0,15316,Bloomberg,2012-09-21,2012-09-24,Likely Voters,789,Live Phone,Nonpartisan,None
+50.0,45.0,5.0,,15291,DailyKos/SEIU/PPP (D),2012-09-20,2012-09-23,Likely Voters,1200,Automated Phone,Pollster,Dem
+48.0,46.0,,,15270,Gallup,2012-09-17,2012-09-23,Registered Voters,3050,Live Phone,Nonpartisan,None
+49.0,41.0,10.0,,15255,JZ Analytics,2012-09-21,2012-09-22,Likely Voters,860,Internet,Nonpartisan,None
+49.0,46.0,,,15281,UPI/CVOTER,2012-09-16,2012-09-22,Likely Voters,761,Live Phone,Nonpartisan,None
+46.0,46.0,,,15236,Rasmussen,2012-09-19,2012-09-21,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,42.0,7.0,3.0,15238,Ipsos/Reuters (Web),2012-09-17,2012-09-21,Likely Voters,1616,Internet,Nonpartisan,None
+48.0,46.0,,6.0,15248,Angus-Reid,2012-09-19,2012-09-20,Registered Voters,805,Internet,Nonpartisan,None
+49.0,47.0,4.0,,15206,ARG,2012-09-17,2012-09-20,Likely Voters,761,Live Phone,Nonpartisan,None
+50.0,47.0,3.0,,15259,Politico/GWU/Battleground,2012-09-16,2012-09-20,Likely Voters,1000,Live Phone,Nonpartisan,None
+50.0,43.0,,,15211,Allstate/National Journal,2012-09-15,2012-09-19,Likely Voters,1055,Live Phone,Nonpartisan,None
+46.0,47.0,4.0,3.0,15124,Rasmussen,2012-09-16,2012-09-18,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,43.0,8.0,2.0,15177,UConn/Hartford Courant,2012-09-11,2012-09-18,Likely Voters,1148,Live Phone,Nonpartisan,None
+49.0,44.0,3.0,,15131,YouGov/Economist,2012-09-15,2012-09-17,Registered Voters,943,Internet,Nonpartisan,None
+52.0,45.0,4.0,,15209,Reason/Rupe,2012-09-13,2012-09-17,Likely Voters,787,Live Phone,Nonpartisan,None
+47.0,46.0,7.0,,15121,AP-GfK,2012-09-13,2012-09-17,Likely Voters,807,Live Phone,Nonpartisan,None
+50.0,46.0,4.0,,15102,DailyKos/SEIU/PPP (D),2012-09-13,2012-09-16,Likely Voters,1000,Automated Phone,Pollster,Dem
+48.0,45.0,4.0,3.0,15086,Monmouth,2012-09-13,2012-09-16,Likely Voters,1344,IVR/Live Phone,Nonpartisan,None
+51.0,43.0,6.0,,15141,Pew,2012-09-12,2012-09-16,Likely Voters,2192,Live Phone,Nonpartisan,None
+50.0,45.0,3.0,3.0,15117,NBC/WSJ,2012-09-12,2012-09-16,Likely Voters,736,Live Phone,Nonpartisan,None
+48.0,45.0,,,15081,Gallup,2012-09-10,2012-09-16,Registered Voters,3050,Live Phone,Nonpartisan,None
+46.0,47.0,,,15063,Rasmussen,2012-09-13,2012-09-15,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,45.0,,,15099,UPI/CVOTER,2012-09-08,2012-09-14,Likely Voters,1036,Live Phone,Nonpartisan,None
+48.0,41.0,8.0,3.0,15027,Ipsos/Reuters (Web),2012-09-09,2012-09-13,Likely Voters,990,Internet,Nonpartisan,None
+48.0,42.0,10.0,,15031,JZ Analytics,2012-09-11,2012-09-12,Likely Voters,1014,Internet,Nonpartisan,None
+46.0,47.0,5.0,3.0,14995,Rasmussen,2012-09-10,2012-09-12,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,46.0,4.0,,15036,CBS/Times,2012-09-08,2012-09-12,Likely Voters,1162,Live Phone,Nonpartisan,None
+50.0,45.0,2.0,2.0,15006,Democracy Corps (D),2012-09-08,2012-09-12,Likely Voters,1000,Live Phone,Pollster,Dem
+48.0,43.0,8.0,1.0,14991,FOX,2012-09-09,2012-09-11,Likely Voters,1056,Live Phone,Nonpartisan,None
+49.0,45.0,2.0,,14980,YouGov/Economist,2012-09-08,2012-09-10,Registered Voters,818,Internet,Nonpartisan,None
+50.0,46.0,4.0,1.0,15005,Esquire/Yahoo! News,2012-09-07,2012-09-10,Likely Voters,724,Live Phone,Nonpartisan,None
+48.0,45.0,4.0,3.0,14978,Ipsos/Reuters,2012-09-07,2012-09-10,Likely Voters,873,Live Phone,Nonpartisan,None
+50.0,44.0,6.0,,14960,DailyKos/SEIU/PPP (D),2012-09-07,2012-09-09,Likely Voters,1000,Automated Phone,Pollster,Dem
+49.0,48.0,,,14957,ABC/Post,2012-09-07,2012-09-09,Likely Voters,710,Live Phone,Nonpartisan,None
+52.0,46.0,3.0,,14952,CNN,2012-09-07,2012-09-09,Likely Voters,709,Live Phone,Nonpartisan,None
+50.0,45.0,,,14941,Rasmussen,2012-09-07,2012-09-09,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,44.0,10.0,,14951,TIPP/Investor's Business Daily/Christian Science Monitor,2012-09-04,2012-09-09,Registered Voters,808,Live Phone,Nonpartisan,None
+49.0,44.0,,,14967,Gallup,2012-09-03,2012-09-09,Registered Voters,3000,Live Phone,Nonpartisan,None
+47.0,43.0,8.0,2.0,14933,Ipsos/Reuters (Web),2012-09-04,2012-09-08,Likely Voters,1457,Internet,Nonpartisan,None
+46.0,49.0,5.0,,14921,ARG,2012-09-04,2012-09-06,Likely Voters,1200,Live Phone,Nonpartisan,None
+45.0,46.0,,,14910,Rasmussen,2012-09-04,2012-09-06,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,46.0,4.0,,14895,YouGov/Economist,2012-09-01,2012-09-03,Registered Voters,737,Internet,Nonpartisan,None
+45.0,47.0,,,14873,Rasmussen,2012-09-01,2012-09-03,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,48.0,3.0,,14889,CNN,2012-08-31,2012-09-03,Likely Voters,735,Live Phone,Nonpartisan,None
+45.0,45.0,7.0,3.0,14857,Ipsos/Reuters (Web),2012-08-29,2012-09-02,Likely Voters,1126,Internet,Nonpartisan,None
+47.0,46.0,,,14875,Gallup,2012-08-27,2012-09-02,Registered Voters,3000,Live Phone,Nonpartisan,None
+44.0,47.0,,,14860,Rasmussen,2012-08-29,2012-08-31,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,45.0,,,14820,Rasmussen,2012-08-26,2012-08-28,Likely Voters,1500,Automated Phone,Nonpartisan,None
+45.0,43.0,8.0,4.0,14818,Ipsos/Reuters (Web),2012-08-24,2012-08-28,Likely Voters,1325,Internet,Nonpartisan,None
+46.0,47.0,4.0,,14826,YouGov/Economist,2012-08-25,2012-08-27,Registered Voters,759,Internet,Nonpartisan,None
+49.0,47.0,2.0,1.0,14827,Democracy Corps (D),2012-08-23,2012-08-27,Likely Voters,1000,Live Phone,Pollster,Dem
+50.0,44.0,6.0,,14809,DailyKos/SEIU/PPP (D),2012-08-23,2012-08-26,Registered Voters,1000,Automated Phone,Pollster,Dem
+46.0,45.0,8.0,2.0,14807,CBS,2012-08-22,2012-08-26,Registered Voters,1051,Live Phone,Nonpartisan,None
+46.0,47.0,,,14798,Gallup,2012-08-20,2012-08-26,Registered Voters,3000,Live Phone,Nonpartisan,None
+47.0,45.0,,,14772,Rasmussen,2012-08-23,2012-08-25,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,47.0,3.0,5.0,14781,ABC/Post,2012-08-22,2012-08-25,Registered Voters,857,Live Phone,Nonpartisan,None
+49.0,47.0,4.0,,14768,CNN,2012-08-22,2012-08-23,Likely Voters,719,Live Phone,Nonpartisan,None
+47.0,46.0,7.0,,14782,Tarrance (R),2012-08-19,2012-08-23,Likely Voters,801,Live Phone,Pollster,Rep
+45.0,45.0,,,14744,Rasmussen,2012-08-20,2012-08-22,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,45.0,8.0,1.0,14797,Resurgent Republic (R),2012-08-16,2012-08-22,Registered Voters,1000,Live Phone,Pollster,Rep
+44.0,45.0,7.0,3.0,14758,FOX,2012-08-19,2012-08-21,Likely Voters,1007,Live Phone,Nonpartisan,None
+45.0,45.0,5.0,,14729,YouGov/Economist,2012-08-18,2012-08-20,Registered Voters,703,Internet,Nonpartisan,None
+47.0,46.0,7.0,,14719,AP-GfK,2012-08-16,2012-08-20,Registered Voters,885,Live Phone,Nonpartisan,None
+48.0,44.0,8.0,,14718,NBC/WSJ,2012-08-16,2012-08-20,Registered Voters,1000,Live Phone,Nonpartisan,None
+43.0,44.0,,,14698,Rasmussen,2012-08-17,2012-08-19,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,45.0,7.0,,14714,DailyKos/SEIU/PPP (D),2012-08-16,2012-08-19,Registered Voters,1000,Automated Phone,Pollster,Dem
+46.0,45.0,6.0,4.0,14702,Monmouth,2012-08-15,2012-08-19,Likely Voters,1149,IVR/Live Phone,Nonpartisan,None
+48.0,46.0,5.0,1.0,14760,USC/LA Times,2012-08-13,2012-08-19,Likely Voters,954,Live Phone,Nonpartisan,None
+45.0,47.0,,,14700,Gallup,2012-08-13,2012-08-19,Registered Voters,3000,Live Phone,Nonpartisan,None
+46.0,45.0,,,14683,Rasmussen,2012-08-14,2012-08-16,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,44.0,6.0,,14659,YouGov/Economist,2012-08-11,2012-08-13,Registered Voters,850,Internet,Nonpartisan,None
+44.0,47.0,,,14644,Rasmussen,2012-08-11,2012-08-13,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,45.0,8.0,,14653,DailyKos/SEIU/PPP (D),2012-08-09,2012-08-12,Registered Voters,1000,Automated Phone,Pollster,Dem
+46.0,46.0,,,14635,Gallup,2012-08-06,2012-08-12,Registered Voters,3000,Live Phone,Nonpartisan,None
+44.0,46.0,,,14620,Rasmussen,2012-08-08,2012-08-10,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,39.0,15.0,0.0,14619,TIPP/Investor's Business Daily/Christian Science Monitor,2012-08-03,2012-08-10,Registered Voters,828,Live Phone,Nonpartisan,None
+48.0,46.0,5.0,,14631,Politico/GWU/Battleground,2012-08-05,2012-08-09,Likely Voters,1000,Live Phone,Nonpartisan,None
+52.0,45.0,4.0,,14609,CNN,2012-08-07,2012-08-08,Registered Voters,911,Live Phone,Nonpartisan,None
+49.0,40.0,10.0,2.0,14610,FOX,2012-08-05,2012-08-07,Registered Voters,930,Live Phone,Nonpartisan,None
+45.0,45.0,,,14587,Rasmussen,2012-08-05,2012-08-07,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,45.0,4.0,,14598,YouGov/Economist,2012-08-04,2012-08-06,Registered Voters,733,Internet,Nonpartisan,None
+49.0,42.0,6.0,4.0,14591,Ipsos/Reuters,2012-08-02,2012-08-06,Registered Voters,900,Live Phone,Nonpartisan,None
+48.0,46.0,7.0,,14582,DailyKos/SEIU/PPP (D),2012-08-02,2012-08-05,Registered Voters,1000,Automated Phone,Pollster,Dem
+46.0,45.0,,,14573,Gallup,2012-07-30,2012-08-05,Registered Voters,3000,Live Phone,Nonpartisan,None
+50.0,43.0,5.0,1.0,14710,Post/Kaiser,2012-07-25,2012-08-05,Registered Voters,,Live Phone,Nonpartisan,None
+45.0,47.0,,,14560,Rasmussen,2012-08-02,2012-08-04,Likely Voters,1500,Automated Phone,Nonpartisan,None
+44.0,46.0,,,14539,Rasmussen,2012-07-30,2012-08-01,Likely Voters,1500,Automated Phone,Nonpartisan,None
+44.0,46.0,4.0,,14531,YouGov/Economist,2012-07-28,2012-07-30,Registered Voters,751,Internet,Nonpartisan,None
+44.0,47.0,,,14483,Rasmussen,2012-07-27,2012-07-29,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,47.0,5.0,,14506,DailyKos/SEIU/PPP (D),2012-07-26,2012-07-29,Registered Voters,1000,Automated Phone,Pollster,Dem
+46.0,46.0,,,14500,Gallup,2012-07-22,2012-07-29,Registered Voters,3000,Live Phone,Nonpartisan,None
+44.0,49.0,,,14469,Rasmussen,2012-07-24,2012-07-26,Likely Voters,1500,Automated Phone,Nonpartisan,None
+51.0,41.0,5.0,2.0,14550,Pew,2012-07-16,2012-07-26,Registered Voters,1956,Live Phone,Nonpartisan,None
+50.0,46.0,2.0,2.0,14498,Democracy Corps (D),2012-07-21,2012-07-25,Likely Voters,700,Live Phone,Pollster,Dem
+44.0,45.0,6.0,,14451,YouGov/Economist,2012-07-21,2012-07-23,Registered Voters,746,Internet,Nonpartisan,None
+44.0,45.0,,,14426,Rasmussen,2012-07-21,2012-07-23,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,46.0,8.0,,14434,DailyKos/SEIU/PPP (D),2012-07-19,2012-07-22,Registered Voters,1000,Automated Phone,Pollster,Dem
+49.0,43.0,3.0,5.0,14436,NBC/WSJ,2012-07-18,2012-07-22,Registered Voters,1000,Live Phone,Nonpartisan,None
+46.0,45.0,,,14416,Gallup,2012-07-15,2012-07-21,Registered Voters,3000,Live Phone,Nonpartisan,None
+46.0,46.0,,,14410,Rasmussen,2012-07-18,2012-07-20,Likely Voters,1500,Automated Phone,Nonpartisan,None
+45.0,41.0,11.0,2.0,14381,FOX,2012-07-15,2012-07-17,Registered Voters,901,Live Phone,Nonpartisan,None
+46.0,47.0,,,14373,Rasmussen,2012-07-15,2012-07-17,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,44.0,5.0,,14378,YouGov/Economist,2012-07-14,2012-07-16,Registered Voters,742,Internet,Nonpartisan,None
+46.0,47.0,5.0,2.0,14382,CBS/Times,2012-07-11,2012-07-16,Registered Voters,942,Live Phone,Nonpartisan,None
+48.0,46.0,7.0,,14365,DailyKos/SEIU/PPP (D),2012-07-12,2012-07-15,Registered Voters,1000,Automated Phone,Pollster,Dem
+45.0,45.0,,,14340,Rasmussen,2012-07-12,2012-07-14,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,45.0,,,14346,Gallup,2012-07-08,2012-07-14,Registered Voters,3000,Live Phone,Nonpartisan,None
+47.0,45.0,5.0,,14390,NPR,2012-07-09,2012-07-12,Likely Voters,1000,Live Phone,Nonpartisan,None
+48.0,46.0,6.0,,14351,Marist/McClatchy,2012-07-09,2012-07-11,Registered Voters,849,Live Phone,Nonpartisan,None
+45.0,46.0,,,14309,Rasmussen,2012-07-09,2012-07-11,Likely Voters,1500,Automated Phone,Nonpartisan,None
+43.0,44.0,8.0,,14304,YouGov/Economist,2012-07-07,2012-07-09,Registered Voters,,Internet,Nonpartisan,None
+49.0,43.0,4.0,4.0,14291,Ipsos/Reuters,2012-07-05,2012-07-09,Registered Voters,885,Live Phone,Nonpartisan,None
+50.0,43.0,6.0,,14317,Pew,2012-06-28,2012-07-09,Registered Voters,2373,Live Phone,Nonpartisan,None
+42.0,43.0,15.0,,14282,Washington Times/JZ Analytics,2012-07-06,2012-07-08,Likely Voters,800,Live Phone,Nonpartisan,None
+45.0,46.0,,,14267,Rasmussen,2012-07-06,2012-07-08,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,47.0,4.0,2.0,14281,ABC/Post,2012-07-05,2012-07-08,Registered Voters,855,Live Phone,Nonpartisan,None
+46.0,43.0,8.0,3.0,14292,Quinnipiac,2012-07-01,2012-07-08,Registered Voters,2722,Live Phone,Nonpartisan,None
+47.0,45.0,,,14274,Gallup,2012-06-30,2012-07-07,Registered Voters,3000,Live Phone,Nonpartisan,None
+44.0,46.0,,,14257,Rasmussen,2012-07-01,2012-07-05,Likely Voters,1500,Automated Phone,Nonpartisan,None
+43.0,42.0,10.0,5.0,14275,TIPP/Investor's Business Daily/Christian Science Monitor,2012-06-26,2012-07-05,Registered Voters,825,Live Phone,Nonpartisan,None
+47.0,43.0,8.0,,14250,YouGov/Economist,2012-06-30,2012-07-02,Registered Voters,,Internet,Nonpartisan,None
+48.0,45.0,6.0,,14249,DailyKos/SEIU/PPP (D),2012-06-28,2012-07-01,Registered Voters,1000,Automated Phone,Pollster,Dem
+49.0,46.0,,4.0,14236,CNN,2012-06-28,2012-07-01,Registered Voters,1390,Live Phone,Nonpartisan,None
+45.0,45.0,,,14222,Rasmussen,2012-06-28,2012-06-30,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,44.0,,,14233,Gallup,2012-06-23,2012-06-29,Registered Voters,3000,Live Phone,Nonpartisan,None
+47.0,44.0,4.0,5.0,14227,Newsweek/Daily Beast,2012-06-28,2012-06-28,Likely Voters,600,Live Phone,Pollster,Dem
+45.0,45.0,,,14202,Rasmussen,2012-06-25,2012-06-27,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,46.0,1.0,2.0,14218,Democracy Corps (D),2012-06-23,2012-06-27,Likely Voters,1000,Live Phone,Pollster,Dem
+45.0,40.0,13.0,3.0,14207,FOX,2012-06-24,2012-06-26,Registered Voters,912,Live Phone,Nonpartisan,None
+45.0,44.0,7.0,,14199,YouGov/Economist,2012-06-23,2012-06-25,Registered Voters,,Internet,Nonpartisan,None
+45.0,47.0,,,14157,Rasmussen,2012-06-22,2012-06-24,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,45.0,7.0,,14209,DailyKos/SEIU/PPP (D),2012-06-21,2012-06-24,Registered Voters,1000,Automated Phone,Pollster,Dem
+47.0,44.0,6.0,3.0,14183,NBC/WSJ,2012-06-20,2012-06-24,Registered Voters,,Live Phone,Nonpartisan,None
+46.0,46.0,,,14161,Gallup,2012-06-16,2012-06-22,Registered Voters,3000,Live Phone,Nonpartisan,None
+43.0,48.0,,,14151,Rasmussen,2012-06-19,2012-06-21,Likely Voters,1500,Automated Phone,Nonpartisan,None
+44.0,44.0,7.0,,14138,YouGov/Economist,2012-06-16,2012-06-18,Registered Voters,,Internet,Nonpartisan,None
+44.0,48.0,,,14118,Rasmussen,2012-06-16,2012-06-18,Likely Voters,1500,Automated Phone,Nonpartisan,None
+53.0,40.0,7.0,,14132,Bloomberg,2012-06-15,2012-06-18,Likely Voters,734,Live Phone,Nonpartisan,None
+47.0,44.0,2.0,8.0,14133,AP-GfK,2012-06-14,2012-06-18,Registered Voters,878,Live Phone,Nonpartisan,None
+49.0,45.0,6.0,,14126,DailyKos/SEIU/PPP (D),2012-06-14,2012-06-17,Registered Voters,1000,Automated Phone,Pollster,Dem
+50.0,46.0,5.0,,14149,Pew,2012-06-07,2012-06-17,Registered Voters,1563,Live Phone,Nonpartisan,None
+45.0,47.0,,,14100,Rasmussen,2012-06-13,2012-06-15,Likely Voters,1500,Automated Phone,Nonpartisan,None
+45.0,46.0,,,14108,Gallup,2012-06-09,2012-06-15,Registered Voters,3000,Live Phone,Nonpartisan,None
+44.0,48.0,,,14082,Rasmussen,2012-06-10,2012-06-12,Likely Voters,1500,Automated Phone,Nonpartisan,None
+44.0,42.0,8.0,,14086,YouGov/Economist,2012-06-09,2012-06-11,Registered Voters,836,Internet,Nonpartisan,None
+45.0,44.0,5.0,6.0,14080,Ipsos/Reuters,2012-06-07,2012-06-11,Registered Voters,848,Live Phone,Nonpartisan,None
+50.0,42.0,8.0,,14071,DailyKos/SEIU/PPP (D),2012-06-07,2012-06-10,Registered Voters,1000,Automated Phone,Pollster,Dem
+45.0,46.0,,,14056,Rasmussen,2012-06-07,2012-06-09,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,45.0,,,14053,Gallup,2012-06-02,2012-06-08,Registered Voters,3000,Live Phone,Nonpartisan,None
+46.0,42.0,8.0,4.0,14064,TIPP/Investor's Business Daily/Christian Science Monitor,2012-06-01,2012-06-08,Registered Voters,841,Live Phone,Nonpartisan,None
+47.0,46.0,,,14075,Tarrance (R),2012-06-03,2012-06-07,Likely Voters,800,Live Phone,Pollster,Rep
+47.0,46.0,4.0,3.0,14032,Monmouth,2012-06-04,2012-06-06,Likely Voters,1152,IVR/Live Phone,Nonpartisan,None
+46.0,46.0,,,14021,Rasmussen,2012-06-04,2012-06-06,Likely Voters,1500,Automated Phone,Nonpartisan,None
+43.0,43.0,12.0,2.0,14041,FOX,2012-06-03,2012-06-05,Registered Voters,907,Live Phone,Nonpartisan,None
+47.0,42.0,6.0,,14015,YouGov/Economist,2012-06-02,2012-06-04,Registered Voters,836,Internet,Nonpartisan,None
+44.0,47.0,,,13996,Rasmussen,2012-06-01,2012-06-03,Likely Voters,1500,Automated Phone,Nonpartisan,None
+50.0,42.0,8.0,,14008,DailyKos/SEIU/PPP (D),2012-05-31,2012-06-03,Registered Voters,1000,Automated Phone,Pollster,Dem
+49.0,42.0,9.0,,14010,Pew,2012-05-09,2012-06-03,Registered Voters,2388,Live Phone,Nonpartisan,None
+46.0,45.0,,,13994,Gallup,2012-05-25,2012-06-01,Registered Voters,2265,Live Phone,Nonpartisan,None
+49.0,46.0,,5.0,13981,CNN,2012-05-29,2012-05-31,Registered Voters,895,Live Phone,Nonpartisan,None
+45.0,46.0,,,13974,Rasmussen,2012-05-29,2012-05-31,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,43.0,5.0,,13956,YouGov/Economist,2012-05-26,2012-05-28,Registered Voters,850,Internet,Nonpartisan,None
+46.0,45.0,,,13919,Rasmussen,2012-05-26,2012-05-28,Likely Voters,1500,Automated Phone,Nonpartisan,None
+44.0,45.0,,,13916,Rasmussen,2012-05-23,2012-05-25,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,46.0,,,13913,Gallup,2012-05-18,2012-05-24,Registered Voters,2265,Live Phone,Nonpartisan,None
+46.0,45.0,,,13875,Rasmussen,2012-05-20,2012-05-22,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,42.0,6.0,,13885,YouGov/Economist,2012-05-19,2012-05-21,Registered Voters,850,Internet,Nonpartisan,None
+47.0,46.0,8.0,,13862,DailyKos/SEIU/PPP (D),2012-05-17,2012-05-20,Registered Voters,1000,Automated Phone,Pollster,Dem
+49.0,46.0,2.0,3.0,13859,ABC/Post,2012-05-17,2012-05-20,Registered Voters,874,Live Phone,Nonpartisan,None
+47.0,43.0,5.0,6.0,13873,NBC/WSJ,2012-05-16,2012-05-20,Registered Voters,,Live Phone,Nonpartisan,None
+46.0,44.0,,,13843,Rasmussen,2012-05-17,2012-05-19,Likely Voters,1500,Automated Phone,Nonpartisan,None
+45.0,46.0,,,13837,Gallup,2012-05-11,2012-05-17,Registered Voters,2265,Live Phone,Nonpartisan,None
+45.0,46.0,,,13821,Rasmussen,2012-05-14,2012-05-16,Likely Voters,1500,Automated Phone,Nonpartisan,None
+43.0,40.0,13.0,3.0,13822,TIPP/Investor's Business Daily/Christian Science Monitor,2012-05-09,2012-05-16,Registered Voters,778,Live Phone,Nonpartisan,None
+46.0,39.0,8.0,3.0,13819,FOX,2012-05-13,2012-05-15,Registered Voters,913,Live Phone,Nonpartisan,None
+42.0,46.0,7.0,,13818,YouGov/Economist,2012-05-12,2012-05-14,Registered Voters,715,Internet,Nonpartisan,None
+44.0,47.0,9.0,,13834,Mason-Dixon,2012-05-10,2012-05-14,Likely Voters,1000,Live Phone,Nonpartisan,None
+48.0,46.0,6.0,,13799,DailyKos/SEIU/PPP (D),2012-05-10,2012-05-13,Registered Voters,1000,Automated Phone,Pollster,Dem
+43.0,44.0,13.0,,13816,Washington Times/JZ Analytics,2012-05-11,2012-05-12,Likely Voters,800,Live Phone,Nonpartisan,None
+44.0,48.0,,,13775,Rasmussen,2012-05-10,2012-05-12,Likely Voters,1500,Automated Phone,Nonpartisan,None
+45.0,46.0,,,13752,Gallup,2012-05-04,2012-05-10,Registered Voters,2265,Live Phone,Nonpartisan,None
+45.0,49.0,2.0,3.0,13728,Rasmussen,2012-05-07,2012-05-09,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,49.0,,5.0,13723,Angus-Reid,2012-05-07,2012-05-08,Likely Voters,769,Internet,Nonpartisan,None
+44.0,43.0,7.0,,13721,YouGov/Economist,2012-05-05,2012-05-07,Registered Voters,715,Internet,Nonpartisan,None
+50.0,42.0,3.0,6.0,13722,AP-GfK,2012-05-03,2012-05-07,Registered Voters,871,Live Phone,Nonpartisan,None
+49.0,42.0,4.0,6.0,13713,Ipsos/Reuters,2012-05-03,2012-05-07,Registered Voters,959,Live Phone,Nonpartisan,None
+45.0,47.0,,,13699,Rasmussen,2012-05-04,2012-05-06,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,45.0,7.0,,13716,DailyKos/SEIU/PPP (D),2012-05-03,2012-05-06,Registered Voters,1000,Automated Phone,Pollster,Dem
+46.0,43.0,8.0,3.0,13717,TIPP/Investor's Business Daily/Christian Science Monitor,2012-04-27,2012-05-04,Registered Voters,856,Live Phone,Nonpartisan,None
+47.0,45.0,,,13688,Rasmussen,2012-05-01,2012-05-03,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,48.0,5.0,,13703,Politico/GWU/Battleground,2012-04-29,2012-05-03,Likely Voters,1000,Live Phone,Nonpartisan,None
+45.0,45.0,,,13692,Gallup,2012-04-29,2012-05-03,Registered Voters,2265,Live Phone,Nonpartisan,None
+49.0,42.0,8.0,1.0,13733,Resurgent Republic (R),2012-04-30,2012-05-02,Registered Voters,1000,Live Phone,Pollster,Rep
+47.0,47.0,2.0,,13683,Democracy Corps (D),2012-04-28,2012-05-01,Likely Voters,1000,Live Phone,Pollster,Dem
+48.0,43.0,5.0,,13672,YouGov/Economist,2012-04-28,2012-04-30,Registered Voters,715,Internet,Nonpartisan,None
+46.0,46.0,,,13654,Rasmussen,2012-04-28,2012-04-30,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,44.0,7.0,,13658,DailyKos/SEIU/PPP (D),2012-04-26,2012-04-29,Registered Voters,1000,Automated Phone,Pollster,Dem
+47.0,46.0,,,13643,Gallup,2012-04-23,2012-04-28,Registered Voters,2265,Live Phone,Nonpartisan,None
+47.0,45.0,,,13640,Rasmussen,2012-04-25,2012-04-27,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,46.0,7.0,1.0,13628,FOX,2012-04-22,2012-04-24,Registered Voters,915,Live Phone,Nonpartisan,None
+49.0,43.0,,,13615,Gallup,2012-04-22,2012-04-24,Adults,1500,Live Phone,Nonpartisan,None
+44.0,49.0,,,13610,Rasmussen,2012-04-22,2012-04-24,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,47.0,3.0,,13625,YouGov/Economist,2012-04-21,2012-04-23,Registered Voters,715,Internet,Nonpartisan,None
+49.0,44.0,7.0,,13600,DailyKos/SEIU/PPP (D),2012-04-19,2012-04-22,Registered Voters,1000,Automated Phone,Pollster,Dem
+47.0,44.0,,,13598,Gallup,2012-04-18,2012-04-22,Registered Voters,2265,Live Phone,Nonpartisan,None
+45.0,46.0,,,13580,Rasmussen,2012-04-19,2012-04-21,Likely Voters,1500,Automated Phone,Nonpartisan,None
+45.0,46.0,,,13562,Rasmussen,2012-04-16,2012-04-18,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,43.0,3.0,4.0,13569,NBC/WSJ,2012-04-13,2012-04-17,Registered Voters,,Live Phone,Nonpartisan,None
+44.0,48.0,,,13556,Gallup,2012-04-13,2012-04-17,Registered Voters,2265,Live Phone,Nonpartisan,None
+46.0,46.0,6.0,2.0,13553,CBS/Times,2012-04-13,2012-04-17,Registered Voters,852,Live Phone,Nonpartisan,None
+46.0,42.0,9.0,2.0,13560,Quinnipiac,2012-04-11,2012-04-17,Registered Voters,2577,Live Phone,Nonpartisan,None
+49.0,42.0,6.0,,13564,YouGov/Economist,2012-04-14,2012-04-16,Registered Voters,715,Internet,Nonpartisan,None
+52.0,43.0,1.0,6.0,13536,CNN,2012-04-13,2012-04-15,Registered Voters,910,Live Phone,Nonpartisan,None
+44.0,47.0,,,13526,Rasmussen,2012-04-13,2012-04-15,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,46.0,5.0,,13568,PPP (D),2012-04-12,2012-04-15,Registered Voters,900,Automated Phone,Pollster,Dem
+50.0,44.0,6.0,,13557,DailyKos/SEIU/PPP (D),2012-04-12,2012-04-15,Registered Voters,1000,Automated Phone,Pollster,Dem
+47.0,43.0,7.0,3.0,13538,Ipsos/Reuters,2012-04-12,2012-04-15,Registered Voters,891,Live Phone,Nonpartisan,None
+49.0,45.0,4.0,2.0,13548,Pew,2012-04-04,2012-04-15,Registered Voters,2373,Live Phone,Nonpartisan,None
+44.0,48.0,,,13520,Rasmussen,2012-04-10,2012-04-12,Likely Voters,1500,Automated Phone,Nonpartisan,None
+44.0,46.0,8.0,2.0,13521,FOX,2012-04-09,2012-04-11,Registered Voters,910,Live Phone,Nonpartisan,None
+46.0,43.0,5.0,,13517,YouGov/Economist,2012-04-07,2012-04-10,Registered Voters,715,Internet,Nonpartisan,None
+45.0,45.0,,,13482,Rasmussen,2012-04-07,2012-04-09,Likely Voters,1500,Automated Phone,Nonpartisan,None
+51.0,43.0,4.0,2.0,13481,ABC/Post,2012-04-05,2012-04-08,Registered Voters,,Live Phone,Nonpartisan,None
+47.0,44.0,,,13473,Rasmussen,2012-04-04,2012-04-06,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,38.0,11.0,5.0,13532,TIPP/Investor's Business Daily/Christian Science Monitor,2012-03-30,2012-04-05,Registered Voters,816,Live Phone,Nonpartisan,None
+44.0,47.0,,,13426,Rasmussen,2012-04-01,2012-04-03,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,44.0,4.0,,13440,YouGov/Economist,2012-03-31,2012-04-03,Adults,1000,Internet,Nonpartisan,None
+46.0,45.0,,,13405,Rasmussen,2012-03-29,2012-03-31,Likely Voters,1500,Automated Phone,Nonpartisan,None
+44.0,46.0,,,13379,Rasmussen,2012-03-26,2012-03-28,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,43.0,6.0,,13377,YouGov/Economist,2012-03-24,2012-03-27,Registered Voters,715,Internet,Nonpartisan,None
+49.0,45.0,7.0,,13408,Gallup,2012-03-25,2012-03-26,Registered Voters,901,Live Phone,Nonpartisan,None
+54.0,43.0,,3.0,13374,CNN,2012-03-24,2012-03-25,Registered Voters,925,Live Phone,Nonpartisan,None
+46.0,43.0,,,13330,Rasmussen,2012-03-23,2012-03-25,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,37.0,7.0,7.0,13338,Suffolk,2012-03-21,2012-03-25,Likely Voters,1070,Live Phone,Nonpartisan,None
+46.0,44.0,9.0,,13344,Marist/McClatchy,2012-03-20,2012-03-22,Registered Voters,846,Live Phone,Nonpartisan,None
+45.0,45.0,,,13309,Rasmussen,2012-03-20,2012-03-22,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,42.0,4.0,,13283,YouGov/Economist,2012-03-17,2012-03-20,Registered Voters,715,Internet,Nonpartisan,None
+46.0,40.0,11.0,3.0,13340,Reason/Rupe,2012-03-10,2012-03-20,Adults,1200,Live Phone,Nonpartisan,None
+46.0,45.0,,,13258,Rasmussen,2012-03-17,2012-03-19,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,44.0,8.0,,13288,PPP (D),2012-03-15,2012-03-17,Registered Voters,900,Automated Phone,Pollster,Dem
+49.0,43.0,,,13233,Rasmussen,2012-03-14,2012-03-16,Likely Voters,1500,Automated Phone,Nonpartisan,None
+44.0,46.0,,,13209,Rasmussen,2012-03-11,2012-03-13,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,44.0,4.0,,13219,YouGov/Economist,2012-03-10,2012-03-13,Registered Voters,715,Internet,Nonpartisan,None
+46.0,42.0,10.0,2.0,13212,FOX,2012-03-10,2012-03-12,Registered Voters,912,Live Phone,Nonpartisan,None
+52.0,41.0,4.0,3.0,13208,Ipsos/Reuters,2012-03-08,2012-03-11,Registered Voters,937,Live Phone,Nonpartisan,None
+47.0,47.0,6.0,,13207,Bloomberg,2012-03-08,2012-03-11,Likely Voters,746,Live Phone,Nonpartisan,None
+54.0,42.0,3.0,1.0,13211,Pew,2012-03-07,2012-03-11,Registered Voters,1188,Live Phone,Nonpartisan,None
+47.0,44.0,8.0,1.0,13183,CBS/Times,2012-03-07,2012-03-11,Registered Voters,878,Live Phone,Nonpartisan,None
+42.0,48.0,,,13190,Rasmussen,2012-03-08,2012-03-10,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,49.0,4.0,1.0,13184,ABC/Post,2012-03-07,2012-03-10,Registered Voters,,Live Phone,Nonpartisan,None
+48.0,44.0,,,13179,Rasmussen,2012-03-05,2012-03-07,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,41.0,4.0,,13169,YouGov/Economist,2012-03-03,2012-03-06,Registered Voters,715,Internet,Nonpartisan,None
+45.0,43.0,,,13134,Rasmussen,2012-03-02,2012-03-04,Likely Voters,1500,Automated Phone,Nonpartisan,None
+50.0,44.0,2.0,4.0,13135,NBC/WSJ,2012-02-29,2012-03-03,Registered Voters,,Live Phone,Nonpartisan,None
+48.0,42.0,,,13103,Rasmussen,2012-02-28,2012-03-01,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,40.0,5.0,,13092,YouGov/Economist,2012-02-25,2012-02-28,Adults,1000,Internet,Nonpartisan,None
+44.0,44.0,,,13061,Rasmussen,2012-02-25,2012-02-27,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,43.0,,,13049,Rasmussen,2012-02-22,2012-02-24,Likely Voters,1500,Automated Phone,Nonpartisan,None
+53.0,43.0,5.0,,13054,Politico/GWU/Battleground,2012-02-19,2012-02-22,Likely Voters,1000,Live Phone,Nonpartisan,None
+47.0,41.0,,,12996,Rasmussen,2012-02-19,2012-02-21,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,41.0,5.0,,13011,YouGov/Economist,2012-02-18,2012-02-21,Registered Voters,715,Internet,Nonpartisan,None
+51.0,43.0,2.0,5.0,12993,AP-GfK,2012-02-16,2012-02-20,Adults,1000,Live Phone,Nonpartisan,None
+46.0,44.0,8.0,2.0,12992,Quinnipiac,2012-02-14,2012-02-20,Registered Voters,2605,Live Phone,Nonpartisan,None
+46.0,50.0,,,12994,USAToday/ Gallup,2012-02-16,2012-02-19,Registered Voters,898,Live Phone,Nonpartisan,None
+47.0,43.0,,,12972,Rasmussen,2012-02-16,2012-02-18,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,43.0,,,12938,Rasmussen,2012-02-13,2012-02-15,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,42.0,5.0,,12939,YouGov/Economist,2012-02-11,2012-02-14,Registered Voters,715,Internet,Nonpartisan,None
+49.0,45.0,4.0,3.0,12934,Democracy Corps (D),2012-02-11,2012-02-14,Likely Voters,1000,Live Phone,Pollster,Dem
+51.0,46.0,,2.0,12935,CNN,2012-02-10,2012-02-13,Registered Voters,937,Live Phone,Nonpartisan,None
+48.0,42.0,9.0,,12900,CBS/Times,2012-02-08,2012-02-13,Registered Voters,1064,Live Phone,Nonpartisan,None
+48.0,42.0,,,12903,Rasmussen,2012-02-10,2012-02-12,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,42.0,9.0,,12905,PPP (D),2012-02-09,2012-02-12,Registered Voters,1200,Automated Phone,Pollster,Dem
+52.0,44.0,3.0,1.0,12891,Pew,2012-02-08,2012-02-12,Registered Voters,1172,Live Phone,Nonpartisan,None
+45.0,41.0,13.0,,12901,Fairleigh Dickinson,2012-02-06,2012-02-12,Registered Voters,903,Live Phone,Nonpartisan,None
+50.0,40.0,,,12843,Rasmussen,2012-02-07,2012-02-09,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,42.0,10.0,2.0,12822,FOX,2012-02-06,2012-02-09,Registered Voters,1100,Live Phone,Nonpartisan,None
+51.0,39.0,5.0,,12813,YouGov/Economist,2012-02-04,2012-02-07,Registered Voters,715,Internet,Nonpartisan,None
+48.0,42.0,,,12783,Rasmussen,2012-02-04,2012-02-06,Likely Voters,1500,Automated Phone,Nonpartisan,None
+48.0,42.0,6.0,5.0,12743,Ipsos/Reuters,2012-02-02,2012-02-06,Registered Voters,881,Live Phone,Nonpartisan,None
+51.0,45.0,2.0,1.0,12721,ABC/Post,2012-02-01,2012-02-04,Registered Voters,,Live Phone,Nonpartisan,None
+46.0,44.0,,,12786,Rasmussen,2012-02-01,2012-02-03,Likely Voters,1500,Automated Phone,Nonpartisan,None
+47.0,43.0,,,12789,Rasmussen,2012-01-29,2012-01-31,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,40.0,5.0,,12704,YouGov/Economist,2012-01-28,2012-01-31,Registered Voters,715,Internet,Nonpartisan,None
+46.0,42.0,12.0,,12691,DailyKos/SEIU/PPP (D),2012-01-26,2012-01-29,Registered Voters,1000,Automated Phone,Pollster,Dem
+48.0,48.0,,,12664,Gallup,2012-01-27,2012-01-28,Registered Voters,907,Live Phone,Nonpartisan,None
+45.0,43.0,,,12792,Rasmussen,2012-01-26,2012-01-28,Likely Voters,1500,Automated Phone,Nonpartisan,None
+46.0,43.0,,,12795,Rasmussen,2012-01-23,2012-01-25,Likely Voters,1500,Automated Phone,Nonpartisan,None
+49.0,43.0,4.0,4.0,12644,NBC/WSJ,2012-01-22,2012-01-24,Registered Voters,,Live Phone,Nonpartisan,None
+47.0,41.0,7.0,,12631,YouGov/Economist,2012-01-21,2012-01-24,Registered Voters,715,Internet,Nonpartisan,None
+45.0,43.0,,,12798,Rasmussen,2012-01-20,2012-01-22,Likely Voters,1500,Automated Phone,Nonpartisan,None
+45.0,45.0,7.0,1.0,12507,CBS/Times,2012-01-12,2012-01-17,Registered Voters,1021,Live Phone,Nonpartisan,None
+49.0,44.0,7.0,,12491,PPP (D),2012-01-13,2012-01-16,Registered Voters,700,Automated Phone,Pollster,Dem
+50.0,45.0,4.0,2.0,12503,Pew,2012-01-11,2012-01-16,Registered Voters,1207,Live Phone,Nonpartisan,None
+46.0,48.0,4.0,2.0,12487,ABC/Post,2012-01-12,2012-01-15,Registered Voters,,Live Phone,Nonpartisan,None
+46.0,45.0,8.0,1.0,12472,FOX,2012-01-12,2012-01-14,Registered Voters,906,Live Phone,Nonpartisan,None
+47.0,48.0,4.0,1.0,12467,CNN,2012-01-11,2012-01-12,Registered Voters,928,Live Phone,Nonpartisan,None
+47.0,46.0,3.0,3.0,12463,Democracy Corps (D),2012-01-08,2012-01-11,Likely Voters,1000,Live Phone,Pollster,Dem
+44.0,41.0,8.0,7.0,12449,Rasmussen,2012-01-09,2012-01-10,Likely Voters,1000,Automated Phone,Nonpartisan,None
+44.0,44.0,5.0,,12456,YouGov/Economist,2012-01-07,2012-01-10,Registered Voters,715,Internet,Nonpartisan,None
+48.0,43.0,5.0,4.0,12444,Ipsos/Reuters,2012-01-05,2012-01-09,Registered Voters,900,Live Phone,Nonpartisan,None
+45.0,47.0,8.0,,12422,CBS,2012-01-04,2012-01-08,Registered Voters,1247,Live Phone,Nonpartisan,None
+42.0,42.0,8.0,8.0,12401,Rasmussen,2012-01-03,2012-01-04,Likely Voters,1000,Automated Phone,Nonpartisan,None
+49.0,40.0,6.0,,12402,YouGov/Economist,2011-12-31,2012-01-03,Registered Voters,715,Internet,Nonpartisan,None

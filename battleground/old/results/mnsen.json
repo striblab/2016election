@@ -1,0 +1,14 @@
+[
+      { 
+        "label": "Franken",
+        "value" : 50
+      } , 
+      { 
+        "label": "Undecided",
+        "value" : 0
+      } , 
+      { 
+        "label": "McFadden",
+        "value" : 50
+      }
+]

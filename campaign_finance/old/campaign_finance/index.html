@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Campaign Finance 2016</title>
+  <meta name="description" content="Title Here">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
+  
+  <style>
+ 
+  </style> 
+</head>
+
+<body>
+  <div id="wrapper">
+
+  </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/charts/nvd3-master/build/nv.d3.js"></script>
+<script src="../_common_resources/charts/nvd3-master/src/utils.js"></script>
+<script src="../_common_resources/charts/nvd3-master/src/tooltip.js"></script>
+<script src="../_common_resources/charts/nvd3-master/src/models/legend.js"></script>
+<script src="../_common_resources/charts/nvd3-master/src/models/axis.js"></script>
+<script src="../_common_resources/charts/nvd3-master/test/stream_layers.js"></script>
+<script src="/js/cartograms.js"></script>
+<script>
+var url = window.location.href; 
+var captured = /filter=([^&]+)/.exec(url)[1];
+var cat = captured ? captured : 'test';
+var filter = cat;
+
+//LIVE JSON MAGIC
+
+//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1wm0cZ27Vi0xvi_f0l9cBrG5lfGg_JiVg248Pdfo-9jo&sheet=house2012
+//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1wm0cZ27Vi0xvi_f0l9cBrG5lfGg_JiVg248Pdfo-9jo&sheet=house2014
+
+if (filter == "2012"){
+d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=_ft-tdGYeesTDlLJfBKmPUKZNM9k7ZzeZ_YcGCOLIs93U0hzek4Ywp1NLvL39q7gYAIfgVHDEWHsPS_esyhvZtgo7sKrXKFnOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOG2I2V8779xJudY0CwMSUJQuFHFhhglgZvf4vHtmJUblXy0aE3P1q5401GraiwkiQzXH1z8nPpE9Dt5XehI6ZHVKJbPm7ojaLQ&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, json2012) {
+
+var data2012 = json2012.house2012;
+
+  });
+}
+
+else if (filter == "2014"){
+d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=_ft-tdGYeesTDlLJfBKmPUKZNM9k7ZzeZ_YcGCOLIs93U0hzek4Ywp1NLvL39q7gYAIfgVHDEWHsPS_esyhvZtgo7sKrXKFnOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOG2I2V8779xJudY0CwMSUJQuFHFhhglgZvf4vHtmJUblXy0aE3P1q5401GraiwkiQzXH1z8nPpE9Dt5XehI6ZHVKJbPm7ojaLQ&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, json2014) {
+
+var data2014 = json2014.house2014;
+
+});
+}
+
+//cartoBuild("#presidentCarto", "#presidentTable", "#chart", "us_states.json", "president", "us", dataPresident, 0,cartoData("president","us"));
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,498 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <title>Campaign Finance in Minnesota's 2016 Elections</title>
+    <meta name="description" content="Campaign Finance in Minnesota's 2016 Elections">
+    <meta name="author" content="Frey Hargarten - StarTribune">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" /> 
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
+
+    <style>
+        body { margin:0; padding:0; font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+        #wrapper { width:100%; margin-right:auto; margin-left:auto; }
+
+        #leftSide { width:100%; /*float:left;*/ }
+        #rightSide { width:100%; /*float:right;*/ height:508.33px; }
+
+        .adjacent { display:inline-block; width:49%; vertical-align:top; text-align:center; padding:0 7px 0 7px; }
+
+        #raceSelection { height:220px; overflow-y:auto; }
+
+        #filterButtons { width:100%; margin-bottom:20px; text-align:center; }
+
+        .switchFilter { padding:1px; display:inline-block; text-align:center; width:32%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid white; color:#000 !important; margin:0 !important; font-size:1em; border:1px solid #000; }
+        .switchFilter:hover, { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; margin:0 !important; }
+
+        #chartD { color:#3F88C5; text-align:left; }
+        #chartR { color:#8C1B17; text-align:left; }
+/*        #chartD .inBar { background-color:#3F88C5 !important; }
+        #chartR .inBar { background-color:#8C1B17 !important; }*/
+        #chartD .lb, #chartD .pubfin, #chartD .notepay, #chartD .noterec, #chartD .misc { background-color:#ABCEE8; }
+        #chartD .pf { background-color:#5ca5c3; }
+        #chartD .pp { background-color:#4f97c4; }
+        #chartD .ind { background-color:#3f88c5; }
+        #chartR .lb, #chartR .pubfin, #chartR .notepay, #chartR .noterec, #chartR .misc { background-color:#C68985; }
+        #chartR .pf { background-color:#A5484D; }
+        #chartR .pp { background-color:#A52129; }
+        #chartR .ind { background-color:#8C1B17; }
+        .bigBar { height:200px; }
+        .bigNum { text-align:center; font-size:2.5em; }
+        .subtotal { text-align:left; padding-bottom:7px; border-bottom:1px solid #ddd; }
+        .right { text-align:right; display:inline-block; width:48%; }
+        .left { text-align:left; display:inline-block; width:48%; }
+
+        .offlink { text-align:center; }
+        a { color:steelblue; }
+
+        .cell { width:24%; display:inline-block; }
+
+        #filter input:focus { width: 100% !important; }
+        #filter input { width: 100% !important; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; border-radius:0 !important; }
+
+        .switch { padding:1px; display:inline-block; text-align:left; width:100%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid white; color:#000 !important; margin:0 !important; font-size:.8em; }
+        .switch:hover, .selected, .step:hover { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; margin:0 !important; }
+
+        .ui-tooltip { border: 1px solid #000 !important; border-radius:0 !important; }
+        .inBar div:hover { opacity:0.5; }
+        .swatch { height:20px; width:20px; }
+
+        #districtInfo { font-size:1.2em; font-weight:900; text-align:center; padding:15px; }
+
+        #versus { text-align:center; vertical-align:top; margin-bottom:15px; }
+        #versus div { display:inline-block; }
+        .linebar { border-top:1px solid #000; width:20%; margin-bottom:5px; }
+
+        .sift { display:inline-block; width:19% !important; text-align:center; padding:10px !important; margin:0 !important; font-size:.8em !important; opacity:.5;  border:0 !important;}
+        .sift:hover, .selected2 { background-color:#fff !important; color:#333 !important; cursor:pointer; opacity:1; }
+        .greyed { pointer-events:none; background-color:#ddd !important; color:#888; opacity:.3;  }
+        .sift img { width:50px; display:block; text-align:center; margin-left:auto; margin-right:auto; }
+        #main { margin-bottom:10px; margin-top:10px; text-align:center; }
+
+        #candD, #candR { text-align:center; font-weight:900; }
+
+        .donor .adjacent { width:24%; text-align:right; }
+        .donor .adjacent:first-of-type { width:75% !important; text-align:left; }
+        #listLabels { text-align:center; }
+        #listLabels:hover{ cursor:pointer; opacity:0.5;  }
+        #listD { font-size:0.8em; text-align:left; display:none; float:left; height:255px; overflow-y:auto; }
+        #listR { font-size:0.8em; text-align:left; display:none; float:right; height:255px; overflow-y:auto; }
+
+        .republican { color:#8C1B17; fill:#8C1B17 !important; pointer-events: all; font-weight:bold; }
+        .r1 { background-color:#C68985; fill:#C68985 !important; color:white !important; pointer-events: all; font-weight:bold; }
+        .r2 { background-color:#A5484D; fill:#A5484D !important; color:white !important; pointer-events: all; font-weight:bold; }
+        .r3 { background-color:#A52129; fill:#A52129 !important; color:white !important; pointer-events: all; font-weight:bold; }
+        .r4 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
+        .r0 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
+        .mid { background-color:#ddd; fill:#ddd !important; color:black !important; pointer-events: all; font-weight:bold; }
+        .democrat { color:#3F88C5; fill:#3F88C5 !important; pointer-events: all; font-weight:bold; }
+        .d1 { background-color:#ABCEE8; fill:#ABCEE8 !important; color:white !important; pointer-events: all; font-weight:bold; }
+        .d2 { background-color:#5ca5c3; fill:#5ca5c3 !important; color:white !important; pointer-events: all; font-weight:bold; }
+        .d3 { background-color:#4f97c4; fill:#4f97c4 !important; color:white !important; pointer-events: all; font-weight:bold; }
+        .d4 { background-color:#3f88c5; fill:#3f88c5 !important; color:white !important; pointer-events: all; font-weight:bold; }
+        .d0 { background-color:#3F88C5; fill:#3F88C5 !important; color:white !important; pointer-events: all; font-weight:bold; }
+
+        @media (max-width:920px) {
+        #wrapper { width:100%; }
+/*        .adjacent { width:100%; }*/
+        .bigNum { font-size:1.3em; }
+        .bigBar { height:100px; }
+        .cell { width:32%; display:inline-block; }
+        .kill { display:none; }
+        #candD, #candR { font-size:0.8em; }
+        #raceSelection { height:200px; }
+        #leftSide { width:100%; float:none; }
+        #rightSide { width:100%; float:none; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrapper">
+
+<!-- <div id="filters" style="display:none;">
+    <div id="main">
+      <div class="sift selected2" data="switch" filter="All" type="leg">
+        <img src="img/income.png" />
+        <div>All</div></div>
+      <div class="sift" data="house" filter="House" type="leg">
+        <img src="img/mnleg_icon.png" />
+        <div>House</div></div>
+      <div class="sift" data="senate" filter="Senate" type="leg">
+        <img src="img/mnleg_icon.png" />
+        <div>Senate</div></div>
+<!--       <div class="sift" data="state" filter="Committee">
+        <img src="img/local.png" />
+        <div>Officials</div></div> -->
+<!--       <div class="sift greyed" data="president" type="prez">
+        <img src="img/whitehouse.png" />
+        <div>President</div></div>
+      <div class="sift greyed" data="house" type="house">
+        <img src="img/house.png" />
+        <div>U.S. House</div></div>
+    </div>
+</div> --> 
+
+<div id="pcfCharts" class="raceType">
+  <div class="chartTitle">Political committee donations</div>
+  <div class="chatter">chatter here</div>
+  <div id="tChart" class="chart"></div>
+
+</div>
+
+<div id="leg" class="raceType">
+<div class="chartTitle">Campaign finance by legislative race</div>
+<div class="chatter">Data current as of July 2016 filing to Minnesota's campaign finance board.</div>
+
+<div id="rightSide">
+<div id="races" class="results">
+<div id="districtInfo"></div>
+<!-- <div id="partyD" class="adjacent"></div>
+<div id="partyR" class="adjacent"></div> -->
+<!-- <div id="mapD" class="adjacent"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mapR" class="adjacent"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div> -->
+<div id="versus"><div class="linebar" style="border-left:1px solid #000; padding-bottom:6px; margin-top:3px;"></div><div class="vs">VS</div><div class="linebar" style="border-right:1px solid #000; padding-bottom:6px; margin-top:3px;"></div></div>
+<div id="candD" class="adjacent"></div>
+<div id="candR" class="adjacent"></div>
+<div id="photoD" class="adjacent"></div>
+<div id="photoR" class="adjacent"></div>
+<div id="chartD" class="adjacent"></div>
+<div id="chartR" class="adjacent"></div>
+<div id="breakdownD" class="adjacent"></div>
+<div id="breakdownR" class="adjacent"></div>
+<div id="listLabels">
+<!-- <h3 id="listDLabel" class="adjacent">DFL Donors</h3>
+<h3 id="listRLabel" class="adjacent">GOP Donors</h3> -->
+</div>
+<div id="listD" class="adjacent"></div>
+<div id="listR" class="adjacent"></div>
+</div>
+<div id="committees" class="results">
+
+</div>
+</div>
+
+<div id="leftSide">
+<div class="offlink"><a href="http://www.gis.leg.mn/iMaps/districts/" target="new_">Who represents me?</a></div>
+<div id="filter"><input type="search" id="filter_box" placeholder="Search by district, candidate or chamber"></input></div>
+<div class="breaker"></div>
+
+<div id="filterButtons"><button class="switchFilter selected">All</button><button class="switchFilter">Watching</button><button class="switchFilter">Open</button></div>
+
+<div id="raceSelection">
+<div class="cell">District</div><div class="cell democrat">DFL</div><div class="cell republican">GOP</div><div class="cell kill">Chamber</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
+<script>
+
+d3.csv("./data/races.csv", function(d) {
+  return {
+    race: d.district,
+    chamber: d.chamber,
+    democrat: d.democrat,
+    republican: d.republican,
+    photoR: d.photoR,
+    photoD: d.photoD
+  };
+}, function(error, rows00) {
+
+d3.csv("./data/candidates_master.csv", function(d) {
+  return {
+    id: d.CandRegNumb,
+    district: d.District,
+    party: d.PoliticalParty,
+    first: d.CandFirstName,
+    last: d.CandLastName,
+    total: +d.TotReceipts,
+    endcash: d.EndCash,
+    indcontrib: d.IndContrib,
+    ppcontrib: d.PPContrib,
+    pfcontrib: d.PFContrib,
+    lbcontrib: d.LbContrib,
+    pubfin: d.PubFin,
+    miscinc: d.MiscInc,
+    notepayinc: d.NotePayInc,
+    noterecinc: d.NoteRecInc,
+    expend: d.TotalExpend,
+    begin: d.BeginCash
+  };
+}, function(error, rows1) {
+
+var dataRaces = rows00;
+var dataFilings = rows1;
+
+//LOAD RACE LIST
+function getRaces() {
+    d3.select("#raceSelection").selectAll(".switch")
+      .data(dataRaces).enter().append("div")
+      .attr("class",function(d) { return "switch " + d.chamber; })
+      .attr("chamber",function(d) { return d.chamber; })
+      .attr("district",function(d) { return d.race; })
+      .on("click",function(d){
+
+      })
+      .html(function(d){ 
+        if (d.chamber == "House" || d.chamber == "Senate") { return "<div class='cell'>District " + d.race + "</div><div class='cell'>" + d.democrat + "</div><div class='cell'>" + d.republican + "</div><div class='cell kill'>" + d.chamber + "</div>"; }
+      });
+
+    $('#filter_box').keyup(function(i){
+       $('.switch').hide();
+       var txt = $('#filter_box').val();
+       $('.switch').each(function(){
+           if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+               $(this).show();
+           }
+       });
+    });
+
+    $(".sift").click(function()  { 
+       $(".sift").removeClass("selected2");
+       $(this).addClass("selected2");
+       $(".switch").hide();
+       $("." + $(this).attr("data")).show();
+       $('#raceSelection').animate({scrollTop : 0},800);
+       return false;
+    });
+
+    $(".switch").click(function()  { 
+       $(".switch").removeClass("selected");
+       $(this).addClass("selected");
+       dataSpill($(this).attr("district"),$(this).attr("chamber"));
+    });
+
+    $("#listLabels").click(function()  { 
+       $("#listR").slideToggle();
+       $("#listD").slideToggle();
+    });
+}
+
+getRaces();
+
+//LOAD DONORS
+function getDonors(container, candidate, party){
+    d3.select(container).html("");
+
+    d3.select(container).selectAll(".donor")
+      .data(dataDonors.filter(function(d) { if (party == null) { return d.id == candidate; } else { if (getCandidates(d.id, true) == party) { return d.id; } } }).sort(function(a,b) {return b.amount-a.amount;})).enter().append("div")
+      .attr("class",function(d) { return "donor"; })
+      .on("click",function(d){ })
+      .html(function(d){ 
+        return "<div class='adjacent'>" + d.donor + "</div><div class='adjacent'>" + d3.format("$,.2f")(d.amount) + "</div>";
+      });
+}
+
+
+//LOAD CHARTS
+function drawChart(container, amount, bigTotal) {
+
+var pct = d3.format("%")(amount[0] / bigTotal);
+var indPCT = d3.format("%")(amount[1] / amount[0]);
+var ppPCT = d3.format("%")(amount[2] / amount[0]);
+var pfPCT = d3.format("%")(amount[3] / amount[0]);
+var lbPCT = d3.format("%")(amount[4] / amount[0]);
+var pubfinPCT = d3.format("%")(amount[5] / amount[0]);
+var miscPCT = d3.format("%")(amount[6] / amount[0]);
+var notepayPCT = d3.format("%")(amount[7] / amount[0]);
+var noterecPCT = d3.format("%")(amount[8] / amount[0]);
+
+$(container).html("<div class='bigNum'>" + d3.format("$,.2f")(amount[0]) + "</div><div class='bigBar'><div class='inBar' style='height:" + pct + "'><div class='ind' title='"  + d3.format("$,.2f")(amount[1]) +  " independent contributions' style='height:" + indPCT + "'></div><div class='pp' title='"  + d3.format("$,.2f")(amount[2]) +  " political party' style='height:" + ppPCT + "'></div><div class='pf' title='" + d3.format("$,.2f")(amount[3]) +  " political committees' style='height:" + pfPCT + "'></div><div class='lb' title='"  + d3.format("$,.2f")(amount[4]) +  " lobbyist contributions' style='height:" + lbPCT + "'></div><div class='pubfin' title='"  + d3.format("$,.2f")(amount[5]) +  " pubfin' style='height:" + pubfinPCT + "'></div><div class='misc' title='"  + d3.format("$,.2f")(amount[6]) +  " miscellaneous' style='height:" + miscPCT + "'></div><div class='notepay' title='"  + d3.format("$,.2f")(amount[7]) +  " receipts loans payable' style='height:" + notepayPCT + "'></div><div class='noterec' title='"  + d3.format("$,.2f")(amount[8]) +  " noterec' style='height:" + noterecPCT + "'></div></div></div><div class='subtotal'><div class='left'>Beginning</div><div class='right'>" +  d3.format("$,.2f")(amount[11]) + "</div></div><div class='subtotal'><div class='left'>Raised</div><div class='right'>+" +  d3.format("$,.2f")(amount[0]) + "</div></div><div class='subtotal'><div class='left'>Expenditures</div><div class='right'>-" + d3.format("$,.2f")(amount[9]) + "</div></div><div class='subtotal'><div class='left'>End</div><div class='right'>" + d3.format("$,.2f")(amount[10]) + "</div></div>");
+
+ $( function() {
+    $( document ).tooltip();
+  } );
+
+}
+
+//LOAD CANDIDATES INFO
+function getCandidates(district, party){
+  var first, last, city, party, chamber, endcash, indcontrib, ppcontrib, pfcontrib, lbcontrib;
+    for (var i=0; i < dataFilings.length; i++){
+      if (dataFilings[i].district == district && dataFilings[i].party == party){
+        party = dataFilings[i].party;
+        first = dataFilings[i].first;
+        last = dataFilings[i].last;
+      }
+    }
+
+    if (party == "DFL"){ 
+      $("#partyD").html(party); $("#candD").html("<div>" + first + " " + last + " (" + party + ")</div>"); 
+    } 
+    else if (party == "GOP"){ 
+      $("#partyR").html(party); $("#candR").html("<div>" + first + " " + last + " (" + party + ")</div>");
+    }
+}
+
+function getCandidateTotals(district,party){
+ var total = [];
+ var endcash, indcontrib, ppcontrib, pfcontrib, lbcontrib;
+ for (var i=0; i < dataFilings.length; i++){
+  
+    if (dataFilings[i].district == district && dataFilings[i].party == party){  
+        total[0] = Number(dataFilings[i].total);
+        total[1] = Number(dataFilings[i].indcontrib);
+        total[2] = Number(dataFilings[i].ppcontrib);
+        total[3] = Number(dataFilings[i].pfcontrib);
+        total[4] = Number(dataFilings[i].lbcontrib);
+        total[5] = Number(dataFilings[i].pubfin);
+        total[6] = Number(dataFilings[i].miscinc);
+        total[7] = Number(dataFilings[i].notepayinc);
+        total[8] = Number(dataFilings[i].noterecinc);
+        total[9] = Number(dataFilings[i].expend);
+        total[10] = Number(dataFilings[i].endcash);
+        total[11] = Number(dataFilings[i].begin);
+       }
+ }
+
+ return total;
+}
+
+//LOAD PARTIES
+function dataSpill(race,chamber){
+
+if (chamber == "House" || chamber == "Senate"){
+$(".results").hide();
+$("#races").show();
+
+$("#districtInfo").html("District " + race + " (" + String(chamber).toUpperCase() + ")")
+
+getCandidates(race,"DFL");
+getCandidates(race,"GOP");
+
+var bigTotal = getCandidateTotals(race,"DFL")[0] + getCandidateTotals(race,"GOP")[0];
+
+drawChart("#chartD", getCandidateTotals(race,"DFL"), bigTotal);
+drawChart("#chartR", getCandidateTotals(race,"GOP"), bigTotal);
+
+}
+}
+
+dataSpill("01A","House");
+
+//PCF CHARTS
+function pcfChart() {
+var  padding = {
+        top: 20,
+        right: 60,
+        bottom: 20,
+        left: 60,
+    };
+
+var tChart = c3.generate({
+      bindto: "#tChart",
+      padding: padding,
+        data: {
+                // x: 'x',
+                columns: [
+                    // ['x','Trump','Clinton'],
+                    ['Money Raised', 1597405, 1352986]
+                    // ['Campaign', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200],
+                    // ['PAC', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200],
+                    // ['SuperPac', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200]
+                ],
+            type: 'bar',
+            colors: {
+            'Money Raised': function(d) {
+                return (d.index == 0 || d.index == 2 || d.index == 4 || d.index == 6 || d.index == 8 || d.index == 10 || d.index == 12 || d.index == 14) ? '#3f88c5': '#A52129';
+            }
+          }
+            // groups: [
+            //     ['Independent', 'Campaign','PAC','SuperPac']
+            // ]
+            },
+
+            legend: {
+              show: false
+            },
+            axis: {
+              rotated: false,
+              y: {
+                    min: 0,
+                    padding: {bottom: 0},
+                    tick: {
+                     count: 4,
+                     format: d3.format('$,.0f')
+                    }
+                },
+                x: {
+                    type: 'category',
+                    categories: ['Nolan','Mills']
+                }
+            },
+        tooltip: {
+      contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+          var $$ = this, config = $$.config,
+              titleFormat = config.tooltip_format_title || defaultTitleFormat,
+              nameFormat = config.tooltip_format_name || function (name) { return name; },
+              valueFormat = config.tooltip_format_value || defaultValueFormat,
+              text, i, title, value, name, bgcolor;
+          for (i = 0; i < d.length; i++) {
+              if (! (d[i] && (d[i].value || d[i].value === 0))) { continue; }
+
+              console.log(d)
+
+              if (! text) {
+                  title = titleFormat ? titleFormat(d[i].x) : d[i].x;
+                  text = "<table class='" + $$.CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
+              }
+
+              name = nameFormat(d[i].name);
+              value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
+              if (d[i].index == 0 || d[i].index == 2 || d[i].index == 4 || d[i].index == 6 || d[i].index == 8 || d[i].index == 10 || d[i].index == 12 || d[i].index == 14){
+                bgcolor = "#3f88c5";
+              } else {
+                bgcolor = "#A52129";
+              }
+
+              // bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
+
+              text += "<tr class='" + $$.CLASS.tooltipName + "-" + d[i].id + "'>";
+              text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
+              text += "<td class='value'>" + value + "</td>";
+              text += "</tr><tr>";
+              text += "</tr>";
+              
+          }
+          return text + "</table>";
+      }
+    }
+});
+
+}
+
+pcfChart();
+
+//PARAMETER SWITCHES
+$.urlParam = function(name){
+  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  if (results != null) { return results[1]; }
+  else { return 0; }
+}
+
+if ($.urlParam('race') != 0 && $.urlParam('chamber') != 0) { 
+dataSpill($.urlParam('race'),$.urlParam('chamber'));
+$("#leftSide").hide();
+} 
+
+});
+});
+</script>
+
+</body>
+</html>

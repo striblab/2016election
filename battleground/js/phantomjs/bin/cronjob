@@ -1,0 +1,16 @@
+http://www.techradar.com/how-to/computing/apple/terminal-101-creating-cron-jobs-1305651
+
+
+env EDITOR=nano crontab -e
+
+15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js http://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSE > /Users/hargaja/dropbox/public/mnhouse/`date +\%Y\%m\%d\%H\%M\%S`-mnhouseMN.svg
+
+15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js http://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSEMETRO > /Users/hargaja/dropbox/public/mnhouseMetro/`date +\%Y\%m\%d\%H\%M\%S`-mnhouseMetro.svg
+
+15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js http://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATE > /Users/hargaja/dropbox/public/mnsenateMN/`date +\%Y\%m\%d\%H\%M\%S`-mnsenateMN.svg
+
+15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js http://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATEMETRO > /Users/hargaja/dropbox/public/mnsenateMetro/`date +\%Y\%m\%d\%H\%M\%S`-mnsenateMetro.svg
+
+15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js http://striblab.github.io/2016election/battleground/?race=president USMAP > /Users/hargaja/dropbox/public/usprez/`date +\%Y\%m\%d\%H\%M\%S`-usprez.svg
+
+15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js http://striblab.github.io/2016election/battleground/?race=house MNCDMAP > /Users/hargaja/dropbox/public/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseMN.svg

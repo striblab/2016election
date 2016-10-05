@@ -1,0 +1,14 @@
+[
+      { 
+        "label": "Dayton",
+        "value" : 50
+      } , 
+      { 
+        "label": "Undecided",
+        "value" : 0
+      } , 
+      { 
+        "label": "Johnson",
+        "value" : 50
+      }
+]

@@ -1,0 +1,126 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Elections 2016</title>
+  <meta name="description" content="Elections 2016">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
+  <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+  <style>
+    body, #filter, #filter input:focus, p { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+    #wrapper { margin-left:auto; margin-right:auto; width:540px; }
+
+    .card img { width:100%; }
+    .more { text-align:center; padding:15px; border-bottom:1px solid #ddd; }
+    .more a { color:steelblue; }
+    .logo { text-align:center; margin-right:auto; margin-left:auto; }
+    .logo img { width:100px; }
+
+    #main { margin-bottom:10px; margin-top:10px; text-align:center; }
+    .switch { display:inline-block; width:15.5% !important; text-align:center; padding:10px !important; margin:0 !important; font-size:.8em !important; opacity:.5; border:0 !important; }
+    .switch:hover, .switch:hover img, .switch div:hover { background-color:#fff !important; color:#333 !important; opacity:1; cursor:pointer; }
+    .selected { background-color:#fff !important; opacity:1; color:#000 !important; }
+    .switch img { width:50px; margin-right:auto; margin-left:auto; cursor:pointer;  }
+
+    h1 { padding:10px; text-align:center; vertical-align:middle; }
+    h1 span { padding-bottom:10px; }
+    h2 { padding:10px; font-size:1.4em; }
+    .chatter { padding:15px; }
+
+    .timestamp { font-size:.8em; text-align:center; color:#888; }
+
+    #filter input { border-radius:0 !important; }
+
+     @media (max-width:540px) { 
+      #wrapper { width:100%; }
+      .switch { width:32% !important; }
+     }
+
+     @media (max-width:320px) { 
+      
+     }
+  </style> 
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1><img src="img/st2016.png" width="60px" /> <span>Election 2016</span></h1>
+    <div class="timestamp">Last updated June 10, 2016 at 2:05 p.m.</div>
+
+    <div id="main">
+      <div class="switch selected" data="card">
+        <img src="img/ballot.png" /><div>All</div></div>
+      <div class="switch" data="mnleg">
+        <img src="img/mnleg_icon.png" /><div>MNLEG</div></div>
+      <div class="switch" data="president">
+        <img src="img/whitehouse.png" /><div>President</div></div>
+      <div class="switch" data="house">
+        <img src="img/house.png" /><div>Congress</div></div>
+      <div class="switch" data="finance">
+        <img src="img/cost.png" /><div>Finance</div></div>
+      <div class="switch" data="polls">
+        <img src="img/polls.png" /><div>Polls</div></div>
+    </div>
+
+    <div id="filter"><input type="search" id="filter_box" placeholder="Search page by keyword"></input></div>
+
+    <div id="entries"></div>
+
+    </div>
+  </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
+<script>
+d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1bNmXI3Dq7XHcHs5UKIa9mHZjOJEm2nb9PHDrt54ToDw&sheet=landing", function(error, dataLoad) {
+
+var data = dataLoad.landing;
+
+function spillEntries(){
+d3.select("#entries").selectAll(".card")
+  .data(data).enter().append("div")
+  .attr("class",function(d) { return "card " + d.slug; })
+  .html(function(d){ 
+    return '<div><h2>' + d.title + '</h2><a href="' + d.url + '" target="new_"><img src="' + d.thumb + '" /></a><div class="chatter">' + d.chatter + '</div><div class="more"><a href="' + d.url + '" target="new_">Read more</a></div>';
+  });
+
+//SEARCH FILTER TABLE
+  $( document ).ready(function() {
+     $('#filter_box').keyup(function(i){
+        $('.card').hide();
+        var txt = $('#filter_box').val();
+        $('.card').each(function(){
+           if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+               $(this).show();
+           }
+        });
+        var count = $('.card:visible').length;
+        $('#results').html(count);
+    });
+
+// });
+
+});
+
+    $(".switch").click(function()  { 
+       $(".switch").removeClass("selected");
+       $(this).addClass("selected");
+       $('.card').hide();
+       $('.' + $(this).attr("data")).show();
+    });
+    
+}
+
+spillEntries()
+
+});
+</script>
+
+</html>

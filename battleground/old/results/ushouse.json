@@ -1,0 +1,14 @@
+[
+      { 
+        "label": "Democrats",
+        "value" : 1
+      } , 
+      { 
+        "label": "Undecided",
+        "value" : 125
+      } , 
+      { 
+        "label": "Republicans",
+        "value" : 8
+      }
+    ]

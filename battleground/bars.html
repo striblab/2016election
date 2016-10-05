@@ -1,0 +1,231 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Battleground 2016 Balances of Power</title>
+  <meta name="description" content="Battleground 2016 Balances of Power">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
+  <link rel="stylesheet" href="../_common_resources/interfaces/d3.slider-master/d3.slider.css" />
+  <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+  
+  <style>
+    /* PAGE BASE */
+    body { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; overflow-x:hidden !important; }
+    p { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
+    a { color:#000; }
+    #wrapper { text-align:center; height:auto; width:920px; margin-left:auto; margin-right:auto; }
+    
+    /* SWITCHES AND BUTTONS */
+    #bottomSwitches { text-align:center; margin-left:auto; margin-right:auto; width:100%; }
+    #viewSwitches { display:inline-block; border-right:1px solid #ddd; }
+    .switch { padding:10px; display:inline-block; text-align:center; width:24.5%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; }
+    .switch:hover, .selected2, .mapSwitch:hover, .typeSwitch:hover, .layerSwitch:hover, .raceSwitch:hover { opacity:1 !important; cursor:pointer; background-color:#fff !important; color:#000 !important; }
+    .typeSwitch, .layerSwitch, .stateSwitch { width:60px; display:inline-block; opacity:.4; margin:5px; }
+    .switch img { width:40px; }
+    .mapSwitch img, .typeSwitch img, .layerSwitch img, .stateSwitch img { width:100%; }
+    #raceSwitcher { margin-bottom:10px; }
+    .raceSwitch { width:13.8%; display:inline-block; opacity:.5; }
+
+     /* PANES */
+    .dataviz { width:100%;  }
+    #rightSide { width:100%; font-size:.8em; }
+    #infobox { width:60%; margin-right:auto; margin-left:auto; }
+    .adjacent { width:48%; display:inline-block; }
+
+     /* MAPS */
+    .map, .carto { width:800px; margin-right:auto; margin-left:auto; text-align:center;  }
+    
+    rect:hover, text:hover { background-color:#333 !important; cursor:pointer; opacity:.5; }
+    #mnhouse .map, #mnhouse .carto, #mnsenate .map, #mnsenate .carto, #mnhouse .map svg, #mnhouse .carto svg, #mnsenate .map svg, #mnsenate .carto svg { display:inline-block; width:320px !important; height:350px !important; }
+    .carto, #mnhouse .carto, #mnsenate .carto  { display:none; }
+
+     /* RESET BUTTON */
+    .zoom { float:none !important; text-align:center; }
+
+    /* POWER BAR */
+    #partyLabels, #partyBar, #partyCount { width:100%; }
+    .bar, .count, .label { display:inline-block; }
+    .label, .count { width:24%; }
+    .bar { width:0; height:15px; border:0.5px solid #fff; }
+    .bar:hover { background-color:#333; cursor:pointer; }
+    .gopLabel, .gopCount, .gopVotes { text-align:right !important; }
+    .demsLabel, .demsCount, .demsVotes { text-align:left !important; }
+    #demsBar { background-color:#0D4773; }
+    #gopBar { background-color:#9C0004; }
+    #undBar { background-color:#ddd; }
+    #indBar { background-color:#E07242; }
+    #indLabel, #undLabel, #indCount, #undCount { text-align:center; }
+    .check { width:20px; height:20px; }
+    .demWin { float:left; }
+    .gopWin { float:right; }
+
+    body { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+    .adjacent { width:48%; display:inline-block; text-align:center; }
+    .hbar { display:inline-block; height:16px; width:32%; }
+    #index, #wrapper { text-align:center; }
+    .r { text-align:right; }
+    .i { text-align:center; }
+    .d { text-align:left; }
+
+/*SWATCHES*/
+    .republican { background-color:#8C1B17; fill:#8C1B17 !important; pointer-events: all; font-weight:bold; color:#fff; }
+    .r1 { background-color:#C68985; fill:#C68985 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .r2 { background-color:#A5484D; fill:#A5484D !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .r3 { background-color:#A52129; fill:#A52129 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .r4 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .r0 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .mid { background-color:#aaa; fill:#aaa !important; color:black !important; pointer-events: all; font-weight:bold; }
+    .democrat { background-color:#3F88C5; fill:#3F88C5 !important; pointer-events: all; font-weight:bold; color:#fff;  }
+    .d1 { background-color:#ABCEE8; fill:#ABCEE8 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .d2 { background-color:#5ca5c3; fill:#5ca5c3 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .d3 { background-color:#4f97c4; fill:#4f97c4 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .d4 { background-color:#3f88c5; fill:#3f88c5 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .d0 { background-color:#3F88C5; fill:#3F88C5 !important; color:white !important; pointer-events: all; font-weight:bold; }
+
+    /* LEGENDS */
+    .legends { width:570px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
+    small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
+    .legend label, .legend span { display:block; float:left; height:15px; width:47px; text-align:center; font-size:12px; color:#808080; font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+
+    /* TABLES */
+    #table { height:604px; }
+    #chamber { width:450px; height:275px; margin-right:auto; margin-left:auto; text-align:center; display:none; }
+    .column { width:48%; display:inline-block; vertical-align:top; }
+    .counter div { width:48%; display:inline-block; }
+    .tableHead { display:inline-block; padding:10px; border-bottom:1px solid #ddd; width:24%; font-weight:900; font-family:"Poynter Serif RE"; }
+    .tableCell { display:inline-block; padding:10px; border-bottom:1px solid #ddd; width:24%; font-family:"Benton Sans"; }
+    .tableBreak { clear:both; display:block; }
+    .table { text-align:center; width:100%; overflow-x:hidden; overflow-y:auto; height:auto; }
+    #filter input { border-radius:0 !important; }
+    .chamberLabel { width:100%; display:block !important; text-align:center !important; margin-left:auto; margin-right:auto;  padding:7px; font-weight:900; }
+    .district { display:inline-block; }
+    .box { width:60px; height:40px; padding:3px; border:1px solid #000; vertical-align:middle; margin:2px; font-size:.7em; }
+    .box:hover { background-color:#333; cursor:pointer; }
+
+    /* HISTORICAL DATA */
+    #historyview { width:540px; margin-left:auto; margin-right:auto; }
+    .mapThumb { width:300px; margin-right:auto; margin-left:auto; }
+    .mapThumb img { width:100%; }
+    .chartTitle { text-align:center; }
+    .turnout { text-align:center; }
+    .d_history { float:left; }
+    .r_history { float:right; }
+    .historyBox { width:65%; margin-left:auto; margin-right:auto; padding:15px; }
+    .smallbreak { clear:both; }
+
+    /* INFOBOXES */
+    .districtName { font-weight:900; font-size:1.2em; }
+    .name { font-weight:900 !important; }
+    .statRow { width:100%; }
+    .cell { display:inline-block; text-align:center; }
+    .statNum { padding:7px; font-size:1.2em; font-weight:400; }
+    .statNum:hover { cursor:pointer; background-color:#333; color:#fff; }
+    .raceRow .cell { width:50%; }
+    .femaleRow .cell, .maleRow .cell, .schoolRow .cell { width:25%; }
+    .incomeRow .cell { width:100%; }
+    .stats .label { font-size:.5em; font-family:"Benton Sans",Helvetica,Arial,sans-serif; text-align:center; width:66% !important; }
+    .pct path { stroke-width:.02px !important; }
+    h2 { text-align:center; padding:10px; }
+    .candidate { float:left; width:48%; }
+    .pct { float:right; width:48%; }
+    .tooltip { width:150px; }
+    .resultsRow div { display:inline-block; width:24%; text-align:left; }
+    .resultsRow { clear:both; }
+    .resultsHead { font-weight:bold; }
+    .reportingRow { margin-top:5px; float:right; color:#aaa; font-size:0.8em; }
+    .tableRow { clear:both; text-align:left !important; margin:10px; }
+
+    /* BREAKPOINTS */
+     @media (max-width:920px) {
+      #wrapper { width:100%; }
+      .map { width:100%; }
+      .carto { width:100%; }
+      .raceSwitch { width:23%; }
+      #rightSide, .dataviz { width:100%; float:none; }
+      #historyview { width:100%; margin-left:auto; margin-right:auto; }
+      #viewSwitches { display:block; border-right:0; }
+     }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+<div class="adjacent" id="president">
+  <div class="chartTitle">U.S. President</div>
+  <div class="powerbar">
+    <div class="hbar d democrat" style="width:43%">188</div><div class="hbar i mid" style="width:0;">&nbsp;</div><div class="hbar r republican" style="width:56%">247</div>
+  </div>
+</div>
+
+<div class="breaker"></div>
+
+<div class="adjacent" id="senate">
+  <div class="chartTitle">U.S. Senate</div>
+  <div class="powerbar">
+    <div class="hbar d democrat" style="width:43%">188</div><div class="hbar i mid" style="width:0;">&nbsp;</div><div class="hbar r republican" style="width:56%">247</div>
+  </div>
+</div>
+<div class="adjacent" id="house">
+  <div class="chartTitle">U.S. House</div>
+  <div class="powerbar">
+    <div class="hbar d democrat" style="width:43%">188</div><div class="hbar i mid" style="width:0;">&nbsp;</div><div class="hbar r republican" style="width:56%">247</div>
+  </div>
+</div>
+<div class="adjacent">
+  <div class="chartTitle" id="mnsenate">MN Senate</div>
+  <div class="powerbar">
+    <div class="hbar d democrat" style="width:43%">188</div><div class="hbar i mid" style="width:0;">&nbsp;</div><div class="hbar r republican" style="width:56%">247</div>
+  </div>
+</div>
+<div class="adjacent">
+  <div class="chartTitle" id="mnhouse">MN House</div>
+  <div class="powerbar">
+    <div class="hbar d democrat" style="width:43%">188</div><div class="hbar i mid" style="width:0;">&nbsp;</div><div class="hbar r republican" style="width:56%">247</div>
+  </div>
+  </div>
+
+</div>
+<!-- end wrapper -->
+
+<div id="dump" style="display:none;"></div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/interfaces/d3.slider-master/d3.slider.js"></script>
+<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
+<!-- <script src="./js/require.js"></script>
+<script src="./js/node_modules/ballot-tally/index.js"></script> -->
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="./js/uri.js"></script>
+<script src="./js/jsonp.js"></script>
+
+<script>
+//president: cities = https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G&level=RU
+//president = states https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G
+
+</script>
+<script>
+
+function powerbar(race, d, i, r){
+
+$("#" + race + " .d").css("width",0);
+$("#" + race + " .d").html(0);
+
+$("#" + race + " .i").css("width",0);
+$("#" + race + " .i").html(0);
+
+$("#" + race + " .r").css("width",0);
+$("#" + race + " .r").html(0);
+
+}
+
+</script>
+
+
+</html>

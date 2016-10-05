@@ -1,0 +1,4 @@
+Pollster,Start Date,End Date,Entry Date/Time (ET),Number of Observations,Population,Mode,Clinton,Trump,Undecided,Pollster URL,Source URL,Partisan,Affiliation
+Mason-Dixon/Star Tribune,2016-01-18,2016-01-20,2016-01-24T17:22:34Z,800,Registered Voters,Live Phone,43,38,19,http://elections.huffingtonpost.com/pollster/polls/mason-dixon-star-tribune-23574,http://m.startribune.com/how-the-poll-was-conducted/366321131/,Nonpartisan,None
+SurveyUSA/KSTP-TV,2015-10-29,2015-11-02,2015-11-09T20:35:43Z,516,Registered Voters,IVR/Online,42,45,13,http://elections.huffingtonpost.com/pollster/polls/surveyusa-kstp-tv-23089,http://www.surveyusa.com/client/PollReport.aspx?g=c35be9e1-00ac-46e1-ae46-2dd58f805665,Nonpartisan,None
+PPP (D),2015-07-30,2015-08-02,2015-08-05T00:06:40Z,1015,Likely Voters,IVR/Online,44,39,17,http://elections.huffingtonpost.com/pollster/polls/ppp-d-22481,http://www.publicpolicypolling.com/pdf/2015/PPP_Release_MN_80415.pdf,Pollster,Dem

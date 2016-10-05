@@ -1,0 +1,8 @@
+curl “https://api.propublica.org/campaign-finance/v1/2016/committees/search.json?query=TOMORROW” -H “X-API-Key: PROPUBLICA_API_KEY”
+
+
+GRAB NEW TOTAL DATA: curl "https://api.propublica.org/campaign-finance/v1/2016/president/totals.json" -H "X-API-Key: GYy5JPWkYMsiMexPaH4S1PEBEqnWUcw8y9on7ei7"
+
+GRAB NEW STATE DATA: curl "https://api.propublica.org/campaign-finance/v1/2016/president/states/MN.json" -H "X-API-Key: GYy5JPWkYMsiMexPaH4S1PEBEqnWUcw8y9on7ei7"
+
+API KEY: GYy5JPWkYMsiMexPaH4S1PEBEqnWUcw8y9on7ei7
