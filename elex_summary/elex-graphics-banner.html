@@ -211,6 +211,8 @@ font-weight: bold;
   .localCheck {float:left;width:12%;}
   .localName {float:left;width:74%;font-weight:normal;}
   .localResult {float:left;width:14%;text-align:right;}
+
+  #done { display:none; }
   
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
@@ -384,6 +386,8 @@ body {
     <div class="reporting localReport"><span id="local-racePct">0% reporting</span></div>
 </div>
   
+
+<div id="done"></div> 
 <!-- close results bar main container-->
 </div> 
 </div>
@@ -413,10 +417,7 @@ body {
 // var apiStringMNS = "data/mnsenate.json";
 
 var apiStringCounty = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
-
 var apiStringSenate = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
-var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-gov/full.json";
-
 var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
 var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnhouse-by-district/full.json";
 var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
@@ -427,17 +428,13 @@ var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn
 d3.json(apiStringCounty, function(error, jsonCounty) {
 d3.json(apiStringSenate, function(error, jsonSenate) {
 d3.json(apiStringHouse, function(error, jsonHouse) {
-d3.json(apiStringGov, function(error, jsonGov) {
 d3.json(apiStringMNH, function(error, jsonMNH) {
 d3.json(apiStringMNS, function(error, jsonMNS) {
 
 // var dataUS = jsonUS;
 var dataCounty = jsonCounty;
-
 var dataSenate = jsonSenate;
 var dataHouse = jsonHouse;
-var dataGov = jsonGov;
-
 var dataMNH = jsonMNH;
 var dataMNS = jsonMNS;
 
@@ -825,9 +822,10 @@ raceCrunch();
 
 $(document).ready(function() {
  $.ajaxSetup({ cache: false });
+ $("#done").html("DONE");
 });
 
-});
+
 });
 });
 });

@@ -16,8 +16,11 @@ page.open('http://striblab.github.io/2016election/elex_summary/elex-graphics-ret
   };
 
 window.setTimeout(function () {
-  page.render('frontpage_bars_maps.png');
+  var testIt = document.getElementById('done');
+  if (testIt.innerHTML == "DONE"){
+  page.render('frontpage_bars_mobile.png');
   phantom.exit();
-  }, 3000);
+  }
+}, 3000);
 
 });
