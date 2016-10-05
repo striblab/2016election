@@ -139,6 +139,8 @@
     .reportingRow { margin-top:5px; float:right; color:#aaa; font-size:0.8em; }
     .tableRow { clear:both; text-align:left !important; margin:10px; }
 
+    .hideIT { display:none; }
+
     /* BREAKPOINTS */
      @media (max-width:920px) {
       #wrapper { width:100%; }
@@ -250,6 +252,8 @@
 <!-- MAPS -->
 <div class="mapBox">
 <div id="map" class="map geo"><svg id="USMAP" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mapCounties" class="hideIT"><svg id="USCOUNTIES" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mapStates" class="hideIT"><svg id="USSTATES" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <div id="carto" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 </div>
 <div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
@@ -2157,7 +2161,10 @@ function mapSpill(race,data){
 if (race == "president"){
   mapBuild("#president .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
   mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-  mapBuild("#president .geo", "#districtName", "#chart", "us_congress.json", "cd", "us", "cd", data);
+
+  mapBuild("#mapState", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
+  mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
+  // mapBuild("#president .geo", "#districtName", "#chart", "us_congress.json", "cd", "us", "cd", data);
 
   // d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1dmWuUyYnLo9599ikNdLY5ZfbPkFk8pmSPUWhlpgAfUU&sheet=mnPCT2012", function(error, json) {
 
