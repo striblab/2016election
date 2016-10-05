@@ -15,6 +15,8 @@ env EDITOR=nano crontab -e
 
 15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js http://striblab.github.io/2016election/battleground/?race=president USCOUNTIES > /Users/hargaja/dropbox/public/usprez/`date +\%Y\%m\%d\%H\%M\%S`-uscounties.svg
 
+15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/elex_summary/elex-graphics-returns-map.html MNHOUSE > /Users/hargaja/dropbox/public/usprez/`date +\%Y\%m\%d\%H\%M\%S`-mncounties.svg
+
 15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js http://striblab.github.io/2016election/battleground/?race=house USHOUSE > /Users/hargaja/dropbox/public/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseAll.svg
 
-15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js http://striblab.github.io/2016election/battleground/?race=house MNCDMAP > /Users/hargaja/dropbox/public/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseMN.svg
+15 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js http://striblab.github.io/2016election/battleground/?race=house USHOUSEMN > /Users/hargaja/dropbox/public/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseMN.svg
