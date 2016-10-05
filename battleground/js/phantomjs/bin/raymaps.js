@@ -1,9 +1,9 @@
-// phantomjs raymaps.js http://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSE > test.svg
-// phantomjs raymaps.js http://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSEMETRO > test.svg
-// phantomjs raymaps.js http://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATE > test.svg
-// phantomjs raymaps.js http://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATEMETRO > test.svg
-// phantomjs raymaps.js http://striblab.github.io/2016election/battleground/?race=president USMAP > test.svg
-// phantomjs raymaps.js http://striblab.github.io/2016election/battleground/?race=house USMAP > test.svg
+// phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSE > test.svg
+// phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSEMETRO > test.svg
+// phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATE > test.svg
+// phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATEMETRO > test.svg
+// phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=president USMAP > test.svg
+// phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=house USMAP > test.svg
 
 var system = require('system');
 
@@ -49,7 +49,7 @@ function extract(elementID) {
 
       console.log(js.join('\n') + '\n' + output);
       phantom.exit();
-    }, 1500);
+    }, 3000);
     }
   };
 }
