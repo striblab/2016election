@@ -194,8 +194,9 @@
 
 //https://elections.huffingtonpost.com/pollster/2016-minnesota-president-trump-vs-clinton
 
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1T7sXD_Vvp60707sC6g_Ws7trmpsMHXwz2dl7S-oW67k&sheet=pollster", function(error, dataLoad) {
+// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1T7sXD_Vvp60707sC6g_Ws7trmpsMHXwz2dl7S-oW67k&sheet=pollster", function(error, dataLoad) {
 
+d3.json("./data/pollster.json", function(error, dataLoad) {
 
 var data = dataLoad.pollster;
 

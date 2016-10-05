@@ -303,7 +303,9 @@ $("#" + selected).show();
 } else { $(".slide").show(); }
 
 //WHITE DISTRESS
-  d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1dmWuUyYnLo9599ikNdLY5ZfbPkFk8pmSPUWhlpgAfUU&sheet=white_distress", function(error, dataLoadD) {
+  // d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1dmWuUyYnLo9599ikNdLY5ZfbPkFk8pmSPUWhlpgAfUU&sheet=white_distress", function(error, dataLoadD) {
+
+  d3.json("./data/white_distress.json", function(error, dataLoadD) {
 
 var dataD = dataLoadD.white_distress;
 
