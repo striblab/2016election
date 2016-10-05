@@ -811,6 +811,8 @@ function raceCrunch(){
   $("#local-race-rep").html(d3.format("%")(rPct/total));
   $("#local-racePct").html(pct + "% reporting");
 
+ $("#done").html("DONE");
+ 
 }
 
 prezCrunch();
@@ -822,7 +824,6 @@ raceCrunch();
 
 $(document).ready(function() {
  $.ajaxSetup({ cache: false });
- $("#done").html("DONE");
 });
 
 

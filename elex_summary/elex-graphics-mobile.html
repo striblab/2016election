@@ -848,6 +848,8 @@ function raceCrunch(){
   $("#local-race-con").html(d3.format("%")(rPct2/total2));
   $("#votePct").html(pct2 + "% reporting");
 
+   $("#done").html("DONE");
+
 }
 
 prezCrunch();
@@ -859,7 +861,6 @@ raceCrunch();
 
 $(document).ready(function() {
  $.ajaxSetup({ cache: false });
- $("#done").html("DONE");
 });
 
 });
