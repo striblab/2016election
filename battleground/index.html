@@ -717,7 +717,7 @@ console.log(fetchData('District 8',"Minnesota","tooltip",dataHouse,"ushouse"));
 
 //table functions
 function makeTable(race){
-d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1dmWuUyYnLo9599ikNdLY5ZfbPkFk8pmSPUWhlpgAfUU&sheet=us2016", function(error, dataLoad) {
+d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1dmWuUyYnLo9599ikNdLY5ZfbPkFk8pmSPUWhlpgAfUU&sheet=us2016", function(error, dataLoad) {
 
 var data = dataLoad.us2016;
 
@@ -2159,12 +2159,12 @@ if (race == "president"){
   mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
   mapBuild("#president .geo", "#districtName", "#chart", "us_congress.json", "cd", "us", "cd", data);
 
-  d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1dmWuUyYnLo9599ikNdLY5ZfbPkFk8pmSPUWhlpgAfUU&sheet=mnPCT2012", function(error, json) {
+  // d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1dmWuUyYnLo9599ikNdLY5ZfbPkFk8pmSPUWhlpgAfUU&sheet=mnPCT2012", function(error, json) {
 
-  var data = json.mnPCT2012;
-  mapBuild("#president .geo", "#districtName", "#chart", "mnprecincts.json", "pct", "us", "pct", data);
+  // var data = json.mnPCT2012;
+  // mapBuild("#president .geo", "#districtName", "#chart", "mnprecincts.json", "pct", "us", "pct", data);
 
-  });
+  // });
 
   cartoBuild("#president .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
   makeTable("president");
@@ -2244,7 +2244,7 @@ var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
 if (race == "senate"){
   mapBuild("#senate .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
   mapBuild("#senate .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-   d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1Vk4a_VNKyqN20F1NdAAwKeHwtR0Z1oGRqXypYH4Ge_4&sheet=mnPCT2012", function(error, json) {
+   d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1Vk4a_VNKyqN20F1NdAAwKeHwtR0Z1oGRqXypYH4Ge_4&sheet=mnPCT2012", function(error, json) {
 
   var data = json.mnPCT2012;
   mapBuild("#senate .geo", "#districtName", "#chart", "mnprecincts.json", "pct", "us", "pct", data);
