@@ -2,8 +2,10 @@
 // phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSEMETRO > test.svg
 // phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATE > test.svg
 // phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATEMETRO > test.svg
-// phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=president USMAP > test.svg
 // phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=house USHOUSE > test.svg
+// phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=house USHOUSEMN > test.svg
+// phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=president USSTATES > test.svg
+// phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=president USCOUNTIES > test.svg
 
 var system = require('system');
 

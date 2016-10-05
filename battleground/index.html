@@ -292,6 +292,7 @@
 <!-- HOUSE PANES -->
 <div id="house" class="dataviz">
 <div id="map" class="map geo"><svg id="USHOUSE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mapMN" class="hideIT"><svg id="USHOUSEMN" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <div id="carto" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
 </div>
@@ -2237,6 +2238,7 @@ var aspect = 320 / 350, chart = $(".map svg"), chart2 = $(".carto svg");
 
 if (race == "house"){
   mapBuild("#house .geo", "#districtName", "#chart", "us_congress.json", race, "us", "country", data);
+  mapBuild("#mapMN", "#districtName", "#chart", "us_cd_mn_2012.json", race, "mn", "country", data);
 
   //RESPONSIVENESS
 var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
