@@ -447,15 +447,15 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script>
   $("#dLeanCount").parent().parent().hide();
   $("#tossupCount").parent().parent().hide();
   $("#rLeanCount").parent().parent().hide();
 
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=17N3mrwSRe6BJScRby9auxtQ8o7UwhfXv2IuTxbmlakY&sheet=power_index", function(error, dataLoad) {
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=17N3mrwSRe6BJScRby9auxtQ8o7UwhfXv2IuTxbmlakY&sheet=mnleg_chatter", function(error, dataLoadC) {
+d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=17N3mrwSRe6BJScRby9auxtQ8o7UwhfXv2IuTxbmlakY&sheet=power_index", function(error, dataLoad) {
+d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=17N3mrwSRe6BJScRby9auxtQ8o7UwhfXv2IuTxbmlakY&sheet=mnleg_chatter", function(error, dataLoadC) {
 
 var data = dataLoad.power_index;
 var dataChatter = dataLoadC.mnleg_chatter;

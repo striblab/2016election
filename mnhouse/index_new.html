@@ -485,7 +485,7 @@
       <div id="filter"><input type="search" id="filter_box" placeholder="Find district or legislator"></input></div>
       <div class='listCell th selected' data="district">District</div><div class='listCell th' data="candidate">Representative</div><div class='listCell th' data="party">Party</div><div class='listCell th' data="win">Last Win</div>
       <div id="districtList"></div>
-      <div class="offlink"><a href="http://www.gis.leg.mn/iMaps/districts/" target="new_">Who represents me?</a></div>
+      <div class="offlink"><a href="https://www.gis.leg.mn/iMaps/districts/" target="new_">Who represents me?</a></div>
       <div id="findMap"></div>
     </div>
   </div>
@@ -563,7 +563,7 @@
 <div id="committees" class="results">
 
 </div>
-<!-- <div class="embed"><iframe id="cfFrame" data="http://localhost/journalism/_archive/2016election/campaign_finance/?race=" src="http://striblab.github.io/2016election/campaign_finance?" border="0" frameborder="0" scrolling="no" width="100%" height="400"></iframe></div> -->
+<!-- <div class="embed"><iframe id="cfFrame" data="https://localhost/journalism/_archive/2016election/campaign_finance/?race=" src="https://striblab.github.io/2016election/campaign_finance?" border="0" frameborder="0" scrolling="no" width="100%" height="400"></iframe></div> -->
 
 <div class="moreStuff hideit" style="display:none !important;">
 <h3>Voting history, last six elections</h3>
@@ -581,15 +581,15 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script>
   $("#dLeanCount").parent().parent().hide();
   $("#tossupCount").parent().parent().hide();
   $("#rLeanCount").parent().parent().hide();
 
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=17N3mrwSRe6BJScRby9auxtQ8o7UwhfXv2IuTxbmlakY&sheet=power_index", function(error, dataLoad) {
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=17N3mrwSRe6BJScRby9auxtQ8o7UwhfXv2IuTxbmlakY&sheet=mnleg_chatter", function(error, dataLoadC) {
+d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=17N3mrwSRe6BJScRby9auxtQ8o7UwhfXv2IuTxbmlakY&sheet=power_index", function(error, dataLoad) {
+d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=17N3mrwSRe6BJScRby9auxtQ8o7UwhfXv2IuTxbmlakY&sheet=mnleg_chatter", function(error, dataLoadC) {
 
 var data = dataLoad.power_index;
 var dataChatter = dataLoadC.mnleg_chatter;

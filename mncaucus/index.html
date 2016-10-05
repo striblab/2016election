@@ -514,7 +514,7 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/nvd3-master/build/nv.d3.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/utils.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/tooltip.js"></script>
@@ -538,11 +538,11 @@
 //https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=r2008Summary
 //https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=demographics
 
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=r2016Summary", function(error, dataLoadRS) {
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=demographics", function(error, dataLoadDemo) {
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=d2016Summary", function(error, dataLoadDS) {
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=r2008Summary", function(error, dataLoadR2008) {
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=d2008Summary", function(error, dataLoadD2008) {
+d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=r2016Summary", function(error, dataLoadRS) {
+d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=demographics", function(error, dataLoadDemo) {
+d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=d2016Summary", function(error, dataLoadDS) {
+d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=r2008Summary", function(error, dataLoadR2008) {
+d3.json("https://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=d2008Summary", function(error, dataLoadD2008) {
 
 var dataRSum = dataLoadRS.r2016Summary;
 var dataDSum = dataLoadDS.d2016Summary;
