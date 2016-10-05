@@ -690,7 +690,7 @@ return "<div><strong>" + district + "</strong></div>";
 function mapBuild(container, boxContainer, chartContainer, shape, race, geo, level, dataCompare, index, visible) {
 
 if (geo=="us") { var width = 340, height = 240, centered; var projection = d3.geo.albersUsa().scale(1000).translate([400, 210]); }
-else if (geo=="mn") { var width = 240, height = 240, centered; var projection = d3.geo.albersUsa().scale(5037).translate([50, 970]); }
+else if (geo=="mn") { var width = 240, height = 240, centered; var projection = d3.geo.mercator().scale([3600]).center([-89.978027,46.785016]); }
 else if (geo=="metro") { var width = 240, height = 240, centered; var projection = d3.geo.mercator().scale([16500]).center([-92.403259,44.988113]); }
 
 var path = d3.geo.path()
