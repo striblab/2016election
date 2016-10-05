@@ -726,7 +726,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
           if (wins == "GOP Lean") { return "#b78181"; }
           if (wins == "GOP Win") { return "#DA2128"; }
         }
-         else if (level == "county") { console.log(d.properties.COUNTYFIPS); return fetchData(d.properties.COUNTYFIPS,null,"colors",dataCompare,race); }
+         else if (level == "county") { return fetchData(d.properties.COUNTYFIPS,null,"colors",dataCompare,race); }
 
         })
 //        .on("mousedown", function(d, i){
