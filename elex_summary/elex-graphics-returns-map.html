@@ -66,11 +66,11 @@ font-weight: bold;
 .demBlue {color:#21409A;}
 .repRed {color:#DA2128;}
 
-.demBlueKey {background-color:#21409A;}
-.demLean {background-color:#7584a6;}
-.tossUp {background-color:#999;}
-.repLean {background-color:#b78181;}
-.repRedKey {background-color:#DA2128;}
+.demBlueKey {background-color:#21409A;fill:#21409A;}
+.demLean {background-color:#7584a6;fill:#7584a6;}
+.tossUp {background-color:#999;fill:#999;}
+.repLean {background-color:#b78181;fill:#b78181;}
+.repRedKey {background-color:#DA2128;fill:#DA2128;}
   
   
 .graphicLabel {
@@ -406,7 +406,7 @@ var voteCountT = 0;
            } //end k loop
          }
       } else {
-         if (dataCompare.races[i].reportingUnits[j].fipsCode == district){
+         if (String(dataCompare.races[i].reportingUnits[j].fipsCode) == String("27" + district)){
               stateName = dataCompare.races[i].reportingUnits[j].stateName;
               statePostal = dataCompare.races[i].reportingUnits[j].statePostal;
               precinctsReporting = dataCompare.races[i].reportingUnits[j].precinctsReporting;
@@ -482,16 +482,12 @@ var voteCountT = 0;
 
   if (type == "colors"){
     if (pctR > pctD) { 
-      if (pctR >= .80) { return "#8C1B17"; } 
-      else if (pctR >= .70) { return "#A52129"; } 
-      else if (pctR >= .60) { return "#A5484D"; } 
-      else if (pctR >= 0) { return "#C68985"; } 
+      if (pctR >= .60) { return "#DA2128"; } 
+      else if (pctR >= 0) { return "#b78181"; } 
     }
     else if (pctD > pctR) { 
-      if (pctD >= .80) { return "#3f88c5"; } 
-      else if (pctD >= .70) { return "#4f97c4"; } 
-      else if (pctD >= .60) { return "#5ca5c3"; } 
-      else if (pctD >= 0) { return "#ABCEE8"; } 
+      if (pctD >= .60) { return "#21409A"; } 
+      else if (pctD >= 0) { return "#7584a6"; } 
     }
     else  { return 'mid'; }
   } //end colors
@@ -722,11 +718,16 @@ d3.json("shapefiles/" + shape, function(error, us) {
       .attr("id", function(d) { var str = d.properties.NAME + "_" + geo; return str.replace(new RegExp(" ", "g"),"-"); })
       .attr("precinctName", function(d){ return d.properties.NAME })
       .style("fill", function(d){
-         if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"colors",dataCompare,race); }
-         else if (race == "county") { return fetchData(d.properties.GEOID,null,"colors",dataCompare,race); }
-         else if (race == "pct") { return mapColor(d.properties.PCTCODE, race, dataCompare); }
-         else if (race == "house") { return fetchData(d.properties.NAME,d.properties.NAME,"colors",dataCompare,race); }
-         else if (race == "mnsenate" || race == "mnhouse") { return fetchData("District " + d.properties.DISTRICT,"Minnesota","colors",dataCompare,race); }
+        // console.log(level)
+         if (level == "country") { 
+          var wins = fetchData(d.properties.NAME,d.properties.NAME,"winner",dataCompare,race); 
+          if (wins == "DEM Win") { return "#21409A"; }
+          if (wins == "DEM Lean") { return "#7584a6"; }
+          if (wins == "GOP Lean") { return "#b78181"; }
+          if (wins == "GOP Win") { return "#DA2128"; }
+        }
+         else if (level == "county") { console.log(d.properties.COUNTYFIPS); return fetchData(d.properties.COUNTYFIPS,null,"colors",dataCompare,race); }
+
         })
 //        .on("mousedown", function(d, i){
 
