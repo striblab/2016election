@@ -6,6 +6,7 @@
 // phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=house USHOUSEMN > test.svg
 // phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=president USSTATES > test.svg
 // phantomjs raymaps.js https://striblab.github.io/2016election/battleground/?race=president USCOUNTIES > test.svg
+// phantomjs raymaps.js https://striblab.github.io/2016election/elex_summary/elex-graphics-returns-map.html MNHOUSE > test.svg
 
 var system = require('system');
 
@@ -51,7 +52,7 @@ function extract(elementID) {
 
       console.log(js.join('\n') + '\n' + output);
       phantom.exit();
-    }, 3000);
+    }, 5000);
     }
   };
 }
