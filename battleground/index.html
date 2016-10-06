@@ -165,14 +165,13 @@
     .hideIT { display:none; }
 
     /* BREAKPOINTS */
-     @media (max-width:880px) {
+     @media (max-width:980px) {
       #raceSwitcher { display:none; }
       #cartogram { text-align:center; width:100%; height:auto; }
       #datavizPane { width:100%; }
       #wrapper { width:100%; }
-      .map { width:100%; }
-      .carto { width:100%; }
-      .raceSwitch { width:23%; }
+      .map { width:100%; height:auto; }
+      .carto { width:100%; height:auto; }
       #rightSide, .dataviz { width:100%; float:none; }
       #historyview { width:100%; margin-left:auto; margin-right:auto; }
       #viewSwitches { display:block; border-right:0; }
@@ -234,8 +233,9 @@
   <div class="bar rlean" id="rLean"></div>
   <div class="bar republican" id="rWin"></div>
 </div>
-<div class="breaker"></div>
 </div>
+
+<div class="breaker"></div>
 
 <!-- DATAVIZ PANES -->
 
@@ -1176,13 +1176,35 @@
         774.818,413.999 752.904,413.999     "/>
 </g>
 </svg>
-
 </div>
 
 </div>
 </div>
+</div>
 
-<div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
+<!-- SENATE PANES -->
+<div id="senate" class="dataviz">
+<div class="mapBox">
+<div id="mapSen" class="map geo"><svg id="USSENATE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="cartoSen" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+</div>
+</div>
+
+<!-- GOVERNORS PANES -->
+<div id="governors" class="dataviz">
+<div class="mapBox">
+<div id="mapGov" class="map geo"><svg id="USGOV" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="cartoGov" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+</div>
+</div>
+
+<!-- HOUSE PANES -->
+<div id="house" class="dataviz">
+<div class="mapBox">
+<div id="mapHouse" class="map geo"><svg id="USHOUSE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="cartoHouse" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mapMN" class="hideIT"><svg id="USHOUSEMN" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+</div>
 </div>
 
 <!-- MNHOUSE PANES -->
@@ -1207,27 +1229,7 @@
 <div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
 </div>
 
-<!-- HOUSE PANES -->
-<div id="house" class="dataviz">
-<div id="mapHouse" class="map geo"><svg id="USHOUSE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="mapMN" class="hideIT"><svg id="USHOUSEMN" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="cartoHouse" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
-</div>
 
-<!-- SENATE PANES -->
-<div id="senate" class="dataviz">
-<div id="mapSen" class="map geo"><svg id="USSENATE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="cartoSen" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
-</div>
-
-<!-- GOVERNORS PANES -->
-<div id="governors" class="dataviz">
-<div id="mapGov" class="map geo"><svg id="USGOV" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="cartoGov" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
-</div>
 <!-- END DATAVIZ PANES -->
 
 <!-- DETAILS PANE-->
@@ -2831,10 +2833,14 @@ d3.helper.tooltip = function(accessor){
 };
 
 //RESPONSIVENESS
-
 if (race != "mnsenate" && race != "mnhouse"){
 var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
-
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+  var targetWidth2 = chart2.parent().width();
+  chart2.attr("width", targetWidth2);
+  chart2.attr("height", targetWidth2 / aspect);
 $(window).on("resize", function() {
   var targetWidth = chart.parent().width();
   chart.attr("width", targetWidth);
@@ -2845,7 +2851,12 @@ $(window).on("resize", function() {
 });
 } else {
 var aspect = 320 / 350, chart = $(".map svg"), chart2 = $(".carto svg");
-
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+  var targetWidth2 = chart2.parent().width();
+  chart2.attr("width", targetWidth2);
+  chart2.attr("height", targetWidth2 / aspect);
 $(window).on("resize", function() {
   var targetWidth = chart.parent().width();
   chart.attr("width", targetWidth);
@@ -2992,7 +3003,52 @@ if (race == "president"){
   mapBuild("#mapStates", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
   mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
 
-  makeTable("president");
+  // makeTable("president");
+
+  //RESPONSIVENESS
+var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+  var targetWidth2 = chart2.parent().width();
+  chart2.attr("width", targetWidth2);
+  chart2.attr("height", targetWidth2 / aspect);
+}
+
+if (race == "house"){
+  mapBuild("#house .geo", "#districtName", "#chart", "us_congress.json", race, "us", "country", data);
+  mapBuild("#mapMN", "#districtName", "#chart", "us_cd_mn_2012.json", race, "mn", "country", data);
+
+  //RESPONSIVENESS
+var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+  var targetWidth2 = chart2.parent().width();
+  chart2.attr("width", targetWidth2);
+  chart2.attr("height", targetWidth2 / aspect);
+}
+
+if (race == "senate"){
+  mapBuild("#senate .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
+  mapBuild("#senate .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
+  cartoBuild("#senate .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
+  // makeTable("president");
+
+  //RESPONSIVENESS
+var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+  var targetWidth2 = chart2.parent().width();
+  chart2.attr("width", targetWidth2);
+  chart2.attr("height", targetWidth2 / aspect);
+}
+
+if (race == "governors"){
+  mapBuild("#governors .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
+  mapBuild("#governors .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
+  cartoBuild("#governors .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
 
   //RESPONSIVENESS
 var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
@@ -3028,51 +3084,6 @@ if (race == "mnsenate"){
 
   //RESPONSIVENESS
 var aspect = 320 / 350, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
-}
-
-if (race == "house"){
-  mapBuild("#house .geo", "#districtName", "#chart", "us_congress.json", race, "us", "country", data);
-  mapBuild("#mapMN", "#districtName", "#chart", "us_cd_mn_2012.json", race, "mn", "country", data);
-
-  //RESPONSIVENESS
-var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
-}
-
-if (race == "senate"){
-  mapBuild("#senate .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
-  mapBuild("#senate .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-  cartoBuild("#senate .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
-  makeTable("president");
-
-  //RESPONSIVENESS
-var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
-}
-
-if (race == "governors"){
-  mapBuild("#governors .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
-  mapBuild("#governors .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-  cartoBuild("#governors .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
-
-  //RESPONSIVENESS
-var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
   var targetWidth = chart.parent().width();
   chart.attr("width", targetWidth);
   chart.attr("height", targetWidth / aspect);
