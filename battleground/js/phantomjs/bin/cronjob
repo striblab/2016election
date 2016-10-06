@@ -1,15 +1,19 @@
-http://www.techradar.com/how-to/computing/apple/terminal-101-creating-cron-jobs-1305651
+watch -n60 /usr/local/bin/phantomjs /Users/hargaja/dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/elexbars_maps.js
 
+watch -n600 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSE > /Users/hargaja/dropbox/public/mnhouse/`date +\%Y\%m\%d\%H\%M\%S`-mnhouseMN.svg
 
-env EDITOR=nano crontab -e
+watch -n600 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSEMETRO > /Users/hargaja/dropbox/public/mnhouseMetro/`date +\%Y\%m\%d\%H\%M\%S`-mnhouseMetro.svg
 
-* * * * * /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/elexbars_maps.js
-*/10 * * * * sudo phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSE > /Users/hargaja/dropbox/public/mnhouse/`date +\%Y\%m\%d\%H\%M\%S`-mnhouseMN.svg
-*/10 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=mnhouse MNHOUSEMETRO > /Users/hargaja/dropbox/public/mnhouseMetro/`date +\%Y\%m\%d\%H\%M\%S`-mnhouseMetro.svg
-*/10 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATE > /Users/hargaja/dropbox/public/mnsenateMN/`date +\%Y\%m\%d\%H\%M\%S`-mnsenateMN.svg
-*/10 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATEMETRO > /Users/hargaja/dropbox/public/mnsenateMetro/`date +\%Y\%m\%d\%H\%M\%S`-mnsenateMetro.svg
-*/10 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=president USSTATES > /Users/hargaja/dropbox/public/usprez/`date +\%Y\%m\%d\%H\%M\%S`-usprez.svg
-*/10 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=president USCOUNTIES > /Users/hargaja/dropbox/public/usprez/`date +\%Y\%m\%d\%H\%M\%S`-uscounties.svg
-*/10 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=house USHOUSE > /Users/hargaja/dropbox/public/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseAll.svg
-*/10 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=house USHOUSEMN > /Users/hargaja/dropbox/public/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseMN.svg
-*/10 * * * * phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/elex_summary/elex-graphics-returns-map.html MNHOUSE > /Users/hargaja/dropbox/public/usprez/`date +\%Y\%m\%d\%H\%M\%S`-mncounties.svg
+watch -n600 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATE > /Users/hargaja/dropbox/public/mnsenateMN/`date +\%Y\%m\%d\%H\%M\%S`-mnsenateMN.svg
+
+watch -n600 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=mnsenate MNSENATEMETRO > /Users/hargaja/dropbox/public/mnsenateMetro/`date +\%Y\%m\%d\%H\%M\%S`-mnsenateMetro.svg
+
+watch -n600 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=president USSTATES > /Users/hargaja/dropbox/public/usprez/`date +\%Y\%m\%d\%H\%M\%S`-usprez.svg
+
+watch -n600 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=president USCOUNTIES > /Users/hargaja/dropbox/public/usprez/`date +\%Y\%m\%d\%H\%M\%S`-uscounties.svg
+
+watch -n600 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=house USHOUSE > /Users/hargaja/dropbox/public/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseAll.svg
+
+watch -n600 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/?race=house USHOUSEMN > /Users/hargaja/dropbox/public/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseMN.svg
+
+watch -n600 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/elex_summary/elex-graphics-returns-map.html MNHOUSE > /Users/hargaja/dropbox/public/usprez/`date +\%Y\%m\%d\%H\%M\%S`-mncounties.svg
