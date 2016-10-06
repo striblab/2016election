@@ -222,78 +222,19 @@
 <!-- POWER BALANCE BAR -->
 <div class="bars" id="powerbar">
 <div id="partyLabels">
-  <div class="label dparty demsLabel">DEM <span id="dMark" class="check"></span></div>
+  <div class="label dparty demsLabel">  <span class="count demsCount">0</span> DEM <span id="dMark" class="check"></span></div>
   <div class="label undLabel"></div>
   <div class="label indLabel"></div>
-  <div class="label rparty gopLabel"><span id="rMark" class="check"></span> GOP</div>
+  <div class="label rparty gopLabel"><span id="rMark" class="check"></span> GOP <span class="count gopCount">0</span></div>
 </div>
 <div id="partyBar">
-  <div class="bar" id="AL" data="Alabama"></div>
-  <div class="bar" id="AK" data="Alaska"></div>
-  <div class="bar" id="AZ" data="Arizona"></div>
-  <div class="bar" id="AR" data="Arkansas"></div>
-  <div class="bar" id="CA" data="California"></div>
-  <div class="bar" id="CO" data="Colorado"></div>
-  <div class="bar" id="CT" data="Connecticut"></div>
-  <div class="bar" id="DC" data="District_of_Columbia"></div>
-  <div class="bar" id="DE" data="Delaware"></div>
-  <div class="bar" id="FL" data="Florida"></div>
-  <div class="bar" id="GA" data="Georgia"></div>
-  <div class="bar" id="HI" data="Hawaii"></div>
-  <div class="bar" id="ID" data="Idaho"></div>
-  <div class="bar" id="IL" data="Illinois"></div>
-  <div class="bar" id="IA" data="Iowa"></div>
-  <div class="bar" id="IN" data="Indiana"></div>
-  <div class="bar" id="KS" data="Kansas"></div>
-  <div class="bar" id="KY" data="Kentucky"></div>
-  <div class="bar" id="LA" data="Louisiana"></div>
-  <div class="bar" id="ME" data="Maine"></div>
-  <div class="bar" id="MD" data="Maryland"></div>
-  <div class="bar" id="MA" data="Massachusetts"></div>
-  <div class="bar" id="MI" data="Michigan"></div>
-  <div class="bar" id="MN" data="Minnesota"></div>
-  <div class="bar" id="MS" data="Mississippi"></div>
-  <div class="bar" id="MO" data="Missouri"></div>
-  <div class="bar" id="MT" data="Montana"></div>
-  <div class="bar" id="NE" data="Nebraska"></div>
-  <div class="bar" id="NV" data="Nevada"></div>
-  <div class="bar" id="NH" data="New_Hampshire"></div>
-  <div class="bar" id="NJ" data="New_Jersey"></div>
-  <div class="bar" id="NM" data="New_Mexico"></div>
-  <div class="bar" id="NY" data="New_York"></div>
-  <div class="bar" id="NC" data="North_Carolina"></div>
-  <div class="bar" id="ND" data="North_Dakota"></div>
-  <div class="bar" id="OH" data="Ohio"></div>
-  <div class="bar" id="OK" data="Oklahoma"></div>
-  <div class="bar" id="OR" data="Oregon"></div>
-  <div class="bar" id="PA" data="Pennsylvania"></div>
-  <div class="bar" id="RI" data="Rhode_Island"></div>
-  <div class="bar" id="SC" data="South_Carolina"></div>
-  <div class="bar" id="SD" data="South_Dakota"></div>
-  <div class="bar" id="TN" data="Tennessee"></div>
-  <div class="bar" id="TX" data="Texas"></div>
-  <div class="bar" id="UT" data="Utah"></div>
-  <div class="bar" id="VT" data="Vermont"></div>
-  <div class="bar" id="VA" data="Virginia"></div>
-  <div class="bar" id="WA" data="Washington"></div>
-  <div class="bar" id="WV" data="West_Virginia"></div>
-  <div class="bar" id="WI" data="Wisconsin"></div>
-  <div class="bar" id="WY" data="Wyoming"></div>
+  <div class="bar democrat" id="dWin"></div>
+  <div class="bar dlean" id="dLean"></div>
+  <div class="bar none" id="remaining"></div>
+  <div class="bar rlean" id="rLean"></div>
+  <div class="bar republican" id="rWin"></div>
 </div>
 <div class="breaker"></div>
-<div id="partyCount">
-  <div class="count demsCount">0</div>
-  <div class="count undCount"></div>
-  <div class="count indCount"></div>
-  <div class="count gopCount">0</div>
-</div>
-<div id="partyvotes">
-  <div class="count demsVotes">0</div>
-  <div class="count undVotes"></div>
-  <div class="count indVotes"></div>
-  <div class="count gopVotes">0</div>
-</div>
-<div id="barLabel">Electoral Votes</div>
 </div>
 
 <!-- DATAVIZ PANES -->
@@ -1298,16 +1239,16 @@
     <div class="breaker"></div>
     <div class='partyBlock'>
     <div class='dparty legendLabel'>DEM</div>
-    <div class='d1 brick'></div>
-    <div class='d2 brick'></div>
-    <div class='d3 brick'></div>
     <div class='d4 brick'></div>
+    <div class='d3 brick'></div>
+    <div class='d2 brick'></div>
+    <div class='d1 brick'></div>
     <div class="tinybreak"></div>
     <div class='legendLabel'></div>
-    <div class='brick smallLabel'>50%</div>
+    <div class='brick smallLabel'>80%</div> 
+    <div class='brick smallLabel'>70%</div> 
     <div class='brick smallLabel'>60%</div> 
-    <div class='brick smallLabel'>70%</div>
-    <div class='brick smallLabel'>80%</div>  
+    <div class='brick smallLabel'>50%</div>
   </div>
   <div class='partyBlock'>
     <div class='rparty legendLabel'>GOP</div>
