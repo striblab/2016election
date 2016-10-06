@@ -18,7 +18,7 @@
     body { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; overflow-x:hidden !important; }
     p { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
     a { color:#000; }
-    #wrapper { text-align:center; height:auto; width:920px; margin-left:auto; margin-right:auto; }
+    #wrapper { text-align:center; height:auto; width:880px; margin-left:auto; margin-right:auto; }
     
     /* SWITCHES AND BUTTONS */
     #bottomSwitches { text-align:center; margin-left:auto; margin-right:auto; width:100%; }
@@ -28,8 +28,9 @@
     .typeSwitch, .layerSwitch, .stateSwitch { width:60px; display:inline-block; opacity:.4; margin:5px; }
     .switch img { width:40px; }
     .mapSwitch img, .typeSwitch img, .layerSwitch img, .stateSwitch img { width:100%; }
-    #raceSwitcher { margin-bottom:10px; }
-    .raceSwitch { width:13.8%; display:inline-block; opacity:.5; }
+    #raceSwitcher { float:left; width:9%; font-size:0.9em; }
+    .raceSwitch { width:100%; opacity:.5; text-align:left; }
+    #datavizPane { float:right; width:90%; }
 
      /* PANES */
     .dataviz { width:100%;  }
@@ -64,32 +65,50 @@
     .gopWin { float:right; }
 
     /* COLOR SWATCHES */
-    .republican { fill:#8C1B17 !important; pointer-events: all; font-weight:bold; color:#8C1B17; stroke:#8C1B17 !important; }
+    .republican { fill:#d34A44 !important; pointer-events: all; font-weight:bold; color:#8C1B17; stroke:#8C1B17 !important; }
     .rlikely { color:#A5484D; fill:#A5484D !important; pointer-events: all; font-weight:bold; }
-    .rlean { color:#C68985; fill:#C68985 !important; pointer-events: all; font-weight:bold; }
-    .democrat { fill:#3F88C5 !important; pointer-events: all; font-weight:bold; color:#3F88C5; stroke:#3F88C5 !important; }
+    .rlean { color:#f7816E; fill:#f7816E !important; pointer-events: all; font-weight:bold; }
+    .democrat { fill:#3585BC !important; pointer-events: all; font-weight:bold; color:#3F88C5; stroke:#3F88C5 !important; }
     .dlikely { color:#5ca5c3; fill:#5ca5c3 !important; pointer-events: all; font-weight:bold; }
-    .dlean { color:#ABCEE8; fill:#ABCEE8 !important; pointer-events: all; font-weight:bold; }
-    .r1 { background-color:#C68985; fill:#C68985 !important; color:black !important; pointer-events: all; font-weight:bold; }
-    .r2 { background-color:#A5484D; fill:#A5484D !important; color:white !important; pointer-events: all; font-weight:bold; }
-    .r3 { background-color:#A52129; fill:#A52129 !important; color:white !important; pointer-events: all; font-weight:bold; }
-    .r4 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
-    .r0 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .dlean { color:#72A9D6; fill:#72A9D6 !important; pointer-events: all; font-weight:bold; }
+    .r1 { background-color:#eca795; fill:#eca795 !important; color:black !important; pointer-events: all; font-weight:bold; }
+    .r2 { background-color:#e58970; fill:#e58970 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .r3 { background-color:#df6a4c; fill:#df6a4c !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .r4 { background-color:#d84c27; fill:#d84c27 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .mid { background-color:#fff !important; fill:#ddd !important; color:#bbb !important; pointer-events: all; font-weight:bold; }
     .gray3 { color:black !important; }
-    .d1 { background-color:#ABCEE8; fill:#ABCEE8 !important; color:black !important; pointer-events: all; font-weight:bold; }
-    .d2 { background-color:#5ca5c3; fill:#5ca5c3 !important; color:white !important; pointer-events: all; font-weight:bold; }
-    .d3 { background-color:#4f97c4; fill:#4f97c4 !important; color:white !important; pointer-events: all; font-weight:bold; }
-    .d4 { background-color:#3f88c5; fill:#3f88c5 !important; color:white !important; pointer-events: all; font-weight:bold; }
-    .d0 { background-color:#3F88C5; fill:#3F88C5 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .d1 { background-color:#97bedb; fill:#97bedb !important; color:black !important; pointer-events: all; font-weight:bold; }
+    .d2 { background-color:#73a7ce; fill:#73a7ce !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .d3 { background-color:#4f90c1; fill:#4f90c1 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .d4 { background-color:#2b7ab5; fill:#2b7ab5 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .independent { fill:#66AF50; background-color:#66AF50; color:#333 !important; }
-    .none { fill:#ddd !important; }
+    .none { fill:#cccccc !important; background-color:#cccccc !important; }
     path { stroke-opacity:0 !important; }
 
     /* LEGENDS */
-    .legends { width:570px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
+    .legends { width:570px; height:19px !important; text-align:center; margin-right:auto; margin-left:auto; }
     small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
     .legend label, .legend span { display:block; float:left; height:15px; width:47px; text-align:center; font-size:12px; color:#808080; font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+
+    /*CARTOGRAM*/
+    .dem rect { fill:#3F88C5 !important; }
+    .rep rect { fill:#D90429 !important; }
+    .battleground rect { fill:#cccccc !important; }
+    .cartoState:hover { opacity:0.5; }
+    .cartoState rect { stroke-width:0.8px; stroke:#fff !important; }
+    .cartoState rect:hover { opacity:1; cursor:default; }
+    #cartogram { text-align:center; width:800px; height:600px; /*margin-left: auto; margin-right: auto;*/ }
+    #cartogram text { font-weight:900; pointer-events:none !important; }
+    polygon { stroke:#fff !important; stroke-width:1px; }
+    .stateLabel { display:inline-block; width:68%; text-align:left; background-color:transparent !important; }
+    .votes { display:inline-block; width:30%; text-align:left; background-color:transparent !important; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
+    .stateLabel { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; font-weight:400; }
+    .num:hover { opacity:0.5; }
+ /*   #cartogram text { display:none; }*/
+    .thisThing { opacity:0.5; }
+    #legendMain { font-size:0.75em; }
+    .totalNum { font-size:1.4em; font-weight:900; }
+    .slide { display:none; }
 
     /* TABLES */
     #table { height:604px; }
@@ -142,7 +161,10 @@
     .hideIT { display:none; }
 
     /* BREAKPOINTS */
-     @media (max-width:920px) {
+     @media (max-width:880px) {
+      #raceSwitcher { display:none; }
+      #cartogram { text-align:center; width:100%; height:auto; }
+      #datavizPane { width:100%; }
       #wrapper { width:100%; }
       .map { width:100%; }
       .carto { width:100%; }
@@ -157,17 +179,38 @@
 <body>
   <div id="wrapper">
 
-<!-- RACE SWITCHING BAR -->
-<div id="raceSwitcher">
-  <div class="raceSwitch" data="president"><a href="./?race=president"><img src="img/whitehouse.png" width="60px" /><div>Presidential</div></a></div>
-  <div class="raceSwitch" data="mnhouse"><a href="./?race=mnhouse"><img src="img/mnleg_icon.png" width="60px" /><div>MN House</div></a></div>
-  <div class="raceSwitch" data="mnsenate"><a href="./?race=mnsenate"><img src="img/mnleg_icon.png" width="60px" /><div>MN Senate</div></a></div>
-  <div class="raceSwitch" data="local"><a href="./?race=local"><img src="img/local.png" width="60px" /><div>Local Races</div></a></div>
-  <div class="raceSwitch" data="house"><a href="./?race=house"><img src="img/house.png" width="60px" /><div>U.S. House</div></a></div>
-  <div class="raceSwitch" data="senate"><a href="./?race=senate"><img src="img/house.png" width="60px" /><div>U.S. Senate</div></a></div>
-  <div class="raceSwitch" data="governors"><a href="./?race=governors"><img src="img/ballot.png" width="60px" /><div>Governors</div></a></div>
+<div id="mobileMenu">
+
 </div>
 
+<!-- RACE SWITCHING BAR -->
+<div id="raceSwitcher">
+  <div class="raceSwitch" data="president"><a href="./?race=president"><div>Presidential</div></a></div>
+  <div class="raceSwitch" data="senate"><a href="./?race=senate"><div>U.S. Senate</div></a></div>
+  <div class="raceSwitch" data="house"><a href="./?race=house"><div>U.S. House</div></a></div>
+  <div class="raceSwitch" data="governors"><a href="./?race=governors"><div>Governors</div></a></div>
+  <div class="raceSwitch" data="mnsenate"><a href="./?race=mnsenate"><div>MN Senate</div></a></div>
+  <div class="raceSwitch" data="mnhouse"><a href="./?race=mnhouse"><div>MN House</div></a></div>
+
+<!-- MAP VIEW TOGGLES -->
+<div id="bottomSwitches">
+<div id="viewSwitches">
+<div class="toggle uszoom stateSwitch selected2" data="geo"><img src="img/map.png" /><p>US</p></div>
+<div class="toggle mnzoom stateSwitch" data="geo"><img src="img/mnview.png" /><p>MN</p></div>
+<div class="toggle metrozoom stateSwitch" data="geo"><img src="img/metroview.png" /><p>Metro</p></div>
+</div>
+
+<div class="toggle layerSwitch selected2" data="country"><img src="img/states.png" /><p>States</p></div>
+<div class="toggle layerSwitch" data="counties"><img src="img/counties.png" /><p>County</p></div>
+<div class="toggle typeSwitch cartoSwitch" data="carto"><img src="img/carto.png" /><p>Carto</p></div>
+<!-- <div class="toggle layerSwitch" data="cd"><img src="img/ushouse_2014.png" /><p>CD</p></div> -->
+<div class="toggle layerSwitch" data="pct" id="pctzoom" style="display:none;"><img src="img/pct.png" /><p>Precinct</p></div>
+<div class="toggle uszoom stateSwitch" data="geo" id="tableView"><img src="img/tableview.png" /><p>Table</p></div>
+</div> 
+<!-- end bottomSwitches -->
+</div>
+
+<div id="datavizPane">
 <!-- POWER BALANCE BAR -->
 <div class="bars" id="powerbar">
 <div id="partyLabels">
@@ -254,7 +297,941 @@
 <div id="map" class="map geo"><svg id="USMAP" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <div id="mapCounties" class="hideIT"><svg id="USCOUNTIES" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <div id="mapStates" class="hideIT"><svg id="USSTATES" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="carto" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="carto" class="map normal carto">
+<div id="cartogram">
+    <svg version="1.1" x="0px" y="0px" width="90%" viewBox="0 0 860 696.572" enable-background="new 0 0 860 696.572" xml:space="preserve">
+<g id="PA" class="cartoState">
+    <rect x="593.385" y="217.866" width="21.789" height="21.789"/>
+    <rect x="615.174" y="217.866" width="21.793" height="21.79"/>
+    <rect x="658.755" y="217.866" width="21.79" height="21.79"/>
+    <rect x="636.968" y="217.866" width="21.787" height="21.79"/>
+    <rect x="680.545" y="217.866" width="21.79" height="21.79"/>
+    <rect x="702.334" y="217.866" width="21.788" height="21.79"/>
+    <rect x="593.385" y="239.653" width="21.789" height="21.791"/>
+    <rect x="615.174" y="239.654" width="21.793" height="21.79"/>
+    <rect x="658.755" y="239.654" width="21.79" height="21.79"/>
+    <rect x="636.968" y="239.654" width="21.787" height="21.79"/>
+    <rect x="680.545" y="239.654" width="21.79" height="21.79"/>
+    <rect x="702.334" y="239.654" width="21.788" height="21.79"/>
+    <rect x="593.385" y="261.444" width="21.789" height="21.79"/>
+    <rect x="571.604" y="217.851" width="21.788" height="21.792"/>
+    <rect x="571.604" y="239.643" width="21.788" height="21.792"/>
+    <rect x="615.174" y="261.446" width="21.793" height="21.788"/>
+    <rect x="658.755" y="261.446" width="21.79" height="21.788"/>
+    <rect x="636.968" y="261.446" width="21.787" height="21.788"/>
+    <rect x="680.545" y="261.446" width="21.79" height="21.788"/>
+    <rect x="702.334" y="261.446" width="21.788" height="21.788"/>
+</g>
+<g id="ME" class="cartoState">
+    <rect x="789.546" y="21.79" width="21.79" height="21.79"/>
+    <rect x="789.546" width="21.79" height="21.79"/>
+</g>
+<g id="ME01" class="cartoState">
+    <rect x="811.307" width="21.789" height="21.79"/>
+</g>
+<g id="ME02" class="cartoState">
+    <rect x="811.307" y="21.79" width="21.789" height="21.79"/>
+</g>
+<g id="NH" class="cartoState">
+    <rect x="789.504" y="65.359" width="21.792" height="21.789"/>
+    <rect x="789.504" y="43.569" width="21.792" height="21.791"/>
+    <rect x="811.304" y="65.35" width="21.789" height="21.789"/>
+    <rect x="811.304" y="43.56" width="21.789" height="21.79"/>
+</g>
+<g id="VT" class="cartoState">
+    <rect x="767.745" y="65.33" width="21.789" height="21.793"/>
+    <rect x="745.949" y="65.33" width="21.788" height="21.793"/>
+    <rect x="724.173" y="65.33" width="21.79" height="21.793"/>
+</g>
+<g id="MA" class="cartoState">
+    <rect x="745.926" y="87.128" width="21.796" height="21.79"/>
+    <rect x="745.926" y="108.919" width="21.796" height="21.788"/>
+    <rect x="724.075" y="87.128" width="21.793" height="21.79"/>
+    <rect x="724.075" y="108.919" width="21.793" height="21.788"/>
+    <rect x="767.719" y="87.128" width="21.792" height="21.79"/>
+    <rect x="767.719" y="108.919" width="21.792" height="21.788"/>
+    <rect x="789.51" y="87.128" width="21.786" height="21.79"/>
+    <rect x="789.51" y="108.919" width="21.786" height="21.788"/>
+    <rect x="811.296" y="87.128" width="21.793" height="21.79"/>
+    <rect x="811.296" y="108.919" width="21.793" height="21.788"/>
+    <rect x="833.089" y="108.919" width="21.787" height="21.788"/>
+</g>
+<g id="RI" class="cartoState">
+    <rect x="789.521" y="130.711" width="21.785" height="21.79"/>
+    <rect x="789.518" y="152.509" width="21.786" height="21.788"/>
+    <rect x="811.278" y="130.711" width="21.786" height="21.79"/>
+    <rect x="811.278" y="152.501" width="21.786" height="21.787"/>
+</g>
+<g id="CT" class="cartoState">
+    <rect x="745.936" y="130.771" width="21.792" height="21.789"/>
+    <rect x="724.145" y="152.561" width="21.791" height="21.789"/>
+    <rect x="745.936" y="152.561" width="21.792" height="21.789"/>
+    <rect x="767.694" y="130.771" width="21.793" height="21.789"/>
+    <rect x="767.694" y="152.561" width="21.793" height="21.789"/>
+    <rect x="724.145" y="130.771" width="21.791" height="21.789"/>
+    <rect x="724.145" y="174.349" width="21.791" height="21.79"/>
+</g>
+<g id="NY" class="cartoState">
+    <rect x="724.119" y="217.878" width="21.793" height="21.792"/>
+    <rect x="658.756" y="196.09" width="21.789" height="21.789"/>
+    <rect x="593.385" y="196.09" width="21.789" height="21.789"/>
+    <rect x="615.174" y="196.09" width="21.793" height="21.789"/>
+    <rect x="636.963" y="196.09" width="21.793" height="21.789"/>
+    <rect x="658.756" y="174.299" width="21.789" height="21.79"/>
+    <rect x="680.545" y="174.299" width="21.79" height="21.79"/>
+    <rect x="702.331" y="174.299" width="21.789" height="21.79"/>
+    <rect x="702.331" y="152.51" width="21.789" height="21.79"/>
+    <rect x="702.331" y="130.721" width="21.789" height="21.789"/>
+    <rect x="702.331" y="108.931" width="21.789" height="21.79"/>
+    <rect x="702.331" y="87.145" width="21.789" height="21.788"/>
+    <rect x="680.545" y="196.09" width="21.79" height="21.789"/>
+    <rect x="571.6" y="196.09" width="21.786" height="21.789"/>
+    <rect x="680.545" y="87.145" width="21.79" height="21.788"/>
+    <rect x="658.756" y="108.931" width="21.789" height="21.79"/>
+    <rect x="615.174" y="152.51" width="21.793" height="21.79"/>
+    <rect x="593.385" y="174.299" width="21.789" height="21.79"/>
+    <rect x="615.174" y="174.299" width="21.793" height="21.79"/>
+    <rect x="636.963" y="174.299" width="21.793" height="21.79"/>
+    <rect x="636.963" y="152.51" width="21.793" height="21.79"/>
+    <rect x="745.922" y="217.875" width="21.79" height="21.79"/>
+    <rect x="636.963" y="130.746" width="21.793" height="21.79"/>
+    <rect x="658.756" y="152.51" width="21.789" height="21.79"/>
+    <rect x="680.545" y="152.51" width="21.79" height="21.79"/>
+    <rect x="680.545" y="130.721" width="21.79" height="21.789"/>
+    <rect x="658.756" y="130.721" width="21.789" height="21.789"/>
+    <rect x="680.545" y="108.931" width="21.79" height="21.79"/>
+    <rect x="702.331" y="196.09" width="21.789" height="21.789"/>
+</g>
+<g id="NJ" class="cartoState">
+    <rect x="745.907" y="261.471" width="21.787" height="21.791"/>
+    <rect x="767.694" y="261.471" width="21.793" height="21.791"/>
+    <rect x="789.487" y="283.263" width="21.786" height="21.79"/>
+    <rect x="745.901" y="239.68" width="21.789" height="21.791"/>
+    <rect x="767.69" y="239.68" width="21.787" height="21.791"/>
+    <rect x="745.907" y="283.263" width="21.787" height="21.79"/>
+    <rect x="745.907" y="305.05" width="21.787" height="21.787"/>
+    <rect x="767.694" y="326.837" width="21.793" height="21.791"/>
+    <rect x="767.694" y="305.05" width="21.793" height="21.787"/>
+    <rect x="767.694" y="283.263" width="21.793" height="21.79"/>
+    <rect x="789.487" y="326.837" width="21.786" height="21.791"/>
+    <rect x="745.907" y="326.837" width="21.787" height="21.791"/>
+    <rect x="789.487" y="305.05" width="21.786" height="21.787"/>
+    <rect x="724.11" y="239.68" width="21.789" height="21.791"/>
+</g>
+<g id="DE" class="cartoState">
+    <rect x="724.094" y="305.098" width="21.789" height="21.79"/>
+    <rect x="724.094" y="283.254" width="21.789" height="21.79"/>
+    <rect x="724.094" y="261.421" width="21.789" height="21.79"/>
+</g>
+<g id="MD" class="cartoState">
+    <rect x="658.728" y="283.201" width="21.794" height="21.79"/>
+    <rect x="680.521" y="283.201" width="21.79" height="21.79"/>
+    <rect x="615.151" y="283.201" width="21.789" height="21.79"/>
+    <rect x="636.94" y="283.201" width="21.793" height="21.79"/>
+    <rect x="724.097" y="348.568" width="21.792" height="21.79"/>
+    <rect x="680.521" y="304.99" width="21.79" height="21.791"/>
+    <rect x="702.312" y="304.99" width="21.788" height="21.791"/>
+    <rect x="702.312" y="326.78" width="21.788" height="21.788"/>
+    <rect x="724.097" y="326.78" width="21.792" height="21.788"/>
+    <rect x="702.304" y="283.244" width="21.79" height="21.791"/>
+</g>
+<g id="WV" class="cartoState">
+    <rect x="571.579" y="261.43" width="21.789" height="21.791"/>
+    <rect x="571.579" y="304.959" width="21.789" height="21.79"/>
+    <rect x="571.579" y="283.171" width="21.789" height="21.789"/>
+    <rect x="593.382" y="304.959" width="21.787" height="21.79"/>
+    <rect x="593.382" y="283.171" width="21.787" height="21.789"/>
+</g>
+<g id="OH" class="cartoState">
+    <rect x="484.467" y="217.851" width="21.79" height="21.791"/>
+    <rect x="506.257" y="261.43" width="21.79" height="21.789"/>
+    <rect x="506.257" y="283.217" width="21.79" height="21.79"/>
+    <rect x="549.834" y="283.217" width="21.788" height="21.79"/>
+    <rect x="528.046" y="283.217" width="21.788" height="21.79"/>
+    <rect x="528.046" y="261.43" width="21.788" height="21.789"/>
+    <rect x="528.046" y="239.64" width="21.788" height="21.79"/>
+    <rect x="549.834" y="239.64" width="21.788" height="21.79"/>
+    <rect x="484.456" y="305.007" width="21.79" height="21.79"/>
+    <rect x="506.246" y="305.007" width="21.788" height="21.79"/>
+    <rect x="528.046" y="305.007" width="21.79" height="21.79"/>
+    <rect x="549.836" y="305.007" width="21.786" height="21.79"/>
+    <rect x="549.834" y="261.43" width="21.788" height="21.789"/>
+    <rect x="549.834" y="217.851" width="21.788" height="21.791"/>
+    <rect x="484.467" y="239.64" width="21.79" height="21.79"/>
+    <rect x="484.467" y="261.43" width="21.79" height="21.789"/>
+    <rect x="484.467" y="283.217" width="21.79" height="21.79"/>
+    <rect x="506.257" y="239.64" width="21.79" height="21.79"/>
+</g>
+<g id="MI" class="cartoState">
+    <rect x="440.905" y="152.454" width="21.789" height="21.79"/>
+    <rect x="462.694" y="152.454" width="21.788" height="21.79"/>
+    <rect x="484.482" y="152.454" width="21.792" height="21.79"/>
+    <rect x="440.905" y="130.663" width="21.789" height="21.79"/>
+    <rect x="419.114" y="108.874" width="21.791" height="21.789"/>
+    <rect x="440.905" y="174.243" width="21.789" height="21.788"/>
+    <rect x="462.694" y="174.243" width="21.788" height="21.788"/>
+    <rect x="506.271" y="196.031" width="21.789" height="21.79"/>
+    <rect x="506.271" y="174.243" width="21.789" height="21.79"/>
+    <rect x="506.271" y="152.454" width="21.789" height="21.79"/>
+    <rect x="484.482" y="174.243" width="21.792" height="21.788"/>
+    <rect x="440.905" y="196.031" width="21.789" height="21.79"/>
+    <rect x="462.694" y="196.031" width="21.788" height="21.79"/>
+    <rect x="484.482" y="196.031" width="21.792" height="21.79"/>
+    <rect x="462.694" y="130.663" width="21.788" height="21.79"/>
+    <rect x="397.326" y="108.874" width="21.788" height="21.789"/>
+</g>
+<g id="WI" class="cartoState">
+    <rect x="353.733" y="130.666" width="21.789" height="21.788"/>
+    <rect x="353.733" y="152.454" width="21.789" height="21.792"/>
+    <rect x="375.521" y="130.666" width="21.792" height="21.788"/>
+    <rect x="353.733" y="108.879" width="21.789" height="21.79"/>
+    <rect x="375.521" y="108.879" width="21.792" height="21.79"/>
+    <rect x="397.313" y="152.454" width="21.788" height="21.792"/>
+    <rect x="375.521" y="152.454" width="21.792" height="21.792"/>
+    <rect x="375.521" y="174.243" width="21.792" height="21.79"/>
+    <rect x="397.313" y="174.243" width="21.788" height="21.79"/>
+    <rect x="353.733" y="174.243" width="21.789" height="21.79"/>
+</g>
+<g id="MN" class="cartoState">
+    <rect x="288.358" y="174.236" width="21.789" height="21.789"/>
+    <rect x="310.147" y="174.236" width="21.791" height="21.789"/>
+    <rect x="288.358" y="152.446" width="21.789" height="21.791"/>
+    <rect x="331.943" y="108.867" width="21.79" height="21.79"/>
+    <rect x="331.935" y="130.643" width="21.789" height="21.79"/>
+    <rect x="310.147" y="152.446" width="21.791" height="21.791"/>
+    <rect x="310.147" y="130.657" width="21.791" height="21.789"/>
+    <rect x="331.935" y="174.221" width="21.79" height="21.79"/>
+    <rect x="331.935" y="152.434" width="21.79" height="21.789"/>
+    <rect x="288.358" y="130.657" width="21.789" height="21.789"/>
+</g>
+<g id="IA" class="cartoState">
+    <rect x="288.369" y="195.99" width="21.79" height="21.79"/>
+    <rect x="310.158" y="195.99" width="21.788" height="21.79"/>
+    <rect x="331.946" y="195.99" width="21.792" height="21.79"/>
+    <rect x="288.369" y="217.778" width="21.79" height="21.79"/>
+    <rect x="331.946" y="217.778" width="21.792" height="21.79"/>
+    <rect x="310.158" y="217.78" width="21.788" height="21.788"/>
+</g>
+<g id="ND" class="cartoState">
+    <rect x="223.029" y="174.216" width="21.788" height="21.79"/>
+    <rect x="244.807" y="174.216" width="21.788" height="21.79"/>
+    <rect x="266.599" y="174.216" width="21.787" height="21.79"/>
+</g>
+<g id="SD" class="cartoState">
+    <rect x="223.029" y="196.005" width="21.788" height="21.788"/>
+    <rect x="244.807" y="196.005" width="21.788" height="21.788"/>
+    <rect x="266.599" y="196.005" width="21.787" height="21.788"/>
+</g>
+<g id="NE" class="cartoState">
+    <rect x="223.014" y="217.809" width="21.788" height="21.79"/>
+    <rect x="244.806" y="239.587" width="21.792" height="21.789"/>
+</g>
+<g id="NE01" class="cartoState">
+    <rect x="266.594" y="239.587" width="21.789" height="21.789"/>
+</g>
+<g id="NE02" class="cartoState">
+    <rect x="266.594" y="217.8" width="21.789" height="21.791"/>
+</g>
+<g id="NE03" class="cartoState">
+    <rect x="244.804" y="217.8" width="21.788" height="21.791"/>
+</g>
+<g id="IN" class="cartoState">
+    <rect x="440.891" y="217.834" width="21.788" height="21.79"/>
+    <rect x="462.679" y="217.834" width="21.792" height="21.79"/>
+    <rect x="462.679" y="239.623" width="21.792" height="21.789"/>
+    <rect x="440.891" y="239.623" width="21.788" height="21.789"/>
+    <rect x="440.891" y="261.412" width="21.788" height="21.791"/>
+    <rect x="462.679" y="261.412" width="21.792" height="21.791"/>
+    <rect x="419.112" y="304.97" width="21.79" height="21.789"/>
+    <rect x="440.891" y="283.201" width="21.788" height="21.79"/>
+    <rect x="462.679" y="283.201" width="21.792" height="21.79"/>
+    <rect x="440.891" y="304.979" width="21.788" height="21.79"/>
+    <rect x="462.679" y="304.979" width="21.792" height="21.79"/>
+</g>
+<g id="IL" class="cartoState">
+    <rect x="419.107" y="261.327" width="21.787" height="21.79"/>
+    <rect x="419.107" y="239.518" width="21.787" height="21.788"/>
+    <rect x="353.718" y="261.292" width="21.788" height="21.789"/>
+    <rect x="353.732" y="195.934" width="21.788" height="21.792"/>
+    <rect x="375.52" y="195.934" width="21.792" height="21.792"/>
+    <rect x="397.312" y="195.934" width="21.792" height="21.792"/>
+    <rect x="353.732" y="217.726" width="21.788" height="21.79"/>
+    <rect x="375.52" y="217.726" width="21.792" height="21.79"/>
+    <rect x="397.312" y="217.726" width="21.79" height="21.79"/>
+    <rect x="375.516" y="239.492" width="21.79" height="21.791"/>
+    <rect x="397.304" y="239.492" width="21.79" height="21.791"/>
+    <rect x="419.091" y="283.067" width="21.787" height="21.792"/>
+    <rect x="375.511" y="261.292" width="21.788" height="21.789"/>
+    <rect x="397.304" y="261.292" width="21.79" height="21.789"/>
+    <rect x="375.511" y="283.09" width="21.788" height="21.791"/>
+    <rect x="397.288" y="283.09" width="21.792" height="21.791"/>
+    <rect x="353.732" y="239.492" width="21.792" height="21.789"/>
+    <rect x="375.501" y="304.881" width="21.792" height="21.792"/>
+    <rect x="331.945" y="239.492" width="21.792" height="21.791"/>
+    <rect x="397.292" y="304.881" width="21.788" height="21.792"/>
+</g>
+<g id="MO" class="cartoState">
+    <rect x="310.153" y="261.304" width="21.792" height="21.788"/>
+    <rect x="331.938" y="261.304" width="21.792" height="21.788"/>
+    <rect x="310.155" y="239.498" width="21.791" height="21.791"/>
+    <rect x="353.738" y="283.088" width="21.789" height="21.792"/>
+    <rect x="310.153" y="283.092" width="21.788" height="21.791"/>
+    <rect x="331.931" y="283.092" width="21.792" height="21.791"/>
+    <rect x="353.738" y="304.883" width="21.789" height="21.79"/>
+    <rect x="288.372" y="239.498" width="21.789" height="21.791"/>
+    <rect x="310.153" y="304.883" width="21.788" height="21.79"/>
+    <rect x="331.937" y="304.883" width="21.788" height="21.79"/>
+</g>
+<g id="KS" class="cartoState">
+    <rect x="244.806" y="261.297" width="21.79" height="21.79"/>
+    <rect x="266.592" y="261.297" width="21.792" height="21.79"/>
+    <rect x="288.385" y="261.297" width="21.787" height="21.79"/>
+    <rect x="266.585" y="283.088" width="21.79" height="21.792"/>
+    <rect x="288.374" y="283.088" width="21.79" height="21.792"/>
+    <rect x="244.806" y="283.088" width="21.788" height="21.792"/>
+</g>
+<g id="WY" class="cartoState">
+    <rect x="135.764" y="217.758" width="21.792" height="21.789"/>
+    <rect x="157.554" y="217.758" width="21.79" height="21.789"/>
+    <rect x="179.327" y="217.758" width="21.789" height="21.789"/>
+</g>
+<g id="MT" class="cartoState">
+    <rect x="114.004" y="195.964" width="21.789" height="21.791"/>
+    <rect x="135.779" y="195.964" width="21.787" height="21.791"/>
+    <rect x="157.578" y="195.964" width="21.79" height="21.791"/>
+</g>
+<g id="CO" class="cartoState">
+    <rect x="179.367" y="261.314" width="21.787" height="21.788"/>
+    <rect x="201.152" y="261.314" width="21.79" height="21.787"/>
+    <rect x="222.944" y="261.314" width="21.79" height="21.787"/>
+    <rect x="179.367" y="239.527" width="21.787" height="21.79"/>
+    <rect x="222.944" y="239.527" width="21.79" height="21.789"/>
+    <rect x="222.944" y="283.102" width="21.79" height="21.791"/>
+    <rect x="179.367" y="283.102" width="21.787" height="21.791"/>
+    <rect x="201.152" y="283.102" width="21.79" height="21.791"/>
+    <rect x="201.152" y="239.527" width="21.79" height="21.79"/>
+</g>
+<g id="UT" class="cartoState">
+    <rect x="135.766" y="283.088" width="21.788" height="21.789"/>
+    <rect x="157.535" y="239.532" width="21.788" height="21.79"/>
+    <rect x="157.554" y="283.088" width="21.79" height="21.789"/>
+    <rect x="135.757" y="239.532" width="21.788" height="21.79"/>
+    <rect x="135.757" y="261.304" width="21.791" height="21.788"/>
+    <rect x="157.534" y="261.304" width="21.789" height="21.79"/>
+</g>
+<g id="NV" class="cartoState">
+    <rect x="113.999" y="261.343" width="21.789" height="21.79"/>
+    <rect x="92.197" y="283.157" width="21.788" height="21.792"/>
+    <rect x="113.998" y="283.157" width="21.792" height="21.792"/>
+    <rect x="92.197" y="261.343" width="21.792" height="21.788"/>
+    <rect x="113.998" y="239.53" width="21.792" height="21.79"/>
+    <rect x="92.197" y="239.53" width="21.788" height="21.79"/>
+</g>
+<g id="ID" class="cartoState">
+    <rect x="92.181" y="174.194" width="21.791" height="21.789"/>
+    <rect x="92.181" y="195.983" width="21.791" height="21.791"/>
+    <rect x="92.181" y="217.769" width="21.791" height="21.79"/>
+    <rect x="113.969" y="217.769" width="21.792" height="21.79"/>
+</g>
+<g id="WA" class="cartoState">
+    <rect x="5.026" y="130.596" width="21.789" height="21.789"/>
+    <rect x="26.815" y="130.596" width="21.79" height="21.789"/>
+    <rect x="26.815" y="152.384" width="21.79" height="21.788"/>
+    <rect x="5.012" y="86.998" width="21.79" height="21.789"/>
+    <rect x="48.604" y="86.998" width="21.789" height="21.789"/>
+    <rect x="70.393" y="86.998" width="21.791" height="21.789"/>
+    <rect x="70.393" y="130.596" width="21.791" height="21.789"/>
+    <rect x="48.604" y="130.596" width="21.789" height="21.789"/>
+    <rect x="70.393" y="108.806" width="21.791" height="21.79"/>
+    <rect x="48.604" y="108.806" width="21.789" height="21.79"/>
+    <rect x="26.815" y="108.806" width="21.79" height="21.79"/>
+    <rect x="5.012" y="108.806" width="21.79" height="21.79"/>
+</g>
+<g id="OR" class="cartoState">
+    <rect x="5.026" y="174.175" width="21.789" height="21.79"/>
+    <rect x="26.815" y="174.175" width="21.79" height="21.79"/>
+    <rect x="48.604" y="174.175" width="21.789" height="21.79"/>
+    <rect x="48.604" y="152.384" width="21.789" height="21.79"/>
+    <rect x="70.393" y="174.175" width="21.791" height="21.79"/>
+    <rect x="70.393" y="152.384" width="21.791" height="21.79"/>
+    <rect x="5.026" y="152.386" width="21.789" height="21.789"/>
+</g>
+<g id="CA" class="cartoState">
+    <rect x="5" y="195.904" width="21.79" height="21.788"/>
+    <rect x="26.812" y="195.904" width="21.79" height="21.788"/>
+    <rect x="48.576" y="195.904" width="21.79" height="21.788"/>
+    <rect x="70.393" y="195.904" width="21.791" height="21.788"/>
+    <rect x="5" y="217.695" width="21.79" height="21.789"/>
+    <rect x="26.812" y="217.695" width="21.79" height="21.789"/>
+    <rect x="48.576" y="217.695" width="21.79" height="21.789"/>
+    <rect x="70.393" y="217.695" width="21.791" height="21.789"/>
+    <rect x="5" y="239.588" width="21.79" height="21.788"/>
+    <rect x="26.812" y="239.588" width="21.79" height="21.788"/>
+    <rect x="48.576" y="239.588" width="21.79" height="21.788"/>
+    <rect x="70.393" y="239.588" width="21.791" height="21.788"/>
+    <rect x="5" y="261.273" width="21.79" height="21.788"/>
+    <rect x="26.812" y="261.273" width="21.79" height="21.788"/>
+    <rect x="48.576" y="261.273" width="21.79" height="21.788"/>
+    <rect x="70.393" y="261.273" width="21.791" height="21.788"/>
+    <rect x="5" y="283.062" width="21.79" height="21.789"/>
+    <rect x="26.812" y="283.062" width="21.79" height="21.789"/>
+    <rect x="48.576" y="283.062" width="21.79" height="21.789"/>
+    <rect x="70.393" y="283.062" width="21.791" height="21.789"/>
+    <rect x="26.812" y="414.03" width="21.79" height="21.792"/>
+    <rect x="48.625" y="414.03" width="21.79" height="21.792"/>
+    <rect x="70.388" y="414.03" width="21.791" height="21.792"/>
+    <rect x="92.204" y="414.03" width="21.789" height="21.792"/>
+    <rect x="26.812" y="435.82" width="21.79" height="21.792"/>
+    <rect x="48.625" y="435.82" width="21.79" height="21.792"/>
+    <rect x="70.388" y="435.82" width="21.791" height="21.792"/>
+    <rect x="92.204" y="435.82" width="21.789" height="21.792"/>
+    <rect x="5" y="304.91" width="21.79" height="21.789"/>
+    <rect x="26.812" y="304.91" width="21.79" height="21.789"/>
+    <rect x="48.576" y="304.91" width="21.79" height="21.789"/>
+    <rect x="70.393" y="304.91" width="21.791" height="21.789"/>
+    <rect x="92.153" y="304.91" width="21.791" height="21.789"/>
+    <rect x="5" y="326.808" width="21.79" height="21.788"/>
+    <rect x="26.812" y="326.808" width="21.79" height="21.788"/>
+    <rect x="48.576" y="326.808" width="21.79" height="21.788"/>
+    <rect x="70.393" y="326.808" width="21.791" height="21.788"/>
+    <rect x="92.153" y="326.808" width="21.791" height="21.788"/>
+    <rect x="5" y="348.558" width="21.79" height="21.788"/>
+    <rect x="26.812" y="348.558" width="21.79" height="21.788"/>
+    <rect x="48.576" y="348.558" width="21.79" height="21.788"/>
+    <rect x="70.393" y="348.558" width="21.791" height="21.788"/>
+    <rect x="92.153" y="348.558" width="21.791" height="21.788"/>
+    <rect x="5" y="370.454" width="21.79" height="21.787"/>
+    <rect x="26.812" y="370.454" width="21.79" height="21.787"/>
+    <rect x="48.576" y="370.454" width="21.79" height="21.787"/>
+    <rect x="70.393" y="370.454" width="21.791" height="21.787"/>
+    <rect x="92.153" y="370.454" width="21.791" height="21.787"/>
+    <rect x="114.004" y="370.454" width="21.79" height="21.787"/>
+    <rect x="5" y="392.244" width="21.79" height="21.786"/>
+    <rect x="26.812" y="392.244" width="21.79" height="21.786"/>
+    <rect x="48.576" y="392.244" width="21.79" height="21.786"/>
+    <rect x="70.393" y="392.244" width="21.791" height="21.786"/>
+    <rect x="92.153" y="392.244" width="21.791" height="21.786"/>
+    <rect x="114.004" y="392.244" width="21.79" height="21.786"/>
+</g>
+<g id="AZ" class="cartoState">
+    <rect x="114.004" y="326.669" width="21.789" height="21.79"/>
+    <rect x="135.793" y="326.669" width="21.789" height="21.79"/>
+    <rect x="157.583" y="326.669" width="21.791" height="21.79"/>
+    <rect x="157.583" y="348.456" width="21.791" height="21.79"/>
+    <rect x="135.793" y="348.456" width="21.789" height="21.79"/>
+    <rect x="157.583" y="370.315" width="21.791" height="21.789"/>
+    <rect x="135.793" y="370.315" width="21.789" height="21.789"/>
+    <rect x="114.004" y="348.456" width="21.789" height="21.79"/>
+    <rect x="135.793" y="304.88" width="21.789" height="21.789"/>
+    <rect x="157.583" y="304.88" width="21.791" height="21.789"/>
+    <rect x="114.004" y="304.88" width="21.789" height="21.789"/>
+</g>
+<g id="NM" class="cartoState">
+    <rect x="179.352" y="348.487" width="21.789" height="21.791"/>
+    <rect x="201.141" y="326.698" width="21.79" height="21.789"/>
+    <rect x="179.352" y="326.698" width="21.789" height="21.789"/>
+    <rect x="201.141" y="304.909" width="21.79" height="21.791"/>
+    <rect x="179.352" y="304.909" width="21.789" height="21.791"/>
+</g>
+<g id="OK" class="cartoState">
+    <rect x="222.912" y="304.79" width="21.787" height="21.791"/>
+    <rect x="244.701" y="304.79" width="21.791" height="21.791"/>
+    <rect x="266.49" y="304.79" width="21.789" height="21.791"/>
+    <rect x="266.49" y="326.58" width="21.789" height="21.789"/>
+    <rect x="288.268" y="304.79" width="21.79" height="21.791"/>
+    <rect x="288.268" y="326.58" width="21.79" height="21.789"/>
+    <rect x="244.701" y="326.58" width="21.791" height="21.789"/>
+</g>
+<g id="AR" class="cartoState">
+    <rect x="310.11" y="326.662" width="21.79" height="21.787"/>
+    <rect x="331.899" y="326.662" width="21.788" height="21.787"/>
+    <rect x="331.899" y="348.449" width="21.788" height="21.791"/>
+    <rect x="353.702" y="326.662" width="21.788" height="21.787"/>
+    <rect x="375.475" y="326.68" width="21.789" height="21.788"/>
+    <rect x="310.11" y="348.449" width="21.79" height="21.791"/>
+</g>
+<g id="TN" class="cartoState">
+    <rect x="419.078" y="348.556" width="21.791" height="21.794"/>
+    <rect x="462.654" y="348.556" width="21.792" height="21.794"/>
+    <rect x="484.445" y="348.556" width="21.786" height="21.794"/>
+    <rect x="506.231" y="348.556" width="21.794" height="21.794"/>
+    <rect x="462.635" y="326.761" width="21.792" height="21.79"/>
+    <rect x="397.267" y="326.761" width="21.789" height="21.79"/>
+    <rect x="440.846" y="326.761" width="21.789" height="21.79"/>
+    <rect x="419.054" y="326.761" width="21.792" height="21.79"/>
+    <rect x="440.868" y="348.556" width="21.789" height="21.794"/>
+    <rect x="375.486" y="348.556" width="21.792" height="21.794"/>
+    <rect x="397.276" y="348.556" width="21.786" height="21.794"/>
+</g>
+<g id="KY" class="cartoState">
+    <rect x="528.014" y="348.676" width="21.79" height="21.788"/>
+    <rect x="528.029" y="326.886" width="21.792" height="21.79"/>
+    <rect x="549.804" y="348.676" width="21.793" height="21.788"/>
+    <rect x="571.597" y="348.676" width="21.789" height="21.788"/>
+    <rect x="593.385" y="348.676" width="21.789" height="21.788"/>
+    <rect x="549.821" y="326.886" width="21.789" height="21.79"/>
+    <rect x="484.445" y="326.886" width="21.793" height="21.79"/>
+    <rect x="506.238" y="326.886" width="21.791" height="21.79"/>
+</g>
+<g id="VA" class="cartoState">
+    <rect x="571.582" y="326.819" width="21.789" height="21.791"/>
+    <rect x="593.371" y="326.819" width="21.791" height="21.791"/>
+    <rect x="615.162" y="348.59" width="21.789" height="21.79"/>
+    <rect x="636.95" y="348.59" width="21.791" height="21.79"/>
+    <rect x="636.95" y="305.039" width="21.791" height="21.791"/>
+    <rect x="636.95" y="326.819" width="21.791" height="21.791"/>
+    <rect x="615.137" y="305.039" width="21.794" height="21.791"/>
+    <rect x="615.137" y="326.819" width="21.794" height="21.791"/>
+    <rect x="658.738" y="305.039" width="21.79" height="21.791"/>
+    <rect x="658.738" y="326.819" width="21.79" height="21.791"/>
+    <rect x="680.528" y="348.59" width="21.789" height="21.793"/>
+    <rect x="658.738" y="348.59" width="21.79" height="21.79"/>
+    <rect x="680.528" y="326.819" width="21.789" height="21.791"/>
+</g>
+<g id="NC" class="cartoState">
+    <rect x="593.286" y="392.15" width="21.788" height="21.793"/>
+    <rect x="615.108" y="392.15" width="21.792" height="21.793"/>
+    <rect x="571.516" y="370.367" width="21.79" height="21.793"/>
+    <rect x="636.916" y="392.15" width="21.79" height="21.793"/>
+    <rect x="658.726" y="392.15" width="21.79" height="21.793"/>
+    <rect x="593.305" y="370.367" width="21.786" height="21.793"/>
+    <rect x="615.131" y="370.367" width="21.79" height="21.793"/>
+    <rect x="680.532" y="392.15" width="21.789" height="21.793"/>
+    <rect x="658.741" y="370.369" width="21.793" height="21.791"/>
+    <rect x="658.726" y="413.921" width="21.794" height="21.791"/>
+    <rect x="680.534" y="370.369" width="21.787" height="21.791"/>
+    <rect x="615.108" y="413.921" width="21.792" height="21.791"/>
+    <rect x="636.916" y="413.921" width="21.786" height="21.791"/>
+    <rect x="549.672" y="370.367" width="21.795" height="21.793"/>
+    <rect x="636.943" y="370.367" width="21.785" height="21.793"/>
+</g>
+<g id="DC" class="cartoState">
+    <rect x="768.818" y="349.15" width="21.792" height="21.791"/>
+    <rect x="745.818" y="349.15" width="21.792" height="21.793"/>
+    <rect x="745.904" y="370.207" width="21.788" height="21.792"/>
+</g>
+<g id="AK" class="cartoState">
+    <rect x="41.265" y="507.53" width="21.789" height="21.789"/>
+    <rect x="41.265" y="529.317" width="21.789" height="21.789"/>
+    <rect x="19.083" y="551.473" width="21.79" height="21.791"/>
+</g>
+<g id="HI" class="cartoState">
+    <rect x="141.415" y="507.53" width="21.792" height="21.79"/>
+    <rect x="163.206" y="529.317" width="21.792" height="21.791"/>
+    <rect x="185.153" y="551.473" width="21.792" height="21.792"/>
+    <rect x="206.944" y="551.473" width="21.792" height="21.791"/>
+</g>
+<g id="FL" class="cartoState">
+    <rect x="571.543" y="479.308" width="21.793" height="21.788"/>
+    <rect x="593.336" y="479.308" width="21.785" height="21.788"/>
+    <rect x="615.121" y="501.088" width="21.793" height="21.791"/>
+    <rect x="636.909" y="501.088" width="21.79" height="21.791"/>
+    <rect x="658.699" y="653.615" width="21.793" height="21.791"/>
+    <rect x="549.753" y="479.308" width="21.793" height="21.788"/>
+    <rect x="658.699" y="588.247" width="21.793" height="21.79"/>
+    <rect x="593.336" y="501.088" width="21.785" height="21.79"/>
+    <rect x="636.909" y="522.879" width="21.79" height="21.789"/>
+    <rect x="527.964" y="479.308" width="21.789" height="21.788"/>
+    <rect x="506.178" y="479.308" width="21.786" height="21.788"/>
+    <rect x="658.699" y="544.664" width="21.793" height="21.794"/>
+    <rect x="658.699" y="631.824" width="21.793" height="21.791"/>
+    <rect x="615.121" y="522.879" width="21.793" height="21.789"/>
+    <rect x="636.909" y="653.615" width="21.79" height="21.791"/>
+    <rect x="658.699" y="610.035" width="21.793" height="21.789"/>
+    <rect x="636.909" y="631.824" width="21.79" height="21.791"/>
+    <rect x="636.909" y="610.035" width="21.79" height="21.789"/>
+    <rect x="636.909" y="588.247" width="21.79" height="21.79"/>
+    <rect x="636.909" y="566.457" width="21.79" height="21.79"/>
+    <rect x="615.121" y="544.664" width="21.793" height="21.794"/>
+    <rect x="615.121" y="566.457" width="21.793" height="21.79"/>
+    <rect x="615.121" y="588.247" width="21.793" height="21.79"/>
+    <rect x="615.121" y="610.035" width="21.793" height="21.789"/>
+    <rect x="658.699" y="566.457" width="21.793" height="21.79"/>
+    <rect x="658.699" y="501.088" width="21.793" height="21.791"/>
+    <rect x="658.699" y="522.879" width="21.793" height="21.794"/>
+    <rect x="636.909" y="544.664" width="21.79" height="21.794"/>
+    <rect x="571.543" y="501.088" width="21.793" height="21.79"/>
+</g>
+<g id="SC" class="cartoState">
+    <rect x="636.896" y="479.269" width="21.787" height="21.79"/>
+    <rect x="658.684" y="457.479" width="21.796" height="21.79"/>
+    <rect x="658.684" y="435.691" width="21.796" height="21.79"/>
+    <rect x="615.106" y="457.479" width="21.79" height="21.79"/>
+    <rect x="615.106" y="479.269" width="21.79" height="21.79"/>
+    <rect x="658.684" y="479.269" width="21.796" height="21.79"/>
+    <rect x="636.896" y="457.479" width="21.787" height="21.79"/>
+    <rect x="615.106" y="435.691" width="21.79" height="21.79"/>
+    <rect x="636.896" y="435.691" width="21.787" height="21.79"/>
+</g>
+<g id="GA" class="cartoState">
+    <rect x="527.979" y="392.187" width="21.788" height="21.79"/>
+    <rect x="549.767" y="392.187" width="21.793" height="21.788"/>
+    <rect x="571.558" y="392.187" width="21.788" height="21.788"/>
+    <rect x="527.941" y="370.396" width="21.789" height="21.79"/>
+    <rect x="527.979" y="413.975" width="21.788" height="21.786"/>
+    <rect x="549.767" y="413.972" width="21.793" height="21.789"/>
+    <rect x="571.558" y="413.972" width="21.788" height="21.789"/>
+    <rect x="571.558" y="457.552" width="21.788" height="21.791"/>
+    <rect x="593.345" y="457.552" width="21.789" height="21.791"/>
+    <rect x="593.336" y="435.764" width="21.789" height="21.792"/>
+    <rect x="593.345" y="413.972" width="21.789" height="21.789"/>
+    <rect x="527.979" y="457.552" width="21.788" height="21.791"/>
+    <rect x="549.767" y="457.552" width="21.793" height="21.791"/>
+    <rect x="571.558" y="435.764" width="21.788" height="21.792"/>
+    <rect x="527.979" y="435.764" width="21.788" height="21.792"/>
+    <rect x="549.767" y="435.764" width="21.793" height="21.792"/>
+</g>
+<g id="AL" class="cartoState">
+    <rect x="462.667" y="392.212" width="21.789" height="21.787"/>
+    <rect x="484.456" y="392.212" width="21.79" height="21.787"/>
+    <rect x="462.667" y="370.406" width="21.789" height="21.791"/>
+    <rect x="484.456" y="370.406" width="21.79" height="21.791"/>
+    <rect x="484.456" y="414.037" width="21.79" height="21.789"/>
+    <rect x="462.667" y="414.037" width="21.789" height="21.789"/>
+    <rect x="506.227" y="392.212" width="21.787" height="21.789"/>
+    <rect x="506.227" y="370.408" width="21.79" height="21.789"/>
+    <rect x="506.223" y="414.037" width="21.791" height="21.791"/>
+</g>
+<g id="MS" class="cartoState">
+    <rect x="397.31" y="370.454" width="21.792" height="21.787"/>
+    <rect x="419.1" y="370.454" width="21.788" height="21.787"/>
+    <rect x="440.885" y="370.452" width="21.787" height="21.789"/>
+    <rect x="419.095" y="392.241" width="21.79" height="21.789"/>
+    <rect x="397.314" y="392.244" width="21.786" height="21.786"/>
+    <rect x="440.877" y="392.244" width="21.79" height="21.786"/>
+</g>
+<g id="LA" class="cartoState">
+    <rect x="353.681" y="370.26" width="21.788" height="21.792"/>
+    <rect x="375.49" y="392.052" width="21.789" height="21.786"/>
+    <rect x="353.681" y="413.838" width="21.788" height="21.791"/>
+    <rect x="353.681" y="392.052" width="21.788" height="21.786"/>
+    <rect x="375.49" y="413.838" width="21.789" height="21.791"/>
+    <rect x="397.32" y="413.838" width="21.792" height="21.791"/>
+    <rect x="375.493" y="370.26" width="21.787" height="21.792"/>
+    <rect x="353.681" y="348.456" width="21.791" height="21.79"/>
+</g>
+<g id="TX" class="cartoState">
+    <rect x="222.898" y="326.588" width="21.788" height="21.788"/>
+    <rect x="201.108" y="370.219" width="21.79" height="21.791"/>
+    <rect x="222.898" y="348.366" width="21.788" height="21.789"/>
+    <rect x="244.686" y="348.366" width="21.791" height="21.789"/>
+    <rect x="222.898" y="370.219" width="21.788" height="21.791"/>
+    <rect x="244.686" y="370.219" width="21.791" height="21.791"/>
+    <rect x="266.477" y="370.219" width="21.788" height="21.791"/>
+    <rect x="288.265" y="479.164" width="21.791" height="21.79"/>
+    <rect x="222.898" y="392.01" width="21.788" height="21.79"/>
+    <rect x="244.686" y="392.01" width="21.791" height="21.79"/>
+    <rect x="266.477" y="392.01" width="21.788" height="21.79"/>
+    <rect x="288.265" y="392.01" width="21.791" height="21.79"/>
+    <rect x="310.055" y="392.01" width="21.791" height="21.79"/>
+    <rect x="331.842" y="392.01" width="21.792" height="21.79"/>
+    <rect x="266.477" y="479.164" width="21.788" height="21.79"/>
+    <rect x="266.477" y="457.378" width="21.788" height="21.789"/>
+    <rect x="244.686" y="457.378" width="21.791" height="21.789"/>
+    <rect x="201.108" y="392.01" width="21.79" height="21.79"/>
+    <rect x="222.898" y="413.8" width="21.788" height="21.787"/>
+    <rect x="244.686" y="413.8" width="21.791" height="21.788"/>
+    <rect x="266.477" y="413.8" width="21.788" height="21.788"/>
+    <rect x="288.265" y="413.8" width="21.791" height="21.788"/>
+    <rect x="310.055" y="413.8" width="21.791" height="21.788"/>
+    <rect x="331.842" y="413.8" width="21.792" height="21.788"/>
+    <rect x="288.265" y="370.219" width="21.791" height="21.791"/>
+    <rect x="266.477" y="348.366" width="21.788" height="21.789"/>
+    <rect x="288.265" y="348.366" width="21.791" height="21.789"/>
+    <rect x="331.842" y="370.219" width="21.792" height="21.791"/>
+    <rect x="201.108" y="413.8" width="21.79" height="21.788"/>
+    <rect x="222.898" y="435.585" width="21.788" height="21.792"/>
+    <rect x="244.686" y="435.587" width="21.791" height="21.793"/>
+    <rect x="266.477" y="435.587" width="21.788" height="21.793"/>
+    <rect x="288.265" y="435.587" width="21.791" height="21.793"/>
+    <rect x="310.055" y="435.587" width="21.791" height="21.793"/>
+    <rect x="310.055" y="370.219" width="21.791" height="21.791"/>
+    <rect x="201.129" y="348.366" width="21.79" height="21.789"/>
+    <rect x="288.265" y="457.378" width="21.791" height="21.789"/>
+    <rect x="179.317" y="370.223" width="21.79" height="21.787"/>
+</g>
+<g id="labels">
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 634.5459 253.0298)">PA</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 800.4951 22.7681)">ME</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 800.709 67.5225)">NH</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 728.4854 82.7822)">VT</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 730.2783 115.2788)">MA</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 797.8691 156.0396)">RI</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 730.168 159.1758)">CT</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 655.666 176.9756)">NY</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 761.4434 307.2148)">NJ</text>
+</g>
+    <text transform="matrix(1 0 0 1 720.6611 290.4951)">DE</text>
+<g>
+    <text transform="matrix(1 0 0 1 687.0957 310.6392)">MD</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 570.5723 305.1094)">WV</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 508.2764 284.7144)">OH</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 458.3867 188.1318)">MI</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 366.9663 176.5874)">WI</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 297.4551 176.5854)">MN</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 301.0615 219.4805)">IA</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 235.6074 190.542)">ND</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 235.3838 212.2583)">SD</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 236.0249 233.9722)">NE</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 446.6367 275.1074)">IN</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 385.3857 260.0415)">IL</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 324.7559 307.3965)">MO</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 253.7261 288.3877)">KS</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 146.2573 233.9702)">WY</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 119.6094 212.0845)">MT</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 189.4282 276.0938)">CO</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 138.3203 276.7612)">UT</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 95.2354 275.2827)">NV</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 100.6392 233.9722)">ID</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 18.2832 133.6523)">WA</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 26.7891 191.3711)">OR</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 23.4517 341.9648)">CA</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 124.792 348.0547)">AZ</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 181.3237 332.2461)">NM</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 254.1372 331.5869)">OK</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 313.8501 352.4258)">AR</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 417.4175 352.8994)">TN</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 536.9121 352.8994)">KY</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 629.7734 342.4941)">VA</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 630.7305 401.3809)">NC</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 759.7549 409.2383)">DC</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 20.1812 546.6758)">AK</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 164.9419 570.8096)">HI</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 631.5918 582.8545)">FL</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 630.5078 472.6221)">SC</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 554.1865 439.7744)">GA</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 476.4355 407.7295)">AL</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 405.7368 396.4111)">MS</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 363.5508 414.3857)">LA</text>
+</g>
+<g>
+    <text transform="matrix(1 0 0 1 247.7451 416.5967)">TX</text>
+</g>
+<g id="stroke">
+    <polygon fill="none" stroke-width="1.7" points="397.313,152.454 397.313,130.667 397.313,130.666 
+        397.313,108.879 375.521,108.879 353.733,108.879 353.733,130.666 353.733,130.667 353.733,152.454 353.733,174.243 
+        353.733,196.033 375.521,196.033 397.313,196.033 419.1,196.033 419.1,174.243 419.1,152.454   "/>
+    <polygon fill="none" stroke-width="1.7" points="658.699,501.088 636.909,501.088 615.121,501.088 
+        615.121,479.308 593.336,479.308 571.543,479.308 549.753,479.308 527.964,479.308 506.178,479.308 506.178,501.096 
+        527.964,501.096 549.753,501.096 571.543,501.096 571.543,522.878 593.336,522.878 615.121,522.878 615.121,522.879 
+        615.121,544.664 615.121,566.457 615.121,588.247 615.121,610.035 615.121,631.824 636.909,631.824 636.909,653.615 
+        636.909,675.403 658.699,675.403 680.492,675.403 680.492,653.615 680.492,631.824 680.492,610.035 680.492,588.247 
+        680.492,566.457 680.492,544.671 680.492,544.664 680.492,522.879 680.492,522.879 680.492,501.088     "/>
+    <polygon fill="none" stroke-width="1.7" points="331.946,195.99 310.158,195.99 288.369,195.99 288.369,217.778 
+        288.369,217.78 288.369,239.567 310.158,239.567 331.946,239.567 353.738,239.567 353.738,217.78 353.738,217.778 353.738,195.99    
+        "/>
+    <polygon fill="none" stroke-width="1.7" points="70.393,152.384 48.604,152.384 48.604,174.175 26.815,174.175 
+        26.815,152.386 5.026,152.386 5.026,174.175 5.026,195.964 26.815,195.964 48.604,195.964 70.393,195.964 92.184,195.964 
+        92.184,174.175 92.184,152.384   "/>
+    <polygon fill="none" stroke-width="1.7" points="5.026,195.964 26.815,195.964 48.604,195.964 70.393,195.964 
+        92.184,195.964 92.184,304.949 113.998,304.949 113.998,370.246 135.793,370.246 135.793,413.819 113.946,413.819 113.946,457.43 
+        26.8,457.43 26.8,413.819 5.012,413.819  "/>
+    <polygon fill="none" stroke-width="1.7" points="135.793,392.034 135.793,370.246 113.998,370.246 
+        113.998,304.949 179.346,304.949 179.346,392.01  "/>
+    <polygon fill="none" stroke-width="1.7" points="5.026,152.386 26.815,152.386 26.815,174.175 48.604,174.175 
+        48.604,152.384 70.393,152.384 92.184,152.384 92.184,86.998 48.604,86.998 48.604,108.806 26.8,108.806 26.8,86.998 5.012,86.998 
+            "/>
+    <polygon fill="none" stroke-width="1.7" points="113.972,217.769 113.972,195.983 113.972,174.194 
+        92.181,174.194 92.181,195.983 92.181,217.769 92.181,217.771 92.181,239.558 113.969,239.558 113.972,239.558 135.761,239.558 
+        135.761,217.769     "/>
+    <rect x="114.004" y="195.964" fill="none" stroke-width="1.7" width="65.362" height="21.791"/>
+    <rect x="222.994" y="174.202" fill="none" stroke-width="1.7" width="65.361" height="21.79"/>
+    <rect x="222.994" y="196.031" fill="none" stroke-width="1.7" width="65.361" height="21.79"/>
+    <rect x="135.79" y="217.843" fill="none" stroke-width="1.7" width="65.361" height="21.789"/>
+    <rect x="92.181" y="239.558" fill="none" stroke-width="1.7" width="43.612" height="65.322"/>
+    <rect x="135.904" y="239.558" fill="none" stroke-width="1.7" width="43.419" height="65.322"/>
+    <rect x="179.519" y="239.558" fill="none" stroke-width="1.7" width="65.286" height="65.322"/>
+    <rect x="462.737" y="370.333" fill="none" stroke-width="1.7" width="65.284" height="65.324"/>
+    <rect x="615.201" y="435.855" fill="none" stroke-width="1.7" width="65.284" height="65.322"/>
+    <polygon fill="none" stroke-width="1.7" points="593.345,414.101 615.155,414.101 615.155,479.422 
+        527.979,479.422 527.979,370.464 549.804,370.464 549.804,392.16 593.305,392.16   "/>
+    <polygon fill="none" stroke-width="1.7" points="615.155,435.764 615.155,414.101 593.345,414.101 
+        593.305,392.16 549.804,392.16 549.804,370.464 702.317,370.464 702.317,413.943 680.516,413.943 680.516,435.855   "/>
+    <polygon fill="none" stroke-width="1.7" points="179.372,368.816 179.372,304.88 222.898,304.88 222.898,348.376 
+        201.13,348.376 201.13,370.278 179.346,370.278   "/>
+    <polygon fill="none" stroke-width="1.7" points="244.732,239.643 222.994,239.643 222.994,217.854 
+        288.355,217.854 288.355,261.297 244.775,261.297     "/>
+    <rect x="244.806" y="261.297" fill="none" stroke-width="1.7" width="65.251" height="43.494"/>
+    <rect x="397.356" y="370.403" fill="none" stroke-width="1.7" width="65.251" height="43.627"/>
+    <polygon fill="none" stroke-width="1.7" points="244.643,326.59 244.643,348.369 310.055,348.369 310.055,304.79 
+        222.912,304.79 222.912,326.588  "/>
+    <polygon fill="none" stroke-width="1.7" points="222.912,326.588 244.643,326.588 244.643,348.369 
+        310.055,348.369 310.055,370.209 353.688,370.209 353.688,435.587 331.842,435.587 331.842,457.378 310.055,457.378 
+        310.055,500.954 266.477,500.954 266.477,479.164 244.686,479.164 244.686,457.378 222.898,457.378 222.898,435.585 
+        201.108,435.585 201.108,392.01 179.346,392.01 179.346,370.278 201.13,370.278 201.13,348.376 222.898,348.376 222.898,327.035     
+        "/>
+    <path fill="none" stroke-width="1.7" d="M353.688,370.592"/>
+    <polygon fill="none" stroke-width="1.7" points="353.688,369.562 353.688,348.449 375.486,348.449 
+        375.486,370.349 397.31,370.349 397.31,414.03 419.1,414.03 419.1,435.629 353.688,435.629     "/>
+    <polygon fill="none" stroke-width="1.7" points="353.732,108.867 331.943,108.867 331.943,130.643 
+        331.935,130.643 331.935,130.657 310.147,130.657 288.358,130.657 288.358,152.446 288.358,174.236 288.358,196.026 
+        310.147,196.026 331.935,196.026 331.935,196.01 353.725,196.01 353.725,174.221 353.725,152.434 353.725,130.657 353.732,130.657 
+            "/>
+    <g>
+        <polygon fill="none" stroke-width="1.7" points="419.114,108.874 397.326,108.874 397.326,130.663 
+            419.114,130.663 440.905,130.663 440.905,108.874         "/>
+        <polygon fill="none" stroke-width="1.7" points="506.271,152.454 484.482,152.454 484.482,130.663 
+            462.694,130.663 440.905,130.663 440.905,152.454 440.905,174.243 440.905,196.031 440.905,217.822 462.694,217.822 
+            484.482,217.822 506.271,217.822 528.061,217.822 528.061,196.033 528.061,196.031 528.061,174.243 528.061,152.454         "/>
+    </g>
+    <polygon fill="none" stroke-width="1.7" points="462.679,217.834 440.891,217.834 440.891,239.623 
+        440.891,261.412 440.891,283.201 440.891,304.97 419.112,304.97 419.112,326.759 440.891,326.759 440.891,326.77 462.679,326.77 
+        484.471,326.77 484.471,304.99 484.471,304.979 484.471,283.201 484.471,261.412 484.471,239.623 484.471,217.834   "/>
+    <g>
+        <polygon fill="none" stroke-width="1.7" points="724.119,174.299 724.119,152.51 724.119,130.721 
+            724.119,108.931 724.119,87.145 702.331,87.145 680.545,87.145 680.545,108.931 658.756,108.931 658.756,130.721 658.756,130.746 
+            636.963,130.746 636.963,152.51 615.174,152.51 615.174,174.299 593.385,174.299 593.385,196.09 571.6,196.09 571.6,217.878 
+            593.385,217.878 615.174,217.878 636.963,217.878 658.756,217.878 680.545,217.878 702.331,217.878 724.119,217.878 
+            724.119,196.09      "/>
+        <polygon fill="none" stroke-width="1.7" points="745.922,239.665 767.712,239.665 767.712,217.875 
+            746.126,217.875 745.912,217.878 724.119,217.878 724.119,239.669 745.509,239.669         "/>
+    </g>
+    <polygon fill="none" stroke-width="1.7" points="767.727,130.771 767.694,130.771 745.936,130.771 
+        724.145,130.771 724.145,152.561 724.145,174.349 724.145,196.141 745.936,196.141 745.936,174.349 767.694,174.349 
+        767.727,174.349 789.487,174.349 789.487,152.561 789.487,130.771     "/>
+    <polygon fill="none" stroke-width="1.7" points="811.336,0 811.307,0 789.546,0 789.546,21.79 789.546,43.579 
+        811.307,43.579 811.336,43.579 833.096,43.579 833.096,21.79 833.096,0    "/>
+    <polygon fill="none" stroke-width="1.7" points="811.336,43.625 811.307,43.625 789.546,43.625 789.546,65.412 
+        789.546,87.201 811.307,87.201 811.336,87.201 833.096,87.201 833.096,65.412 833.096,43.625   "/>
+    <polygon fill="none" stroke-width="1.7" points="811.336,130.758 811.307,130.758 789.546,130.758 
+        789.546,152.55 789.546,174.337 811.307,174.337 811.336,174.337 833.096,174.337 833.096,152.55 833.096,130.758   "/>
+    <polygon fill="none" stroke-width="1.7" points="756.84,65.33 756.879,65.33 789.546,65.33 789.546,76.267 
+        789.546,87.201 756.879,87.201 756.84,87.201 724.173,87.201 724.173,76.267 724.173,65.33     "/>
+    <polygon fill="none" stroke-width="1.7" points="833.089,130.708 724.119,130.708 724.119,87.145 833.089,87.145 
+        833.089,108.92 854.876,108.92 854.876,130.708   "/>
+    <polygon fill="none" stroke-width="1.7" points="288.383,239.672 331.946,239.672 331.946,261.289 
+        353.729,261.289 353.729,283.092 375.529,283.092 375.529,326.68 310.055,326.68 310.055,261.297 288.355,261.297   "/>
+    <polygon fill="none" stroke-width="1.7" points="353.633,326.58 310.055,326.58 310.055,370.219 353.633,370.219 
+        353.633,348.456 397.292,348.456 397.292,326.68  "/>
+    <polyline fill="none" stroke-width="1.7" points="375.353,326.832 419.112,326.759 419.112,304.97 
+        440.891,304.97 440.891,283.201 440.891,261.412 440.891,239.623 419.094,239.623 419.1,196.033 397.313,196.033 375.521,196.033 
+        353.733,196.033 353.733,239.567 331.946,239.672 331.946,261.289 353.729,261.289 353.729,283.092 375.529,283.092 
+        375.529,326.672     "/>
+    <polygon fill="none" stroke-width="1.7" points="484.471,326.77 484.471,348.676 528.028,348.676 
+        528.028,370.464 375.486,370.464 375.486,348.456 397.292,348.456 397.292,326.795     "/>
+    <polygon fill="none" stroke-width="1.7" points="549.834,217.822 571.579,217.822 571.579,326.749 
+        484.482,326.749 484.482,217.822 506.257,217.822 506.257,239.64 549.834,239.64   "/>
+    <polygon fill="none" stroke-width="1.7" points="571.597,348.556 571.597,326.797 484.456,326.797 
+        484.456,348.676 528.021,348.676 528.021,370.367 615.091,370.367 615.091,348.556     "/>
+    <polygon fill="none" stroke-width="1.7" points="680.534,326.827 680.534,305.039 615.137,305.039 
+        615.137,326.819 571.597,326.819 571.597,348.676 615.137,348.676 615.137,370.369 680.528,370.369 680.534,370.369 
+        702.321,370.369 702.321,326.827     "/>
+    <polygon fill="none" stroke-width="1.7" points="571.579,261.434 571.579,217.822 724.122,217.822 
+        724.122,283.234 593.385,283.234 593.385,261.442     "/>
+    <polygon fill="none" stroke-width="1.7" points="593.282,283.234 593.282,283.016 593.282,261.434 
+        571.604,261.434 571.604,326.819 593.282,326.819 615.174,326.819 615.174,283.234     "/>
+    <rect x="724.122" y="261.444" fill="none" stroke-width="1.7" width="21.785" height="65.393"/>
+    <polygon fill="none" stroke-width="1.7" points="724.097,326.78 724.097,304.99 724.094,304.99 724.094,283.244 
+        702.312,283.244 702.312,283.201 680.521,283.201 658.728,283.201 636.94,283.201 615.151,283.201 615.151,304.99 636.94,304.99 
+        658.728,304.99 680.521,304.99 680.521,326.78 702.312,326.78 702.312,348.568 724.097,348.568 724.097,370.354 745.889,370.354 
+        745.889,348.568 745.889,326.78  "/>
+    <polygon fill="none" stroke-width="1.7" points="811.273,348.628 745.889,348.628 745.889,261.444 
+        724.014,261.444 724.122,239.68 789.478,239.68 789.478,283.263 811.273,283.263   "/>
+    <polygon fill="none" stroke-width="1.7" points="752.904,392.207 796.61,392.207 796.61,435.782 774.818,435.782 
+        774.818,413.999 752.904,413.999     "/>
+</g>
+</svg>
+
+</div>
+
+</div>
+</div>
 </div>
 <div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
 </div>
@@ -281,33 +1258,25 @@
 <div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
 </div>
 
-<!-- LOCAL PANES -->
-<div id="local" class="dataviz">
-<div id="map" class="map geo"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="carto" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-</div>
-<div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
-</div>
-
 <!-- HOUSE PANES -->
 <div id="house" class="dataviz">
-<div id="map" class="map geo"><svg id="USHOUSE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mapHouse" class="map geo"><svg id="USHOUSE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <div id="mapMN" class="hideIT"><svg id="USHOUSEMN" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="carto" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="cartoHouse" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
 </div>
 
 <!-- SENATE PANES -->
 <div id="senate" class="dataviz">
-<div id="map" class="map geo"><svg id="USSENATE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="carto" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mapSen" class="map geo"><svg id="USSENATE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="cartoSen" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
 </div>
 
 <!-- GOVERNORS PANES -->
 <div id="governors" class="dataviz">
-<div id="map" class="map geo"><svg id="USGOV" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="carto" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mapGov" class="map geo"><svg id="USGOV" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="cartoGov" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
 </div>
 <!-- END DATAVIZ PANES -->
@@ -386,26 +1355,8 @@
 <div class="zoom">Reset View</div>
 
 </div>
-<!-- end rightSide -->
-
-<div class="breaker"></div>
-
-<!-- MAP VIEW TOGGLES -->
-<div id="bottomSwitches">
-<div id="viewSwitches">
-<div class="toggle uszoom stateSwitch selected2" data="geo"><img src="img/map.png" /><p>US</p></div>
-<div class="toggle mnzoom stateSwitch" data="geo"><img src="img/mnview.png" /><p>MN</p></div>
-<div class="toggle metrozoom stateSwitch" data="geo"><img src="img/metroview.png" /><p>Metro</p></div>
 </div>
-
-<div class="toggle layerSwitch selected2" data="country"><img src="img/states.png" /><p>States</p></div>
-<div class="toggle layerSwitch" data="counties"><img src="img/counties.png" /><p>County</p></div>
-<div class="toggle typeSwitch cartoSwitch" data="carto"><img src="img/carto.png" /><p>Carto</p></div>
-<!-- <div class="toggle layerSwitch" data="cd"><img src="img/ushouse_2014.png" /><p>CD</p></div> -->
-<div class="toggle layerSwitch" data="pct" id="pctzoom" style="display:none;"><img src="img/pct.png" /><p>Precinct</p></div>
-<div class="toggle uszoom stateSwitch" data="geo" id="tableView"><img src="img/tableview.png" /><p>Table</p></div>
-</div> 
-<!-- end bottomSwitches -->
+<!-- end datavizPane -->
 
 </div>
 <!-- end wrapper -->
@@ -422,77 +1373,8 @@
 <script src="//d3js.org/topojson.v1.min.js"></script>
 
 <script>
-//president: cities = https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G&level=RU
-//president = states https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G
-
-</script>
-<script>
-
-</script>
-
-<script>
-//PARAMETERS = ?race=mncaucusd&date=2016-03-01 - ?tab=map&race=president&year=2012&geo=us&district=country
-//https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&statePostal=MN&officeID=P&raceTypeID=G&level=RU
-
-// $.urlParam = function(name){
-//   var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-//   return results[1] || 0;
-// }
-
-// var race = $.urlParam('race');
-// var year = $.urlParam('year');
-// var tab = $.urlParam('tab');
-// var geo = $.urlParam('geo');
-// var district = $.urlParam('district');
-
-// var apiStringUS = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G";
-// var apiStringCounty = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G&level=RU";
-
-// var apiStringSenate = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=S&raceTypeID=G&level=RU";
-// var apiStringGov = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=G&raceTypeID=G&level=RU";
-
-// var apiStringHouse = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=H&raceTypeID=G&level=RU";
-// var apiStringMNH = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&statePostal=MN&officeID=Y&raceTypeID=G";
-// var apiStringMNS = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&statePostal=MN&officeID=Z&raceTypeID=G";
-
-var apiStringCounty = "data/prezCounty.json";
-
-var apiStringSenate = "data/senate.json";
-var apiStringGov = "data/gov.json";
-
-var apiStringHouse = "data/house.json";
-var apiStringMNH = "data/mnhouse.json";
-var apiStringMNS = "data/mnsenate.json";
-
-// var apiString = "./data/" + year + "_" + race + "_" + district + "_" + geo +".json"
-
-// d3.json(apiStringUS, function(error, jsonUS) {
-d3.json(apiStringCounty, function(error, jsonCounty) {
-d3.json(apiStringSenate, function(error, jsonSenate) {
-d3.json(apiStringHouse, function(error, jsonHouse) {
-d3.json(apiStringGov, function(error, jsonGov) {
-d3.json(apiStringMNH, function(error, jsonMNH) {
-d3.json(apiStringMNS, function(error, jsonMNS) {
-
-// var dataUS = jsonUS;
-var dataCounty = jsonCounty;
-
-var dataSenate = jsonSenate;
-var dataHouse = jsonHouse;
-var dataGov = jsonGov;
-
-var dataMNH = jsonMNH;
-var dataMNS = jsonMNS;
-
 //data fetching function
 function fetchData(district,state,type,dataCompare,race,ev,label){
-
-  //base: officeName
-  //.reportingUnits[i]: .reportingunitName, statePostal, stateName, precinctsReporting, precinctsTotal, precinctsReportingPct, lastUpdated, level, fipsCode
-  //.reportingUnits[i].candidates[k]: first, last, party, voteCount, winner, incumbent
-
-//USHOUSE, MNHOUSE, MNSENATE SPECIFIC
-  //base: seatName, seatNum
 
 var stateName = '';
 var statePostal = '';
@@ -669,17 +1551,17 @@ var voteCountT = 0;
   // } //end colors
 
   if (type == "colors"){
-    if (pctR > pctD) { 
-      if (pctR >= .80) { return "#8C1B17"; } 
-      else if (pctR >= .70) { return "#A52129"; } 
-      else if (pctR >= .60) { return "#A5484D"; } 
-      else if (pctR >= 0) { return "#C68985"; } 
+    if (pctD > pctR) { 
+      if (pctD >= .80) { return "#2b7ab5"; } 
+      else if (pctD >= .70) { return "#4f90c1"; } 
+      else if (pctD >= .60) { return "#73a7ce"; } 
+      else if (pctD >= 0) { return "#97bedb"; } 
     }
-    else if (pctD > pctR) { 
-      if (pctD >= .80) { return "#3f88c5"; } 
-      else if (pctD >= .70) { return "#4f97c4"; } 
-      else if (pctD >= .60) { return "#5ca5c3"; } 
-      else if (pctD >= 0) { return "#ABCEE8"; } 
+    else if (pctR > pctD) { 
+      if (pctR >= .80) { return "#d84c27"; } 
+      else if (pctR >= .70) { return "#df6a4c"; } 
+      else if (pctR >= .60) { return "#e58970"; } 
+      else if (pctR >= 0) { return "#eca795"; } 
     }
     else  { return 'mid'; }
   } //end colors
@@ -715,9 +1597,6 @@ var voteCountT = 0;
   } //end table
 
 }//end fetchData
-
-// console.log(fetchData("Alaska","Alaska","infobox",dataCounty,"president"));
-console.log(fetchData('District 8',"Minnesota","tooltip",dataHouse,"ushouse"));
 
 
 //table functions
@@ -2165,34 +3044,8 @@ if (race == "president"){
 
   mapBuild("#mapStates", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
   mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-  // mapBuild("#president .geo", "#districtName", "#chart", "us_congress.json", "cd", "us", "cd", data);
 
-  // d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1dmWuUyYnLo9599ikNdLY5ZfbPkFk8pmSPUWhlpgAfUU&sheet=mnPCT2012", function(error, json) {
-
-  // var data = json.mnPCT2012;
-  // mapBuild("#president .geo", "#districtName", "#chart", "mnprecincts.json", "pct", "us", "pct", data);
-
-  // });
-
-  cartoBuild("#president .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
   makeTable("president");
-
-  //RESPONSIVENESS
-var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
-}
-
-if (race == "local"){
-  mapBuild("#local .geo", "#districtName", "#chart", "us_states.json", race, "mn", "country", data);
-  mapBuild("#local .geo", "#districtName", "#chart", "us_counties.json", "county", "mn", "counties", data);
-  mapBuild("#local .geo", "#districtName", "#chart", "us_congress.json", "cd", "mn", "cd", data);
-  mapBuild("#local .geo", "#districtName", "#chart", "mnprecincts.json", "pct", "mn", "pct", data);
-  cartoBuild("#local .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
 
   //RESPONSIVENESS
 var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
@@ -2289,21 +3142,20 @@ var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
 
 } //end mapSpill
 
-if (race == "president"){ var dataStuff = dataCounty; }
-if (race == "senate"){ var dataStuff = dataSenate; }
-if (race == "governors"){ var dataStuff = dataGov; }
-if (race == "mnsenate"){ var dataStuff = dataMNS; }
-if (race == "mnhouse"){ var dataStuff = dataMNH; }
-if (race == "house"){ var dataStuff = dataHouse; }
+
+//CONDITIONAL DATA LOADING
+if (race == "president"){ var apiString = "data/prezCounty.json"; }
+if (race == "senate"){ var apiString = "data/senate.json"; }
+if (race == "governors"){ var apiString = "data/gov.json"; }
+if (race == "mnsenate"){ var apiString = "data/mnsenate.json"; }
+if (race == "mnhouse"){ var apiString = "data/mnhouse.json"; }
+if (race == "house"){ var apiString = "data/house.json"; }
+
+d3.json(apiString, function(error, jsonSpill) {
+
+var dataStuff = jsonSpill;
 
 mapSpill(race,dataStuff);
-
-// mapSpill("mnhouse","us",dataCounty);
-// mapSpill("mnsenate","us",dataCounty);
-// mapSpill("local","us",dataCounty);
-// mapSpill("house","us",dataCounty);
-// mapSpill("senate","us",dataCounty);
-// mapSpill("governors","us",dataCounty);
 
 var loadState = 0;
 
@@ -2353,38 +3205,9 @@ $(".layerSwitch").click(function() {
   $(".carto").hide();
 });
 
-//dataviz population
-//SPILL EVERYTHING ELSE
-function populate(race,year,tab){
-  for (var i=0; i<directory.length; i++){
-    if (directory[i].year == year && directory[i].race == race){
-        //How to label the legends and candidates?
-        $('.dparty, #candidateNameD').html(directory[i].d_party + "<span id='dMark' class='check'></div>");
-        $('.rparty, #candidateNameR').html(directory[i].r_party + "<span id='rMark' class='check'></div>");
-
-        if (directory[i].d_count > directory[i].r_count) { $("#dMark").addClass("democrat"); $("#dMark").html("&#10004;"); }
-        else if (directory[i].d_count < directory[i].r_count) { $("#rMark").addClass("republican"); $("#rMark").html("&#10004;"); }
-
-        //Powerbar data
-        powerBars(directory[i].d_count,directory[i].r_count,directory[i].i_count,directory[i].u_count,directory[i].d_votes,directory[i].r_votes);
-
-        //What historical data to spill?
-        loadHistory("#historyview",race,directory[i].d_party,directory[i].r_party);
-
-        break;
-    }
-  }
-} //end populate
-
-
-// populate(race,year,tab);
-
 });
-});
-});
-});
-});
-});
+
+
 </script>
 
 </html>

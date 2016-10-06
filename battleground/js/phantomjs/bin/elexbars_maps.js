@@ -16,7 +16,7 @@ page.open('http://striblab.github.io/2016election/elex_summary/elex-graphics-ret
   };
 
 window.setTimeout(function () {
-  page.render('file://Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/' + new Date().getTime() + '-frontpage_bars_mobile2.png');
+  page.render('/Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/' + new Date().getTime() + '-frontpage_bars_mobile2.png');
   phantom.exit();
 }, 10000);
 
