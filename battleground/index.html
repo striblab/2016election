@@ -18,7 +18,7 @@
     body { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; overflow-x:hidden !important; }
     p { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
     a { color:#000; }
-    #wrapper { text-align:center; height:auto; width:880px; margin-left:auto; margin-right:auto; }
+    #wrapper { text-align:center; height:auto; width:980px; margin-left:auto; margin-right:auto; }
     
     /* SWITCHES AND BUTTONS */
     #bottomSwitches { text-align:center; margin-left:auto; margin-right:auto; width:100%; }
@@ -28,14 +28,16 @@
     .typeSwitch, .layerSwitch, .stateSwitch { width:60px; display:inline-block; opacity:.4; margin:5px; }
     .switch img { width:40px; }
     .mapSwitch img, .typeSwitch img, .layerSwitch img, .stateSwitch img { width:100%; }
-    #raceSwitcher { float:left; width:9%; font-size:0.9em; }
-    .raceSwitch { width:100%; opacity:.5; text-align:left; }
-    #datavizPane { float:right; width:90%; }
+    #raceSwitcher { float:left; width:20%; font-size:0.9em; }
+    .raceSwitch { width:100%; opacity:.5; text-align:left; padding:12px; border-bottom:3px solid #ddd; }
+    #datavizPane { float:right; width:78%; }
 
      /* PANES */
     .dataviz { width:100%;  }
     #rightSide { width:100%; font-size:.8em; }
     #infobox { width:60%; margin-right:auto; margin-left:auto; }
+
+    #allResults { height:200px; border-right:2px solid #ddd; overflow-x:hidden; overflow-y:auto; }
 
      /* MAPS */
     .map, .carto { width:800px; margin-right:auto; margin-left:auto; text-align:center;  }
@@ -65,12 +67,12 @@
     .gopWin { float:right; }
 
     /* COLOR SWATCHES */
-    .republican { fill:#d34A44 !important; pointer-events: all; font-weight:bold; color:#8C1B17; stroke:#8C1B17 !important; }
-    .rlikely { color:#A5484D; fill:#A5484D !important; pointer-events: all; font-weight:bold; }
-    .rlean { color:#f7816E; fill:#f7816E !important; pointer-events: all; font-weight:bold; }
-    .democrat { fill:#3585BC !important; pointer-events: all; font-weight:bold; color:#3F88C5; stroke:#3F88C5 !important; }
-    .dlikely { color:#5ca5c3; fill:#5ca5c3 !important; pointer-events: all; font-weight:bold; }
-    .dlean { color:#72A9D6; fill:#72A9D6 !important; pointer-events: all; font-weight:bold; }
+    .republican { fill:#d34A44 !important; pointer-events: all; font-weight:bold; background-color:#d34A44; stroke:#8C1B17 !important; }
+    .rlikely { background-color:#A5484D; fill:#A5484D !important; pointer-events: all; font-weight:bold; }
+    .rlean { background-color:#f7816E; fill:#f7816E !important; pointer-events: all; font-weight:bold; }
+    .democrat { fill:#3585BC !important; pointer-events: all; font-weight:bold; background-color:#3585BC; stroke:#3F88C5 !important; }
+    .dlikely { background-color:#5ca5c3; fill:#5ca5c3 !important; pointer-events: all; font-weight:bold; }
+    .dlean { background-color:#72A9D6; fill:#72A9D6 !important; pointer-events: all; font-weight:bold; }
     .r1 { background-color:#eca795; fill:#eca795 !important; color:black !important; pointer-events: all; font-weight:bold; }
     .r2 { background-color:#e58970; fill:#e58970 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .r3 { background-color:#df6a4c; fill:#df6a4c !important; color:white !important; pointer-events: all; font-weight:bold; }
@@ -86,9 +88,11 @@
     path { stroke-opacity:0 !important; }
 
     /* LEGENDS */
-    .legends { width:570px; height:19px !important; text-align:center; margin-right:auto; margin-left:auto; }
-    small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
-    .legend label, .legend span { display:block; float:left; height:15px; width:47px; text-align:center; font-size:12px; color:#808080; font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+    #legends { text-align:center; }
+    .legendLabel { display:inline-block; height:15px; width:50px; }
+    .brick { height:15px; width:50px; display:inline-block; }
+    .partyBlock { display:inline-block; margin-left:10px; }
+    .tinybreak { clear:both; display:block; }
 
     /*CARTOGRAM*/
     .dem rect { fill:#3F88C5 !important; }
@@ -192,9 +196,14 @@
   <div class="raceSwitch" data="mnsenate"><a href="./?race=mnsenate"><div>MN Senate</div></a></div>
   <div class="raceSwitch" data="mnhouse"><a href="./?race=mnhouse"><div>MN House</div></a></div>
 
+
+<div class="table" id="table">
+  <div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div>
+  <div id="allResults"></div>
+</div>
 <!-- MAP VIEW TOGGLES -->
 <div id="bottomSwitches">
-<div id="viewSwitches">
+<!-- <div id="viewSwitches">
 <div class="toggle uszoom stateSwitch selected2" data="geo"><img src="img/map.png" /><p>US</p></div>
 <div class="toggle mnzoom stateSwitch" data="geo"><img src="img/mnview.png" /><p>MN</p></div>
 <div class="toggle metrozoom stateSwitch" data="geo"><img src="img/metroview.png" /><p>Metro</p></div>
@@ -203,9 +212,8 @@
 <div class="toggle layerSwitch selected2" data="country"><img src="img/states.png" /><p>States</p></div>
 <div class="toggle layerSwitch" data="counties"><img src="img/counties.png" /><p>County</p></div>
 <div class="toggle typeSwitch cartoSwitch" data="carto"><img src="img/carto.png" /><p>Carto</p></div>
-<!-- <div class="toggle layerSwitch" data="cd"><img src="img/ushouse_2014.png" /><p>CD</p></div> -->
 <div class="toggle layerSwitch" data="pct" id="pctzoom" style="display:none;"><img src="img/pct.png" /><p>Precinct</p></div>
-<div class="toggle uszoom stateSwitch" data="geo" id="tableView"><img src="img/tableview.png" /><p>Table</p></div>
+<div class="toggle uszoom stateSwitch" data="geo" id="tableView"><img src="img/tableview.png" /><p>Table</p></div> -->
 </div> 
 <!-- end bottomSwitches -->
 </div>
@@ -1232,7 +1240,7 @@
 
 </div>
 </div>
-</div>
+
 <div class="table" id="table" style="display:none;"><div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div></div>
 </div>
 
@@ -1285,63 +1293,61 @@
 <div id="rightSide">
 
 <!-- COLOR SCALE LEGENDS -->
-<div class="legendBox">
-<div class="legends">
-    <div class="legendContainer">
-      <span class='legend'>
-        <nav class='legend clearfix'>
-          <span style='background:#fff;'>DEM</span>
-          <span class='d1'></span>
-          <span class='d2'></span>
-          <span class='d3'></span>
-          <span class='d4'></span>
-        </nav>
-      </span>
-    </div>
-    <small></small>
+<div id="legends">
+<div id="legendMargins" class="legendBlock">
+    <div class="breaker"></div>
+    <div class='partyBlock'>
+    <div class='dparty legendLabel'>DEM</div>
+    <div class='d1 brick'></div>
+    <div class='d2 brick'></div>
+    <div class='d3 brick'></div>
+    <div class='d4 brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>50%</div>
+    <div class='brick smallLabel'>60%</div> 
+    <div class='brick smallLabel'>70%</div>
+    <div class='brick smallLabel'>80%</div>  
+  </div>
+  <div class='partyBlock'>
+    <div class='rparty legendLabel'>GOP</div>
+    <div class='r1 brick'></div>
+    <div class='r2 brick'></div>
+    <div class='r3 brick'></div>
+    <div class='r4 brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>50%</div>
+    <div class='brick smallLabel'>60%</div> 
+    <div class='brick smallLabel'>70%</div>
+    <div class='brick smallLabel'>80%</div>  
   </div>
 </div>
-<div class="legendBox">
-<div class="legends">
-    <div class="legendContainer">
-      <span class='legend'>
-        <nav class='legend clearfix'>
-          <span style='background:#fff;'>GOP</span>
-          <span class='r1'></span>
-          <span class='r2'></span>
-          <span class='r3'></span>
-          <span class='r4'></span>
-        </nav>
-      </span>
-    </div>
-    <small></small>
+<div id="legendWinners" class="legendBlock">
+  <div class="breaker"></div>
+  <div class='partyBlock'>
+    <div class="voteTotals">Votes: 1,000,000 | <span class="pctNum demPCT">50%</span></div>
+    <div class="tinybreak"></div>
+    <div class='dparty legendLabel'>Clinton</div>
+    <div class='dlean brick'></div>
+    <div class='democrat brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>Lean</div>
+    <div class='brick smallLabel'>Win</div>  
+  </div>
+  <div class='partyBlock'>
+    <div class="voteTotals">Votes: 1,000,000 | <span class="pctNum gopPCT">50%</span></div>
+    <div class="tinybreak"></div>
+    <div class='rparty legendLabel'>Trump</div>
+    <div class='rlean brick'></div>
+    <div class='republican brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>Lean</div>
+    <div class='brick smallLabel'>Win</div>   
   </div>
 </div>
-<div class="legendBox">
-<div class="legends">
-    <div class="legendContainer">
-      <span class='legend'>
-        <nav class='legend clearfix'>
-          <span style='background:#fff;'>IND</span>
-          <span class='independent'></span>
-        </nav>
-      </span>
-    </div>
-    <small></small>
-  </div>
-</div>
-<div class="legendBox">
-<div class="legends">
-    <div class="legendContainer">
-      <span class='legend'>
-        <nav class='legend clearfix'>
-          <span style='background:#fff;'>UND</span>
-          <span class='mid'></span>
-        </nav>
-      </span>
-    </div>
-    <small></small>
-  </div>
 </div>
 
 <div class="breaker"></div>
@@ -3106,12 +3112,6 @@ var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
 if (race == "senate"){
   mapBuild("#senate .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
   mapBuild("#senate .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-   d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1Vk4a_VNKyqN20F1NdAAwKeHwtR0Z1oGRqXypYH4Ge_4&sheet=mnPCT2012", function(error, json) {
-
-  var data = json.mnPCT2012;
-  mapBuild("#senate .geo", "#districtName", "#chart", "mnprecincts.json", "pct", "us", "pct", data);
-
-  });
   cartoBuild("#senate .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
   makeTable("president");
 
@@ -3155,6 +3155,7 @@ d3.json(apiString, function(error, jsonSpill) {
 
 var dataStuff = jsonSpill;
 
+
 mapSpill(race,dataStuff);
 
 var loadState = 0;
@@ -3164,6 +3165,7 @@ $(document).ready(function() {
     $("#" + race).show();
     mapShow(".map","country");
 });
+
 
 //switches and interface triggers
 $(".layerSwitch, .district").click(function() {
