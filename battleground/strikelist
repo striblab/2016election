@@ -1,5 +1,20 @@
 BATTLEGROUND E
 --------------
+DATA: New data source pour
+RAY: Scripts test
+RAY: Finish
+MNHOUSE: Metro shape
+MNSENATE: Metro shape
+PREZ: Results Update
+MNHOUSE: Results Update
+HOUSE: Results Update
+MNSENATE: Results Update
+DATA: Update counter
+PREZ: EV cartogram data hookup
+PREZ: EV cartogram colors
+
+BATTLEGROUND F
+--------------
 PREZ: Power bar
 PREZ: Minnesota by county isolate
 PREZ: Metro by county isolate
@@ -13,7 +28,7 @@ PREZ: Winner algorithm
 PREZ: Lean/wins coloring
 PREZ: Show counties on state click
 
-BATTLEGROUND F
+BATTLEGROUND G
 --------------
 MNHOUSE: Power balance bar
 MNHOUSE: Carto pour
@@ -28,7 +43,7 @@ MNSENATE: Carto colors
 MNSENATE: Table pour
 MNSENATE: Table finish
 
-BATTLEGROUND G
+BATTLEGROUND H
 --------------
 SEN: Results Update
 SEN: Power balance bar
@@ -43,7 +58,7 @@ SEN: Carto colors
 SEN: Lean/wins coloring
 SEN: Show counties on state click
 
-BATTLEGROUND H
+BATTLEGROUND I
 --------------
 HOUSE: Results return
 HOUSE: Map color
@@ -58,7 +73,7 @@ HOUSE: Carto pour
 HOUSE: Carto data bind
 HOUSE: Carto color
 
-BATTLEGROUND I
+BATTLEGROUND J
 --------------
 HOUSE: Power balance bar
 HOUSE: Race results clicky
@@ -73,16 +88,13 @@ GOV: Carto colors
 GOV: Lean/wins coloring
 GOV: Show counties on state click
 
-BATTLEGROUND J
+ELECTION NIGHT
 --------------
 DATA: Live data test
 Style fixes
 Final touches
 MNSENATE: Unopposed/no race handling
 MNHOUSE: Unopposed/no race handling
-
-ELECTION NIGHT
---------------
 VOTE
 FLAWLESSNESS
 
