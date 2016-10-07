@@ -188,37 +188,33 @@
 
 <!-- RACE SWITCHING BAR -->
 <div id="raceSwitcher">
-  <div id="prezButton" class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump"><div>Presidential</div></div>
-  <div class="raceSwitch uszoom" data="president" legend="legendWinners" type="carto" layer="country" dLabel="Clinton" rLabel="Trump"><div>U.S. Electoral</div></div>
-  <div class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump"><div>U.S. Popular by state</div></div>
-  <div class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump"><div>U.S. Popular by county</div></div>
-  <div class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump"><div>MN Popular by county</div></div>
-<!--   <div class="raceSwitch mnzoom" data="president" legend="legendMargins" type="map" layer="pct"><div>MN Popular by precinct</div></div> -->
-  <div class="raceSwitch metrozoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump"><div>Metro Popular by county</div></div>
-<!--   <div class="raceSwitch metrozoom" data="president" legend="legendMargins" type="map" layer="pct"><div>Metro Popular by precinct</div></div> -->
-
-  <div class="raceSwitch uszoom" data="senate" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><div>U.S. Senate</div></div>
-
-  <div class="raceSwitch uszoom" data="house" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><div>U.S. House</div></div>
-  <div class="raceSwitch uszoom" data="house" legend="legendWinners" type="carto" layer="country" dLabel="DEM" rLabel="GOP"><div>U.S. cartogram</div></div>
-  <div class="raceSwitch uszoom" data="house" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><div>U.S. by district</div></div>
-  <div class="raceSwitch mnzoom" data="house" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><div>MN by district</div></div>
-
-  <div class="raceSwitch uszoom" data="governors" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><div>Governors</div></div>
-
-  <div class="raceSwitch uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP"><div>MN Senate</div></div>
-  <div class="raceSwitch uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP"><div>State/metro maps</div></div>
-  <div class="raceSwitch uszoom" data="mnsenate" legend="legendWinners" type="carto" layer="country" dLabel="DFL" rLabel="GOP"><div>State/metro districts</div></div>
-
-  <div class="raceSwitch uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP"><div>MN House</div></div>
-  <div class="raceSwitch uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP"><div>State/metro maps</div></div>
-  <div class="raceSwitch uszoom" data="mnhouse" legend="legendWinners" type="carto" layer="country" dLabel="DFL" rLabel="GOP"><div>State/metro districts</div></div>
+  <div class="raceSwitch" data="president"><a href="./?race=president"><div>Presidential</div></a></div>
+  <div class="raceSwitch" data="senate"><a href="./?race=senate"><div>U.S. Senate</div></a></div>
+  <div class="raceSwitch" data="house"><a href="./?race=house"><div>U.S. House</div></a></div>
+  <div class="raceSwitch" data="governors"><a href="./?race=governors"><div>Governors</div></a></div>
+  <div class="raceSwitch" data="mnsenate"><a href="./?race=mnsenate"><div>MN Senate</div></a></div>
+  <div class="raceSwitch" data="mnhouse"><a href="./?race=mnhouse"><div>MN House</div></a></div>
 
 
 <div class="table" id="table">
   <div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div>
   <div id="allResults"></div>
 </div>
+<!-- MAP VIEW TOGGLES -->
+<div id="bottomSwitches">
+<!-- <div id="viewSwitches">
+<div class="toggle uszoom stateSwitch selected2" data="geo"><img src="img/map.png" /><p>US</p></div>
+<div class="toggle mnzoom stateSwitch" data="geo"><img src="img/mnview.png" /><p>MN</p></div>
+<div class="toggle metrozoom stateSwitch" data="geo"><img src="img/metroview.png" /><p>Metro</p></div>
+</div>
+
+<div class="toggle layerSwitch selected2" data="country"><img src="img/states.png" /><p>States</p></div>
+<div class="toggle layerSwitch" data="counties"><img src="img/counties.png" /><p>County</p></div>
+<div class="toggle typeSwitch cartoSwitch" data="carto"><img src="img/carto.png" /><p>Carto</p></div>
+<div class="toggle layerSwitch" data="pct" id="pctzoom" style="display:none;"><img src="img/pct.png" /><p>Precinct</p></div>
+<div class="toggle uszoom stateSwitch" data="geo" id="tableView"><img src="img/tableview.png" /><p>Table</p></div> -->
+</div> 
+<!-- end bottomSwitches -->
 </div>
 
 <div id="datavizPane">
@@ -1257,17 +1253,17 @@
     <div class='brick smallLabel'>50%</div>
   </div>
   <div class='partyBlock'>
+    <div class='rparty legendLabel'>GOP</div>
     <div class='r1 brick'></div>
     <div class='r2 brick'></div>
     <div class='r3 brick'></div>
     <div class='r4 brick'></div>
-    <div class='rparty legendLabel'>GOP</div>
     <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
     <div class='brick smallLabel'>50%</div>
     <div class='brick smallLabel'>60%</div> 
     <div class='brick smallLabel'>70%</div>
-    <div class='brick smallLabel'>80%</div>
-    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>80%</div>  
   </div>
 </div>
 <div id="legendWinners" class="legendBlock">
@@ -1297,6 +1293,16 @@
 </div>
 </div>
 
+<div class="breaker"></div>
+
+<!-- INFOBOX -->
+<div id="infobox"></div>
+
+<div class="breaker"></div>
+
+<!-- RESET BUTTON -->
+<div class="zoom">Reset View</div>
+
 </div>
 </div>
 <!-- end datavizPane -->
@@ -1311,18 +1317,13 @@
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/interfaces/d3.slider-master/d3.slider.js"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
+<!-- <script src="./js/require.js"></script>
+<script src="./js/node_modules/ballot-tally/index.js"></script> -->
 <script src="//d3js.org/topojson.v1.min.js"></script>
 
 <script>
 //data fetching function
 function fetchData(district,state,type,dataCompare,race,ev,label){
-
-  //base: officeName
-  //.reportingUnits[i]: .reportingunitName, statePostal, stateName, precinctsReporting, precinctsTotal, precinctsReportingPct, lastUpdated, level, fipsCode
-  //.reportingUnits[i].candidates[k]: first, last, party, voteCount, winner, incumbent
-
-//USHOUSE, MNHOUSE, MNSENATE SPECIFIC
-  //base: seatName, seatNum
 
 var stateName = '';
 var statePostal = '';
@@ -1499,17 +1500,17 @@ var voteCountT = 0;
   // } //end colors
 
   if (type == "colors"){
-    if (pctR > pctD) { 
-      if (pctR >= .80) { return "#d84c27"; } 
-      else if (pctR >= .70) { return "#df6a4c"; } 
-      else if (pctR >= .60) { return "#e58970"; } 
-      else if (pctR >= 0) { return "#eca795"; } 
-    }
-    else if (pctD > pctR) { 
+    if (pctD > pctR) { 
       if (pctD >= .80) { return "#2b7ab5"; } 
       else if (pctD >= .70) { return "#4f90c1"; } 
       else if (pctD >= .60) { return "#73a7ce"; } 
       else if (pctD >= 0) { return "#97bedb"; } 
+    }
+    else if (pctR > pctD) { 
+      if (pctR >= .80) { return "#d84c27"; } 
+      else if (pctR >= .70) { return "#df6a4c"; } 
+      else if (pctR >= .60) { return "#e58970"; } 
+      else if (pctR >= 0) { return "#eca795"; } 
     }
     else  { return 'mid'; }
   } //end colors
@@ -1543,14 +1544,6 @@ var voteCountT = 0;
     if (pctR > pctD) { return "<div class='districtName'>" + stateString + " " + evString + "</div><div class='resultsRow'><div>Candidate</div><div class='counts'>#</div><div class='pct'>%</div></div><div class='resultsRow'><div class='candidate'>" + firstR + " " + lastR + "</div><div class='counts'>" + d3.format(",")(voteCountR) + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div></div><div class='resultsRow'><div class='candidate'>" + firstD + " " + lastD + "</div><div class='counts'>" + d3.format(",")(voteCountD) + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div></div><div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>" + d3.format(",")(voteCountO) + "</div><div class='pct independent'>" + d3.format("%")(pctO) + "</div></div><div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>"; }
     else { return "<div class='districtName'>" + stateString +  " " + evString + "</div><div class='resultsRow'><div>Candidate</div><div class='counts'>#</div><div class='pct'>%</div></div><div class='resultsRow'><div class='candidate'>" + firstD + " " + lastD + "</div><div class='counts'>" + d3.format(",")(voteCountD) + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div></div><div class='resultsRow'><div class='candidate'>" + firstR + " " + lastR + "</div><div class='counts'>" + d3.format(",")(voteCountR) + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div></div><div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>" + d3.format(",")(voteCountO) + "</div><div class='pct independent'>" + d3.format("%")(pctO) + "</div></div><div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>"; }
   } //end table
-
-  if (type == "pct"){
-    return precinctsReportingPct;
-  }
-
-  if (type == "timestamp"){
-    return lastUpdated;
-  }
 
 }//end fetchData
 
@@ -2983,7 +2976,16 @@ $.urlParam = function(name){
 var race = $.urlParam('race');
 $(".raceSwitch").removeClass("selected2");
 $(".raceSwitch[data=" + race + "]").addClass("selected2");
+// var year = $.urlParam('year');
+// var tab = $.urlParam('tab');
+// var geo = $.urlParam('geo');
+// var district = $.urlParam('district');
 
+// var race = "president";
+// var year = 2012;
+// var tab = "president";
+// var geo = "country";
+// var district = "us";
 
 function mapShow(container, race){
  d3.selectAll(".mappage").each(function(i){
@@ -3000,6 +3002,8 @@ if (race == "president"){
 
   mapBuild("#mapStates", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
   mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
+
+  // makeTable("president");
 
   //RESPONSIVENESS
 var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
@@ -3029,6 +3033,7 @@ if (race == "senate"){
   mapBuild("#senate .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
   mapBuild("#senate .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
   cartoBuild("#senate .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
+  // makeTable("president");
 
   //RESPONSIVENESS
 var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
@@ -3091,33 +3096,19 @@ var aspect = 320 / 350, chart = $(".map svg"), chart2 = $(".carto svg");
 
 
 //CONDITIONAL DATA LOADING
-var apiStringPrez = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
-var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
-var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-governors-by-state/full.json";
-var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
-var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnhouse-by-district/full.json";
-var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
+if (race == "president"){ var apiString = "data/prezCounty.json"; }
+if (race == "senate"){ var apiString = "data/senate.json"; }
+if (race == "governors"){ var apiString = "data/gov.json"; }
+if (race == "mnsenate"){ var apiString = "data/mnsenate.json"; }
+if (race == "mnhouse"){ var apiString = "data/mnhouse.json"; }
+if (race == "house"){ var apiString = "data/house.json"; }
 
-d3.json(apiStringPrez, function(error, jsonSpillPrez) {
-d3.json(apiStringSen, function(error, jsonSpillSen) {
-d3.json(apiStringGov, function(error, jsonSpillGov) {
-d3.json(apiStringMNS, function(error, jsonSpillMNS) {
-d3.json(apiStringMNH, function(error, jsonSpillMNH) {
-d3.json(apiStringHouse, function(error, jsonSpillHouse) {
+d3.json(apiString, function(error, jsonSpill) {
 
-var dataPrez = jsonSpillPrez;
-var dataSen = jsonSpillSen;
-var dataGov = jsonSpillGov;
-var dataMNS = jsonSpillMNS;
-var dataMNH = jsonSpillMNH;
-var dataHouse = jsonSpillHouse;
+var dataStuff = jsonSpill;
 
-mapSpill("president",dataPrez);
-mapSpill("senate",dataSen);
-mapSpill("governors",dataGov);
-mapSpill("mnsenate",dataMNS);
-mapSpill("mnhouse",dataMNH);
-mapSpill("house",dataHouse);
+
+mapSpill(race,dataStuff);
 
 var loadState = 0;
 
@@ -3127,40 +3118,49 @@ $(document).ready(function() {
     mapShow(".map","country");
 });
 
-//view toggles
+
+//switches and interface triggers
+$(".layerSwitch, .district").click(function() {
+  $(".layerSwitch").removeClass("selected2");
+  $(this).addClass("selected2");
+  $(".map").hide();
+  $("." + $(this).attr("data")).show();
+});
+
+$(".typeSwitch").click(function() {
+  $(".layerSwitch").removeClass("selected2");
+  $(this).addClass("selected2");
+  $(".map").hide();
+  $("." + $(this).attr("data")).show();
+  $("." + $(this).attr("data")).css('display','inline-block');
+});
+
 $(".raceSwitch").click(function() {
-  //button thingies
   $(".raceSwitch").removeClass("selected2");
   $(this).addClass("selected2");
-
-  //show correct race
   $(".dataviz").hide();
   $("#" + $(this).attr("data")).show();
+});
 
-  //show correct legend
-  $(".legendBlock").hide();
-  $("#" + $(this).attr("legend")).show();
-  $(".dparty").html($(this).attr("dLabel"));
-  $(".rparty").html($(this).attr("rLabel"));
-  
-  //show map or carto
-  $(".map").hide();
-  $("." + $(this).attr("type")).show();
-  $("." + $(this).attr("type")).css('display','inline-block');
+$(".stateSwitch").click(function() {
+  $(".stateSwitch").removeClass("selected2");
+  $(this).addClass("selected2");
+  $("#pctzoom").hide();
+  if ($(this).attr("id") == "tableView") { $(".mapBox").hide(); $("#" + race + " .table").show();  }
+  else { $(".mapBox").show(); $("#" + race + " .table").hide();  }
+});
 
-  //show correct layer
+$(".layerSwitch").click(function() {
   loadState++;
-  mapShow(".map",$(this).attr("layer"));
+  $(".typeSwitch, .layerSwitch").removeClass("selected2");
+  $(this).addClass("selected2");
+  mapShow(".map",$(this).attr("data"));
+    $(".map").show();
+  $(".carto").hide();
 });
 
-$( "#prezButton" ).trigger("click");
+});
 
-});
-});
-});
-});
-});
-});
 
 </script>
 
