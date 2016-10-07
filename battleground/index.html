@@ -54,7 +54,6 @@
     .bar, .count, .label { display:inline-block; }
     .label, .count { width:24%; }
     .bar { width:0; height:24px; }
-    .bar:hover { background-color:#333; cursor:pointer; }
     .gopLabel, .gopCount, .gopVotes { text-align:right !important; }
     .demsLabel, .demsCount, .demsVotes { text-align:left !important; }
     #demsBar { background-color:#0D4773; }
@@ -3145,11 +3144,12 @@ function govCrunch(data){
 
   var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
 
-  var dTally = 36;
-  var rTally = 30;
+  var dTally = 10;
+  var rTally = 27;
+  var iTally = 1;
 
   for (var i=0; i < stateList.length; i++){
-    var updated = fetchData(null,stateList[i],"winner",data,"senate",null,null);
+    var updated = fetchData(null,stateList[i],"winner",data,"governors",null,null);
 
     if (updated == "GOP Win") { rTally++; }
     else if (updated == "DEM Win") { dTally++; }
@@ -3158,8 +3158,8 @@ function govCrunch(data){
 
   $(".demsCount").html(dTally);
   $(".gopCount").html(rTally);
-  $("#dWin").css("width", d3.format("%")(dTally/100));
-  $("#rWin").css("width", d3.format("%")(rTally/100));
+  $("#dWin").css("width", d3.format("%")(dTally/50));
+  $("#rWin").css("width", d3.format("%")(rTally/50));
 
 }
 
