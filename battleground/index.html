@@ -53,7 +53,7 @@
     #partyLabels, #partyBar, #partyCount { width:100%; }
     .bar, .count, .label { display:inline-block; }
     .label, .count { width:24%; }
-    .bar { width:0; height:15px; border:0.5px solid #fff; }
+    .bar { width:0; height:24px; }
     .bar:hover { background-color:#333; cursor:pointer; }
     .gopLabel, .gopCount, .gopVotes { text-align:right !important; }
     .demsLabel, .demsCount, .demsVotes { text-align:left !important; }
@@ -62,6 +62,7 @@
     #undBar { background-color:#ddd; }
     #indBar { background-color:#E07242; }
     #indLabel, #undLabel, #indCount, #undCount { text-align:center; }
+    #remaining { width:100%; }
     .check { width:20px; height:20px; }
     .demWin { float:left; }
     .gopWin { float:right; }
@@ -85,7 +86,7 @@
     .d4 { background-color:#2b7ab5; fill:#2b7ab5 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .independent { fill:#66AF50; background-color:#66AF50; color:#333 !important; }
     .none { fill:#cccccc !important; background-color:#cccccc !important; }
-    path { stroke-opacity:1 !important; }
+    path { stroke-opacity:0.7 !important; }
 
     /* LEGENDS */
     #legends { text-align:center; }
@@ -225,16 +226,16 @@
 <!-- POWER BALANCE BAR -->
 <div class="bars" id="powerbar">
 <div id="partyLabels">
-  <div class="label dparty demsLabel">  <span class="count demsCount">0</span> DEM <span id="dMark" class="check"></span></div>
+  <div class="label demsLabel">  <span class="count demsCount">0</span> <span class="dparty">DEM</span> <span id="dMark" class="check"></span></div>
   <div class="label undLabel"></div>
   <div class="label indLabel"></div>
-  <div class="label rparty gopLabel"><span id="rMark" class="check"></span> GOP <span class="count gopCount">0</span></div>
+  <div class="label gopLabel"><span id="rMark" class="check"></span> <span class="rparty">GOP</span> <span class="count gopCount">0</span></div>
 </div>
 <div id="partyBar">
   <div class="bar democrat" id="dWin"></div>
-  <div class="bar dlean" id="dLean"></div>
+<!--   <div class="bar dlean" id="dLean"></div>
   <div class="bar none" id="remaining"></div>
-  <div class="bar rlean" id="rLean"></div>
+  <div class="bar rlean" id="rLean"></div> -->
   <div class="bar republican" id="rWin"></div>
 </div>
 </div>
@@ -3090,6 +3091,148 @@ var aspect = 320 / 350, chart = $(".map svg"), chart2 = $(".carto svg");
 } //end mapSpill
 
 
+//BALANCE OF POWER BARS
+function prezCrunch(data){
+
+  var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+
+  var evList = [9,3,11,6,55,9,7,3,3,29,16,4,4,20,11,6,6,8,8,4,10,11,16,10,6,10,3,5,6,4,14,5,29,15,3,18,7,7,20,4,9,3,11,38,6,3,13,12,5,10,3];
+
+  var dTally = 0;
+  var rTally = 0;
+  var remaining = 0;
+
+  for (var i=0; i < stateList.length; i++){
+    var updated = fetchData(null,stateList[i],"winner",data,"data",null,null);
+
+    if (updated == "GOP Win") { rTally += evList[i]; }
+    else if (updated == "DEM Win") { dTally += evList[i]; }
+
+  }
+
+  remaining = 538 - dTally - rTally;
+
+  $(".demsCount").html(dTally);
+  $(".gopCount").html(rTally);
+  $("#dWin").css("width", d3.format("%")((dTally/538) - .013));
+  $("#rWin").css("width", d3.format("%")((rTally/538) - .013));
+
+}
+
+function senCrunch(data){
+
+  var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+
+  var dTally = 36;
+  var rTally = 30;
+
+  for (var i=0; i < stateList.length; i++){
+    var updated = fetchData(null,stateList[i],"winner",data,"senate",null,null);
+
+    if (updated == "GOP Win") { rTally++; }
+    else if (updated == "DEM Win") { dTally++; }
+
+  }
+
+  $(".demsCount").html(dTally);
+  $(".gopCount").html(rTally);
+  $("#dWin").css("width", d3.format("%")(dTally/100));
+  $("#rWin").css("width", d3.format("%")(rTally/100));
+
+}
+
+function govCrunch(data){
+
+  var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+
+  var dTally = 36;
+  var rTally = 30;
+
+  for (var i=0; i < stateList.length; i++){
+    var updated = fetchData(null,stateList[i],"winner",data,"senate",null,null);
+
+    if (updated == "GOP Win") { rTally++; }
+    else if (updated == "DEM Win") { dTally++; }
+
+  }
+
+  $(".demsCount").html(dTally);
+  $(".gopCount").html(rTally);
+  $("#dWin").css("width", d3.format("%")(dTally/100));
+  $("#rWin").css("width", d3.format("%")(rTally/100));
+
+}
+
+function houseCrunch(){
+
+  var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+  var districtList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53];
+
+  var dTally = 0;
+  var rTally = 0;
+
+  for (var i=0; i < districtList.length; i++){
+    for (var k=0; k < stateList.length; k++){
+    var updated = fetchData("District " + districtList[i],stateList[k],"winner",data,"ushouse",null,"District " + districtList[i]);
+    if (updated == "GOP Win") { rTally++; }
+    else if (updated == "DEM Win") { dTally++; }
+    }
+
+  }
+
+  $(".demsCount").html(dTally);
+  $(".gopCount").html(rTally);
+  $("#dWin").css("width", d3.format("%")(dTally/435));
+  $("#rWin").css("width", d3.format("%")(rTally/435));
+
+}
+
+function mnhouseCrunch(data){
+
+  var districtList = ["1A","1B","2A","2B","3A","3B","4A","4B","5A","5B","6A","6B","7A","7B","8A","8B","9A","9B","10A","10B","11A","11B","12A","12B","13A","13B","14A","14B","15A","15B","16A","16B","17A","17B","18A","18B","19A","19B","20A","20B","21A","21B","22A","22B","23A","23B","24A","24B","25A","25B","26A","26B","27A","27B","28A","28B","29A","29B","31A","31B","32A","32B","33A","33B","34A","34B","35A","35B","36A","36B","37A","37B","38A","38B","39A","39B","40A","40B","41A","41B","42A","42B","43A","43B","44A","44B","45A","45B","46A","46B","47A","47B","48A","48B","49A","49B","50A","50B","51A","51B","52A","52B","53A","53B","54A","54B","55A","55B","57A","57B","58A","58B","59A","59B","60A","60B","61A","61B","62A","62B","63A","63B","64A","64B","65A","65B","66A","66B","67A","67B",];
+
+  var dTally =0 ;
+  var rTally = 0;
+
+  for (var i=0; i < districtList.length; i++){
+
+    var updated = fetchData("District " + districtList[i],"Minnesota","winner",data,"mnhouse",null,"District " + districtList[i]);
+
+    if (updated == "GOP Win") { rTally++; }
+    else if (updated == "DEM Win") { dTally++; }
+
+  }
+
+  $(".demsCount").html(dTally);
+  $(".gopCount").html(rTally);
+  $("#dWin").css("width", d3.format("%")(dTally/134));
+  $("#rWin").css("width", d3.format("%")(rTally/134));
+
+}
+
+function mnsenCrunch(data){
+
+  var districtList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67];
+
+  var dTally = 0;
+  var rTally = 0;
+
+  for (var i=0; i < districtList.length; i++){
+
+    var updated = fetchData("District " + districtList[i],"Minnesota","winner",data,"mnsenate",null,"District " + districtList[i]);
+
+    if (updated == "GOP Win") { rTally++; }
+    else if (updated == "DEM Win") { dTally++; }
+
+  }
+
+  $(".demsCount").html(dTally);
+  $(".gopCount").html(rTally);
+  $("#dWin").css("width", d3.format("%")((dTally/67) - 0.008));
+  $("#rWin").css("width", d3.format("%")((rTally/67) - 0.008));
+
+}
+
 //CONDITIONAL DATA LOADING
 var apiStringPrez = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
 var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
@@ -3118,6 +3261,18 @@ mapSpill("governors",dataGov);
 mapSpill("mnsenate",dataMNS);
 mapSpill("mnhouse",dataMNH);
 mapSpill("house",dataHouse);
+
+
+function loadBars(race){
+  if (race == "president") { prezCrunch(dataPrez); } 
+  if (race == "senate") { senCrunch(dataSen); } 
+  if (race == "governors") { govCrunch(dataGov); } 
+  if (race == "mnsenate") { mnsenCrunch(dataMNS); } 
+  if (race == "mnhouse") { mnhouseCrunch(dataMNH); } 
+  if (race == "house") { houseCrunch(dataHouse); } 
+}
+
+loadBars("president");
 
 var loadState = 0;
 
@@ -3151,6 +3306,9 @@ $(".raceSwitch").click(function() {
   //show correct layer
   loadState++;
   mapShow(".map",$(this).attr("layer"));
+
+  //load power bars
+  loadBars($(this).attr("data"));
 });
 
 $( "#prezButton" ).trigger("click");
