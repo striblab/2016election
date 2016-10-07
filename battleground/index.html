@@ -85,7 +85,7 @@
     .d4 { background-color:#2b7ab5; fill:#2b7ab5 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .independent { fill:#66AF50; background-color:#66AF50; color:#333 !important; }
     .none { fill:#cccccc !important; background-color:#cccccc !important; }
-    path { stroke-opacity:0 !important; }
+    path { stroke-opacity:1 !important; }
 
     /* LEGENDS */
     #legends { text-align:center; }
@@ -2651,7 +2651,7 @@ else if (race == "pct"){
   }
 }
        })
-      .style("stroke-width", "0")
+      .style("stroke-width", "0.3px")
       .style("stroke", "#fff")
       .call(d3.helper.tooltip(function(d, i){
          if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race); }
@@ -2738,7 +2738,7 @@ function clicked(d) {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       // .style("stroke-width", 1.5 / k + "px");
 
-  g.selectAll("path").style("stroke-width", "0");
+  g.selectAll("path").style("stroke-width", "0.3px");
 }
 
 function mnzoom(d) {
@@ -2754,7 +2754,7 @@ function mnzoom(d) {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       .style("stroke-width", "0");
 
-  g.selectAll("path").style("stroke-width", "0");
+  g.selectAll("path").style("stroke-width", "0.3px");
 }
 
 function metrozoom(d) {
@@ -2770,7 +2770,7 @@ function metrozoom(d) {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       .style("stroke-width", "0");
 
-  g.selectAll("path").style("stroke-width", "0");
+  g.selectAll("path").style("stroke-width", "0.3px");
 }
 
 function clicked2(d) {
@@ -2798,7 +2798,7 @@ function clicked2(d) {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       // .style("stroke-width","0.5px");
 
-  g.selectAll("path").style("stroke-width", "0");
+  g.selectAll("path").style("stroke-width", ".5px");
 }
 
 d3.helper = {};
