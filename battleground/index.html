@@ -53,6 +53,7 @@
     /* POWER BAR */
     #partyLabels, #partyBar, #partyCount { width:100%; }
     .bar, .count, .label { display:inline-block; }
+    .backbar { background-color:#cccccc; padding:0 !important; margin:0!important; height:auto !important; }
     .label, .count { width:24%; }
     .bar { width:0; height:24px; }
     .gopLabel, .gopCount, .gopVotes { text-align:right !important; }
@@ -275,11 +276,13 @@
   <div class="label gopLabel"><span id="rMark" class="check"></span> <span class="rparty">GOP</span> <span class="count gopCount">0</span></div>
 </div>
 <div id="partyBar">
+  <div class="backbar">
   <div class="bar democrat" id="dWin"></div>
 <!--   <div class="bar dlean" id="dLean"></div>
   <div class="bar none" id="remaining"></div>
   <div class="bar rlean" id="rLean"></div> -->
   <div class="bar republican" id="rWin"></div>
+  </div>
 </div>
 </div>
 
