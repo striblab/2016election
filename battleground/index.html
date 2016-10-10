@@ -53,7 +53,7 @@
     /* POWER BAR */
     #partyLabels, #partyBar, #partyCount { width:100%; }
     .bar, .count, .label { display:inline-block; }
-    .backbar { background-color:#cccccc; padding:0 !important; margin:0!important; height:auto !important; }
+    .backbar { background-color:#cccccc; padding:0 !important; margin:0!important; height:24px; }
     .label, .count { width:24%; }
     .bar { width:0; height:24px; }
     .gopLabel, .gopCount, .gopVotes { text-align:right !important; }
@@ -62,6 +62,8 @@
     #gopBar { background-color:#9C0004; }
     #undBar { background-color:#ddd; }
     #indBar { background-color:#E07242; }
+    #dWin { float:left; }
+    #rWin { float:right; }
     #indLabel, #undLabel, #indCount, #undCount { text-align:center; }
     #remaining { width:100%; }
     .check { width:20px; height:20px; }
@@ -277,11 +279,7 @@
 </div>
 <div id="partyBar">
   <div class="backbar">
-  <div class="bar democrat" id="dWin"></div>
-<!--   <div class="bar dlean" id="dLean"></div>
-  <div class="bar none" id="remaining"></div>
-  <div class="bar rlean" id="rLean"></div> -->
-  <div class="bar republican" id="rWin"></div>
+  <div class="bar democrat" id="dWin"></div><div class="bar republican" id="rWin"></div>
   </div>
 </div>
 </div>
@@ -2615,6 +2613,10 @@ else if (race == "pct"){
             }
             else { return "areas"; }
           }
+          if (race == "house"){ 
+            if (d.properties.STATENAME == "Minnesota"){ return "mn"; }
+            else { return "areas"; }
+          }
       })
       .call(d3.helper.tooltip(function(d, i){
          if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race); }
@@ -2993,8 +2995,8 @@ function prezCrunch(data){
   $(".rcount").html(d3.format(",")(votesR));
   $(".demPCT").html(d3.format("%")(votesD/votesT));
   $(".gopPCT").html(d3.format("%")(votesR/votesT)); 
-  $("#dWin").css("width", d3.format("%")((dTally/538) - .013));
-  $("#rWin").css("width", d3.format("%")((rTally/538) - .013));
+  $("#dWin").css("width", d3.format("%")((dTally/538)));
+  $("#rWin").css("width", d3.format("%")((rTally/538)));
 
 }
 
@@ -3062,8 +3064,8 @@ function houseCrunch(data){
 
   $(".demsCount").html(dTally);
   $(".gopCount").html(rTally);
-  $("#dWin").css("width", d3.format("%")((dTally/435) - 0.04));
-  $("#rWin").css("width", d3.format("%")((rTally/435) - 0.04));
+  $("#dWin").css("width", d3.format("%")((dTally/435)));
+  $("#rWin").css("width", d3.format("%")((rTally/435)));
 
 }
 
@@ -3108,8 +3110,8 @@ function mnsenCrunch(data){
 
   $(".demsCount").html(dTally);
   $(".gopCount").html(rTally);
-  $("#dWin").css("width", d3.format("%")((dTally/67) - 0.008));
-  $("#rWin").css("width", d3.format("%")((rTally/67) - 0.008));
+  $("#dWin").css("width", d3.format("%")((dTally/67)));
+  $("#rWin").css("width", d3.format("%")((rTally/67)));
 
 }
 
