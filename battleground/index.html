@@ -12,14 +12,13 @@
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   <link rel="stylesheet" href="../_common_resources/interfaces/d3.slider-master/d3.slider.css" />
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
-  <link href="./js/jquery.loadmask.spin.css" rel="stylesheet" type="text/css" />
   
   <style>
     /* PAGE BASE */
     body { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; overflow-x:hidden !important; }
     p { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
     a { color:#000; }
-    #wrapper { text-align:center; height:auto; width:980px; margin-left:auto; margin-right:auto; }
+    #wrapper { text-align:center; height:auto; width:980px; margin-left:auto; margin-right:auto; display:none; }
     
     /* SWITCHES AND BUTTONS */
     #bottomSwitches { text-align:center; margin-left:auto; margin-right:auto; width:100%; }
@@ -194,6 +193,17 @@
     /* FALLBACK STUFF */
     #fallback { display:none; }
 
+    /* LOADING MASK */
+    .loading-mask { position: relative; }
+    .loading-mask::before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, 0.25); }
+    @keyframes spin { 
+    from { transform: rotate(0deg); }
+    to { transform: rotate(359deg); }
+    }
+    .loading-mask::after { content: ""; position: absolute; border-width: 3px; border-style: solid; border-color: transparent rgb(255, 255, 255) rgb(255, 255, 255); border-radius: 50%; width: 24px; height: 24px;  top: calc(50% - 12px); left: calc(50% - 12px); animation: 2s linear 0s normal none infinite running spin; filter: drop-shadow(0 0 2 rgba(0, 0, 0, 0.33)); }
+    #message { width:100%; margin:0,auto; text-align:center; position:absolute; top:45%; }
+    #loader { position:absolute; top:0; bottom:0; right:0; left:0; }
+
     /* BREAKPOINTS */
      @media (max-width:980px) {
       #raceSwitcher { display:none; }
@@ -210,6 +220,10 @@
 </head>
 
 <body>
+<div class="loading-mask" id="loader">  
+  <div id="message">Retrieving results...</div>
+</div>
+
   <div id="wrapper">
 
 <div id="fulldataviz">
@@ -278,10 +292,10 @@
 <!-- POWER BALANCE BAR -->
 <div class="bars" id="powerbar">
 <div id="partyLabels">
-  <div class="label demsLabel">  <span class="count demsCount">0</span> <span class="dparty">DEM</span> <span id="dMark" class="check"></span></div>
+  <div class="label demsLabel">  <span class="count demsCount">0</span> <span class="dparty">Clinton</span> <span id="dMark" class="check"></span></div>
   <div class="label undLabel"></div>
   <div class="label indLabel"></div>
-  <div class="label gopLabel"><span id="rMark" class="check"></span> <span class="rparty">GOP</span> <span class="count gopCount">0</span></div>
+  <div class="label gopLabel"><span id="rMark" class="check"></span> <span class="rparty">Trump</span> <span class="count gopCount">0</span></div>
 </div>
 <div id="partyBar">
   <div class="backbar">
@@ -1354,13 +1368,13 @@
 </div>
 <!-- end fulldataviz -->
 
+</div>
+<!-- end wrapper -->
+
 <!-- FALLBACK CONTAINER -->
 <div id="fallback">
 </div>
 <!-- end fallback -->
-
-</div>
-<!-- end wrapper -->
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -1368,8 +1382,6 @@
 <script src="../_common_resources/interfaces/d3.slider-master/d3.slider.js"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
-<script type="text/javascript" src="./js/spin.min.js"></script>
-<script type='text/javascript' src='./js/jquery.loadmask.spin.js'></script>
 
 <script>
 //data fetching function
@@ -3131,15 +3143,17 @@ d3.json(apiStringMNS, function(error4, jsonSpillMNS) {
 d3.json(apiStringMNH, function(error5, jsonSpillMNH) {
 d3.json(apiStringHouse, function(error6, jsonSpillHouse) {
 
+
 function fallback(){
   var mapsString = "<img src='frontpage_bars_maps.png' width='100%' />";
   var mobileString = "<img src='frontpage_bars_desktop.png' width='100%' />";
-  $("#fulldataviz").hide();
+  $("#fulldataviz, #loader").hide();
   $("#fallback").html("<div>" + mapsString + "</div><div>" + mobileString + "</div>");
+  $("#fallback").html("FALLBACKS!!!11~");
   $("#fallback").show();
 }
 
-if (error1 || error2 || error3 || error4 || error5 || error6) {
+if (error1 != null || error2 != null || error3 != null || error4 != null || error5 != null || error6 != null) {
    fallback(); 
    return;
 }
@@ -3208,6 +3222,14 @@ $(".raceSwitch").click(function() {
 });
 
 $( "#prezButton" ).trigger("click");
+
+window.setTimeout(function () { $("#message").html("Rendering results..."); }, 2500);
+
+window.setTimeout(function () {
+  
+  $("#wrapper").show();
+  $(".loading-mask").hide();
+}, 5000);
 
 });
 });
