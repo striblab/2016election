@@ -987,8 +987,6 @@ $(window).on("resize", function() {
   chart2.attr("height", targetWidth2 / aspect);
 });
 
-$("#done").html("DONE");
-
 }
 
 
@@ -1056,6 +1054,8 @@ function raceCrunch(){
   mnTime = fetchData(null,"Minnesota","timestamp",dataCounty,"president",null,null);
 
   $("#mn-timestamp").html("As of " + (new Date(mnTime).getHours() - 12) + ":" + new Date(mnTime).getMinutes() + " p.m. " + mnPct + "% precincts reporting");
+
+  $("#done").html("DONE");
 
 }
 
