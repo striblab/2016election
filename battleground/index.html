@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   <link rel="stylesheet" href="../_common_resources/interfaces/d3.slider-master/d3.slider.css" />
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+  <link href="./js/jquery.loadmask.spin.css" rel="stylesheet" type="text/css" />
   
   <style>
     /* PAGE BASE */
@@ -190,6 +191,9 @@
     #cssmenu ul ul > li.has-sub > a:after { top: 16px; right: 26px; background: #dddddd; }
     #cssmenu ul ul > li.has-sub > a:before { top: 20px; background: #dddddd; }
 
+    /* FALLBACK STUFF */
+    #fallback { display:none; }
+
     /* BREAKPOINTS */
      @media (max-width:980px) {
       #raceSwitcher { display:none; }
@@ -208,6 +212,7 @@
 <body>
   <div id="wrapper">
 
+<div id="fulldataviz">
 <div id="mobileMenu">
 
 </div>
@@ -1346,11 +1351,16 @@
 </div>
 </div>
 <!-- end datavizPane -->
+</div>
+<!-- end fulldataviz -->
+
+<!-- FALLBACK CONTAINER -->
+<div id="fallback">
+</div>
+<!-- end fallback -->
 
 </div>
 <!-- end wrapper -->
-
-<div id="dump" style="display:none;"></div>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -1358,6 +1368,8 @@
 <script src="../_common_resources/interfaces/d3.slider-master/d3.slider.js"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
+<script type="text/javascript" src="./js/spin.min.js"></script>
+<script type='text/javascript' src='./js/jquery.loadmask.spin.js'></script>
 
 <script>
 //data fetching function
@@ -3112,12 +3124,25 @@ var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn
 var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnhouse-by-district/full.json";
 var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
 
-d3.json(apiStringPrez, function(error, jsonSpillPrez) {
-d3.json(apiStringSen, function(error, jsonSpillSen) {
-d3.json(apiStringGov, function(error, jsonSpillGov) {
-d3.json(apiStringMNS, function(error, jsonSpillMNS) {
-d3.json(apiStringMNH, function(error, jsonSpillMNH) {
-d3.json(apiStringHouse, function(error, jsonSpillHouse) {
+d3.json(apiStringPrez, function(error1, jsonSpillPrez) {
+d3.json(apiStringSen, function(error2, jsonSpillSen) {
+d3.json(apiStringGov, function(error3, jsonSpillGov) {
+d3.json(apiStringMNS, function(error4, jsonSpillMNS) {
+d3.json(apiStringMNH, function(error5, jsonSpillMNH) {
+d3.json(apiStringHouse, function(error6, jsonSpillHouse) {
+
+function fallback(){
+  var mapsString = "<img src='frontpage_bars_maps.png' width='100%' />";
+  var mobileString = "<img src='frontpage_bars_desktop.png' width='100%' />";
+  $("#fulldataviz").hide();
+  $("#fallback").html("<div>" + mapsString + "</div><div>" + mobileString + "</div>");
+  $("#fallback").show();
+}
+
+if (error1 || error2 || error3 || error4 || error5 || error6) {
+   fallback(); 
+   return;
+}
 
 var dataPrez = jsonSpillPrez;
 var dataSen = jsonSpillSen;
