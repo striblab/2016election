@@ -46,6 +46,7 @@
     rect:hover, text:hover { background-color:#333 !important; cursor:pointer; opacity:.5; }
     #mnhouse .map, #mnhouse .carto, #mnsenate .map, #mnsenate .carto, #mnhouse .map svg, #mnhouse .carto svg, #mnsenate .map svg, #mnsenate .carto svg { display:inline-block; width:320px !important; height:350px !important; }
     .carto, #mnhouse .carto, #mnsenate .carto  { display:none; }
+    .tooltip { min-width:150px; width:auto !important; }
 
      /* RESET BUTTON */
     .zoom { float:none !important; text-align:center; }
@@ -1585,7 +1586,7 @@ var voteCountT = 0;
       else if (pctD >= .60) { var colorD = "d2"; } 
       else if (pctD >= 0) { var colorD = "d1"; } 
 
-    if (pctR == 0 && pctD == 0 || (d3.format("%")(pctR) == "NaN" || d3.format("%")(pctD) == "NaN")){ return "<div class='districtName'>" + stateString + "</div><div class='candidate'>" + lastR + "</div><div'>0%</div><div class='smallbreak'></div><div class='candidate'>" + lastD + "</div><div'>0%</div><div class='smallbreak'></div><div>No results</div>";
+    if (pctR == 0 && pctD == 0 || (d3.format("%")(pctR) == "NaN" || d3.format("%")(pctD) == "NaN")){ return "<div class='districtName'>" + stateString + "</div><div class='candidate'>" + lastR + "</div><div'>0%</div><div class='smallbreak'></div><div class='candidate'>" + lastD + "</div><div'>0%</div><div class='smallbreak'></div><div>No data available</div>";
     } else if (pctR > pctD) { return "<div class='districtName'>" + stateString + "</div><div class='candidate'>" + lastR + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div><div class='smallbreak'></div><div class='candidate'>" + lastD + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div>"; }
     else { return "<div class='districtName'>" + stateString + "</div><div class='candidate'>" + lastD + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div><div class='smallbreak'></div><div class='candidate'>" + lastR + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div>"; }
   } //end tooltip
@@ -2635,6 +2636,8 @@ else if (race == "pct"){
             if (d.properties.STATEFP == 27){
               if (d.properties.NAME == "Hennepin" || d.properties.NAME == "Ramsey" || d.properties.NAME == "Washington" || d.properties.NAME == "Carver" || d.properties.NAME == "Scott" || d.properties.NAME == "Dakota" || d.properties.NAME == "Anoka") { return "mn metro"; }
               else { return "mn"; }  
+            } else if (d.properties.STATEFP == 2){
+              return "noclicky";
             }
             else { return "areas"; }
           }
@@ -2810,7 +2813,7 @@ d3.helper.tooltip = function(accessor){
             // Append tooltip
             tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
             var absoluteMousePos = d3.mouse(bodyNode);
-            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
                 .style('top', (absoluteMousePos[1] - 15)+'px')
                 .style('position', 'absolute')
                 .style('z-index', 1001);
@@ -2823,7 +2826,7 @@ d3.helper.tooltip = function(accessor){
         .on('mousemove', function(d, i) {
             // Move tooltip
             var absoluteMousePos = d3.mouse(bodyNode);
-            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
                 .style('top', (absoluteMousePos[1] - 15)+'px');
             var tooltipText = accessor(d, i) || '';
             tooltipDiv.html(tooltipText);
@@ -3223,13 +3226,13 @@ $(".raceSwitch").click(function() {
 
 $( "#prezButton" ).trigger("click");
 
-window.setTimeout(function () { $("#message").html("Rendering results..."); }, 2500);
+window.setTimeout(function () { $("#message").html("Rendering results..."); }, 2800);
 
 window.setTimeout(function () {
   
   $("#wrapper").show();
   $(".loading-mask").hide();
-}, 5000);
+}, 5600);
 
 });
 });
