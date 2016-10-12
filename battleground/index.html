@@ -204,6 +204,7 @@
     .loading-mask::after { content: ""; position: absolute; border-width: 3px; border-style: solid; border-color: transparent rgb(255, 255, 255) rgb(255, 255, 255); border-radius: 50%; width: 24px; height: 24px;  top: calc(50% - 12px); left: calc(50% - 12px); animation: 2s linear 0s normal none infinite running spin; filter: drop-shadow(0 0 2 rgba(0, 0, 0, 0.33)); }
     #message { width:100%; margin:0,auto; text-align:center; position:absolute; top:45%; }
     #loader { position:absolute; top:0; bottom:0; right:0; left:0; }
+    #countdown { color:#000; text-align:center; padding:5px; }
 
     /* BREAKPOINTS */
      @media (max-width:980px) {
@@ -234,7 +235,9 @@
 
 <!-- RACE SWITCHING BAR -->
 <div id="raceSwitcher">
+
 <div id='cssmenu'>
+<div id="countdown"><span id="ticker">0</span> to next update</div>
 <ul>
    <li class='<!-- active--> has-sub'><a href='index.html'>President</a>
       <ul>
@@ -293,10 +296,10 @@
 <!-- POWER BALANCE BAR -->
 <div class="bars" id="powerbar">
 <div id="partyLabels">
-  <div class="label demsLabel">  <span class="count demsCount">0</span> <span class="dparty">Clinton</span> <span id="dMark" class="check"></span></div>
+  <div class="label demsLabel">  <span class="count demsCount">0</span> <span class="dparty">DEM</span> <span id="dMark" class="check"></span></div>
   <div class="label undLabel"></div>
   <div class="label indLabel"></div>
-  <div class="label gopLabel"><span id="rMark" class="check"></span> <span class="rparty">Trump</span> <span class="count gopCount">0</span></div>
+  <div class="label gopLabel"><span id="rMark" class="check"></span> <span class="rparty">GOP</span> <span class="count gopCount">0</span></div>
 </div>
 <div id="partyBar">
   <div class="backbar">
@@ -2356,16 +2359,6 @@ function makeCartogram() {
 })();
 
 //map functions
-function mapReshade(container, shape, subject, race, dataCompare, visible, demoData, demoData2) {
-d3.selectAll(container + " svg g path")
-      .data(us.features)
-      .style("opacity",visible)
-      .attr("class", function(d){
-        return "orange2";
-        });
-
-} //end mapReshade
-
 // function mapColor(d, race, dataCompare, demoData, demoData2){
   
 // if (race == "president"){
@@ -2994,7 +2987,6 @@ var aspect = 320 / 350, chart = $(".map svg"), chart2 = $(".carto svg");
 
 } //end mapSpill
 
-
 //BALANCE OF POWER BARS
 function prezCrunch(data){
 
@@ -3146,7 +3138,6 @@ d3.json(apiStringMNS, function(error4, jsonSpillMNS) {
 d3.json(apiStringMNH, function(error5, jsonSpillMNH) {
 d3.json(apiStringHouse, function(error6, jsonSpillHouse) {
 
-
 function fallback(){
   var mapsString = "<img src='frontpage_bars_maps.png' width='100%' />";
   var mobileString = "<img src='frontpage_bars_desktop.png' width='100%' />";
@@ -3232,7 +3223,21 @@ window.setTimeout(function () {
   
   $("#wrapper").show();
   $(".loading-mask").hide();
+
+    var count = 60;
+    var timerId = setInterval(function() {
+        count--;
+        $("#ticker").html(count);
+
+        if(count == 0) {
+            count = 60;
+            reloadData();
+        }
+    }, 1000);
+
 }, 5600);
+
+
 
 });
 });
@@ -3240,6 +3245,48 @@ window.setTimeout(function () {
 });
 });
 });
+
+function reloadData(){
+
+d3.json(apiStringPrez, function(error1, jsonSpillPrez) {
+d3.json(apiStringSen, function(error2, jsonSpillSen) {
+d3.json(apiStringGov, function(error3, jsonSpillGov) {
+d3.json(apiStringMNS, function(error4, jsonSpillMNS) {
+d3.json(apiStringMNH, function(error5, jsonSpillMNH) {
+d3.json(apiStringHouse, function(error6, jsonSpillHouse) {
+
+var dataPrez = jsonSpillPrez;
+var dataSen = jsonSpillSen;
+var dataGov = jsonSpillGov;
+var dataMNS = jsonSpillMNS;
+var dataMNH = jsonSpillMNH;
+var dataHouse = jsonSpillHouse;
+
+
+
+//presidential updates
+
+//senate updates
+
+//governors updates
+
+//house updates
+
+//mnhouse updates
+
+//mnsenate updates
+
+
+console.log("reloaded");
+
+});
+});
+});
+});
+});
+});
+
+}
 
 //NAV MENU MAGICKS
 $('#cssmenu li.active').addClass('open').children('ul').show();
