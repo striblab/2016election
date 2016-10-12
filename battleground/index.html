@@ -24,7 +24,7 @@
     #bottomSwitches { text-align:center; margin-left:auto; margin-right:auto; width:100%; }
     #viewSwitches { display:inline-block; border-right:1px solid #ddd; }
     .switch { padding:10px; display:inline-block; text-align:center; width:24.5%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; }
-    .switch:hover, .selected2, .mapSwitch:hover, .typeSwitch:hover, .layerSwitch:hover /*.raceSwitch:hover*/ { opacity:1 !important; cursor:pointer; background-color:#fff !important; color:#000 !important; }
+    .switch:hover, .selected2, .mapSwitch:hover, .typeSwitch:hover, .layerSwitch:hover /*.raceSwitch:hover*/ { opacity:1 !important; cursor:pointer; background-color:#cccccc !important; color:#000 !important; }
     .typeSwitch, .layerSwitch, .stateSwitch { width:60px; display:inline-block; opacity:.4; margin:5px; }
     .switch img { width:40px; }
     .mapSwitch img, .typeSwitch img, .layerSwitch img, .stateSwitch img { width:100%; }
@@ -178,7 +178,7 @@
     #cssmenu ul ul { display: none; }
     #cssmenu > ul > li.active > ul { display: block; }
     .align-right { float: right; }
-    #cssmenu > ul > li > a { padding: 16px 22px; cursor: pointer; z-index: 2; font-size: 16px; text-decoration: none; color: #757575; background: #ffffff; -webkit-transition: color .2s ease; -o-transition: color .2s ease; transition: color .2s ease; }
+    #cssmenu > ul > li > a { padding: 16px 22px; cursor: pointer; z-index: 2; font-size: 16px; text-decoration: none; color: #757575; /* background: #ffffff;*/ -webkit-transition: color .2s ease; -o-transition: color .2s ease; transition: color .2s ease; }
     #cssmenu > ul > li > a:hover { color: #c1bebe; }
     #cssmenu > ul > li.has-sub a:active { color: #fff; background: #d8d8d8; -webkit-transition: all 0.1s ease-out; -moz-transition: all 0.1s ease-out; -ms-transition: all 0.1s ease-out; -o-transition: all 0.1s ease-out; transition: all 0.1s ease-out; }
     #cssmenu ul > li.has-sub > a:after {  position: absolute; right: 26px; top: 19px; z-index: 5; display: block; height: 10px; width: 2px; background: #757575; content: ""; -webkit-transition: all 0.1s ease-out; -moz-transition: all 0.1s ease-out; -ms-transition: all 0.1s ease-out; -o-transition: all 0.1s ease-out; transition: all 0.1s ease-out; }
@@ -239,7 +239,7 @@
 <div id='cssmenu'>
 <div id="countdown"><span id="ticker">0</span> to next update</div>
 <ul>
-   <li class='<!-- active--> has-sub'><a href='index.html'>President</a>
+   <li class='<!-- active--> has-sub' section="president"><a href='index.html'>President</a>
       <ul>
          <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="carto" layer="country" dLabel="Clinton" rLabel="Trump"><a href='#'><div><div><strong>U.S.</strong> electoral</div></div></a>
          </li>
@@ -257,7 +257,7 @@
          </li>
       </ul>   
    </li>
-   <li class="raceSwitch uszoom" data="senate" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div>U.S. Senate</div></div></a></li>
+   <li class="raceSwitch uszoom"  section="senate" data="senate" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div>U.S. Senate</div></div></a></li>
    <li class='has-sub'><a href='#'>US House</a>
       <ul>
         <li class="raceSwitch uszoom" data="house" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div><strong>U.S.</strong> by district</div></div></a></li>
@@ -265,8 +265,8 @@
         <li class="raceSwitch mnzoom" data="house" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div><strong>MN</strong> by district</div></div></a></li>
       </ul>
    </li>  
-   <li class="raceSwitch uszoom" data="governors" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div>Governors</div></div></a></li>
-   <li class='has-sub'><a href='#'>MN Senate</a>
+   <li class="raceSwitch uszoom" section="governors" data="governors" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div>Governors</div></div></a></li>
+   <li class='has-sub' section="mnsenate"><a href='#'>MN Senate</a>
       <ul>
         <li class="raceSwitch uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP"><a href='#'><div><div><strong>MN/Metro</strong> maps</div></div></a>
          </li>
@@ -274,7 +274,7 @@
          </li>
       </ul>
    </li>
-   <li class='has-sub'><a href='#'>MN House</a>
+   <li class='has-sub' section="mnhouse"><a href='#'>MN House</a>
       <ul>
         <li class="raceSwitch uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP"><a href='#'><div><div><strong>MN/Metro</strong> maps</div></div></a>
          </li>
@@ -311,7 +311,7 @@
 <div class="breaker"></div>
 
 <!-- DATAVIZ PANES -->
-
+<div class="zoom">Reset</div>
 <!-- PRESIDENT PANES -->
 <div id="president" class="dataviz">
 <!-- MAPS -->
@@ -1390,13 +1390,6 @@
 <script>
 //data fetching function
 function fetchData(district,state,type,dataCompare,race,ev,label){
-
-  //base: officeName
-  //.reportingUnits[i]: .reportingunitName, statePostal, stateName, precinctsReporting, precinctsTotal, precinctsReportingPct, lastUpdated, level, fipsCode
-  //.reportingUnits[i].candidates[k]: first, last, party, voteCount, winner, incumbent
-
-//USHOUSE, MNHOUSE, MNSENATE SPECIFIC
-  //base: seatName, seatNum
 
 var stateName = '';
 var statePostal = '';
@@ -2549,11 +2542,6 @@ var svg = d3.select(container + " svg")
     .attr("width", width)
     .attr("height", height);
 
-// svg.append("rect")
-//     .attr("class", "background " + race + " " + level)
-//     .attr("width", width)
-//     .attr("height", height);
-
 var g = svg.append("g").attr("class", "mappage states " + race + " " + level);
 
 d3.json("shapefiles/" + shape, function(error, us) {
@@ -2576,41 +2564,39 @@ d3.json("shapefiles/" + shape, function(error, us) {
 
         var str = d.properties.NAME; 
         $(".district").removeClass("selected");
-        // $("#" + str.replace(new RegExp(" ", "g"),"-")).addClass("selected");
-        
       
-if (race == "president" || race == "senate" ||  race == "governors"){ $("#infobox").html(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)); }
-else if (race == "county"){ $("#infobox").html(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
-else if (race == "mnsenate" || race == "mnhouse") { $("#infobox").html(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); }
+        if (race == "president" || race == "senate" ||  race == "governors"){ $("#infobox").html(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)); }
+        else if (race == "county"){ $("#infobox").html(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
+        else if (race == "mnsenate" || race == "mnhouse") { $("#infobox").html(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); }
 
-else if (race == "pct"){
-              $("#candidatePCTR, #candidatePCTD").removeClass("d4");
-              $("#candidatePCTR, #candidatePCTD").removeClass("d3");
-              $("#candidatePCTR, #candidatePCTD").removeClass("d2");
-              $("#candidatePCTR, #candidatePCTD").removeClass("d1");
-              $("#candidatePCTR, #candidatePCTD").removeClass("r4");
-              $("#candidatePCTR, #candidatePCTD").removeClass("r3");
-              $("#candidatePCTR, #candidatePCTD").removeClass("r2");
-              $("#candidatePCTR, #candidatePCTD").removeClass("r1");
-              $("#pctReported").html(0);
-              $("#pctAll").html(0);
-              $("#pctPCT").html(0);
+        else if (race == "pct"){
+                      $("#candidatePCTR, #candidatePCTD").removeClass("d4");
+                      $("#candidatePCTR, #candidatePCTD").removeClass("d3");
+                      $("#candidatePCTR, #candidatePCTD").removeClass("d2");
+                      $("#candidatePCTR, #candidatePCTD").removeClass("d1");
+                      $("#candidatePCTR, #candidatePCTD").removeClass("r4");
+                      $("#candidatePCTR, #candidatePCTD").removeClass("r3");
+                      $("#candidatePCTR, #candidatePCTD").removeClass("r2");
+                      $("#candidatePCTR, #candidatePCTD").removeClass("r1");
+                      $("#pctReported").html(0);
+                      $("#pctAll").html(0);
+                      $("#pctPCT").html(0);
 
-    for (var i=0; i < dataCompare.length; i++){
-    if (Number(d.properties.PCTCODE) == Number(dataCompare[i].pct_id)){
-      if (dataCompare[i].party_id == "R" && dataCompare[i].vote_pct >= 48) { 
-        $("#candidatePCTR").html(dataCompare[i].vote_pct + "%");
-        $("#candidateVotesR").html(0);
-        // $("#candidatePCTR").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
-      }
-      if (dataCompare[i].party_id == "DFL" && dataCompare[i].vote_pct >= 48) { 
-        $("#candidateVotesD").html(0);
-        $("#candidatePCTD").html(dataCompare[i].vote_pct + "%");
-        // $("#candidatePCTD").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
-      }
-    }
-  }
-}
+            for (var i=0; i < dataCompare.length; i++){
+            if (Number(d.properties.PCTCODE) == Number(dataCompare[i].pct_id)){
+              if (dataCompare[i].party_id == "R" && dataCompare[i].vote_pct >= 48) { 
+                $("#candidatePCTR").html(dataCompare[i].vote_pct + "%");
+                $("#candidateVotesR").html(0);
+                // $("#candidatePCTR").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
+              }
+              if (dataCompare[i].party_id == "DFL" && dataCompare[i].vote_pct >= 48) { 
+                $("#candidateVotesD").html(0);
+                $("#candidatePCTD").html(dataCompare[i].vote_pct + "%");
+                // $("#candidatePCTD").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
+              }
+            }
+          }
+        }
        })
       .style("stroke-width", "0.3px")
       .style("stroke", "#fff")
@@ -2666,23 +2652,9 @@ var zoom = d3.behavior.zoom()
   });
 
 $(".zoom").click(function() {
-  clicked2();
-  $("#infobox").html("");
-  $(".bar").removeClass("selected");
-  d3.selectAll("rect").classed('active', false); 
-  d3.selectAll("rect").classed('faded', false); 
-  d3.selectAll("text").classed('active', false); 
-  d3.selectAll("text").classed('faded', false); 
-  $("#candidatePCTR").html("47.2%");
-  $("#candidatePCTD").html("51.1%");
-  $("#candidatePCTR, #candidatePCTD").removeClass("d4");
-  $("#candidatePCTR, #candidatePCTD").removeClass("d3");
-  $("#candidatePCTR, #candidatePCTD").removeClass("d2");
-  $("#candidatePCTR, #candidatePCTD").removeClass("d1");
-  $("#candidatePCTR, #candidatePCTD").removeClass("r4");
-  $("#candidatePCTR, #candidatePCTD").removeClass("r3");
-  $("#candidatePCTR, #candidatePCTD").removeClass("r2");
-  $("#candidatePCTR, #candidatePCTD").removeClass("r1");
+  g.selectAll("." + race + " path")
+      .classed("faded", false)
+      .classed("active", false);
 });
 
 $(".uszoom").click(function() {
@@ -2712,7 +2684,6 @@ function clicked(d) {
     var centroid = path.centroid(d);
     x = centroid[0];
     y = centroid[1];
-    console.log(centroid + " " + x + " " + y);
     k = 3;
     centered = d;
   } else {
@@ -2726,12 +2697,12 @@ function clicked(d) {
       .classed("faded", true)
       .classed("active", centered && function(d) { return d === centered; });
 
-  g.transition()
-      .duration(200)
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+  // g.transition()
+  //     .duration(200)
+  //     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       // .style("stroke-width", 1.5 / k + "px");
 
-  g.selectAll("path").style("stroke-width", "0.3px");
+  // g.selectAll("path").style("stroke-width", "0.3px");
 }
 
 function mnzoom(d) {
@@ -2789,7 +2760,7 @@ function clicked2(d) {
   g.transition()
       .duration(200)
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-      // .style("stroke-width","0.5px");
+      .style("stroke-width","0.5px");
 
   g.selectAll("path").style("stroke-width", ".5px");
 }
@@ -2879,9 +2850,11 @@ $.urlParam = function(name){
 }
 
 var race = $.urlParam('race');
-$(".raceSwitch").removeClass("selected2");
-$(".raceSwitch[data=" + race + "]").addClass("selected2");
+$(".raceSwitch, li").removeClass("selected2");
+$(".raceSwitch[section=" + race + "]").addClass("selected2");
+$("li[section=" + race + "]").addClass("selected2");
 
+var currentrace = race;
 
 function mapShow(container, race){
  d3.selectAll(".mappage").each(function(i){
@@ -2925,8 +2898,6 @@ var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
 
 if (race == "senate"){
   mapBuild("#senate .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
-  mapBuild("#senate .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-  // cartoBuild("#senate .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
 
   //RESPONSIVENESS
 var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
@@ -2940,8 +2911,6 @@ var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
 
 if (race == "governors"){
   mapBuild("#governors .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
-  mapBuild("#governors .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-  // cartoBuild("#governors .carto", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"us"));
 
   //RESPONSIVENESS
 var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
@@ -3123,6 +3092,56 @@ function mnsenCrunch(data){
 
 }
 
+function toggleyBits(data1,data2,data3,data4,data5,data6){
+  var loadState = 0;
+
+function loadBars(race){
+  if (race == "president") { prezCrunch(data1); } 
+  if (race == "senate") { senCrunch(data2); } 
+  if (race == "governors") { govCrunch(data3); } 
+  if (race == "mnsenate") { mnsenCrunch(data4); } 
+  if (race == "mnhouse") { mnhouseCrunch(data5); } 
+  if (race == "house") { houseCrunch(data6); } 
+}
+
+loadBars(currentrace);
+
+  //view toggles
+$(".has-sub").click(function() {
+  $(".raceSwitch, li").removeClass("selected2");
+  $(this).addClass("selected2");
+});
+
+$(".raceSwitch").click(function() {
+  //button thingies
+  $(".raceSwitch, li").removeClass("selected2");
+  $(this).addClass("selected2");
+
+  //show correct race
+  $(".dataviz").hide();
+  $("#" + $(this).attr("data")).show();
+  currentrace = $(this).attr("data");
+
+  //show correct legend
+  $(".legendBlock").hide();
+  $("#" + $(this).attr("legend")).show();
+  $(".dparty").html($(this).attr("dLabel"));
+  $(".rparty").html($(this).attr("rLabel"));
+  
+  //show map or carto
+  $(".map").hide();
+  $("." + $(this).attr("type")).show();
+  $("." + $(this).attr("type")).css('display','inline-block');
+
+  //show correct layer
+  loadState++;
+  mapShow(".map",$(this).attr("layer"));
+
+  //load power bars
+  loadBars($(this).attr("data"));
+});
+}
+
 //CONDITIONAL DATA LOADING
 var apiStringPrez = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
 var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
@@ -3166,54 +3185,13 @@ mapSpill("mnsenate",dataMNS);
 mapSpill("mnhouse",dataMNH);
 mapSpill("house",dataHouse);
 
-
-function loadBars(race){
-  if (race == "president") { prezCrunch(dataPrez); } 
-  if (race == "senate") { senCrunch(dataSen); } 
-  if (race == "governors") { govCrunch(dataGov); } 
-  if (race == "mnsenate") { mnsenCrunch(dataMNS); } 
-  if (race == "mnhouse") { mnhouseCrunch(dataMNH); } 
-  if (race == "house") { houseCrunch(dataHouse); } 
-}
-
-loadBars("president");
-
-var loadState = 0;
-
 $(document).ready(function() {
     $(".dataviz").hide();
     $("#" + race).show();
     mapShow(".map","country");
 });
 
-//view toggles
-$(".raceSwitch").click(function() {
-  //button thingies
-  $(".raceSwitch").removeClass("selected2");
-  $(this).addClass("selected2");
-
-  //show correct race
-  $(".dataviz").hide();
-  $("#" + $(this).attr("data")).show();
-
-  //show correct legend
-  $(".legendBlock").hide();
-  $("#" + $(this).attr("legend")).show();
-  $(".dparty").html($(this).attr("dLabel"));
-  $(".rparty").html($(this).attr("rLabel"));
-  
-  //show map or carto
-  $(".map").hide();
-  $("." + $(this).attr("type")).show();
-  $("." + $(this).attr("type")).css('display','inline-block');
-
-  //show correct layer
-  loadState++;
-  mapShow(".map",$(this).attr("layer"));
-
-  //load power bars
-  loadBars($(this).attr("data"));
-});
+toggleyBits(dataPrez,dataSen,dataGov,dataMNS,dataMNH,dataHouse);
 
 $( "#prezButton" ).trigger("click");
 
@@ -3231,6 +3209,7 @@ window.setTimeout(function () {
 
         if(count == 0) {
             count = 60;
+            $("#ticker").html("--");
             reloadData();
         }
     }, 1000);
@@ -3245,6 +3224,30 @@ window.setTimeout(function () {
 });
 });
 });
+
+function mapReshade(container, shape, subject, race, dataCompare) {
+  d3.json("shapefiles/" + shape, function(error, us) {
+  d3.selectAll(container + " path")
+        .data(us.features)
+        .style("fill", function(d){
+           if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race); }
+           else if (race == "county") { return fetchData(d.properties.GEOID,null,"colors",dataCompare,race); }
+           // else if (race == "pct") { return mapColor(d.properties.PCTCODE, race, dataCompare); }
+           else if (race == "house") { return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"lean",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT); }
+           else if (race == "mnsenate" || race == "mnhouse") { return fetchData("District " + d.properties.DISTRICT,"Minnesota","lean",dataCompare,race); }
+          })
+         .on("mousedown", function(d, i){
+
+         })
+         .call(d3.helper.tooltip(function(d, i){
+         if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race); }
+         else if (race == "county") { return fetchData(d.properties.GEOID,null,"tooltip",dataCompare,race,null,d.properties.NAME); }
+         // else if (race == "pct") { return mapTips(d, race, dataCompare, level); }
+         else if (race == "house") { return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"tooltip",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT); }
+         else if (race == "mnsenate" || race == "mnhouse") { return fetchData("District " + d.properties.DISTRICT,"Minnesota","tooltip",dataCompare,race,null,"District " + d.properties.DISTRICT); }
+        }));
+  });
+}
 
 function reloadData(){
 
@@ -3262,22 +3265,44 @@ var dataMNS = jsonSpillMNS;
 var dataMNH = jsonSpillMNH;
 var dataHouse = jsonSpillHouse;
 
-
-
 //presidential updates
+  mapReshade("#USMAP .country", "us_states.json", "country", "president", dataPrez);
+  mapReshade("#USMAP .counties", "us_counties.json", "counties", "county", dataPrez);
+  mapReshade("#USSTATES .country", "us_states.json", "country", "president", dataPrez);
+  mapReshade("#USCOUNTIES .counties", "us_counties.json", "counties", "county", dataPrez);
 
 //senate updates
+  mapReshade("#USSENATE .country", "us_states.json", "country", "senate", dataSen);
 
 //governors updates
+  mapReshade("#USGOV .country", "us_states.json", "country", "governors", dataGov);
 
 //house updates
+  mapReshade("#USHOUSE .country", "uscongress.json", "country", "house", dataHouse);
+  mapReshade("#USHOUSEMN .country", "us_cd_mn_2012.json", "country", "house", dataHouse);
 
 //mnhouse updates
+  mapReshade("#MNHOUSE .country", "mnleg.json", "country", "mnhouse", dataMNH);
+  mapReshade("#MNHOUSEMETRO .country", "mnleg_metro.json", "country", "mnhouse", dataMNH);
+  // cartoBuild("#mnhouse .cartoState", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"mn"));
+  // cartoBuild("#mnhouse .cartoMetro", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"metro"));
 
 //mnsenate updates
+  mapReshade("#MNSENATE .country", "mnsenate.json", "country", "mnsenate", dataMNS);
+  mapReshade("#MNSENATEMETRO .country", "mnsenate_metro.json", "country", "mnsenate", dataMNS);
+  // cartoBuild("#mnsenate .cartoState", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"mn"));
+  // cartoBuild("#mnsenate .cartoMetro", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"metro"));
 
+  // if (currentrace == "president") { prezCrunch(dataPrez); } 
+  // if (currentrace == "senate") { senCrunch(dataSen); } 
+  // if (currentrace == "governors") { govCrunch(dataGov); } 
+  // if (currentrace == "mnsenate") { mnsenCrunch(dataMNS); } 
+  // if (currentrace == "mnhouse") { mnhouseCrunch(dataMNH); } 
+  // if (currentrace == "house") { houseCrunch(dataHouse); } 
 
-console.log("reloaded");
+  toggleyBits(dataPrez,dataSen,dataGov,dataMNS,dataMNH,dataHouse);
+
+  console.log("reloaded " + currentrace);
 
 });
 });
@@ -3307,7 +3332,6 @@ $('#cssmenu li.active').addClass('open').children('ul').show();
             element.siblings('li').find('ul').slideUp(200);
         }
     });
-
 </script>
 
 </html>
