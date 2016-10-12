@@ -94,6 +94,8 @@
 
 /*SWATCHES*/
     .republican { background-color:#8C1B17; fill:#8C1B17 !important; pointer-events: all; font-weight:bold; color:#fff; }
+    .rlikely { background-color:#A5484D; fill:#A5484D !important; pointer-events: all; font-weight:bold; }
+    .rlean { background-color:#f7816E; fill:#f7816E !important; pointer-events: all; font-weight:bold; }
     .r1 { background-color:#C68985; fill:#C68985 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .r2 { background-color:#A5484D; fill:#A5484D !important; color:white !important; pointer-events: all; font-weight:bold; }
     .r3 { background-color:#A52129; fill:#A52129 !important; color:white !important; pointer-events: all; font-weight:bold; }
@@ -101,21 +103,23 @@
     .r0 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .mid { background-color:#aaa; fill:#aaa !important; color:white !important; pointer-events: all; font-weight:bold; }
     .democrat { background-color:#3F88C5; fill:#3F88C5 !important; pointer-events: all; font-weight:bold; color:#fff;  }
+    .dlikely { background-color:#5ca5c3; fill:#5ca5c3 !important; pointer-events: all; font-weight:bold; }
+    .dlean { background-color:#72A9D6; fill:#72A9D6 !important; pointer-events: all; font-weight:bold; }
     .d1 { background-color:#ABCEE8; fill:#ABCEE8 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .d2 { background-color:#5ca5c3; fill:#5ca5c3 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .d3 { background-color:#4f97c4; fill:#4f97c4 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .d4 { background-color:#3f88c5; fill:#3f88c5 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .d0 { background-color:#3F88C5; fill:#3F88C5 !important; color:white !important; pointer-events: all; font-weight:bold; }
 
-/*DROPDOWN*/
-    .wrapper-demo { width:100%; }
-    .wrapper-dropdown-1 { display:inline-block;font-family:"Benton Sans",Helvetica,Arial,sans-serif;z-index:900;background:#ddd;color:#333;cursor:pointer;font-weight:bold;outline:none;padding:8px;position:relative;width:200px;border:1px solid #aaa;box-shadow:0 2px 1px rgba(0, 0, 0, 0.10);font-size:14px; width:100%; }
-    .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
-    ul.dropdown.months { box-sizing:border-box;margin:0;moz-box-sizing:border-box;padding:0;webkit-box-sizing:border-box;margin-top:-1px;border-radius:0 0 4px 4px;background-clip:padding-box; }
-    .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
-    .wrapper-dropdown-1 .dropdown li:hover a { background:#EFEFEF; }
-    header[role="banner"] { width:100%;height:40px;z-index:1000;background:#f0f0f0; }
-=
+/* LEGENDS */
+    #legends { text-align:center; margin-right:auto; margin-left:auto; }
+    .legendBlock { text-align:center; margin-right:auto; margin-left:auto; font-size:0.6em; }
+    .legendLabel { display:inline-block; height:15px; width:50px; }
+    .brick { height:15px; width:70px; display:inline-block; }
+    .partyBlock { display:inline-block; margin-left:10px; }
+    .tinybreak { clear:both; display:block; }
+    #legendMargins { display:none; }
+
 /*BREAKPOINTS*/
     @media (max-width:650px) {
     .mappage { text-align:center; width:70%; margin-left:auto; margin-right:auto; }
@@ -150,13 +154,35 @@
 </div>
 <div class="breaker"></div>
 <div id="mapFull" class='us'><svg width="100%" height="600" viewBox="0 0 650 400" preserveAspectRatio="xMidYMid"></svg></div>
-<div class="breaker"></div>
+<div id="legendWinners" class="legendBlock">
+  <div class="breaker"></div>
+  <div class='partyBlock'>
+    <div class='dparty legendLabel'>DEM</div>
+    <div class='dlean brick'></div>
+    <div class='democrat brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>Before 2010</div>
+    <div class='brick smallLabel'>Since 2010</div>  
+  </div>
+  <div class='partyBlock'>
+    <div class='rparty legendLabel'>GOP</div>
+    <div class='rlean brick'></div>
+    <div class='republican brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>Before 2010</div>
+    <div class='brick smallLabel'>Since 2010</div>   
+  </div>
+</div>
 </div>
 
 <div class="slide" id="leanings">
 <div class="chatterHead">The battle for Minnesota's congressional seats</div>
 
 <div class="breaker"></div>
+
+<div style="text-align:center">-- Click a district to see details --</div> 
 
 <div id="rankingbar" style="text-align:center;">
     <div data="cd5" class="rankbar d4" style="height:390px">D+22</div><div data="cd4" class="rankbar d4" style="height:198px">D+11</div><div data="cd8" class="rankbar d1" style="height:18px">D+1</div><div data="cd2" class="rankbar r1" style="height:18px">R+1</div><div data="cd1" class="rankbar r1" style="height:36px">R+2</div><div data="cd3" class="rankbar r1" style="height:36px">R+2</div><div data="cd7" class="rankbar r4" style="height:108px">R+6</div><div data="cd6" class="rankbar r4" style="height:180px">R+10</div>
@@ -553,8 +579,11 @@ function mapColor(d, race, dataCompare){
   if (race == "house"){
     for (var i=0; i < dataCompare.length; i++){
     if ((dataCompare[i].STATEFP + dataCompare[i].district) == d.properties.GEOID){
-      if (dataCompare[i].party_id == "R") { return "republican"; }
-      else if (dataCompare[i].party_id == "D") { return "democrat"; }
+
+      if (dataCompare[i].party_id == "R" && dataCompare[i].since >= 2010) { return "republican"; }
+      if (dataCompare[i].party_id == "R") { return "rlean"; }
+      else if (dataCompare[i].party_id == "D" && dataCompare[i].since >= 2010) { return "democrat"; }
+      else if (dataCompare[i].party_id == "D") { return "dlean"; }
     }
 } 
  } else if (race == "lean") {
@@ -609,7 +638,7 @@ function mapTips(d, subject, dataCompare){
         if (dataCompare[i].party_id == "D") { var partyString = dataCompare[i].candidate  + " <span class='democrat'>(" + dataCompare[i].party_id + ")</span>"; }
         else if (dataCompare[i].party_id == "R") { var partyString = dataCompare[i].candidate  + " <span class='republican'>(" + dataCompare[i].party_id + ")</span>"; }
 
-          return "<div>" + dataCompare[i].state + " " + dataCompare[i].district + "</div><div>" + partyString + "</div>"; 
+          return "<div>" + dataCompare[i].state + " " + dataCompare[i].district + "</div><div>" + partyString + "</div><div>Since " + dataCompare[i].since + "</div>"; 
         // }
       // }
       // else if (dataCompare[i].party_id == "D" && dataCompare[i].vote_pct >= .48) { 
