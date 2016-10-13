@@ -16,7 +16,7 @@
   <style>
 /*BASE*/
     body, p { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
-    #wrapper { width:700px; margin-right:auto; margin-left:auto; }
+    #wrapper { width:540px; margin-right:auto; margin-left:auto; }
     .slide { margin-bottom:30px; }
     a { color:steelblue !important; }
 
@@ -62,7 +62,7 @@
     .rank { width:12%; text-align:center; display:inline-block; }
     .rankbar { width:12%; text-align:center; display:inline-block; vertical-align:bottom !important; }
     .rank:hover { opacity:0.5; cursor:pointer; }
-    .selected3 { background-color:#333 !important; }
+    .selected3 { opacity:0.5; }
     .zoom { float:none !important; text-align:center; padding:10px; }
     #darrow { float:left; }
     #rarrow { float:right; }
@@ -94,6 +94,8 @@
 
 /*SWATCHES*/
     .republican { background-color:#8C1B17; fill:#8C1B17 !important; pointer-events: all; font-weight:bold; color:#fff; }
+    .rlikely { background-color:#A5484D; fill:#A5484D !important; pointer-events: all; font-weight:bold; }
+    .rlean { background-color:#f7816E; fill:#f7816E !important; pointer-events: all; font-weight:bold; }
     .r1 { background-color:#C68985; fill:#C68985 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .r2 { background-color:#A5484D; fill:#A5484D !important; color:white !important; pointer-events: all; font-weight:bold; }
     .r3 { background-color:#A52129; fill:#A52129 !important; color:white !important; pointer-events: all; font-weight:bold; }
@@ -101,20 +103,22 @@
     .r0 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .mid { background-color:#aaa; fill:#aaa !important; color:white !important; pointer-events: all; font-weight:bold; }
     .democrat { background-color:#3F88C5; fill:#3F88C5 !important; pointer-events: all; font-weight:bold; color:#fff;  }
+    .dlikely { background-color:#5ca5c3; fill:#5ca5c3 !important; pointer-events: all; font-weight:bold; }
+    .dlean { background-color:#72A9D6; fill:#72A9D6 !important; pointer-events: all; font-weight:bold; }
     .d1 { background-color:#ABCEE8; fill:#ABCEE8 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .d2 { background-color:#5ca5c3; fill:#5ca5c3 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .d3 { background-color:#4f97c4; fill:#4f97c4 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .d4 { background-color:#3f88c5; fill:#3f88c5 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .d0 { background-color:#3F88C5; fill:#3F88C5 !important; color:white !important; pointer-events: all; font-weight:bold; }
 
-/*DROPDOWN*/
-    .wrapper-demo { width:100%; }
-    .wrapper-dropdown-1 { display:inline-block;font-family:"Benton Sans",Helvetica,Arial,sans-serif;z-index:900;background:#ddd;color:#333;cursor:pointer;font-weight:bold;outline:none;padding:8px;position:relative;width:200px;border:1px solid #aaa;box-shadow:0 2px 1px rgba(0, 0, 0, 0.10);font-size:14px; width:100%; }
-    .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
-    ul.dropdown.months { box-sizing:border-box;margin:0;moz-box-sizing:border-box;padding:0;webkit-box-sizing:border-box;margin-top:-1px;border-radius:0 0 4px 4px;background-clip:padding-box; }
-    .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
-    .wrapper-dropdown-1 .dropdown li:hover a { background:#EFEFEF; }
-    header[role="banner"] { width:100%;height:40px;z-index:1000;background:#f0f0f0; }
+/* LEGENDS */
+    #legends { text-align:center; margin-right:auto; margin-left:auto; }
+    .legendBlock { text-align:center; margin-right:auto; margin-left:auto; font-size:0.6em; }
+    .legendLabel { display:inline-block; height:15px; width:50px; }
+    .brick { height:15px; width:70px; display:inline-block; }
+    .partyBlock { display:inline-block; margin-left:10px; }
+    .tinybreak { clear:both; display:block; }
+    #legendMargins { display:none; }
 
 /*BREAKPOINTS*/
     @media (max-width:650px) {
@@ -129,20 +133,20 @@
   </style> 
 </head>
 
+<!-- 396689001 -->
+
 <body>
   <div id="wrapper">
 
 <div id="dataviz">
 <div class="slide" id="history">
 <div class="chatterHead">A widening party gap</div>
-<div class="chatter">From 1954, the Democrats owned the U.S. House of Representatives for 40 years until the Republican Revolution of 1994 made it more competitive. Since the 2010 midterm election, <span class='republican'>Republicans</span> have had held the House by comfortable margins, putting the chamber all but out of reach for the <span class='democrat'>Democrats</span> to retake in 2016.</div>
 <div id="chart"></div>
 <div class="breaker"></div>
 </div>
 
 <div class="slide" id="map">
 <div class="chatterHead">A GOP vise grip</div>
-<div class="chatter">Entering this campaign season, the <span class='republican'>GOP</span> has a 59-seat majority over the <span class='democrat'>Democrats</span>. Even if Democrats achieve major victories down the ballot this November, it's unlikely to be enough to achieve a majority in the chamber.</div>
 <div class="powerbar">
 <!-- <div class="rows"><div class="dflCount bigNum democrat">188</div><div>DEM</div></div> -->
       <div class="bar"><div class="half tips democrat" id="dBar" style="text-align:left;">188</div><div class="half tips d2" id="dlBar"></div><div class="half tips d1" id="dwBar"></div><div class="half tips mid" id="tBar"></div><div class="half tips r1" id="rwBar"></div><div class="half tips republican" id="rlBar"></div><div class="half tips r0" id="rBar" style="text-align:right;">247</div></div>
@@ -150,43 +154,38 @@
 </div>
 <div class="breaker"></div>
 <div id="mapFull" class='us'><svg width="100%" height="600" viewBox="0 0 650 400" preserveAspectRatio="xMidYMid"></svg></div>
-<div class="breaker"></div>
+<div id="legendWinners" class="legendBlock">
+  <div class="breaker"></div>
+  <div class='partyBlock'>
+    <div class='dparty legendLabel'>DEM</div>
+    <div class='dlean brick'></div>
+    <div class='democrat brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>Before 2010</div>
+    <div class='brick smallLabel'>Since 2010</div>  
+  </div>
+  <div class='partyBlock'>
+    <div class='rparty legendLabel'>GOP</div>
+    <div class='rlean brick'></div>
+    <div class='republican brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>Before 2010</div>
+    <div class='brick smallLabel'>Since 2010</div>   
+  </div>
 </div>
-
-<!-- <div class="slide" id="mncd" style="display:none;">
-<div class="chatterHead">The battle for Minnesota's House seats</div>
-<div class="chatter">Among Minnesota's eight U.S. House members, only three seats are hotly contested: the CD2 seat of retiring <strong>Rep. John Kline (R-Minn.)</strong>, longtime GOP stronghold CD3 occupied by <strong>Rep. Colin Peterson (R-Minn.)</strong> and the rematch for CD8 currently held by <strong>Rep. Rick Nolan (D-Minn.)</strong>.</div>
-<div id="mnmap" class="mn"><svg width="400" height="460" viewBox="0 0 430 600" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="infobox">
-  <div class="cell th">District</div><div class="cell th">Incumbent</div><div class="cell th">Challenger(s)</div><div class="cell th">Rating</div>
-  <div class="cell mid">District 2</div><div class="cell mid">Open Seat</div><div class="cell"><div class="r3">Jason Lewis</div><div class="d3">Angie Craig</div></div><div class="cell mid">Competitive</div>
-  <div class="cell r3">District 3</div><div class="cell r3">Erik Paulsen</div><div class="cell d3">Terri Bonoff</div><div class="cell mid">Competitive</div>
-  <div class="cell d3">District 8</div><div class="cell d3">Rick Nolan</div><div class="cell r3">Stewart Mills</div><div class="cell mid">Competitive</div>
-  <div class="cell d3">District 1</div><div class="cell d3">Tim Walz</div><div class="cell r3">Jim Hagedorn</div><div class="cell">Safe</div>
-  <div class="cell d3">District 4</div><div class="cell d3">Betty McCollum</div><div class="cell r3">Greg Ryan</div><div class="cell">Safe</div>
-  <div class="cell d3">District 5</div><div class="cell d3">Keith Ellison</div><div class="cell r3">Frank Drake</div><div class="cell">Safe</div>
-  <div class="cell r3">District 6</div><div class="cell r3">Tom Emmer</div><div class="cell d3">David Snyder</div><div class="cell">Safe</div>
-  <div class="cell d3">District 7</div><div class="cell d3">Collin Peterson</div><div class="cell r3">Dave Hughes</div><div class="cell">Safe</div>
 </div>
-<div class="breaker"></div>
-</div> -->
 
 <div class="slide" id="leanings">
 <div class="chatterHead">The battle for Minnesota's congressional seats</div>
-<div class="chatter">
-<p>Minnesota accounts for just eight of the nation's House districts, but a few are pretty competitive this year, including races in CD2, CD3 and CD8.</p>
-<p>To measure how they lean, one way is to use their <a href="https://cookpolitical.com" target="new_">Cook Partisan Voter Index (CPVI or PVI)</a>, which is how Democrat or Republican a state or district is by comparing a party's voting percentage to the national average from the past two presidential elections. <em>The Cook Political Report</em> assigns ranks according to these scores to describe how a district leans politically. The following is how Minnesota's congressional districts rank.</p>
-<p>How a district otherwise leans doesn't always match with the party of its representive, but can be an indicator of whether a seat could be vulnerable to flipping control between parties. The least competitive districts have high CPVI scores for an incumbent candidate's party. For instance, Keith Ellison in CD5 and Tom Emmer in CD6 are in districts with high CPVI scores for Democrats and Republicans, respectively.</p>
-</div>
 
 <div class="breaker"></div>
 
+<div style="text-align:center">-- Click a district to see details --</div> 
+
 <div id="rankingbar" style="text-align:center;">
-    <div data="cd5" class="rankbar d4" style="height:390px">D+22</div><div data="cd4" class="rankbar d4" style="height:198px">D+11</div><div data="cd8" class="rankbar d1" style="height:18px">D+1</div><div data="cd2" class="rankbar r1" style="height:18px">R+1</div><div data="cd1" class="rankbar r1" style="height:36px">R+2</div><div data="cd3" class="rankbar r1" style="height:36px">R+2</div><div data="cd7" class="rankbar r4" style="height:108px">R+6</div><div data="cd6" class="rankbar r4" style="height:180px">R+10</div>
-
-    <div data="cd5" class="rank d3">CD5</div><div data="cd4" class="rank d3">CD4</div><div data="cd8" class="rank d3">CD8</div><div data="cd2" class="rank mid">CD2</div><div data="cd1" class="rank d3">CD1</div><div data="cd3" class="rank r3">CD3</div><div data="cd7" class="rank d3">CD7</div><div data="cd6" class="rank r3">CD6</div>
-
-    <div id="range"><div id="darrow">More Democrat</div><div id="rarrow">More Republican</div></div>
+    <div class="rankbar rank"><div data="cd5" class="mainbar d4" style="height:390px">D+22</div><div data="cd5" class="d3">CD5</div></div><div class="rankbar rank"><div data="cd4" class="mainbar d4" style="height:198px">D+11</div><div data="cd4" class="d3">CD4</div></div><div class="rankbar rank"><div data="cd8" class="mainbar d1" style="height:18px">D+1</div><div data="cd8" class=" d3">CD8</div></div><div class="rankbar rank"><div data="cd2" class="mainbar r1" style="height:18px">R+1</div><div data="cd2" class="r1">CD2</div></div><div class="rankbar rank"><div data="cd1" class="mainbar r1" style="height:36px">R+2</div><div data="cd1" class="d3">CD1</div></div><div class="rankbar rank"><div data="cd3" class="mainbar r1" style="height:36px">R+2</div><div data="cd3" class="r3">CD3</div></div><div class="rankbar rank"><div data="cd7" class="mainbar r4" style="height:108px">R+6</div><div data="cd7" class="d3">CD7</div></div><div class="rankbar rank"><div data="cd6" class="mainbar r4" style="height:180px">R+10</div><div data="cd6" class="r3">CD6</div></div><div id="range"><div id="darrow">More Democrat</div><div id="rarrow">More Republican</div></div>
 </div>
 
 <div class="zoom">Reset</div>
@@ -194,7 +193,7 @@
 <div class="breaker"></div>
 
 <div id="filter"><input type="search" id="filter_box" placeholder="Search by district, candidate or keyword"></input></div>
-<div id="results"></div>
+<!-- <div id="results"></div> -->
 
 <div class="breaker"></div>
 
@@ -209,7 +208,7 @@
 
 <img src="img/1.png" class="mappage" /> 
 
-<p>The district has a median income of <strong>$57,321</strong> and has a minority population of <strong>8 percent</strong>, compared to 19% of the state as a whole. About <strong>16 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statwide. Roughly <strong>27 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
+<p>The district has a median income of <strong>$57,321</strong> and has a minority population of <strong>8 percent</strong>, compared to 19% of the state as a whole. About <strong>16 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>27 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
 <p>The district's current Cook Partisan Voting Index score (CPVI) is <span class="r1">R+2</span>, ranking it as <span class="r1">Barely Republican</span>. In 2012, the district voted <strong>Barack Obama (D)</strong> for president.</p>
 </div>
@@ -232,7 +231,7 @@
 
 <img src="img/2.png" class="mappage" /> 
 
-<p>It has a median income of <strong>$76,409</strong> and has a minority population of <strong>15 percent</strong>, compared to 19% of the state as a whole. About <strong>12 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statwide. Roughly <strong>38 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
+<p>It has a median income of <strong>$76,409</strong> and has a minority population of <strong>15 percent</strong>, compared to 19% of the state as a whole. About <strong>12 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>38 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
 <p>The district's current Cook Partisan Voting Index score (CPVI) is <span class="r1">R+1</span>, ranking it as <span class="r1">Barely Republican</span>. In 2012, the district voted <strong>Barack Obama (D)</strong> for president.</p>
 
@@ -256,7 +255,7 @@
 
 <img src="img/3.png" class="mappage" /> 
 
-<p>The district has a median income of <strong>$79,965</strong> and has a minority population of <strong>19 percent</strong>, compared to 19% of the state as a whole. About <strong>14 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statwide. Roughly <strong>48 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
+<p>The district has a median income of <strong>$79,965</strong> and has a minority population of <strong>19 percent</strong>, compared to 19% of the state as a whole. About <strong>14 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>48 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
 <p>The district's current Cook Partisan Voting Index score (CPVI) is <span class="r1">R+2</span>, ranking it as <span class="r1">Barely Republican</span>. In 2012, the district voted <strong>Barack Obama (D)</strong> for president.</p>
 
@@ -280,7 +279,7 @@
 
 <img src="img/4.png" class="mappage" />
 
-<p>The district has a median income of <strong>$61,244</strong> and has a minority population of <strong>28 percent</strong>, compared to 19% of the state as a whole. About <strong>13 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statwide. Roughly <strong>43 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
+<p>The district has a median income of <strong>$61,244</strong> and has a minority population of <strong>28 percent</strong>, compared to 19% of the state as a whole. About <strong>13 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>43 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
 <p>The district's current Cook Partisan Voting Index score (CPVI) is <span class="d4">D+11</span>, ranking it as <span class="d4">Strongly Democrat</span>. In 2012, the district voted <strong>Barack Obama (D)</strong> for president.</p>
 
@@ -304,7 +303,7 @@
 
 <img src="img/5.png" class="mappage" /> 
 
-<p>The district has a median income of <strong>$52,447</strong> and has a minority population of <strong>31 percent</strong>, compared to 19% of the state as a whole. About <strong>11 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statwide. Roughly <strong>44 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
+<p>The district has a median income of <strong>$52,447</strong> and has a minority population of <strong>31 percent</strong>, compared to 19% of the state as a whole. About <strong>11 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>44 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
 <p>The district's current Cook Partisan Voting Index score (CPVI) is <span class="d4">D+22</span>, ranking it as <span class="d4">Strongly Democrat</span>. In 2012, the district voted <strong>Barack Obama (D)</strong> for president.</p>
  
@@ -328,7 +327,7 @@
 
 <img src="img/6.png" class="mappage" /> 
 
-<p>The district has a median income of <strong>$71,604</strong> and has a minority population of <strong>8 percent</strong>, compared to 19% of the state as a whole. About <strong>10 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statwide. Roughly <strong>30 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
+<p>The district has a median income of <strong>$71,604</strong> and has a minority population of <strong>8 percent</strong>, compared to 19% of the state as a whole. About <strong>10 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>30 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
 <p>The district's current Cook Partisan Voting Index score (CPVI) is <span class="r4">R+10</span>, ranking it as <span class="r4">Strongly Republican</span>. In 2012, the district voted <strong>Mitt Romney (R)</strong> for president.</p>
  
@@ -352,7 +351,7 @@
 
 <img src="img/7.png" class="mappage" />  
 
-<p>The district has a median income of <strong>$51,880</strong> and has a minority population of <strong>7 percent</strong>, compared to 19% of the state as a whole. About <strong>18 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statwide. Roughly <strong>21 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
+<p>The district has a median income of <strong>$51,880</strong> and has a minority population of <strong>7 percent</strong>, compared to 19% of the state as a whole. About <strong>18 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>21 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
 <p>The district's current Cook Partisan Voting Index score (CPVI) is <span class="r4">R+6</span>, ranking it as <span class="r4">Strongly Republican</span>. In 2012, the district voted <strong>Mitt Romney (R)</strong> for president.</p>
 
@@ -376,7 +375,7 @@
 
 <img src="img/8.png" class="mappage" /> 
 
-<p>The district has a median income of <strong>$51,322</strong> and has a minority population of <strong>7 percent</strong>, compared to 19% of the state as a whole. About <strong>18 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statwide. Roughly <strong>23 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
+<p>The district has a median income of <strong>$51,322</strong> and has a minority population of <strong>7 percent</strong>, compared to 19% of the state as a whole. About <strong>18 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>23 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
 <p>The district's current Cook Partisan Voting Index score (CPVI) is <span class="d1">D+1</span>, ranking it as <span class="d1">Barely Democrat</span>. In 2012, the district voted <strong>Barack Obama (D)</strong> for president.</p>
 
@@ -389,12 +388,6 @@
 </div>
 </div>
 
-<!-- <div class="slide" id="finance" style="display:none;">
-<div class="chatterHead">Where the money is flooding in</div>
-<div class="chatter">The most competitive races have drawn the bulk of campaign contributions. In the CD2 battle, <strong>Angie Craig (D)</strong> has blown by <strong>Jason Lewis (R)</strong>, <strong>Paulsen</strong> has dominated fundraising in CD3, and the CD8 race between <strong>Nolan</strong> and <strong>Mills</strong> is nearly even in terms of money.</div>
-<div id="fChart"></div>
-<div class="breaker"></div>
-</div> -->
 </div>
   </div>
 </body>
@@ -445,7 +438,7 @@ $(".rank").click(function() {
     $(".rank").removeClass("selected3");
     $(this).addClass("selected3");
     $('.cd').hide();
-    $("#" + $(this).attr("data")).show();
+    $("#" + $(this).find(".mainbar").attr("data")).show();
 });
 
 $(".zoom").click(function() {
@@ -582,8 +575,11 @@ function mapColor(d, race, dataCompare){
   if (race == "house"){
     for (var i=0; i < dataCompare.length; i++){
     if ((dataCompare[i].STATEFP + dataCompare[i].district) == d.properties.GEOID){
-      if (dataCompare[i].party_id == "R") { return "republican"; }
-      else if (dataCompare[i].party_id == "D") { return "democrat"; }
+
+      if (dataCompare[i].party_id == "R" && dataCompare[i].since >= 2010) { return "republican"; }
+      if (dataCompare[i].party_id == "R") { return "rlean"; }
+      else if (dataCompare[i].party_id == "D" && dataCompare[i].since >= 2010) { return "democrat"; }
+      else if (dataCompare[i].party_id == "D") { return "dlean"; }
     }
 } 
  } else if (race == "lean") {
@@ -638,7 +634,7 @@ function mapTips(d, subject, dataCompare){
         if (dataCompare[i].party_id == "D") { var partyString = dataCompare[i].candidate  + " <span class='democrat'>(" + dataCompare[i].party_id + ")</span>"; }
         else if (dataCompare[i].party_id == "R") { var partyString = dataCompare[i].candidate  + " <span class='republican'>(" + dataCompare[i].party_id + ")</span>"; }
 
-          return "<div>" + dataCompare[i].state + " " + dataCompare[i].district + "</div><div>" + partyString + "</div>"; 
+          return "<div>" + dataCompare[i].state + " " + dataCompare[i].district + "</div><div>" + partyString + "</div><div>Since " + dataCompare[i].since + "</div>"; 
         // }
       // }
       // else if (dataCompare[i].party_id == "D" && dataCompare[i].vote_pct >= .48) { 
@@ -1004,76 +1000,6 @@ d3.selectAll(container + " svg g path")
       });
 });
 }
-
-//POWER HISTORY
-// function chartBuilder(){
-// var  padding = {
-//         top: 20,
-//         right: 40,
-//         bottom: 20,
-//         left: 60,
-//     };
-
-// var chart = c3.generate({
-//         bindto: '#chart',
-//         padding: padding,
-//     data: {
-//         x: 'x',
-//         columns: [
-//             ['x',2000,2002,2004,2006,2008,2010,2012,2014],
-//             ['DEM Seats',212,205,202,236,257,193,201,188],
-//             ['GOP Seats',221,229,231,199,178,242,234,247]
-//         ],
-//         type: 'line'
-//     },
-//     color:  {  pattern: ["#3F88C5","#A52129"] },
-//     axis: {
-//       y: {
-//             min: 0,
-//             max: 300,
-//             padding: {bottom: 0},
-//             tick: {
-//              values: [0, 100, 218, 330],
-//              count: 4,
-//              format: d3.format('.0f')
-//             }
-//         },
-//         x: {
-//             tick: {
-//                 values: ['2000', '2004', '2008', '2012', '2014'],
-//                 count: 5,
-//                 multiline: false
-//             },
-//             padding: {
-//             left: .7,
-//             right: .3
-//           }
-//           }
-//         },
-//     grid: {
-//         y: {
-//           lines: [
-//                 {value: 218, text: '', position: 'start', class:'powerline'}
-//           ]
-
-//         },
-//         x: {
-//             lines: [
-//                 {value: 2000, text: 'Bush (R) Win', position: 'start', class:'fadeline'},
-//                 {value: 2002, text: 'Midterm', position: 'start', class:'fadeline'},
-//                 {value: 2004, text: 'Bush (R) Win', position: 'start', class:'fadeline'},
-//                 {value: 2006, text: 'Midterm', position: 'start', class:'fadeline'},
-//                 {value: 2008, text: 'Obama (D) Win', position: 'start', class:'fadeline'},
-//                 {value: 2010, text: 'Midterm', position: 'start', class:'fadeline'},
-//                 {value: 2012, text: 'Obama (D) Win', position: 'start', class:'fadeline'},
-//                 {value: 2014, text: 'Midterm', position: 'start', class:'fadeline'}
-//             ]
-//         }
-//     }
-// });
-// }
-
-// chartBuilder();
 
 function houseChart(){
 
@@ -2445,7 +2371,7 @@ var chartF7 = c3.generate({
                 // x: 'x',
                 columns: [
                     // ['x','Trump','Clinton'],
-                    ['Money Raised', 7575, 887175]
+                    ['Money Raised', 887175, 7575]
                     // ['Campaign', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200],
                     // ['PAC', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200],
                     // ['SuperPac', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200]

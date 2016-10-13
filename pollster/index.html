@@ -22,7 +22,7 @@
         #chart .c3-line, #chartUS .c3-line { stroke-width:4px !important; }
         .chatter { padding-bottom:10px; }
 
-        .pctBox { display:inline-block; width:33%; text-align:center; }
+        .pctBox { display:inline-block; width:32.5%; text-align:center; }
 
         .timestamp { font-size:.8em; text-align:center; color:#888; padding-top:10px; padding-bottom:10px; text-align:left !important; }
         .source { padding-top:10px; text-align:left !important; color:#888; }
@@ -138,7 +138,7 @@
     <div id="kstpChart"></div>
   </div>
   <div class="tinycharts">
-    <h4>Washington Post/SurveyMonkey</h4>
+    <h4>UPI/CVOTER International</h4>
     <div id="wapoChart"></div>
   </div>
 </div>
@@ -360,12 +360,12 @@ var chart = c3.generate({
     },
     axis: {
       y: {
-            max: 0.5,
+            max: 0.55,
             min: 0,
             padding: {bottom: 0, top:0},
             tick: {
              count: 3,
-             values: [0,0.25,0.50],
+             values: [0,0.25,0.55],
              format: d3.format('%')
             }
         },
@@ -435,7 +435,7 @@ spillChart("#stribChart", data, "Star Tribune Minnesota Poll");
 spillChart("#irChart", data, "Ipsos/Reuters");
 spillChart("#mcChart", data, "Morning Consult");
 spillChart("#gcsChart", data, "Google Consumer Surveys");
-spillChart("#wapoChart", data, "WaPo/SurveyMonkey");
+spillChart("#wapoChart", data, "UPI/CVOTER International");
 spillChart("#kstpChart", data, "SurveyUSA/KSTP-TV");
 spillPolls("#pollTable", data);
 
