@@ -62,7 +62,7 @@
     .rank { width:12%; text-align:center; display:inline-block; }
     .rankbar { width:12%; text-align:center; display:inline-block; vertical-align:bottom !important; }
     .rank:hover { opacity:0.5; cursor:pointer; }
-    .selected3 { background-color:#333 !important; }
+    .selected3 { opacity:0.5; }
     .zoom { float:none !important; text-align:center; padding:10px; }
     #darrow { float:left; }
     #rarrow { float:right; }
@@ -185,11 +185,7 @@
 <div style="text-align:center">-- Click a district to see details --</div> 
 
 <div id="rankingbar" style="text-align:center;">
-    <div data="cd5" class="rankbar d4" style="height:390px">D+22</div><div data="cd4" class="rankbar d4" style="height:198px">D+11</div><div data="cd8" class="rankbar d1" style="height:18px">D+1</div><div data="cd2" class="rankbar r1" style="height:18px">R+1</div><div data="cd1" class="rankbar r1" style="height:36px">R+2</div><div data="cd3" class="rankbar r1" style="height:36px">R+2</div><div data="cd7" class="rankbar r4" style="height:108px">R+6</div><div data="cd6" class="rankbar r4" style="height:180px">R+10</div>
-
-    <div data="cd5" class="rank d3">CD5</div><div data="cd4" class="rank d3">CD4</div><div data="cd8" class="rank d3">CD8</div><div data="cd2" class="rank mid">CD2</div><div data="cd1" class="rank d3">CD1</div><div data="cd3" class="rank r3">CD3</div><div data="cd7" class="rank d3">CD7</div><div data="cd6" class="rank r3">CD6</div>
-
-    <div id="range"><div id="darrow">More Democrat</div><div id="rarrow">More Republican</div></div>
+    <div class="rankbar rank"><div data="cd5" class="mainbar d4" style="height:390px">D+22</div><div data="cd5" class="d3">CD5</div></div><div class="rankbar rank"><div data="cd4" class="mainbar d4" style="height:198px">D+11</div><div data="cd4" class="d3">CD4</div></div><div class="rankbar rank"><div data="cd8" class="mainbar d1" style="height:18px">D+1</div><div data="cd8" class=" d3">CD8</div></div><div class="rankbar rank"><div data="cd2" class="mainbar r1" style="height:18px">R+1</div><div data="cd2" class="r1">CD2</div></div><div class="rankbar rank"><div data="cd1" class="mainbar r1" style="height:36px">R+2</div><div data="cd1" class="d3">CD1</div></div><div class="rankbar rank"><div data="cd3" class="mainbar r1" style="height:36px">R+2</div><div data="cd3" class="r3">CD3</div></div><div class="rankbar rank"><div data="cd7" class="mainbar r4" style="height:108px">R+6</div><div data="cd7" class="d3">CD7</div></div><div class="rankbar rank"><div data="cd6" class="mainbar r4" style="height:180px">R+10</div><div data="cd6" class="r3">CD6</div></div><div id="range"><div id="darrow">More Democrat</div><div id="rarrow">More Republican</div></div>
 </div>
 
 <div class="zoom">Reset</div>
@@ -442,7 +438,7 @@ $(".rank").click(function() {
     $(".rank").removeClass("selected3");
     $(this).addClass("selected3");
     $('.cd').hide();
-    $("#" + $(this).attr("data")).show();
+    $("#" + $(this).find(".mainbar").attr("data")).show();
 });
 
 $(".zoom").click(function() {
@@ -2375,7 +2371,7 @@ var chartF7 = c3.generate({
                 // x: 'x',
                 columns: [
                     // ['x','Trump','Clinton'],
-                    ['Money Raised', 7575, 887175]
+                    ['Money Raised', 887175, 7575]
                     // ['Campaign', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200],
                     // ['PAC', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200],
                     // ['SuperPac', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200]
