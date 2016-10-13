@@ -45,7 +45,7 @@
     .noclicky { pointer-events:none !important; opacity:0.7; }
     .gone { pointer-events:none !important; opacity:0; }
     rect:hover, text:hover { background-color:#333 !important; cursor:pointer; opacity:.5; }
-    #mnhouse .map, #mnhouse .carto, #mnsenate .map, #mnsenate .carto, #mnhouse .map svg, #mnhouse .carto svg, #mnsenate .map svg, #mnsenate .carto svg { display:inline-block; width:320px !important; height:350px !important; }
+    #mnhouse .map, #mnhouse .carto, #mnsenate .map, #mnsenate .carto, #mnhouse .map svg, #mnhouse .carto svg, #mnsenate .map svg, #mnsenate .carto svg { display:inline-block; width:375px !important; height:600px !important; }
     .carto, #mnhouse .carto, #mnsenate .carto  { display:none; }
     .tooltip { min-width:150px; width:auto !important; }
     .passthrough { pointer-events:none !important; font-family:Arial !important; }
@@ -102,7 +102,7 @@
     .tinybreak { clear:both; display:block; }
     #legendMargins { display:none; }
 
-    /*CARTOGRAM*/
+    /* CARTOGRAMS */
     .dem rect { fill:#3F88C5 !important; }
     .rep rect { fill:#D90429 !important; }
     .battleground rect { fill:#cccccc !important; }
@@ -110,7 +110,8 @@
     .cartoState rect { stroke-width:0.8px; stroke:#fff !important; }
     .cartoState rect:hover { opacity:1; cursor:default; }
     #cartogram { text-align:center; width:800px; height:600px; /*margin-left: auto; margin-right: auto;*/ }
-    #cartogram text { font-weight:900; pointer-events:none !important; }
+    #cartogram text { pointer-events:none !important; font-family:Arial !important; font-size:0.8em; }
+    .district:hover { fill:#333; }
     polygon { stroke:#fff !important; stroke-width:1px; }
     .stateLabel { display:inline-block; width:68%; text-align:left; background-color:transparent !important; }
     .votes { display:inline-block; width:30%; text-align:left; background-color:transparent !important; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
@@ -326,7 +327,7 @@
 <div id="carto" class="map normal carto">
 <div id="cartogram">
     <svg version="1.1" x="0px" y="0px" width="90%" viewBox="0 0 860 696.572" enable-background="new 0 0 860 696.572" xml:space="preserve">
-<g id="PA" class="cartoState">
+<g id="PA" class="cartoState" name="Pennsylvania">
     <rect x="593.385" y="217.866" width="21.789" height="21.789"/>
     <rect x="615.174" y="217.866" width="21.793" height="21.79"/>
     <rect x="658.755" y="217.866" width="21.79" height="21.79"/>
@@ -348,28 +349,28 @@
     <rect x="680.545" y="261.446" width="21.79" height="21.788"/>
     <rect x="702.334" y="261.446" width="21.788" height="21.788"/>
 </g>
-<g id="ME" class="cartoState">
+<g id="ME" class="cartoState" name="Maine">
     <rect x="789.546" y="21.79" width="21.79" height="21.79"/>
     <rect x="789.546" width="21.79" height="21.79"/>
 </g>
-<g id="ME01" class="cartoState">
+<g id="ME01" class="cartoState" name="Maine">
     <rect x="811.307" width="21.789" height="21.79"/>
 </g>
-<g id="ME02" class="cartoState">
+<g id="ME02" class="cartoState" name="Maine">
     <rect x="811.307" y="21.79" width="21.789" height="21.79"/>
 </g>
-<g id="NH" class="cartoState">
+<g id="NH" class="cartoState" name="New Hampshire">
     <rect x="789.504" y="65.359" width="21.792" height="21.789"/>
     <rect x="789.504" y="43.569" width="21.792" height="21.791"/>
     <rect x="811.304" y="65.35" width="21.789" height="21.789"/>
     <rect x="811.304" y="43.56" width="21.789" height="21.79"/>
 </g>
-<g id="VT" class="cartoState">
+<g id="VT" class="cartoState" name="Vermont">
     <rect x="767.745" y="65.33" width="21.789" height="21.793"/>
     <rect x="745.949" y="65.33" width="21.788" height="21.793"/>
     <rect x="724.173" y="65.33" width="21.79" height="21.793"/>
 </g>
-<g id="MA" class="cartoState">
+<g id="MA" class="cartoState" name="Massachusetts">
     <rect x="745.926" y="87.128" width="21.796" height="21.79"/>
     <rect x="745.926" y="108.919" width="21.796" height="21.788"/>
     <rect x="724.075" y="87.128" width="21.793" height="21.79"/>
@@ -382,13 +383,13 @@
     <rect x="811.296" y="108.919" width="21.793" height="21.788"/>
     <rect x="833.089" y="108.919" width="21.787" height="21.788"/>
 </g>
-<g id="RI" class="cartoState">
+<g id="RI" class="cartoState" name="Rhode Island">
     <rect x="789.521" y="130.711" width="21.785" height="21.79"/>
     <rect x="789.518" y="152.509" width="21.786" height="21.788"/>
     <rect x="811.278" y="130.711" width="21.786" height="21.79"/>
     <rect x="811.278" y="152.501" width="21.786" height="21.787"/>
 </g>
-<g id="CT" class="cartoState">
+<g id="CT" class="cartoState" name="Connecticut">
     <rect x="745.936" y="130.771" width="21.792" height="21.789"/>
     <rect x="724.145" y="152.561" width="21.791" height="21.789"/>
     <rect x="745.936" y="152.561" width="21.792" height="21.789"/>
@@ -397,7 +398,7 @@
     <rect x="724.145" y="130.771" width="21.791" height="21.789"/>
     <rect x="724.145" y="174.349" width="21.791" height="21.79"/>
 </g>
-<g id="NY" class="cartoState">
+<g id="NY" class="cartoState" name="New York">
     <rect x="724.119" y="217.878" width="21.793" height="21.792"/>
     <rect x="658.756" y="196.09" width="21.789" height="21.789"/>
     <rect x="593.385" y="196.09" width="21.789" height="21.789"/>
@@ -428,7 +429,7 @@
     <rect x="680.545" y="108.931" width="21.79" height="21.79"/>
     <rect x="702.331" y="196.09" width="21.789" height="21.789"/>
 </g>
-<g id="NJ" class="cartoState">
+<g id="NJ" class="cartoState" name="New Jersey">
     <rect x="745.907" y="261.471" width="21.787" height="21.791"/>
     <rect x="767.694" y="261.471" width="21.793" height="21.791"/>
     <rect x="789.487" y="283.263" width="21.786" height="21.79"/>
@@ -444,12 +445,12 @@
     <rect x="789.487" y="305.05" width="21.786" height="21.787"/>
     <rect x="724.11" y="239.68" width="21.789" height="21.791"/>
 </g>
-<g id="DE" class="cartoState">
+<g id="DE" class="cartoState" name="Delaware">
     <rect x="724.094" y="305.098" width="21.789" height="21.79"/>
     <rect x="724.094" y="283.254" width="21.789" height="21.79"/>
     <rect x="724.094" y="261.421" width="21.789" height="21.79"/>
 </g>
-<g id="MD" class="cartoState">
+<g id="MD" class="cartoState" name="Maryland">
     <rect x="658.728" y="283.201" width="21.794" height="21.79"/>
     <rect x="680.521" y="283.201" width="21.79" height="21.79"/>
     <rect x="615.151" y="283.201" width="21.789" height="21.79"/>
@@ -461,14 +462,14 @@
     <rect x="724.097" y="326.78" width="21.792" height="21.788"/>
     <rect x="702.304" y="283.244" width="21.79" height="21.791"/>
 </g>
-<g id="WV" class="cartoState">
+<g id="WV" class="cartoState" name="West Virginia">
     <rect x="571.579" y="261.43" width="21.789" height="21.791"/>
     <rect x="571.579" y="304.959" width="21.789" height="21.79"/>
     <rect x="571.579" y="283.171" width="21.789" height="21.789"/>
     <rect x="593.382" y="304.959" width="21.787" height="21.79"/>
     <rect x="593.382" y="283.171" width="21.787" height="21.789"/>
 </g>
-<g id="OH" class="cartoState">
+<g id="OH" class="cartoState" name="Ohio">
     <rect x="484.467" y="217.851" width="21.79" height="21.791"/>
     <rect x="506.257" y="261.43" width="21.79" height="21.789"/>
     <rect x="506.257" y="283.217" width="21.79" height="21.79"/>
@@ -488,7 +489,7 @@
     <rect x="484.467" y="283.217" width="21.79" height="21.79"/>
     <rect x="506.257" y="239.64" width="21.79" height="21.79"/>
 </g>
-<g id="MI" class="cartoState">
+<g id="MI" class="cartoState" name="Michigan">
     <rect x="440.905" y="152.454" width="21.789" height="21.79"/>
     <rect x="462.694" y="152.454" width="21.788" height="21.79"/>
     <rect x="484.482" y="152.454" width="21.792" height="21.79"/>
@@ -506,7 +507,7 @@
     <rect x="462.694" y="130.663" width="21.788" height="21.79"/>
     <rect x="397.326" y="108.874" width="21.788" height="21.789"/>
 </g>
-<g id="WI" class="cartoState">
+<g id="WI" class="cartoState" name="Wisconsin">
     <rect x="353.733" y="130.666" width="21.789" height="21.788"/>
     <rect x="353.733" y="152.454" width="21.789" height="21.792"/>
     <rect x="375.521" y="130.666" width="21.792" height="21.788"/>
@@ -518,7 +519,7 @@
     <rect x="397.313" y="174.243" width="21.788" height="21.79"/>
     <rect x="353.733" y="174.243" width="21.789" height="21.79"/>
 </g>
-<g id="MN" class="cartoState">
+<g id="MN" class="cartoState" name="Minnesota">
     <rect x="288.358" y="174.236" width="21.789" height="21.789"/>
     <rect x="310.147" y="174.236" width="21.791" height="21.789"/>
     <rect x="288.358" y="152.446" width="21.789" height="21.791"/>
@@ -530,7 +531,7 @@
     <rect x="331.935" y="152.434" width="21.79" height="21.789"/>
     <rect x="288.358" y="130.657" width="21.789" height="21.789"/>
 </g>
-<g id="IA" class="cartoState">
+<g id="IA" class="cartoState" name="Iowa">
     <rect x="288.369" y="195.99" width="21.79" height="21.79"/>
     <rect x="310.158" y="195.99" width="21.788" height="21.79"/>
     <rect x="331.946" y="195.99" width="21.792" height="21.79"/>
@@ -538,30 +539,30 @@
     <rect x="331.946" y="217.778" width="21.792" height="21.79"/>
     <rect x="310.158" y="217.78" width="21.788" height="21.788"/>
 </g>
-<g id="ND" class="cartoState">
+<g id="ND" class="cartoState" name="North Dakota">
     <rect x="223.029" y="174.216" width="21.788" height="21.79"/>
     <rect x="244.807" y="174.216" width="21.788" height="21.79"/>
     <rect x="266.599" y="174.216" width="21.787" height="21.79"/>
 </g>
-<g id="SD" class="cartoState">
+<g id="SD" class="cartoState" name="South Dakota">
     <rect x="223.029" y="196.005" width="21.788" height="21.788"/>
     <rect x="244.807" y="196.005" width="21.788" height="21.788"/>
     <rect x="266.599" y="196.005" width="21.787" height="21.788"/>
 </g>
-<g id="NE" class="cartoState">
+<g id="NE" class="cartoState" name="Nebraska">
     <rect x="223.014" y="217.809" width="21.788" height="21.79"/>
     <rect x="244.806" y="239.587" width="21.792" height="21.789"/>
 </g>
-<g id="NE01" class="cartoState">
+<g id="NE01" class="cartoState" name="Nebraska">
     <rect x="266.594" y="239.587" width="21.789" height="21.789"/>
 </g>
-<g id="NE02" class="cartoState">
+<g id="NE02" class="cartoState" name="Nebraska">
     <rect x="266.594" y="217.8" width="21.789" height="21.791"/>
 </g>
-<g id="NE03" class="cartoState">
+<g id="NE03" class="cartoState" name="Nebraska">
     <rect x="244.804" y="217.8" width="21.788" height="21.791"/>
 </g>
-<g id="IN" class="cartoState">
+<g id="IN" class="cartoState" name="Indiana">
     <rect x="440.891" y="217.834" width="21.788" height="21.79"/>
     <rect x="462.679" y="217.834" width="21.792" height="21.79"/>
     <rect x="462.679" y="239.623" width="21.792" height="21.789"/>
@@ -574,7 +575,7 @@
     <rect x="440.891" y="304.979" width="21.788" height="21.79"/>
     <rect x="462.679" y="304.979" width="21.792" height="21.79"/>
 </g>
-<g id="IL" class="cartoState">
+<g id="IL" class="cartoState" name="Illinois">
     <rect x="419.107" y="261.327" width="21.787" height="21.79"/>
     <rect x="419.107" y="239.518" width="21.787" height="21.788"/>
     <rect x="353.718" y="261.292" width="21.788" height="21.789"/>
@@ -596,7 +597,7 @@
     <rect x="331.945" y="239.492" width="21.792" height="21.791"/>
     <rect x="397.292" y="304.881" width="21.788" height="21.792"/>
 </g>
-<g id="MO" class="cartoState">
+<g id="MO" class="cartoState" name="Missouri">
     <rect x="310.153" y="261.304" width="21.792" height="21.788"/>
     <rect x="331.938" y="261.304" width="21.792" height="21.788"/>
     <rect x="310.155" y="239.498" width="21.791" height="21.791"/>
@@ -608,7 +609,7 @@
     <rect x="310.153" y="304.883" width="21.788" height="21.79"/>
     <rect x="331.937" y="304.883" width="21.788" height="21.79"/>
 </g>
-<g id="KS" class="cartoState">
+<g id="KS" class="cartoState" name="Kansas">
     <rect x="244.806" y="261.297" width="21.79" height="21.79"/>
     <rect x="266.592" y="261.297" width="21.792" height="21.79"/>
     <rect x="288.385" y="261.297" width="21.787" height="21.79"/>
@@ -616,17 +617,17 @@
     <rect x="288.374" y="283.088" width="21.79" height="21.792"/>
     <rect x="244.806" y="283.088" width="21.788" height="21.792"/>
 </g>
-<g id="WY" class="cartoState">
+<g id="WY" class="cartoState" name="Wyoming">
     <rect x="135.764" y="217.758" width="21.792" height="21.789"/>
     <rect x="157.554" y="217.758" width="21.79" height="21.789"/>
     <rect x="179.327" y="217.758" width="21.789" height="21.789"/>
 </g>
-<g id="MT" class="cartoState">
+<g id="MT" class="cartoState" name="Montana">
     <rect x="114.004" y="195.964" width="21.789" height="21.791"/>
     <rect x="135.779" y="195.964" width="21.787" height="21.791"/>
     <rect x="157.578" y="195.964" width="21.79" height="21.791"/>
 </g>
-<g id="CO" class="cartoState">
+<g id="CO" class="cartoState" name="Colorado">
     <rect x="179.367" y="261.314" width="21.787" height="21.788"/>
     <rect x="201.152" y="261.314" width="21.79" height="21.787"/>
     <rect x="222.944" y="261.314" width="21.79" height="21.787"/>
@@ -637,7 +638,7 @@
     <rect x="201.152" y="283.102" width="21.79" height="21.791"/>
     <rect x="201.152" y="239.527" width="21.79" height="21.79"/>
 </g>
-<g id="UT" class="cartoState">
+<g id="UT" class="cartoState" name="Utah">
     <rect x="135.766" y="283.088" width="21.788" height="21.789"/>
     <rect x="157.535" y="239.532" width="21.788" height="21.79"/>
     <rect x="157.554" y="283.088" width="21.79" height="21.789"/>
@@ -645,7 +646,7 @@
     <rect x="135.757" y="261.304" width="21.791" height="21.788"/>
     <rect x="157.534" y="261.304" width="21.789" height="21.79"/>
 </g>
-<g id="NV" class="cartoState">
+<g id="NV" class="cartoState" name="Nevada">
     <rect x="113.999" y="261.343" width="21.789" height="21.79"/>
     <rect x="92.197" y="283.157" width="21.788" height="21.792"/>
     <rect x="113.998" y="283.157" width="21.792" height="21.792"/>
@@ -653,13 +654,13 @@
     <rect x="113.998" y="239.53" width="21.792" height="21.79"/>
     <rect x="92.197" y="239.53" width="21.788" height="21.79"/>
 </g>
-<g id="ID" class="cartoState">
+<g id="ID" class="cartoState" name="Idaho">
     <rect x="92.181" y="174.194" width="21.791" height="21.789"/>
     <rect x="92.181" y="195.983" width="21.791" height="21.791"/>
     <rect x="92.181" y="217.769" width="21.791" height="21.79"/>
     <rect x="113.969" y="217.769" width="21.792" height="21.79"/>
 </g>
-<g id="WA" class="cartoState">
+<g id="WA" class="cartoState" name="Washington">
     <rect x="5.026" y="130.596" width="21.789" height="21.789"/>
     <rect x="26.815" y="130.596" width="21.79" height="21.789"/>
     <rect x="26.815" y="152.384" width="21.79" height="21.788"/>
@@ -673,7 +674,7 @@
     <rect x="26.815" y="108.806" width="21.79" height="21.79"/>
     <rect x="5.012" y="108.806" width="21.79" height="21.79"/>
 </g>
-<g id="OR" class="cartoState">
+<g id="OR" class="cartoState" name="Oregon">
     <rect x="5.026" y="174.175" width="21.789" height="21.79"/>
     <rect x="26.815" y="174.175" width="21.79" height="21.79"/>
     <rect x="48.604" y="174.175" width="21.789" height="21.79"/>
@@ -682,7 +683,7 @@
     <rect x="70.393" y="152.384" width="21.791" height="21.79"/>
     <rect x="5.026" y="152.386" width="21.789" height="21.789"/>
 </g>
-<g id="CA" class="cartoState">
+<g id="CA" class="cartoState" name="California">
     <rect x="5" y="195.904" width="21.79" height="21.788"/>
     <rect x="26.812" y="195.904" width="21.79" height="21.788"/>
     <rect x="48.576" y="195.904" width="21.79" height="21.788"/>
@@ -739,7 +740,7 @@
     <rect x="92.153" y="392.244" width="21.791" height="21.786"/>
     <rect x="114.004" y="392.244" width="21.79" height="21.786"/>
 </g>
-<g id="AZ" class="cartoState">
+<g id="AZ" class="cartoState" name="Arizona">
     <rect x="114.004" y="326.669" width="21.789" height="21.79"/>
     <rect x="135.793" y="326.669" width="21.789" height="21.79"/>
     <rect x="157.583" y="326.669" width="21.791" height="21.79"/>
@@ -752,14 +753,14 @@
     <rect x="157.583" y="304.88" width="21.791" height="21.789"/>
     <rect x="114.004" y="304.88" width="21.789" height="21.789"/>
 </g>
-<g id="NM" class="cartoState">
+<g id="NM" class="cartoState" name="New Mexico">
     <rect x="179.352" y="348.487" width="21.789" height="21.791"/>
     <rect x="201.141" y="326.698" width="21.79" height="21.789"/>
     <rect x="179.352" y="326.698" width="21.789" height="21.789"/>
     <rect x="201.141" y="304.909" width="21.79" height="21.791"/>
     <rect x="179.352" y="304.909" width="21.789" height="21.791"/>
 </g>
-<g id="OK" class="cartoState">
+<g id="OK" class="cartoState" name="Oklahoma">
     <rect x="222.912" y="304.79" width="21.787" height="21.791"/>
     <rect x="244.701" y="304.79" width="21.791" height="21.791"/>
     <rect x="266.49" y="304.79" width="21.789" height="21.791"/>
@@ -768,7 +769,7 @@
     <rect x="288.268" y="326.58" width="21.79" height="21.789"/>
     <rect x="244.701" y="326.58" width="21.791" height="21.789"/>
 </g>
-<g id="AR" class="cartoState">
+<g id="AR" class="cartoState" name="Arkansas">
     <rect x="310.11" y="326.662" width="21.79" height="21.787"/>
     <rect x="331.899" y="326.662" width="21.788" height="21.787"/>
     <rect x="331.899" y="348.449" width="21.788" height="21.791"/>
@@ -776,7 +777,7 @@
     <rect x="375.475" y="326.68" width="21.789" height="21.788"/>
     <rect x="310.11" y="348.449" width="21.79" height="21.791"/>
 </g>
-<g id="TN" class="cartoState">
+<g id="TN" class="cartoState" name="Tennessee">
     <rect x="419.078" y="348.556" width="21.791" height="21.794"/>
     <rect x="462.654" y="348.556" width="21.792" height="21.794"/>
     <rect x="484.445" y="348.556" width="21.786" height="21.794"/>
@@ -789,7 +790,7 @@
     <rect x="375.486" y="348.556" width="21.792" height="21.794"/>
     <rect x="397.276" y="348.556" width="21.786" height="21.794"/>
 </g>
-<g id="KY" class="cartoState">
+<g id="KY" class="cartoState" name="Kentucky">
     <rect x="528.014" y="348.676" width="21.79" height="21.788"/>
     <rect x="528.029" y="326.886" width="21.792" height="21.79"/>
     <rect x="549.804" y="348.676" width="21.793" height="21.788"/>
@@ -799,7 +800,7 @@
     <rect x="484.445" y="326.886" width="21.793" height="21.79"/>
     <rect x="506.238" y="326.886" width="21.791" height="21.79"/>
 </g>
-<g id="VA" class="cartoState">
+<g id="VA" class="cartoState" name="Virginia">
     <rect x="571.582" y="326.819" width="21.789" height="21.791"/>
     <rect x="593.371" y="326.819" width="21.791" height="21.791"/>
     <rect x="615.162" y="348.59" width="21.789" height="21.79"/>
@@ -814,7 +815,7 @@
     <rect x="658.738" y="348.59" width="21.79" height="21.79"/>
     <rect x="680.528" y="326.819" width="21.789" height="21.791"/>
 </g>
-<g id="NC" class="cartoState">
+<g id="NC" class="cartoState" name="North Carolina">
     <rect x="593.286" y="392.15" width="21.788" height="21.793"/>
     <rect x="615.108" y="392.15" width="21.792" height="21.793"/>
     <rect x="571.516" y="370.367" width="21.79" height="21.793"/>
@@ -831,23 +832,23 @@
     <rect x="549.672" y="370.367" width="21.795" height="21.793"/>
     <rect x="636.943" y="370.367" width="21.785" height="21.793"/>
 </g>
-<g id="DC" class="cartoState">
+<g id="DC" class="cartoState" name="District of Columbia">
     <rect x="768.818" y="349.15" width="21.792" height="21.791"/>
     <rect x="745.818" y="349.15" width="21.792" height="21.793"/>
     <rect x="745.904" y="370.207" width="21.788" height="21.792"/>
 </g>
-<g id="AK" class="cartoState">
+<g id="AK" class="cartoState" name="Alaska">
     <rect x="41.265" y="507.53" width="21.789" height="21.789"/>
     <rect x="41.265" y="529.317" width="21.789" height="21.789"/>
     <rect x="19.083" y="551.473" width="21.79" height="21.791"/>
 </g>
-<g id="HI" class="cartoState">
+<g id="HI" class="cartoState" name="Hawaii">
     <rect x="141.415" y="507.53" width="21.792" height="21.79"/>
     <rect x="163.206" y="529.317" width="21.792" height="21.791"/>
     <rect x="185.153" y="551.473" width="21.792" height="21.792"/>
     <rect x="206.944" y="551.473" width="21.792" height="21.791"/>
 </g>
-<g id="FL" class="cartoState">
+<g id="FL" class="cartoState" name="Florida">
     <rect x="571.543" y="479.308" width="21.793" height="21.788"/>
     <rect x="593.336" y="479.308" width="21.785" height="21.788"/>
     <rect x="615.121" y="501.088" width="21.793" height="21.791"/>
@@ -878,7 +879,7 @@
     <rect x="636.909" y="544.664" width="21.79" height="21.794"/>
     <rect x="571.543" y="501.088" width="21.793" height="21.79"/>
 </g>
-<g id="SC" class="cartoState">
+<g id="SC" class="cartoState" name="South Carolina">
     <rect x="636.896" y="479.269" width="21.787" height="21.79"/>
     <rect x="658.684" y="457.479" width="21.796" height="21.79"/>
     <rect x="658.684" y="435.691" width="21.796" height="21.79"/>
@@ -889,7 +890,7 @@
     <rect x="615.106" y="435.691" width="21.79" height="21.79"/>
     <rect x="636.896" y="435.691" width="21.787" height="21.79"/>
 </g>
-<g id="GA" class="cartoState">
+<g id="GA" class="cartoState" name="Georgia">
     <rect x="527.979" y="392.187" width="21.788" height="21.79"/>
     <rect x="549.767" y="392.187" width="21.793" height="21.788"/>
     <rect x="571.558" y="392.187" width="21.788" height="21.788"/>
@@ -907,7 +908,7 @@
     <rect x="527.979" y="435.764" width="21.788" height="21.792"/>
     <rect x="549.767" y="435.764" width="21.793" height="21.792"/>
 </g>
-<g id="AL" class="cartoState">
+<g id="AL" class="cartoState" name="Alabama">
     <rect x="462.667" y="392.212" width="21.789" height="21.787"/>
     <rect x="484.456" y="392.212" width="21.79" height="21.787"/>
     <rect x="462.667" y="370.406" width="21.789" height="21.791"/>
@@ -918,7 +919,7 @@
     <rect x="506.227" y="370.408" width="21.79" height="21.789"/>
     <rect x="506.223" y="414.037" width="21.791" height="21.791"/>
 </g>
-<g id="MS" class="cartoState">
+<g id="MS" class="cartoState" name="Mississippi">
     <rect x="397.31" y="370.454" width="21.792" height="21.787"/>
     <rect x="419.1" y="370.454" width="21.788" height="21.787"/>
     <rect x="440.885" y="370.452" width="21.787" height="21.789"/>
@@ -926,7 +927,7 @@
     <rect x="397.314" y="392.244" width="21.786" height="21.786"/>
     <rect x="440.877" y="392.244" width="21.79" height="21.786"/>
 </g>
-<g id="LA" class="cartoState">
+<g id="LA" class="cartoState" name="Louisiana">
     <rect x="353.681" y="370.26" width="21.788" height="21.792"/>
     <rect x="375.49" y="392.052" width="21.789" height="21.786"/>
     <rect x="353.681" y="413.838" width="21.788" height="21.791"/>
@@ -936,7 +937,7 @@
     <rect x="375.493" y="370.26" width="21.787" height="21.792"/>
     <rect x="353.681" y="348.456" width="21.791" height="21.79"/>
 </g>
-<g id="TX" class="cartoState">
+<g id="TX" class="cartoState" name="Texas">
     <rect x="222.898" y="326.588" width="21.788" height="21.788"/>
     <rect x="201.108" y="370.219" width="21.79" height="21.791"/>
     <rect x="222.898" y="348.366" width="21.788" height="21.789"/>
@@ -2310,6 +2311,13 @@ function resetTable(race){
 // if (race=="governors" && geo=="us"){ return usCarto; }
 // } //end cartoData
 
+function electoralCarto(data){
+    $('.cartoState').each(function(i, obj) {
+        var color = fetchData($(this).attr("name"),$(this).attr("name"),"lean",data,"president");
+        $(this).attr("fill", color);
+    });
+}
+
 //US HOUSE CARTOGRAM
 function houseCarto(data){
 (function(){
@@ -2317,7 +2325,7 @@ function houseCarto(data){
     , width = 800
     // , width = width - margin.left - margin.right
     , mapRatio = .5
-    , height = 400;
+    , height = 600;
 
     var projection = d3.geo.equirectangular()
               .scale(width/1.3)//this makes it larger or smaller for the space you have
@@ -2342,8 +2350,9 @@ function makeCartogram() {
             .data(topojson.feature(us, us.objects['cart113']).features)
             .enter().append("path")
                 .attr("d", path)
+                .attr("class","district")
                 .attr("fill", function(d){
-                    var color = "#0ff";
+                    var color = fetchData("District " + d.properties['d'],d.properties.State,"lean",data,"ushouse",null,"District " + d.properties['d']);
 
                     
                     // for (var k=0; k < data.length; k++){
@@ -2362,7 +2371,10 @@ function makeCartogram() {
                     // }
                     return color;
                 })
-                .attr('data-hash-key',function(d){ return d.properties.State + '-' + d.properties['d']; });
+                .attr('data-hash-key',function(d){ return d.properties.State + '-' + d.properties['d']; })
+                .call(d3.helper.tooltip(function(d, i){
+                    return fetchData("District " + d.properties['d'],d.properties.State,"tooltip",data,"ushouse",null,"District " + d.properties['d']);
+        }));
             // g.append("g")
             // .attr("id", "states")
             // .selectAll("path")
@@ -2374,6 +2386,56 @@ function makeCartogram() {
         })
     }
 })();
+
+d3.helper = {};
+
+d3.helper.tooltip = function(accessor){
+    return function(selection){
+        var tooltipDiv;
+        var bodyNode = d3.select('body').node();
+        selection.on("mouseover", function(d, i){
+            // Clean up lost tooltips
+            d3.select('body').selectAll('div.tooltip').remove();
+            // Append tooltip
+            tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px')
+                .style('position', 'absolute')
+                .style('z-index', 1001);
+            // Add text using the accessor function
+            var tooltipText = accessor(d, i) || '';
+            // Crop text arbitrarily
+            //tooltipDiv.style('width', function(d, i){return (tooltipText.length > 80) ? '300px' : null;})
+            //    .html(tooltipText);
+        })
+        .on('mousemove', function(d, i) {
+            // Move tooltip
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px');
+            var tooltipText = accessor(d, i) || '';
+            tooltipDiv.html(tooltipText);
+        })
+        .on("mouseout", function(d, i){
+            // Remove tooltip
+            tooltipDiv.remove();
+        });
+
+    };
+};
+
+var aspect = 800 / 600, chart = $("#cartoHouse svg"); //, chart2 = $(".carto svg")
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+
+$(window).on("resize", function() {
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+});
+
 } //end houseCarto
 
 //map functions
@@ -2557,8 +2619,8 @@ function makeCartogram() {
 function mapBuild(container, boxContainer, chartContainer, shape, race, geo, level, dataCompare, index, visible) {
 
 if (geo=="us") { var width = 800, height = 600, centered; var projection = d3.geo.albersUsa().scale(1000).translate([400, 210]); }
-else if (geo=="mn") { var width = 350, height = 350, centered; var projection = d3.geo.mercator().scale([3200]).center([-89.736328,46.377254]); }
-else if (geo=="metro") { var width = 350, height = 350, centered; var projection = d3.geo.mercator().scale([16500]).center([-92.403259,44.988113]); }
+else if (geo=="mn") { var width = 400, height = 400, centered; var projection = d3.geo.mercator().scale([3200]).center([-89.736328,46.377254]); }
+else if (geo=="metro") { var width = 400, height = 400, centered; var projection = d3.geo.mercator().scale([16500]).center([-92.403259,44.988113]); }
 
 var path = d3.geo.path()
     .projection(projection);
@@ -2666,7 +2728,14 @@ d3.json("shapefiles/" + shape, function(error, us) {
     .attr("class","passthrough")
     .attr("transform", function(d) { 
         var centroid = path.centroid(d);
-        return "translate(" + centroid[0] + "," + centroid[1] + ")"
+        var x = centroid[0];
+        var y = centroid[1];
+
+        if (d.properties.STUSPS == "FL") { x = x + 11; }
+        if (d.properties.STUSPS == "MI") { x = x + 9; y = y + 18; }
+        if (d.properties.STUSPS == "AK") { y = y - 4; }
+        if (d.properties.STUSPS == "LA") { x = x - 8; y = y - 4; }
+        return "translate(" + x + "," + y + ")";
     })
     .attr("text-anchor", "middle")
     .attr("dy", ".35em")
@@ -2846,42 +2915,17 @@ d3.helper.tooltip = function(accessor){
     };
 };
 
-//RESPONSIVENESS
-if (race != "mnsenate" && race != "mnhouse"){
-var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
+var aspect = 800 / 600, chart = $(container + " svg"); //, chart2 = $(".carto svg")
+$(document).ready(function() {
   var targetWidth = chart.parent().width();
   chart.attr("width", targetWidth);
   chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
+});
 $(window).on("resize", function() {
   var targetWidth = chart.parent().width();
   chart.attr("width", targetWidth);
   chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
 });
-} else {
-var aspect = 320 / 350, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
-$(window).on("resize", function() {
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
-});
-
-}
-
 
 } //end mapBuild
 
@@ -2911,59 +2955,23 @@ function mapSpill(race,data){
 if (race == "president"){
   mapBuild("#president .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
   mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-
+  electoralCarto(data);
   mapBuild("#mapStates", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
   mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-
-  //RESPONSIVENESS
-var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
 }
 
 if (race == "house"){
   mapBuild("#house .geo", "#districtName", "#chart", "uscongress.json", race, "us", "country", data);
   mapBuild("#mapMN", "#districtName", "#chart", "us_cd_mn_2012.json", race, "mn", "country", data);
   houseCarto(data);
-
-  //RESPONSIVENESS
-var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
 }
 
 if (race == "senate"){
   mapBuild("#senate .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
-
-  //RESPONSIVENESS
-var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
 }
 
 if (race == "governors"){
   mapBuild("#governors .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
-
-  //RESPONSIVENESS
-var aspect = 800 / 600, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
 }
 
 if (race == "mnhouse"){
@@ -2971,15 +2979,6 @@ if (race == "mnhouse"){
   mapBuild("#mnhouse .mapMetro", "#districtName", "#chart", "mnleg_metro.json", race, "metro", "country", data);
   // cartoBuild("#mnhouse .cartoState", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"mn"));
   // cartoBuild("#mnhouse .cartoMetro", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"metro"));
-
-  //RESPONSIVENESS
-var aspect = 320 / 350, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
 }
 
 if (race == "mnsenate"){
@@ -2987,15 +2986,6 @@ if (race == "mnsenate"){
   mapBuild("#mnsenate .mapMetro", "#districtName", "#chart", "mnsenate_metro.json", race, "metro", "country", data);
   // cartoBuild("#mnsenate .cartoState", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"mn"));
   // cartoBuild("#mnsenate .cartoMetro", "#districtName", "#chart", null, race, data, "us", 0, cartoData(race,"metro"));
-
-  //RESPONSIVENESS
-var aspect = 320 / 350, chart = $(".map svg"), chart2 = $(".carto svg");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  var targetWidth2 = chart2.parent().width();
-  chart2.attr("width", targetWidth2);
-  chart2.attr("height", targetWidth2 / aspect);
 }
 
 } //end mapSpill
@@ -3234,9 +3224,31 @@ $(document).ready(function() {
     $(".dataviz").hide();
     $("#" + race).show();
     mapShow(".map","country");
+
+var docwidth = $(window).width(); 
+
+if ((docwidth < 500)) {
+    $("svg").width(docwidth);
+    $("svg").height(docwidth / 1.5);
+}
+
 });
 
 toggleyBits(dataPrez,dataSen,dataGov,dataMNS,dataMNH,dataHouse);
+
+
+
+//RESPONSIVENESS
+// var aspect = 800 / 600, chart = $(".map svg"); //, chart2 = $(".carto svg")
+//   var targetWidth = chart.parent().width();
+//   chart.attr("width", targetWidth);
+//   chart.attr("height", targetWidth / aspect);
+
+// $(window).on("resize", function() {
+//   var targetWidth = chart.parent().width();
+//   chart.attr("width", targetWidth);
+//   chart.attr("height", targetWidth / aspect);
+// });
 
 $( "#prezButton" ).trigger("click");
 
@@ -3272,6 +3284,7 @@ window.setTimeout(function () {
 
 function mapReshade(container, shape, subject, race, dataCompare) {
   d3.json("shapefiles/" + shape, function(error, us) {
+    if (race != "cartoHouse"){
   d3.selectAll(container + " path")
         .data(us.features)
         .style("fill", function(d){
@@ -3291,7 +3304,24 @@ function mapReshade(container, shape, subject, race, dataCompare) {
          else if (race == "house") { return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"tooltip",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT); }
          else if (race == "mnsenate" || race == "mnhouse") { return fetchData("District " + d.properties.DISTRICT,"Minnesota","tooltip",dataCompare,race,null,"District " + d.properties.DISTRICT); }
         }));
+  } else {
+
+  d3.selectAll(container + " path")
+        .data(topojson.feature(us, us.objects['cart113']).features)
+        .style("fill", function(d){
+           return fetchData("District " + d.properties['d'],d.properties.State,"lean",dataCompare,"ushouse",null,"District " + d.properties['d']); 
+          })
+         .on("mousedown", function(d, i){
+
+         })
+         .call(d3.helper.tooltip(function(d, i){
+         return fetchData("District " + d.properties['d'],d.properties.State,"tooltip",dataCompare,"ushouse",null,"District " + d.properties['d']);
+        }));
+  }
+
   });
+
+
 }
 
 function reloadData(){
@@ -3315,6 +3345,7 @@ var dataHouse = jsonSpillHouse;
   mapReshade("#USMAP .counties", "us_counties.json", "counties", "county", dataPrez);
   mapReshade("#USSTATES .country", "us_states.json", "country", "president", dataPrez);
   mapReshade("#USCOUNTIES .counties", "us_counties.json", "counties", "county", dataPrez);
+  electoralCarto(dataPrez);
 
 //senate updates
   mapReshade("#USSENATE .country", "us_states.json", "country", "senate", dataSen);
@@ -3324,6 +3355,7 @@ var dataHouse = jsonSpillHouse;
 
 //house updates
   mapReshade("#USHOUSE .country", "uscongress.json", "country", "house", dataHouse);
+  mapReshade("#cartoHouse svg", "usdistricts_cartogram.json", "country", "cartoHouse", dataHouse);
   mapReshade("#USHOUSEMN .country", "us_cd_mn_2012.json", "country", "house", dataHouse);
 
 //mnhouse updates
