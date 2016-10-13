@@ -63,16 +63,16 @@ font-weight: bold;
   
 .resultsMap {width:640px;min-height:340px;background-color:#fff; margin: 50px auto;} 
   
-.demBlue {color:#21409A;}
-.repRed {color:#DA2128;}
+.demBlue {color:#3585BC;}
+.repRed {color:#d34A44;}
 
-.demBlueKey {background-color:#21409A;fill:#21409A;}
-.demLean {background-color:#7584a6;fill:#7584a6;}
-.tossUp {background-color:#999;fill:#999;}
-.repLean {background-color:#b78181;fill:#b78181;}
-.repRedKey {background-color:#DA2128;fill:#DA2128;}
+.demBlueKey {background-color:#3585BC;fill:#3585BC;}
+.demLean {background-color:#72A9D6;fill:#72A9D6;}
+.tossUp {background-color:#ccc;fill:#ccc;}
+.repLean {background-color:#f7816E;fill:#f7816E;}
+.repRedKey {background-color:#d34A44;fill:#d34A44;}
   
-  
+
 .graphicLabel {
     float:left;
     font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
@@ -98,9 +98,12 @@ font-weight: bold;
  
   }
   
-.keyBlock {float:left;width:10px;height:10px;margin-left:15px;border:1px solid #999;}
+.keyBlock {float:left;width:12px;height:12px;margin-left:15px;}
   
-  
+
+  #usMap { float:left;width:380px;min-height:240px;margin: -20px 20px 0px 0px; }
+  #mnMap {float:right;width:240px;min-height:240px;margin: -20px 0px 0px 0px; }
+
 .timestamp {
     float:left;
     font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
@@ -109,23 +112,21 @@ font-weight: bold;
     line-height:16px;
     color:#999;
 }
+  
+  .usTimestamp {float:left;width:340px;min-height:20px;background-color:white; margin: 0px 20px 0px 0px; }
+  .mnTimestamp {float:right;width:240px;min-height:20px;background-color:white; margin: 0px 0px 0px 0px; }
 
-  #usMap { float:left;width:380px;min-height:240px;margin: -10px 20px 10px 0px; }
-  #mnMap {float:right;width:240px;min-height:240px;margin: -10px 0px 10px 0px; }
-
-  .usTimestamp {float:left;width:340px;min-height:20px;background-color:white; margin: 10px 20px 0px 0px; }
-  .mnTimestamp {float:right;width:240px;min-height:20px;background-color:white; margin: 10px 0px 0px 0px; }
-
-  .popBarUS {display:block;float:left;width:340px;height:32px;margin-right:20px;background-color:#fff;z-index:10}
+  .popBarUS {display:block;float:left;width:310px;height:32px;margin-right:20px;background-color:#fff;z-index:10}
   .popBarMN {display:block;float:right;width:240px;height:32px;margin-right:0px;background-color:#fff;z-index:10}
   
   .numberBox {float:right;width:60px;text-align:center}
+  .numberBoxMN {float:right;width:72px;text-align:center}
   
 .popvoteLabel {
     float:left;
     font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
     font-weight:normal;
-    font-size:9px;
+    font-size:11px;
     line-height:14px;
     color:#666;
     text-align:left;
@@ -144,8 +145,8 @@ font-weight: bold;
     text-align:center;
     font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
     font-weight:bold;
-    font-size:18px;
-    line-height:18px;
+    font-size:26px;
+    line-height:26px;
     margin-bottom:1px;
   }
 
@@ -187,7 +188,7 @@ font-weight: bold;
      <div class="keyBlock tossUp"></div>
     <div class="keyLabel">Toss-up</div>
   
-    <div class="keyBlock demLean"></div>
+    <div class="keyBlock repLean"></div>
     <div class="keyLabel">Leaning</div>
   
     <div class="keyBlock repRedKey"></div>
@@ -214,12 +215,12 @@ font-weight: bold;
 <div class="popBarMN"> 
   <div class="popvoteLabel">MN popular vote</div>
 
-  <div class="numberBox"> 
+  <div class="numberBoxMN"> 
     <div class="popNum repRed"><span class="mn-pop-trump" id="mn-gop-pop">XX%</span></div>
     <div class="popvote">TRUMP</div>
   </div>  
 
-  <div class="numberBox"> 
+  <div class="numberBoxMN"> 
     <div class="popNum demBlue"><span class="mn-pop-clinton" id="mn-dem-pop">XX%</span></div>
     <div class="popvote">CLINTON</div>
   </div>
@@ -232,7 +233,7 @@ font-weight: bold;
 </div>
  
 <div>
-<div id="mnMap" class="mapState map geo"><svg id="MNHOUSE" width="240" height="240" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mnMap" class="mapState map geo"><svg id="MNHOUSE" width="240" height="240" viewBox="0 -30 620 620" preserveAspectRatio="xMidYMid"></svg></div>
 </div>
 
   
