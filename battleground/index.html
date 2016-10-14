@@ -2328,11 +2328,11 @@ function electoralCarto(data){
         $(this).attr("fill", color);
     });
 
-    d3.selectAll(".cartoState")
-         .data(us.features)
-         .call(d3.helper.tooltip(function(d, i){
-         return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",data,"president"); }
-        }));
+    // d3.selectAll(".cartoState")
+    //      .data(us.features)
+    //      .call(d3.helper.tooltip(function(d, i){
+    //      return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",data,"president"); }
+    //     }));
 
     d3.helper.tooltip = function(accessor){
         return function(selection){
@@ -2801,6 +2801,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
          else if (race == "mnsenate" || race == "mnhouse") { return fetchData("District " + d.properties.DISTRICT,"Minnesota","tooltip",dataCompare,race,null,"District " + d.properties.DISTRICT); }
       }))
 
+if (race == "president" || race == "senate" ||  race == "governors"){
     g.selectAll("text")
     .data(us.features)
     .enter()
@@ -2831,6 +2832,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
             if (d.properties.STUSPS != "OH" && d.properties.STUSPS != "MI" && d.properties.STUSPS != "AZ" && d.properties.STUSPS != "ME" && d.properties.STUSPS != "NY" && d.properties.STUSPS != "PA" && d.properties.STUSPS != "VA" && d.properties.STUSPS != "FL" && d.properties.STUSPS != "SC" && d.properties.STUSPS != "GA" && d.properties.STUSPS != "MS" && d.properties.STUSPS != "AL" && d.properties.STUSPS != "KY" && d.properties.STUSPS != "TN" && d.properties.STUSPS != "WI" && d.properties.STUSPS != "IL" && d.properties.STUSPS != "AR" && d.properties.STUSPS != "LA" && d.properties.STUSPS != "MN" && d.properties.STUSPS != "IA" && d.properties.STUSPS != "TX" && d.properties.STUSPS != "KS" && d.properties.STUSPS != "OK" && d.properties.STUSPS != "SD" && d.properties.STUSPS != "NE" && d.properties.STUSPS != "NM" && d.properties.STUSPS != "CO" && d.properties.STUSPS != "ID" && d.properties.STUSPS != "WY" && d.properties.STUSPS != "CA" && d.properties.STUSPS != "NV" && d.properties.STUSPS != "AK" && d.properties.STUSPS != "HI" && d.properties.STUSPS != "MA" && d.properties.STUSPS != "RI" && d.properties.STUSPS != "CT" && d.properties.STUSPS != "DE" && d.properties.STUSPS != "DC" && d.properties.STUSPS != "MD" && d.properties.STUSPS != "NH" && d.properties.STUSPS != "VT" && d.properties.STUSPS != "NJ") { return d.properties.STUSPS; }
         }
     });
+}
 
   g.append("path")
       //.datum(topojson.mesh(us, us.features, function(a, b) { return a !== b; }))
