@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   <link rel="stylesheet" href="../_common_resources/interfaces/d3.slider-master/d3.slider.css" />
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+  <link href="./js/css/jquery.powertip-light.min.css"></link>
   
   <style>
     /* PAGE BASE */
@@ -51,8 +52,9 @@
     .passthrough { pointer-events:none !important; font-family:Arial !important; }
     .sideStates { position:absolute; right:2%; top:240px; }
     .sideStates .block { width:30px; height:30px; padding-top:7px; font-size:0.8em; }
-    .sideStates .block:hover { background-color:#333 !important; cursor:pointer; }
+    .sideStates .block:hover { border:2px solid #333 !important; cursor:pointer; }
     .stateSelect { background-color:#333 !important; }
+    .blockSelect { border:2px solid #333 !important; }
  
      /* RESET BUTTON */
     .zoom { float:none !important; text-align:center; }
@@ -110,12 +112,10 @@
     .dem rect { fill:#3F88C5 !important; }
     .rep rect { fill:#D90429 !important; }
     .battleground rect { fill:#cccccc !important; }
-    .cartoState:hover { opacity:0.5; }
+    .cartoState:hover { opacity:0.5; cursor:pointer; }
     .cartoState rect { stroke-width:0.8px; stroke:#fff !important; }
-    .cartoState rect:hover { opacity:1; cursor:default; }
     #cartogram { text-align:center; width:800px; height:600px; /*margin-left: auto; margin-right: auto;*/ }
     #cartogram text { pointer-events:none !important; font-family:Arial !important; font-size:0.8em; }
-    .district:hover { fill:#333; }
     polygon { stroke:#fff !important; stroke-width:1px; }
     .stateLabel { display:inline-block; width:68%; text-align:left; background-color:transparent !important; }
     .votes { display:inline-block; width:30%; text-align:left; background-color:transparent !important; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
@@ -141,6 +141,11 @@
     .district { display:inline-block; }
     .box { width:60px; height:40px; padding:3px; border:1px solid #000; vertical-align:middle; margin:2px; font-size:.7em; }
     .box:hover { background-color:#333; cursor:pointer; }
+    .tableCol { display:inline-block; width:32%; height:200px; }
+    .dColumn { border-top:2px solid #72A9D6; }
+    .rColumn { border-top:2px solid #d34A44; }
+    .mColumn { border-top:2px solid #cccccc; }
+    .bigBoard { display:none; }
 
     /* HISTORICAL DATA */
     #historyview { width:540px; margin-left:auto; margin-right:auto; }
@@ -154,6 +159,7 @@
     .smallbreak { clear:both; }
 
     /* INFOBOXES */
+    #infobox { height:180px; width:100%; text-align:left; }
     .districtName { font-weight:900; font-size:1.2em; }
     .name { font-weight:900 !important; }
     .statRow { width:100%; }
@@ -250,17 +256,17 @@
 <ul>
    <li class='<!-- active--> has-sub' section="president"><a href='index.html'>President</a>
       <ul>
-         <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="carto" layer="country" dLabel="Clinton" rLabel="Trump"><a href='#'><div><div><strong>U.S.</strong> electoral</div></div></a>
+         <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="carto" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us"><a href='#'><div><div><strong>U.S.</strong> electoral</div></div></a>
          </li>
-         <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump"><a href='#'> <div><div><strong>U.S.</strong> popular by state</div></div></a>
+         <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="showMe" infobox="us"><a href='#'> <div><div><strong>U.S.</strong> popular by state</div></div></a>
          </li>
-         <li class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump"><a href='#'><div><div><strong>U.S.</strong> popular by county</div></div></a>
+         <li class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us"><a href='#'><div><div><strong>U.S.</strong> popular by county</div></div></a>
          </li>
-         <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump"><a href='#'><div><div><strong>MN</strong> popular by county</div></div></a>
+         <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn"><a href='#'><div><div><strong>MN</strong> popular by county</div></div></a>
          </li>
 <!--          <li><a href='#'><div class="raceSwitch mnzoom" data="president" legend="legendMargins" type="map" layer="pct"><div><strong>MN</strong> popular by precinct</div></div></a> -->
          </li>
-         <li class="raceSwitch metrozoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump"><a href='#'><div><div><strong>Metro</strong> popular by county</div></div></a>
+         <li class="raceSwitch metrozoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn"><a href='#'><div><div><strong>Metro</strong> popular by county</div></div></a>
          </li>
 <!--          <li><a href='#'><div class="raceSwitch metrozoom" data="president" legend="legendMargins" type="map" layer="pct"><div><strong>Metro</strong> popular by precinct</div></div></a> -->
          </li>
@@ -268,14 +274,14 @@
    </li>
    <li class='has-sub'><a href='#'>US House</a>
       <ul>
-        <li class="raceSwitch uszoom" data="house" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div><strong>U.S.</strong> by district</div></div></a></li>
-        <li class="raceSwitch uszoom" data="house" legend="legendWinners" type="carto" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div>CARTO by district </div></div></a></li>
-        <li class="raceSwitch mnzoom" data="house" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div><strong>MN</strong> by district</div></div></a></li>
+        <li class="raceSwitch uszoom" data="house" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="false" infobox="cd"><a href='#'><div><div><strong>U.S.</strong> by district</div></div></a></li>
+        <li class="raceSwitch uszoom" data="house" legend="legendWinners" type="carto" layer="country" dLabel="DEM" rLabel="GOP" stateKey="false" infobox="cd"><a href='#'><div><div>CARTO by district </div></div></a></li>
+        <li class="raceSwitch mnzoom" data="house" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="false" infobox="cd"><a href='#'><div><div><strong>MN</strong> by district</div></div></a></li>
       </ul>
    </li>  
-   <li class="raceSwitch uszoom"  section="senate" data="senate" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div>U.S. Senate</div></div></a></li>
-   <li class="raceSwitch uszoom" section="governors" data="governors" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP"><a href='#'><div><div>Governors</div></div></a></li>
-   <li section="mnhouse" class="raceSwitch uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP"><a href='#'>MN House</a>
+   <li class="raceSwitch uszoom"  section="senate" data="senate" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="showMe" infobox="none"><a href='#'><div><div>U.S. Senate</div></div></a></li>
+   <li class="raceSwitch uszoom" section="governors" data="governors" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="showMe" infobox="none"><a href='#'><div><div>Governors</div></div></a></li>
+   <li section="mnhouse" class="raceSwitch uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN House</a>
 <!--       <ul>
         <li class="raceSwitch uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP"><a href='#'><div><div><strong>MN/Metro</strong> maps</div></div></a>
          </li>
@@ -283,7 +289,7 @@
          </li>
       </ul> -->
    </li> 
-   <li section="mnsenate" class="raceSwitch uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP"><a href='#'>MN Senate</a>
+   <li section="mnsenate" class="raceSwitch uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN Senate</a>
 <!--       <ul>
         <li class="raceSwitch uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP"><a href='#'><div><div><strong>MN/Metro</strong> maps</div></div></a>
          </li>
@@ -294,11 +300,6 @@
  
 </ul>
 
-<div class="table" id="table">
-  <div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div>
-  <div id="allResults"></div>
-  <div id="infobox"></div>
-</div>
 </div>
 </div>
 
@@ -327,7 +328,7 @@
 <!-- MAPS -->
 <div class="mapBox">
 <div id="map" class="map geo"><svg id="USMAP" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg>
-<div class="sideStates"><div class="block VT" name="Vermont">VT</div><div class="block NH" name="New Hampshire">NH</div><div class="block MA" name="Massachusetts">MA</div><div class="block RI" name="Rhode Island">RI</div><div class="block CT" name="Connecticut">CT</div><div class="block NJ" name="New Jersey">NJ</div><div class="block DE" name="Delaware">DE</div><div class="block MD" name="Maryland">MD</div><div class="block DC" name="District of Columbia">DC</div><div class="block ME1" name="Main District 1">ME1</div><div class="block NE1" name="Nebraska District 1">NE1</div><div class="block NE2" name="Nebraska District 2">NE2</div><div class="block NE3" name="Nebraska District 3">NE3</div></div>
+<div class="sideStates"><div class="block VT" name="Vermont" ab="VT">VT</div><div class="block NH" name="New Hampshire" ab="NH">NH</div><div class="block MA" name="Massachusetts" ab="MA">MA</div><div class="block RI" name="Rhode Island" ab="RI">RI</div><div class="block CT" name="Connecticut" ab="CT">CT</div><div class="block NJ" name="New Jersey" ab="NJ">NJ</div><div class="block DE" name="Delaware" ab="DE">DE</div><div class="block MD" name="Maryland" ab="MD">MD</div><div class="block DC" name="District of Columbia" ab="DC">DC</div><div class="block ME01 evcd" name="Main District 1" ab="ME01">ME1</div><div class="block NE01 evcd" name="Nebraska District 1" ab="NE01">NE1</div><div class="block NE02 evcd" name="Nebraska District 2" ab="NE02">NE2</div><div class="block NE03 evcd" name="Nebraska District 3" ab="NE03">NE3</div></div>
 </div>
 <div id="mapCounties" class="hideIT"><svg id="USCOUNTIES" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <div id="mapStates" class="hideIT"><svg id="USSTATES" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
@@ -360,10 +361,10 @@
     <rect x="789.546" y="21.79" width="21.79" height="21.79"/>
     <rect x="789.546" width="21.79" height="21.79"/>
 </g>
-<g id="ME01" class="cartoState" name="Maine">
+<g id="ME01" class="cartoState evcd" name="Maine">
     <rect x="811.307" width="21.789" height="21.79"/>
 </g>
-<g id="ME02" class="cartoState" name="Maine">
+<g id="ME02" class="cartoState evcd" name="Maine">
     <rect x="811.307" y="21.79" width="21.789" height="21.79"/>
 </g>
 <g id="NH" class="cartoState" name="New Hampshire">
@@ -560,13 +561,13 @@
     <rect x="223.014" y="217.809" width="21.788" height="21.79"/>
     <rect x="244.806" y="239.587" width="21.792" height="21.789"/>
 </g>
-<g id="NE01" class="cartoState" name="Nebraska">
+<g id="NE01" class="cartoState evcd" name="Nebraska">
     <rect x="266.594" y="239.587" width="21.789" height="21.789"/>
 </g>
-<g id="NE02" class="cartoState" name="Nebraska">
+<g id="NE02" class="cartoState evcd" name="Nebraska">
     <rect x="266.594" y="217.8" width="21.789" height="21.791"/>
 </g>
-<g id="NE03" class="cartoState" name="Nebraska">
+<g id="NE03" class="cartoState evcd" name="Nebraska">
     <rect x="244.804" y="217.8" width="21.788" height="21.791"/>
 </g>
 <g id="IN" class="cartoState" name="Indiana">
@@ -1271,7 +1272,7 @@
 <div id="senate" class="dataviz">
 <div class="mapBox">
 <div id="mapSen" class="map geo"><svg id="USSENATE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg>
-<div class="sideStates"><div class="block VT" name="Vermont">VT</div><div class="block NH" name="New Hampshire">NH</div><div class="block CT" name="Connecticut">CT</div><div class="block MD" name="Maryland">MD</div></div>
+<div class="sideStates"><div class="block VT" name="Vermont" ab="VTs">VT</div><div class="block NH" name="New Hampshire" ab="NHs">NH</div><div class="block CT" name="Connecticut" ab="CTs">CT</div><div class="block MD" name="Maryland" ab="MDs">MD</div></div>
 </div>
 <div id="cartoSen" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 </div>
@@ -1281,7 +1282,7 @@
 <div id="governors" class="dataviz">
 <div class="mapBox">
 <div id="mapGov" class="map geo"><svg id="USGOV" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg>
-<div class="sideStates"><div class="block VT" name="Vermont">VT</div><div class="block NH" name="New Hampshire">NH</div><div class="block DE" name="Delaware">DE</div></div>
+<div class="sideStates"><div class="block VT" name="Vermont" ab="VTg">VT</div><div class="block NH" name="New Hampshire" ab="NHg">NH</div><div class="block DE" name="Delaware" ab="DEg">DE</div></div>
 </div>
 <div id="cartoGov" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 </div>
@@ -1326,10 +1327,10 @@
 
 <!-- COLOR SCALE LEGENDS -->
 <div id="legends">
-<div id="popularVote">
+<!-- <div id="popularVote">
     <div class='partyBlock'><div class="voteTotals">Votes: <span class='dcount'>0</span> | <span class="pctNum demPCT">50%</span></div></div>
     <div class='partyBlock'><div class="voteTotals">Votes: <span class='rcount'>0</span> | <span class="pctNum gopPCT">50%</span></div></div>
-</div>    
+</div>  -->   
 <div id="legendMargins" class="legendBlock">
     <div class="breaker"></div>
     <div class='partyBlock'>
@@ -1383,10 +1384,52 @@
 </div>
 
 </div>
+
+<div class="breaker"></div>
+
+<div class="table" id="table">
+  <div id="infobox"></div>
+  <div class="filter"><input type="search" class="filter_box" placeholder="Search races"></input></div>
+  <div id="allResults">
+<div class='president bigBoard'>
+<div class="dColumn tableCol"></div>
+<div class="mColumn tableCol"></div>
+<div class="rColumn tableCol"></div>
+</div>
+<div class='house bigBoard'>
+<div class="dColumn tableCol"></div>
+<div class="mColumn tableCol"></div>
+<div class="rColumn tableCol"></div>
+</div>
+<div class='senate bigBoard'>
+<div class="dColumn tableCol"></div>
+<div class="mColumn tableCol"></div>
+<div class="rColumn tableCol"></div>
+</div>
+<div class='governors bigBoard'>
+<div class="dColumn tableCol"></div>
+<div class="mColumn tableCol"></div>
+<div class="rColumn tableCol"></div>
+</div>
+<div class='mnhouse bigBoard'>
+<div class="dColumn tableCol"></div>
+<div class="mColumn tableCol"></div>
+<div class="rColumn tableCol"></div>
+</div>
+<div class='mnsenate bigBoard'>
+<div class="dColumn tableCol"></div>
+<div class="mColumn tableCol"></div>
+<div class="rColumn tableCol"></div>
+</div>
+  </div>
+</div>
+
 </div>
 <!-- end datavizPane -->
 </div>
 <!-- end fulldataviz -->
+
+
 
 </div>
 <!-- end wrapper -->
@@ -1402,8 +1445,11 @@
 <script src="../_common_resources/interfaces/d3.slider-master/d3.slider.js"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="./js/jquery.powertip.min.js"></script>
 
 <script>
+var thisView = "us";
+
 //data fetching function
 function fetchData(district,state,type,dataCompare,race,ev,label){
 
@@ -1434,9 +1480,14 @@ var voteCountD = 0;
 var winnerD = '';
 var pctD = 0;
 
-var voteCountO = 0;
-var pctO = 0;
+var firstM = '';
+var lastM = '';
+var partyM = '';
+var voteCountM = 0;
+var winnerM = '';
+var pctM = 0;
 
+var voteCountO = 0;
 var voteCountT = 0;
 
 
@@ -1538,6 +1589,13 @@ var voteCountT = 0;
                 incumbentD = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
                 voteCountD = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
                 winnerD = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else if (dataCompare.races[i].reportingUnits[j].candidates[k].last == "McMullin") {
+                firstM = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastM = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyM = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentM = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountM = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerM = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
               } else {
                 voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
               }
@@ -1567,6 +1625,13 @@ var voteCountT = 0;
                 incumbentD = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
                 voteCountD = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
                 winnerD = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else if (dataCompare.races[i].reportingUnits[j].candidates[k].last == "McMullin") {
+                firstM = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastM = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyM = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentM = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountM = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerM = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
               } else {
                 voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
               }
@@ -1577,13 +1642,21 @@ var voteCountT = 0;
    }
    } //end i loop
 
-   voteCountT = voteCountR + voteCountD + voteCountO;
+   voteCountT = voteCountR + voteCountD + voteCountO + voteCountM;
    pctR = voteCountR / voteCountT;
    pctD = voteCountD / voteCountT;
    pctO = voteCountO / voteCountT;
+   pctM = voteCountM / voteCountT;
 
   var evString = "";
   var stateString = state;
+
+  if ((race == "president" && state == "Utah") || (district > 49000 && district < 50000)){
+      var oString = "<div class='resultsRow'><div class='candidate'>" + firstM + " " + lastM + " (I)</div><div class='counts'>" + d3.format(",")(voteCountM) + "</div><div class='pct independent'>" + d3.format("%")(pctM) + "</div></div><div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>" + d3.format(",")(voteCountO) + "</div><div class='pct independent'>" + d3.format("%")(pctO) + "</div></div>";
+  } else {
+      var oString = "<div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>" + d3.format(",")(voteCountO) + "</div><div class='pct independent'>" + d3.format("%")(pctO) + "</div></div>";
+  }
+
 
   if (ev != null) { evString = "<span class='ev'> - " + ev + " electoral votes</span>"; }
   if (label != null) { stateString = label + ", " + statePostal; } else { stateString = state; }
@@ -1658,9 +1731,9 @@ var voteCountT = 0;
       else if (pctD >= .60) { var colorD = "d2"; } 
       else if (pctD >= 0) { var colorD = "d1"; }
 
-    if (pctR == 0 && pctD == 0 || (d3.format("%")(pctR) == "NaN" && d3.format("%")(pctD) == "NaN")) { return "<div class='districtName'>" + stateString + " " + evString + "</div><div class='resultsRow'><div>Candidate</div><div class='counts'>#</div><div class='pct'>%</div></div><div class='resultsRow'><div class='candidate'>" + firstR + " " + lastR + "</div><div class='counts'>0</div><div'>0%</div></div><div class='resultsRow'><div class='candidate'>" + firstD + " " + lastD + "</div><div class='counts'>0</div><div'>0%</div></div><div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>0</div><div class='pct independent'>0%</div></div><div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>"; }
-    else if (pctR > pctD) { return "<div class='districtName'>" + stateString + " " + evString + "</div><div class='resultsRow'><div>Candidate</div><div class='counts'>#</div><div class='pct'>%</div></div><div class='resultsRow'><div class='candidate'>" + firstR + " " + lastR + "</div><div class='counts'>" + d3.format(",")(voteCountR) + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div></div><div class='resultsRow'><div class='candidate'>" + firstD + " " + lastD + "</div><div class='counts'>" + d3.format(",")(voteCountD) + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div></div><div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>" + d3.format(",")(voteCountO) + "</div><div class='pct independent'>" + d3.format("%")(pctO) + "</div></div><div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>"; }
-    else { return "<div class='districtName'>" + stateString +  " " + evString + "</div><div class='resultsRow'><div>Candidate</div><div class='counts'>#</div><div class='pct'>%</div></div><div class='resultsRow'><div class='candidate'>" + firstD + " " + lastD + "</div><div class='counts'>" + d3.format(",")(voteCountD) + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div></div><div class='resultsRow'><div class='candidate'>" + firstR + " " + lastR + "</div><div class='counts'>" + d3.format(",")(voteCountR) + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div></div><div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>" + d3.format(",")(voteCountO) + "</div><div class='pct independent'>" + d3.format("%")(pctO) + "</div></div><div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>"; }
+    if (pctR == 0 && pctD == 0 || (d3.format("%")(pctR) == "NaN" && d3.format("%")(pctD) == "NaN")) { return "<div class='districtName'>" + stateString + " " + evString + "</div><div class='resultsRow'><div>Candidate</div><div class='counts'>#</div><div class='pct'>%</div></div><div class='resultsRow'><div class='candidate'>" + firstR + " " + lastR + " (R)</div><div class='counts'>0</div><div'>0%</div></div><div class='resultsRow'><div class='candidate'>" + firstD + " " + lastD + " (D)</div><div class='counts'>0</div><div'>0%</div></div><div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>0</div><div class='pct independent'>0%</div></div><div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>"; }
+    else if (pctR > pctD) { return "<div class='districtName'>" + stateString + " " + evString + "</div><div class='resultsRow'><div>Candidate</div><div class='counts'>#</div><div class='pct'>%</div></div><div class='resultsRow'><div class='candidate'>" + firstR + " " + lastR + " (R)</div><div class='counts'>" + d3.format(",")(voteCountR) + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div></div><div class='resultsRow'><div class='candidate'>" + firstD + " " + lastD + " (D)</div><div class='counts'>" + d3.format(",")(voteCountD) + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div></div>" + oString + "<div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>"; }
+    else { return "<div class='districtName'>" + stateString +  " " + evString + "</div><div class='resultsRow'><div>Candidate</div><div class='counts'>#</div><div class='pct'>%</div></div><div class='resultsRow'><div class='candidate'>" + firstD + " " + lastD + " (D)</div><div class='counts'>" + d3.format(",")(voteCountD) + "</div><div class='pct " + colorD + "'>" + d3.format("%")(pctD) + "</div></div><div class='resultsRow'><div class='candidate'>" + firstR + " " + lastR + " (R)</div><div class='counts'>" + d3.format(",")(voteCountR) + "</div><div class='pct " + colorR + "'>" + d3.format("%")(pctR) + "</div></div>" + oString + "<div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>"; }
   } //end table
 
   if (type == "pct"){
@@ -1680,6 +1753,10 @@ function makeTable(race){
 
 }
 
+function spillInfo(data){
+ $("#infobox").html(data);
+}
+
 function siftTable(race){
 
 
@@ -1691,19 +1768,68 @@ function resetTable(race){
 }
 //end table functions
 
+//ev data pull
+function pullEVCD(district){
+d3.csv("./data/evcd.csv", function(d) {
+  return {
+    district: d.district,
+    clinton: +d.clinton,
+    trump: d.trump,
+    other: +d.other,
+    label: d.label,
+    winner: d.winner
+  };
+}, function(error, rows) {
+
+var data = rows;
+
+var clintonEV = 0;
+var trumpEV = 0;
+var otherEV = 0;
+var color = "#ccc";
+
+for (var i=0; i < data.length; i++){
+    if (data[i].label == district){
+        clintonEV = data[i].clinton;
+        trumpEV = data[i].trump;
+        otherEV = data[i].other;
+        if (data[i].winner == "CLINTON") { color = "#3585BC"; }
+        else if (data[i].winner == "TRUMP") { color = "#d34A44"; }
+        else if (clintonEV > trumpEV) { color =  "#72A9D6"; }
+        else if (trumpEV > clintonEV) { color = "#f7816E"; }
+
+        $("#" + data[i].label).attr("fill",color);
+        $("." + data[i].label).css("background-color",color);
+    }
+}
+});
+
+}
+//end ev data pull
 
 //CARTOGRAMS
 function electoralCarto(data){
+    $('.cartoState').powerTip({
+    placement: 'ne' // north-east tooltip position
+});
+
     $('.cartoState').each(function(i, obj) {
         var color = fetchData($(this).attr("name"),$(this).attr("name"),"lean",data,"president");
         $(this).attr("fill", color);
+        $(this).data('powertip', function() {
+            return fetchData($(this).attr("name"),$(this).attr("name"),"tooltip",data,"president");
+        });
     });
 
-    // d3.selectAll(".cartoState")
-    //      .data(us.features)
-    //      .call(d3.helper.tooltip(function(d, i){
-    //      return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",data,"president"); }
-    //     }));
+// tooltips
+
+
+// infoboxes
+
+    pullEVCD("ME01");
+    pullEVCD("NE01");
+    pullEVCD("NE02");
+    pullEVCD("NE03");
 
     d3.helper.tooltip = function(accessor){
         return function(selection){
@@ -1797,9 +1923,12 @@ function makeCartogram() {
                     return color;
                 })
                 .attr('data-hash-key',function(d){ return d.properties.State + '-' + d.properties['d']; })
+                .on("mousedown", function(d, i){
+                    spillInfo(fetchData("District " + d.properties['d'],d.properties.State,"table",data,"ushouse",null,"District " + d.properties['d']))
+                })
                 .call(d3.helper.tooltip(function(d, i){
                     return fetchData("District " + d.properties['d'],d.properties.State,"tooltip",data,"ushouse",null,"District " + d.properties['d']);
-        }));
+                }));
             // g.append("g")
             // .attr("id", "states")
             // .selectAll("path")
@@ -2043,6 +2172,10 @@ $(window).on("resize", function() {
 
 function mapBuild(container, boxContainer, chartContainer, shape, race, geo, level, dataCompare, index, visible) {
 
+$('.block').powerTip({
+    placement: 'ne' // north-east tooltip position
+});
+
 if (geo=="us") { var width = 800, height = 600, centered; var projection = d3.geo.albersUsa().scale(1000).translate([400, 210]); }
 else if (geo=="mn") { var width = 400, height = 400, centered; var projection = d3.geo.mercator().scale([3200]).center([-89.736328,46.377254]); }
 else if (geo=="metro") { var width = 400, height = 400, centered; var projection = d3.geo.mercator().scale([16500]).center([-92.403259,44.988113]); }
@@ -2070,6 +2203,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
             if ($(this).hasClass(d.properties.STUSPS)){
             var color = fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race);
             $(this).css("background-color", color);
+            $(this).data('powertip', fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race));
             }
         });
             return fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race); 
@@ -2079,6 +2213,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
             if ($(this).hasClass(d.properties.STUSPS)){
             var color = fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race);
             $(this).css("background-color", color);
+            $(this).data('powertip', fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race));
             }
         });
             return fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race); 
@@ -2088,6 +2223,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
             if ($(this).hasClass(d.properties.STUSPS)){
             var color = fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race);
             $(this).css("background-color", color);
+            $(this).data('powertip', fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race));
             }
         });
             return fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race); 
@@ -2102,42 +2238,49 @@ d3.json("shapefiles/" + shape, function(error, us) {
         var str = d.properties.NAME; 
         $(".district").removeClass("selected");
       
-        if (race == "president" || race == "senate" ||  race == "governors"){ $("#infobox").html(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)); }
-        else if (race == "county"){ $("#infobox").html(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
-        else if (race == "mnsenate" || race == "mnhouse") { $("#infobox").html(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); }
+        if (race == "president" || race == "senate" ||  race == "governors"){ 
+            spillInfo(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)); $(".block").removeClass("blockSelect"); $("." + d.properties.STUSPS).addClass("blockSelect"); }
+        else if (race == "county"){ spillInfo(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
+        else if (race == "house"){ spillInfo(fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"table",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT)); } 
+        else if (race == "mnsenate" || race == "mnhouse") { spillInfo(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); }
 
-        else if (race == "pct"){
-                      $("#candidatePCTR, #candidatePCTD").removeClass("d4");
-                      $("#candidatePCTR, #candidatePCTD").removeClass("d3");
-                      $("#candidatePCTR, #candidatePCTD").removeClass("d2");
-                      $("#candidatePCTR, #candidatePCTD").removeClass("d1");
-                      $("#candidatePCTR, #candidatePCTD").removeClass("r4");
-                      $("#candidatePCTR, #candidatePCTD").removeClass("r3");
-                      $("#candidatePCTR, #candidatePCTD").removeClass("r2");
-                      $("#candidatePCTR, #candidatePCTD").removeClass("r1");
-                      $("#pctReported").html(0);
-                      $("#pctAll").html(0);
-                      $("#pctPCT").html(0);
+        // else if (race == "pct"){
+        //               $("#candidatePCTR, #candidatePCTD").removeClass("d4");
+        //               $("#candidatePCTR, #candidatePCTD").removeClass("d3");
+        //               $("#candidatePCTR, #candidatePCTD").removeClass("d2");
+        //               $("#candidatePCTR, #candidatePCTD").removeClass("d1");
+        //               $("#candidatePCTR, #candidatePCTD").removeClass("r4");
+        //               $("#candidatePCTR, #candidatePCTD").removeClass("r3");
+        //               $("#candidatePCTR, #candidatePCTD").removeClass("r2");
+        //               $("#candidatePCTR, #candidatePCTD").removeClass("r1");
+        //               $("#pctReported").html(0);
+        //               $("#pctAll").html(0);
+        //               $("#pctPCT").html(0);
 
-            for (var i=0; i < dataCompare.length; i++){
-            if (Number(d.properties.PCTCODE) == Number(dataCompare[i].pct_id)){
-              if (dataCompare[i].party_id == "R" && dataCompare[i].vote_pct >= 48) { 
-                $("#candidatePCTR").html(dataCompare[i].vote_pct + "%");
-                $("#candidateVotesR").html(0);
-                // $("#candidatePCTR").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
-              }
-              if (dataCompare[i].party_id == "DFL" && dataCompare[i].vote_pct >= 48) { 
-                $("#candidateVotesD").html(0);
-                $("#candidatePCTD").html(dataCompare[i].vote_pct + "%");
-                // $("#candidatePCTD").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
-              }
-            }
-          }
-        }
+        //     for (var i=0; i < dataCompare.length; i++){
+        //     if (Number(d.properties.PCTCODE) == Number(dataCompare[i].pct_id)){
+        //       if (dataCompare[i].party_id == "R" && dataCompare[i].vote_pct >= 48) { 
+        //         $("#candidatePCTR").html(dataCompare[i].vote_pct + "%");
+        //         $("#candidateVotesR").html(0);
+        //         // $("#candidatePCTR").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
+        //       }
+        //       if (dataCompare[i].party_id == "DFL" && dataCompare[i].vote_pct >= 48) { 
+        //         $("#candidateVotesD").html(0);
+        //         $("#candidatePCTD").html(dataCompare[i].vote_pct + "%");
+        //         // $("#candidatePCTD").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
+        //       }
+        //     }
+        //   }
+        // }
        })
       .style("stroke-width", "0.3px")
       .style("stroke", "#fff")
-      .attr("id",function(d){ return d.properties.STUSPS; })
+      .attr("id",function(d){ 
+        if (race == "president"){ return d.properties.STUSPS; }
+        else if (race == "senate"){ return d.properties.STUSPS + "s"; }
+        else if (race == "governors"){ return d.properties.STUSPS + "g"; }
+        else { return null; }
+      })
       .attr("class",function(d){
           if (race == "president"){ return "district " + d.properties.STUSPS; }
           if (race == "senate"){ 
@@ -2472,10 +2615,10 @@ function prezCrunch(data){
 
   $(".demsCount").html(dTally);
   $(".gopCount").html(rTally);
-  $(".dcount").html(d3.format(",")(votesD));
-  $(".rcount").html(d3.format(",")(votesR));
-  $(".demPCT").html(d3.format("%")(votesD/votesT));
-  $(".gopPCT").html(d3.format("%")(votesR/votesT)); 
+  // $(".dcount").html(d3.format(",")(votesD));
+  // $(".rcount").html(d3.format(",")(votesR));
+  // $(".demPCT").html(d3.format("%")(votesD/votesT));
+  // $(".gopPCT").html(d3.format("%")(votesR/votesT)); 
   $("#dWin").css("width", d3.format("%")((dTally/538)));
   $("#rWin").css("width", d3.format("%")((rTally/538)));
 
@@ -2600,12 +2743,72 @@ function loadBars(race){
 
 loadBars(currentrace);
 
+//carto clickies
+$(".cartoState").click(function() {
+ spillInfo(fetchData($(this).attr("name"),$(this).attr("name"),"table",data1,"president"));
+});
+
+$(".block").click(function() {
+$(".block").removeClass("blockSelect");
+$(this).addClass("blockSelect");
+//map interactive triggers
+  jQuery.fn.d3Click = function () {
+  this.each(function (i, e) {
+    var evt = document.createEvent("MouseEvents");
+    evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+    e.dispatchEvent(evt);
+  });
+};
+
+jQuery.fn.d3Down = function () {
+  this.each(function (i, e) {
+    var evt = document.createEvent("MouseEvents");
+    evt.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+    e.dispatchEvent(evt);
+  });
+};
+
+jQuery.fn.d3Up = function () {
+  this.each(function (i, e) {
+    var evt = document.createEvent("MouseEvents");
+    evt.initMouseEvent("mouseup", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+    e.dispatchEvent(evt);
+  });
+};
+
+    var findDistrict = $(this).attr("ab");
+    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Down();
+    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Up();
+    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Click();
+});
+
   //view toggles
 $(".has-sub").click(function() {
   $(".raceSwitch, li").removeClass("selected2");
 });
 
+//resets
+$(".zoom").click(function() {
+  $(".block").removeClass("blockSelect");
+  if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",data1,"president")); }
+  else if (thisView == "us") { spillInfo(fetchData("United States","United States","table",data1,"president")); }
+  else if (thisView == "cd") { spillInfo(fetchData("District 2","Minnesota","table",data6,"ushouse",null,"District 2")); }
+  else { $("#infobox").html(""); }
+});
+
 $(".raceSwitch").click(function() {
+  //infobox switches
+  thisView = $(this).attr("infobox");
+
+  if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",data1,"president")); }
+  else if (thisView == "us") { spillInfo(fetchData("United States","United States","table",data1,"president")); }
+  else if (thisView == "cd") { spillInfo(fetchData("District 2","Minnesota","table",data6,"ushouse",null,"District 2")); }
+  else { $("#infobox").html(""); }
+
+
   //button thingies
   $(".raceSwitch, li").removeClass("selected2");
   $(this).addClass("selected2");
@@ -2613,8 +2816,9 @@ $(".raceSwitch").click(function() {
   $(this).find("a").addClass("selected3");
 
   //show correct race
-  $(".dataviz").hide();
+  $(".dataviz, .bigBoard").hide();
   $("#" + $(this).attr("data")).show();
+  $("." + $(this).attr("data")).show();
   currentrace = $(this).attr("data");
 
   //show correct legend
@@ -2622,6 +2826,8 @@ $(".raceSwitch").click(function() {
   $("#" + $(this).attr("legend")).show();
   $(".dparty").html($(this).attr("dLabel"));
   $(".rparty").html($(this).attr("rLabel"));
+  if ($(this).attr("stateKey") == "showMe") { $(".sideStates").show(); }
+  else { $(".sideStates").hide(); }
   
   //show map or carto
   $(".map").hide();
@@ -2704,8 +2910,10 @@ if ((docwidth < 500)) {
 });
 
 toggleyBits(dataPrez,dataSen,dataGov,dataMNS,dataMNH,dataHouse);
+spillInfo(fetchData("United States","United States","table",dataPrez,"president"))
 
-$( "#prezButton" ).trigger("click");
+$("#prezButton").trigger("click");
+$("#table .president").show();
 
 window.setTimeout(function () { $("#message").html("Rendering results..."); }, 2800);
 
@@ -2775,9 +2983,17 @@ function mapReshade(container, shape, subject, race, dataCompare) {
            else if (race == "house") { return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"lean",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT); }
            else if (race == "mnsenate" || race == "mnhouse") { return fetchData("District " + d.properties.DISTRICT,"Minnesota","lean",dataCompare,race); }
           })
-         .on("mousedown", function(d, i){
+       .on("mousedown", function(d, i){
 
-         })
+        var str = d.properties.NAME; 
+        $(".district").removeClass("selected");
+      
+        if (race == "president" || race == "senate" ||  race == "governors"){ 
+            spillInfo(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)) }
+        else if (race == "county"){ spillInfo(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
+        else if (race == "house"){ spillInfo(fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"table",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT)); } 
+        else if (race == "mnsenate" || race == "mnhouse") { spillInfo(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); }
+        })
          .call(d3.helper.tooltip(function(d, i){
          if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race); }
          else if (race == "county") { return fetchData(d.properties.GEOID,null,"tooltip",dataCompare,race,null,d.properties.NAME); }
@@ -2792,9 +3008,10 @@ function mapReshade(container, shape, subject, race, dataCompare) {
         .style("fill", function(d){
            return fetchData("District " + d.properties['d'],d.properties.State,"lean",dataCompare,"ushouse",null,"District " + d.properties['d']); 
           })
-         .on("mousedown", function(d, i){
-
-         })
+        .attr("class","district")
+        .on("mousedown", function(d, i){
+            spillInfo(fetchData("District " + d.properties['d'],d.properties.State,"table",dataCompare,"ushouse",null,"District " + d.properties['d']));
+        })
          .call(d3.helper.tooltip(function(d, i){
          return fetchData("District " + d.properties['d'],d.properties.State,"tooltip",dataCompare,"ushouse",null,"District " + d.properties['d']);
         }));
@@ -2847,8 +3064,17 @@ var dataHouse = jsonSpillHouse;
   mapReshade("#MNSENATE .country", "mnsenate.json", "country", "mnsenate", dataMNS);
   mapReshade("#MNSENATEMETRO .country", "mnsenate_metro.json", "country", "mnsenate", dataMNS);
 
+  d3.selectAll("path")
+      .classed("faded", false)
+      .classed("active", false);
+  $(".block").removeClass("blockSelect");
 
   toggleyBits(dataPrez,dataSen,dataGov,dataMNS,dataMNH,dataHouse);
+
+  if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",dataPrez,"president")); }
+  else if (thisView == "us") { spillInfo(fetchData("United States","United States","table",dataPrez,"president")); }
+  else if (thisView == "cd") { spillInfo(fetchData("District 2","Minnesota","table",dataHouse,"ushouse",null,"District 2")); }
+  else { $("#infobox").html(""); }
 
   console.log("reloaded " + currentrace);
 
@@ -2860,6 +3086,7 @@ var dataHouse = jsonSpillHouse;
 });
 
 }
+
 
 //NAV MENU MAGICKS
 $('#cssmenu li.active').addClass('open').children('ul').show();
