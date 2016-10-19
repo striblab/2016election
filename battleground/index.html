@@ -142,7 +142,6 @@
     .tableHead { display:inline-block; padding:10px; border-bottom:1px solid #ddd; width:24%; font-weight:900; font-family:"Poynter Serif RE"; }
     .tableCell { display:inline-block; padding:10px; border-bottom:1px solid #ddd; width:24%; font-family:"Benton Sans"; }
     .tableBreak { clear:both; display:block; }
-/*    .table { text-align:center; width:100%; overflow-x:hidden; overflow-y:auto; height:auto; }*/
     input { border-radius:0 !important; margin-bottom:15px !important; }
     .chamberLabel { width:100%; display:block !important; text-align:center !important; margin-left:auto; margin-right:auto;  padding:7px; font-weight:900; }
     .district { display:inline-block; }
@@ -155,14 +154,15 @@
     .bigBoard { display:none; vertical-align:top; }
     input:focus { box-shadow: 0 0 5px #bbbbbb; padding: 3px 0px 3px 3px; border: 1px solid #bbbbbb; }
     .th { font-weight:900; }
-    .tableRow { text-align:left !important; margin:5px; display:inline-block; width:30%; vertical-align:top; border-right:1px solid #ddd; }
+    .tableRow { text-align:left !important; margin:5px; display:inline-block; width:32%; vertical-align:top; border-right:1px solid #ddd; }
     .searchTerms { display:none !important; }
+    .bigBoard { text-align:left; }
     .tableRow div { display:inline-block; width:24%; text-align:center; }
     .tableRow:hover { opacity:0.5; cursor:pointer; }
     .selectedBox { opacity:0.5; }
     .president .tableRow div { display:inline-block; width:19%; text-align:center; }
     .stateBlock { font-weight:900; color:#fff; }
-
+    .reporting { color:#bbbbbb !important; }
 
     /* HISTORICAL DATA */
     #historyview { width:540px; margin-left:auto; margin-right:auto; }
@@ -332,10 +332,11 @@ div#fulldataviz {
      @media (max-width:970px) {
       .sideStates { display:none !important; }
       .tableRow { width:47%; }
+      #allResults { height:950px; }
       path:hover { pointer-events:none !important; }
       .dlabel, .rlabel { font-size:1em; }
       .metro { display:none !important; }
-      .resultsRow { font-size:0.7em; }
+      .resultsRow { font-size:0.85em; }
       .label { width:48%; }
       .tooltip { display:;}
       .count { width:20%; font-size:1em; }
@@ -1881,16 +1882,16 @@ var voteCountT = 0;
       else if (pctD >= 0) { var colorD = "d1"; }
 
       if (race == "president"){
-      return "<div class='tableRow' name='" + statePostal + "'><div style='background-color:" + stateColor + ";' class='stateBlock'>" + statePostal + "</div><div class='pctBox'>" + ev + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pctD) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pctR) + "</div><div class='pctBox'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + firstR + " " + lastR + " " + firstD + " " + lastD +  "</div></div>";
+      return "<div class='tableRow' name='" + statePostal + "'><div style='background-color:" + stateColor + ";' class='stateBlock'>" + statePostal + "</div><div class='pctBox'>" + ev + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pctD) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pctR) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + firstR + " " + lastR + " " + firstD + " " + lastD +  "</div></div>";
       }
       if (race == "senate" || race == "governors"){
-      return "<div class='tableRow' name='" + statePostal + "'><div style='background-color:" + stateColor + ";' class='stateBlock'>" + statePostal + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pctD) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pctR) + "</div><div class='pctBox'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + firstR + " " + lastR + " " + firstD + " " + lastD +  "</div></div>";
+      return "<div class='tableRow' name='" + statePostal + "'><div style='background-color:" + stateColor + ";' class='stateBlock'>" + statePostal + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pctD) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pctR) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + firstR + " " + lastR + " " + firstD + " " + lastD +  "</div></div>";
       }
       if (race == "mnhouse" || race == "mnsenate"){
-      return "<div class='tableRow' name='" + label + "'><div style='background-color:" + stateColor + ";' class='stateBlock'>" + label + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pctD) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pctR) + "</div><div class='pctBox'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + firstR + " " + lastR + " " + firstD + " " + lastD +  "</div></div>";
+      return "<div class='tableRow' name='" + label + "'><div style='background-color:" + stateColor + ";' class='stateBlock'>" + label + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pctD) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pctR) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + firstR + " " + lastR + " " + firstD + " " + lastD +  "</div></div>";
       }
       if (race == "ushouse"){
-      return "<div class='tableRow' name='Minnesota" + label + "'><div style='background-color:" + stateColor + ";' class='stateBlock'>MN" + label + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pctD) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pctR) + "</div><div class='pctBox'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + firstR + " " + lastR + " " + firstD + " " + lastD +  "</div></div>";
+      return "<div class='tableRow' name='Minnesota" + label + "'><div style='background-color:" + stateColor + ";' class='stateBlock'>MN" + label + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pctD) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pctR) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + firstR + " " + lastR + " " + firstD + " " + lastD +  "</div></div>";
       }
   }
 
@@ -3390,7 +3391,7 @@ window.setTimeout(function () {
         }
     }, 1000);
 
-}, 5600);
+}, 6000);
 
 
 
