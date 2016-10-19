@@ -159,7 +159,7 @@
     .bigBoard { text-align:left; }
     .tableRow div { display:inline-block; width:24%; text-align:center; }
     .tableRow:hover { opacity:0.5; cursor:pointer; }
-    .selectedBox { opacity:0.5; }
+    .selectedBox { opacity:0.5 !important; }
     .president .tableRow div { display:inline-block; width:19%; text-align:center; }
     .stateBlock { font-weight:900; color:#fff; }
     .reporting { color:#bbbbbb !important; }
@@ -335,7 +335,7 @@ div#fulldataviz {
       #allResults { height:950px; }
       path:hover { pointer-events:none !important; }
       .dlabel, .rlabel { font-size:1em; }
-      .metro { display:none !important; }
+      .metroMap { display:none !important; }
       .resultsRow { font-size:0.85em; }
       .label { width:48%; }
       .tooltip { display:;}
@@ -345,11 +345,27 @@ div#fulldataviz {
       #datavizPane { width:100%; }
       #wrapper { width:100%; }
       #infobox { font-size:0.9em; }
-      .map { width:100%; height:auto; }
-      .carto { width:100%; height:auto; }
+      .map { width:100%; }
+      .carto { width:100%; }
       #rightSide, .dataviz { width:100%; float:none; }
       #historyview { width:100%; margin-left:auto; margin-right:auto; }
       #viewSwitches { display:block; border-right:0; }
+     }
+     @media (max-width:770px) {
+      .map { width:700px; height:auto; }
+      .carto { width:700px; height:auto; }
+     }
+     @media (max-width:630px) {
+      .map { width:600px; height:auto; }
+      .carto { width:600px; height:auto; }
+     }
+     @media (max-width:500px) {
+      .map { width:450px; height:auto; }
+      .carto { width:450px; height:auto; }
+     }
+     @media (max-width:420px) {
+      .map { width:100%; height:auto; }
+      .carto { width:100%; height:auto; }
      }
   </style>
 </head>
@@ -1417,7 +1433,7 @@ div#fulldataviz {
 <div id="mnhouse" class="dataviz">
 <div class="mapBox">
       <div class="mapState map geo"><svg id="MNHOUSE" width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
-      <div class="mapMetro map geo metro"><svg id="MNHOUSEMETRO" width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+      <div class="mapMetro map geo metroMap"><svg id="MNHOUSEMETRO" width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
       <div class="cartoState map normal carto"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
       <div class="cartoMetro map normal carto"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
 </div>
@@ -1427,7 +1443,7 @@ div#fulldataviz {
 <div id="mnsenate" class="dataviz">
 <div class="mapBox">
       <div class="mapState map geo"><svg id="MNSENATE" width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
-      <div class="mapMetro map geo metro"><svg id="MNSENATEMETRO" width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+      <div class="mapMetro map geo metroMap"><svg id="MNSENATEMETRO" width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
       <div class="cartoState map normal carto"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
       <div class="cartoMetro map normal carto"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
 </div>
@@ -2308,7 +2324,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
 
         var str = d.properties.NAME; 
         $(".district").removeClass("selected");
-        $(".tableRow").removeClass("selectedBox");
+        // $(".tableRow").removeClass("selectedBox");
         if (race == "president" || race == "senate" ||  race == "governors"){ 
             spillInfo(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)); $(".block").removeClass("blockSelect"); $("." + d.properties.STUSPS).addClass("blockSelect"); }
         else if (race == "county"){ spillInfo(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
