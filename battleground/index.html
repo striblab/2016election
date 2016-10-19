@@ -373,7 +373,7 @@ div#fulldataviz {
      @media (max-width:420px) {
       .partyBlock { width:18%; }
       .legendLabel { height:auto; }
-      .label, #dCheck, #rCheck { font-size:1em; }
+      .label, #dCheck, #rCheck { font-size:0.8em; }
       #infobox { font-size:0.8em; } 
       #powerbar { padding:1px; }
       .bigBoard { font-size:0.7em; }
@@ -3387,6 +3387,8 @@ if ((docwidth < 500)) {
 toggleyBits(dataPrez,dataSen,dataGov,dataMNS,dataMNH,dataHouse);
 spillInfo(fetchData("United States","United States","table",dataPrez,"president"))
 
+$(".dparty").html("Clinton");
+$(".rparty").html("Trump");
 $("#prezButton").trigger("click");
 $("#table .president").show();
 
