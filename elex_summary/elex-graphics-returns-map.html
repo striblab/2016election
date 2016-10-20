@@ -279,15 +279,18 @@ var apiStringSenate = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api
 var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
 var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnhouse-by-district/full.json";
 var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
+var apiStringEVCD = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-nebraska-maine/full.json";
 
 // var apiString = "./data/" + year + "_" + race + "_" + district + "_" + geo +".json"
 
+// d3.json(apiStringUS, function(error, jsonUS) {
 // d3.json(apiStringUS, function(error, jsonUS) {
 d3.json(apiStringCounty, function(error, jsonCounty) {
 d3.json(apiStringSenate, function(error, jsonSenate) {
 d3.json(apiStringHouse, function(error, jsonHouse) {
 d3.json(apiStringMNH, function(error, jsonMNH) {
 d3.json(apiStringMNS, function(error, jsonMNS) {
+d3.json(apiStringEVCD, function(error7, jsonSpillEVCD) {
 
 // var dataUS = jsonUS;
 var dataCounty = jsonCounty;
@@ -295,9 +298,10 @@ var dataSenate = jsonSenate;
 var dataHouse = jsonHouse;
 var dataMNH = jsonMNH;
 var dataMNS = jsonMNS;
+var dataEVCD = jsonSpillEVCD;
 
 //data fetching function
-function fetchData(district,state,type,dataCompare,race,ev,label){
+function fetchData(district,state,type,dataCompare,race,ev,label,evcd){
 
   //base: officeName
   //.reportingUnits[i]: .reportingunitName, statePostal, stateName, precinctsReporting, precinctsTotal, precinctsReportingPct, lastUpdated, level, fipsCode
@@ -376,7 +380,43 @@ var voteCountT = 0;
      
    } else {
      for (var j=0; j < dataCompare.races[i].reportingUnits.length; j++) {
-       if (state != null){
+       if (state != null && evcd != null) {
+         if (dataCompare.races[i].reportingUnits[j].statePostal == state && dataCompare.races[i].reportingUnits[j].reportingunitName == evcd){
+              stateName = dataCompare.races[i].reportingUnits[j].stateName;
+              statePostal = dataCompare.races[i].reportingUnits[j].statePostal;
+              precinctsReporting = dataCompare.races[i].reportingUnits[j].precinctsReporting;
+              precinctsTotal = dataCompare.races[i].reportingUnits[j].precinctsTotal;
+              precinctsReportingPct = dataCompare.races[i].reportingUnits[j].precinctsReportingPct;
+              lastUpdated = dataCompare.races[i].reportingUnits[j].lastUpdated;
+
+           for (var k=0; k < dataCompare.races[i].reportingUnits[j].candidates.length; k++) { 
+              if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP") {
+                firstR = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastR = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyR = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentR = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountR = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerR = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "Dem") {
+                firstD = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastD = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyD = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentD = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountD = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerD = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else if (dataCompare.races[i].reportingUnits[j].candidates[k].last == "McMullin") {
+                firstM = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastM = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyM = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentM = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountM = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerM = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else {
+                voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+              }
+           } //end k loop
+         }
+      } else if (state != null){
          if (dataCompare.races[i].reportingUnits[j].stateName == state){
               stateName = dataCompare.races[i].reportingUnits[j].stateName;
               statePostal = dataCompare.races[i].reportingUnits[j].statePostal;
@@ -400,6 +440,13 @@ var voteCountT = 0;
                 incumbentD = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
                 voteCountD = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
                 winnerD = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+              } else if (dataCompare.races[i].reportingUnits[j].candidates[k].last == "McMullin") {
+                firstM = dataCompare.races[i].reportingUnits[j].candidates[k].first;
+                lastM = dataCompare.races[i].reportingUnits[j].candidates[k].last;
+                partyM = dataCompare.races[i].reportingUnits[j].candidates[k].party;
+                incumbentM = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
+                voteCountM = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
+                winnerM = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
               } else {
                 voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
               }
@@ -544,32 +591,6 @@ var voteCountT = 0;
   }
 
 }//end fetchData
-
-
-//CRUNCH KEY RESULTS
-function prezCrunch(){
-
-  var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
-
-  var evList = [9,3,11,6,55,9,7,3,3,29,16,4,4,20,11,6,6,8,8,4,10,11,16,10,6,10,3,5,6,4,14,5,29,15,3,18,7,7,20,4,9,3,11,38,6,3,13,12,5,10,3];
-
-  var dTally = 0;
-  var rTally = 0;
-
-  for (var i=0; i < stateList.length; i++){
-    var updated = fetchData(null,stateList[i],"winner",dataCounty,"president",null,null);
-
-    if (updated == "GOP Win") { rTally += evList[i]; }
-    else if (updated == "DEM Win") { dTally += evList[i]; }
-
-  }
-
-  $("#demPres").html(dTally);
-  $("#repPres").html(rTally);
-  $("#demBarPres").css("width", d3.format("%")(dTally/538));
-  $("#repBarPres").css("width", d3.format("%")(rTally/538));
-
-}
 
 //MAPPAGE
 function mapReshade(container, shape, subject, race, dataCompare, visible, demoData, demoData2) {
@@ -1024,7 +1045,7 @@ function prezCrunch(){
 
   var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
 
-  var evList = [9,3,11,6,55,9,7,3,3,29,16,4,4,20,11,6,6,8,8,4,10,11,16,10,6,10,3,5,6,4,14,5,29,15,3,18,7,7,20,4,9,3,11,38,6,3,13,12,5,10,3];
+  var evList = [9,3,11,6,55,9,7,3,3,29,16,4,4,20,11,6,6,8,8,2,10,11,16,10,6,10,3,2,6,4,14,5,29,15,3,18,7,7,20,4,9,3,11,38,6,3,13,12,5,10,3];
 
   var dTally = 0;
   var rTally = 0;
@@ -1036,6 +1057,23 @@ function prezCrunch(){
     else if (updated == "DEM Win") { dTally += evList[i]; }
 
   }
+
+  var me1W = fetchData(null,"ME","winner",dataEVCD,"president",null,null,"District 1");
+  var me2W = fetchData(null,"ME","winner",dataEVCD,"president",null,null,"District 2");
+  var ne1W = fetchData(null,"NE","winner",dataEVCD,"president",null,null,"District 1");
+  var ne2W = fetchData(null,"NE","winner",dataEVCD,"president",null,null,"District 2");
+  var ne3W = fetchData(null,"NE","winner",dataEVCD,"president",null,null,"District 3");
+
+  if (me1W == "GOP Win") { rTally++; }
+  else if (me1W == "DEM Win") { dTally++; }
+  if (me2W == "GOP Win") { rTally++; }
+  else if (me2W == "DEM Win") { dTally++; }
+  if (ne1W == "GOP Win") { rTally++; }
+  else if (ne1W == "DEM Win") { dTally++; }
+  if (ne2W == "GOP Win") { rTally++; }
+  else if (ne2W == "DEM Win") { dTally++; }
+  if (ne3W == "GOP Win") { rTally++; }
+  else if (ne3W == "DEM Win") { dTally++; }
 
   $("#us-dem-pop").html(dTally);
   $("#us-gop-pop").html(rTally);
@@ -1068,6 +1106,7 @@ $(document).ready(function() {
  $.ajaxSetup({ cache: false });
 });
 
+});
 });
 });
 });
