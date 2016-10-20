@@ -3823,6 +3823,7 @@ $(".raceSwitch").click(function() {
   //infobox switches
   thisView = $(this).attr("infobox");
 
+
   if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",data1,"president")); }
   else if (thisView == "us") { spillInfo(fetchData("United States","United States","table",data1,"president")); }
   else if (thisView == "cd") { spillInfo(fetchData("District 2","Minnesota","table",data6,"ushouse",null,"District 2")); }
@@ -4243,10 +4244,8 @@ $('#cssmenu li.active').addClass('open').children('ul').show();
         }
     });
 
-var flip = 0;
-$( "button" ).click(function() {
-  $( "#mobmenu" ).toggle( flip++ % 2 === 0 );
-});
+$( "button" ).click(function() { $("#mobmenu").toggle(); });
+$("#mobmenu .raceSwitch").click(function() { $("#mobmenu").toggle(); });
 </script>
 
 </html>
