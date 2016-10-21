@@ -10,8 +10,7 @@
   <meta name="author" content="Frey Hargarten - StarTribune">
 
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
-  <link rel="stylesheet" href="../_common_resources/interfaces/d3.slider-master/d3.slider.css" />
-  <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" /> -->
   
   <style>
     /* PAGE BASE */
@@ -37,7 +36,7 @@
     .dataviz { width:100%;  }
     #rightSide { width:100%; font-size:.8em; }
 
-    #allResults { border-right:2px solid #ddd; overflow-x:hidden; height:650px; overflow-y:auto; }
+    #allResults { border-right:2px solid #ddd; overflow-x:hidden; /*height:1050px; overflow-y:auto;*/ }
 
      /* MAPS */
     .map, .carto { width:800px; margin-right:auto; margin-left:auto; text-align:center;  }
@@ -93,12 +92,20 @@
     .r2 { background-color:#e58970; fill:#e58970 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .r3 { background-color:#df6a4c; fill:#df6a4c !important; color:white !important; pointer-events: all; font-weight:bold; }
     .r4 { background-color:#d84c27; fill:#d84c27 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .r1b { border:1px solid #eca795; fill:#eca795 !important; color:black !important; pointer-events: all; font-weight:bold; }
+    .r2b { border:1px solid #e58970; fill:#e58970 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .r3b { border:1px solid #df6a4c; fill:#df6a4c !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .r4b { border:1px solid #d84c27; fill:#d84c27 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .mid { background-color:#fff !important; fill:#ddd !important; color:#bbb !important; pointer-events: all; font-weight:bold; }
     .gray3 { color:black !important; }
     .d1 { background-color:#97bedb; fill:#97bedb !important; color:black !important; pointer-events: all; font-weight:bold; }
     .d2 { background-color:#73a7ce; fill:#73a7ce !important; color:white !important; pointer-events: all; font-weight:bold; }
     .d3 { background-color:#4f90c1; fill:#4f90c1 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .d4 { background-color:#2b7ab5; fill:#2b7ab5 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .d1b { border:1px solid #97bedb; fill:#97bedb !important; color:black !important; pointer-events: all; font-weight:bold; }
+    .d2b { border:1px solid #73a7ce; fill:#73a7ce !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .d3b { border:1px solid #4f90c1; fill:#4f90c1 !important; color:white !important; pointer-events: all; font-weight:bold; }
+    .d4b { border:1px solid #2b7ab5; fill:#2b7ab5 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .independent { fill:#66AF50; background-color:#66AF50; color:#333 !important; }
     .none { fill:#cccccc !important; background-color:#cccccc !important; }
     path { stroke-opacity:0.7 !important; }
@@ -113,6 +120,7 @@
     .legendBlock { text-align:left; }
     .smallLabel { text-align:center; font-size:0.8em; }
     .legendLabel { text-align:center; font-weight:900; color:#333; }
+    .footnote { clear:both; color:#bbbbbb; display:block; font-size:0.7em; display:none; }
     
     /* CARTOGRAMS */
     .dem rect { fill:#3F88C5 !important; }
@@ -235,7 +243,7 @@
     to { transform: rotate(359deg); }
     }
     .loading-mask::after { content: ""; position: absolute; border-width: 3px; border-style: solid; border-color: transparent rgb(255, 255, 255) rgb(255, 255, 255); border-radius: 50%; width: 24px; height: 24px;  top: calc(50% - 12px); left: calc(50% - 12px); animation: 2s linear 0s normal none infinite running spin; filter: drop-shadow(0 0 2 rgba(0, 0, 0, 0.33)); }
-    #message { width:100%; margin:0,auto; text-align:center; position:absolute; top:45%; }
+    #message { width:100%; margin:0,auto; text-align:center; position:absolute; top:20%; }
     #loader { position:absolute; top:0; bottom:0; right:0; left:0; }
     #countdown { color:#000; text-align:left; padding:5px; margin-left:18px; }
 
@@ -438,44 +446,35 @@ a:link {
   transition: all 0.1s ease-out;  
 }
 
-#cssmenu ul > li.has-sub > a:after {
+#cssmenu ul > li.has-sub > a i.fa.fa-chevron-down {
   position: absolute;
   right: 26px;
-  top: 19px;
+  top: 15px;
   z-index: 5;
   display: block;
-  height: 10px;
-  width: 2px;
-  background: #757575;
-  content: "";
   -webkit-transition: all 0.1s ease-out;
   -moz-transition: all 0.1s ease-out;
   -ms-transition: all 0.1s ease-out;
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-#cssmenu ul > li.has-sub > a:before {
+#cssmenu ul > li.has-sub > a i.fa.fa-chevron-down {
   position: absolute;
   right: 22px;
-  top: 23px;
+  top: 15px;
   display: block;
-  width: 10px;
-  height: 2px;
-  background: #757575;
-  content: "";
   -webkit-transition: all 0.1s ease-out;
   -moz-transition: all 0.1s ease-out;
   -ms-transition: all 0.1s ease-out;
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-#cssmenu ul > li.has-sub.open > a:after,
-#cssmenu ul > li.has-sub.open > a:before {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+#cssmenu ul > li.has-sub.open > a i.fa.fa-chevron-down {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 #cssmenu ul ul li a {
   padding: 14px 22px;
@@ -570,44 +569,35 @@ a:link {
   transition: all 0.1s ease-out;  
 }
 
-#mobmenu ul > li.has-sub > a:after {
+#mobmenu ul > li.has-sub > a i.fa.fa-chevron-down {
   position: absolute;
   right: 26px;
-  top: 19px;
+  top: 15px;
   z-index: 5;
   display: block;
-  height: 10px;
-  width: 2px;
-  background: #757575;
-  content: "";
   -webkit-transition: all 0.1s ease-out;
   -moz-transition: all 0.1s ease-out;
   -ms-transition: all 0.1s ease-out;
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-#mobmenu ul > li.has-sub > a:before {
+#mobmenu ul > li.has-sub > a i.fa.fa-chevron-down {
   position: absolute;
   right: 22px;
-  top: 23px;
+  top: 15px;
   display: block;
-  width: 10px;
-  height: 2px;
-  background: #757575;
-  content: "";
   -webkit-transition: all 0.1s ease-out;
   -moz-transition: all 0.1s ease-out;
   -ms-transition: all 0.1s ease-out;
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-#mobmenu ul > li.has-sub.open > a:after,
-#mobmenu ul > li.has-sub.open > a:before {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+#mobmenu ul > li.has-sub.open > a i.fa.fa-chevron-down {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 #mobmenu ul ul li a {
   padding: 14px 22px;
@@ -671,12 +661,101 @@ a:link {
   
 }
 
+#table {
+    height: auto;
+    vertical-align: top;
+    padding: 10px;
+}
+.tableRow {
+    text-align: left !important;
+    margin: 3px;
+    display: inline-block;
+    width: 32%;
+    vertical-align: top;
+    padding: 5px 0px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: white;
+    font-size: .8em;
+}
+.tableRow .d1 {    /*background-color: #97bedb;*/
+    fill: #97bedb !important;
+    color: black !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 2px;
+}
+/* .d1 winner */
+.tableRow .d1b, .tableRow .d2b, .tableRow .d3b, .tableRow .d4b {
+    color: #000 !important;
+    pointer-events: all;
+    font-weight: bold;
+    border-radius: 2px;
+    padding: 6px 0px;
+}
+/* .r1 winner */
+.tableRow .r1b, .tableRow .r2b, .tableRow .r3b, .tableRow .r4b {
+    color: #000 !important;
+    pointer-events: all;
+    font-weight: bold;
+    border-radius: 2px;
+    padding: 6px 0px;
+}
+.stateBlockR {
+    font-weight: 900;
+    color: #000;
+}
+.tableRow .democrat {
+    fill: #3585BC !important;
+    pointer-events: all;
+    font-weight: bold;
+    color:#fff !important;
+    stroke: none;
+}
+.tableRow .republican {
+    fill: #d34A44 !important;
+    pointer-events: all;
+    font-weight: bold;
+    color:#fff !important;
+    stroke: none;
+}
+
+#infobox {
+    height: 133px;
+    width: 100%;
+    text-align: left;
+    float: right;
+    margin-bottom: 15px;
+}
+#infobox .resultsRow:nth-child(2) {
+    border-bottom: 0px;
+}
+.resultsRow {
+    padding: 3px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+#infobox .resultsRow:nth-child(5) {
+    border-bottom: 0px;
+}
+input {
+    border-radius: 0 !important;
+    margin-bottom: 15px !important;
+    padding: 0 12px;
+}
+
+    .shareRow{width:100%;float:left;margin-bottom:18px;text-align:left;padding-left:23px;}
+    .shareRow a{cursor:pointer;}
+    .shareRow a:hover{opacity: 0.5;}
+    .shareLeft{display:inline-block;}
+    .shareRight{display:inline-block;}
 
     /* BREAKPOINTS */
      @media (max-width:970px) {
       .sideStates { display:none !important; }
+      .footnote { display:none; }
       .tableRow { width:47%; }
-      #allResults { height:950px; }
+/*      #allResults { height:950px; }*/
       .dlabel, .rlabel { font-size:1em; }
       .metroMap { display:none !important; }
       .resultsRow { font-size:0.85em; }
@@ -785,9 +864,21 @@ a:link {
    </li> 
    <li class="raceSwitch advance uszoom"  section="senate" data="senate" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="showMe" infobox="none"><a href='#'><div><div>U.S. Senate</div></div></a></li>  
    <li class="raceSwitch advance uszoom" section="governors" data="governors" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="showMe" infobox="none"><a href='#'><div><div>Governors</div></div></a></li>
-   <li section="mnhouse" class="raceSwitch advance uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN House</a>
-   <li section="mnsenate" class="raceSwitch advance uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN Senate</a>   
+   <li section="mnhouse" class="raceSwitch advance uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN House</a></li>
+   <li section="mnsenate" class="raceSwitch advance uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN Senate</a> </li>
 </ul>
+<li class="advance"><div class="shareRow">
+    <div class="shareLeft">
+        <a href="http://www.facebook.com/share.php?u=&lt;url&gt;" onclick="return fbs_click()" target="_blank">
+            <img style="width:30px;" src="http://stmedia.startribune.com/designimages/faceBookCustomIcon.png">
+        </a>
+    </div>
+    <div class="shareRight">
+        <a id="twitterbtn-link" onclick="return twitter_click('https://twitter.com/share?url=ENCODEDURL&amp;counturl=ENCODEDURL&amp;text=ENCODEDTWEETTEXT&amp;via=StarTribune')">
+            <img style="width:30px;" src="http://stmedia.startribune.com/designimages/twitterCustomIcon.png">
+        </a> 
+    </div>
+</div></li>
 </div>
 
 <!-- RACE SWITCHING BAR -->
@@ -822,8 +913,20 @@ a:link {
    </li> 
    <li class="raceSwitch advance uszoom"  section="senate" data="senate" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="showMe" infobox="none"><a href='#'><div><div>U.S. Senate</div></div></a></li> 
    <li class="raceSwitch advance uszoom" section="governors" data="governors" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="showMe" infobox="none"><a href='#'><div><div>Governors</div></div></a></li>
-   <li section="mnhouse" class="raceSwitch advance uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN House</a>
-   <li section="mnsenate" class="raceSwitch advance uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN Senate</a>  
+   <li section="mnhouse" class="raceSwitch advance uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN House</a></li>
+   <li section="mnsenate" class="raceSwitch advance uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN Senate</a></li>
+<li><div class="shareRow">
+    <div class="shareLeft">
+        <a href="http://www.facebook.com/share.php?u=&lt;url&gt;" onclick="return fbs_click()" target="_blank">
+            <img style="width:30px;" src="http://stmedia.startribune.com/designimages/faceBookCustomIcon.png">
+        </a>
+    </div>
+    <div class="shareRight">
+        <a id="twitterbtn-link" onclick="return twitter_click('https://twitter.com/share?url=ENCODEDURL&amp;counturl=ENCODEDURL&amp;text=ENCODEDTWEETTEXT&amp;via=StarTribune')">
+            <img style="width:30px;" src="http://stmedia.startribune.com/designimages/twitterCustomIcon.png">
+        </a> 
+    </div>
+</div></li>
 </ul>
 </div>
 </div>
@@ -1789,6 +1892,7 @@ a:link {
 
 <!-- SENATE PANES -->
 <div id="senate" class="dataviz">
+<small class="footnote">Notes: Two independent senators caucus with Democrats. In Louisiana's Senate race, there's a run-off on Dec. 10 nobody received a majority vote</small>
 <div class="mapBox">
 <div id="mapSen" class="map geo"><svg id="USSENATE" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg>
 <div class="sideStates"><div class="block stateBlock VT" name="Vermont" ab="VTs">VT</div><div class="block stateBlock NH" name="New Hampshire" ab="NHs">NH</div><div class="block stateBlock CT" name="Connecticut" ab="CTs">CT</div><div class="block stateBlock MD" name="Maryland" ab="MDs">MD</div></div>
@@ -1800,10 +1904,10 @@ a:link {
 <!-- GOVERNORS PANES -->
 <div id="governors" class="dataviz">
 <div class="mapBox">
+<small class="footnote">Note: Alaska has an independent governor</small>
 <div id="mapGov" class="map geo"><svg id="USGOV" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg>
 <div class="sideStates"><div class="block stateBlock VT" name="Vermont" ab="VTg">VT</div><div class="block stateBlock NH" name="New Hampshire" ab="NHg">NH</div><div class="block stateBlock DE" name="Delaware" ab="DEg">DE</div></div>
 </div>
-<div id="cartoGov" class="map normal carto"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 </div>
 </div>
 
@@ -1818,6 +1922,7 @@ a:link {
 
 <!-- MNHOUSE PANES -->
 <div id="mnhouse" class="dataviz">
+<small class="footnote">Note: Some candidates are running unopposed</small>
 <div class="mapBox">
       <div class="mapState map geo"><svg id="MNHOUSE" width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
       <div class="mapMetro map geo metroMap"><svg id="MNHOUSEMETRO" width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
@@ -1828,6 +1933,7 @@ a:link {
 
 <!-- MNSENATE PANES -->
 <div id="mnsenate" class="dataviz">
+<small class="footnote">Note: Some candidates are running unopposed</small>
 <div class="mapBox">
       <div class="mapState map geo"><svg id="MNSENATE" width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
       <div class="mapMetro map geo metroMap"><svg id="MNSENATEMETRO" width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
@@ -1958,8 +2064,6 @@ a:link {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="../_common_resources/interfaces/d3.slider-master/d3.slider.js"></script>
-<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 
 <script>
@@ -2219,19 +2323,23 @@ var voteCountT = 0;
                 winnerW = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
           } //end winner check
               if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP" && firstR == '') {
+                if (stateName != "Lousiana" && dataCompare.races[i].reportingUnits[j].candidates[k].last != "Fleming"){
                 firstR = dataCompare.races[i].reportingUnits[j].candidates[k].first;
                 lastR = dataCompare.races[i].reportingUnits[j].candidates[k].last;
                 partyR = dataCompare.races[i].reportingUnits[j].candidates[k].party;
                 incumbentR = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
                 voteCountR = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
                 winnerR = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+                } else { voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount; }
               } else if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP" && firstR != '') {
+                if (stateName != "Lousiana" && dataCompare.races[i].reportingUnits[j].candidates[k].last != "Fleming"){
                 firstR2 = dataCompare.races[i].reportingUnits[j].candidates[k].first;
                 lastR2 = dataCompare.races[i].reportingUnits[j].candidates[k].last;
                 partyR2 = dataCompare.races[i].reportingUnits[j].candidates[k].party;
                 incumbentR2 = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
                 voteCountR2 = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
                 winnerR2 = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
+                } else { voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount; }
               } else if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "Dem" && firstD == '') {
                 firstD = dataCompare.races[i].reportingUnits[j].candidates[k].first;
                 lastD = dataCompare.races[i].reportingUnits[j].candidates[k].last;
@@ -2322,7 +2430,7 @@ var voteCountT = 0;
    }
    } //end i loop
 
-   voteCountT = voteCountR + voteCountD + voteCountO + voteCountM + voteCountR2 + voteCountD2 + voteCountW;
+   voteCountT = voteCountR + voteCountD + voteCountO + voteCountM + voteCountR2 + voteCountD2;
    pctR = voteCountR / voteCountT;
    pctD = voteCountD / voteCountT;
    pctR2 = voteCountR2 / voteCountT;
@@ -2560,57 +2668,58 @@ var voteCountT = 0;
   } //end table
 
   if (type == "board"){
-      if (winnerD == "X" || winnerD2 == "X") { var stateColor = "democrat"; var align = "left"; }
-      else if (winnerR == "X" || winnerR2 == "X") { var stateColor = "republican"; var align = "right"; }
-      else if (winnerM == "X") { var stateColor = "green4"; }
-      else { var stateColor = "gray3"; var align = "center"; }
+      if (winnerD == "X" || winnerD2 == "X") { var stateColorD = "democrat"; var stateColorR = ""; var align = "left"; }
+      else if (winnerR == "X" || winnerR2 == "X") { var stateColorR = "republican"; stateColorD = ""; var align = "right"; }
+      else if (winnerM == "X") { var stateColorD = "green4"; }
+      else { var stateColor = ""; var align = "center"; }
 
     if (raceType == "DR"){
-      if (pct2 >= .80) { var colorR = "r4"; } 
-      else if (pct2 >= .70) { var colorR = "r3"; } 
-      else if (pct2 >= .60) { var colorR = "r2"; } 
-      else if (pct2 >= 0) { var colorR = "r1"; } 
-      if (pct1 >= .80) { var colorD = "d4"; }
-      else if (pct1 >= .70) { var colorD = "d3"; } 
-      else if (pct1 >= .60) { var colorD = "d2"; } 
-      else if (pct1 >= 0) { var colorD = "d1"; } 
+
+      if (pct2 >= .80) { var colorR = "r4b"; } 
+      else if (pct2 >= .70) { var colorR = "r3b"; } 
+      else if (pct2 >= .60) { var colorR = "r2b"; } 
+      else if (pct2 >= 0) { var colorR = "r1b"; } 
+      if (pct1 >= .80) { var colorD = "d4b"; }
+      else if (pct1 >= .70) { var colorD = "d3b"; } 
+      else if (pct1 >= .60) { var colorD = "d2b"; } 
+      else if (pct1 >= 0) { var colorD = "d1b"; } 
     } else if (raceType == "DD"){
-      if (pct2 >= .80) { var colorR = "d4"; } 
-      else if (pct2 >= .70) { var colorR = "d3"; } 
-      else if (pct2 >= .60) { var colorR = "d2"; } 
-      else if (pct2 >= 0) { var colorR = "d1"; } 
-      if (pct1 >= .80) { var colorD = "d4"; }
-      else if (pct1 >= .70) { var colorD = "d3"; } 
-      else if (pct1 >= .60) { var colorD = "d2"; } 
-      else if (pct1 >= 0) { var colorD = "d1"; }
+      if (pct2 >= .80) { var colorR = "d4b"; } 
+      else if (pct2 >= .70) { var colorR = "d3b"; } 
+      else if (pct2 >= .60) { var colorR = "d2b"; } 
+      else if (pct2 >= 0) { var colorR = "d1b"; } 
+      if (pct1 >= .80) { var colorD = "d4b"; }
+      else if (pct1 >= .70) { var colorD = "d3b"; } 
+      else if (pct1 >= .60) { var colorD = "d2b"; } 
+      else if (pct1 >= 0) { var colorD = "d1b"; }
     }  else if (raceType == "RR"){
-      if (pct2 >= .80) { var colorR = "r4"; } 
-      else if (pct2 >= .70) { var colorR = "r3"; } 
-      else if (pct2 >= .60) { var colorR = "r2"; } 
-      else if (pct2 >= 0) { var colorR = "r1"; } 
-      if (pct1 >= .80) { var colorD = "r4"; }
-      else if (pct1 >= .70) { var colorD = "r3"; } 
-      else if (pct1 >= .60) { var colorD = "r2"; } 
-      else if (pct1 >= 0) { var colorD = "r1"; }
+      if (pct2 >= .80) { var colorR = "r4b"; } 
+      else if (pct2 >= .70) { var colorR = "r3b"; } 
+      else if (pct2 >= .60) { var colorR = "r2b"; } 
+      else if (pct2 >= 0) { var colorR = "r1b"; } 
+      if (pct1 >= .80) { var colorD = "r4b"; }
+      else if (pct1 >= .70) { var colorD = "r3b"; } 
+      else if (pct1 >= .60) { var colorD = "r2b"; } 
+      else if (pct1 >= 0) { var colorD = "r1b"; }
     }
 
      if (isNaN(pct2)) { pct2 = 0; }
      if (isNaN(pct1)) { pct1 = 0; }
 
       if (race == "president" && evcd != null){
-      return "<div id='evcd" + label + "' class='tableRow evcd " + align + "' name='" + label + "'><div class='stateBlockR " + stateColor + "'>" + label + "</div><div class='pctBox'>" + ev + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
+      return "<div id='evcd" + label + "' class='tableRow evcd " + align + "' name='" + label + "'><div class='stateBlockR'>" + label + "</div><div class='pctBox'>" + ev + "</div><div class='pctBox " + colorD + " " + stateColorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
       }
       if (race == "president"){
-      return "<div class='tableRow " + align + "' name='" + statePostal + "'><div class='stateBlockR " + stateColor + "'>" + statePostal + "</div><div class='pctBox'>" + ev + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
+      return "<div class='tableRow " + align + "' name='" + statePostal + "'><div class='stateBlockR'>" + statePostal + "</div><div class='pctBox'>" + ev + "</div><div class='pctBox " + colorD + " " + stateColorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + " " + stateColorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
       }
       if (race == "senate" || race == "governors"){
-      return "<div class='tableRow " + align + "' name='" + statePostal + "'><div class='stateBlockR " + stateColor + "'>" + statePostal + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
+      return "<div class='tableRow " + align + "' name='" + statePostal + "'><div class='stateBlockR'>" + statePostal + "</div><div class='pctBox " + colorD + " " + stateColorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + " " + stateColorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
       }
       if (race == "mnhouse" || race == "mnsenate"){
-      return "<div class='tableRow " + align + "' name='" + label + "'><div class='stateBlockR " + stateColor + "'>" + label + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
+      return "<div class='tableRow " + align + "' name='" + label + "'><div class='stateBlockR'>" + label + "</div><div class='pctBox " + colorD + " " + stateColorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + " " + stateColorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
       }
       if (race == "ushouse"){
-      return "<div class='tableRow " + align + "' name='Minnesota" + label + "'><div class='stateBlockR " + stateColor + "'>MN" + label + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
+      return "<div class='tableRow " + align + "' name='Minnesota" + label + "'><div class='stateBlockR'>MN" + label + "</div><div class='pctBox " + colorD + " " + stateColorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + " " + stateColorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
       }
   }
 
@@ -2983,7 +3092,8 @@ d3.json("shapefiles/" + shape, function(error, us) {
         var str = d.properties.NAME; 
         $(".district").removeClass("selected");
         $(".tableRow").removeClass("selectedBox");
-        $(".tableRow[name=" + d.properties.STUSPS).addClass("selectedBox");
+        $(".tableRow[name=" + d.properties.STUSPS + "]").addClass("selectedBox");
+        $(".tableRow[name=" + d.properties.DISTRICT + "]").addClass("selectedBox");
         if (race == "president" || race == "senate" ||  race == "governors"){ 
             spillInfo(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)); $(".block").removeClass("blockSelect"); $("." + d.properties.STUSPS).addClass("blockSelect"); }
         else if (race == "county"){ spillInfo(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
@@ -3818,6 +3928,9 @@ function mnsenCrunch(data){
     });
 
 $(".mnsenate .tableRow").click(function() {
+         d3.selectAll("path")
+      .classed("faded", false)
+      .classed("active", false);
 $(".tableRow").removeClass("selectedBox");
 $(this).addClass("selectedBox");
 //map interactive triggers
@@ -4313,7 +4426,7 @@ $(".rparty").html("Trump");
 $("#prezButton").trigger("click");
 $("#table .president").show();
 
-window.setTimeout(function () { $("#message").html("Rendering results..."); }, 2800);
+window.setTimeout(function () { $("#message").html("Rendering results..."); }, 4000);
 
 window.setTimeout(function () {
   
@@ -4332,7 +4445,7 @@ window.setTimeout(function () {
         }
     }, 1000);
 
-}, 6000);
+}, 7000);
 
 
 
@@ -4387,7 +4500,8 @@ function mapReshade(container, shape, subject, race, dataCompare) {
         var str = d.properties.NAME; 
         $(".district").removeClass("selected");
         $(".tableRow").removeClass("selectedBox");
-        $(".tableRow[name=" + d.properties.STUSPS).addClass("selectedBox");
+        $(".tableRow[name=" + d.properties.STUSPS + "]").addClass("selectedBox");
+        $(".tableRow[name=" + d.properties.DISTRICT + "]").addClass("selectedBox");
         if (race == "president" || race == "senate" ||  race == "governors"){ 
             spillInfo(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)); $(".block").removeClass("blockSelect"); $("." + d.properties.STUSPS).addClass("blockSelect"); }
         else if (race == "county"){ spillInfo(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
@@ -4518,5 +4632,13 @@ $('#cssmenu li.active').addClass('open').children('ul').show();
 $( "button" ).click(function() { $("#mobmenu").toggle(); });
 $("#mobmenu .raceSwitch").click(function() { $("#mobmenu").toggle(); });
 </script>
-
+`<script>
+    function fbs_click() {
+    u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=520,height=350');return false;
+    }
+    function twitter_click(url){newwindow=window.open(url,'name','height=350,width=520');
+        if (window.focus) {newwindow.focus()}
+        return false;
+    }
+</script>`
 </html>

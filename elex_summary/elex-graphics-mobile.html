@@ -819,7 +819,7 @@ var voteCountT = 0;
    }
    } //end i loop
 
-   voteCountT = voteCountR + voteCountD + voteCountO + voteCountM + voteCountR2 + voteCountD2 + voteCountW;
+   voteCountT = voteCountR + voteCountD + voteCountO + voteCountM + voteCountR2 + voteCountD2;
    pctR = voteCountR / voteCountT;
    pctD = voteCountD / voteCountT;
    pctR2 = voteCountR2 / voteCountT;
@@ -1057,57 +1057,58 @@ var voteCountT = 0;
   } //end table
 
   if (type == "board"){
-      if (winnerD == "X" || winnerD2 == "X") { var stateColor = "democrat"; var align = "left"; }
-      else if (winnerR == "X" || winnerR2 == "X") { var stateColor = "republican"; var align = "right"; }
-      else if (winnerM == "X") { var stateColor = "green4"; }
-      else { var stateColor = "gray3"; var align = "center"; }
+      if (winnerD == "X" || winnerD2 == "X") { var stateColorD = "democrat"; var stateColorR = ""; var align = "left"; }
+      else if (winnerR == "X" || winnerR2 == "X") { var stateColorR = "republican"; stateColorD = ""; var align = "right"; }
+      else if (winnerM == "X") { var stateColorD = "green4"; }
+      else { var stateColor = ""; var align = "center"; }
 
     if (raceType == "DR"){
-      if (pct2 >= .80) { var colorR = "r4"; } 
-      else if (pct2 >= .70) { var colorR = "r3"; } 
-      else if (pct2 >= .60) { var colorR = "r2"; } 
-      else if (pct2 >= 0) { var colorR = "r1"; } 
-      if (pct1 >= .80) { var colorD = "d4"; }
-      else if (pct1 >= .70) { var colorD = "d3"; } 
-      else if (pct1 >= .60) { var colorD = "d2"; } 
-      else if (pct1 >= 0) { var colorD = "d1"; } 
+
+      if (pct2 >= .80) { var colorR = "r4b"; } 
+      else if (pct2 >= .70) { var colorR = "r3b"; } 
+      else if (pct2 >= .60) { var colorR = "r2b"; } 
+      else if (pct2 >= 0) { var colorR = "r1b"; } 
+      if (pct1 >= .80) { var colorD = "d4b"; }
+      else if (pct1 >= .70) { var colorD = "d3b"; } 
+      else if (pct1 >= .60) { var colorD = "d2b"; } 
+      else if (pct1 >= 0) { var colorD = "d1b"; } 
     } else if (raceType == "DD"){
-      if (pct2 >= .80) { var colorR = "d4"; } 
-      else if (pct2 >= .70) { var colorR = "d3"; } 
-      else if (pct2 >= .60) { var colorR = "d2"; } 
-      else if (pct2 >= 0) { var colorR = "d1"; } 
-      if (pct1 >= .80) { var colorD = "d4"; }
-      else if (pct1 >= .70) { var colorD = "d3"; } 
-      else if (pct1 >= .60) { var colorD = "d2"; } 
-      else if (pct1 >= 0) { var colorD = "d1"; }
+      if (pct2 >= .80) { var colorR = "d4b"; } 
+      else if (pct2 >= .70) { var colorR = "d3b"; } 
+      else if (pct2 >= .60) { var colorR = "d2b"; } 
+      else if (pct2 >= 0) { var colorR = "d1b"; } 
+      if (pct1 >= .80) { var colorD = "d4b"; }
+      else if (pct1 >= .70) { var colorD = "d3b"; } 
+      else if (pct1 >= .60) { var colorD = "d2b"; } 
+      else if (pct1 >= 0) { var colorD = "d1b"; }
     }  else if (raceType == "RR"){
-      if (pct2 >= .80) { var colorR = "r4"; } 
-      else if (pct2 >= .70) { var colorR = "r3"; } 
-      else if (pct2 >= .60) { var colorR = "r2"; } 
-      else if (pct2 >= 0) { var colorR = "r1"; } 
-      if (pct1 >= .80) { var colorD = "r4"; }
-      else if (pct1 >= .70) { var colorD = "r3"; } 
-      else if (pct1 >= .60) { var colorD = "r2"; } 
-      else if (pct1 >= 0) { var colorD = "r1"; }
+      if (pct2 >= .80) { var colorR = "r4b"; } 
+      else if (pct2 >= .70) { var colorR = "r3b"; } 
+      else if (pct2 >= .60) { var colorR = "r2b"; } 
+      else if (pct2 >= 0) { var colorR = "r1b"; } 
+      if (pct1 >= .80) { var colorD = "r4b"; }
+      else if (pct1 >= .70) { var colorD = "r3b"; } 
+      else if (pct1 >= .60) { var colorD = "r2b"; } 
+      else if (pct1 >= 0) { var colorD = "r1b"; }
     }
 
      if (isNaN(pct2)) { pct2 = 0; }
      if (isNaN(pct1)) { pct1 = 0; }
 
       if (race == "president" && evcd != null){
-      return "<div id='evcd" + label + "' class='tableRow evcd " + align + "' name='" + label + "'><div class='stateBlockR " + stateColor + "'>" + label + "</div><div class='pctBox'>" + ev + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
+      return "<div id='evcd" + label + "' class='tableRow evcd " + align + "' name='" + label + "'><div class='stateBlockR'>" + label + "</div><div class='pctBox'>" + ev + "</div><div class='pctBox " + colorD + " " + stateColorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
       }
       if (race == "president"){
-      return "<div class='tableRow " + align + "' name='" + statePostal + "'><div class='stateBlockR " + stateColor + "'>" + statePostal + "</div><div class='pctBox'>" + ev + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
+      return "<div class='tableRow " + align + "' name='" + statePostal + "'><div class='stateBlockR'>" + statePostal + "</div><div class='pctBox'>" + ev + "</div><div class='pctBox " + colorD + " " + stateColorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + " " + stateColorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
       }
       if (race == "senate" || race == "governors"){
-      return "<div class='tableRow " + align + "' name='" + statePostal + "'><div class='stateBlockR " + stateColor + "'>" + statePostal + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
+      return "<div class='tableRow " + align + "' name='" + statePostal + "'><div class='stateBlockR'>" + statePostal + "</div><div class='pctBox " + colorD + " " + stateColorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "" + stateColorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
       }
       if (race == "mnhouse" || race == "mnsenate"){
-      return "<div class='tableRow " + align + "' name='" + label + "'><div class='stateBlockR " + stateColor + "'>" + label + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
+      return "<div class='tableRow " + align + "' name='" + label + "'><div class='stateBlockR'>" + label + "</div><div class='pctBox " + colorD + " " + stateColorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + " " + stateColorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
       }
       if (race == "ushouse"){
-      return "<div class='tableRow " + align + "' name='Minnesota" + label + "'><div class='stateBlockR " + stateColor + "'>MN" + label + "</div><div class='pctBox " + colorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
+      return "<div class='tableRow " + align + "' name='Minnesota" + label + "'><div class='stateBlockR'>MN" + label + "</div><div class='pctBox " + colorD + " " + stateColorD + "'>" + d3.format("%")(pct1) + "</div><div class='pctBox " + colorR + " " + stateColorR + "'>" + d3.format("%")(pct2) + "</div><div class='pctBox reporting'>" + precinctsReportingPct + "%</div><div class='searchTerms'>" + stateName + " " + candidate1 + " " + candidate2 +  "</div></div>";
       }
   }
 
