@@ -2018,13 +2018,6 @@ var voteCountM = 0;
 var winnerM = '';
 var pctM = 0;
 
-var firstW = '';
-var lastW = '';
-var partyW = '';
-var voteCountW = 0;
-var winnerW = '';
-var pctW = 0;
-
 var voteCountO = 0;
 var voteCountT = 0;
 
@@ -2043,15 +2036,7 @@ var voteCountT = 0;
               lastUpdated = dataCompare.races[i].reportingUnits[j].lastUpdated;
 
            for (var k=0; k < dataCompare.races[i].reportingUnits[j].candidates.length; k++) {
-            //winner check
-            if (dataCompare.races[i].reportingUnits[j].candidates[k].winner == "X") {
-                firstW = dataCompare.races[i].reportingUnits[j].candidates[k].first;
-                lastW = dataCompare.races[i].reportingUnits[j].candidates[k].last;
-                partyW = dataCompare.races[i].reportingUnits[j].candidates[k].party;
-                incumbentW = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
-                voteCountW = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
-                winnerW = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
-             } //end winner check
+            //if winner == 
               if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP" && firstR == '') {
                 firstR = dataCompare.races[i].reportingUnits[j].candidates[k].first;
                 lastR = dataCompare.races[i].reportingUnits[j].candidates[k].last;
@@ -2082,7 +2067,7 @@ var voteCountT = 0;
                 winnerD2 = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
               }  else {
                 voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
-              }     
+              }
            } //end k loop
          } //end if
      } //end j loop
@@ -2100,15 +2085,6 @@ var voteCountT = 0;
               lastUpdated = dataCompare.races[i].reportingUnits[j].lastUpdated;
 
            for (var k=0; k < dataCompare.races[i].reportingUnits[j].candidates.length; k++) {
-            //winner check
-            if (dataCompare.races[i].reportingUnits[j].candidates[k].winner == "X") {
-                firstW = dataCompare.races[i].reportingUnits[j].candidates[k].first;
-                lastW = dataCompare.races[i].reportingUnits[j].candidates[k].last;
-                partyW = dataCompare.races[i].reportingUnits[j].candidates[k].party;
-                incumbentW = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
-                voteCountW = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
-                winnerW = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
-          } //end winner check
               if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP" && firstR == '') {
                 firstR = dataCompare.races[i].reportingUnits[j].candidates[k].first;
                 lastR = dataCompare.races[i].reportingUnits[j].candidates[k].last;
@@ -2209,15 +2185,6 @@ var voteCountT = 0;
               lastUpdated = dataCompare.races[i].reportingUnits[j].lastUpdated;
 
            for (var k=0; k < dataCompare.races[i].reportingUnits[j].candidates.length; k++) { 
-            //winner check
-            if (dataCompare.races[i].reportingUnits[j].candidates[k].winner == "X") {
-                firstW = dataCompare.races[i].reportingUnits[j].candidates[k].first;
-                lastW = dataCompare.races[i].reportingUnits[j].candidates[k].last;
-                partyW = dataCompare.races[i].reportingUnits[j].candidates[k].party;
-                incumbentW = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
-                voteCountW = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
-                winnerW = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
-          } //end winner check
               if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP" && firstR == '') {
                 firstR = dataCompare.races[i].reportingUnits[j].candidates[k].first;
                 lastR = dataCompare.races[i].reportingUnits[j].candidates[k].last;
@@ -2255,7 +2222,7 @@ var voteCountT = 0;
                 winnerM = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
               } else {
                 voteCountO += dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
-              } 
+              }
            } //end k loop
          }
       } else if (district != null) {
@@ -2268,16 +2235,7 @@ var voteCountT = 0;
               lastUpdated = dataCompare.races[i].reportingUnits[j].lastUpdated;
 
            for (var k=0; k < dataCompare.races[i].reportingUnits[j].candidates.length; k++) { 
-            //winner check
-            if (dataCompare.races[i].reportingUnits[j].candidates[k].winner == "X") {
-                firstW = dataCompare.races[i].reportingUnits[j].candidates[k].first;
-                lastW = dataCompare.races[i].reportingUnits[j].candidates[k].last;
-                partyW = dataCompare.races[i].reportingUnits[j].candidates[k].party;
-                incumbentW = dataCompare.races[i].reportingUnits[j].candidates[k].incumbent;
-                voteCountW = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
-                winnerW = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
-          } //end winner check
-             if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP" && firstR == '') {
+              if (dataCompare.races[i].reportingUnits[j].candidates[k].party == "GOP" && firstR == '') {
                 firstR = dataCompare.races[i].reportingUnits[j].candidates[k].first;
                 lastR = dataCompare.races[i].reportingUnits[j].candidates[k].last;
                 partyR = dataCompare.races[i].reportingUnits[j].candidates[k].party;
@@ -2322,14 +2280,13 @@ var voteCountT = 0;
    }
    } //end i loop
 
-   voteCountT = voteCountR + voteCountD + voteCountO + voteCountM + voteCountR2 + voteCountD2 + voteCountW;
+   voteCountT = voteCountR + voteCountD + voteCountO + voteCountM + voteCountR2 + voteCountD2;
    pctR = voteCountR / voteCountT;
    pctD = voteCountD / voteCountT;
    pctR2 = voteCountR2 / voteCountT;
    pctD2 = voteCountD2 / voteCountT;
    pctO = voteCountO / voteCountT;
    pctM = voteCountM / voteCountT;
-   pctW = voteCountW / voteCountT;
 
   var evString = "";
   var stateString = state;
@@ -2342,8 +2299,6 @@ var voteCountT = 0;
   var candidate2 = firstR + " " + lastR + " (" + partyR + ")";
   var pct1 = pctD;
   var pct2 = pctR;
-  var party1 = pctD;
-  var party2 = pctR;
   var last1 = lastD;
   var last2 = lastR;
   var votes1 = voteCountD;
@@ -2353,14 +2308,12 @@ var voteCountT = 0;
   var incumbent1 = incumbentD;
   var incumbent2 = incumbentR;
   var raceType = "DR";
- 
+
   if (firstR == '' && firstR2 == '' && firstD != '') { 
     candidate1 = firstD + " " + lastD + " (" + partyD + ")";
     candidate2 = firstD2 + " " + lastD2 + " (" + partyD2 + ")"; 
     pct1 = pctD;
     pct2 = pctD2; 
-    party1 = pctD;
-    party2 = pctD2;
     votes1 = voteCountD;
     votes2 = voteCountD2; 
     winner1 = winnerD;
@@ -2369,14 +2322,13 @@ var voteCountT = 0;
     incumbent2 = incumbentD2;
     last1 = lastD;
     last2 = lastD2;
+    raceType = "DD";
   }
   else if (firstD == '' && firstD2 == '' && firstR != '') { 
     candidate1 = firstR + " " + lastR + " (" + partyR + ")"; 
     candidate2 = firstR2 + " " + lastR2 + " (" + partyR2 + ")";
     pct1 = pctR;
     pct2 = pctR2; 
-    party1 = pctR;
-    party2 = pctR2;
     votes1 = voteCountR;
     votes2 = voteCountR2;
     winner1 = winnerR;
@@ -2385,33 +2337,8 @@ var voteCountT = 0;
     incumbent2 = incumbentR2;
     last1 = lastR;
     last2 = lastR2;
+    raceType = "RR";
   }
-
- //winner check
-  if (firstW != '') { 
-    if ((firstW + " " + lastW + " (" + partyW + ")") != candidate2) {
-    candidate1 = firstW + " " + lastW + " (" + partyW + ")";
-    pct1 = pctW;
-    party1 = partyW;
-    votes1 = voteCountW; 
-    winner1 = winnerW;
-    incumbent1 = incumbentW;
-    last1 = lastW;
-   } else {
-    candidate2 = firstW + " " + lastW + " (" + partyW + ")";
-    pct2 = pctW;
-    party2 = pctW;
-    votes2 = voteCountW; 
-    winner2 = winnerW;
-    incumbent2 = incumbentW;
-    last2 = lastW;  
-   }
-  }
-
-  if (party1 == "Dem" && party2 == "GOP"){ raceType = "DR"; }
-  if (party1 == "Dem" && party2 == "Dem"){ raceType = "DD"; }
-  if (party1 == "GOP" && party2 == "GOP"){ raceType = "RR"; }
-
 
   if ((race == "president" && state == "Utah") || (district > 49000 && district < 50000)){
       var oString = "<div class='resultsRow'><div class='candidate'>" + firstM + " " + lastM + " (I)</div><div class='counts'>" + d3.format(",")(voteCountM) + "</div><div class='pct independent'>" + d3.format("%")(pctM) + "</div></div><div class='resultsRow'><div class='candidate'>Other</div><div class='counts'>" + d3.format(",")(voteCountO) + "</div><div class='pct independent'>" + d3.format("%")(pctO) + "</div></div>";

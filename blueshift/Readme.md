@@ -7,4 +7,4 @@ Built using [C3](https://github.com/masayuki0812/c3) and [jQuery](https://github
 
 The files can be run in any live server setup. Just open the index.html file in your browser.
 
-
+http://www.startribune.com/just-how-close-is-minnesota-to-becoming-a-swing-state/393152021/
