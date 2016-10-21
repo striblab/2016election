@@ -798,7 +798,7 @@ var voteCountT = 0;
    }
    } //end i loop
 
-   voteCountT = voteCountR + voteCountD + voteCountO + voteCountM + voteCountR2 + voteCountD2 + voteCountW;
+   voteCountT = voteCountR + voteCountD + voteCountO + voteCountM + voteCountR2 + voteCountD2;
    pctR = voteCountR / voteCountT;
    pctD = voteCountD / voteCountT;
    pctR2 = voteCountR2 / voteCountT;
@@ -1039,9 +1039,10 @@ var voteCountT = 0;
       if (winnerD == "X" || winnerD2 == "X") { var stateColor = "democrat"; var align = "left"; }
       else if (winnerR == "X" || winnerR2 == "X") { var stateColor = "republican"; var align = "right"; }
       else if (winnerM == "X") { var stateColor = "green4"; }
-      else { var stateColor = "gray3"; var align = "center"; }
+      else { var stateColor = ""; var align = "center"; }
 
     if (raceType == "DR"){
+
       if (pct2 >= .80) { var colorR = "r4"; } 
       else if (pct2 >= .70) { var colorR = "r3"; } 
       else if (pct2 >= .60) { var colorR = "r2"; } 

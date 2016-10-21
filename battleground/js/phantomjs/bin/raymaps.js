@@ -52,7 +52,7 @@ function extract(elementID) {
 
       console.log(js.join('\n') + '\n' + output);
       phantom.exit();
-    }, 10000);
+    }, 20000);
     }
   };
 }
