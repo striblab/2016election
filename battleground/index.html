@@ -9,7 +9,7 @@
   <meta name="description" content="Battleground 2016">
   <meta name="author" content="Frey Hargarten - StarTribune">
 
-  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
+  <link rel="stylesheet" href="./css/startribune_dataviz_styles.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
   
   <style>
@@ -399,17 +399,17 @@ a:link {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#cssmenu {
-  width: 220px;
-  font-family: "Benton Sans", sans-serif;
-  color: #ffffff;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background: white;
-  border-right: 1px solid #c5c5c5;
-  margin-top: 59px;
+#raceSwitcher {
+    /* display: block; */
+    width: 100%;
+    padding: 10px 0 0 0;
+    font-size: .65em;
+    float: left;
+    line-height: 100%;
+    font-family: "Benton Sans",Helvetica,Arial,sans-serif!important;
+    position: absolute;
+    margin: 64px auto 14px;
+    max-width: 238px;
 }
 #cssmenu ul ul {
   display: none;
@@ -765,7 +765,8 @@ input {
       .label { width:48%; }
       .tooltip { display:;}
       .count { width:20%; font-size:1em; }
-      #raceSwitcher { display:none; }
+      #cssmenu { display:none; }
+      #mobmenu { display:block; }
       #cartogram { text-align:center; width:100%; height:auto; }
       #datavizPane { width:100%; }
       #wrapper { width:100%; }
@@ -802,10 +803,13 @@ input {
       .partyBlock { width:18%; }
       .legendLabel { height:auto; }
       .label, #dCheck, #rCheck { font-size:0.8em; }
+      .zoom { text-align:center !important; float:none !important; padding-top:10px; clear:both; }
       #infobox { font-size:0.8em; } 
       #powerbar { padding:1px; }
+      .mobileHide { display:none; }
       .bigBoard { font-size:0.7em; }
       .map { width:100%; height:auto; }
+      .resultsRow { border:none !important; }
       #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:300px !important; }
       .carto { width:100%; height:auto; }
      }
@@ -846,6 +850,9 @@ input {
 
 <!-- <div id="countdownMobile"><span class="ticker">0</span> to next update</div> -->
 
+
+<!-- RACE SWITCHING BAR -->
+<div id="raceSwitcher">
 <div id='mobmenu'>
 <ul id="nav">
    <li class='<!-- active--> has-sub'><a href='#'>President</a>
@@ -890,9 +897,6 @@ input {
     </div>
 </div></li>
 </div>
-
-<!-- RACE SWITCHING BAR -->
-<div id="raceSwitcher">
 <div id='cssmenu'>
 <div id="countdown"><span class="ticker">0</span> to next update</div>
 <ul id="nav">
@@ -1963,8 +1967,35 @@ input {
     <div class='partyBlock'><div class="voteTotals">Votes: <span class='rcount'>0</span> | <span class="pctNum gopPCT">50%</span></div></div>
 </div>  -->   
 <div id="legendMargins" class="legendBlock">
+  <div class='partyBlock'>
+    <div class='dparty legendLabel'>Clinton</div>
+    <div class='dlean brick'></div>
+    <div class='democrat brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>50%</div>
+    <div class='brick smallLabel'>70%</div>  
+  </div>
+  <div class='partyBlock'>
+    <div class='rparty legendLabel'>Trump</div>
+    <div class='rlean brick'></div>
+    <div class='republican brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>50%</div>
+    <div class='brick smallLabel'>70%</div>   
+  </div>
+  <div class='partyBlock'>
+    <div class='iparty legendLabel'>IND</div>
+    <div class='green2 brick'></div>
+    <div class='green4 brick'></div>
+    <div class="tinybreak"></div>
+    <div class='legendLabel'></div>
+    <div class='brick smallLabel'>50%</div>
+    <div class='brick smallLabel'>70%</div>   
+  </div>
 <!--     <div class="breaker"></div> -->
-    <div class='partyBlock'>
+<!--     <div class='partyBlock'>
     <div class='dparty legendLabel'>DEM</div>
     <div class='d4 brick'></div>
     <div class='d3 brick'></div>
@@ -1991,7 +2022,7 @@ input {
     <div class='brick smallLabel'>70%</div>
     <div class='brick smallLabel'>80%</div>
     <div class='legendLabel'></div>
-  </div>
+  </div> -->
 </div>
 <div id="legendWinners" class="legendBlock">
 <!--   <div class="breaker"></div> -->
@@ -2029,7 +2060,7 @@ input {
 
 </div>
 
-<div class="breaker"></div>
+<div class="breaker mobileHide"></div>
 
 <div class="table" id="table">
   <div id="infobox"></div>
