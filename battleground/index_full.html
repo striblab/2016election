@@ -2540,9 +2540,10 @@ function mapSpill(race,data){
   if (race == "president"){
     mapBuild("#president .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
     mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
+    mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
     electoralCarto(data);
     // mapBuild("#mapStates", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
-    // mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
+    
   }  
 
   if (race == "house"){
@@ -3394,6 +3395,7 @@ function reloadData(){
 
    //presidential updates
    mapReshade("#USMAP", "us_states.json", "country", "president", dataPrez);
+   mapReshade("#USMAP", "us_counties.json", "country", "president", dataPrez);
    mapReshade("#USCOUNTIES", "us_counties.json", "counties", "county", dataPrez);
    electoralCarto(dataPrez);   
 
