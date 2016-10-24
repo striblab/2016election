@@ -2955,7 +2955,8 @@ loadBars(currentrace);
 
 //MAKE THOSE PESKY EVCDS WORK
 function evcdToggles(){
-$(".ME01, #ME01").hover(function() {
+$(".ME01, #ME01").hover(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData(null,"ME","table",data7,"president",null,"District 1","District 1"));
  $(".block").removeClass("blockSelect");
  $(".ME01.evcd").addClass("blockSelect");
@@ -2965,7 +2966,8 @@ $(".ME01, #ME01").hover(function() {
       .classed("active", false);
 });
 
-$("#evcdME01").click(function() {
+$("#evcdME01").click(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData(null,"ME","table",data7,"president",null,"District 1","District 1"));
  $(".block").removeClass("blockSelect");
  $(".ME01.evcd").addClass("blockSelect");
@@ -2974,7 +2976,8 @@ $("#evcdME01").click(function() {
       .classed("active", false);
 });
 
-$(".ME02, #ME02").hover(function() {
+$(".ME02, #ME02").hover(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData(null,"ME","table",data7,"president",null,"District 2","District 2"));
  $(".block").removeClass("blockSelect");
  $(".ME02.evcd").addClass("blockSelect");
@@ -2984,7 +2987,8 @@ $(".ME02, #ME02").hover(function() {
       .classed("active", false);
 });
 
-$("#evcdME02").click(function() {
+$("#evcdME02").click(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData(null,"ME","table",data7,"president",null,"District 2","District 2"));
  $(".block").removeClass("blockSelect");
  $(".ME02.evcd").addClass("blockSelect");
@@ -2993,7 +2997,8 @@ $("#evcdME02").click(function() {
       .classed("active", false);
 });
 
-$(".NE01, #NE01").hover(function() {
+$(".NE01, #NE01").hover(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData(null,"NE","table",data7,"president",null,"District 1","District 1"));
  $(".block").removeClass("blockSelect");
  $(".NE01.evcd").addClass("blockSelect");
@@ -3003,7 +3008,8 @@ $(".NE01, #NE01").hover(function() {
       .classed("active", false);
 });
 
-$("#evcdNE01").click(function() {
+$("#evcdNE01").click(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData(null,"NE","table",data7,"president",null,"District 1","District 1"));
  $(".block").removeClass("blockSelect");
  $(".NE01.evcd").addClass("blockSelect");
@@ -3012,7 +3018,8 @@ $("#evcdNE01").click(function() {
       .classed("active", false);
 });
 
-$(".NE02, #NE02").hover(function() {
+$(".NE02, #NE02").hover(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData(null,"NE","table",data7,"president",null,"District 2","District 2"));
  $(".block").removeClass("blockSelect");
  $(".NE02.evcd").addClass("blockSelect");
@@ -3022,7 +3029,8 @@ $(".NE02, #NE02").hover(function() {
       .classed("active", false);
 });
 
-$("#evcdNE02").click(function() {
+$("#evcdNE02").click(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData(null,"NE","table",data7,"president",null,"District 2","District 2"));
  $(".block").removeClass("blockSelect");
  $(".NE02.evcd").addClass("blockSelect");
@@ -3031,7 +3039,8 @@ $("#evcdNE02").click(function() {
       .classed("active", false);
 });
 
-$(".NE03, #NE03").hover(function() {
+$(".NE03, #NE03").hover(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData(null,"NE","table",data7,"president",null,"District 3","District 3"));
  $(".block").removeClass("blockSelect");
  $(".NE03.evcd").addClass("blockSelect");
@@ -3041,7 +3050,8 @@ $(".NE03, #NE03").hover(function() {
       .classed("active", false);
 });
 
-$("#evcdNE03").click(function() {
+$("#evcdNE03").click(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData(null,"NE","table",data7,"president",null,"District 3","District 3"));
  $(".block").removeClass("blockSelect");
  $(".NE03.evcd").addClass("blockSelect");
@@ -3051,19 +3061,22 @@ $("#evcdNE03").click(function() {
 });
 }
 
-evcdToggles();
+  evcdToggles();
 
-$(".cartoState").click(function() {
+$(".cartoState").click(function(event) {
+    event.stopPropagation();
  spillInfo(fetchData($(this).attr("name"),$(this).attr("name"),"table",data1,"president"));
 });
 
-$(".cartoState rect").hover(function() {
+$(".cartoState rect").hover(function(event) {
+    event.stopPropagation();
 $(".cartoState, .tableRow").removeClass("selectedBox");
 $(".tableRow[name=" + $(this).parent().attr("id") + "]").addClass("selectedBox");
  spillInfo(fetchData($(this).parent().attr("name"),$(this).parent().attr("name"),"table",data1,"president"));
 });
 
-$(".cartoState").mouseleave(function() {
+$(".cartoState").mouseleave(function(event) {
+    event.stopPropagation();
   $(".cartoState").removeClass("blockSelect");
   $(".cartoState, .tableRow").removeClass("selectedBox");
   if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",data1,"president")); }
@@ -3072,7 +3085,8 @@ $(".cartoState").mouseleave(function() {
   else { $("#infobox").html(""); }
 });
 
-$(".block").mouseleave(function() {
+$(".block").mouseleave(function(event) {
+    event.stopPropagation();
   $(".block").removeClass("blockSelect");
   $(".tableRow").removeClass("selectedBox");
   if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",data1,"president")); }
@@ -3085,7 +3099,8 @@ $(".block").mouseleave(function() {
 });
 
 //RESET ALL THE VIEWS
-$(".zoom").click(function() {
+$(".zoom").click(function(event) {
+    event.stopPropagation();
   $(".block").removeClass("blockSelect");
   $(".tableRow").removeClass("selectedBox");
   $(".cartoState").removeClass("selectedBox");
@@ -3098,24 +3113,9 @@ $(".zoom").click(function() {
   else { $("#infobox").html(""); }
 });
 
-$(".raceSwitch").click(function() {
-  //infobox switches
-  thisView = $(this).attr("infobox");
-
-  if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",data1,"president")); }
-  else if (thisView == "us") { spillInfo(fetchData("United States","United States","table",data1,"president")); }
-  else if (thisView == "cd") { spillInfo(fetchData("District 2","Minnesota","table",data6,"ushouse",null,"District 2")); }
-  else { $("#infobox").html(""); }
-
-    //load power bars
-  loadBars($(this).attr("data"));
-
-});
-
-//ONLY DO THIS STUFF ONCE
-if (reload == false){
 //carto clickies
-$(".stateBlock").click(function() {
+$(".stateBlock").click(function(event) {
+    event.stopPropagation();
 $(".block").removeClass("blockSelect");
 $(this).addClass("blockSelect");
     var findDistrict = $(this).attr("ab");
@@ -3124,7 +3124,8 @@ $(this).addClass("blockSelect");
     $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Click();
 });
 
-$(".stateBlock").hover(function() {
+$(".stateBlock").hover(function(event) {
+    event.stopPropagation();
     var findDistrict = $(this).attr("ab");
     $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Down();
     $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Up();
@@ -3134,13 +3135,23 @@ $(".stateBlock").hover(function() {
    });
 
 //TRIGGER CHANGES WHEN SELECTING MENU ITEMS
-$(".has-sub").click(function() {
+$(".has-sub").click(function(event) {
+    event.stopPropagation();
   $(".raceSwitch, li").removeClass("selected2");
 });
 
-$(".raceSwitch").click(function() {
+$(".raceSwitch").click(function(event) {
+    event.stopPropagation();
   //infobox switches
   thisView = $(this).attr("infobox");
+
+  if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",data1,"president")); }
+  else if (thisView == "us") { spillInfo(fetchData("United States","United States","table",data1,"president")); }
+  else if (thisView == "cd") { spillInfo(fetchData("District 2","Minnesota","table",data6,"ushouse",null,"District 2")); }
+  else { $("#infobox").html(""); }
+
+  //load power bars
+  loadBars($(this).attr("data"));
 
   //button thingies
   $(".raceSwitch, li").removeClass("selected2");
@@ -3176,7 +3187,6 @@ $(".raceSwitch").click(function() {
 
 }); //end menu triggers
 
-} //end reload check
 } //end togglyBits
 
 
@@ -3397,6 +3407,9 @@ function reloadData(){
    var dataMNH = jsonSpillMNH;
    var dataHouse = jsonSpillHouse;
    var dataEVCD = jsonSpillEVCD;   
+
+   // $(".raceSwitch, .cartoState, .tableRow, .block, .has-sub, .stateBlock, #evcdNE01, #evcdNE02, #evcdNE03, #evcdME01, #evcdME02").off("click");
+   // $(".ME01, #ME01, .ME02, #ME02, .NE01, #NE01, .NE02, #NE02, .NE03, #NE03, .cartoState rect, .cartoState, .block").off();
 
    //presidential updates
    mapReshade("#USMAP .country", "us_states.json", "country", "president", dataPrez);
