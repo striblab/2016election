@@ -3279,7 +3279,7 @@ window.setTimeout(function () {
 function mapReshade(container, shape, subject, race, dataCompare) {
 d3.json("shapefiles/" + shape, function(error, us) {
     if (race != "cartoHouse"){
-  d3.selectAll(container + " g path")
+  d3.selectAll(container + " path")
         .data(us.features)
         .style("fill", function(d){
          if (race == "president") { 
@@ -3394,29 +3394,29 @@ function reloadData(){
    var dataEVCD = jsonSpillEVCD;   
 
    //presidential updates
-   mapReshade("#USMAP", "us_states.json", "country", "president", dataPrez);
-   mapReshade("#USMAP", "us_counties.json", "country", "president", dataPrez);
-   mapReshade("#USCOUNTIES", "us_counties.json", "counties", "county", dataPrez);
+   mapReshade("#USMAP .country", "us_states.json", "country", "president", dataPrez);
+   mapReshade("#USMAP .counties", "us_counties.json", "counties", "county", dataPrez);
+   mapReshade("#USCOUNTIES .counties", "us_counties.json", "counties", "county", dataPrez);
    electoralCarto(dataPrez);   
 
    //senate updates
-   mapReshade("#USSENATE", "us_states.json", "country", "senate", dataSen);  
+   mapReshade("#USSENATE .country", "us_states.json", "country", "senate", dataSen);  
 
    //governors updates
-   mapReshade("#USGOV", "us_states.json", "country", "governors", dataGov);   
+   mapReshade("#USGOV .country", "us_states.json", "country", "governors", dataGov);   
 
    //house updates
-   mapReshade("#USHOUSE", "uscongress.json", "country", "house", dataHouse);
+   mapReshade("#USHOUSE .country", "uscongress.json", "country", "house", dataHouse);
    mapReshade("#cartoHouse svg", "usdistricts_cartogram.json", "country", "cartoHouse", dataHouse);
    // mapReshade("#USHOUSEMN .country", "us_cd_mn_2012.json", "country", "house", dataHouse);   
 
    //mnhouse updates
-   mapReshade("#MNHOUSE", "mnleg.json", "country", "mnhouse", dataMNH);
-   mapReshade("#MNHOUSEMETRO", "mnleg_metro.json", "country", "mnhouse", dataMNH);  
+   mapReshade("#MNHOUSE .country", "mnleg.json", "country", "mnhouse", dataMNH);
+   mapReshade("#MNHOUSEMETRO .country", "mnleg_metro.json", "country", "mnhouse", dataMNH);  
 
    //mnsenate updates
-   mapReshade("#MNSENATE", "mnsenate.json", "country", "mnsenate", dataMNS);
-   mapReshade("#MNSENATEMETRO", "mnsenate_metro.json", "country", "mnsenate", dataMNS); 
+   mapReshade("#MNSENATE .country", "mnsenate.json", "country", "mnsenate", dataMNS);
+   mapReshade("#MNSENATEMETRO .country", "mnsenate_metro.json", "country", "mnsenate", dataMNS); 
 
    d3.selectAll("path").classed("faded", false).classed("active", false);
    $(".block").removeClass("blockSelect");   
