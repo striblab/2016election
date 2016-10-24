@@ -3053,9 +3053,6 @@ $("#evcdNE03").click(function() {
 
 evcdToggles();
 
-//ONLY DO THIS STUFF ONCE
-if (reload == false){
-//carto clickies
 $(".cartoState").click(function() {
  spillInfo(fetchData($(this).attr("name"),$(this).attr("name"),"table",data1,"president"));
 });
@@ -3074,24 +3071,6 @@ $(".cartoState").mouseleave(function() {
   else if (thisView == "cd") { spillInfo(fetchData("District 2","Minnesota","table",data6,"ushouse",null,"District 2")); }
   else { $("#infobox").html(""); }
 });
-
-$(".stateBlock").click(function() {
-$(".block").removeClass("blockSelect");
-$(this).addClass("blockSelect");
-    var findDistrict = $(this).attr("ab");
-    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Down();
-    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Up();
-    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Click();
-});
-
-$(".stateBlock").hover(function() {
-    var findDistrict = $(this).attr("ab");
-    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Down();
-    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Up();
-    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Click();
-}, function(){
-      // unhover code 
-   });
 
 $(".block").mouseleave(function() {
   $(".block").removeClass("blockSelect");
@@ -3119,11 +3098,6 @@ $(".zoom").click(function() {
   else { $("#infobox").html(""); }
 });
 
-//TRIGGER CHANGES WHEN SELECTING MENU ITEMS
-$(".has-sub").click(function() {
-  $(".raceSwitch, li").removeClass("selected2");
-});
-
 $(".raceSwitch").click(function() {
   //infobox switches
   thisView = $(this).attr("infobox");
@@ -3132,6 +3106,41 @@ $(".raceSwitch").click(function() {
   else if (thisView == "us") { spillInfo(fetchData("United States","United States","table",data1,"president")); }
   else if (thisView == "cd") { spillInfo(fetchData("District 2","Minnesota","table",data6,"ushouse",null,"District 2")); }
   else { $("#infobox").html(""); }
+
+    //load power bars
+  loadBars($(this).attr("data"));
+
+});
+
+//ONLY DO THIS STUFF ONCE
+if (reload == false){
+//carto clickies
+$(".stateBlock").click(function() {
+$(".block").removeClass("blockSelect");
+$(this).addClass("blockSelect");
+    var findDistrict = $(this).attr("ab");
+    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Down();
+    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Up();
+    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Click();
+});
+
+$(".stateBlock").hover(function() {
+    var findDistrict = $(this).attr("ab");
+    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Down();
+    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Up();
+    $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Click();
+}, function(){
+      // unhover code 
+   });
+
+//TRIGGER CHANGES WHEN SELECTING MENU ITEMS
+$(".has-sub").click(function() {
+  $(".raceSwitch, li").removeClass("selected2");
+});
+
+$(".raceSwitch").click(function() {
+  //infobox switches
+  thisView = $(this).attr("infobox");
 
   //button thingies
   $(".raceSwitch, li").removeClass("selected2");
@@ -3162,9 +3171,6 @@ $(".raceSwitch").click(function() {
   //show correct layer
   loadState++;
   mapShow(".map",$(this).attr("layer"));
-
-  //load power bars
-  loadBars($(this).attr("data"));
 
   evcdToggles();
 
@@ -3237,7 +3243,7 @@ if ((docwidth < 500)) {
 
 toggleyBits(dataPrez,dataSen,dataGov,dataMNS,dataMNH,dataHouse,dataEVCD,false);
 
-spillInfo(fetchData("United States","United States","table",dataPrez,"president"))
+spillInfo(fetchData("United States","United States","table",dataPrez,"president"));
 
 $(".dparty").html("Clinton");
 $(".rparty").html("Trump");
@@ -3419,7 +3425,7 @@ function reloadData(){
    d3.selectAll("path").classed("faded", false).classed("active", false);
    $(".block").removeClass("blockSelect");   
 
-   toggleyBits(dataPrez,dataSen,dataGov,dataMNS,dataMNH,dataHouse,dataEVCD);   
+   toggleyBits(dataPrez,dataSen,dataGov,dataMNS,dataMNH,dataHouse,dataEVCD);
 
    if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",dataPrez,"president")); }
    else if (thisView == "us") { spillInfo(fetchData("United States","United States","table",dataPrez,"president")); }
