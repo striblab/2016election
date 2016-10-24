@@ -20,6 +20,11 @@ var elementID = system.args[2];
 var page = require('webpage').create();
 //page.settings.resourceTimeout = 3000;
 
+page.viewportSize = {
+  width: 1000,
+  height: 800
+};
+
 function serialize(elementID) {
   var serializer = new XMLSerializer();
   if (elementID == 'no_id') {
