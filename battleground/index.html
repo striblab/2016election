@@ -1459,7 +1459,6 @@
         774.818,413.999 752.904,413.999     "/>
 </g>
 </svg></div></div>
-<div id="mapCounties" class="hideIT"><svg id="USCOUNTIES" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
 <!-- <div id="mapStates" class="hideIT"><svg id="USSTATES" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div> -->
 </div>
 </div> <!-- end presidential stuff -->
@@ -1867,6 +1866,7 @@ else { iMark[i] = ""; }
 var wMark = [];
 for (var i = 0; i < last.length; i++) {
 if (winner[i] == "X") { wMark[i] = "&#x2714;"; }
+else if (winner[i] == "R") { wMark[i] = "-R"; }
 else { wMark[i] = ""; }
 }
 
@@ -3278,7 +3278,7 @@ window.setTimeout(function () {
 function mapReshade(container, shape, subject, race, dataCompare) {
 d3.json("shapefiles/" + shape, function(error, us) {
     if (race != "cartoHouse"){
-  d3.selectAll(container + " g path")
+  d3.selectAll(container + " path")
         .data(us.features)
         .style("fill", function(d){
          if (race == "president") { 
@@ -3393,27 +3393,27 @@ function reloadData(){
    var dataEVCD = jsonSpillEVCD;   
 
    //presidential updates
-   mapReshade("#USMAP", "us_states.json", "country", "president", dataPrez);
-   if ($(window).width() > 960) { mapReshade("#USCOUNTIES", "us_counties.json", "counties", "county", dataPrez); }
+   mapReshade("#USMAP .country", "us_states.json", "country", "president", dataPrez);
+   if ($(window).width() > 960) { mapReshade("#USMAP .counties", "us_counties.json", "counties", "county", dataPrez); }
    electoralCarto(dataPrez);   
 
    //senate updates
-   if ($(window).width() > 960) { mapReshade("#USSENATE", "us_states.json", "country", "senate", dataSen); }   
+   if ($(window).width() > 960) { mapReshade("#USSENATE .country", "us_states.json", "country", "senate", dataSen); }   
 
    //governors updates
-   if ($(window).width() > 960) { mapReshade("#USGOV", "us_states.json", "country", "governors", dataGov); }   
+   if ($(window).width() > 960) { mapReshade("#USGOV .country", "us_states.json", "country", "governors", dataGov); }   
 
    //house updates
-   mapReshade("#USHOUSE", "uscongress.json", "country", "house", dataHouse);
+   mapReshade("#USHOUSE .country", "uscongress.json", "country", "house", dataHouse);
    mapReshade("#cartoHouse svg", "usdistricts_cartogram.json", "country", "cartoHouse", dataHouse);
    // mapReshade("#USHOUSEMN .country", "us_cd_mn_2012.json", "country", "house", dataHouse);   
 
    //mnhouse updates
-   mapReshade("#MNHOUSE", "mnleg.json", "country", "mnhouse", dataMNH);
+   mapReshade("#MNHOUSE .country", "mnleg.json", "country", "mnhouse", dataMNH);
    if ($(window).width() > 960) { mapReshade("#MNHOUSEMETRO", "mnleg_metro.json", "country", "mnhouse", dataMNH); }   
 
    //mnsenate updates
-   mapReshade("#MNSENATE", "mnsenate.json", "country", "mnsenate", dataMNS);
+   mapReshade("#MNSENATE .country", "mnsenate.json", "country", "mnsenate", dataMNS);
    if ($(window).width() > 960) { mapReshade("#MNSENATEMETRO", "mnsenate_metro.json", "country", "mnsenate", dataMNS); }   
 
    d3.selectAll("path").classed("faded", false).classed("active", false);
