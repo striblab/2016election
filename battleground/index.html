@@ -3183,13 +3183,13 @@ var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn
 var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
 var apiStringEVCD = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-nebraska-maine/full.json";
 
-d3.json(apiStringPrez, function(error1, jsonSpillPrez) {
-d3.json(apiStringSen, function(error2, jsonSpillSen) {
-d3.json(apiStringGov, function(error3, jsonSpillGov) {
-d3.json(apiStringMNS, function(error4, jsonSpillMNS) {
-d3.json(apiStringMNH, function(error5, jsonSpillMNH) {
-d3.json(apiStringHouse, function(error6, jsonSpillHouse) {
-d3.json(apiStringEVCD, function(error7, jsonSpillEVCD) {
+d3.json(apiStringPrez + '?' + (Math.floor(Math.random() * 1000)), function(error1, jsonSpillPrez) {
+d3.json(apiStringSen + '?' + (Math.floor(Math.random() * 1000)), function(error2, jsonSpillSen) {
+d3.json(apiStringGov + '?' + (Math.floor(Math.random() * 1000)), function(error3, jsonSpillGov) {
+d3.json(apiStringMNS + '?' + (Math.floor(Math.random() * 1000)), function(error4, jsonSpillMNS) {
+d3.json(apiStringMNH + '?' + (Math.floor(Math.random() * 1000)), function(error5, jsonSpillMNH) {
+d3.json(apiStringHouse + '?' + (Math.floor(Math.random() * 1000)), function(error6, jsonSpillHouse) {
+d3.json(apiStringEVCD + '?' + (Math.floor(Math.random() * 1000)), function(error7, jsonSpillEVCD) {
 
 //JUST IN CASE OF THERMONUCLEAR DISASTER
 function fallback(){
@@ -3376,13 +3376,13 @@ d3.json("shapefiles/" + shape, function(error, us) {
 //A SUMMONING SPELL FOR NEW DATA
 function reloadData(){
 
-   d3.json(apiStringPrez, function(error1, jsonSpillPrez) {
-   d3.json(apiStringSen, function(error2, jsonSpillSen) {
-   d3.json(apiStringGov, function(error3, jsonSpillGov) {
-   d3.json(apiStringMNS, function(error4, jsonSpillMNS) {
-   d3.json(apiStringMNH, function(error5, jsonSpillMNH) {
-   d3.json(apiStringHouse, function(error6, jsonSpillHouse) {
-   d3.json(apiStringEVCD, function(error7, jsonSpillEVCD) {   
+   d3.json(apiStringPrez + '?' + (Math.floor(Math.random() * 1000)), function(error1, jsonSpillPrez) {
+   d3.json(apiStringSen + '?' + (Math.floor(Math.random() * 1000)), function(error2, jsonSpillSen) {
+   d3.json(apiStringGov + '?' + (Math.floor(Math.random() * 1000)), function(error3, jsonSpillGov) {
+   d3.json(apiStringMNS + '?' + (Math.floor(Math.random() * 1000)), function(error4, jsonSpillMNS) {
+   d3.json(apiStringMNH + '?' + (Math.floor(Math.random() * 1000)), function(error5, jsonSpillMNH) {
+   d3.json(apiStringHouse + '?' + (Math.floor(Math.random() * 1000)), function(error6, jsonSpillHouse) {
+   d3.json(apiStringEVCD + '?' + (Math.floor(Math.random() * 1000)), function(error7, jsonSpillEVCD) {   
 
    var dataPrez = jsonSpillPrez;
    var dataSen = jsonSpillSen;
