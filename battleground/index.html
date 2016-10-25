@@ -294,7 +294,6 @@
     .metroMap { display:none !important; }
     .resultsRow { font-size:0.85em; }
     .label { width:48%; }
-    .tooltip { }
     .count { font-size:1em; width:20%; }
     #cssmenu { display:none; }
     #mobmenu { display:block; }
@@ -323,7 +322,7 @@
     #raceSwitcher { margin: 102px auto 14px; }
     #powerbar { padding:1px; }
     .map { height:auto; width:600px; }
-    .carto { height:auto; width:600px; }
+    .carto { width:600px; height:454px !important; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:450px !important; }
     }
     @media (max-width:500px) { 
@@ -520,7 +519,7 @@
 </div>
 <div id="partyBar">
   <div class="backbar">
-  <div class="bar democrat" id="dWin"></div><div class="bar green4" id="iWin"></div><div class="bar republican" id="rWin"></div>
+  <div class="bar democrat" id="dWin" style="float:left !important;"></div><div class="bar green4" id="iWin"  style="float:left !important;"></div><div class="bar republican" id="rWin"></div>
   </div>
 </div>
 </div> <!-- end powerbar -->
@@ -2673,9 +2672,9 @@ function senCrunch(data){
 
   var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maryland","Missouri","Nevada","New Hampshire","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","South Carolina","South Dakota","Utah","Vermont","Washington","Wisconsin"];
 
-  var dTally = 36;
+  var dTally = 34;
   var rTally = 30;
-  var iTally = 0;
+  var iTally = 2;
 
   for (var i=0; i < stateList.length; i++){
     var updated = fetchData(null,stateList[i],"winner",data,"senate",null,null);
