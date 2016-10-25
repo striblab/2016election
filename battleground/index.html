@@ -212,7 +212,7 @@
     .resultsRow div { display:inline-block; text-align:left; width:33%; }
     .resultsRow { border-bottom:1px solid #e8e8e8; padding:3px 0; clear:both; }
     .resultsHead { color:#bbbbbb; display:none !important; font-size:0.9em; font-weight:bold; }
-    .reportingRow { color:#aaa; float:right; font-size:0.8em; margin-top:5px; }
+    .reportingRow { color:#aaa; font-size:0.8em; margin-top:5px; }
     .hideIT { display:none; }
     #infobox { float:right; height:133px; margin-bottom:15px; text-align:left; width:100%; }
     #infobox .resultsRow:nth-child(2) { border-bottom:0px; }
@@ -299,7 +299,7 @@
     #cssmenu { display:none; }
     #mobmenu { display:block; }
     #cartogram { height:auto; text-align:center; width:100%; }
-    #datavizPane { width:100%; }
+    #datavizPane { width:100%; zoom:100%; }
     #wrapper { width:100%; }
     #infobox { font-size:0.9em; }
     .map { width:100%; }
@@ -333,27 +333,34 @@
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:300px !important; }
     }
     @media only screen and (max-width: 480px) { 
-    .col { margin:0 0 0 0%; }
+    .resultsRow .candidate { width:43% !important; }
+    .resultsRow .counts { width:23% !important; }
+    .resultsRow .pct { width:23% !important; }
+    .col { margin:0 0 0 0%; padding: 0 0; }
+    .resultsLogo { float:right; margin:0; }
     .span_1_of_3 { width:100%; }
+    .switch { padding:3px; }
     .span_2_of_3 { border-top:1px solid #e7e7e7; width:100%; }
-    .coverageLinks { float:none; text-align:center; }
-    .drop { display:inline-block; }
+    .coverageLinks { float:none; text-align:center; font-size:0.7em !important; }
+    .drop { float:left; }
     #cssmenu { display:none; }
-    #mobmenu { display:none; margin-top:49px !important; }
+    #mobmenu { display:none; margin-top:-40px !important; }
+    #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:306.667px !important; }
     }
     @media (max-width:420px) { 
     .partyBlock { width:18%; }
     .legendLabel { height:auto; }
+    .mobileKill { display:none; }
     .label, #dCheck, #rCheck { font-size:0.8em; }
     .zoom { clear:both; float:none !important; padding-top:10px; text-align:center !important; }
     #infobox { font-size:0.8em; }
     #powerbar { padding:1px; }
-    #mobmenu { margin-top:14px !important; }
+    #mobmenu { margin-top:-35px !important; }
     .mobileHide { display:none; }
     .bigBoard { font-size:0.7em; }
     .map { height:auto; width:100%; }
     .resultsRow { border:none !important; }
-    #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:300px !important; width:300px !important; }
+    #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:213.333px !important; width:300px !important; }
     .carto { height:auto; width:100%; }
     }
   </style>
@@ -373,27 +380,32 @@
 <!-- TOP ELECTIONS BANNER THINGIES FOR OTHER, NON-CLICKY MAP COVERAGE FOR PEOPLE WHO LIKE READING WORDS -->
 <div class="l-elections-wrapper">
     <div clas="l-election-results-header">
-      <div class="resultsBanner">
-        
-        <div class="section group">
-          <div class="col span_1_of_3">
-              <div class="resultsLogo">
-                <h4><a href="http://startribune.com/politics" target="new_">ELECTION</a></h4>
-                <div class="resultsLogoSVG"></div>
-              </div>
-              <div class="drop">
-                 <button class="switch">Menu</button>
-              </div>             
-          </div>          
-          <div class="col span_2_of_3">
-            <div class="coverageLinks">
-            <a href="http://election.startribune.com/results/2016/general" target="new_">MN results</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="http://election.startribune.com/myvote" target="new_">MyVote results</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="http://startribune.com/politics" target="new_">Full coverage</a>
-            </div>
-          </div>
-        </div>
+<div class="resultsBanner">      
+  <div class="section group">
+    <div class="col span_1_of_3">
+      <div class="resultsLogo">
+        <h4><a href="http://startribune.com/politics" target="new_">ELECTION</a></h4>
+        <a href="#">
+          <div class="resultsLogoSVG"></div>
+        </a>
       </div>
+      <div class="coverageLinks cl-dsktp">
+        <a href="http://election.startribune.com/results/2016/general" target="new_">MN results</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="http://election.startribune.com/myvote" target="new_">MyVote</a>
+      </div>      
+    </div>
+    <div class="col span_2_of_3">
+      <div class="drop">
+        <button class="switch">View Races</button>
+      </div>
+      <div class="coverageLinks cl-mobile">
+        <a href="http://election.startribune.com/results/2016/general" target="new_">MN results</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="http://election.startribune.com/myvote" target="new_">MyVote</a>
+      </div>       
+    </div>
+  </div>
+</div>
     </div>
 </div>
+
 
 <!-- SERIOUS BUSINESS STARTS HERE -->
 <div id="fulldataviz">
@@ -1525,7 +1537,7 @@
     <div class='dlean brick'></div>
     <div class='democrat brick'></div>
     <div class="tinybreak"></div>
-    <div class='legendLabel'></div>
+    <div class="legendLabel mobileKill"></div>
     <div class='brick smallLabel'>50%</div>
     <div class='brick smallLabel'>70%</div>  
   </div>
@@ -1534,7 +1546,7 @@
     <div class='rlean brick'></div>
     <div class='republican brick'></div>
     <div class="tinybreak"></div>
-    <div class='legendLabel'></div>
+    <div class="legendLabel mobileKill"></div>
     <div class='brick smallLabel'>50%</div>
     <div class='brick smallLabel'>70%</div>   
   </div>
@@ -1543,7 +1555,7 @@
     <div class='green2 brick'></div>
     <div class='green4 brick'></div>
     <div class="tinybreak"></div>
-    <div class='legendLabel'></div>
+    <div class="legendLabel mobileKill"></div>
     <div class='brick smallLabel'>50%</div>
     <div class='brick smallLabel'>70%</div>   
   </div>
@@ -1585,7 +1597,7 @@
     <div class='dlean brick'></div>
     <div class='democrat brick'></div>
     <div class="tinybreak"></div>
-    <div class='legendLabel'></div>
+    <div class="legendLabel mobileKill"></div>
     <div class='brick smallLabel'>Lean</div>
     <div class='brick smallLabel'>Win</div>  
   </div>
@@ -1594,7 +1606,7 @@
     <div class='rlean brick'></div>
     <div class='republican brick'></div>
     <div class="tinybreak"></div>
-    <div class='legendLabel'></div>
+    <div class="legendLabel mobileKill"></div>
     <div class='brick smallLabel'>Lean</div>
     <div class='brick smallLabel'>Win</div>   
   </div>
@@ -1603,7 +1615,7 @@
     <div class='green2 brick'></div>
     <div class='green4 brick'></div>
     <div class="tinybreak"></div>
-    <div class='legendLabel'></div>
+    <div class="legendLabel mobileKill"></div>
     <div class='brick smallLabel'>Lean</div>
     <div class='brick smallLabel'>Win</div>   
   </div>
