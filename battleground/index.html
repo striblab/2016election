@@ -315,7 +315,7 @@
     #powerbar { padding:1px; }
     .map { height:auto; width:700px; }
     #raceSwitcher { margin: 77px auto 14px; }
-    .carto { height:auto; width:700px; }
+    .carto { height:529px; width:700px; }
     .mapState, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
     }
     @media (max-width:630px) { 
@@ -323,13 +323,13 @@
     #raceSwitcher { margin: 102px auto 14px; }
     #powerbar { padding:1px; }
     .map { height:auto; width:600px; }
-    .carto { width:600px; height:454px !important; }
+    .carto { width:600px; height:454px; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:450px !important; }
     }
     @media (max-width:500px) { 
     #powerbar { padding:1px; }
     .map { height:auto; width:450px; }
-    .carto { height:auto; width:450px; }
+    .carto { height:auto !important; width:450px; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:300px !important; }
     }
     @media only screen and (max-width: 480px) { 
@@ -1318,13 +1318,13 @@
     <text transform="matrix(1 0 0 1 630.7305 401.3809)">NC</text>
 </g>
 <g>
-    <text transform="matrix(1 0 0 1 759.7549 409.2383)">DC</text>
+    <text transform="matrix(1 0 0 1 759.7549 409.2383)" style="fill:#000 !important;color:#000 !important;">DC</text>
 </g>
 <g>
-    <text transform="matrix(1 0 0 1 20.1812 546.6758)">AK</text>
+    <text transform="matrix(1 0 0 1 20.1812 546.6758)" style="fill:#000 !important;color:#000 !important;">AK</text>
 </g>
 <g>
-    <text transform="matrix(1 0 0 1 164.9419 570.8096)">HI</text>
+    <text transform="matrix(1 0 0 1 164.9419 570.8096)" style="fill:#000 !important;color:#000 !important;">HI</text>
 </g>
 <g>
     <text transform="matrix(1 0 0 1 631.5918 582.8545)">FL</text>
@@ -3146,8 +3146,12 @@ $(".raceSwitch").click(function(event) {
 
 //INITIAL DATAMANCY TO CONJURE RESULTS FROM THE ASSOCIATED PRESS
 var apiStringPrez = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
+// var apiStringPrez = "./data/prezCounty_new.json";
 var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
 var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-governors-by-state/full.json";
+// var apiStringMNS = "./data/mnsenate_new.json";
+// var apiStringMNH = "./data/mnhouse_new.json";
+// var apiStringHouse = "./data/house_new.json";
 var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
 var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnhouse-by-district/full.json";
 var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
