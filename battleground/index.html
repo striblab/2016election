@@ -2108,7 +2108,7 @@ function makeCartogram() {
                     spillInfo(fetchData("District " + d.properties['d'],d.properties.State,"table",data,"ushouse",null,"District " + d.properties['d']));
                 })
                 .call(d3.helper.tooltip(function(d, i){
-                    if ($(window).width() > 960) { 
+                    if ($(window).width() > 500) { 
                     return fetchData("District " + d.properties['d'],d.properties.State,"tooltip",data,"ushouse",null,"District " + d.properties['d']);
                 } else { $(".tooltip").hide(); }}));
         })
@@ -2275,7 +2275,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
           }
       })
       .call(d3.helper.tooltip(function(d, i){
-        if ($(window).width() > 960) { 
+        if ($(window).width() > 500) { 
          if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race); }
          else if (race == "county") { return fetchData(d.properties.GEOID,null,"tooltip",dataCompare,race,null,d.properties.NAME); }
          // else if (race == "pct") { return mapTips(d, race, dataCompare, level); }
@@ -3310,7 +3310,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
             return false;
        })
          .call(d3.helper.tooltip(function(d, i){
-         if ($(window).width() > 960) { 
+         if ($(window).width() > 500) { 
          if (race == "president" || race == "senate" || race == "governors") { 
             return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race);
          }
@@ -3341,7 +3341,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
             spillInfo(fetchData("District " + d.properties['d'],d.properties.State,"table",dataCompare,"ushouse",null,"District " + d.properties['d']))
          })
          .call(d3.helper.tooltip(function(d, i){
-        if ($(window).width() > 960) { 
+        if ($(window).width() > 500) { 
             return fetchData("District " + d.properties['d'],d.properties.State,"tooltip",dataCompare,"ushouse",null,"District " + d.properties['d']);
         } else { $(".tooltip").hide(); }}));
   }
