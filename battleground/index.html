@@ -241,6 +241,8 @@
 
     /* MOBILE NAV */
     .drop { display:none; float:left; position:relative; }
+    .coverageLinks.cl-dsktp { display: none; }
+    .coverageLinks.cl-mobile { display: block; }
     .switch { margin:0 !important; width:auto !important; }
     .switch:hover { margin:0 !important; }
     #mobmenu { display:none; }
@@ -315,7 +317,7 @@
     .drop { float:left; display:block; width:100%; }
     .switch { width:100% !important; }
     .resultsLogo { float:left; margin:0; }
-    .coverageLinks.cl-dsktp { float:none; text-align:right; font-size:0.7em !important; font-weight:normal; }
+    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.7em !important; font-weight:normal; }
     .coverageLinks.cl-mobile { display:none; }
     }
     @media (max-width:770px) { 
@@ -323,6 +325,7 @@
     .map { height:auto; width:700px; }
     #raceSwitcher { margin: 77px auto 14px; }
     .carto { height:529px; width:700px; }
+    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.7em !important; font-weight:normal; }
     .mapState, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
     }
     @media (max-width:630px) { 
@@ -331,13 +334,16 @@
     #powerbar { padding:1px; }
     .map { height:auto; width:600px; }
     .carto { width:600px; height:454px; }
+    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.7em !important; font-weight:normal; }
+    .mapState, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:450px !important; }
     }
     @media (max-width:500px) { 
-    .menukill { display:none; }
+    .menukill { display:none !important; }
     #powerbar { padding:1px; }
     .map { height:auto; width:450px; }
     .carto { height:auto !important; width:450px; }
+    .coverageLinks.cl-dsktp { float:right; text-align:right; font-size:0.7em !important; font-weight:normal; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:300px !important; }
     }
     @media only screen and (max-width: 480px) { 
@@ -345,14 +351,15 @@
     .resultsRow .counts { width:23% !important; }
     .resultsRow .pct { width:23% !important; }
     .col { margin:0 0 0 0%; padding: 0 0; }
-    .resultsLogo { float:right; margin:0; }
+    .resultsLogo { float:left; margin:0; }
     .span_1_of_3 { width:100%; }
-    .switch { padding:3px; }
+    .switch { width: 100% !important; }
     .span_2_of_3 { border-top:1px solid #e7e7e7; width:100%; }
-    .coverageLinks { float:none; text-align:center; font-size:0.7em !important; }
-    .drop { float:left; }
+    .coverageLinks.cl-desktop { float:none; text-align:right; font-size:0.7em !important; }
+    .coverageLinks.cl-mobile { display: none; }
+    .drop { float:left; width: 100%; }
     #cssmenu { display:none; }
-    #mobmenu { display:none; margin-top:-40px !important; }
+    #mobmenu { display:none; margin-top:-18px !important; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:306.667px !important; }
     }
     @media (max-width:420px) { 
@@ -363,7 +370,7 @@
     .zoom { clear:both; float:none !important; padding-top:10px; text-align:center !important; }
     #infobox { font-size:0.8em; }
     #powerbar { padding:1px; }
-    #mobmenu { margin-top:-35px !important; }
+    #mobmenu { margin-top:-17px !important; }
     .mobileHide { display:none; }
     .bigBoard { font-size:0.7em; }
     .map { height:auto; width:100%; }
