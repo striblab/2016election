@@ -492,13 +492,13 @@ var colors = [];
 for (var i=0; i < last.length; i++){
   var thisPCT = voteCount[i] / voteCountT;
     if (party[i] == "GOP"){
-      if (thisPCT >= .80) { colors[i] = "#d84c27"; } 
+      if (thisPCT >= .80) { colors[i] = "#D34A44"; } 
       else if (thisPCT >= .70) { colors[i] = "#df6a4c"; } 
       else if (thisPCT >= .60) { colors[i] = "#e58970"; } 
       else if (thisPCT >= 0) { colors[i] = "#eca795"; } 
     }
     else if (party[i] == "Dem") { 
-      if (thisPCT >= .80) { colors[i] = "#2b7ab5"; } 
+      if (thisPCT >= .80) { colors[i] = "#3585BC"; } 
       else if (thisPCT >= .70) { colors[i] = "#4f90c1"; } 
       else if (thisPCT >= .60) { colors[i] = "#73a7ce"; } 
       else if (thisPCT >= 0) { colors[i] = "#97bedb"; } 
@@ -801,10 +801,10 @@ d3.json("shapefiles/" + shape, function(error, us) {
         // console.log(level)
          if (level == "country") { 
           var wins = fetchData(d.properties.NAME,d.properties.NAME,"winner",dataCompare,race); 
-          if (wins == "DEM Win") { return "#21409A"; }
-          if (wins == "DEM Lean") { return "#7584a6"; }
-          if (wins == "GOP Lean") { return "#b78181"; }
-          if (wins == "GOP Win") { return "#DA2128"; }
+          if (wins == "DEM Win") { return "#3585BC"; }
+          if (wins == "DEM Lean") { return "#72a9d6"; }
+          if (wins == "GOP Lean") { return "#f7816e"; }
+          if (wins == "GOP Win") { return "#D34A44"; }
         }
          else if (level == "county") { return fetchData(d.properties.COUNTYFIPS,null,"colors",dataCompare,race); }
 
