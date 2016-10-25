@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Battleground 2016</title>
-  <meta name="description" content="Battleground 2016">
+  <title>Star Tribune: Election 2016 live results</title>
+  <meta name="description" content="Election 2016 live results">
   <meta name="author" content="Frey Hargarten - StarTribune">
 
   <link rel="stylesheet" href="./css/startribune_dataviz_styles.css" />
@@ -31,6 +31,7 @@
     .col { display:block; float:left; margin:1% 0 1% 1.6%; }
     .span_2_of_3 { width:66.13%; }
     .col { display:block; float:left; margin:0 0 0 1.6%; }
+    #datavizPane { zoom:80%; }
 
     /* SECTION HEADER */
     .resultsBanner { border-bottom:1px solid #e7e7e7; float:left; font-family:"Benton Sans",Helvetica,Arial,sans-serif!important; font-size:.65em; font-weight:700; line-height:100%; margin:0 auto 24px; padding:10px 0 0 0; width:100%; }
@@ -264,7 +265,6 @@
     .loading-mask::before { background-color:rgba(0, 0, 0, 0.25); bottom:0; content:''; left:0; position:absolute; right:0; top:0; }
     @keyframes spin { from { transform:rotate(0deg); }
     to { transform:rotate(359deg); } }
-    .loading-mask::after { animation:2s linear 0s normal none infinite running spin; border-color:transparent rgb(255, 255, 255) rgb(255, 255, 255); border-radius:50%; border-style:solid; border-width:3px; filter:drop-shadow(0 0 2 rgba(0, 0, 0, 0.33)); height:24px; left:calc(50% - 12px); position:absolute; top:calc(50% - 12px); width:24px; }
     #message { margin:0 auto; position:absolute; text-align:center; top:20%; width:100%; }
     #loader { bottom:0; left:0; position:absolute; right:0; top:0; }
 
@@ -378,7 +378,7 @@
         <div class="section group">
           <div class="col span_1_of_3">
               <div class="resultsLogo">
-                <h4>ELECTION</h4>
+                <h4><a href="http://startribune.com/politics" target="new_">ELECTION</a></h4>
                 <div class="resultsLogoSVG"></div>
               </div>
               <div class="drop">
@@ -387,7 +387,7 @@
           </div>          
           <div class="col span_2_of_3">
             <div class="coverageLinks">
-            <a href="#">U.S. results</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#">MyVote results</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="#">Full coverage</a>
+            <a href="http://election.startribune.com/results/2016/general" target="new_">MN results</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="http://election.startribune.com/myvote" target="new_">MyVote results</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="http://startribune.com/politics" target="new_">Full coverage</a>
             </div>
           </div>
         </div>
@@ -487,7 +487,7 @@
         </a>
     </div>
     <div class="shareRight">
-        <a id="twitterbtn-link" onclick="return twitter_click('https://twitter.com/share?url=ENCODEDURL&amp;counturl=ENCODEDURL&amp;text=ENCODEDTWEETTEXT&amp;via=StarTribune')">
+        <a id="twitterbtn-link" onclick="return twitter_click('https://twitter.com/share?url=http%3A%2F%2Fwww.startribune.com%2Fx%2F396064451%2F&amp;counturl=http%3A%2F%2Fwww.startribune.com%2Fx%2F396064451%2F&amp;text=Star+Tribune%3A+Election+2016+live+results+tracker&amp;via=StarTribune')">
             <img style="width:30px;" src="http://stmedia.startribune.com/designimages/twitterCustomIcon.png">
         </a> 
     </div>
@@ -2329,20 +2329,20 @@ $(".zoom").click(function() {
       .classed("active", false);
 });
 
-$(".uszoom").click(function() {
+$(".uszoom").on("mousedown",function() {
     clicked2();
     d3.selectAll(".areas").classed("gone", false);
     d3.selectAll(".mn").classed("gone", false);
     d3.selectAll(".metro").classed("gone", false);
 });
 
-$(".mnzoom").click(function() {
+$(".mnzoom").on("mousedown",function() {
     mnzoom();
     d3.selectAll(".areas").classed("gone", true);
     d3.selectAll(".mn").classed("gone", false);
 });
 
-$(".metrozoom").click(function() {
+$(".metrozoom").on("mousedown",function() {
     metrozoom();
     d3.selectAll(".areas").classed("gone", true);
     d3.selectAll(".mn").classed("gone", true);
@@ -3323,8 +3323,9 @@ function reloadData(){
    var dataHouse = jsonSpillHouse;
    var dataEVCD = jsonSpillEVCD;   
 
-
    $('.raceSwitch').on('blur change click dblclick error focus focusin focusout hover keydown keypress keyup load mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup resize scroll select submit', function(event){ event.stopPropagation(); return false; });
+
+   $('.raceSwitch').off("click");
 
    $('.block, .cartoState, .tableRow, path, .stateBlock, .ME01, #ME01, .ME02, #ME02, .NE01, #NE01, .NE02, #NE02, .NE03, #NE03').off();
 
@@ -3397,7 +3398,11 @@ $("#mobmenu .raceSwitch").click(function() { $("#mobmenu").toggle(); });
 
 //SOCIAL MEDIA TRIGGERS THAT DON'T WORK VERY WELL
 function fbs_click() {
-u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=520,height=350');return false;
+
+var u = location.href;
+var t = document.title;
+
+window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=520,height=350');return false;
 }
 
 function twitter_click(url){newwindow=window.open(url,'name','height=350,width=520');
