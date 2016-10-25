@@ -447,12 +447,12 @@ var apiStringEVCD = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/u
 // var apiString = "./data/" + year + "_" + race + "_" + district + "_" + geo +".json"
 
 // d3.json(apiStringUS, function(error, jsonUS) {
-d3.json(apiStringCounty, function(error, jsonCounty) {
-d3.json(apiStringSenate, function(error, jsonSenate) {
-d3.json(apiStringHouse, function(error, jsonHouse) {
-d3.json(apiStringMNH, function(error, jsonMNH) {
-d3.json(apiStringMNS, function(error, jsonMNS) {
-d3.json(apiStringEVCD, function(error7, jsonSpillEVCD) {
+d3.json(apiStringCounty + '?' + (Math.floor(Math.random() * 1000)), function(error, jsonCounty) {
+d3.json(apiStringSenate + '?' + (Math.floor(Math.random() * 1000)), function(error, jsonSenate) {
+d3.json(apiStringHouse + '?' + (Math.floor(Math.random() * 1000)), function(error, jsonHouse) {
+d3.json(apiStringMNH + '?' + (Math.floor(Math.random() * 1000)), function(error, jsonMNH) {
+d3.json(apiStringMNS + '?' + (Math.floor(Math.random() * 1000)), function(error, jsonMNS) {
+d3.json(apiStringEVCD + '?' + (Math.floor(Math.random() * 1000)), function(error7, jsonSpillEVCD) {
 
 // var dataUS = jsonUS;
 var dataCounty = jsonCounty;
