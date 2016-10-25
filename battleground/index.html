@@ -259,7 +259,14 @@
     #mobmenu ul ul li a:hover { color:#000; }
     #mobmenu ul ul > li.has-sub > a:after { background:#dddddd; right:26px; top:16px; }
     #mobmenu ul ul > li.has-sub > a:before { background:#dddddd; top:20px; }
-
+    .coverageLinks.cl-dsktp { display:block; float:none; text-align:right; font-size:0.7em !important; font-weight: normal; }
+    .coverageLinks.cl-mobile { display:none; }
+    .drop { float:left; display:block; width:100%; }
+    .switch { width:100% !important; }
+    .resultsLogo { float:left; margin:0; }
+    .coverageLinks.cl-dsktp { float:none; text-align:right; font-size:0.7em !important; font-weight:normal; }
+    .coverageLinks.cl-mobile { display:none; }
+    
     /* LOADING MASK */
     .loading-mask { position:relative; }
     .loading-mask::before { background-color:rgba(0, 0, 0, 0.25); bottom:0; content:''; left:0; position:absolute; right:0; top:0; }
@@ -327,6 +334,7 @@
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:450px !important; }
     }
     @media (max-width:500px) { 
+    .menukill { display:none; }
     #powerbar { padding:1px; }
     .map { height:auto; width:450px; }
     .carto { height:auto !important; width:450px; }
@@ -397,9 +405,9 @@
       <div class="drop">
         <button class="switch">View Races</button>
       </div>
-<!--       <div class="coverageLinks cl-mobile">
+      <div class="coverageLinks cl-mobile">
         <a href="http://election.startribune.com/results/2016/general" target="new_">MN results</a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="http://election.startribune.com/myvote" target="new_">MyVote</a>
-      </div>  -->      
+      </div>       
     </div>
   </div>
 </div>
@@ -422,14 +430,14 @@
          </li>
          <li class="raceSwitch advance uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="showMe" infobox="us"><a href='#'> <div><div><strong>U.S.</strong> popular by state</div></div></a>
          </li>
-<!--          <li class="raceSwitch advance uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us"><a href='#'><div><div><strong>U.S.</strong> popular by county</div></div></a>
+         <li class="raceSwitch menukill advance uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us"><a href='#'><div><div><strong>U.S.</strong> popular by county</div></div></a>
          </li>
-         <li class="raceSwitch advance mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn"><a href='#'><div><div><strong>MN</strong> popular by county</div></div></a>
-         </li> -->
-<!--          <li><a href='#'><div class="raceSwitch advance mnzoom" data="president" legend="legendMargins" type="map" layer="pct"><div><strong>MN</strong> popular by precinct</div></div></a> -->
+         <li class="raceSwitch menukill advance mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn"><a href='#'><div><div><strong>MN</strong> popular by county</div></div></a>
+         </li>
+         <li><a href='#'><div class="raceSwitch menukill advance mnzoom" data="president" legend="legendMargins" type="map" layer="pct"><div><strong>MN</strong> popular by precinct</div></div></a>
         <!--  </li> -->
-<!--          <li class="raceSwitch advance metrozoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn"><a href='#'><div><div><strong>Metro</strong> popular by county</div></div></a>
-         </li> -->
+         <li class="raceSwitch menukill advance metrozoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn"><a href='#'><div><div><strong>Metro</strong> popular by county</div></div></a>
+         </li>
 <!--          <li><a href='#'><div class="raceSwitch advance metrozoom" data="president" legend="legendMargins" type="map" layer="pct"><div><strong>Metro</strong> popular by precinct</div></div></a> -->
       </ul>   
    </li>
@@ -440,8 +448,8 @@
         <li class="raceSwitch advance mnzoom" data="house" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="false" infobox="cd"><a href='#'><div><div><strong>MN</strong> by district</div></div></a></li>
       </ul>
    </li> 
-<!--    <li class="raceSwitch advance uszoom"  section="senate" data="senate" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="showMe" infobox="none"><a href='#'><div><div>U.S. Senate</div></div></a></li>  
-   <li class="raceSwitch advance uszoom" section="governors" data="governors" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="showMe" infobox="none"><a href='#'><div><div>Governors</div></div></a></li> -->
+   <li class="raceSwitch advance menukill uszoom"  section="senate" data="senate" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="showMe" infobox="none"><a href='#'><div><div>U.S. Senate</div></div></a></li>  
+   <li class="raceSwitch advance menukill uszoom" section="governors" data="governors" legend="legendWinners" type="geo" layer="country" dLabel="DEM" rLabel="GOP" stateKey="showMe" infobox="none"><a href='#'><div><div>Governors</div></div></a></li>
    <li section="mnhouse" class="raceSwitch advance uszoom" data="mnhouse" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN House</a></li>
    <li section="mnsenate" class="raceSwitch advance uszoom" data="mnsenate" legend="legendWinners" type="geo" layer="country" dLabel="DFL" rLabel="GOP" stateKey="false" infobox="none"><a href='#'>MN Senate</a> </li>
 </ul>
@@ -2526,7 +2534,7 @@ function mapSpill(race,data){
 
   if (race == "president"){
     mapBuild("#president .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
-    if ($(window).width() > 960) { mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data); }
+    if ($(window).width() > 500) { mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data); }
     electoralCarto(data);
     // mapBuild("#mapStates", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
     // mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
@@ -3189,8 +3197,8 @@ var dataHouse = jsonSpillHouse;
 var dataEVCD = jsonSpillEVCD;
 
 mapSpill("president",dataPrez);
-if ($(window).width() > 960) { mapSpill("senate",dataSen); }
-if ($(window).width() > 960) { mapSpill("governors",dataGov); }
+if ($(window).width() > 500) { mapSpill("senate",dataSen); }
+if ($(window).width() > 500) { mapSpill("governors",dataGov); }
 mapSpill("mnsenate",dataMNS);
 mapSpill("mnhouse",dataMNH);
 mapSpill("house",dataHouse);
@@ -3375,14 +3383,14 @@ function reloadData(){
 
    //presidential updates
    mapReshade("#USMAP .country", "us_states.json", "country", "president", dataPrez);
-   if ($(window).width() > 960) { mapReshade("#USMAP .counties", "us_counties.json", "counties", "county", dataPrez); }
+   if ($(window).width() > 500) { mapReshade("#USMAP .counties", "us_counties.json", "counties", "county", dataPrez); }
    electoralCarto(dataPrez);   
 
    //senate updates
-   if ($(window).width() > 960) { mapReshade("#USSENATE .country", "us_states.json", "country", "senate", dataSen); }   
+   if ($(window).width() > 500) { mapReshade("#USSENATE .country", "us_states.json", "country", "senate", dataSen); }   
 
    //governors updates
-   if ($(window).width() > 960) { mapReshade("#USGOV .country", "us_states.json", "country", "governors", dataGov); }   
+   if ($(window).width() > 500) { mapReshade("#USGOV .country", "us_states.json", "country", "governors", dataGov); }   
 
    //house updates
    mapReshade("#USHOUSE .country", "uscongress.json", "country", "house", dataHouse);
@@ -3391,11 +3399,11 @@ function reloadData(){
 
    //mnhouse updates
    mapReshade("#MNHOUSE .country", "mnleg.json", "country", "mnhouse", dataMNH);
-   if ($(window).width() > 960) { mapReshade("#MNHOUSEMETRO", "mnleg_metro.json", "country", "mnhouse", dataMNH); }   
+   if ($(window).width() > 500) { mapReshade("#MNHOUSEMETRO", "mnleg_metro.json", "country", "mnhouse", dataMNH); }   
 
    //mnsenate updates
    mapReshade("#MNSENATE .country", "mnsenate.json", "country", "mnsenate", dataMNS);
-   if ($(window).width() > 960) { mapReshade("#MNSENATEMETRO", "mnsenate_metro.json", "country", "mnsenate", dataMNS); }   
+   if ($(window).width() > 500) { mapReshade("#MNSENATEMETRO", "mnsenate_metro.json", "country", "mnsenate", dataMNS); }   
 
    d3.selectAll("path").classed("faded", false).classed("active", false);
    $(".block").removeClass("blockSelect");   
