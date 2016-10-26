@@ -5,7 +5,7 @@ page.open('http://striblab.github.io/2016election/elex_summary/elex-graphics-mob
   page.viewportSize = { width: 350, height: 420 };
 
   var clipRect = page.evaluate(function(){
-    return document.querySelector('#snapshot').getBoundingClientRect();
+    return document.querySelector('#snapme').getBoundingClientRect();
   });
 
   page.clipRect = {
