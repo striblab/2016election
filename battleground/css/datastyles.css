@@ -335,6 +335,7 @@
     .col { margin:0 0 0 0%; padding: 0 0; }
     .resultsLogo { float:left; margin-left: 10px; }
     .span_1_of_3 { width:100%; }
+    .span_2_of_3 { width: 100%; }
     .switch { width: 100% !important; }
     .coverageLinks.cl-desktop { float:none; text-align:right; font-size:0.9em !important; }
     .coverageLinks.cl-mobile { display: none; }
