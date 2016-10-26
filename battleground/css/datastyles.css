@@ -149,7 +149,7 @@
 
     /* TABLES */
     #table { height:auto; padding:10px; vertical-align:top; }
-    #allResults { border-right:2px solid #ddd; height:1100px; overflow-x:hidden; overflow-y:auto; }
+    #allResults { height:1100px; overflow-x:hidden; overflow-y:auto; }
     .column { display:inline-block; vertical-align:top; width:48%; }
     .tableHead { border-bottom:1px solid #ddd; display:inline-block; font-family:"Poynter Serif RE"; font-weight:900; padding:10px; width:24%; }
     .tableCell { border-bottom:1px solid #ddd; display:inline-block; font-family:"Benton Sans"; padding:10px; width:24%; }
