@@ -4,7 +4,7 @@
     a { color:#000; }
     a:link { webkit-tap-highlight-color:#1d78af; }
     #wrapper { display:none; height:auto; margin-left:auto; margin-right:auto; text-align:center; width:1080px; }
-    .l-elections-wrapper { font-size:1.5em; }
+    .l-elections-wrapper { font-size:1.2em; }
     .l-election-results-header { border-bottom:1px solid #e7e7e7; margin-bottom:2em; padding-bottom:1.5em; padding-top:1em; text-align:center; }
     .group { zoom:1; }
     .section { clear:both; margin:0px; padding:0px; }
@@ -296,12 +296,12 @@
     #viewSwitches { border-right:0; display:block; }
     .mapBox { height:auto !important; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
-    .coverageLinks.cl-dsktp { display:block; float:none; text-align:right; font-size:0.7em !important; font-weight: normal; }
+    .coverageLinks.cl-dsktp { display:block; float:none; text-align:right; font-size:0.9em !important; font-weight: normal; }
     .coverageLinks.cl-mobile { display:none; }
     .drop { float:left; display:block; width:100%; }
     .switch { width:100% !important; }
-    .resultsLogo { float:left; margin:0; }
-    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.7em !important; font-weight:normal; }
+    .resultsLogo { float:left; margin-left: 10px; }
+    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.9em !important; font-weight:normal; }
     .coverageLinks.cl-mobile { display:none; }
     }
     @media (max-width:770px) { 
@@ -309,7 +309,7 @@
     .map { height:auto; width:700px; }
     #raceSwitcher { margin: 77px auto 14px; }
     .carto { height:529px; width:700px; }
-    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.7em !important; font-weight:normal; }
+    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.9em !important; font-weight:normal; }
     .mapState, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
     }
     @media (max-width:630px) { 
@@ -318,7 +318,7 @@
     #powerbar { padding:1px; }
     .map { height:auto; width:600px; }
     .carto { width:600px; height:454px; }
-    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.7em !important; font-weight:normal; }
+    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.9em !important; font-weight:normal; }
     .mapState, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:450px !important; }
     }
@@ -327,7 +327,7 @@
     #powerbar { padding:1px; }
     .map { height:auto; width:450px; }
     .carto { height:auto !important; width:450px; }
-    .coverageLinks.cl-dsktp { float:right; text-align:right; font-size:0.7em !important; font-weight:normal; }
+    .coverageLinks.cl-dsktp { float:right; text-align:right; font-size:0.9em !important; font-weight:normal; position: absolute; right: 0; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:300px !important; }
     }
     @media only screen and (max-width: 480px) { 
@@ -335,16 +335,17 @@
     .resultsRow .counts { width:23% !important; }
     .resultsRow .pct { width:23% !important; }
     .col { margin:0 0 0 0%; padding: 0 0; }
-    .resultsLogo { float:left; margin:0; }
+    .resultsLogo { float:left; margin-left: 10px; }
     .span_1_of_3 { width:100%; }
     .switch { width: 100% !important; }
     .span_2_of_3 { border-top:1px solid #e7e7e7; width:100%; }
-    .coverageLinks.cl-desktop { float:none; text-align:right; font-size:0.7em !important; }
+    .coverageLinks.cl-desktop { float:none; text-align:right; font-size:0.9em !important; }
     .coverageLinks.cl-mobile { display: none; }
     .drop { float:left; width: 100%; }
     #cssmenu { display:none; }
     #mobmenu { display:none; margin-top:-18px !important; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:306.667px !important; }
+    .resultsBanner { padding: 10px 0 18px 0;}
     }
     @media (max-width:420px) { 
     .partyBlock { width:18%; }
