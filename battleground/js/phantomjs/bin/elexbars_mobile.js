@@ -1,8 +1,8 @@
 var page = require('webpage').create();
 
-page.open('http://striblab.github.io/2016election/elex_summary/elex-graphics-mobile.html', function() {
+page.open('https://striblab.github.io/2016election/elex_summary/elex-graphics-mobile.html', function() {
   // being the actual size of the headless browser
-  page.viewportSize = { width: 350, height: 420 };
+  page.viewportSize = { width: 350, height: 340 };
 
   var clipRect = page.evaluate(function(){
     return document.querySelector('#snapme').getBoundingClientRect();
@@ -24,6 +24,6 @@ window.setTimeout(function () {
   page.render('frontpage_bars_mobile.png');
   phantom.exit();
   }
-}, 10000);
+}, 12000);
 
 });
