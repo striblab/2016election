@@ -222,6 +222,8 @@
     #cssmenu ul ul > li.has-sub > a:before { background:#dddddd; top:20px; }
     #cssmenu > ul > li > a:hover { color:#000; }
     #cssmenu { display:block; }
+    a img.test-chev:hover { opacity: 1; }
+    a img.test-chev { opacity: .5; }    
 
     /* MOBILE NAV */
     .drop { display:none; float:left; position:relative; }
