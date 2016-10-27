@@ -149,7 +149,7 @@
 
     /* TABLES */
     #table { height:auto; padding:10px; vertical-align:top; }
-    #allResults { height:1100px; overflow-x:hidden; overflow-y:auto; }
+    #allResults { border-right:2px solid #ddd; height:1200px; overflow-x:hidden; overflow-y:auto; }
     .column { display:inline-block; vertical-align:top; width:48%; }
     .tableHead { border-bottom:1px solid #ddd; display:inline-block; font-family:"Poynter Serif RE"; font-weight:900; padding:10px; width:24%; }
     .tableCell { border-bottom:1px solid #ddd; display:inline-block; font-family:"Benton Sans"; padding:10px; width:24%; }
@@ -275,6 +275,7 @@
 
     /* MOBILE BREAKPOINTS */
     @media (max-width:970px) { #countdownMobile { display:block; }
+    .switch img { width: 16px; height:16px }
     .drop { display:inline-block; }
     .sideStates { display:none !important; }
     .footnote { display:none; }
@@ -327,6 +328,7 @@
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:450px !important; }
     }
     @media (max-width:500px) { 
+    text { display:none !important; }
     .menukill { display:none !important; }
     #powerbar { padding:6px; }
     .map { height:auto; width:450px; }
@@ -362,12 +364,12 @@
     .label, #dCheck, #rCheck { font-size:0.8em; }
     .zoom { clear:both; float:none !important; padding-top:10px; text-align:center !important; }
     #infobox { font-size:0.8em; }
-    #powerbar { padding:6px; }
+    #powerbar { padding:1px; }
     #mobmenu { margin-top:-17px !important; }
     .mobileHide { display:none; }
     .bigBoard { font-size:0.7em; }
     .map { height:auto; width:100%; }
     .resultsRow { border:none !important; }
-    #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:213.333px !important; width:300px !important; }
+    #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg, .mapBox { height:298.89px !important; width:300px !important; }
     .carto { height:auto; width:100%; }
     }
