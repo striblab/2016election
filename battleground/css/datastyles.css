@@ -215,7 +215,7 @@
     #cssmenu ul > li.has-sub > a img.test-chev { position: absolute; right: 20px; top: 16px; z-index: 5; display: block; height: 16px; width: 16px; content: ""; -webkit-transition: all 0.1s ease-out; -moz-transition: all 0.1s ease-out; -ms-transition: all 0.1s ease-out; -o-transition: all 0.1s ease-out; transition: all 0.1s ease-out; }
     #cssmenu ul > li.has-sub > a img.test-chev { position: absolute; right: 20px; top: 16px; display: block; width: 16px; height: 16px; content: ""; -webkit-transition: all 0.2s ease-out; -moz-transition: all 0.2s ease-out; -ms-transition: all 0.2s ease-out; -o-transition: all 0.2s ease-out; transition: all 0.2s ease-out; }
     #cssmenu ul > li.has-sub.open > a img.test-chev { -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg); }
-    #cssmenu ul ul li a { background:#efefef; color:#989898; cursor:pointer; font-size:14px; o-transition:color .2s ease; padding:14px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
+    #cssmenu ul ul li a { border-bottom: 1px solid #ddd; background:#efefef; color:#989898; cursor:pointer; font-size:14px; o-transition:color .2s ease; padding:14px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
     #cssmenu ul ul ul li a { padding-left:32px; }
     #cssmenu ul ul li a:hover { color:#000; }
     #cssmenu ul ul > li.has-sub > a:after { background:#dddddd; right:26px; top:16px; }
@@ -241,7 +241,7 @@
     #mobmenu ul > li.has-sub > a img.test-chev { position: absolute; right: 20px; top: 16px; z-index: 5; display: block; height: 16px; width: 16px; content: ""; -webkit-transition: all 0.1s ease-out; -moz-transition: all 0.1s ease-out; -ms-transition: all 0.1s ease-out; -o-transition: all 0.1s ease-out; transition: all 0.1s ease-out; }
     #mobmenu ul > li.has-sub > a img.test-chev { position: absolute; right: 20px; top: 16px; display: block; width: 16px; height: 16px; content: ""; -webkit-transition: all 0.2s ease-out; -moz-transition: all 0.2s ease-out; -ms-transition: all 0.2s ease-out; -o-transition: all 0.2s ease-out; transition: all 0.2s ease-out; }
     #mobmenu ul > li.has-sub.open > a img.test-chev { -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg); }
-    #mobmenu ul ul li a { background:#efefef; color:#989898; cursor:pointer; font-size:14px; o-transition:color .2s ease; padding:14px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
+    #mobmenu ul ul li a { border-bottom: 1px solid #ddd; background:#efefef; color:#989898; cursor:pointer; font-size:14px; o-transition:color .2s ease; padding:14px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
     #mobmenu ul ul ul li a { padding-left:32px; }
     #mobmenu ul ul li a:hover { color:#000; }
     #mobmenu ul ul > li.has-sub > a:after { background:#dddddd; right:26px; top:16px; }
@@ -351,7 +351,7 @@
     #mobmenu { display:none; margin-top:-18px !important; width: 100%; border-right: none; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:306.667px !important; }
     #datavizPane { border-left: 0; }
-    .shareRow { box-shadow: 0px 0px 68px rgba(0,0,0,.6); padding: 16px 22px; }
+    .shareRow { box-shadow: 0px 0px 68px rgba(0,0,0,.6); padding: 16px 22px; border-bottom: 1px solid #bbbbbb; }
     .resultsBanner { padding: 10px 0 16px 0;}
     .test-chev.button-drop { position: absolute; display: block; width: 16px; height: 16px; margin: 0 auto; left: 100px; right: 0px; top: 10px; }    
     }
