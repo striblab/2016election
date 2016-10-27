@@ -4,7 +4,7 @@
     a { color:#000; }
     a:link { webkit-tap-highlight-color:#1d78af; }
     #wrapper { display:none; height:auto; margin-left:auto; margin-right:auto; text-align:center; width:1080px; }
-    .l-elections-wrapper { font-size:1.5em; }
+    .l-elections-wrapper { font-size:1.2em; }
     .l-election-results-header { border-bottom:1px solid #e7e7e7; margin-bottom:2em; padding-bottom:1.5em; padding-top:1em; text-align:center; }
     .group { zoom:1; }
     .section { clear:both; margin:0px; padding:0px; }
@@ -18,7 +18,7 @@
     #datavizPane { zoom:80%; }
 
     /* SECTION HEADER */
-    .resultsBanner { border-bottom:1px solid #e7e7e7; float:left; font-family:"Benton Sans",Helvetica,Arial,sans-serif!important; font-size:.65em; font-weight:700; line-height:100%; margin:0 auto 24px; padding:10px 0 0 0; width:100%; }
+    .resultsBanner { border-bottom:1px solid #e7e7e7; float:left; font-family:"Benton Sans",Helvetica,Arial,sans-serif!important; font-size:.65em; font-weight:700; line-height:100%; margin:0; padding:10px 0 0 0; width:100%; }
     .resultsLogo { float:left; margin:0 18px 0 10px; }
     .resultsLogo h4 { float:left; margin:0; padding:0; }
     h4 { font-weight:bold; }
@@ -29,7 +29,7 @@
     /* SWITCHES */
     #bottomSwitches { margin-left:auto; margin-right:auto; text-align:center; width:100%; }
     #viewSwitches { border-right:1px solid #ddd; display:inline-block; }
-    .switch { background-color:#fff; border:1px solid black; display:inline-block; font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-weight:900; padding:10px; text-align:center; width:24.5%; }
+    .switch { background-color: #efefef; border: 1px solid #aaa; display:inline-block; font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-weight:900; padding:10px; text-align:center; width:24.5%; }
     .switch:hover, .selected2, .mapSwitch:hover, .typeSwitch:hover, .layerSwitch:hover { background-color:#cccccc !important; color:#000 !important; cursor:pointer; opacity:1 !important; }
     .selected3 { color:#000 !important; }
     .typeSwitch, .layerSwitch, .stateSwitch { display:inline-block; margin:5px; opacity:.4; width:60px; }
@@ -39,9 +39,9 @@
     .raceSwitch { background:transparent; }
 
     /* PANES */
-    #datavizPane { float:right; width:78%; }
+    #datavizPane { float:right; width:77.9%; background-color: #f3f3f3; border-left: 1px solid #e7e7e7; }
     .dataviz { width:100%; }
-    #rightSide { font-size:.8em; width:100%; }
+    #rightSide { font-size:.8em; width:100%; padding: 0 0 0 10px; }
     div#fulldataviz { position:relative; width:100%; }
 
     /* MAPS */
@@ -63,6 +63,7 @@
     path { stroke-opacity:0.7 !important; }
 
     /* POWER BAR */
+    #powerbar { padding: 15px 10px 20px 10px; background-color: #fff; border-bottom: 1px solid #e7e7e7; }    
     #partyLabels, #partyBar, #partyCount { width:100%; }
     .bar, .count, .label { display:inline-block; }
     .dlabel, .rlabel { font-size:1.5em; }
@@ -148,7 +149,7 @@
 
     /* TABLES */
     #table { height:auto; padding:10px; vertical-align:top; }
-    #allResults { border-right:2px solid #ddd; height:1100px; overflow-x:hidden; overflow-y:auto; }
+    #allResults { border-right:2px solid #ddd; height:1200px; overflow-x:hidden; overflow-y:auto; }
     .column { display:inline-block; vertical-align:top; width:48%; }
     .tableHead { border-bottom:1px solid #ddd; display:inline-block; font-family:"Poynter Serif RE"; font-weight:900; padding:10px; width:24%; }
     .tableCell { border-bottom:1px solid #ddd; display:inline-block; font-family:"Benton Sans"; padding:10px; width:24%; }
@@ -209,38 +210,38 @@
     #cssmenu ul ul { display:none; }
     #cssmenu > ul > li.active > ul { display:block; }
     .align-right { float:right; }
-    #cssmenu > ul > li > a { background:#ffffff; color:#757575; cursor:pointer; font-size:16px; o-transition:color .2s ease; padding:16px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
+    #cssmenu > ul > li > a { background:#ffffff; color:#757575; border-bottom: 1px solid #e7e7e7; cursor:pointer; font-size:16px; o-transition:color .2s ease; padding:16px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
     #cssmenu > ul > li > a:hover { color:#000; }
-    #cssmenu > ul > li.has-sub a:active { background:#d8d8d8; color:#fff; moz-transition:all 0.1s ease-out; ms-transition:all 0.1s ease-out; o-transition:all 0.1s ease-out; transition:all 0.1s ease-out; webkit-transition:all 0.1s ease-out; }
-    #cssmenu ul > li.has-sub > a i.fa.fa-chevron-down { display:block; moz-transition:all 0.1s ease-out; ms-transition:all 0.1s ease-out; o-transition:all 0.1s ease-out; position:absolute; right:26px; top:15px; transition:all 0.1s ease-out; webkit-transition:all 0.1s ease-out; z-index:5; }
-    #cssmenu ul > li.has-sub > a i.fa.fa-chevron-down { display:block; moz-transition:all 0.1s ease-out; ms-transition:all 0.1s ease-out; o-transition:all 0.1s ease-out; position:absolute; right:22px; top:15px; transition:all 0.1s ease-out; webkit-transition:all 0.1s ease-out; }
-    #cssmenu ul > li.has-sub.open > a i.fa.fa-chevron-down { moz-transform:rotate(180deg); ms-transform:rotate(180deg); o-transform:rotate(180deg); transform:rotate(180deg); webkit-transform:rotate(180deg); }
-    #cssmenu ul ul li a { background:#efefef; color:#989898; cursor:pointer; font-size:14px; o-transition:color .2s ease; padding:14px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
+    #cssmenu ul > li.has-sub > a img.test-chev { position: absolute; right: 20px; top: 16px; z-index: 5; display: block; height: 16px; width: 16px; content: ""; -webkit-transition: all 0.1s ease-out; -moz-transition: all 0.1s ease-out; -ms-transition: all 0.1s ease-out; -o-transition: all 0.1s ease-out; transition: all 0.1s ease-out; }
+    #cssmenu ul > li.has-sub > a img.test-chev { position: absolute; right: 20px; top: 16px; display: block; width: 16px; height: 16px; content: ""; -webkit-transition: all 0.2s ease-out; -moz-transition: all 0.2s ease-out; -ms-transition: all 0.2s ease-out; -o-transition: all 0.2s ease-out; transition: all 0.2s ease-out; }
+    #cssmenu ul > li.has-sub.open > a img.test-chev { -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg); }
+    #cssmenu ul ul li a { border-bottom: 1px solid #ddd; background:#efefef; color:#989898; cursor:pointer; font-size:14px; o-transition:color .2s ease; padding:14px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
     #cssmenu ul ul ul li a { padding-left:32px; }
     #cssmenu ul ul li a:hover { color:#000; }
     #cssmenu ul ul > li.has-sub > a:after { background:#dddddd; right:26px; top:16px; }
     #cssmenu ul ul > li.has-sub > a:before { background:#dddddd; top:20px; }
     #cssmenu > ul > li > a:hover { color:#000; }
     #cssmenu { display:block; }
+    a img.test-chev:hover { opacity: 1; }
+    a img.test-chev { opacity: .5; }    
 
     /* MOBILE NAV */
     .drop { display:none; float:left; position:relative; }
     .coverageLinks.cl-dsktp { display: none; }
     .coverageLinks.cl-mobile { display: block; }
-    .switch { margin:0 !important; width:auto !important; }
+    .switch { margin:0 !important; width:auto !important; display: inline-block; max-width: 402px; }
     .switch:hover { margin:0 !important; }
     #mobmenu { display:none; }
     #mobmenu, #mobmenu ul, #mobmenu ul li, #mobmenu ul li a { border:0; box-sizing:border-box; display:block; line-height:1; list-style:none; margin:0; moz-box-sizing:border-box; padding:0; position:relative; webkit-box-sizing:border-box; }
     #mobmenu { background:white; border-right:1px solid #c5c5c5; bottom:0; color:#ffffff; display:none; font-family:"Benton Sans", sans-serif; left:0; position:absolute; top:0; width:220px; }
     #mobmenu ul ul { display:none; }
     #mobmenu > ul > li.active > ul { display:block; }
-    #mobmenu > ul > li > a { background:#ffffff; color:#757575; cursor:pointer; font-size:16px; o-transition:color .2s ease; padding:16px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
+    #mobmenu > ul > li > a { background:#ffffff; color:#757575; border-bottom: 1px solid #e7e7e7; cursor:pointer; font-size:16px; o-transition:color .2s ease; padding:16px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
     #mobmenu > ul > li > a:hover { color:#000; }
-    #mobmenu > ul > li.has-sub a:active { background:#d8d8d8; color:#fff; moz-transition:all 0.1s ease-out; ms-transition:all 0.1s ease-out; o-transition:all 0.1s ease-out; transition:all 0.1s ease-out; webkit-transition:all 0.1s ease-out; }
-    #mobmenu ul > li.has-sub > a i.fa.fa-chevron-down { display:block; moz-transition:all 0.1s ease-out; ms-transition:all 0.1s ease-out; o-transition:all 0.1s ease-out; position:absolute; right:26px; top:15px; transition:all 0.1s ease-out; webkit-transition:all 0.1s ease-out; z-index:5; }
-    #mobmenu ul > li.has-sub > a i.fa.fa-chevron-down { display:block; moz-transition:all 0.1s ease-out; ms-transition:all 0.1s ease-out; o-transition:all 0.1s ease-out; position:absolute; right:22px; top:15px; transition:all 0.1s ease-out; webkit-transition:all 0.1s ease-out; }
-    #mobmenu ul > li.has-sub.open > a i.fa.fa-chevron-down { moz-transform:rotate(180deg); ms-transform:rotate(180deg); o-transform:rotate(180deg); transform:rotate(180deg); webkit-transform:rotate(180deg); }
-    #mobmenu ul ul li a { background:#efefef; color:#989898; cursor:pointer; font-size:14px; o-transition:color .2s ease; padding:14px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
+    #mobmenu ul > li.has-sub > a img.test-chev { position: absolute; right: 20px; top: 16px; z-index: 5; display: block; height: 16px; width: 16px; content: ""; -webkit-transition: all 0.1s ease-out; -moz-transition: all 0.1s ease-out; -ms-transition: all 0.1s ease-out; -o-transition: all 0.1s ease-out; transition: all 0.1s ease-out; }
+    #mobmenu ul > li.has-sub > a img.test-chev { position: absolute; right: 20px; top: 16px; display: block; width: 16px; height: 16px; content: ""; -webkit-transition: all 0.2s ease-out; -moz-transition: all 0.2s ease-out; -ms-transition: all 0.2s ease-out; -o-transition: all 0.2s ease-out; transition: all 0.2s ease-out; }
+    #mobmenu ul > li.has-sub.open > a img.test-chev { -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg); }
+    #mobmenu ul ul li a { border-bottom: 1px solid #ddd; background:#efefef; color:#989898; cursor:pointer; font-size:14px; o-transition:color .2s ease; padding:14px 22px; text-decoration:none; transition:color .2s ease; webkit-transition:color .2s ease; z-index:2; }
     #mobmenu ul ul ul li a { padding-left:32px; }
     #mobmenu ul ul li a:hover { color:#000; }
     #mobmenu ul ul > li.has-sub > a:after { background:#dddddd; right:26px; top:16px; }
@@ -268,13 +269,17 @@
     .shareRow a:hover { opacity:0.5; }
     .shareLeft { display:inline-block; }
     .shareRight { display:inline-block; }
+    .shareRow { padding: 16px 22px; }
+    .shareRight a img { width: 20px !important; display: inline-block; border-radius: 2px; }
+    .shareLeft a img { width: 20px !important; display: inline-block; margin-right: 4px; border-radius: 2px; }    
 
     /* MOBILE BREAKPOINTS */
     @media (max-width:970px) { #countdownMobile { display:block; }
+    .switch img { width: 16px; height:16px }
     .drop { display:inline-block; }
     .sideStates { display:none !important; }
     .footnote { display:none; }
-    .tableRow { width:47%; }
+    .tableRow { width: 48.3%; }
     #allResults { height:1700px; }
     .dlabel, .rlabel { font-size:1em; }
     .metroMap { display:none !important; }
@@ -296,38 +301,39 @@
     #viewSwitches { border-right:0; display:block; }
     .mapBox { height:auto !important; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
-    .coverageLinks.cl-dsktp { display:block; float:none; text-align:right; font-size:0.7em !important; font-weight: normal; }
+    .coverageLinks.cl-dsktp { display:block; float:none; text-align:right; font-size:0.9em !important; font-weight: normal; }
     .coverageLinks.cl-mobile { display:none; }
     .drop { float:left; display:block; width:100%; }
     .switch { width:100% !important; }
-    .resultsLogo { float:left; margin:0; }
-    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.7em !important; font-weight:normal; }
+    .resultsLogo { float:left; margin-left: 10px; }
+    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.9em !important; font-weight:normal; }
     .coverageLinks.cl-mobile { display:none; }
     }
     @media (max-width:770px) { 
-    #powerbar { padding:1px; }
+    #powerbar { padding:6px; }
     .map { height:auto; width:700px; }
     #raceSwitcher { margin: 77px auto 14px; }
     .carto { height:529px; width:700px; }
-    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.7em !important; font-weight:normal; }
+    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.9em !important; font-weight:normal; }
     .mapState, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
     }
     @media (max-width:630px) { 
     .count { width:20%; }
     #raceSwitcher { margin: 102px auto 14px; }
-    #powerbar { padding:1px; }
+    #powerbar { padding:6px; }
     .map { height:auto; width:600px; }
     .carto { width:600px; height:454px; }
-    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.7em !important; font-weight:normal; }
+    .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.9em !important; font-weight:normal; }
     .mapState, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:450px !important; }
     }
     @media (max-width:500px) { 
+    text { display:none !important; }
     .menukill { display:none !important; }
-    #powerbar { padding:1px; }
+    #powerbar { padding:6px; }
     .map { height:auto; width:450px; }
     .carto { height:auto !important; width:450px; }
-    .coverageLinks.cl-dsktp { float:right; text-align:right; font-size:0.7em !important; font-weight:normal; }
+    .coverageLinks.cl-dsktp { float:right; text-align:right; font-size:0.9em !important; font-weight:normal; position: absolute; right: 0; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:300px !important; }
     }
     @media only screen and (max-width: 480px) { 
@@ -335,16 +341,21 @@
     .resultsRow .counts { width:23% !important; }
     .resultsRow .pct { width:23% !important; }
     .col { margin:0 0 0 0%; padding: 0 0; }
-    .resultsLogo { float:left; margin:0; }
-    .span_1_of_3 { width:100%; }
+    .resultsLogo { float:left; margin-left: 10px; }
+    .span_1_of_3 { width:100%; padding-bottom: 8px; }
+    .span_2_of_3 { width: 100%; }
     .switch { width: 100% !important; }
-    .span_2_of_3 { border-top:1px solid #e7e7e7; width:100%; }
-    .coverageLinks.cl-desktop { float:none; text-align:right; font-size:0.7em !important; }
+    .coverageLinks.cl-desktop { float:none; text-align:right; font-size:0.9em !important; }
     .coverageLinks.cl-mobile { display: none; }
     .drop { float:left; width: 100%; }
+    #raceSwitcher { max-width: none; }
     #cssmenu { display:none; }
-    #mobmenu { display:none; margin-top:-18px !important; }
+    #mobmenu { display:none; margin-top:-18px !important; width: 100%; border-right: none; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:306.667px !important; }
+    #datavizPane { border-left: 0; }
+    .shareRow { box-shadow: 0px 0px 68px rgba(0,0,0,.6); padding: 16px 22px; border-bottom: 1px solid #bbbbbb; }
+    .resultsBanner { padding: 10px 0 16px 0;}
+    .test-chev.button-drop { position: absolute; display: block; width: 16px; height: 16px; margin: 0 auto; left: 100px; right: 0px; top: 10px; }    
     }
     @media (max-width:420px) { 
     .partyBlock { width:18%; }
@@ -359,6 +370,6 @@
     .bigBoard { font-size:0.7em; }
     .map { height:auto; width:100%; }
     .resultsRow { border:none !important; }
-    #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:213.333px !important; width:300px !important; }
+    #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg, .mapBox { height:298.89px !important; width:300px !important; }
     .carto { height:auto; width:100%; }
     }
