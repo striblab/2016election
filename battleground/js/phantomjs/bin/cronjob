@@ -20,7 +20,7 @@ watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/
 
 watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=senate USSENATE > /Users/hargaja/dropbox/raythings/ussenate/`date +\%Y\%m\%d\%H\%M\%S`-ussenate.svg
 
-
+/usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=president FULLCARTO > /Users/hargaja/dropbox/raythings/usprez/`date +\%Y\%m\%d\%H\%M\%S`-usprezCarto.svg
 
 NOT TO BE USED
 watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=house USHOUSEMN > /Users/hargaja/dropbox/raythings/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseMN.svg

@@ -134,7 +134,7 @@
     .cartoState:hover { cursor:pointer; opacity:0.5; }
     .cartoState rect { stroke:#fff !important; stroke-width:0.8px; }
     #cartogram { height:600px; text-align:center; width:800px; }
-    #cartogram text { fill:#fff !important; font-family:Arial !important; font-size:0.9em; font-weight:900; pointer-events:none !important; }
+    #cartogram text { fill:#000 !important; font-family:Arial !important; font-size:0.9em; font-weight:900; pointer-events:none !important; }
     polygon { stroke:#fff !important; stroke-width:1px; }
     .stateLabel { background-color:transparent !important; display:inline-block; text-align:left; width:68%; }
     .votes { background-color:transparent !important; display:inline-block; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; text-align:left; width:30%; }
