@@ -289,7 +289,6 @@
     .change { font-size: 1em; }
     #cssmenu { display:none; }
     #mobmenu { display:block; }
-    #cartogram { height:auto; text-align:center; width:100%; }
     #datavizPane { width:100%; zoom:100%; }
     #wrapper { width:100%; }
     #infobox { font-size:0.9em; }
@@ -306,6 +305,7 @@
     .drop { float:left; display:block; width:100%; }
     .switch { width:100% !important; }
     .resultsLogo { float:left; margin-left: 10px; }
+    #cartogram { height:500px !important; overflow:hidden !important; width:100%; }
     .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.9em !important; font-weight:normal; }
     .coverageLinks.cl-mobile { display:none; }
     }
@@ -316,6 +316,7 @@
     .carto { height:529px; width:700px; }
     .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.9em !important; font-weight:normal; }
     .mapState, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
+    #cartogram { height:454px !important; overflow:hidden !important; width:100%; }
     }
     @media (max-width:630px) { 
     .count { width:20%; }
@@ -326,6 +327,7 @@
     .coverageLinks.cl-dsktp { float:none; text-align:left; clear:both; font-size:0.9em !important; font-weight:normal; }
     .mapState, #mnhouse .map svg, #mnsenate .map svg { height:400px !important; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:450px !important; }
+    #cartogram { height:454px !important; overflow:hidden !important; width:100%; }
     }
     @media (max-width:500px) { 
     text { display:none !important; }
@@ -335,6 +337,7 @@
     .carto { height:auto !important; width:450px; }
     .coverageLinks.cl-dsktp { float:right; text-align:right; font-size:0.9em !important; font-weight:normal; position: absolute; right: 0; }
     #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:300px !important; }
+    #cartogram { height:244px !important; overflow:hidden !important; width:100%; }
     }
     @media only screen and (max-width: 480px) { 
     .resultsRow .candidate { width:43% !important; }
@@ -355,6 +358,7 @@
     #datavizPane { border-left: 0; }
     .shareRow { box-shadow: 0px 0px 68px rgba(0,0,0,.6); padding: 16px 22px; border-bottom: 1px solid #bbbbbb; }
     .resultsBanner { padding: 10px 0 16px 0;}
+    #cartogram { height:217px !important; overflow:hidden !important; width:100%; }
     .test-chev.button-drop { position: absolute; display: block; width: 16px; height: 16px; margin: 0 auto; left: 100px; right: 0px; top: 10px; }    
     }
     @media (max-width:420px) { 
