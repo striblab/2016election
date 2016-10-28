@@ -270,6 +270,7 @@
     }
     .zoom {
         float: right !important;
+        margin-right: 20px;
     }
     path {
         stroke-opacity: 0.7 !important;
@@ -671,7 +672,7 @@
         vertical-align: top;
     }
     #allResults {
-        border-right: 2px solid #ddd;
+        border-right: 0;
         height: 1200px;
         overflow-x: hidden;
         overflow-y: auto;
@@ -817,6 +818,15 @@
         padding: 6px 0px;
         pointer-events: all;
     }
+
+    .pctBox.democrat {
+        margin-right: 4px;
+    }
+
+    .pctBox.republican {
+        margin-left: 4px;
+    }
+
     .stateBlockR {
         color: #000;
         font-weight: 900;
@@ -842,6 +852,15 @@
     .smallbreak {
         clear: both;
     }
+
+    #infobox .pct.republican {
+        max-width: 85px;
+        text-align: center;
+        border-radius: 2px;
+        border: 0 !important;
+        padding: 2px;
+    }
+
     #infobox {
         height: 122px;
         text-align: left;
@@ -890,9 +909,18 @@
         text-align: left;
         width: 33%;
     }
+
+    .resultsRow div:nth-child(3) {
+        max-width: 85px;
+        text-align: center;
+        border-radius: 2px;
+        border: 0 !important;
+        padding: 2px;
+    }
+
     .resultsRow {
         border-bottom: 1px solid #e8e8e8;
-        padding: 3px 0;
+        padding: 0 0 6px 0;
         clear: both;
     }
     .resultsHead {
@@ -1642,6 +1670,7 @@
             float: none !important;
             padding-top: 10px;
             text-align: center !important;
+            margin-right: 0;
         }
         #infobox {
             font-size: 0.8em;
