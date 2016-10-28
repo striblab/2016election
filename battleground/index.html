@@ -2895,7 +2895,9 @@ d3.json("shapefiles/" + shape, function(error, us) {
                 $(".tableRow[name=" + d.properties.STATENAME + "" + d.properties.DISTRICT + "]").addClass("selectedBox"); } 
             } 
         else if (race == "mnsenate" || race == "mnhouse") { 
-            spillInfo(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); }
+          if (d.properties.DISTRICT == "32B") { return spillInfo("<div class='districtName'>District 32B, MN</div><div>No race. A special election has been called for Feb. 14, 2017.</div>"); }
+          else { spillInfo(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); } 
+        }
             return false;
        })
          .call(d3.helper.tooltip(function(d, i){
