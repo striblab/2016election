@@ -3023,8 +3023,11 @@ d3.json("shapefiles/" + shape, function(error, us) {
          else if (race == "house") { 
             return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"tooltip",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT); 
          }
+         //DON'T FORGET THIS, STUPID
          else if (race == "mnsenate" || race == "mnhouse") { 
-            return fetchData("District " + d.properties.DISTRICT,"Minnesota","tooltip",dataCompare,race,null,"District " + d.properties.DISTRICT); }
+          if (d.properties.DISTRICT == "32B") { return "<div class='districtName'>District 32B, MN</div><div>No race</div>"; }
+          else { return fetchData("District " + d.properties.DISTRICT,"Minnesota","tooltip",dataCompare,race,null,"District " + d.properties.DISTRICT); }
+        }
         }}));
   } else {
 

@@ -754,6 +754,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
           if (wins == "DEM Lean") { return "#72a9d6"; }
           if (wins == "GOP Lean") { return "#f7816e"; }
           if (wins == "GOP Win") { return "#D34A44"; }
+          return "#bbbbbb";
         }
          else if (level == "county") { return fetchData(d.properties.COUNTYFIPS,null,"colors",dataCompare,race); }
 
