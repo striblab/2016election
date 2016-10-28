@@ -20,7 +20,7 @@
 
 <!-- LOADING MASK THINGY SO PEOPLE GET LESS FRUSTRATED AND HATE US LESS -->
 <div class="loading-mask" id="loader">  
-  <div id="message">Retrieving results...</div>
+  <div id="message"><div class='message'>Retrieving results...</div><img src='http://stmedia.startribune.com/designimages/ajax-loader.gif' class='loader-img'></div>
 </div>
 
 <!-- HOW CAN I HOLD ALL THESE TAGS??? -->
@@ -2802,7 +2802,7 @@ $(".rparty").html("Trump");
 $("#prezButton").trigger("click");
 $("#table .president").show();
 
-window.setTimeout(function () { $("#message").html("Rendering results..."); }, 3000);
+window.setTimeout(function () { $("#message").html("<div class='message'>Rendering results...</div><img src='http://stmedia.startribune.com/designimages/ajax-loader.gif' class='loader-img'>"); }, 3000);
 
 window.setTimeout(function () {
   
