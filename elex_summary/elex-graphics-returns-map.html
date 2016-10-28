@@ -799,7 +799,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
       .style("fill", function(d){
         // console.log(level)
          if (level == "country") { 
-          var wins = fetchData(d.properties.NAME,d.properties.NAME,"winner",dataCompare,race); 
+          var wins = fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race); 
           if (wins == "DEM Win") { return "#3585BC"; }
           if (wins == "DEM Lean") { return "#72a9d6"; }
           if (wins == "GOP Lean") { return "#f7816e"; }
