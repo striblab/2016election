@@ -1623,7 +1623,7 @@ if (type == "table"){
 
   for (var i = 0; i < howMany; i++) {
     var thisPCT = "0%";
-    if (voteCountT > 0) { thisPCT = d3.format("%")(voteCount[i] / voteCountT); }
+    if (voteCountT > 0) { thisPCT = d3.format(".1%")(voteCount[i] / voteCountT); }
 
     stateColor = ""
 
