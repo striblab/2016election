@@ -370,6 +370,6 @@
     .bigBoard { font-size:0.7em; }
     .map { height:auto; width:100%; }
     .resultsRow { border:none !important; }
-    #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg, .mapBox { height:298.89px !important; width:300px !important; }
+    #mnhouse .map, #mnsenate .map, #mnhouse .map svg, #mnsenate .map svg { height:298.89px !important; width:300px !important; }
     .carto { height:auto; width:100%; }
     }
