@@ -4,57 +4,9 @@
   <meta charset="utf-8" />
   <title>Star Tribune election results</title>
   <meta name="generator" content="BBEdit 10.5" />
-  
-  
+
 <style type="text/css">
 
-
-@font-face {
-font-family: "Benton Sans RE";
-src: url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-2.eot?") format("embedded-opentype"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-3.woff") format("woff"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-1.ttf") format("truetype"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-4.svg#web") format("svg");
-font-style: normal;
-font-weight: normal;
-}
-@font-face {
-font-family: "Benton Sans RE";
-src: url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-2.eot?") format("embedded-opentype"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-3.woff") format("woff"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-1.ttf") format("truetype"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-4.svg#web") format("svg");
-font-style: normal;
-font-weight: bold;
-}
-                                                    
-@font-face{
-  font-family:"Poynter Serif RE";
-  src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-2.eot");
-  src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-2.eot?") format("embedded-opentype"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-3.woff") format("woff"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-1.ttf") format("truetype");
-  font-style:normal;
-  font-weight:normal
-}
-
-@font-face{
-  font-family:"Poynter Serif RE";
-  src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-2.eot");
-  src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-2.eot?") format("embedded-opentype"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-3.woff") format("woff"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-1.ttf") format("truetype");
-  font-style:normal;
-  font-weight:bold
-}
-
-@font-face {
-  font-family: "Whitman Display Condensed Bold";
-  src: url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-2.eot");
-  src: url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-2.eot?") format("embedded-opentype"),
-       url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-3.woff") format("woff"),
-       url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-1.ttf") format("truetype");
-  font-style: normal;
-  font-weight: bold;
-}
-
-  
 #demBarPres {width:45.5%;}
 #repBarPres {width:35.2%;}
 #presReport {}  
@@ -83,21 +35,21 @@ font-weight: bold;
 #local-race-pro {}
 #local-race-con {}
   
+  .resultsBar {width:970px;min-height:60px;overflow:hidden;} 
   
-  .resultsBar {width:970px;min-height:60px;background-color:white;} 
-  
-  .resultsLogo {float:left;width:125px;height:60px;padding:0 18px 0 0;background-color:white;border-right: 1px solid #ccc;}
-  .resultsLogo h4 {float:left;margin-top:22px;font-family:'Benton Sans',Helvetica,Arial,sans-serif !important;font-weight:bold;
+  .resultsLogo {float:left;width:125px;height:60px;padding:0 16px 0 0;border-right: 1px solid #ccc;background: url(http://stmedia.startribune.com/images/elex-banner-logo.png);background-repeat: no-repeat;
+  }
+  .resultsLogo h4 {float:left;margin-top:22px;font-family:sans-serif;font-weight:bold;
     font-size:13px;}
   .resultsLogoSVG {float:right;width:52px;height:52px;margin-top:4px;}
   
-  .resultsPres {float:left;width:155px;height:60px;padding:0 20px;background-color:#fff;border-right: 1px solid #ccc;}
+  .resultsPres {float:left;width:155px;height:60px;padding:0 20px;border-right: 1px solid #ccc;}
   
-  .resultsCong {float:left;width:476px;height:60px;padding:0 20px;background-color:white;border-right: 1px solid #ccc;}
-  .resultsCongBreaks {float:left;width:104px;height:60px;margin:0 20px 0 0;background-color:white;}
+  .resultsCong {float:left;width:476px;height:60px;padding:0 20px;border-right: 1px solid #ccc;}
+  .resultsCongBreaks {float:left;width:104px;height:60px;margin:0 20px 0 0;}
   .resultsCongLast {margin-right:0;}
   
-  .resultsLocal {float:left;width:92px;min-height:60px;padding:0 0 0 20px;background-color:white;}
+  .resultsLocal {float:left;width:96px;min-height:60px;padding:0 0 0 18px;}
   
   
   .balanceBar {position:relative;display:block;float:left;width:100%;height:8px;background-color:#ccc;margin-bottom:5px;}
@@ -107,7 +59,7 @@ font-weight: bold;
   .demBlue {color:#21409A;}
   .repRed {color:#DA2128;}
     
-  .numBig {font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
+  .numBig {font-family:sans-serif;
     font-weight:bold;
     font-size:24px;
     line-height:24px;
@@ -117,8 +69,8 @@ font-weight: bold;
   .numLeft {float:left;}
   .numRight {float:right;text-align:right;}
   
-  .numMed {font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:bold;
+  .numMed {font-family:sans-serif;
+    font-weight:700;
     font-size:18px;
     line-height:18px;
     margin-bottom:4px;
@@ -127,8 +79,9 @@ font-weight: bold;
   .hashMark {width:1px;height:12px;background:#000;position:absolute;top:-4px;left:50%;}
   
   .label {
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:bold;
+    font-family:sans-serif;
+    font-weight:700;
+    font-style:normal;
     font-size:10px;
     line-height:10px;
     height:10px;
@@ -136,8 +89,8 @@ font-weight: bold;
   }
   
   .labelSm {
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:bold;
+    font-family:sans-serif;
+    font-weight:700;
     font-size:8.5px;
     line-height:9px;
     height:10px;
@@ -159,7 +112,7 @@ font-weight: bold;
 
   .reporting {
     display:block;
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
+    font-family:sans-serif;
     font-size:8.5px;
     line-height:9px;
     height:10px; 
@@ -174,7 +127,7 @@ font-weight: bold;
   .toWin {
     position:absolute;
     display:block;
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
+    font-family:sans-serif;
     font-size:7.5px;
     line-height:8px;
     height:10px; 
@@ -182,16 +135,16 @@ font-weight: bold;
     text-align:center;
   }
 
-  .toWinPres {width:auto;left:65px;top:-23px;;}
-  .toWinUSsen {width:auto;left:38px;top:-22px;}
+  .toWinPres {width:auto;left:70px;top:-23px;;}
+  .toWinUSsen {width:auto;left:42px;top:-22px;}
   .toWinUShouse {width:auto;left:46px;top:-22px;}
-  .toWinMNsen {width:auto;left:47px;top:-14px;}
+  .toWinMNsen {width:auto;left:48px;top:-14px;}
   .toWinMNhouse {width:auto;left:47px;top:-14px;}
   
   
   .localItemOne {
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:bold;
+    font-family:sans-serif;
+    font-weight:700;
     font-size:9.5px;
     line-height:10px;
     float:left;
@@ -200,29 +153,21 @@ font-weight: bold;
     border-bottom: 1px solid #ccc;
   }
   .localItemTwo {
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:bold;
+    font-family:sans-serif;
+    font-weight:700;
     font-size:9.5px;
     line-height:10px;
     float:left;
     width:100%;
     padding:4px 0 6px 0;}
   
-  .localCheck {float:left;width:12%;}
-  .localName {float:left;width:74%;font-weight:normal;}
-  .localResult {float:left;width:14%;text-align:right;}
+  .localCheck {float:left;width:15%;}
+  .localName {float:left;width:60%;font-weight:normal;}
+  .localResult {float:left;width:15%;text-align:right;}
 
   #done { display:none; }
+
   
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
-
-body {
-  font-size: 100%;
-    }
-    
-}
-
 </style>  
 </head>
 <body>
@@ -233,36 +178,7 @@ body {
 <div class="resultsBar" id="snapme">
   
 <!--LOGO-->  
-<div class="resultsLogo">
-    <h4>ELECTION</h4>
-    <div class="resultsLogoSVG">
-        <svg version="1.1" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px"
-           viewBox="0 0 52 52" style="enable-background:new 0 0 52 52;" xml:space="preserve">
-        <style type="text/css">
-          .st0{fill:#21409A;}
-          .st1{fill:#DA2128;}
-          .st2{fill:#222222;}
-        </style>
-        <path class="st0" d="M37.9,37.67c-5.21,5.32-13.52,6.67-20.26,2.78l0,0c-6.71-3.87-9.69-11.69-7.75-18.83l-8.16-1.85
-          c-2.72,10.61,1.79,22.16,11.74,27.9c9.99,5.77,22.29,3.87,30.12-3.87L37.9,37.67z"/>
-        <path class="st1" d="M15.3,13.21c5.22-4.37,12.82-5.27,19.06-1.67c6.28,3.63,9.29,10.71,8.06,17.46l8.16,1.85
-          c2.02-10.22-2.52-21.03-12.05-26.53C29.04-1.17,17.46,0.27,9.62,7.06L15.3,13.21z"/>
-        <polygon class="st2" points="8.34,13.49 10.97,11.13 10.23,14.59 13.26,16.34 9.77,16.69 9.04,20.12 7.62,16.93 4.11,17.27 
-          6.74,14.93 5.31,11.74 8.34,13.49 "/>
-        <polygon class="st2" points="43.77,33.94 46.39,31.58 45.66,35.05 48.69,36.79 45.2,37.14 44.46,40.57 43.04,37.38 39.54,37.73 
-          42.17,35.39 40.74,32.2 43.76,33.94 "/>
-        <g>
-          <g>
-            <path class="st2" d="M30.73,30.47c-0.89,0-1.55-0.5-1.55-2v-0.43c0-1.5,0.66-1.98,1.52-1.98c0.86,0,1.57,0.55,1.57,2.05v0.35
-              C32.27,29.95,31.61,30.48,30.73,30.47 M29.17,23.76c0-2.41,1.09-3.1,2.67-3.1c1.21,0,2.42,0.25,3.53,0.75l1.28-3.78
-              c-1.55-0.71-2.73-0.97-5.15-0.97c-3.99,0-7.4,2.07-7.4,7.17v3.33c0,5.12,3.1,7.01,6.67,7.01c4.01,0,6.55-1.89,6.55-5.58v-0.5
-              c0-3.67-2.14-5.17-5.04-5.17c-1.41,0-2.41,0.41-3.12,1.23L29.17,23.76L29.17,23.76z M14.95,33.82h8.93v-2.78h-1.89V17.02h-3.96
-              l-3.23,2.43v3.88h0.09l2.16-1.64v9.33h-2.1V33.82z"/>
-          </g>
-        </g>
-        </svg>
-    </div>    
-</div>
+<div class="resultsLogo"></div>
   
   
 <!--PRESIDENT-->
@@ -370,7 +286,7 @@ body {
     
 <!--LOCAL HIGHLIGHT-->
 <div class="resultsLocal">
-<div class="label"><span id="local-race">U.S. House, MN2</span></div>
+  <div class="label" style="width:96px;"><span id="local-race">U.S. House, MN2</span></div>
 
     <div class="localItemOne">
       <div class="localCheck"><span id="local-race-demWin">&nbsp;</span></div>
