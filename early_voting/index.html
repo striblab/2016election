@@ -13,6 +13,7 @@
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
   
   <style>
+    #wrapper { width:540px; margin-left:auto; margin-right:auto; }
     .map { display:inline-block; width:48%; text-align:center; }
     .quantize {  }
     path:hover { cursor:default !important; }
@@ -24,16 +25,26 @@
     .mid { background-color:#aaa; fill:#aaa !important; color:black !important; pointer-events: all; font-weight:bold; }
     .democrat text { background-color:#3F88C5; fill:#3F88C5 !important; pointer-events: all; color:#3F88C5;  }
     .democrat line { background-color:#3F88C5; fill:#3F88C5 !important; stroke:#3F88C5 !important; pointer-events: all; color:#3F88C5;  }
+    .countyName { font-weight:bold; }
 
     .chart { display:inline-block; width:100%; text-align:center;}
     .chartTitle { text-align:left; }
     #compareChart .c3-line, #dateChart .c3-line { stroke-width:5px !important; }
 
+    .purple5 { fill:#451748; background-color:#451748; color:#ffffff; }
+    .purple4 { fill:#482D4A; background-color:#482D4A; color:#ffffff; }
+    .purple3 { fill:#5B415C; background-color:#5B415C; color:#ffffff; }
+    .purple2 { fill:#776478; background-color:#776478; color:#ffffff; }
+    .purple1 { fill:#EBB8EE; background-color:#EBB8EE; }
+
+    .map { text-align:center; }
+
     #countyChart { height:1200px; }
-    .null { fill-opacity:0 !important; fill:none !important; }
+    .null { /*fill-opacity:0 !important;*/ fill:#fff !important; }
     #mapPrecinct path { pointer-events:none !important; }
 
-    @media (max-width:500px) { 
+    @media (max-width:538px) { 
+      #wrapper { width:100%; }
       .map { display:block; width:100%; text-align:center; }
       .quantize { padding-left:72px; }
       .metro { display:none; }
@@ -45,50 +56,58 @@
 <div id="wrapper">
 
 <div class="chart" id="pct">
-<div class="chartTitle">Precincts</h4>
-<div class="breaker"></div>
+<div class="chartTitle">Absentee votes by precinct</div>
 <div id="mapPrecinct" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="mapMetro" class="map metro"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
-
 <div class="quantize">
 <span class='legend' id="aidQ">
   <nav class='legend clearfix'>
     <span style='background:#fff;'>Less</span>
-    <span class="gray1"></span>
-    <span class="gray2"></span>
-    <span class="gray3"></span>
-    <span class="gray4"></span>
-    <span class="gray5"></span>
+    <span class="purple1"></span>
+    <span class="purple2"></span>
+    <span class="purple3"></span>
+    <span class="purple4"></span>
+    <span class="purple5"></span>
     <span style='background:#fff;'>More</span>
 </span>
 </div>
 </div>
 
-<!-- <div class="zoom">Reset View</div> -->
-</div>
 
 <div class="chart" id="compare">
-<div class="chartTitle">Comparison</div>
+<div class="chartTitle">Voter registration year of 2016 absentee voters</div>
 <div id="compareChart"></div>
 </div>
 
 <div class="chart" id="region">
-<div class="chartTitle">Region</div>
+<div class="chartTitle">Absentee voting by region, 2012 and 2016 comparison</div>
 <div id="regionChart"></div>
 </div>
 
 <div class="chart" id="county">
-<div class="chartTitle">County</div>
-<div id="countyChart"></div>
+<div class="chartTitle">Percetage of registered voters submitting absentee ballots by county</div>
+<div id="mapCounties" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+
+<div class="quantize">
+<span class='legend' id="aidQ">
+  <nav class='legend clearfix'>
+    <span style='background:#fff;'>Less</span>
+    <span class="purple1"></span>
+    <span class="purple2"></span>
+    <span class="purple3"></span>
+    <span class="purple4"></span>
+    <span class="purple5"></span>
+    <span style='background:#fff;'>More</span>
+</span>
+</div>
 </div>
 
 <div class="chart" id="date">
-<div class="chartTitle">Date</div>
+<div class="chartTitle">Accepted ballots by date range</div>
 <div id="dateChart"></div>
 </div>
 
 <div class="chart" id="age">
-<div class="chartTitle">Age</div>
+<div class="chartTitle">Absentee voters by age group, 2016</div>
 <div id="ageChart"></div>
 </div>
 
@@ -122,7 +141,15 @@ d3.csv("./data/votes.csv", function(d) {
   };
 }, function(error, rows) {
 
+d3.csv("./data/counties.csv", function(d) {
+  return {
+    pct: +d.pct,
+    county: d.county
+  };
+}, function(error, rows2) {
+
 var data = rows;
+var dataC = rows2;
 
 function mapBuild(container, boxContainer, chartContainer, shape, race, geo, dataCompare, index) {
 
@@ -159,22 +186,51 @@ d3.json("shapefiles/" + shape, function(error, us) {
       // .on("click", clicked)
       .attr("id", function(d) { return d.properties.county_id; })
       .attr("class", function(d){
+        if (race == "counties"){
+        for (var i=0; i < dataC.length; i++){
+          if (dataC[i].county == d.properties.COUNTYNAME){
+            if (dataC[i].pct >= .18){ return "purple5"; }
+            else if (dataC[i].pct >= .15){ return "purple4"; }
+            else if (dataC[i].pct >= .10){ return "purple3"; }
+            else if (dataC[i].pct >= .05){ return "purple2"; }
+            else if (dataC[i].pct >= 0){ return "purple1"; }
+          }
+        }   
+        }
+        if (race == "precinct"){
         for (var i=0; i<data.length; i++){
           if (data[i].vtd == d.properties.VTDID){
-            if (data[i].votes > 400){ return "gray5"; }
-            if (data[i].votes > 320){ return "gray4"; }
-            if (data[i].votes > 240){ return "gray3"; }
-            if (data[i].votes > 160){ return "gray2"; }
-            if (data[i].votes >= 0){ return "gray1"; }
+            if (data[i].votes >= 400){ return "purple5"; }
+            else if (data[i].votes >= 320){ return "purple4"; }
+            else if (data[i].votes >= 240){ return "purple3"; }
+            else if (data[i].votes >= 160){ return "purple2"; }
+            else if (data[i].votes >= 0){ return "purple1"; }
           }
         }
+       }
         return "null";
        })
-      .style("stroke-width", "0")
-      .style("stroke", "#fff");
-      // .call(d3.helper.tooltip(function(d, i){
-      //     return "blarg";
-      // }));
+      .style("stroke-width", function(d, i){
+        if (race == "counties"){ return "0.5px" }
+        else { return "0"; }
+        })
+      .style("stroke", "#bbb")
+      .call(d3.helper.tooltip(function(d, i){
+        if (race == "counties"){
+        for (var i=0; i < dataC.length; i++){
+            if (dataC[i].pct >= .18){ var color = "purple5"; }
+            else if (dataC[i].pct >= .15){ var color = "purple4"; }
+            else if (dataC[i].pct >= .10){ var color = "purple3"; }
+            else if (dataC[i].pct >= .05){ var color = "purple2"; }
+            else if (dataC[i].pct >= 0){ var color = "purple1"; }
+
+          if (dataC[i].county == d.properties.COUNTYNAME){
+            return "<div class='countyName'>" + d.properties.COUNTYNAME + " County</div><div class='" + color + "'>" + d3.format("%")(dataC[i].pct) + " absentee voters</div>"
+          }
+        }  
+        return "<div class='countyName'>" + d.properties.COUNTYNAME + " County</div><div>No data</div>"; 
+        }
+      }));
 
   g.append("path")
       //.datum(topojson.mesh(us, us.features, function(a, b) { return a !== b; }))
@@ -183,23 +239,23 @@ d3.json("shapefiles/" + shape, function(error, us) {
 
 });
 
-d3.json("shapefiles/counties.json", function(error, us) {
+// d3.json("shapefiles/counties.json", function(error, us) {
 
-  g.append("g")
-      .attr("class", "states")
-    .selectAll("path")
-      .data(us.features)
-    .enter().append("path")
-      .attr("d", path)
-      .attr("class", "null")
-      .style("stroke-width", "2px")
-      .style("stroke", "#000");
+//   g.append("g")
+//       .attr("class", "states")
+//     .selectAll("path")
+//       .data(us.features)
+//     .enter().append("path")
+//       .attr("d", path)
+//       .attr("class", "null")
+//       .style("stroke-width", "2px")
+//       .style("stroke", "#000");
 
-  g.append("path")
-      .attr("id", "state-borders")
-      .attr("d", path);
+//   g.append("path")
+//       .attr("id", "state-borders")
+//       .attr("d", path);
 
-});
+// });
 
 var zoom = d3.behavior.zoom()
     .on("zoom",function() {
@@ -262,6 +318,45 @@ function clicked2(d) {
       .classed("active", centered && function (d) { return d === centered; });
 }
 
+d3.helper = {};
+
+d3.helper.tooltip = function(accessor){
+    return function(selection){
+        var tooltipDiv;
+        var bodyNode = d3.select('body').node();
+        selection.on("mouseover", function(d, i){
+            // Clean up lost tooltips
+            d3.select('body').selectAll('div.tooltip').remove();
+            // Append tooltip
+            tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px')
+                .style('position', 'absolute')
+                .style('z-index', 1001);
+            // Add text using the accessor function
+            var tooltipText = accessor(d, i) || '';
+            // Crop text arbitrarily
+            //tooltipDiv.style('width', function(d, i){return (tooltipText.length > 80) ? '300px' : null;})
+            //    .html(tooltipText);
+        })
+        .on('mousemove', function(d, i) {
+            // Move tooltip
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px');
+            var tooltipText = accessor(d, i) || '';
+            tooltipDiv.html(tooltipText);
+        })
+        .on("mouseout", function(d, i){
+            // Remove tooltip
+            tooltipDiv.remove();
+        });
+
+    };
+};
+
+
 var aspect = 600 / 800, chart = $(container + " svg"); //, chart2 = $(".carto svg")
 $(document).ready(function() {
   var targetWidth = chart.parent().width();
@@ -281,6 +376,7 @@ $(window).on("resize", function() {
 
 
 mapBuild("#mapPrecinct", "#infobox", "#chart", "mnprecincts.json", "precinct", "mn", data, 0);
+mapBuild("#mapCounties", "#infobox", "#chart", "counties.json", "counties", "mn", dataC, 0);
 // mapBuild("#mapMetro", "#infobox", "#chart", "mnprecincts_metro.json", "metro", "metro", data, 0);
 
 //region
@@ -307,7 +403,7 @@ var chartPop = c3.generate({
         //     show: false
         // },
             color: {
-              pattern: ['#333','#3F88C5','#8C1B17']
+              pattern: ['#333','#5B415C']
             },
         axis: {
               rotated: true,
@@ -329,52 +425,6 @@ var chartPop = c3.generate({
 }
 
 chartRegion();
-
-//county
-function chartCounty(){
-
-var  padding = {
-        top: 20,
-        right: 60,
-        bottom: 20,
-        left: 120,
-    };
-
-var chartPop = c3.generate({
-      bindto: "#countyChart",
-      padding: padding,
-      data: {
-            columns: [
-                ['Percent of absentee votes', 0.21,0.20,0.20,0.18,0.18,0.15,0.14,0.13,0.13,0.13,0.12,0.10,0.10,0.10,0.09,0.09,0.09,0.08,0.08,0.08,0.08,0.08,0.07,0.07,0.07,0.07,0.07,0.07,0.07,0.06,0.06,0.06,0.06,0.06,0.06,0.06,0.06,0.06,0.06,0.06,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.03,0.02,0.02,0.02,0.01,0.01,0.01],
-            ],
-        type: 'bar'
-        },
-        // legend: {
-        //     show: false
-        // },
-            color: {
-              pattern: ['#333','#3F88C5','#8C1B17']
-            },
-        axis: {
-              rotated: true,
-              y: {
-                    min: 0,
-                    padding: {bottom: 0},
-                    tick: {
-                     count: 4,
-                     format: d3.format('%')
-                    }
-                },
-            x: {
-                type: 'category',
-                categories: ['Kittson','Marshall','Grant','Traverse','Cass','Itasca','Watonwan','Big Stone','Red Lake','Mahnomen','Swift','Koochiching','Aitkin','Norman','Lake Of The Woods','Stevens','Hubbard','Hennepin','Cook','Blue Earth','Becker','Crow Wing','Beltrami','Polk','Washington','Lyon','Roseau','Freeborn','Dakota','Douglas','Pope','Ramsey','Olmsted','Clearwater','Pine','Otter Tail','Lake','Kandiyohi','Rock','Clay','Carver','Pennington','Stearns','Goodhue','Morrison','Nobles','Rice','Anoka','Sherburne','Wabasha','Lac Qui Parle','St. Louis','Scott','Isanti','Steele','Chisago','Mille Lacs','Le Sueur','Brown','Nicollet','Houston','Meeker','Kanabec','Waseca','Cottonwood','Wright','Winona','Faribault','Murray','Wilkin','Martin','Benton','Fillmore','Chippewa','Todd','Yellow Medicine','Renville','Sibley','Mcleod','Redwood','Pipestone','Dodge','Jackson','Mower','Carlton','Wadena','Lincoln']
-            }
-        }
-});
-
-}
-
-chartCounty();
 
 //age
 function chartAge(){
@@ -400,7 +450,7 @@ var chartPop = c3.generate({
         //     show: false
         // },
             color: {
-              pattern: ['#333','#3F88C5','#8C1B17']
+              pattern: ['#333','#5B415C']
             },
         axis: {
               rotated: true,
@@ -446,7 +496,7 @@ var chartPop = c3.generate({
         //     show: false
         // },
             color: {
-              pattern: ['#333','#3F88C5','#8C1B17']
+              pattern: ['#333','#5B415C']
             },
         axis: {
               // rotated: true,
@@ -494,7 +544,7 @@ var chartPop = c3.generate({
         //     show: false
         // },
             color: {
-              pattern: ['#333','#3F88C5','#8C1B17']
+              pattern: ['#5B415C']
             },
         axis: {
               y: {
@@ -521,10 +571,8 @@ var chartPop = c3.generate({
 chartCompare();
 
 
-
 });
-
-
+});
 </script>
 
 </html>
