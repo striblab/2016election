@@ -13,6 +13,7 @@
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
   
   <style>
+    body, p, text, td { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
     #wrapper { width:540px; margin-left:auto; margin-right:auto; }
     .map { display:inline-block; width:48%; text-align:center; }
     .quantize {  }
@@ -31,17 +32,17 @@
     .chartTitle { text-align:left; }
     #compareChart .c3-line, #dateChart .c3-line { stroke-width:5px !important; }
 
-    .purple5 { fill:#451748; background-color:#451748; color:#ffffff; }
-    .purple4 { fill:#482D4A; background-color:#482D4A; color:#ffffff; }
-    .purple3 { fill:#5B415C; background-color:#5B415C; color:#ffffff; }
-    .purple2 { fill:#776478; background-color:#776478; color:#ffffff; }
-    .purple1 { fill:#EBB8EE; background-color:#EBB8EE; }
+    .purple5 { fill:#4c1926; background-color:#4c1926; color:#ffffff; }
+    .purple4 { fill:#693c46; background-color:#693c46; color:#ffffff; }
+    .purple3 { fill:#865f67; background-color:#865f67; color:#ffffff; }
+    .purple2 { fill:#a3858b; background-color:#a3858b; color:#ffffff; }
+    .purple1 { fill:#C1ACB1; background-color:#C1ACB1; }
 
     .map { text-align:center; }
 
     #countyChart { height:1200px; }
     .null { /*fill-opacity:0 !important;*/ fill:#fff !important; }
-    #mapPrecinct path { pointer-events:none !important; }
+    #mapPrecinct path, #mapMetro path { pointer-events:none !important; }
 
     @media (max-width:538px) { 
       #wrapper { width:100%; }
@@ -56,8 +57,10 @@
 <div id="wrapper">
 
 <div class="chart" id="pct">
-<div class="chartTitle">Absentee votes by precinct</div>
+<div class="chartTitle">Where 2016 absentee votes are by precinct</div>
 <div id="mapPrecinct" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mapMetro" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+
 <div class="quantize">
 <span class='legend' id="aidQ">
   <nav class='legend clearfix'>
@@ -74,17 +77,17 @@
 
 
 <div class="chart" id="compare">
-<div class="chartTitle">Voter registration year of 2016 absentee voters</div>
+<div class="chartTitle">When 2016 absentee voters first registered to vote</div>
 <div id="compareChart"></div>
 </div>
 
 <div class="chart" id="region">
-<div class="chartTitle">Absentee voting by region, 2012 and 2016 comparison</div>
+<div class="chartTitle">Absentee voting by region, 2012 versus 2016</div>
 <div id="regionChart"></div>
 </div>
 
 <div class="chart" id="county">
-<div class="chartTitle">Percetage of registered voters submitting absentee ballots by county</div>
+<div class="chartTitle">Percentage of registered voters sending absentee ballots by county</div>
 <div id="mapCounties" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
 
 <div class="quantize">
@@ -102,12 +105,12 @@
 </div>
 
 <div class="chart" id="date">
-<div class="chartTitle">Accepted ballots by date range</div>
+<div class="chartTitle">Accepted absentee ballots by date range</div>
 <div id="dateChart"></div>
 </div>
 
 <div class="chart" id="age">
-<div class="chartTitle">Absentee voters by age group, 2016</div>
+<div class="chartTitle">Voters by age group, all registered versus absentee</div>
 <div id="ageChart"></div>
 </div>
 
@@ -159,7 +162,7 @@ var width = 600,
 
 if (geo=="us") { var projection = d3.geo.albersUsa().scale(700).translate([330, 200]); }
 else if (geo=="mn") { var projection = d3.geo.albersUsa().scale(5037).translate([50, 970]); }
-else if (geo=="metro") { var projection = d3.geo.mercator().scale([16800]).center([-92.384033,45.209134]); }
+else if (geo=="metro") { var projection = d3.geo.mercator().scale([21000]).center([-92.7,45.059134]); }
 
 var path = d3.geo.path()
     .projection(projection);
@@ -376,8 +379,8 @@ $(window).on("resize", function() {
 
 
 mapBuild("#mapPrecinct", "#infobox", "#chart", "mnprecincts.json", "precinct", "mn", data, 0);
+mapBuild("#mapMetro", "#infobox", "#chart", "metro_precincts.json", "precinct", "metro", data, 0);
 mapBuild("#mapCounties", "#infobox", "#chart", "counties.json", "counties", "mn", dataC, 0);
-// mapBuild("#mapMetro", "#infobox", "#chart", "mnprecincts_metro.json", "metro", "metro", data, 0);
 
 //region
 function chartRegion(){
@@ -403,7 +406,7 @@ var chartPop = c3.generate({
         //     show: false
         // },
             color: {
-              pattern: ['#333','#776478']
+              pattern: ['#333','#865f67']
             },
         axis: {
               rotated: true,
@@ -450,7 +453,7 @@ var chartPop = c3.generate({
         //     show: false
         // },
             color: {
-              pattern: ['#333','#776478']
+              pattern: ['#333','#865f67']
             },
         axis: {
               rotated: true,
@@ -480,7 +483,7 @@ var  padding = {
         top: 20,
         right: 60,
         bottom: 20,
-        left: 120,
+        left: 60,
     };
 
 var chartPop = c3.generate({
@@ -496,7 +499,7 @@ var chartPop = c3.generate({
         //     show: false
         // },
             color: {
-              pattern: ['#333','#776478']
+              pattern: ['#865f67']
             },
         axis: {
               // rotated: true,
@@ -526,7 +529,7 @@ var  padding = {
         top: 20,
         right: 60,
         bottom: 20,
-        left: 120,
+        left: 60,
     };
 
 var chartPop = c3.generate({
@@ -544,7 +547,7 @@ var chartPop = c3.generate({
         //     show: false
         // },
             color: {
-              pattern: ['#776478']
+              pattern: ['#865f67']
             },
         axis: {
               y: {

@@ -119,6 +119,10 @@
     .partyBlock { display:inline-block; margin-left:10px; }
     .tinybreak { clear:both; display:block; }
     #legendMargins { display:none; }
+    .arrow { font-size:2em; font-weight:900; }
+    .arrow:hover { opacity:0.5; cursor:pointer; }
+    #leftArrow { float:left; }
+    #rightArrow { float:right; }
 
 /*BREAKPOINTS*/
     @media (max-width:650px) {
@@ -190,7 +194,9 @@
 
 <div style="text-align:center">-- Click a district to see details --</div> 
 
-<!-- <div class="zoom">Reset</div> -->
+<div class="breaker"></div>
+
+<div id="leftArrow" class="arrow"><<</div><div id="rightArrow" class="arrow">>></div>
 
 <div class="breaker"></div>
 
@@ -448,6 +454,24 @@ $(".rank").click(function() {
 $(".zoom").click(function() {
   $(".rank").removeClass("selected3");
   $('.cd').show();
+});
+
+var count = 1;
+
+$("#leftArrow").click(function() {
+    if (count != 1) { count--; }
+    $(".rank div, .rank").removeClass("selected3");
+    $("[data=cd" + count + "]").addClass("selected3");
+    $('.cd').hide();
+    $("#cd" + count).show();
+});
+
+$("#rightArrow").click(function() {
+    if (count != 8) { count++; }
+    $(".rank div, .rank").removeClass("selected3");
+    $("[data=cd" + count + "]").addClass("selected3");
+    $('.cd').hide();
+    $("#cd" + count).show();
 });
 
 // MAPPAGE
