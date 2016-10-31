@@ -68,6 +68,7 @@
     #rarrow { float:right; }
     #ranking { text-align:center; }
     #range { width:96%; margin-right:15px; margin-left:15px; }
+    #districtList { padding-top:8px; }
 
     #chart1 .c3-line, #chart2 .c3-line, #chart3 .c3-line, #chart4 .c3-line, #chart5 .c3-line, #chart6 .c3-line, #chart7 .c3-line, #chart8 .c3-line { stroke-width:5px !important; opacity:0 !important; }
     #chart1 .c3-area, #chart2 .c3-area, #chart3 .c3-area, #chart4 .c3-area, #chart5 .c3-area, #chart6 .c3-area, #chart7 .c3-area, #chart8 .c3-area, #chart1 .c3-area { opacity:0.8 !important; }
@@ -121,11 +122,12 @@
     #legendMargins { display:none; }
     .arrow { font-size:2em; font-weight:900; }
     .arrow:hover { opacity:0.5; cursor:pointer; }
-    #leftArrow { float:left; }
+    #leftArrow { float:left; padding-right: 11px; }
     #rightArrow { float:right; }
 
 /*BREAKPOINTS*/
-    @media (max-width:650px) {
+    @media (max-width:539px) {
+    .chatterHead { font-size:1em; }
     .mappage { text-align:center; width:70%; margin-left:auto; margin-right:auto; }
     .adjacent { width:100%; display:block; }
     #wrapper { width:100%; }
@@ -198,13 +200,7 @@
 
 <div id="leftArrow" class="arrow"><<</div><div id="rightArrow" class="arrow">>></div>
 
-<div class="breaker"></div>
-
-<!-- <div id="filter"><input type="search" id="filter_box" placeholder="Search by district, candidate or keyword"></input></div> -->
-<!-- <div id="results"></div> -->
-
-<div class="breaker"></div>
-
+<div id="districtList">
 <!-- CD1 -->
 <div class='cd' id="cd1"> 
 <div class="chatterHead">The Race for Congressional District 1</div>
@@ -395,7 +391,7 @@
 <div id="fChart8"></div>
 </div>
 </div>
-
+</div>
 </div>
   </div>
 
