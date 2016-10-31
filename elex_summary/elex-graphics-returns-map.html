@@ -447,18 +447,18 @@ var colors = [];
 for (var i=0; i < last.length; i++){
   var thisPCT = voteCount[i] / voteCountT;
     if (party[i] == "GOP"){
-      if (thisPCT >= .80) { colors[i] = "#D34A44"; } 
-      else if (thisPCT >= .70) { colors[i] = "#df6a4c"; } 
-      else if (thisPCT >= .60) { colors[i] = "#e58970"; } 
-      else if (thisPCT >= 0) { colors[i] = "#eca795"; } 
+      if (thisPCT >= .80) { colors[i] = "#d34A44"; } 
+      else if (thisPCT >= .70) { colors[i] = "#d34A44"; } 
+      else if (thisPCT >= .50) { colors[i] = "#f7816E"; } 
+      else if (thisPCT >= 0) { colors[i] = "#f7816E"; } 
     }
     else if (party[i] == "Dem") { 
       if (thisPCT >= .80) { colors[i] = "#3585BC"; } 
-      else if (thisPCT >= .70) { colors[i] = "#4f90c1"; } 
-      else if (thisPCT >= .60) { colors[i] = "#73a7ce"; } 
-      else if (thisPCT >= 0) { colors[i] = "#97bedb"; } 
+      else if (thisPCT >= .70) { colors[i] = "#3585BC"; } 
+      else if (thisPCT >= .50) { colors[i] = "#72A9D6"; } 
+      else if (thisPCT >= 0) { colors[i] = "#72A9D6"; } 
     }
-    else if (thisPCT > 0) { colors[i] = "#299E3D"; }
+    else if (thisPCT > 0) { colors[i] = "#7CB342"; }
     else { colors[i] = "#bbbbbb"; }
 }
 
@@ -495,17 +495,22 @@ if (type == "winner"){
 
 //return lean
 if (type == "lean"){
+  if (voteCountT > 0) {
     if (winner[0] == "X" && party[0] == "GOP"){ return "#d34A44"; }
     else if (winner[0] == "X" && party[0] == "Dem"){ return "#3585BC"; }
     else if (winner[0] == "X") { return "#299E3D"; }
     else if (party[0] == "GOP") { return "#f7816E"; }
     else if (party[0] == "Dem") { return "#72A9D6"; }
     else if (voteCount[0] == 0) { return "#bbbbbb"; } 
-    else { return "#ccc"; } 
+  }
+    else { return "#cccccc"; } 
 }
 
 //return color
-if (type == "colors"){ return colors[0]; }
+if (type == "colors"){ 
+  if (voteCountT > 0) { return colors[0]; }
+  else { return "#cccccc"; }
+}
 
 //return tooltips
 if (type == "tooltip"){
