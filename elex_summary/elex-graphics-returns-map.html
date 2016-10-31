@@ -7,9 +7,8 @@
   
   
 <style type="text/css">
-  
-  
-body {font-family:sans-serif;}  
+
+body {font-family:Arial,sans-serif;letter-spacing:-.5px;}  
 
 #us-pop-trump {}
 #us-pop-clinton {}
@@ -38,7 +37,6 @@ body {font-family:sans-serif;}
     line-height:13px;
     height:14px;
     margin-bottom:18px;
-    width:20%;
   }
 
   
@@ -54,7 +52,7 @@ body {font-family:sans-serif;}
  
   }
   
-.keyBlock {float:left;width:12px;height:12px;margin-left:15px;}
+.keyBlock {float:left;width:12px;height:12px;margin-left:13px;}
   
 
   #usMap { float:left;width:380px;min-height:240px;margin: -20px 20px 0px 0px; }
@@ -126,7 +124,7 @@ body {font-family:sans-serif;}
 <div class="resultsMap" id="snapme">
  <div id="done">NOT</div>  
 <!--KEYS-->
-<div class="graphicLabel">PRESIDENTIAL RACE</div>
+<div class="graphicLabel">PRESIDENTIAL&nbsp;RACE</div>
   
 <div class="keyHolder">
   <div class="keyBlock demBlueKey"></div>
@@ -135,20 +133,20 @@ body {font-family:sans-serif;}
    <div class="keyBlock demLean"></div>
     <div class="keyLabel">Leaning</div>
   
-     <div class="keyBlock tossUp"></div>
+    <div class="keyBlock tossUp"></div>
     <div class="keyLabel">Toss-up</div>
+
+    <div class="keyBlock repRedKey"></div>
+    <div class="keyLabel">Trump</div>
   
     <div class="keyBlock repLean"></div>
     <div class="keyLabel">Leaning</div>
   
-    <div class="keyBlock repRedKey"></div>
-    <div class="keyLabel">Trump</div>
+    <div class="keyBlock indGreenKey"></div>
+    <div class="keyLabel">Ind.</div>  
 
     <div class="keyBlock indLean"></div>
     <div class="keyLabel">Leaning</div>
-  
-    <div class="keyBlock indGreenKey"></div>
-    <div class="keyLabel">Ind.</div>    
 </div>
 
   
@@ -495,15 +493,13 @@ if (type == "winner"){
 
 //return lean
 if (type == "lean"){
-  if (voteCountT > 0) {
     if (winner[0] == "X" && party[0] == "GOP"){ return "#d34A44"; }
     else if (winner[0] == "X" && party[0] == "Dem"){ return "#3585BC"; }
     else if (winner[0] == "X") { return "#299E3D"; }
     else if (party[0] == "GOP") { return "#f7816E"; }
     else if (party[0] == "Dem") { return "#72A9D6"; }
     else if (voteCount[0] == 0) { return "#bbbbbb"; } 
-  }
-    else { return "#cccccc"; } 
+    else { return "#ccc"; } 
 }
 
 //return color
