@@ -189,7 +189,7 @@
 <div class="breaker"></div>
 
 <div id="rankingbar" style="text-align:center;">
-    <div class="rankbar rank"><div data="cd5" class="mainbar d4" style="height:390px">D+22</div><div data="cd5" class="d3">CD5</div></div><div class="rankbar rank"><div data="cd4" class="mainbar d4" style="height:198px">D+11</div><div data="cd4" class="d3">CD4</div></div><div class="rankbar rank"><div data="cd8" class="mainbar d1" style="height:18px">D+1</div><div data="cd8" class=" d3">CD8</div></div><div class="rankbar rank"><div data="cd2" class="mainbar r1" style="height:18px">R+1</div><div data="cd2" class="r1">CD2</div></div><div class="rankbar rank selected3"><div data="cd1" class="mainbar r1" style="height:36px">R+2</div><div data="cd1" class="d3">CD1</div></div><div class="rankbar rank"><div data="cd3" class="mainbar r1" style="height:36px">R+2</div><div data="cd3" class="r3">CD3</div></div><div class="rankbar rank"><div data="cd7" class="mainbar r4" style="height:108px">R+6</div><div data="cd7" class="d3">CD7</div></div><div class="rankbar rank"><div data="cd6" class="mainbar r4" style="height:180px">R+10</div><div data="cd6" class="r3">CD6</div></div><div id="range"><div id="darrow">More Democrat</div><div id="rarrow">More Republican</div></div>
+    <div class="rankbar rank" index="5"><div data="cd5" class="mainbar d4" style="height:390px">D+22</div><div data="cd5" class="d3">CD5</div></div><div class="rankbar rank" index="4"><div data="cd4" class="mainbar d4" style="height:198px">D+11</div><div data="cd4" class="d3">CD4</div></div><div class="rankbar rank" index="8"><div data="cd8" class="mainbar d1" style="height:18px">D+1</div><div data="cd8" class=" d3">CD8</div></div><div class="rankbar rank" index="2"><div data="cd2" class="mainbar r1" style="height:18px">R+1</div><div data="cd2" class="r1">CD2</div></div><div class="rankbar rank selected3"><div data="cd1" class="mainbar r1" style="height:36px">R+2</div><div data="cd1" class="d3">CD1</div></div><div class="rankbar rank" index="3"><div data="cd3" class="mainbar r1" style="height:36px">R+2</div><div data="cd3" class="r3">CD3</div></div><div class="rankbar rank" index="7"><div data="cd7" class="mainbar r4" style="height:108px">R+6</div><div data="cd7" class="d3">CD7</div></div><div class="rankbar rank" index="8"><div data="cd6" class="mainbar r4" style="height:180px">R+10</div><div data="cd6" class="r3">CD6</div></div><div id="range"><div id="darrow">More Democrat</div><div id="rarrow">More Republican</div></div>
 </div>
 
 <div class="breaker"></div>
@@ -285,7 +285,7 @@
 
 <p>The district has a median income of <strong>$61,244</strong> and has a minority population of <strong>28 percent</strong>, compared to 19% of the state as a whole. About <strong>13 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>43 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
-<p>The district is <span class="d4">Strongly Democrat</span> with PVI of <span class="d4">D+11</span>. In 2012, the district backed <strong>Barack Obama (D)</strong> by about a 27-point margin for president.</p>
+<p>The district is <span class="d4">Strongly Democratic</span> with PVI of <span class="d4">D+11</span>. In 2012, the district backed <strong>Barack Obama (D)</strong> by about a 27-point margin for president.</p>
 
 </div>
 <div class="adjacent">
@@ -309,7 +309,7 @@
 
 <p>The district has a median income of <strong>$52,447</strong> and has a minority population of <strong>31 percent</strong>, compared to 19% of the state as a whole. About <strong>11 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>44 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
-<p>The district is <span class="d4">Strongly Democrat</span> with a PVI of <span class="d4">D+22</span>. In 2012, the district backed <strong>Barack Obama (D)</strong> by about a 50-point margin for president.</p>
+<p>The district is <span class="d4">Strongly Democratic</span> with a PVI of <span class="d4">D+22</span>. In 2012, the district backed <strong>Barack Obama (D)</strong> by about a 50-point margin for president.</p>
  
 </div>
 <div class="adjacent">
@@ -381,7 +381,7 @@
 
 <p>The district has a median income of <strong>$51,322</strong> and has a minority population of <strong>7 percent</strong>, compared to 19% of the state as a whole. About <strong>18 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>23 percent</strong> have Bachelor's Degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
-<p>The district is <span class="d1">Barely Democrat</span> with a PVI of <span class="d1">D+1</span>. In 2012, the district backed <strong>Barack Obama (D)</strong> by about a 6-point margin for president.</p>
+<p>The district is <span class="d1">Barely Democratic</span> with a PVI of <span class="d1">D+1</span>. In 2012, the district backed <strong>Barack Obama (D)</strong> by about a 6-point margin for president.</p>
 
 </div>
 <div class="adjacent">
@@ -445,6 +445,7 @@ $(".rank").click(function() {
     $(this).addClass("selected3");
     $('.cd').hide();
     $("#" + $(this).find(".mainbar").attr("data")).show();
+    count = Number($(this).attr("index"));
 });
 
 $(".zoom").click(function() {
