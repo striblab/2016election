@@ -30,7 +30,7 @@
 
     .chart { display:inline-block; width:100%; text-align:center;}
     .chartTitle { text-align:left; }
-    .chatter { text-align:left !important; font-size:0.7em; }
+    .chatter { text-align:left !important; font-size:0.8em; }
 
     #compareChart .c3-line, #dateChart .c3-line { stroke-width:5px !important; }
     #compare { display:none !important; }
@@ -40,6 +40,8 @@
     .purple3 { fill:#865f67; background-color:#865f67; color:#ffffff; }
     .purple2 { fill:#a3858b; background-color:#a3858b; color:#ffffff; }
     .purple1 { fill:#C1ACB1; background-color:#C1ACB1; }
+
+    .source{ clear:both; text-align:left; padding-top:5px; }
 
     .map { text-align:center; }
 
@@ -63,6 +65,7 @@
 
 <div class="chart" id="pct">
 <div class="chartTitle">Where 2016 absentee votes came from by precinct</div>
+<div class="chatter">On a precinct level, a lot of absentee votes have come out of Minneapolis and the surrounding area.</div>
 <div id="mapPrecinct" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
 <div id="mapMetro" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
 
@@ -83,18 +86,23 @@
 
 <div class="chart" id="compare">
 <div class="chartTitle">When 2016 absentee voters first registered to vote</div>
+
 <div id="compareChart"></div>
+<div class="source">Source: Star Tribune analysis, Minnesota Secretary of State</div>
 </div>
 
 <div class="chart" id="region">
-<div class="chartTitle">Absentee voting by region, 2012 versus 2016</div>
+<div class="chartTitle">Share of absentee votes by region</div>
+<div class="chatter">So far, 199,797 absentee ballots have been accepted across Minnesota, with about 39 percent coming from Hennepin and Ramsey counties -- higher than the 33 percent of votes cast in the 2012 presidential elections from these counties. Meanwhile, the outer suburbs are voting at slightly lower rates than expected – only 7 percent of absentee ballots this year came from farther-flung suburbs, compared to 10 percent of the presidential votes cast in 2012.</div>
 <div id="regionChart"></div>
 <div class="chatter">Remainder of 7-county metro: Anoka, Dakota, Washington, Scott and Carver counties.</div>
 <div class="chatter">Outer suburbs: Rice, Benton, Chisago, Goodhue, Isanti, Le Sueur, Mille Lacs, Wright, McLeod, Sherburne, Sibley.</div>
+<div class="source">Source: Star Tribune analysis, Minnesota Secretary of State</div>
 </div>
 
 <div class="chart" id="county">
 <div class="chartTitle">Percentage of registered voters sending absentee ballots by county</div>
+<div class="chatter">As a percentage of registered voters, northern rural counties tend to have higher rates of early voting than many other places in Minnesota.</div>
 <div id="mapCounties" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
 
 <div class="quantize">
@@ -109,16 +117,21 @@
     <span style='background:#fff;'>More</span>
 </span>
 </div>
+<div class="source">Source: Star Tribune analysis, Minnesota Secretary of State</div>
 </div>
 
 <div class="chart" id="date">
 <div class="chartTitle">Accepted absentee ballots by date range</div>
+<div class="chatter">Since the beginning of Minnesota’s early voting in September, the number of accepted ballots has steadily increased as Election Day approaches.</div>
 <div id="dateChart"></div>
+<div class="source">Source: Star Tribune analysis, Minnesota Secretary of State</div>
 </div>
 
 <div class="chart" id="age">
 <div class="chartTitle">Voters by age group, all registered versus absentee</div>
+<div class="chatter">Those submitting absentee ballots tend to be older -- more often 55-plus -- at rates higher than their representation among registered voters.</div>
 <div id="ageChart"></div>
+<div class="source">Source: Star Tribune analysis, Minnesota Secretary of State</div>
 </div>
 
 </div>
