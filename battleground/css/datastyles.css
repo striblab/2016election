@@ -532,9 +532,9 @@
         pointer-events: all;
     }
     .independent {
-        border: 1px solid #66AF50;
+        border: 1px solid #7CB342;
         color: #333 !important;
-        fill: #66AF50;
+        fill: #7CB342;
     }
     .none {
         background-color: #cccccc !important;
@@ -587,6 +587,14 @@
         display: block;
         display: none;
         font-size: 0.7em;
+    }
+    .green2 {
+        background-color: #AED581 !important;
+        fill: #AED581 !important;  
+    }
+    .green4 {
+        background-color: #7CB342 !important;
+        fill: #7CB342 !important;  
     }
     /* CARTOGRAMS */
     
