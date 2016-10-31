@@ -30,7 +30,10 @@
 
     .chart { display:inline-block; width:100%; text-align:center;}
     .chartTitle { text-align:left; }
+    .chatter { text-align:left !important; font-size:0.7em; }
+
     #compareChart .c3-line, #dateChart .c3-line { stroke-width:5px !important; }
+    #compare { display:none !important; }
 
     .purple5 { fill:#4c1926; background-color:#4c1926; color:#ffffff; }
     .purple4 { fill:#693c46; background-color:#693c46; color:#ffffff; }
@@ -53,11 +56,13 @@
   </style> 
 </head>
 
+<!-- 399366901 -->
+
 <body>
 <div id="wrapper">
 
 <div class="chart" id="pct">
-<div class="chartTitle">Where 2016 absentee votes are by precinct</div>
+<div class="chartTitle">Where 2016 absentee votes came from by precinct</div>
 <div id="mapPrecinct" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
 <div id="mapMetro" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
 
@@ -84,6 +89,8 @@
 <div class="chart" id="region">
 <div class="chartTitle">Absentee voting by region, 2012 versus 2016</div>
 <div id="regionChart"></div>
+<div class="chatter">Remainder of 7-county metro: Anoka, Dakota, Washington, Scott and Carver counties.</div>
+<div class="chatter">Outer suburbs: Rice, Benton, Chisago, Goodhue, Isanti, Le Sueur, Mille Lacs, Wright, McLeod, Sherburne, Sibley.</div>
 </div>
 
 <div class="chart" id="county">
@@ -397,8 +404,8 @@ var chartPop = c3.generate({
       padding: padding,
       data: {
             columns: [
-                ['Presidential Voting 2012', .23, .09, .33, .25, .10],
-                ['Absentee Ballots 2016', .22, .08, .39, .25, .07]
+                ['Presidential Voting 2012', .33, .23, .10, .09, .25],
+                ['Absentee Ballots 2016', .39, .22, .07, .08,  .25]
             ],
         type: 'bar'
         },
@@ -420,7 +427,7 @@ var chartPop = c3.generate({
                 },
             x: {
                 type: 'category',
-                categories: ['Rest of 7 county','Rochester-St.Cloud-Duluth','Hennepin/Ramsey','Outstate','Outer suburbs']
+                categories: ['Hennepin/Ramsey counties','Rest of 7 county','Outer suburbs','Rochester-St.Cloud-Duluth','Remainder of outstate']
             }
         }
 });
@@ -444,8 +451,8 @@ var chartPop = c3.generate({
       padding: padding,
       data: {
             columns: [
-                ['Registered Voters', 0, .10, .13, .19, .18, .16, .16, .08],
-                ['Absentee Voters', .03, .23, .27, .20, .10, .06, .06, .05]
+                ['Registered Voters', .08, .16, .16, .18, .19, .13, .10, 0,],
+                ['Absentee Voters',   .05, .06, .06, .10, .20, .27, .23, .03,]
             ],
         type: 'bar'
         },
@@ -467,7 +474,7 @@ var chartPop = c3.generate({
                 },
             x: {
                 type: 'category',
-                categories: ['No age available','75+','65-74','55-64','45-54','35-44','25-34','18-24']
+                categories: ['18-24','25-34','35-44','45-54','55-64','65-74','75+','No age available']
             }
         }
 });
