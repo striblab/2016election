@@ -441,7 +441,7 @@ $("#cd1").show();
 });
 
 $(".rank").click(function() {
-    $(".rank").removeClass("selected3");
+    $(".rank div, .rank").removeClass("selected3");
     $(this).addClass("selected3");
     $('.cd').hide();
     $("#" + $(this).find(".mainbar").attr("data")).show();

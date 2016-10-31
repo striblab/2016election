@@ -1,4 +1,4 @@
-Star Tribune Battleground Minnesota 2016 - Early voting in Minnesota
+Star Tribune Battleground Minnesota 2016 - The battle for Minnesota's congressional districts
 ================
 
 by Frey Hargarten
