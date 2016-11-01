@@ -1111,7 +1111,7 @@ function raceCrunch(){
   mnPct = fetchData(null,"Minnesota","pct",dataCounty,"president",null,null);
   mnTime = fetchData(null,"Minnesota","timestamp",dataCounty,"president",null,null);
 
-  $("#mn-timestamp").html("As of " + mnTime.toLocaleTimeString() + " p.m. " + mnPct + "% precincts reporting");
+  $("#mn-timestamp").html("As of " + mnTime.toLocaleTimeString() + " " + mnPct + "% precincts reporting");
 
   $("#done").html("DONE");
 
