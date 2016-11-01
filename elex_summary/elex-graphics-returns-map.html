@@ -465,7 +465,10 @@ for (var i=0; i < last.length; i++){
 if (type == "pct"){ return precinctsReportingPct; }
 
 //return timestamp
-if (type == "timestamp"){ return lastUpdated; }
+if (type == "timestamp"){ 
+  var dateString = new Date(lastUpdated);
+  return dateString; 
+}
 
 //return all votes
 if (type == "votesT"){ return voteCountT; }
@@ -1108,7 +1111,7 @@ function raceCrunch(){
   mnPct = fetchData(null,"Minnesota","pct",dataCounty,"president",null,null);
   mnTime = fetchData(null,"Minnesota","timestamp",dataCounty,"president",null,null);
 
-  $("#mn-timestamp").html("As of " + (new Date(mnTime).getHours() - 12) + ":" + new Date(mnTime).getMinutes() + " p.m. " + mnPct + "% precincts reporting");
+  $("#mn-timestamp").html("As of " + mnTime.toLocaleTimeString() + " p.m. " + mnPct + "% precincts reporting");
 
   $("#done").html("DONE");
 
