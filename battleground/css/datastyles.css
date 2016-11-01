@@ -662,6 +662,8 @@
         display: none;
     }
     .cd {
+        width:16px !important;
+        height:10px !important;
         stroke: #fff !important;
         stroke-width: 1px !important;
     }
