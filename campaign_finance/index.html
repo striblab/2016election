@@ -116,36 +116,6 @@
 
 <div id="wrapper">
 
-<!-- <div id="filters" style="display:none;">
-    <div id="main">
-      <div class="sift selected2" data="switch" filter="All" type="leg">
-        <img src="img/income.png" />
-        <div>All</div></div>
-      <div class="sift" data="house" filter="House" type="leg">
-        <img src="img/mnleg_icon.png" />
-        <div>House</div></div>
-      <div class="sift" data="senate" filter="Senate" type="leg">
-        <img src="img/mnleg_icon.png" />
-        <div>Senate</div></div>
-<!--       <div class="sift" data="state" filter="Committee">
-        <img src="img/local.png" />
-        <div>Officials</div></div> -->
-<!--       <div class="sift greyed" data="president" type="prez">
-        <img src="img/whitehouse.png" />
-        <div>President</div></div>
-      <div class="sift greyed" data="house" type="house">
-        <img src="img/house.png" />
-        <div>U.S. House</div></div>
-    </div>
-</div> --> 
-
-<div id="pcfCharts" class="raceType">
-  <div class="chartTitle">Political committee donations</div>
-  <div class="chatter">chatter here</div>
-  <div id="tChart" class="chart"></div>
-
-</div>
-
 <div id="leg" class="raceType">
 <div class="chartTitle">Campaign finance by legislative race</div>
 <div class="chatter">Data current as of July 2016 filing to Minnesota's campaign finance board.</div>
@@ -235,19 +205,8 @@ d3.csv("./data/candidates_master.csv", function(d) {
   };
 }, function(error, rows1) {
 
-d3.csv("./data/overall_expenditures.csv", function(d) {
-  return {
-    race: d.district,
-    chamber: d.chamber,
-    cand_xpend: d.cand_xpend,
-    ind_xpend: d.ind_xpend,
-    total: d.total
-  };
-}, function(error, rows2) {
-
 var dataRaces = rows00;
 var dataFilings = rows1;
-var dataX = rows2;
 
 function mapBuild(container, boxContainer, chartContainer, shape, race, geo, dataCompare, index) {
 
@@ -555,99 +514,6 @@ drawChart("#chartR", getCandidateTotals(race,"GOP"), bigTotal);
 
 dataSpill("01A","House");
 
-//PCF CHARTS
-function pcfChart() {
-var  padding = {
-        top: 20,
-        right: 60,
-        bottom: 20,
-        left: 60,
-    };
-
-var tChart = c3.generate({
-      bindto: "#tChart",
-      padding: padding,
-        data: {
-                // x: 'x',
-                columns: [
-                    // ['x','Trump','Clinton'],
-                    ['Money Raised', 1597405, 1352986]
-                    // ['Campaign', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200],
-                    // ['PAC', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200],
-                    // ['SuperPac', .30, .200, .30, .200, .30, .200, .30, .200, .200, .30, .200, .30, .200, .30, .200, .30, .200, .200]
-                ],
-            type: 'bar',
-            colors: {
-            'Money Raised': function(d) {
-                return (d.index == 0 || d.index == 2 || d.index == 4 || d.index == 6 || d.index == 8 || d.index == 10 || d.index == 12 || d.index == 14) ? '#3f88c5': '#A52129';
-            }
-          }
-            // groups: [
-            //     ['Independent', 'Campaign','PAC','SuperPac']
-            // ]
-            },
-
-            legend: {
-              show: false
-            },
-            axis: {
-              rotated: false,
-              y: {
-                    min: 0,
-                    padding: {bottom: 0},
-                    tick: {
-                     count: 4,
-                     format: d3.format('$,.0f')
-                    }
-                },
-                x: {
-                    type: 'category',
-                    categories: ['Nolan','Mills']
-                }
-            },
-        tooltip: {
-      contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-          var $$ = this, config = $$.config,
-              titleFormat = config.tooltip_format_title || defaultTitleFormat,
-              nameFormat = config.tooltip_format_name || function (name) { return name; },
-              valueFormat = config.tooltip_format_value || defaultValueFormat,
-              text, i, title, value, name, bgcolor;
-          for (i = 0; i < d.length; i++) {
-              if (! (d[i] && (d[i].value || d[i].value === 0))) { continue; }
-
-              console.log(d)
-
-              if (! text) {
-                  title = titleFormat ? titleFormat(d[i].x) : d[i].x;
-                  text = "<table class='" + $$.CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
-              }
-
-              name = nameFormat(d[i].name);
-              value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
-              if (d[i].index == 0 || d[i].index == 2 || d[i].index == 4 || d[i].index == 6 || d[i].index == 8 || d[i].index == 10 || d[i].index == 12 || d[i].index == 14){
-                bgcolor = "#3f88c5";
-              } else {
-                bgcolor = "#A52129";
-              }
-
-              // bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
-
-              text += "<tr class='" + $$.CLASS.tooltipName + "-" + d[i].id + "'>";
-              text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
-              text += "<td class='value'>" + value + "</td>";
-              text += "</tr><tr>";
-              text += "</tr>";
-              
-          }
-          return text + "</table>";
-      }
-    }
-});
-
-}
-
-pcfChart();
-
 //PARAMETER SWITCHES
 $.urlParam = function(name){
   var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -662,7 +528,7 @@ $("#leftSide").hide();
 
 });
 });
-});
+
 </script>
 
 </body>
