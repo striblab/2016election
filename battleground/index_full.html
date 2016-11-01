@@ -2075,7 +2075,7 @@ function makeCartogram() {
         d3.json("shapefiles/usdistricts_cartogram.json", function(error, us) {
 
             g.append("g").attr("id", "districts").selectAll("path")
-            .data(topojson.feature(us, us.objects['cart113']).features)
+            .data(topojson.feature(us, us.objects['uscd']).features)
             .enter().append("path")
                 .attr("d", path)
                 .attr("class","cd")
