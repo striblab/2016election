@@ -1641,7 +1641,10 @@ function makeCartogram() {
                     d3.select(this).classed("active",true);
                     $(".tableRow").removeClass("selectedBox");
                     if (d.properties.State == "Minnesota") { $(".tableRow[name=" + d.properties.State + "" + d.properties['d'] + "]").addClass("selectedBox"); }
-                    spillInfo(fetchData("District " + d.properties['d'],d.properties.State,"table",data,"ushouse",null,"District " + d.properties['d']));
+                    if (d.properties['d'] == 0) { var thisDistrict = "1"; }
+                    else { var thisDistrict = d.properties['d']; }
+                    
+                      spillInfo(fetchData("District " + d.properties['d'],d.properties.State,"table",data,"ushouse",null,"District " + thisDistrict));
                 })
                 .call(d3.helper.tooltip(function(d, i){
                     if ($(window).width() > 500) { 
@@ -1773,7 +1776,13 @@ d3.json("shapefiles/" + shape, function(error, us) {
         if (race == "president" || race == "senate" ||  race == "governors"){ 
             spillInfo(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)); $(".block").removeClass("blockSelect"); $("." + d.properties.STUSPS).addClass("blockSelect"); }
         else if (race == "county"){ spillInfo(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
-        else if (race == "house"){ spillInfo(fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"table",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT)); if (d.properties.STATENAME == "Minnesota") { $(".tableRow[name=" + d.properties.STATENAME + "" + d.properties.DISTRICT + "]").addClass("selectedBox"); } } 
+        else if (race == "house"){ 
+          if (d.properties.DISTRICT == 0) { var thisDistrict = "1"; }
+          else { var thisDistrict = d.properties.DISTRICT; }
+
+          spillInfo(fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"table",dataCompare,"ushouse",null,"District " + thisDistrict)); 
+          if (d.properties.STATENAME == "Minnesota") { $(".tableRow[name=" + d.properties.STATENAME + "" + d.properties.DISTRICT + "]").addClass("selectedBox"); } 
+        } 
         else if (race == "mnsenate" || race == "mnhouse") { 
           if (d.properties.DISTRICT == "32B") { return spillInfo("<div class='districtName'>District 32B, MN</div><div>No race. A special election has been called for Feb. 14, 2017.</div>"); }
           else { spillInfo(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); } 
@@ -1822,7 +1831,11 @@ d3.json("shapefiles/" + shape, function(error, us) {
          if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race); }
          else if (race == "county") { return fetchData(d.properties.GEOID,null,"tooltip",dataCompare,race,null,d.properties.NAME); }
          // else if (race == "pct") { return mapTips(d, race, dataCompare, level); }
-         else if (race == "house") { return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"tooltip",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT); }
+         else if (race == "house") { 
+          if (d.properties.DISTRICT == 0) { var thisDistrict = "1"; }
+          else { var thisDistrict = d.properties.DISTRICT; }
+          return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"tooltip",dataCompare,"ushouse",null,"District " + thisDistrict); 
+        }
          else if (race == "mnsenate" || race == "mnhouse") { 
           if (d.properties.DISTRICT == "32B") { return "<div class='districtName'>District 32B, MN</div><div>No race</div>"; }
           else { return fetchData("District " + d.properties.DISTRICT,"Minnesota","tooltip",dataCompare,race,null,"District " + d.properties.DISTRICT); }
@@ -2887,7 +2900,10 @@ d3.json("shapefiles/" + shape, function(error, us) {
             spillInfo(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); 
         }
         else if (race == "house"){ 
-            spillInfo(fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"table",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT)); 
+          if (d.properties.DISTRICT == 0) { var thisDistrict = "1"; }
+          else { var thisDistrict = d.properties.DISTRICT; }
+
+            spillInfo(fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"table",dataCompare,"ushouse",null,"District " + thisDistrict)); 
             $(".tableRow").removeClass("selectedBox"); 
             if (d.properties.STATENAME == "Minnesota") { 
                 $(".tableRow[name=" + d.properties.STATENAME + "" + d.properties.DISTRICT + "]").addClass("selectedBox"); } 
@@ -2907,7 +2923,9 @@ d3.json("shapefiles/" + shape, function(error, us) {
             return fetchData(d.properties.GEOID,null,"tooltip",dataCompare,race,null,d.properties.NAME); 
          }
          else if (race == "house") { 
-            return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"tooltip",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT); 
+          if (d.properties.DISTRICT == 0) { var thisDistrict = "1"; }
+          else { var thisDistrict = d.properties.DISTRICT; }
+            return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"tooltip",dataCompare,"ushouse",null,"District " + thisDistrict); 
          }
          //DON'T FORGET THIS, STUPID
          else if (race == "mnsenate" || race == "mnhouse") { 
@@ -2930,7 +2948,10 @@ d3.json("shapefiles/" + shape, function(error, us) {
             if (d.properties.State == "Minnesota") { 
                 $(".tableRow[name=" + d.properties.State + "" + d.properties['d'] + "]").addClass("selectedBox"); 
             }
-            spillInfo(fetchData("District " + d.properties['d'],d.properties.State,"table",dataCompare,"ushouse",null,"District " + d.properties['d']))
+          if (d.properties['d'] == 0) { var thisDistrict = "1"; }
+          else { var thisDistrict = d.properties['d']; }
+
+            spillInfo(fetchData("District " + d.properties['d'],d.properties.State,"table",dataCompare,"ushouse",null,"District " + thisDistrict))
          })
          .call(d3.helper.tooltip(function(d, i){
         if ($(window).width() > 500) { 
