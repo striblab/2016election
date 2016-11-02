@@ -491,9 +491,13 @@ if (type == "votesR"){
 
 //return winner
 if (type == "winner"){
-    if (winner[0] == "X" && party[0] == "GOP"){ return "GOP Win"; }
-    else if (winner[0] == "X" && party[0] == "Dem"){ return "DEM Win"; }
-    else if (winner[0] == "X") { return "IND Win"; }
+  for (var i = 0; i < last.length; i++) {
+    if (winner[i] == "X"){
+      if (party[i] == "GOP"){ return "GOP Win"; }
+      else if (party[i] == "Dem"){ return "DEM Win"; }
+      else { return "IND Win"; }
+    }
+  }
 }
 
 //return lean
