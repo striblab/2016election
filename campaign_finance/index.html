@@ -17,7 +17,7 @@
         #wrapper { width:960px; margin-right:auto; margin-left:auto; }
 
         #leftSide { width:48%; float:left; vertical-align:top; }
-        #rightSide { width:48%; float:right; vertical-align:top; }
+        #rightSide { width:45%; float:right; vertical-align:top; }
 
         .adjacent { display:inline-block; width:49%; vertical-align:top; text-align:center; padding:0 7px 0 7px; }
 
@@ -84,7 +84,7 @@
         #listD { font-size:0.8em; text-align:left; display:none; float:left; height:255px; overflow-y:auto; }
         #listR { font-size:0.8em; text-align:left; display:none; float:right; height:255px; overflow-y:auto; }
         .map { display:inline-block; width:48%; }
-        .mapBox { display:inline-block; width:48%; text-align:center; }
+        .mapBox { /*display:inline-block; width:48%;*/ text-align:center; }
         .quantize { width:245px; text-align:center; margin-right:auto; margin-left: auto; }
 
         .districtName { font-weight:900; }
@@ -131,6 +131,11 @@
 <body>
 
 <div id="wrapper">
+
+<div id="leg" class="raceType">
+<!-- <div class="chartTitle">Campaign finance by legislative race, as of October 2016</div> -->
+
+<div id="leftSide">
 <div class="mapBox">
   <div id="mapStateS" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
   <div id="mapMetroS" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
@@ -167,19 +172,22 @@
 </div>
 </div>
 
-<div class="breaker"></div>
-
-<div id="leg" class="raceType">
-<!-- <div class="chartTitle">Campaign finance by legislative race, as of October 2016</div> -->
-
-<div id="districtInfo"></div>
-<div>Candidate expenditures: <span id="candX"></span></div>
-<div>Independent expenditures: <span id="indX"></span></div>
-<div>Total expenditures: <span id="totalX"></span></div>
-
-<div class="breaker"></div>
+</div>
 
 <div id="rightSide">
+
+<div class="breaker"></div>
+
+<div id="districtInfo"></div>
+
+<div class="breaker"></div>
+
+<div><span class="left">Candidate expenditures</span> <span class="right" id="candX"></span></div>
+<div><span class="left">Independent expenditures</span> <span class="right" id="indX"></span></div>
+<div><span class="left">Total expenditures</span> <span class="right" id="totalX"></span></div>
+
+<div class="breaker"></div>
+
 <div id="races" class="results">
 <div id="fundraising">Candidate fundraising</div>
 <!-- <div id="partyD" class="adjacent"></div>
@@ -208,9 +216,7 @@
 <div id="committees" class="results">
 
 </div>
-</div>
 
-<div id="leftSide">
 <div class="offlink"><a href="http://www.gis.leg.mn/iMaps/districts/" target="new_">Who represents me?</a></div>
 <div id="filter"><input type="search" id="filter_box" placeholder="Search by district, candidate or chamber"></input></div>
 <div class="breaker"></div>
@@ -221,6 +227,8 @@
 <div class="cell">District</div><div class="cell democrat">DFL</div><div class="cell republican">GOP</div><div class="cell kill">Chamber</div>
 </div>
 </div>
+
+
 </div>
 
 </div>
