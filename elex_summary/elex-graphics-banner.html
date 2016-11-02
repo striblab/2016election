@@ -732,22 +732,38 @@ function prezCrunch(){
 
   }
 
-  var me1W = fetchData(null,"ME","winner",dataEVCD,"president",null,null,"District 1");
-  var me2W = fetchData(null,"ME","winner",dataEVCD,"president",null,null,"District 2");
-  var ne1W = fetchData(null,"NE","winner",dataEVCD,"president",null,null,"District 1");
-  var ne2W = fetchData(null,"NE","winner",dataEVCD,"president",null,null,"District 2");
-  var ne3W = fetchData(null,"NE","winner",dataEVCD,"president",null,null,"District 3");
+  var me1R = fetchData("District 1","ME","votesR",dataEVCD,"president",1,"ME01","District 1");
+  var me1D = fetchData("District 1","ME","votesD",dataEVCD,"president",1,"ME01","District 1");
+  var me2R = fetchData("District 2","ME","votesR",dataEVCD,"president",1,"ME02","District 2");
+  var me2D = fetchData("District 2","ME","votesD",dataEVCD,"president",1,"ME02","District 2");
+  var ne1R = fetchData("District 1","NE","votesR",dataEVCD,"president",1,"NE01","District 1");
+  var ne1D = fetchData("District 1","NE","votesD",dataEVCD,"president",1,"NE01","District 1");
+  var ne2R = fetchData("District 2","NE","votesR",dataEVCD,"president",1,"NE02","District 2");
+  var ne2D = fetchData("District 2","NE","votesD",dataEVCD,"president",1,"NE02","District 2");
+  var ne3R = fetchData("District 3","NE","votesR",dataEVCD,"president",1,"NE03","District 3");
+  var ne3D = fetchData("District 3","NE","votesD",dataEVCD,"president",1,"NE03","District 3");
 
-  if (me1W == "GOP Win") { rTally++; }
-  else if (me1W == "DEM Win") { dTally++; }
-  if (me2W == "GOP Win") { rTally++; }
-  else if (me2W == "DEM Win") { dTally++; }
-  if (ne1W == "GOP Win") { rTally++; }
-  else if (ne1W == "DEM Win") { dTally++; }
-  if (ne2W == "GOP Win") { rTally++; }
-  else if (ne2W == "DEM Win") { dTally++; }
-  if (ne3W == "GOP Win") { rTally++; }
-  else if (ne3W == "DEM Win") { dTally++; }
+  var meW = fetchData(null,"Maine","winner",dataCounty,"president",2,null,null);
+  var neW = fetchData(null,"Nebraska","winner",dataCounty,"president",2,null,null);
+
+  if (meW == "GOP Win" || meW == "Dem Win") { 
+    if (me1R > me1D) { rTally++; }
+    else { dTally++; }
+
+    if (me2R > me2D) { rTally++; }
+    else { dTally++; }
+  }
+
+  if (neW == "GOP Win" || neW == "Dem Win") { 
+    if (ne1R > ne1D) { rTally++; }
+    else { dTally++; }
+
+    if (ne2R > ne2D) { rTally++; }
+    else { dTally++; }
+
+    if (ne3R > ne3D) { rTally++; }
+    else { dTally++; }
+  }
 
   $("#demPres").html(dTally);
   $("#repPres").html(rTally);
