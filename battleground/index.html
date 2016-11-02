@@ -1462,9 +1462,13 @@ if (type == "votesR"){
 
 //return winner
 if (type == "winner"){
-    if (winner[0] == "X" && party[0] == "GOP"){ return "GOP Win"; }
-    else if (winner[0] == "X" && party[0] == "Dem"){ return "DEM Win"; }
-    else if (winner[0] == "X") { return "IND Win"; }
+  for (var i = 0; i < last.length; i++) {
+    if (winner[i] == "X"){
+      if (party[i] == "GOP"){ return "GOP Win"; }
+      else if (party[i] == "Dem"){ return "DEM Win"; }
+      else { return "IND Win"; }
+    }
+  }
 }
 
 //return lean
@@ -2119,7 +2123,7 @@ function prezCrunch(data,dataEV){
   var rTally = 0;
   var iTally = 0;
 
-  for (var i=0; i < 51; i++){
+  for (var i=0; i < stateList.length; i++){
     var updated = fetchData(null,stateList[i],"winner",data,"president",null,null,null);
     if (updated == "GOP Win") { rTally += evList[i]; }
     else if (updated == "DEM Win") { dTally += evList[i]; }
@@ -2150,11 +2154,11 @@ function prezCrunch(data,dataEV){
   $("#allResults .president").append(fetchData(null,"NE","board",dataEV,"president",1,"NE02","District 2"));
   $("#allResults .president").append(fetchData(null,"NE","board",dataEV,"president",1,"NE03","District 3"));
 
-  var me1W = fetchData(null,"ME","winner",dataEV,"president",null,null,"District 1");
-  var me2W = fetchData(null,"ME","winner",dataEV,"president",null,null,"District 2");
-  var ne1W = fetchData(null,"NE","winner",dataEV,"president",null,null,"District 1");
-  var ne2W = fetchData(null,"NE","winner",dataEV,"president",null,null,"District 2");
-  var ne3W = fetchData(null,"NE","winner",dataEV,"president",null,null,"District 3");
+  var me1W = fetchData(null,"ME","winner",dataEV,"president",1,"ME01","District 1");
+  var me2W = fetchData(null,"ME","winner",dataEV,"president",1,"ME02","District 2");
+  var ne1W = fetchData(null,"NE","winner",dataEV,"president",1,"NE01","District 1");
+  var ne2W = fetchData(null,"NE","winner",dataEV,"president",1,"NE02","District 2");
+  var ne3W = fetchData(null,"NE","winner",dataEV,"president",1,"NE03","District 3");
 
   if (me1W == "GOP Win") { rTally++; }
   else if (me1W == "DEM Win") { dTally++; }
