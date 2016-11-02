@@ -1877,13 +1877,15 @@ for (var i=0; i < last.length; i++){
       if (thisPCT >= .80) { colors[i] = "#d84c27"; } 
       else if (thisPCT >= .70) { colors[i] = "#df6a4c"; } 
       else if (thisPCT >= .60) { colors[i] = "#e58970"; } 
-      else if (thisPCT >= 0) { colors[i] = "#eca795"; } 
+      else if (thisPCT > 0) { colors[i] = "#eca795"; } 
+      else { colors[i] = "#bbbbbb"; }
     }
     else if (party[i] == "Dem") { 
       if (thisPCT >= .80) { colors[i] = "#2b7ab5"; } 
       else if (thisPCT >= .70) { colors[i] = "#4f90c1"; } 
       else if (thisPCT >= .60) { colors[i] = "#73a7ce"; } 
-      else if (thisPCT >= 0) { colors[i] = "#97bedb"; } 
+      else if (thisPCT > 0) { colors[i] = "#97bedb"; } 
+      else { colors[i] = "#bbbbbb"; }
     }
     else if (thisPCT > 0) { colors[i] = "#299E3D"; }
     else { colors[i] = "#bbbbbb"; }
@@ -1925,8 +1927,8 @@ if (type == "lean"){
     if (winner[0] == "X" && party[0] == "GOP"){ return "#d34A44"; }
     else if (winner[0] == "X" && party[0] == "Dem"){ return "#3585BC"; }
     else if (winner[0] == "X") { return "#299E3D"; }
-    else if (party[0] == "GOP") { return "#f7816E"; }
-    else if (party[0] == "Dem") { return "#72A9D6"; }
+    else if (party[0] == "GOP" && voteCount[0] != 0) { return "#f7816E"; }
+    else if (party[0] == "Dem" && voteCount[0] != 0) { return "#72A9D6"; }
     else if (voteCount[0] == 0) { return "#bbbbbb"; } 
     else { return "#bbbbbb"; } 
 }
