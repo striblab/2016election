@@ -1516,7 +1516,7 @@ if (type == "table"){
     else if (winner[i] == "X" && party[i] == "Dem") { stateColor = "democrat"; }
     else if (winner[i] == "X") { stateColor = "green4";  }
 
-    if (race == "president" && evcd != null){ stateColor = colors[i]; }
+    if (race == "president" && evcd != null){ stateColor = colors[i]; wMark[i] = ""; }
       
     tableString += "<div class='resultsRow'><div class='candidate'>" + iMark[i] + first[i] + " " + last[i] + " (" + party[i] + ")" + " " + wMark[i] + "</div><div class='counts'>" + d3.format(",")(voteCount[i]) + "</div><div class='pct " + stateColor + "' style='background-color:" + colors[i] + ";'>" + thisPCT + "</div></div>"
   }
