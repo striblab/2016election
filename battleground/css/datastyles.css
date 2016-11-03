@@ -946,11 +946,13 @@
         display: none;
     }
     #infobox {
-        float: right;
+        float: none;
         height: 133px;
+        margin-right:auto;
+        margin-left:auto;
         margin-bottom: 15px;
         text-align: left;
-        width: 100%;
+        width: 60%;
     }
     #infobox .resultsRow:nth-child(2) {
         border-bottom: 0px;
@@ -1332,6 +1334,7 @@
     /* MOBILE BREAKPOINTS */
     
     @media (max-width: 970px) {
+        #infobox { width:100%; }
         #countdownMobile {
             display: block;
         }
