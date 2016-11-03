@@ -75,11 +75,9 @@
          </li>
          <li class="raceSwitch menukill advance mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn"><a href='#'><div><div><strong>MN</strong> popular by county</div></div></a>
          </li>
-         <li><a href='#'><div class="raceSwitch menukill advance mnzoom" data="president" legend="legendMargins" type="map" layer="pct"><div><strong>MN</strong> popular by precinct</div></div></a>
         <!--  </li> -->
          <li class="raceSwitch menukill advance metrozoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn"><a href='#'><div><div><strong>Metro</strong> popular by county</div></div></a>
          </li>
-<!--          <li><a href='#'><div class="raceSwitch advance metrozoom" data="president" legend="legendMargins" type="map" layer="pct"><div><strong>Metro</strong> popular by precinct</div></div></a> -->
       </ul>   
    </li>
    <li class='has-sub'><a href='#'>US House  <img class="test-chev" src="http://static.startribune.com/mike-test/down-chevron.png"></a>
@@ -192,7 +190,7 @@
 <!-- AN UGLY ELECTORAL COLLEGE MAP FOR WONKS WHO LIKE SQUARES -->
 <div id="carto" class="map normal carto">
 <div id="cartogram">
-<svg id="FULLCARTO" version="1.1" x="0px" y="0px" width="90%" viewBox="0 0 600 696.572" xml:space="preserve">
+<svg id="FULLCARTO" version="1.1" x="0px" y="0px" width="90%" viewBox="0 0 600 450" enable-background="new 0 0 860 696.572" xml:space="preserve">
 <g id="PA" class="cartoState" name="Pennsylvania">
   <polygon points="450.3,127.1 464.2,127.1 464.2,141 450.3,141 450.3,127.1"/>
   <polygon points="380.4,127 394.4,127 394.4,141 380.4,141 380.4,127"/>
@@ -1517,8 +1515,10 @@ if (type == "table"){
     if (winner[i] == "X" && party[i] == "GOP") { stateColor = "republican"; }
     else if (winner[i] == "X" && party[i] == "Dem") { stateColor = "democrat"; }
     else if (winner[i] == "X") { stateColor = "green4";  }
+
+    if (race == "president" && evcd != null){ stateColor = colors[i]; }
       
-    tableString += "<div class='resultsRow'><div class='candidate'>" + iMark[i] + first[i] + " " + last[i] + " (" + party[i] + ")" + " " + wMark[i] + "</div><div class='counts'>" + d3.format(",")(voteCount[i]) + "</div><div class='pct " + stateColor + "' style='border:2px solid " + colors[i] + ";'>" + thisPCT + "</div></div>"
+    tableString += "<div class='resultsRow'><div class='candidate'>" + iMark[i] + first[i] + " " + last[i] + " (" + party[i] + ")" + " " + wMark[i] + "</div><div class='counts'>" + d3.format(",")(voteCount[i]) + "</div><div class='pct " + stateColor + "' style='background-color:" + colors[i] + ";'>" + thisPCT + "</div></div>"
   }
 
   return tableString + "<div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>";
@@ -1560,7 +1560,7 @@ var isWin = false;
     }
   }
 
-  if (race == "president" && district != null){
+  if (race == "president" && evcd != null){
     if (isWin == true){
       if (party[0] == "Dem") {
         stateColor1 = "democrat";

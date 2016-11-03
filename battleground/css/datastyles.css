@@ -372,7 +372,7 @@
     /* SWATCHES */
     
     .republican {
-        background-color: #d34A44;
+        background-color: #d34A44 !important;
         fill: #d34A44 !important;
         font-weight: bold;
         pointer-events: all;
@@ -391,7 +391,7 @@
         pointer-events: all;
     }
     .democrat {
-        background-color: #3585BC;
+        background-color: #3585BC !important;
         fill: #3585BC !important;
         font-weight: bold;
         pointer-events: all;
@@ -828,11 +828,11 @@
     }
 
     .pctBox.democrat {
-        margin-right: 4px;
+/*        margin-right: 4px;*/
     }
 
     .pctBox.republican {
-        margin-left: 4px;
+/*        margin-left: 4px;*/
     }
 
     .stateBlockR {
@@ -1494,11 +1494,14 @@
         }
     }
     @media (max-width: 630px) {
+        .mapBox {
+            height: 454px !important;
+        }
         .count {
             width: 20%;
         }
         #raceSwitcher {
-            margin: 102px auto 14px;
+            margin: 95px auto 14px;
         }
         #powerbar {
             padding: 6px;
@@ -1536,6 +1539,9 @@
         }
     }
     @media (max-width: 500px) {
+        .mapBox {
+            height: 311px !important;
+        }
         text {
             display: none !important;
         }
@@ -1574,6 +1580,9 @@
         }
     }
     @media only screen and (max-width: 480px) {
+        .mapBox {
+            height: auto !important;
+        }
         .resultsRow .candidate {
             width: 43% !important;
         }
@@ -1659,6 +1668,9 @@
         }
     }
     @media (max-width: 420px) {
+        .mapBox {
+            height: auto !important;
+        }
         .partyBlock {
             width: 18%;
         }
