@@ -2181,37 +2181,37 @@ function prezCrunch(data,dataEV){
   $("#allResults .president").append(fetchData("District 2","NE","board",dataEV,"president",1,"NE02","District 2"));
   $("#allResults .president").append(fetchData("District 3","NE","board",dataEV,"president",1,"NE03","District 3"));
 
-  var me1R = fetchData(null,"ME","votesR",dataEV,"president",1,"ME01","District 1");
-  var me1D = fetchData(null,"ME","votesD",dataEV,"president",1,"ME01","District 1");
-  var me2R = fetchData(null,"ME","votesR",dataEV,"president",1,"ME02","District 2");
-  var me2D = fetchData(null,"ME","votesD",dataEV,"president",1,"ME02","District 2");
-  var ne1R = fetchData(null,"NE","votesR",dataEV,"president",1,"NE01","District 1");
-  var ne1D = fetchData(null,"NE","votesD",dataEV,"president",1,"NE01","District 1");
-  var ne2R = fetchData(null,"NE","votesR",dataEV,"president",1,"NE02","District 2");
-  var ne2D = fetchData(null,"NE","votesD",dataEV,"president",1,"NE02","District 2");
-  var ne3R = fetchData(null,"NE","votesR",dataEV,"president",1,"NE03","District 3");
-  var ne3D = fetchData(null,"NE","votesD",dataEV,"president",1,"NE03","District 3");
+  var me1R = fetchData("District 1","ME","votesR",dataEV,"president",1,"ME01","District 1");
+  var me1D = fetchData("District 1","ME","votesD",dataEV,"president",1,"ME01","District 1");
+  var me2R = fetchData("District 2","ME","votesR",dataEV,"president",1,"ME02","District 2");
+  var me2D = fetchData("District 2","ME","votesD",dataEV,"president",1,"ME02","District 2");
+  var ne1R = fetchData("District 1","NE","votesR",dataEV,"president",1,"NE01","District 1");
+  var ne1D = fetchData("District 1","NE","votesD",dataEV,"president",1,"NE01","District 1");
+  var ne2R = fetchData("District 2","NE","votesR",dataEV,"president",1,"NE02","District 2");
+  var ne2D = fetchData("District 2","NE","votesD",dataEV,"president",1,"NE02","District 2");
+  var ne3R = fetchData("District 3","NE","votesR",dataEV,"president",1,"NE03","District 3");
+  var ne3D = fetchData("District 3","NE","votesD",dataEV,"president",1,"NE03","District 3");
 
-  var meW = fetchData(null,"Maine","winner",data,"president",2,null);
-  var neW = fetchData(null,"Nebraska","winner",data,"president",2,null);
+  var meW = fetchData(null,"Maine","winner",data,"president",null,null,null);
+  var neW = fetchData(null,"Nebraska","winner",data,"president",null,null,null);
 
-  if (meW == "GOP Win" || meW == "Dem Win") { 
+  if (meW == "GOP Win" || meW == "DEM Win") { 
     if (me1R > me1D) { rTally++; }
-    else { dTally++; }
+    if (me1R < me1D) { dTally++; }
 
     if (me2R > me2D) { rTally++; }
-    else { dTally++; }
+    if (me2R < me2D) { dTally++; }
   }
 
-  if (neW == "GOP Win" || neW == "Dem Win") { 
+  if (neW == "GOP Win" || neW == "DEM Win") { 
     if (ne1R > ne1D) { rTally++; }
-    else { dTally++; }
+    if (ne1R < ne1D) { dTally++; }
 
     if (ne2R > ne2D) { rTally++; }
-    else { dTally++; }
+    if (ne2R < ne2D) { dTally++; }
 
     if (ne3R > ne3D) { rTally++; }
-    else { dTally++; }
+    if (ne3R < ne3D) { dTally++; }
   }
 
   var winner = fetchData(null,"United States","winner",data,"president",null,null);
