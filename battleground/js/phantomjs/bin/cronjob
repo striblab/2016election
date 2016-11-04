@@ -1,28 +1,28 @@
 MNHOUSE
-watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=mnhouse MNHOUSE > /Users/hargaja/dropbox/raythings/mnhouse/`date +\%Y\%m\%d\%H\%M\%S`-mnhouseMN.svg
+while true; do /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=mnhouse MNHOUSE > /Users/hargaja/dropbox/raythings/mnhouse/`date +\%Y\%m\%d\%H\%M\%S`-mnhouseMN.svg; sleep 600; done
 
-watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=mnhouse MNHOUSEMETRO > /Users/hargaja/dropbox/raythings/mnhouseMetro/`date +\%Y\%m\%d\%H\%M\%S`-mnhouseMetro.svg
+while true; do /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=mnhouse MNHOUSEMETRO > /Users/hargaja/dropbox/raythings/mnhouseMetro/`date +\%Y\%m\%d\%H\%M\%S`-mnhouseMetro.svg; sleep 600; done
 
 MNSENATE
-watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=mnsenate MNSENATE > /Users/hargaja/dropbox/raythings/mnsenateMN/`date +\%Y\%m\%d\%H\%M\%S`-mnsenateMN.svg
+while true; do /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=mnsenate MNSENATE > /Users/hargaja/dropbox/raythings/mnsenateMN/`date +\%Y\%m\%d\%H\%M\%S`-mnsenateMN.svg; sleep 600; done
 
-watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=mnsenate MNSENATEMETRO > /Users/hargaja/dropbox/raythings/mnsenateMetro/`date +\%Y\%m\%d\%H\%M\%S`-mnsenateMetro.svg
+while true; do /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=mnsenate MNSENATEMETRO > /Users/hargaja/dropbox/raythings/mnsenateMetro/`date +\%Y\%m\%d\%H\%M\%S`-mnsenateMetro.svg; sleep 600; done
 
 PRESIDENT
-watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=president USMAP > /Users/hargaja/dropbox/raythings/usprez/`date +\%Y\%m\%d\%H\%M\%S`-usprez.svg
+while true; do /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=president USMAP > /Users/hargaja/dropbox/raythings/usprez/`date +\%Y\%m\%d\%H\%M\%S`-usprez.svg; sleep 600; done
 
-watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=president USCOUNTIES > /Users/hargaja/dropbox/raythings/usprez/`date +\%Y\%m\%d\%H\%M\%S`-uscounties.svg
+while true; do /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=president USCOUNTIES > /Users/hargaja/dropbox/raythings/usprez/`date +\%Y\%m\%d\%H\%M\%S`-uscounties.svg; sleep 600; done
 
-watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/elex_summary/elex-graphics-returns-map.html MNHOUSE > /Users/hargaja/dropbox/raythings/usprez/`date +\%Y\%m\%d\%H\%M\%S`-mncounties.svg
+while true; do /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/elex_summary/elex-graphics-returns-map.html MNHOUSE > /Users/hargaja/dropbox/raythings/usprez/`date +\%Y\%m\%d\%H\%M\%S`-mncounties.svg; sleep 600; done
 
 HOUSE
-watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=house USHOUSE > /Users/hargaja/dropbox/raythings/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseAll.svg
+while true; do /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=house USHOUSE > /Users/hargaja/dropbox/raythings/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseAll.svg; sleep 600; done
 
 GOVERNORS
-watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=governors USGOV > /Users/hargaja/dropbox/raythings/usgov/`date +\%Y\%m\%d\%H\%M\%S`-usgov.svg
+while true; do /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=governors USGOV > /Users/hargaja/dropbox/raythings/usgov/`date +\%Y\%m\%d\%H\%M\%S`-usgov.svg; sleep 600; done
 
 SENATE
-watch -n2 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=senate USSENATE > /Users/hargaja/dropbox/raythings/ussenate/`date +\%Y\%m\%d\%H\%M\%S`-ussenate.svg
+while true; do /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=senate USSENATE > /Users/hargaja/dropbox/raythings/ussenate/`date +\%Y\%m\%d\%H\%M\%S`-ussenate.svg; sleep 600; done
 
 NOT TO BE USED
 watch -n80 /usr/local/bin/phantomjs /Users/hargaja/Dropbox/jhargarten.github.io/STRIBLAB/_archive/2016election/battleground/js/phantomjs/bin/raymaps.js https://striblab.github.io/2016election/battleground/index_full.html?race=house USHOUSEMN > /Users/hargaja/dropbox/raythings/ushouse/`date +\%Y\%m\%d\%H\%M\%S`-ushouseMN.svg
