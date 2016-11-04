@@ -152,6 +152,7 @@
     </div>
 </div></li>
 </ul>
+<div class="reportingRow" id="timestamp"></div>
 </div> <!-- end cssmenu -->
 
 </div> <!-- end raceSwitcher -->
@@ -1439,7 +1440,7 @@ for (var i=0; i < last.length; i++){
 if (type == "pct"){ return precinctsReportingPct; }
 
 //return timestamp
-if (type == "timestamp"){ return lastUpdated; }
+if (type == "timestamp"){ var dateString = new Date(lastUpdated); return dateString; }
 
 //return all votes
 if (type == "votesT"){ return voteCountT; }
@@ -2251,6 +2252,9 @@ function prezCrunch(data,dataEV){
     $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Up();
     $("[id='" + findDistrict.replace(new RegExp(" ", "g"),"-") + "']").d3Click();
   });
+
+  var time = fetchData(null,"United States","timestamp",data,"president",null,null);
+  $("#timestamp").html("Last update: " + time.toLocaleTimeString());
 
 } //end prezCrunch
 

@@ -1288,6 +1288,10 @@
         padding: 5px;
         text-align: left;
     }
+    #timestamp {
+        margin-left: 18px;
+        text-align: left;
+    }
     .counter div {
         display: inline-block;
         width: 48%;
