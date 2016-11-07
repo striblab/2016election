@@ -14,6 +14,7 @@
   
   <style>
     body { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
+    #wrapper { width:800px; margin-right:auto; margin-left:auto; }
     .adjacent { width:100%; text-align:center; }
     .bar { display:inline-block; height:19px; width:32%; }
     .powerbar div { width:48%; display:inline-block; }
@@ -46,13 +47,15 @@
 
     #districts path { stroke:#fff !important; }
 
-    @media (max-width:900px) { 
+    @media (max-width:799px) { 
+    #wrapper { width:100%; }
     svg { width:350px !important; viewBox:0 0 600 540 !important; }
     }
     @media (max-width:730px) { 
     .adjacent { width:100%; display:inline-block; text-align:center; }
     svg { width:450px !important; }
     .legends { width:210px; }
+    .map { height:436px; }
     }
     @media (max-width:400px) { 
     svg { width:270px !important }

@@ -93,7 +93,7 @@
 
 <div class="chart" id="region">
 <div class="chartTitle">Share of absentee votes by region</div>
-<div class="chatter">Of the 199,797 absentee ballots accepted across Minnesota, about 39 percent came from Hennepin and Ramsey counties -- higher than the 33 percent of votes cast in these counties during the 2012 presidential elections. Meanwhile, the outer suburbs are voting at slightly lower rates, with 7 percent of absentee ballots coming from outer-rung areas, compared to their 10 percent share of presidential votes in 2012.</div>
+<div class="chatter">Of the 524,964 absentee ballots accepted across Minnesota, about 39 percent came from Hennepin and Ramsey counties -- higher than the 33 percent of votes cast in these counties during the 2012 presidential elections. Meanwhile, the outer suburbs are voting at slightly lower rates, with 7 percent of absentee ballots coming from outer-rung areas, compared to their 10 percent share of presidential votes in 2012.</div>
 <div id="regionChart"></div>
 <div class="chatter">Remainder of 7-county metro: Anoka, Dakota, Washington, Scott and Carver counties.</div>
 <div class="chatter">Outer suburbs: Rice, Benton, Chisago, Goodhue, Isanti, Le Sueur, Mille Lacs, Wright, McLeod, Sherburne, Sibley.</div>
@@ -129,7 +129,7 @@
 
 <div class="chart" id="age">
 <div class="chartTitle">Voters by age group, all registered versus absentee</div>
-<div class="chatter">Those submitting absentee ballots tend to be older -- more often 55-plus -- at rates higher than their representation among registered voters.</div>
+<div class="chatter">Absentee voters tend to be older, more often 55-plus. But in the final two weeks, more younger voters started casting ballots.</div>
 <div id="ageChart"></div>
 <div class="source">Source: Star Tribune analysis, Minnesota Secretary of State</div>
 </div>
@@ -212,10 +212,10 @@ d3.json("shapefiles/" + shape, function(error, us) {
         if (race == "counties"){
         for (var i=0; i < dataC.length; i++){
           if (dataC[i].county == d.properties.COUNTYNAME){
-            if (dataC[i].pct >= .18){ return "purple5"; }
-            else if (dataC[i].pct >= .15){ return "purple4"; }
-            else if (dataC[i].pct >= .10){ return "purple3"; }
-            else if (dataC[i].pct >= .05){ return "purple2"; }
+            if (dataC[i].pct >= .40){ return "purple5"; }
+            else if (dataC[i].pct >= .30){ return "purple4"; }
+            else if (dataC[i].pct >= .20){ return "purple3"; }
+            else if (dataC[i].pct >= .10){ return "purple2"; }
             else if (dataC[i].pct >= 0){ return "purple1"; }
           }
         }   
@@ -418,7 +418,7 @@ var chartPop = c3.generate({
       data: {
             columns: [
                 ['Presidential Voting 2012', .33, .23, .10, .09, .25],
-                ['Absentee Ballots 2016', .39, .22, .07, .08,  .25]
+                ['Absentee Ballots 2016', .39, .21, .07, .07,  .25]
             ],
         type: 'bar'
         },
@@ -465,7 +465,8 @@ var chartPop = c3.generate({
       data: {
             columns: [
                 ['Registered Voters', .08, .16, .16, .18, .19, .13, .10, 0,],
-                ['Absentee Voters',   .05, .06, .06, .10, .20, .27, .23, .03,]
+                ['Absentee Voters 9/1-10/24', .05, .07, .07, .10, .21, .25, .22, .04,],
+                ['Absentee Voters since 10/25', .06, .11, .12, .16, .21, .16, .11, .08,]
             ],
         type: 'bar'
         },
@@ -473,7 +474,7 @@ var chartPop = c3.generate({
         //     show: false
         // },
             color: {
-              pattern: ['#333','#865f67']
+              pattern: ['#333','#865f67',"#C1ACB1"]
             },
         axis: {
               rotated: true,
@@ -511,7 +512,7 @@ var chartPop = c3.generate({
       padding: padding,
       data: {
             columns: [
-                ['Ballots Accepted', 1425, 19693, 35324, 45298, 98057]
+                ['Ballots Accepted', 1425, 19693, 35324, 45298, 98057, 124844, 206871]
             ],
         type: 'line'
         },
@@ -533,7 +534,7 @@ var chartPop = c3.generate({
                 },
             x: {
                 type: 'category',
-                categories: ['Sep. 1-25','Sep 26-30','Oct. 1-8','Oct. 9-15', 'Oct 16-24']
+                categories: ['Sep. 1-25','Sep 26-30','Oct. 1-8','Oct. 9-15', 'Oct 16-24', 'Oct 25-31', 'Nov 1-7']
             }
         }
 });
@@ -587,7 +588,6 @@ var chartPop = c3.generate({
             }
         }
 });
-
 
 }
 
