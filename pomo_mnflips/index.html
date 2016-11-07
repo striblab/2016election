@@ -13,16 +13,28 @@
   <link rel="stylesheet" href="./css/startribune_dataviz_styles.css" />
   <link rel="stylesheet" href="./css/datastyles.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
 </head>
 
 <style>
     #cssmenu { width:19%; float:left; }
     .dataviz { width:80%; float:right; }
     .sideStates { top:60px; }
+    #chatterBox { width:100%; clear:both; margin-top:15px; }
     .chatter { display:none; text-align:left; }
     #chatter1 { display:block; }
     path:hover { cursor:default !important; }
     .legendLabel { font-size: 0.8em; }
+    .slide { display:none; }
+    .chart { height:660.66px; } 
+    #maps { display:block; }
+
+    @media (max-width:880px) { 
+      #chart text { display:block !important; }
+      #cssmenu { display:block; float:none; width:100%; clear:both; }
+      .dataviz { width:100%; float:none; display:block; }
+
+    }
 </style>
 
 <body>
@@ -32,12 +44,11 @@
 
 <!-- PRESIDENTIAL PANE: FOR PEERING INTO THE ABYSS OF OUR DOOMED FUTURE -->
 <div id="president" class="dataviz">
-<!-- <div class="sideStates"><div class="block stateBlock VT" name="Vermont" ab="VT">VT</div><div class="block stateBlock NH" name="New Hampshire" ab="NH">NH</div><div class="block stateBlock MA" name="Massachusetts" ab="MA">MA</div><div class="block stateBlock RI" name="Rhode Island" ab="RI">RI</div><div class="block stateBlock CT" name="Connecticut" ab="CT">CT</div><div class="block stateBlock NJ" name="New Jersey" ab="NJ">NJ</div><div class="block stateBlock DE" name="Delaware" ab="DE">DE</div><div class="block stateBlock MD" name="Maryland" ab="MD">MD</div><div class="block stateBlock DC" name="District of Columbia" ab="DC">DC</div><div class="block stateBlock HI" name="Hawaii" ab="HI">HI</div><div class="block ME01 evcd" name="Main District 1" ab="ME01">ME1</div><div class="block ME02 evcd" name="Main District 2" ab="ME02">ME2</div><div class="block NE01 evcd" name="Nebraska District 1" ab="NE01">NE1</div><div class="block NE02 evcd" name="Nebraska District 2" ab="NE02">NE2</div><div class="block NE03 evcd" name="Nebraska District 3" ab="NE03">NE3</div></div> -->
-<!-- ZOMG MAPS THAT CLICK -->
+<div class="sideStates"><div class="block stateBlock VT" name="Vermont" ab="VT">VT</div><div class="block stateBlock NH" name="New Hampshire" ab="NH">NH</div><div class="block stateBlock MA" name="Massachusetts" ab="MA">MA</div><div class="block stateBlock RI" name="Rhode Island" ab="RI">RI</div><div class="block stateBlock CT" name="Connecticut" ab="CT">CT</div><div class="block stateBlock NJ" name="New Jersey" ab="NJ">NJ</div><div class="block stateBlock DE" name="Delaware" ab="DE">DE</div><div class="block stateBlock MD" name="Maryland" ab="MD">MD</div><div class="block stateBlock DC" name="District of Columbia" ab="DC">DC</div><div class="block stateBlock HI" name="Hawaii" ab="HI">HI</div><div class="block ME01 evcd" name="Main District 1" ab="ME01">ME1</div><div class="block ME02 evcd" name="Main District 2" ab="ME02">ME2</div><div class="block NE01 evcd" name="Nebraska District 1" ab="NE01">NE1</div><div class="block NE02 evcd" name="Nebraska District 2" ab="NE02">NE2</div><div class="block NE03 evcd" name="Nebraska District 3" ab="NE03">NE3</div></div>
+<div id="maps" class="slide">
 <div class="mapBox">
 <!-- THE MAIN EVENT MAP -->
 <div id="map" class="map geo"><svg id="USMAP" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div> 
-</div> <!-- end presidential stuff -->
 
 <div id="legends"> 
 <div id="legendMargins" class="legendBlock">
@@ -47,8 +58,8 @@
     <div class='democrat brick'></div>
     <div class="tinybreak"></div>
     <div class="legendLabel mobileKill"></div>
-    <div class='brick smallLabel'>50%</div>
-    <div class='brick smallLabel'>70%</div>  
+    <div class='brick smallLabel'>Flip</div>
+    <div class='brick smallLabel'>Stay</div>  
   </div>
   <div class='partyBlock'>
     <div class='rparty legendLabel'>Trump</div>
@@ -56,8 +67,8 @@
     <div class='republican brick'></div>
     <div class="tinybreak"></div>
     <div class="legendLabel mobileKill"></div>
-    <div class='brick smallLabel'>50%</div>
-    <div class='brick smallLabel'>70%</div>   
+    <div class='brick smallLabel'>Flip</div>
+    <div class='brick smallLabel'>Stay</div>   
   </div>
 <!--   <div class='partyBlock'>
     <div class='iparty legendLabel'>IND</div>
@@ -74,12 +85,23 @@
 <!--   <div class="breaker"></div> -->
   <div class='partyBlock'>
     <div class='dparty legendLabel'>Clinton</div>
+    <div class='dlean brick'></div>
     <div class='democrat brick'></div>
+    <div class="tinybreak"></div>
+    <div class="legendLabel mobileKill"></div>
+    <div class='brick smallLabel'>Flip</div>
+    <div class='brick smallLabel'>Stay</div>  
   </div>
   <div class='partyBlock'>
     <div class='rparty legendLabel'>Trump</div>
-    <div class='republican brick'></div> 
+    <div class='rlean brick'></div>
+    <div class='republican brick'></div>
+    <div class="tinybreak"></div>
+    <div class="legendLabel mobileKill"></div>
+    <div class='brick smallLabel'>Flip</div>
+    <div class='brick smallLabel'>Stay</div>  
   </div>
+
 <!--   <div class='partyBlock'>
     <div class='iparty legendLabel'>IND</div>
     <div class='green4 brick'></div>
@@ -87,22 +109,16 @@
 </div>
 
 <!-- <div class="zoom">Reset</div> -->
+<div class="breaker"></div>
+</div>
+</div> <!-- end presidential stuff -->
 
 </div>
-</div>
 
-<div id='cssmenu'>
-<!-- <div id="countdown"><span class="ticker">0</span> to next update</div> -->
-<ul id="nav">
-  <ul>
-         <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="showMe" infobox="us" index="1"><a href='#'> <div><div>State-level shifts</div></div></a>
-         </li>
-         <li class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="2"><a href='#'><div><div>County-level shifts</div></div></a>
-         </li>
-         <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="3"><a href='#'><div><div>MN county shifts</div></div></a>
-         </li>
-  </ul>
-</ul>
+<div id="countiesChartD" class="slide chart"></div>
+
+<div id="countiesChartR" class="slide chart"></div>
+
 <div id="chatterBox">
 <div class="chatter" id="chatter1">1</div>
 <div class="chatter" id="chatter2">2</div>
@@ -111,6 +127,24 @@
 <div class="chatter" id="chatter5">5</div>
 <div class="chatter" id="chatter6">6</div>
 </div>
+</div>
+
+<div id='cssmenu'>
+<!-- <div id="countdown"><span class="ticker">0</span> to next update</div> -->
+<ul id="nav">
+  <ul>
+    <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="showMe" infobox="us" index="1" slide="maps"><a href='#'> <div><div>State-level shifts</div></div></a>
+    </li>
+    <li class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="2" slide="maps"><a href='#'><div><div>County-level shifts</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="3" slide="maps"><a href='#'><div><div>MN county shifts</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="4" slide="countiesChartR"><a href='#'><div><div>GOP counties</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="5" slide="countiesChartD"><a href='#'><div><div>DFL counties</div></div></a>
+    </li>
+  </ul>
+</ul>
 </div> <!-- end cssmenu -->
 
 </div>
@@ -119,6 +153,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 
 <script>
 var thisView = "us";
@@ -675,7 +710,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
       .data(us.features)
     .enter().append("path")
       .attr("d", path)
-      // .on("click", clicked)
+      .on("click", clicked)
       .attr("precinctName", function(d){ return d.properties.NAME })
       .style("fill", function(d){
          if (race == "president") { 
@@ -1027,8 +1062,8 @@ function mapSpill(race,data){
 
   if (race == "president"){
     mapBuild("#president .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
-    if ($(window).width() > 500) { mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data); }
-    electoralCarto(data);
+    mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
+    // electoralCarto(data);
     // mapBuild("#mapStates", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
     // mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
   }  
@@ -1662,6 +1697,9 @@ $(".raceSwitch").click(function(event) {
   $(".chatter").hide();
   $("#chatter" + $(this).attr("index")).show();
 
+  $(".slide").hide();
+  $("#" + $(this).attr("slide")).show();
+
   //button thingies
   $(".raceSwitch, li").removeClass("selected2");
   $(".cartoState").removeClass("selectedBox");
@@ -1739,11 +1777,11 @@ var dataHouse = jsonSpillHouse;
 var dataEVCD = jsonSpillEVCD;
 
 mapSpill("president",dataPrez);
-if ($(window).width() > 500) { mapSpill("senate",dataSen); }
-if ($(window).width() > 500) { mapSpill("governors",dataGov); }
-mapSpill("mnsenate",dataMNS);
-mapSpill("mnhouse",dataMNH);
-mapSpill("house",dataHouse);
+// if ($(window).width() > 500) { mapSpill("senate",dataSen); }
+// if ($(window).width() > 500) { mapSpill("governors",dataGov); }
+// mapSpill("mnsenate",dataMNS);
+// mapSpill("mnhouse",dataMNH);
+// mapSpill("house",dataHouse);
 
 $(document).ready(function() {
     $(".dataviz").hide();
@@ -1979,6 +2017,85 @@ function reloadData(){
 });
 });
 } //end reloadData
+
+function chartCounties(){
+
+var  padding = {
+        top: 20,
+        right: 60,
+        bottom: 20,
+        left: 120,
+    };
+
+var chartPopR = c3.generate({
+      bindto: "#countiesChartR",
+      padding: padding,
+      data: {
+            columns: [
+                ['Presidential Voting 2012', .33, .23, .10, .09, .25],
+                ['Absentee Ballots 2016', .39, .22, .07, .08,  .25]
+            ],
+        type: 'bar'
+        },
+        // legend: {
+        //     show: false
+        // },
+            color: {
+              pattern: ['#333','#865f67']
+            },
+        axis: {
+              rotated: true,
+              y: {
+                    min: 0,
+                    padding: {bottom: 0},
+                    tick: {
+                     count: 4,
+                     format: d3.format('%')
+                    }
+                },
+            x: {
+                type: 'category',
+                categories: ['Hennepin/Ramsey counties','Rest of 7 county','Outer suburbs','Rochester-St.Cloud-Duluth','Remainder of outstate']
+            }
+        }
+});
+
+var chartPopD = c3.generate({
+      bindto: "#countiesChartD",
+      padding: padding,
+      data: {
+            columns: [
+                ['Presidential Voting 2012', .33, .23, .10, .09, .25],
+                ['Absentee Ballots 2016', .39, .22, .07, .08,  .25]
+            ],
+        type: 'bar'
+        },
+        // legend: {
+        //     show: false
+        // },
+            color: {
+              pattern: ['#333','#865f67']
+            },
+        axis: {
+              rotated: true,
+              y: {
+                    min: 0,
+                    padding: {bottom: 0},
+                    tick: {
+                     count: 4,
+                     format: d3.format('%')
+                    }
+                },
+            x: {
+                type: 'category',
+                categories: ['Hennepin/Ramsey counties','Rest of 7 county','Outer suburbs','Rochester-St.Cloud-Duluth','Remainder of outstate']
+            }
+        }
+});
+
+}
+
+chartCounties();
 
 </script>
 </html>
