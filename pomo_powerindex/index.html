@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>National Party Influence</title>
-  <meta name="description" content="National Party Power Index">
+  <title>Political Balances of Power</title>
+  <meta name="description" content="Political Balances of Power">
   <meta name="author" content="Frey Hargarten - StarTribune">
 
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
@@ -44,16 +44,18 @@
     .p3 { background-color:#66415F; fill:#66415F; pointer-events:all; font-weight:bold; color:#fff; } 
     .none { opacity:0 !important; }
 
+    #districts path { stroke:#fff !important; }
+
     @media (max-width:900px) { 
-    #houseMap svg { width:350px !important; viewBox:0 0 600 540 !important; }
+    svg { width:350px !important; viewBox:0 0 600 540 !important; }
     }
     @media (max-width:730px) { 
     .adjacent { width:100%; display:inline-block; text-align:center; }
-    #houseMap svg { width:450px !important; }
+    svg { width:450px !important; }
     .legends { width:210px; }
     }
     @media (max-width:400px) { 
-    #houseMap svg { width:270px !important }
+    svg { width:270px !important }
     .legends { width:210px; }
     .map { height:280px; }
     }
@@ -212,9 +214,9 @@ function cartoBuild(container, boxContainer, chartContainer, shape, race, dataCo
 cartogram[index] = {
     margin: {
         top: 80,
-        right: 60,
+        right: 20,
         bottom: 0,
-        left: 20
+        left: 70
     },
 
     selector: container + ' svg',
@@ -224,11 +226,11 @@ cartogram[index] = {
 
         self.$el = $(self.selector);
 
-        self.width = 400 - self.margin.left - self.margin.right; self.height = 400 - self.margin.top - self.margin.bottom;
+        self.width = 600 - self.margin.left - self.margin.right; self.height = 500 - self.margin.top - self.margin.bottom;
 
-       if (geo == "us") { self.width = 400 - self.margin.left - self.margin.right; self.height = 400 - self.margin.top - self.margin.bottom;}
-       if (geo == "mn") { self.width = 400 - self.margin.left - self.margin.right; self.height = 400 - self.margin.top - self.margin.bottom; }
-       if (geo == "metro") { self.width = 400 - self.margin.left - self.margin.right; self.height = 400 - self.margin.top - self.margin.bottom; }
+       if (geo == "us") { self.width = 600 - self.margin.left - self.margin.right; self.height = 500 - self.margin.top - self.margin.bottom;}
+       if (geo == "mn") { self.width = 600 - self.margin.left - self.margin.right; self.height = 500 - self.margin.top - self.margin.bottom; }
+       if (geo == "metro") { self.width = 600 - self.margin.left - self.margin.right; self.height = 500 - self.margin.top - self.margin.bottom; }
 
         self.svg = d3.select(self.selector)
             .attr('height', self.height + self.margin.top + self.margin.bottom)

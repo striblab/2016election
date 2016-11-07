@@ -66,7 +66,7 @@
     .rBar, .rLabel { display:inline-block; width:32%; }
     .bars { height:200px; }
     #chartH .c3-line { stroke-width:5px !important; opacity:0 !important; }
-    #chartDivideR .c3-line, #chartDivideD .c3-line { stroke-width:5px !important; }
+    #chartDivideR .c3-line, #chartDivideD .c3-line { stroke-width:3px !important; }
     #chartH .c3-area { opacity:0.8 !important; }
     .smallChartLabel { width:48%; display:inline-block; font-size:1em; font-weight:900; text-align:center; }
     #chartD .c3-circle { stroke-width:1px; stroke:#333 !important; }
@@ -687,7 +687,7 @@ var chartPop = c3.generate({
         //     show: false
         // },
             color: {
-              pattern: ['#333','#3F88C5','#8C1B17']
+              pattern: ['#693c46','#3F88C5','#8C1B17']
             },
         axis: {
               y: {
@@ -718,7 +718,7 @@ var chartTurnout = c3.generate({
             show: false
         },
             color: {
-              pattern: ['#333']
+              pattern: ['#693c46']
             },
         axis: {
               y: {
@@ -763,7 +763,8 @@ var chartRPM = c3.generate({
                     ["Rest of 7-county",0.397632255,0.465010031,0.532615475,0.539662903,0.502553756,0.508841797],
                     ["Rochester-St. Cloud-Duluth",0.352011301,0.427104108,0.443193932,0.433338504,0.401272757,0.4376986]
                 ],
-            type: 'line'
+            type: 'line',
+            point: { show: false }
             // groups: [
             //     ['Independent', 'Campaign','PAC','SuperPac']
             // ]
@@ -813,7 +814,8 @@ var chartDFL = c3.generate({
                     ["Rest of 7-county",0.436415571,0.485232577,0.438084197,0.453691604,0.484688756,0.480518433],
                     ["Rochester-St. Cloud-Duluth",0.478545021,0.503638599,0.51982141,0.558140069,0.583888976,0.547758136]
                 ],
-            type: 'line'
+            type: 'line',
+            point: { show: false }
             // groups: [
             //     ['Independent', 'Campaign','PAC','SuperPac']
             // ]
@@ -989,7 +991,7 @@ var chartFinance = c3.generate({
             order: null
             },
             color: {
-              pattern: ['#7fc97f', '#beaed4', '#fdc086', '#ffff99', '#969696', '#f0027f', '#bf5b17']
+              pattern: ['#c1acb1', '#ad9297', '#9a797f', '#865f67', '#734850', '#60303a', '#4c1926']
             },
             axis: {
               y: {

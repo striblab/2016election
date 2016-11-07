@@ -16,9 +16,13 @@
 </head>
 
 <style>
-#cssmenu { width:19%; float:left; }
-.dataviz { width:80%; float:right; }
-.sideStates { top:60px; }
+    #cssmenu { width:19%; float:left; }
+    .dataviz { width:80%; float:right; }
+    .sideStates { top:60px; }
+    .chatter { display:none; text-align:left; }
+    #chatter1 { display:block; }
+    path:hover { cursor:default !important; }
+    .legendLabel { font-size: 0.8em; }
 </style>
 
 <body>
@@ -28,28 +32,85 @@
 
 <!-- PRESIDENTIAL PANE: FOR PEERING INTO THE ABYSS OF OUR DOOMED FUTURE -->
 <div id="president" class="dataviz">
-<div class="sideStates"><div class="block stateBlock VT" name="Vermont" ab="VT">VT</div><div class="block stateBlock NH" name="New Hampshire" ab="NH">NH</div><div class="block stateBlock MA" name="Massachusetts" ab="MA">MA</div><div class="block stateBlock RI" name="Rhode Island" ab="RI">RI</div><div class="block stateBlock CT" name="Connecticut" ab="CT">CT</div><div class="block stateBlock NJ" name="New Jersey" ab="NJ">NJ</div><div class="block stateBlock DE" name="Delaware" ab="DE">DE</div><div class="block stateBlock MD" name="Maryland" ab="MD">MD</div><div class="block stateBlock DC" name="District of Columbia" ab="DC">DC</div><div class="block stateBlock HI" name="Hawaii" ab="HI">HI</div><!-- <div class="block ME01 evcd" name="Main District 1" ab="ME01">ME1</div><div class="block ME02 evcd" name="Main District 2" ab="ME02">ME2</div><div class="block NE01 evcd" name="Nebraska District 1" ab="NE01">NE1</div><div class="block NE02 evcd" name="Nebraska District 2" ab="NE02">NE2</div><div class="block NE03 evcd" name="Nebraska District 3" ab="NE03">NE3</div> --></div>
+<!-- <div class="sideStates"><div class="block stateBlock VT" name="Vermont" ab="VT">VT</div><div class="block stateBlock NH" name="New Hampshire" ab="NH">NH</div><div class="block stateBlock MA" name="Massachusetts" ab="MA">MA</div><div class="block stateBlock RI" name="Rhode Island" ab="RI">RI</div><div class="block stateBlock CT" name="Connecticut" ab="CT">CT</div><div class="block stateBlock NJ" name="New Jersey" ab="NJ">NJ</div><div class="block stateBlock DE" name="Delaware" ab="DE">DE</div><div class="block stateBlock MD" name="Maryland" ab="MD">MD</div><div class="block stateBlock DC" name="District of Columbia" ab="DC">DC</div><div class="block stateBlock HI" name="Hawaii" ab="HI">HI</div><div class="block ME01 evcd" name="Main District 1" ab="ME01">ME1</div><div class="block ME02 evcd" name="Main District 2" ab="ME02">ME2</div><div class="block NE01 evcd" name="Nebraska District 1" ab="NE01">NE1</div><div class="block NE02 evcd" name="Nebraska District 2" ab="NE02">NE2</div><div class="block NE03 evcd" name="Nebraska District 3" ab="NE03">NE3</div></div> -->
 <!-- ZOMG MAPS THAT CLICK -->
 <div class="mapBox">
 <!-- THE MAIN EVENT MAP -->
 <div id="map" class="map geo"><svg id="USMAP" width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div> 
 </div> <!-- end presidential stuff -->
+
+<div id="legends"> 
+<div id="legendMargins" class="legendBlock">
+  <div class='partyBlock'>
+    <div class='dparty legendLabel'>Clinton</div>
+    <div class='dlean brick'></div>
+    <div class='democrat brick'></div>
+    <div class="tinybreak"></div>
+    <div class="legendLabel mobileKill"></div>
+    <div class='brick smallLabel'>50%</div>
+    <div class='brick smallLabel'>70%</div>  
+  </div>
+  <div class='partyBlock'>
+    <div class='rparty legendLabel'>Trump</div>
+    <div class='rlean brick'></div>
+    <div class='republican brick'></div>
+    <div class="tinybreak"></div>
+    <div class="legendLabel mobileKill"></div>
+    <div class='brick smallLabel'>50%</div>
+    <div class='brick smallLabel'>70%</div>   
+  </div>
+<!--   <div class='partyBlock'>
+    <div class='iparty legendLabel'>IND</div>
+    <div class='green2 brick'></div>
+    <div class='green4 brick'></div>
+    <div class="tinybreak"></div>
+    <div class="legendLabel mobileKill"></div>
+    <div class='brick smallLabel'>50%</div>
+    <div class='brick smallLabel'>70%</div>   
+  </div> -->
+</div>
+
+<div id="legendWinners" class="legendBlock">
+<!--   <div class="breaker"></div> -->
+  <div class='partyBlock'>
+    <div class='dparty legendLabel'>Clinton</div>
+    <div class='democrat brick'></div>
+  </div>
+  <div class='partyBlock'>
+    <div class='rparty legendLabel'>Trump</div>
+    <div class='republican brick'></div> 
+  </div>
+<!--   <div class='partyBlock'>
+    <div class='iparty legendLabel'>IND</div>
+    <div class='green4 brick'></div>
+  </div> -->
+</div>
+
+<!-- <div class="zoom">Reset</div> -->
+
+</div>
 </div>
 
 <div id='cssmenu'>
 <!-- <div id="countdown"><span class="ticker">0</span> to next update</div> -->
 <ul id="nav">
   <ul>
-         <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="showMe" infobox="us"><a href='#'> <div><div>State-level shifts</div></div></a>
+         <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="showMe" infobox="us" index="1"><a href='#'> <div><div>State-level shifts</div></div></a>
          </li>
-         <li class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us"><a href='#'><div><div>County-level shifts</div></div></a>
+         <li class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="2"><a href='#'><div><div>County-level shifts</div></div></a>
          </li>
-         <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn"><a href='#'><div><div>MN county shifts</div></div></a>
+         <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="3"><a href='#'><div><div>MN county shifts</div></div></a>
          </li>
   </ul>
-
 </ul>
-<!-- <div class="reportingRow" id="timestamp"></div> -->
+<div id="chatterBox">
+<div class="chatter" id="chatter1">1</div>
+<div class="chatter" id="chatter2">2</div>
+<div class="chatter" id="chatter3">3</div>
+<div class="chatter" id="chatter4">4</div>
+<div class="chatter" id="chatter5">5</div>
+<div class="chatter" id="chatter6">6</div>
+</div>
 </div> <!-- end cssmenu -->
 
 </div>
@@ -614,7 +675,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
       .data(us.features)
     .enter().append("path")
       .attr("d", path)
-      .on("click", clicked)
+      // .on("click", clicked)
       .attr("precinctName", function(d){ return d.properties.NAME })
       .style("fill", function(d){
          if (race == "president") { 
@@ -696,6 +757,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
             }
           }
           if (race == "county"){ 
+            if (d.properties.STATEFP == 46){ if (d.properties.NAME == "Shannon") { return "noclicky district"; } }
             if (d.properties.STATEFP == 27){
               if (d.properties.NAME == "Hennepin" || d.properties.NAME == "Ramsey" || d.properties.NAME == "Washington" || d.properties.NAME == "Carver" || d.properties.NAME == "Scott" || d.properties.NAME == "Dakota" || d.properties.NAME == "Anoka") { return "mn metro"; }
               else { return "mn"; }  
@@ -1597,13 +1659,8 @@ $(".raceSwitch").click(function(event) {
   //infobox switches
   thisView = $(this).attr("infobox");
 
-  if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",data1,"president")); }
-  else if (thisView == "us") { spillInfo(fetchData("United States","United States","table",data1,"president")); }
-  else if (thisView == "cd") { spillInfo(fetchData("District 2","Minnesota","table",data6,"ushouse",null,"District 2")); }
-  else { $("#infobox").html(""); }
-
-  //load power bars
-  loadBars($(this).attr("data"));
+  $(".chatter").hide();
+  $("#chatter" + $(this).attr("index")).show();
 
   //button thingies
   $(".raceSwitch, li").removeClass("selected2");
@@ -1642,7 +1699,7 @@ $(".raceSwitch").click(function(event) {
 
 
 //INITIAL DATAMANCY TO CONJURE RESULTS FROM THE ASSOCIATED PRESS
-var apiStringPrez = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
+var apiStringPrez = "./data/prezCounty2016.json";
 var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
 var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-governors-by-state/full.json";
 var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
@@ -1923,39 +1980,5 @@ function reloadData(){
 });
 } //end reloadData
 
-//NAV MENU DARK MAGICKS
-$('#cssmenu li.active').addClass('open').children('ul').show();
-
-$('#cssmenu li.has-sub>a, #mobmenu li.has-sub>a').on('click', function(){
-    $(this).removeAttr('href');
-    var element = $(this).parent('li');
-    if (element.hasClass('open')) {
-        element.removeClass('open');
-        element.find('li').removeClass('open');
-        element.find('ul').slideUp(200);
-    }
-    else {
-        element.addClass('open');
-        element.children('ul').slideDown(200);
-        element.siblings('li').children('ul').slideUp(200);
-        element.siblings('li').removeClass('open');
-        element.siblings('li').find('li').removeClass('open');
-        element.siblings('li').find('ul').slideUp(200);
-    }
-});
-
-$( "button" ).click(function() { $("#mobmenu").toggle(); });
-$("#mobmenu .raceSwitch").click(function() { $("#mobmenu").toggle(); });
-
-//SOCIAL MEDIA TRIGGERS WORK WELL WHEN THEY'RE CONFIGURED PROPERLY, REMEMBER, YOU NEED TO FEED IT A SPECIFIC, DIFFERENT URL, NOT GET THE URL FROM LOCATION.HREF, OR DOCUMENT.TITLE
-    function fbs_click() {
-    u="http://www.startribune.com/u-s-results/396064451";
-    t="U.S. Results";
-    window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=520,height=350');return false;
-    }
-    function twitter_click(url){newwindow=window.open(url,'name','height=350,width=520');
-        if (window.focus) {newwindow.focus()}
-        return false;
-    }
 </script>
 </html>
