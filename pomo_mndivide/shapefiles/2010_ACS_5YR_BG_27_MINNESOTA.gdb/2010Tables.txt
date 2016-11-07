@@ -1,0 +1,70 @@
+Number|Title
+B01001|Sex By Age
+B01002|Median Age By Sex
+B02001|Race
+B02008|White Alone Or In Combination With One Or More Other Races
+B02009|Black Or African American Alone Or In Combination With One Or More Other Races
+B02010|American Indian And Alaska Native  Alone Or In Combination With One Or More Other Races
+B02011|Asian Alone Or In Combination With One Or More Other Races
+B02012|Native   Hawaiian   And   Other   Pacific   Islander   Alone   Or   In Combination With One Or More Other Races
+B02013|Some Other Race Alone Or In Combination With One Or More Other Races
+B03002|Hispanic Or Latino Origin By Race
+B03003|Hispanic Or Latino Origin
+B08301|Means Of Transportation To Work
+B08303|Travel Time To Work
+B09002|Own Children Under 18 Years By Family Type And Age
+B09017|Relationship By Household Type (Including Living Alone) For The Population 65 Years And Over
+B11001|Household Type (Including Living Alone)
+B11016|Household Type By Household Size
+B12001|Sex By Marital Status For The Population 15 Years And Over
+B15002|Sex By Educational Attainment For The Population 25 Years And Over
+B16004|Age By Language Spoken At Home By Ability To Speak English For The Population 5 Years And Over
+B17017|Poverty Status In The Past 12 Months By Household Type By Age Of Householder
+B17021|Poverty Status Of Individuals In The Past 12 Months By Living Arrangement
+B19001|Household Income In The Past 12 Months (In 2011 Inflation- Adjusted Dollars)
+B19013|Median  Household  Income  In  The  Past  12  Months  (In  2011 Inflation-Adjusted Dollars)
+B19051|Earnings In The Past 12 Months For Households
+B19052|Wage Or Salary Income In The Past 12 Months For Households
+B19053|Self-Employment Income In The Past 12 Months For Households
+B19054|"Interest, Dividends, Or Net Rental Income In The Past 12 Months For Households"
+B19055|Social Security Income In The Past 12 Months For Households
+B19056|Supplemental Security Income (Ssi) In The Past 12 Months For Households
+B19057|Public Assistance Income In The Past 12 Months For Households
+B19059|Retirement Income In The Past 12 Months For Households
+B19060|Other Types Of Income In The Past 12 Months For Households
+B19101|Family Income In The Past 12 Months (In 2011 Inflation-Adjusted Dollars)
+B19113|Median Family Income In The Past 12 Months (In 2011 Inflation- Adjusted Dollars)
+B19201|Nonfamily Household Income In The Past 12 Months (In 2011 Inflation-Adjusted Dollars)
+B19202|Median Nonfamily Household Income In The Past 12 Months (In 2011 Inflation-Adjusted Dollars)
+B19301|Per Capita Income In The Past 12 Months (In 2011 Inflation-Adjusted Dollars)
+B21001|Sex By Age By Veteran Status For The Civilian Population 18 Years And Over
+B21002|Period Of Military Service For Civilian Veterans 18 Years And Over
+B25001|Housing Units
+B25002|Occupancy Status
+B25003|Tenure
+B25004|Vacancy Status
+B25006|Race Of Householder
+B25010|Average Household Size Of Occupied Housing Units By Tenure
+B25014|Tenure By Occupants Per Room
+B25017|Rooms
+B25018|Median Number Of Rooms
+B25024|Units In Structure
+B25034|Year Structure Built
+B25035|Median Year Structure Built
+B25040|House Heating Fuel
+B25041|Bedrooms
+B25044|Tenure By Vehicles Available
+B25047|Plumbing Facilities For All Housing Units
+B25051|Kitchen Facilities For All Housing Units
+B25056|Contract Rent
+B25061|Rent Asked
+B25063|Gross Rent
+B25064|Median Gross Rent (Dollars)
+B25075|Value
+B25077|Median Value (Dollars)
+B25081|Mortgage Status
+B25085|Price Asked
+B25087|Mortgage Status And Selected Monthly Owner Costs
+C17002|Ratio Of Income To Poverty Level In The Past 12 Months
+C24010|Sex By Occupation For The Civilian Employed Population 16 Years And Over
+C25095|Household  Income  By  Selected  Monthly  Owner  Costs  As  A Percentage Of Household Income In The Past 12 Months

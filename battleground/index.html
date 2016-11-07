@@ -1827,6 +1827,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
             }
           }
           if (race == "county"){ 
+            if (d.properties.STATEFP == 46){ if (d.properties.NAME == "Shannon") { return "noclicky district"; } }
             if (d.properties.STATEFP == 27){
               if (d.properties.NAME == "Hennepin" || d.properties.NAME == "Ramsey" || d.properties.NAME == "Washington" || d.properties.NAME == "Carver" || d.properties.NAME == "Scott" || d.properties.NAME == "Dakota" || d.properties.NAME == "Anoka") { return "mn metro"; }
               else { return "mn"; }  
