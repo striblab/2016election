@@ -1467,13 +1467,16 @@
             display: none;
         }
     }
-    @media (max-width: 770px) {
+/*    @media (max-width: 770px) {
         #powerbar {
             padding: 6px;
         }
         .map {
-            height: auto;
+            height: 600px;
             width: 700px;
+        }
+        .mapBox {
+            height: 454px !important;
         }
         #raceSwitcher {
             margin: 77px auto 14px;
@@ -1499,8 +1502,8 @@
             overflow: hidden !important;
             width: 100%;
         }
-    }
-    @media (max-width: 630px) {
+    }*/
+    @media (max-width: 970px) {
         .mapBox {
             height: 454px !important;
         }
@@ -1508,7 +1511,7 @@
             width: 20%;
         }
         #raceSwitcher {
-            margin: 95px auto 14px;
+            margin: 90px auto 14px;
         }
         #powerbar {
             padding: 6px;
