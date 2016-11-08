@@ -404,7 +404,7 @@ var chart = c3.generate({
 
               for (var k=0; k < data.length; k++){
                 if (d3.time.format("%m-%d-%Y")(new Date(data[k].entry_date)) == title){
-                  pollster = "<td class='value pollster' colspan='2'>" + data[k].pollster + " (" + data[k].mode + ")</td>";
+                  // pollster = "<td class='value pollster' colspan='2'>" + data[k].pollster + " (" + data[k].mode + ")</td>";
                   break;
                 }
               }
