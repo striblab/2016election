@@ -1127,8 +1127,10 @@ function raceCrunch(){
   var rPctMN = fetchData("Minnesota","Minnesota","votesR",dataCounty,"president");
   var totalMN = fetchData("Minnesota","Minnesota","votesT",dataCounty,"president");
 
-  $("#mn-dem-pop").html(d3.format("%")(dPctMN/totalMN));
-  $("#mn-gop-pop").html(d3.format("%")(rPctMN/totalMN));
+  if (totalMN != 0) { $("#mn-dem-pop").html(d3.format("%")(dPctMN/totalMN));
+  $("#mn-gop-pop").html(d3.format("%")(rPctMN/totalMN)); }
+  else  { $("#mn-dem-pop").html("0%");
+  $("#mn-gop-pop").html("0%"); }
 
   mnPct = fetchData(null,"Minnesota","pct",dataCounty,"president",null,null);
   mnTime = fetchData(null,"Minnesota","timestamp",dataCounty,"president",null,null);
