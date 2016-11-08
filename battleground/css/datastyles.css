@@ -1690,6 +1690,7 @@
         .mobileKill {
             display: none;
         }
+        .tableRow { width:48% !important; }
         .label,
         #dCheck,
         #rCheck {
