@@ -1690,9 +1690,6 @@
         .mobileKill {
             display: none;
         }
-        .tableRow { width:48% !important; }
-        .reporting { display:none !important; }
-        .tableRow .pctBox { width:23% !important; }
         .label,
         #dCheck,
         #rCheck {
@@ -1743,5 +1740,8 @@
             overflow: hidden !important;
             width: 100%;
         }
+        .tableRow { width:48% !important; }
+        .reporting { display:none !important; }
+        .tableRow .pctBox { width:23% !important; }
 
     }
