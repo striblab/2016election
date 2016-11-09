@@ -800,8 +800,8 @@ function prezCrunch(){
     else { dTally++; }
   }
   
-  $("#demPres").html(dTally);
-  $("#repPres").html(rTally-1);
+  $("#demPres").html(dTally-1);
+  $("#repPres").html(rTally);
   $("#demBarPres").css("width", d3.format("%")(dTally/538));
   $("#repBarPres").css("width", d3.format("%")(rTally/538));
 
