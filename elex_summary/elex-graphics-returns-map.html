@@ -438,6 +438,7 @@ else { iMark[i] = ""; }
 var wMark = [];
 for (var i = 0; i < last.length; i++) {
 if (winner[i] == "X") { wMark[i] = "&#x2714;"; }
+else if (winner[i] == "R") { wMark[i] = "-R"; }
 else { wMark[i] = ""; }
 }
 
@@ -455,8 +456,8 @@ for (var i=0; i < last.length; i++){
       if (thisPCT >= .80) { colors[i] = "#3585BC"; } 
       else if (thisPCT >= .70) { colors[i] = "#3585BC"; } 
       else if (thisPCT >= .50) { colors[i] = "#72A9D6"; } 
-      else if (thisPCT > 0) { colors[i] = "#72A9D6"; }
-      else { colors[i] = "#bbbbbb"; } 
+      else if (thisPCT > 0) { colors[i] = "#72A9D6"; } 
+      else { colors[i] = "#bbbbbb"; }
     }
     else if (thisPCT > 0) { colors[i] = "#7CB342"; }
     else { colors[i] = "#bbbbbb"; }
@@ -467,10 +468,7 @@ for (var i=0; i < last.length; i++){
 if (type == "pct"){ return precinctsReportingPct; }
 
 //return timestamp
-if (type == "timestamp"){ 
-  var dateString = new Date(lastUpdated);
-  return dateString; 
-}
+if (type == "timestamp"){ var dateString = new Date(lastUpdated); return dateString; }
 
 //return all votes
 if (type == "votesT"){ return voteCountT; }
@@ -504,18 +502,15 @@ if (type == "winner"){
 if (type == "lean"){
     if (winner[0] == "X" && party[0] == "GOP"){ return "#d34A44"; }
     else if (winner[0] == "X" && party[0] == "Dem"){ return "#3585BC"; }
-    else if (winner[0] == "X") { return "#299E3D"; }
+    else if (winner[0] == "X") { return "#7CB342"; }
     else if (party[0] == "GOP" && voteCount[0] != 0) { return "#f7816E"; }
     else if (party[0] == "Dem" && voteCount[0] != 0) { return "#72A9D6"; }
     else if (voteCount[0] == 0) { return "#bbbbbb"; } 
-    else { return "#ccc"; } 
+    else { return "#bbbbbb"; } 
 }
 
 //return color
-if (type == "colors"){ 
-  if (voteCountT > 0) { return colors[0]; }
-  else { return "#cccccc"; }
-}
+if (type == "colors"){ return colors[0]; }
 
 //return tooltips
 if (type == "tooltip"){
@@ -542,15 +537,17 @@ if (type == "table"){
 
   for (var i = 0; i < howMany; i++) {
     var thisPCT = "0%";
-    if (voteCountT > 0) { thisPCT = d3.format("%")(voteCount[i] / voteCountT); }
+    if (voteCountT > 0) { thisPCT = d3.format(".1%")(voteCount[i] / voteCountT); }
 
     stateColor = ""
 
     if (winner[i] == "X" && party[i] == "GOP") { stateColor = "republican"; }
     else if (winner[i] == "X" && party[i] == "Dem") { stateColor = "democrat"; }
-    else if (winner[i] == "X") { stateColor = "green4"; }
+    else if (winner[i] == "X") { stateColor = "green4";  }
 
-    tableString += "<div class='resultsRow'><div class='candidate'>" + iMark[i] + first[i] + " " + last[i] + " (" + party[i] + ")" + " " + wMark[i] + "</div><div class='counts'>" + d3.format(",")(voteCount[i]) + "</div><div class='pct " + stateColor + "' style='border:2px solid " + colors[i] + ";'>" + thisPCT + "</div></div>"
+    if (race == "president" && evcd != null){ stateColor = colors[i]; wMark[i] = ""; }
+      
+    tableString += "<div class='resultsRow'><div class='candidate'>" + iMark[i] + first[i] + " " + last[i] + " (" + party[i] + ")" + " " + wMark[i] + "</div><div class='counts'>" + d3.format(",")(voteCount[i]) + "</div><div class='pct " + stateColor + "' style='background-color:" + colors[i] + ";'>" + thisPCT + "</div></div>"
   }
 
   return tableString + "<div class='reportingRow'><span class='pctReported'>" + precinctsReporting + "</span> / <span class='pctAll'>" + precinctsTotal + "</span> (" + precinctsReportingPct + "%) precincts reporting</div>";
@@ -567,27 +564,40 @@ var candidate2 = first[1] + " " + last[1];
 var stateColor1 = "";
 var stateColor2 = "";
 var dTest = false;
+var isWin = false;
 
   for (var i = 0; i < 2; i++) {
     if (party[i] == "Dem" && pct1 == "0%"){
         pct1 = d3.format("%")(voteCount[i] / voteCountT); 
         color1 = colors[i];
-        if (winner[i] == "X") { stateColor1 = "democrat"; }
+        if (winner[i] == "X") { stateColor1 = "democrat"; isWin = true; }
     }
     else if (party[i] == "Dem" && pct1 != "0%"){
         pct2 = d3.format("%")(voteCount[i] / voteCountT); 
         color2 = colors[i];
-        if (winner[i] == "X") { stateColor2 = "democrat"; }
+        if (winner[i] == "X") { stateColor2 = "democrat"; isWin = true; }
     }
     else if (party[i] == "GOP" && pct2 == "0%"){
         pct2 = d3.format("%")(voteCount[i] / voteCountT); 
         color2 = colors[i];
-        if (winner[i] == "X") { stateColor2 = "republican"; }
+        if (winner[i] == "X") { stateColor2 = "republican"; isWin = true; }
     }
     else if (party[i] == "GOP" && pct2 != "0%"){
         pct1 = d3.format("%")(voteCount[i] / voteCountT); 
         color1 = colors[i];
-        if (winner[i] == "X") { stateColor1 = "republican"; }
+        if (winner[i] == "X") { stateColor1 = "republican"; isWin = true; }
+    }
+  }
+
+  if (race == "president" && evcd != null){
+    if (isWin == true){
+      if (party[0] == "Dem") {
+        stateColor1 = "democrat";
+        stateColor2 = "";
+      } else  {
+        stateColor1 = "";
+        stateColor2 = "republican";
+      }  
     }
   }
 
@@ -1116,8 +1126,8 @@ function prezCrunch(){
     else { dTally++; }
   }
 
-  $("#us-dem-pop").html(dTally);
-  $("#us-gop-pop").html(rTally);
+  $("#us-dem-pop").html(dTally+1);
+  $("#us-gop-pop").html(rTally+1);
 
 }
 
