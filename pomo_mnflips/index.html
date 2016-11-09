@@ -19,8 +19,8 @@
 <style>
     #cssmenu { width:19%; float:left; }
     .dataviz { width:80%; float:right; }
-    .sideStates { top:60px; }
-    #chatterBox { width:100%; clear:both; margin-top:15px; }
+    .sideStates { top:162px; }
+    #chatterBox { width:100%; clear:both; height:130px; }
     .chatter { display:none; text-align:left; }
     #chatter1 { display:block; }
     path:hover { cursor:default !important; }
@@ -28,6 +28,9 @@
     .slide { display:none; }
     .chart { height:660.66px; } 
     #maps { display:block; }
+    #infobox { font-size:0.8em; }
+    .rflip { background-color:#550000; }
+    .dflip { background-color:#0B4474; }
 
     @media (max-width:880px) { 
       #chart text { display:block !important; }
@@ -42,9 +45,31 @@
 <!-- HOW CAN I HOLD ALL THESE TAGS??? -->
 <div id="wrapper">
 
+<div id="chatterBox">
+<div class="chatter" id="chatter1">
+<div class="chartTitle">Cracking the blue wall</div>
+To secure his stunning presidential upset, Donald Trump managed to flip five battleground states that Barack Obama had won in 2008 and 2012 in defiance of polls and statistical forecasts. Hillary Clinton could not rely on the "blue wall" Democratic candidates had relied upon for the last several presidential elections as states with big electoral values fell by razor-thin margins to the Republican ticket.</div>
+<div class="chatter" id="chatter2">
+<div class="chartTitle">County-level domination</div>
+On a more granular county-level analysis of 2016's presidential vote, Trump continued the Republican trend of dominating areas outside major metropolitan cities, not just in key battlegrounds, but across the country.</div>
+<div class="chatter" id="chatter3">
+<div class="chartTitle">Tilting Minnesota</div>
+This trend was felt across Minnesota too, as only nine counties in a state that has gone Democratic in all but three elections since 1932 leaned toward Clinton. Hennepin and Ramsey counties were the primary forces barely keeping the state in the blue column. Clinton only carried the state by about 42,000 votes, the slimest margin any Democrat has won by in the state's history.
+</div>
+<div class="chatter" id="chatter4">
+<div class="chartTitle">Fading to purple</div>
+</div>
+<div class="chatter" id="chatter5">
+<div class="chartTitle">Flipped Obama's counties</div>
+</div>
+<div class="chatter" id="chatter6">
+<div class="chartTitle">The Midwest's red shift</div>
+</div>
+</div>
+
 <!-- PRESIDENTIAL PANE: FOR PEERING INTO THE ABYSS OF OUR DOOMED FUTURE -->
 <div id="president" class="dataviz">
-<div class="sideStates"><div class="block stateBlock VT" name="Vermont" ab="VT">VT</div><div class="block stateBlock NH" name="New Hampshire" ab="NH">NH</div><div class="block stateBlock MA" name="Massachusetts" ab="MA">MA</div><div class="block stateBlock RI" name="Rhode Island" ab="RI">RI</div><div class="block stateBlock CT" name="Connecticut" ab="CT">CT</div><div class="block stateBlock NJ" name="New Jersey" ab="NJ">NJ</div><div class="block stateBlock DE" name="Delaware" ab="DE">DE</div><div class="block stateBlock MD" name="Maryland" ab="MD">MD</div><div class="block stateBlock DC" name="District of Columbia" ab="DC">DC</div><div class="block stateBlock HI" name="Hawaii" ab="HI">HI</div><div class="block ME01 evcd" name="Main District 1" ab="ME01">ME1</div><div class="block ME02 evcd" name="Main District 2" ab="ME02">ME2</div><div class="block NE01 evcd" name="Nebraska District 1" ab="NE01">NE1</div><div class="block NE02 evcd" name="Nebraska District 2" ab="NE02">NE2</div><div class="block NE03 evcd" name="Nebraska District 3" ab="NE03">NE3</div></div>
+<div class="sideStates"><div class="block stateBlock VT" name="Vermont" ab="VT">VT</div><div class="block stateBlock NH" name="New Hampshire" ab="NH">NH</div><div class="block stateBlock MA" name="Massachusetts" ab="MA">MA</div><div class="block stateBlock RI" name="Rhode Island" ab="RI">RI</div><div class="block stateBlock CT" name="Connecticut" ab="CT">CT</div><div class="block stateBlock NJ" name="New Jersey" ab="NJ">NJ</div><div class="block stateBlock DE" name="Delaware" ab="DE">DE</div><div class="block stateBlock MD" name="Maryland" ab="MD">MD</div><div class="block stateBlock DC" name="District of Columbia" ab="DC">DC</div><div class="block stateBlock HI" name="Hawaii" ab="HI">HI</div></div>
 <div id="maps" class="slide">
 <div class="mapBox">
 <!-- THE MAIN EVENT MAP -->
@@ -58,8 +83,8 @@
     <div class='democrat brick'></div>
     <div class="tinybreak"></div>
     <div class="legendLabel mobileKill"></div>
-    <div class='brick smallLabel'>Flip</div>
-    <div class='brick smallLabel'>Stay</div>  
+    <div class='brick smallLabel'>50%</div>  
+    <div class='brick smallLabel'>70%</div>
   </div>
   <div class='partyBlock'>
     <div class='rparty legendLabel'>Trump</div>
@@ -67,8 +92,8 @@
     <div class='republican brick'></div>
     <div class="tinybreak"></div>
     <div class="legendLabel mobileKill"></div>
-    <div class='brick smallLabel'>Flip</div>
-    <div class='brick smallLabel'>Stay</div>   
+    <div class='brick smallLabel'>50%</div> 
+    <div class='brick smallLabel'>70%</div>
   </div>
 <!--   <div class='partyBlock'>
     <div class='iparty legendLabel'>IND</div>
@@ -85,32 +110,29 @@
 <!--   <div class="breaker"></div> -->
   <div class='partyBlock'>
     <div class='dparty legendLabel'>Clinton</div>
-    <div class='dlean brick'></div>
     <div class='democrat brick'></div>
+    <div class='dflip brick'></div>
     <div class="tinybreak"></div>
     <div class="legendLabel mobileKill"></div>
+    <div class='brick smallLabel'>Kept</div>  
     <div class='brick smallLabel'>Flip</div>
-    <div class='brick smallLabel'>Stay</div>  
   </div>
   <div class='partyBlock'>
     <div class='rparty legendLabel'>Trump</div>
-    <div class='rlean brick'></div>
     <div class='republican brick'></div>
+    <div class='rflip brick'></div>
     <div class="tinybreak"></div>
     <div class="legendLabel mobileKill"></div>
+    <div class='brick smallLabel'>Kept</div> 
     <div class='brick smallLabel'>Flip</div>
-    <div class='brick smallLabel'>Stay</div>  
   </div>
-
-<!--   <div class='partyBlock'>
-    <div class='iparty legendLabel'>IND</div>
-    <div class='green4 brick'></div>
-  </div> -->
+</div>
 </div>
 
-<!-- <div class="zoom">Reset</div> -->
-<div class="breaker"></div>
-</div>
+<div class="zoom">Reset</div>
+
+<div style="clear:both;padding:7px;"></div>
+<div id="infobox"></div>
 </div> <!-- end presidential stuff -->
 
 </div>
@@ -119,29 +141,23 @@
 
 <div id="countiesChartR" class="slide chart"></div>
 
-<div id="chatterBox">
-<div class="chatter" id="chatter1">1</div>
-<div class="chatter" id="chatter2">2</div>
-<div class="chatter" id="chatter3">3</div>
-<div class="chatter" id="chatter4">4</div>
-<div class="chatter" id="chatter5">5</div>
-<div class="chatter" id="chatter6">6</div>
-</div>
 </div>
 
 <div id='cssmenu'>
 <!-- <div id="countdown"><span class="ticker">0</span> to next update</div> -->
 <ul id="nav">
   <ul>
-    <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="showMe" infobox="us" index="1" slide="maps"><a href='#'> <div><div>State-level shifts</div></div></a>
+    <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="showMe" infobox="us" index="1" slide="maps"><a href='#'> <div><div>Cracking the blue wall</div></div></a>
     </li>
-    <li class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="2" slide="maps"><a href='#'><div><div>County-level shifts</div></div></a>
+   <li class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="2" slide="maps"><a href='#'><div><div>County-level domination</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="3" slide="maps"><a href='#'><div><div>MN county shifts</div></div></a>
+    <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="3" slide="maps"><a href='#'><div><div>Tilting Minnesota</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="4" slide="countiesChartR"><a href='#'><div><div>GOP counties</div></div></a>
+    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="4" slide="maps"><a href='#'><div><div>Purple rain</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="5" slide="countiesChartD"><a href='#'><div><div>DFL counties</div></div></a>
+    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="5" slide="countiesChartD"><a href='#'><div><div>Flipping Obama's counties</div></div></a>
+    </li>
+    <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="6" slide="maps"><a href='#'><div><div>The Midwest's red shift</div></div></a>
     </li>
   </ul>
 </ul>
@@ -437,6 +453,10 @@ if (type == "winner"){
 
 //return lean
 if (type == "lean"){
+    if (district == "Wisconsin" || district == "Michigan" || district == "Florida" || district == "Ohio" || district == "Pennsylvania") {
+      return "#550000";
+    }
+
     if (winner[0] == "X" && party[0] == "GOP"){ return "#d34A44"; }
     else if (winner[0] == "X" && party[0] == "Dem"){ return "#3585BC"; }
     else if (winner[0] == "X") { return "#7CB342"; }
@@ -689,7 +709,7 @@ $(window).on("resize", function() {
 } //end houseCarto
 
 //ALL OTHER MAPS
-function mapBuild(container, boxContainer, chartContainer, shape, race, geo, level, dataCompare, index, visible) {
+function mapBuild(container, boxContainer, chartContainer, shape, race, geo, level, dataCompare, dataCompare2012, index, visible) {
 
 if (geo=="us") { var width = 800, height = 600, centered; var projection = d3.geo.albersUsa().scale(1000).translate([400, 210]); }
 else if (geo=="mn") { var width = 400, height = 400, centered; var projection = d3.geo.mercator().scale([3200]).center([-89.736328,46.377254]); }
@@ -741,6 +761,18 @@ d3.json("shapefiles/" + shape, function(error, us) {
             return fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race); 
          }
          else if (race == "county") { return fetchData(d.properties.GEOID,null,"colors",dataCompare,race); }
+         else if (race == "countyShift") { 
+          var r2016 = fetchData(d.properties.GEOID,null,"votesR",dataCompare,race); 
+          var d2016 = fetchData(d.properties.GEOID,null,"votesD",dataCompare,race); 
+          var r2012 = fetchData(d.properties.GEOID,null,"votesR",dataCompare2012,race);
+          var d2012 = fetchData(d.properties.GEOID,null,"votesD",dataCompare2012,race);
+          var lean = fetchData(d.properties.GEOID,null,"colors",dataCompare,race);
+
+          if (r2016 > d2016 && d2012 > r2012) { return "#550000"; }
+          if (d2016 > r2016 && r2012 > d2012) { return "#0B4474"; }
+
+          return lean;
+        }
          // else if (race == "pct") { return mapColor(d.properties.PCTCODE, race, dataCompare); }
          else if (race == "house") { return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"lean",dataCompare,"ushouse",null,"District " + d.properties.DISTRICT); $(".tableRow").removeClass("selectedBox"); if (d.properties.STATENAME == "Minnesota") { $(".tableRow[name=" + d.properties.STATENAME + "" + d.properties.DISTRICT + "]").addClass("selectedBox"); } }
          else if (race == "mnsenate" || race == "mnhouse") { return fetchData("District " + d.properties.DISTRICT,"Minnesota","lean",dataCompare,race,null,"District " + d.properties.DISTRICT); }
@@ -766,7 +798,6 @@ d3.json("shapefiles/" + shape, function(error, us) {
           if (d.properties.DISTRICT == "32B") { return spillInfo("<div class='districtName'>District 32B, MN</div><div>No race. A special election has been called for Feb. 14, 2017.</div>"); }
           else { spillInfo(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); } 
         }
-
        })
       .style("stroke-width", "0.3px")
       .style("stroke", "#fff")
@@ -791,7 +822,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
                 return "noclicky district " + d.properties.STUSPS;
             }
           }
-          if (race == "county"){ 
+          if (race == "county" || race == "countyShift"){ 
             if (d.properties.STATEFP == 46){ if (d.properties.NAME == "Shannon") { return "noclicky district"; } }
             if (d.properties.STATEFP == 27){
               if (d.properties.NAME == "Hennepin" || d.properties.NAME == "Ramsey" || d.properties.NAME == "Washington" || d.properties.NAME == "Carver" || d.properties.NAME == "Scott" || d.properties.NAME == "Dakota" || d.properties.NAME == "Anoka") { return "mn metro"; }
@@ -809,7 +840,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
       .call(d3.helper.tooltip(function(d, i){
         if ($(window).width() > 500) { 
          if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race); }
-         else if (race == "county") { return fetchData(d.properties.GEOID,null,"tooltip",dataCompare,race,null,d.properties.NAME); }
+         else if (race == "county" || race == "countyShift") { return fetchData(d.properties.GEOID,null,"tooltip",dataCompare,race,null,d.properties.NAME); }
          // else if (race == "pct") { return mapTips(d, race, dataCompare, level); }
          else if (race == "house") { 
           if (d.properties.DISTRICT == 0) { var thisDistrict = "1"; }
@@ -1058,11 +1089,12 @@ function mapShow(container, race){
  });
 } //end mapShow
 
-function mapSpill(race,data){
+function mapSpill(race,data, data2012){
 
   if (race == "president"){
     mapBuild("#president .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
     mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
+    mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "countyShift", "us", "countiesShift", data, data2012);
     // electoralCarto(data);
     // mapBuild("#mapStates", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
     // mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
@@ -1694,6 +1726,14 @@ $(".raceSwitch").click(function(event) {
   //infobox switches
   thisView = $(this).attr("infobox");
 
+  if (thisView == "mn") { spillInfo(fetchData("Minnesota","Minnesota","table",data1,"president")); }
+  else if (thisView == "us") { spillInfo(fetchData("United States","United States","table",data1,"president")); }
+  else if (thisView == "cd") { spillInfo(fetchData("District 2","Minnesota","table",data6,"ushouse",null,"District 2")); }
+  else { $("#infobox").html(""); }
+
+  //load power bars
+  loadBars($(this).attr("data"));
+
   $(".chatter").hide();
   $("#chatter" + $(this).attr("index")).show();
 
@@ -1738,6 +1778,7 @@ $(".raceSwitch").click(function(event) {
 
 //INITIAL DATAMANCY TO CONJURE RESULTS FROM THE ASSOCIATED PRESS
 var apiStringPrez = "./data/prezCounty2016.json";
+var apiStringPrez12 = "./data/prezCounty2012.json";
 var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
 var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-governors-by-state/full.json";
 var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
@@ -1746,6 +1787,7 @@ var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/
 var apiStringEVCD = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-nebraska-maine/full.json";
 
 d3.json(apiStringPrez + '?' + (Math.floor(Math.random() * 1000)), function(error1, jsonSpillPrez) {
+d3.json(apiStringPrez12 + '?' + (Math.floor(Math.random() * 1000)), function(error1, jsonSpillPrez12) {
 d3.json(apiStringSen + '?' + (Math.floor(Math.random() * 1000)), function(error2, jsonSpillSen) {
 d3.json(apiStringGov + '?' + (Math.floor(Math.random() * 1000)), function(error3, jsonSpillGov) {
 d3.json(apiStringMNS + '?' + (Math.floor(Math.random() * 1000)), function(error4, jsonSpillMNS) {
@@ -1769,6 +1811,7 @@ if (error1 != null || error2 != null || error3 != null || error4 != null || erro
 }
 
 var dataPrez = jsonSpillPrez;
+var dataPrez12 = jsonSpillPrez12;
 var dataSen = jsonSpillSen;
 var dataGov = jsonSpillGov;
 var dataMNS = jsonSpillMNS;
@@ -1776,7 +1819,7 @@ var dataMNH = jsonSpillMNH;
 var dataHouse = jsonSpillHouse;
 var dataEVCD = jsonSpillEVCD;
 
-mapSpill("president",dataPrez);
+mapSpill("president",dataPrez,dataPrez12);
 // if ($(window).width() > 500) { mapSpill("senate",dataSen); }
 // if ($(window).width() > 500) { mapSpill("governors",dataGov); }
 // mapSpill("mnsenate",dataMNS);
@@ -1828,6 +1871,7 @@ $("#wrapper").show();
 
 // }, 6000);
 
+});
 });
 });
 });
