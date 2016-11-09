@@ -764,7 +764,7 @@ function prezCrunch(){
   var meW = fetchData(null,"Maine","winner",dataCounty,"president",2,null,null);
   var neW = fetchData(null,"Nebraska","winner",dataCounty,"president",2,null,null);
 
-  if (meW == "GOP Win" || meW == "Dem Win") { 
+  if (meW == "GOP Win" || meW == "DEM Win") { 
     if (me1R > me1D) { rTally++; }
     else { dTally++; }
 
@@ -772,7 +772,7 @@ function prezCrunch(){
     else { dTally++; }
   }
 
-  if (neW == "GOP Win" || neW == "Dem Win") { 
+  if (neW == "GOP Win" || neW == "DEM Win") { 
     if (ne1R > ne1D) { rTally++; }
     else { dTally++; }
 
@@ -791,7 +791,7 @@ function prezCrunch(){
 }
 
 function senCrunch(){
-  
+
   var stateList = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maryland","Missouri","Nevada","New Hampshire","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","South Carolina","South Dakota","Utah","Vermont","Washington","Wisconsin"];
 
   var dTally = 36;
