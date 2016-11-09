@@ -875,8 +875,11 @@ function raceCrunch(){
   if (winner == "DEM Win") { $("#local-race-demWin").html("&#10004;"); }
   else if (winner == "GOP Win") { $("#local-race-repWin").html("&#10004;"); }
 
-  $("#local-race-dem").html(d3.format("%")(dPct/total));
-  $("#local-race-rep").html(d3.format("%")(rPct/total));
+  if (total != 0) { $("#local-race-dem").html(d3.format("%")(dPct/total));
+  $("#local-race-rep").html(d3.format("%")(rPct/total)); } else { $("#local-race-dem").html("0%");
+  $("#local-race-rep").html("0%");
+
+  }
   $("#local-racePct").html(pct + "% reporting");
 
  $("#done").html("DONE");
