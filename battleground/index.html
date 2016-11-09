@@ -2220,8 +2220,8 @@ function prezCrunch(data,dataEV){
   if (winner == "GOP Win") { $("#rMark").html("&#x2714;"); }
   else if (winner == "DEM Win") { $("#dMark").html("&#x2714;"); }
 
-  $(".demsCount").html(dTally);
-  $(".gopCount").html(rTally-1);
+  $(".demsCount").html(dTally-1);
+  $(".gopCount").html(rTally);
   // $(".dcount").html(d3.format(",")(votesD));
   // $(".rcount").html(d3.format(",")(votesR));
   // $(".demPCT").html(d3.format("%")(votesD/votesT));
