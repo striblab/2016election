@@ -24,7 +24,9 @@
     .chatter { display:none; text-align:left; }
     #chatter1 { display:block; }
     path:hover { cursor:default !important; }
-    .slide, .chart { display:block; }
+    #legendFlip { display:none; }
+    .slide { display:block; }
+    .chart { display:none; }
     .legendLabel { font-size: 0.8em; }
     #map { display:block; }
     .chart { width:800px; height:600px; } 
@@ -49,13 +51,11 @@
       #viewSwitch { display:block; }
       #cssmenu { display:none; }
       .chart { width:100%; height:auto; }
+      #chartNational svg { width:100%; height:700px !important; max-height:700px !important; }
       #chatterBox { width:100%; clear:both; height:155px; font-size:0.9em; }
       text { display:block !important; opacity:1 !important; }
  /*     #cssmenu { display:block; float:none; width:100%; clear:both; }*/
       .dataviz { width:100%; float:none; display:block; }
-    }
-    @media (max-width:420px) { 
-      .chart { width:100%; height:529.2px; }
     }
 </style>
 
@@ -71,27 +71,29 @@
           <div id="dd" class="wrapper-dropdown-1" tabindex="1">
             <span>Crumbling the blue wall</span>
               <ul class="dropdown months" tabindex="1">
-                <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="showMe" infobox="us" index="1" slide="maps"><a href='#' class="selected3"> <div><div>Crumbling the blue wall</div></div></a>
-                </li>
-               <li class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="2" slide="maps"><a href='#'><div><div>County-level domination</div></div></a>
-                </li>
-                <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="3" slide="maps"><a href='#'><div><div>Tilting Minnesota</div></div></a>
-                </li>
-                <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="4" slide="maps"><a href='#'><div><div>Outstate domination</div></div></a>
-                </li>
-                <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="5" slide="countiesChartD"><a href='#'><div><div>Race and education</div></div></a>
-                </li>
-                <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="6" slide="chartS"><a href='#'><div><div>A gradual shift</div></div></a>
-                </li>
-                <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="7" slide="chartP"><a href='#'><div><div>Poll crash</div></div></a>
-                </li>
-                <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="8" slide="chartH"><a href='#'><div><div>Swing state status</div></div></a>
-                </li>
-                <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="9" slide="maps"><a href='#'><div><div>Turning the midwest</div></div></a>
-                </li>
-                <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="10" slide="countiesChartD"><a href='#'><div><div>Redshift</div></div></a>
-                </li>
-              </ul>
+    <li class="raceSwitch uszoom" data="president" legend="legendWinners" type="geo" layer="country" dLabel="Clinton" rLabel="Trump" stateKey="showMe" infobox="us" index="1" slide="maps"><a href='#' class="selected3"> <div><div>Crumbling the blue wall</div></div></a>
+    </li>
+   <li class="raceSwitch uszoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="2" slide="maps"><a href='#'><div><div>County-level domination</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendMargins" type="geo" layer="counties" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="3" slide="maps"><a href='#'><div><div>Tilting Minnesota</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendFlip" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="4" slide="maps"><a href='#'><div><div>Outstate domination</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="5" slide="chartNational"><a href='#'><div><div>Nationally high turnout</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="6" slide="countiesChartD"><a href='#'><div><div>Race and education</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="7" slide="chartS"><a href='#'><div><div>A gradual shift</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="8" slide="chartP"><a href='#'><div><div>Poll crash</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="9" slide="chartH"><a href='#'><div><div>Swing state status</div></div></a>
+    </li>
+    <li class="raceSwitch uszoom" data="president" legend="legendFlip" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="10" slide="maps"><a href='#'><div><div>Turning Obama counties</div></div></a>
+    </li>
+    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="11" slide="countiesChartD"><a href='#'><div><div>Redshift</div></div></a>
+    </li>
+  </ul>
           </div>
         ​</div>
 </section>
@@ -115,7 +117,7 @@ Trump won all but five of Minnesota's outstate counties and flipped 19 that Obam
 </div>
 <div class="chatter" id="chatter5">
 <div class="chartTitle">Nationally high turnout</div>
-HIGH TURNOUT
+Minnesota once again ranked the highest among voter turnout for the entire country, with 74 percent of the state's voters casting ballots, comparable to 2012's 76 percent turnout and 20 points higher than a national turnout that dropped from years previous. Note: All turnout data is preliminary and may not reflect provisional ballots, absentee voters or final vote counts.
 </div>
 <div class="chatter" id="chatter6">
 <div class="chartTitle">Race and education</div>
@@ -134,12 +136,12 @@ A vast majority of the polls and forecasts got the election wrong, both nationwi
 Minnesota, as determined by the presidential result averaging Cook Partisan Voting Index (PVI), has long been more Democratic across presidential election than the country's average. But that's been changing over the years, and 2016 may have finally pushed the state out of the Democratic blue wall and into the realm of swing states. While Cook hasn't yet released its ratings following this year's election, a Star Tribune estimate of comparisons between the state and national two-party vote averages from the last two elections gives Minnesota a new PVI of D+1.
 </div>
 <div class="chatter" id="chatter10">
-<div class="chartTitle">Turning the midwest</div>
+<div class="chartTitle">Turning Obama counties</div>
 Across the country, Trump flipped 221 counties that had gone for Obama in 2012, while Clinton only managed to turn 22 that had gone for Romney. Many of Trump's pickups were in the Rustbelt and Midwest in states where he carried the biggest upsets.
 </div>
 <div class="chatter" id="chatter11">
 <div class="chartTitle">Redshift</div>
-BIG SHIFT CHART
+Not only did a significant number of counties flip from being Democratic to Republican, more counties voted GOP at higher rates than in 2012 across the aboard.
 </div>
 </div>
 
@@ -269,7 +271,7 @@ BIG SHIFT CHART
     </li>
     <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="9" slide="chartH"><a href='#'><div><div>Swing state status</div></div></a>
     </li>
-    <li class="raceSwitch uszoom" data="president" legend="legendFlip" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="10" slide="maps"><a href='#'><div><div>Turning the midwest</div></div></a>
+    <li class="raceSwitch uszoom" data="president" legend="legendFlip" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="10" slide="maps"><a href='#'><div><div>Turning Obama counties</div></div></a>
     </li>
     <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="11" slide="countiesChartD"><a href='#'><div><div>Redshift</div></div></a>
     </li>
@@ -2151,7 +2153,10 @@ var chartPopD = c3.generate({
                 categories: ['White Non-Hispanic','Bachelors or Higher']
             }
         }
+
 });
+
+$(".raceSwitch").click(function(event) { chartPopD.flush(); });
 
 }
 
@@ -2169,7 +2174,7 @@ var chartH = c3.generate({
     data: {
         x: 'x',
         columns: [
-            ['x',1982,1986,1990,1994,1998,2002,2006,2010,2014,2016],
+            ['x',1982,1986,1990,1994,1998,2002,2006,2010,2014,2018],
             // ['MN DEM Vote %',0.549,0.465,0.497,0.529,0.435,0.511,0.479,0.511,0.541,0.527],
             // // ['MN GOP Vote %',0.420,0.425,0.495,0.459,0.319,0.350,0.455,0.477,0.438,0.450],
             // ['National DEM Vote %',0.501,0.410,0.406,0.457,0.430,0.492,0.484,0.482,0.529,0.51]
@@ -2246,7 +2251,10 @@ var chartH = c3.generate({
           return text + "</table>";
       }
     }
+
 });
+
+$(".raceSwitch").click(function(event) { chartH.flush(); });
 }
 
 
@@ -2318,7 +2326,10 @@ var chart = c3.generate({
             // ]
         }
     }
+
 });
+
+    $(".raceSwitch").click(function(event) { chart.flush(); });
 }
 
 d3.json("./data/pollster.json", function(error, dataLoad) {
@@ -2462,7 +2473,10 @@ var chart = c3.generate({
           return text + "</table>";
       }
     }
+
 });
+
+    $(".raceSwitch").click(function(event) { chart.flush(); });
 
 }
 
@@ -2512,7 +2526,7 @@ var chartT = c3.generate({
          colors: {
               'Voter Turnout': function(d) { 
 
-                console.log(d);
+                // console.log(d);
 
               if (d.index == 0 || d.index == 36) { return "#000"; }
               else { return "#bbb"; }
@@ -2563,6 +2577,15 @@ var chartT = c3.generate({
     }
 });
 
+$(".raceSwitch").click(function() { 
+  chartT.flush(); 
+chartT.resize({
+  height: 700,
+  width: $("#wrapper").innerWidth()
+});
+
+});
+
 });
 
 }
@@ -2572,7 +2595,10 @@ chartCounties();
 chartPVI();
 chartBuilder();
 spillChart("#chartP", data);
-$(".chart").hide();
+
+// window.setTimeout(function () { $(".chart").hide(); }, 10000);
+
+
 
 });
 
