@@ -17,6 +17,7 @@
 </head>
 
 <style>
+    #wrapper { display:none; }
     body, tr { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
     #cssmenu { width:19%; float:left; }
     .dataviz { width:80%; float:right; }
@@ -64,6 +65,10 @@
 </style>
 
 <body>
+
+  <div class="loading-mask" id="loader">  
+  <div id="message"><div class='message'>Retrieving results...</div><img src='http://stmedia.startribune.com/designimages/ajax-loader.gif' class='loader-img'></div>
+</div>
 
 <!-- HOW CAN I HOLD ALL THESE TAGS??? -->
 <div id="wrapper">
@@ -125,11 +130,11 @@ Trump won all but five of Minnesota's outstate counties and flipped 19 that Obam
 </div>
 <div class="chatter" id="chatter5">
 <div class="chartTitle">Isolating the cities</div>
-PCT
+Across outstate Minnesota, most precincts voted for Trump by large margins, often by 10 percent or far more, isolating Minneapolis, St. Paul and their first tier suburbs as the main centers of significant DFL voting.
 </div>
 <div class="chatter" id="chatter6">
 <div class="chartTitle">Urban DFL bastions</div>
-METRO
+A vast majority of Clinton's votes in Minnesota came from Minneapolis, St. Paul and their closest suburbs.
 </div>
 <div class="chatter" id="chatter7">
 <div class="chartTitle">Nationally high turnout</div>
@@ -757,7 +762,20 @@ d3.json("shapefiles/" + shape, function(error, us) {
       .on("click", clicked)
       .attr("precinctName", function(d){ return d.properties.NAME })
       .style("fill", function(d){
-        if (race == "precincts"){ return "#000"; }
+        if (race == "precincts"){ 
+          for (var i=0; i < dataCompare.length; i++){
+            if (Number(dataCompare[i].vtdcode) == Number(d.properties.VTDID)){
+              if (dataCompare[i].Winner == "D"){
+                if (dataCompare[i].D >= .70) { return "#3585BC"; }
+                else { return "#72A9D6"; }
+              } else if (dataCompare[i].Winner == "R"){
+                if (dataCompare[i].R >= .70) { return "#d34A44"; }
+                else { return "#f7816E"; }   
+              }
+            }
+          }
+          return "#cccccc"; 
+        }
          if (race == "president") { 
         $('#president .sideStates .block').each(function(i, obj) {
             if ($(this).hasClass(d.properties.STUSPS)){
@@ -826,7 +844,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
           else { spillInfo(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); } 
         }
        })
-      .style("stroke-width", "0.3px")
+      .style("stroke-width", function(d){ if (race != "precincts") { return "0.3px" } else { return "0.05px"; } })
       .style("stroke", "#fff")
       .attr("id",function(d){ 
         if (race == "president"){ return d.properties.STUSPS; }
@@ -838,6 +856,15 @@ d3.json("shapefiles/" + shape, function(error, us) {
         else { return null; }
       })
       .attr("class",function(d){
+        if (race == "precincts"){ 
+          var found = false;
+          for (var i=0; i < dataCompare.length; i++){
+            if (Number(dataCompare[i].vtdcode) == Number(d.properties.VTDID)){
+              found = true;
+            } 
+          }
+          if (found = false) { return "noclicky"; }
+        }
           if (race == "president"){ return "district " + d.properties.STUSPS; }
           if (race == "senate"){ 
             if (d.properties.NAME == "Montana" || d.properties.NAME == "Wyoming" || d.properties.NAME == "Nebraska" || d.properties.NAME == "Minnesota" || d.properties.NAME == "New Mexico" || d.properties.NAME == "Texas" || d.properties.NAME == "Mississippi" || d.properties.NAME == "Tennessee" || d.properties.NAME == "West Virginia" || d.properties.NAME == "Virginia" || d.properties.NAME == "New Jersey" || d.properties.NAME == "Delaware" || d.properties.NAME == "Rhode Island" || d.properties.NAME == "Massachusetts" || d.properties.NAME == "Maine" || d.properties.NAME == "Michigan"){
@@ -866,19 +893,16 @@ d3.json("shapefiles/" + shape, function(error, us) {
       })
       .call(d3.helper.tooltip(function(d, i){
         if ($(window).width() > 500) {
-         if (race = "precincts") { return d.properties.MCDNAME; } 
          if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race); }
          else if (race == "county" || race == "countyShift") { return fetchData(d.properties.GEOID,null,"tooltip",dataCompare,race,null,d.properties.NAME); }
-         // else if (race == "pct") { return mapTips(d, race, dataCompare, level); }
-         else if (race == "house") { 
-          if (d.properties.DISTRICT == 0) { var thisDistrict = "1"; }
-          else { var thisDistrict = d.properties.DISTRICT; }
-          return fetchData("District " + d.properties.DISTRICT,d.properties.STATENAME,"tooltip",dataCompare,"ushouse",null,"District " + thisDistrict); 
-        }
-         else if (race == "mnsenate" || race == "mnhouse") { 
-          if (d.properties.DISTRICT == "32B") { return "<div class='districtName'>District 32B, MN</div><div>No race</div>"; }
-          else { return fetchData("District " + d.properties.DISTRICT,"Minnesota","tooltip",dataCompare,race,null,"District " + d.properties.DISTRICT); }
-        }
+         else if (race = "precincts") { 
+          for (var i=0; i < dataCompare.length; i++){
+            if (Number(dataCompare[i].vtdcode) == Number(d.properties.VTDID)){
+              return "<div class='districtName'>" + d.properties.PCTNAME + "</div><div class='candidate'>Clinton &#x2714;</div><div class='pct' style='background-color:#72A9D6'>" + d3.format("%")(dataCompare[i].D) + "</div><div class='smallbreak'></div><div class='candidate'>Trump</div><div class='pct' style='background-color:#d34A44'>" + d3.format("%")(dataCompare[i].R) + "</div>";
+            }
+          }
+          return "<div class='districtName'>" + d.properties.PCTNAME + "</div>"; 
+        } 
       } else { $(".tooltip").hide(); }}))
 
 if (race == "president" || race == "senate" ||  race == "governors"){
@@ -974,9 +998,11 @@ function clicked(d) {
     centered = null;
   }
 
+if (race != "precincts"){
   g.selectAll("." + race + " path")
       .classed("faded", true)
       .classed("active", centered && function(d) { return d === centered; });
+    }
 
   // g.transition()
   //     .duration(200)
@@ -999,7 +1025,7 @@ function mnzoom(d) {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       .style("stroke-width", "0");
 
-  g.selectAll("path").style("stroke-width", "0.3px");
+  if (race == "precincts") { g.selectAll("path").style("stroke-width", "0.03px"); } else { g.selectAll("path").style("stroke-width", "0.3px"); }
 }
 
 function metrozoom(d) {
@@ -1015,7 +1041,7 @@ function metrozoom(d) {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
       .style("stroke-width", "0");
 
-  g.selectAll("path").style("stroke-width", "0.1px");
+  g.selectAll("path").style("stroke-width", "0.03px");
 }
 
 function clicked2(d) {
@@ -1058,9 +1084,9 @@ d3.helper.tooltip = function(accessor){
             // Append tooltip
             tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
             var absoluteMousePos = d3.mouse(bodyNode);
-            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
+            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
                 .style('top', (absoluteMousePos[1] - 15)+'px')
-                .style('position', 'absolute')
+                .style('position', 'absolute') 
                 .style('z-index', 1001);
             // Add text using the accessor function
             var tooltipText = accessor(d, i) || '';
@@ -1071,7 +1097,7 @@ d3.helper.tooltip = function(accessor){
         .on('mousemove', function(d, i) {
             // Move tooltip
             var absoluteMousePos = d3.mouse(bodyNode);
-            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
+            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
                 .style('top', (absoluteMousePos[1] - 15)+'px');
             var tooltipText = accessor(d, i) || '';
             tooltipDiv.html(tooltipText);
@@ -1117,13 +1143,13 @@ function mapShow(container, race){
  });
 } //end mapShow
 
-function mapSpill(race,data, data2012){
+function mapSpill(race, data, data2012, dataPCT){
 
   if (race == "president"){
     mapBuild("#president .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
     mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
     mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "countyShift", "us", "countiesShift", data, data2012);
-    mapBuild("#president .geo", "#infobox", "#chart", "mnprecincts.json", "precincts", "us", "precincts", data);
+    mapBuild("#president .geo", "#infobox", "#chart", "mnprecincts.json", "precincts", "us", "precincts", dataPCT);
     // electoralCarto(data);
     // mapBuild("#mapStates", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
     // mapBuild("#mapCounties", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
@@ -1566,11 +1592,11 @@ function mnsenCrunch(data){
 
 } //end mnsenCrunch
 
-function toggleyBits(data1,data2,data3,data4,data5,data6,data7,reload){
+function toggleyBits(data1,data2,data3,data4,data5,data6,data7,reload,data8){
   var loadState = 0;
 
 function loadBars(race){
-  if (race == "president") { prezCrunch(data1,data7); } 
+  if (race == "president") { prezCrunch(data1,data7,data8); } 
   if (race == "senate") { senCrunch(data2); } 
   if (race == "governors") { govCrunch(data3); } 
   if (race == "mnsenate") { mnsenCrunch(data4); } 
@@ -1808,6 +1834,7 @@ $(".raceSwitch").click(function(event) {
 //INITIAL DATAMANCY TO CONJURE RESULTS FROM THE ASSOCIATED PRESS
 var apiStringPrez = "./data/prezCounty2016.json";
 var apiStringPrez12 = "./data/prezCounty2012.json";
+var apiStringPCT = "./data/pct.json";
 // var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
 // var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-governors-by-state/full.json";
 // var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
@@ -1823,6 +1850,7 @@ d3.json(apiStringPrez12 + '?' + (Math.floor(Math.random() * 1000)), function(err
 // d3.json(apiStringMNH + '?' + (Math.floor(Math.random() * 1000)), function(error5, jsonSpillMNH) {
 // d3.json(apiStringHouse + '?' + (Math.floor(Math.random() * 1000)), function(error6, jsonSpillHouse) {
 d3.json(apiStringEVCD + '?' + (Math.floor(Math.random() * 1000)), function(error7, jsonSpillEVCD) {
+d3.json(apiStringPCT + '?' + (Math.floor(Math.random() * 1000)), function(error7, jsonSpillPCT) {
 
 //JUST IN CASE OF THERMONUCLEAR DISASTER
 function fallback(){
@@ -1840,6 +1868,7 @@ function fallback(){
 // }
 
 var dataPrez = jsonSpillPrez;
+var dataPCT = jsonSpillPCT.pct;
 var dataPrez12 = jsonSpillPrez12;
 // var dataSen = jsonSpillSen;
 // var dataGov = jsonSpillGov;
@@ -1848,7 +1877,7 @@ var dataPrez12 = jsonSpillPrez12;
 // var dataHouse = jsonSpillHouse;
 var dataEVCD = jsonSpillEVCD;
 
-mapSpill("president",dataPrez,dataPrez12);
+mapSpill("president",dataPrez,dataPrez12,dataPCT);
 // if ($(window).width() > 500) { mapSpill("senate",dataSen); }
 // if ($(window).width() > 500) { mapSpill("governors",dataGov); }
 // mapSpill("mnsenate",dataMNS);
@@ -1869,7 +1898,7 @@ if ((docwidth < 500)) {
 
 });
 
-toggleyBits(dataPrez,null,null,null,null,null,dataEVCD,false);
+toggleyBits(dataPrez,null,null,null,null,null,dataEVCD,false,dataPCT);
 
 spillInfo(fetchData("United States","United States","table",dataPrez,"president"));
 
@@ -1879,32 +1908,21 @@ $("#prezButton").trigger("click");
 $("#table .president").show();
 $("#wrapper").show();
 
-// window.setTimeout(function () { $("#message").html("<div class='message'>Rendering results...</div><img src='http://stmedia.startribune.com/designimages/ajax-loader.gif' class='loader-img'>"); }, 3000);
+window.setTimeout(function () { $("#message").html("<div class='message'>Rendering results...</div><img src='http://stmedia.startribune.com/designimages/ajax-loader.gif' class='loader-img'>"); }, 4000);
 
-// window.setTimeout(function () {
+window.setTimeout(function () {
   
-//   $("#wrapper").show();
-//   $(".loading-mask").hide();
+  $("#wrapper").show();
+  $(".loading-mask").hide();
 
-//     var count = 120;
-//     var timerId = setInterval(function() {
-//         count--;
-//         $(".ticker").html(count);
-
-//         if(count == 0) {
-//             count = 120;
-//             $(".ticker").html("--");
-//             reloadData();
-//         }
-//     }, 1000);
-
-// }, 6000);
+}, 8000);
 
 // });
 // });
 // });
 // });
 // });
+});
 });
 });
 }); //end data stream initialization
