@@ -445,7 +445,7 @@ chartM();
 
 function chartN(){
 
-d3.csv("./data/turnout.csv", function(d) {
+d3.csv("./data/turnoutNational.csv", function(d) {
   return {
     state: d.ab,
     turnout: +d.turnout,
@@ -544,6 +544,8 @@ var chartT = c3.generate({
             // ]
         }
     }
+});
+
 });
 
 }
