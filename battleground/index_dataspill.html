@@ -2186,7 +2186,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
             var color = fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race);
             $(this).css("background-color", color);
             }
-            $("#dataSpill").append("<div>" + d.properties.NAME + "," + fetchData(d.properties.NAME,d.properties.NAME,"votesD",dataCompare,race) + "," + fetchData(d.properties.NAME,d.properties.NAME,"votesR",dataCompare,race) + "," + fetchData(d.properties.NAME,d.properties.NAME,"votesT",dataCompare,race) + "</div>");
+            // $("#dataSpill").append("<div>" + d.properties.NAME + "," + fetchData(d.properties.NAME,d.properties.NAME,"votesD",dataCompare,race) + "," + fetchData(d.properties.NAME,d.properties.NAME,"votesR",dataCompare,race) + "," + fetchData(d.properties.NAME,d.properties.NAME,"votesT",dataCompare,race) + "</div>");
         });
             return fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race); 
          }
@@ -2209,7 +2209,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
             return fetchData(d.properties.NAME,d.properties.NAME,"lean",dataCompare,race); 
          }
          else if (race == "county") { 
-            // $("#dataSpill").append("<div>" + d.properties.STATEFP + "," + d.properties.NAME + "," + d.properties.GEOID + "," + fetchData(d.properties.GEOID,null,"votesD",dataCompare,race) + "," + fetchData(d.properties.GEOID,null,"votesR",dataCompare,race) + "," + fetchData(d.properties.GEOID,null,"votesT",dataCompare,race) + "</div>");
+            $("#dataSpill").append("<div>" + d.properties.STATEFP + "," + d.properties.NAME + "," + d.properties.GEOID + "," + fetchData(d.properties.GEOID,null,"votesD",dataCompare,race) + "," + fetchData(d.properties.GEOID,null,"votesR",dataCompare,race) + "," + fetchData(d.properties.GEOID,null,"votesT",dataCompare,race) + "</div>");
             return fetchData(d.properties.GEOID,null,"colors",dataCompare,race); 
      }
          // else if (race == "pct") { return mapColor(d.properties.PCTCODE, race, dataCompare); }
@@ -3184,7 +3184,7 @@ $(".raceSwitch").click(function() {
 
 
 //INITIAL DATAMANCY TO CONJURE RESULTS FROM THE ASSOCIATED PRESS
-var apiStringPrez = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
+var apiStringPrez = "./data/prezCounty2012.json";
 var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
 var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-governors-by-state/full.json";
 var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";

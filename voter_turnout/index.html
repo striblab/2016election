@@ -445,10 +445,11 @@ chartM();
 
 function chartN(){
 
-d3.csv("./data/turnoutNational.csv", function(d) {
+d3.csv("./data/turnout.csv", function(d) {
   return {
     state: d.ab,
-    turnout: +d.turnout
+    turnout: +d.turnout,
+    turnout2012: +d.turnout2012
   };
 }, function(error, rows) {
 
@@ -456,15 +457,18 @@ var dataT = rows;
 
 var x = [];
 var turnout = [];
+var turnout2012 = [];
 
 x[0] = "x";
-turnout[0] = "Voter Turnout";
+turnout[0] = "2016 Turnout";
+turnout2012[0] = "2012 Turnout";
 // gop[0] = "DFL Vote %";
 // dfl[0] = "GOP Vote %";
 
 for (var i=1; i <= dataT.length; i++){
   x[i] = dataT[i-1].state;
   turnout[i] = dataT[i-1].turnout;
+  turnout2012[i] = dataT[i-1].turnout2012;
 }
 
 var  padding = {
@@ -481,26 +485,28 @@ var chartT = c3.generate({
             x: 'x',
             columns: [
                 x,
-                turnout
+                turnout,
+                turnout2012
             ],
         types: {
-          'Voter Turnout':'bar'
+          '2016 Turnout':'bar',
+          '2012 Turnout':'bar'
          },
          colors: {
               'Voter Turnout': function(d) { 
 
-                console.log(d);
+                // console.log(d);
 
               if (d.index == 0 || d.index == 36) { return "#000"; }
               else { return "#bbb"; }
           }
             }
         },
-        legend: {
-            show: false
-        },
+        // legend: {
+        //     show: false
+        // },
         color:{
-          pattern: ["#333"]
+          pattern: ["#333","#aaa"]
         },
         axis: {
               rotated: true,
@@ -538,8 +544,6 @@ var chartT = c3.generate({
             // ]
         }
     }
-});
-
 });
 
 }
