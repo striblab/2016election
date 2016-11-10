@@ -17,6 +17,7 @@
 </head>
 
 <style>
+    body, tr { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
     #cssmenu { width:19%; float:left; }
     .dataviz { width:80%; float:right; }
     .sideStates { top:162px; }
@@ -34,8 +35,11 @@
     .rflip { background-color:#550000; }
     .dflip { background-color:#0B4474; }
     .redline, .redline line { fill:#d34A44 !important; stroke:#d34A44 !important; }
+    .powerline  { fill:#000000 !important; stroke:#000000 !important; } 
+    .powerline line { fill:#000000 !important; stroke:#000000 !important; }
     .blueline, .blueline line { fill:#3585BC !important; stroke:#3585BC !important; }
     .chart .c3-line { stroke-width:5px !important; }
+    .adjacent { display:inline-block; width:48%; text-align:center; }
 
     #viewSwitch { display:none; }
     .wrapper-demo { width:100%; }
@@ -79,19 +83,21 @@
     </li>
     <li class="raceSwitch mnzoom" data="president" legend="legendFlip" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="4" slide="maps"><a href='#'><div><div>Outstate domination</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="5" slide="chartNational"><a href='#'><div><div>Nationally high turnout</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendMargins" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="5" slide="mnPCT"><a href='#'><div><div>Isolating the cities</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="6" slide="countiesChartD"><a href='#'><div><div>Race and education</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="6" slide="chartNational"><a href='#'><div><div>Nationally high turnout</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="7" slide="chartS"><a href='#'><div><div>A gradual shift</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="7" slide="countiesChartD"><a href='#'><div><div>Race and education</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="8" slide="chartP"><a href='#'><div><div>Poll crash</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="8" slide="chartS"><a href='#'><div><div>Major party shifts</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="9" slide="chartH"><a href='#'><div><div>Swing state status</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="9" slide="chartP"><a href='#'><div><div>Poll crash</div></div></a>
     </li>
-    <li class="raceSwitch uszoom" data="president" legend="legendFlip" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="10" slide="maps"><a href='#'><div><div>Turning Obama counties</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="10" slide="chartH"><a href='#'><div><div>Swing state status</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="11" slide="countiesChartD"><a href='#'><div><div>Redshift</div></div></a>
+    <li class="raceSwitch uszoom" data="president" legend="legendFlip" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="11" slide="maps"><a href='#'><div><div>Turning Obama counties</div></div></a>
+    </li>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="12" slide="chartR"><a href='#'><div><div>Shifting red</div></div></a>
     </li>
   </ul>
           </div>
@@ -116,32 +122,36 @@ This trend was felt across Minnesota too, as only nine counties in a state that 
 Trump won all but five of Minnesota's outstate counties and flipped 19 that Obama carried in 2012, whereas Clinton didn't lead any that Mitt Romney took that election. Every county Trump took from the Democrats was outside the seven county metro area.
 </div>
 <div class="chatter" id="chatter5">
+<div class="chartTitle">Isolating the cities</div>
+PCT
+</div>
+<div class="chatter" id="chatter6">
 <div class="chartTitle">Nationally high turnout</div>
 Minnesota once again ranked the highest among voter turnout for the entire country, with 74 percent of the state's voters casting ballots, comparable to 2012's 76 percent turnout and 20 points higher than a national turnout that dropped from years previous. Note: All turnout data is preliminary and may not reflect provisional ballots, absentee voters or final vote counts.
 </div>
-<div class="chatter" id="chatter6">
+<div class="chatter" id="chatter7">
 <div class="chartTitle">Race and education</div>
 The county-level vote in Minnesota cut across racial and and education lines, with Trump leading areas with lower minority populations and fewer people with college degrees.
 </div>
-<div class="chatter" id="chatter7">
-<div class="chartTitle">A major shift</div>
+<div class="chatter" id="chatter8">
+<div class="chartTitle">Major party shifts</div>
 Minnesota counties used to be more Democratic than Republican, with rural counties being more evenly distributed between the parties. But starting in 2000, outstate Minnesota has turned redder as Democratic bastions have gradually been confined to the Iron Range and metro area.
 </div>
-<div class="chatter" id="chatter8">
+<div class="chatter" id="chatter9">
 <div class="chartTitle">Poll crash</div>
 A vast majority of the polls and forecasts got the election wrong, both nationwide and in Minnesota. While Clinton's polling percentages were much closer to the mark, pollsters significantly underestimated Trump's support in Minnesota, sometimes by more than 20 points. The Star Tribune's final Minnesota Poll, for instance, correctly placed Clinton at 47 percent, but only had Trump at 39 percent, six points behind his actual finish on election night.
 </div>
-<div class="chatter" id="chatter9">
+<div class="chatter" id="chatter10">
 <div class="chartTitle">Swing state status</div>
 Minnesota, as determined by the presidential result averaging Cook Partisan Voting Index (PVI), has long been more Democratic across presidential election than the country's average. But that's been changing over the years, and 2016 may have finally pushed the state out of the Democratic blue wall and into the realm of swing states. While Cook hasn't yet released its ratings following this year's election, a Star Tribune estimate of comparisons between the state and national two-party vote averages from the last two elections gives Minnesota a new PVI of D+1.
 </div>
-<div class="chatter" id="chatter10">
+<div class="chatter" id="chatter11">
 <div class="chartTitle">Turning Obama counties</div>
 Across the country, Trump flipped 221 counties that had gone for Obama in 2012, while Clinton only managed to turn 22 that had gone for Romney. Many of Trump's pickups were in the Rustbelt and Midwest in states where he carried the biggest upsets.
 </div>
-<div class="chatter" id="chatter11">
-<div class="chartTitle">Redshift</div>
-Not only did a significant number of counties flip from being Democratic to Republican, more counties voted GOP at higher rates than in 2012 across the aboard.
+<div class="chatter" id="chatter12">
+<div class="chartTitle">Shifting red</div>
+Not only did a significant number of counties flip from being Democratic to Republican, 605 counties -- 20 percent of all counties in the nation -- voted for Trump at higher rates than they did Romney in 2016, signifying high Republican turnout across the country.
 </div>
 </div>
 
@@ -247,6 +257,13 @@ Not only did a significant number of counties flip from being Democratic to Repu
 
 <div id="chartNational" class="slide chart"></div>
 
+<div id="chartR" class="slide chart"></div>
+
+<div id="mnPCT" class="slide">
+<div id="mapPrecinct" class="adjacent"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="mapMetro" class="adjacent"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+</div>
+
 </div>
 
 <div id='cssmenu'>
@@ -261,19 +278,21 @@ Not only did a significant number of counties flip from being Democratic to Repu
     </li>
     <li class="raceSwitch mnzoom" data="president" legend="legendFlip" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="4" slide="maps"><a href='#'><div><div>Outstate domination</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="5" slide="chartNational"><a href='#'><div><div>Nationally high turnout</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendMargins" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="5" slide="mnPCT"><a href='#'><div><div>Isolating the cities</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="6" slide="countiesChartD"><a href='#'><div><div>Race and education</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="6" slide="chartNational"><a href='#'><div><div>Nationally high turnout</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="7" slide="chartS"><a href='#'><div><div>A gradual shift</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="7" slide="countiesChartD"><a href='#'><div><div>Race and education</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="8" slide="chartP"><a href='#'><div><div>Poll crash</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="8" slide="chartS"><a href='#'><div><div>Major party shifts</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="9" slide="chartH"><a href='#'><div><div>Swing state status</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="9" slide="chartP"><a href='#'><div><div>Poll crash</div></div></a>
     </li>
-    <li class="raceSwitch uszoom" data="president" legend="legendFlip" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="10" slide="maps"><a href='#'><div><div>Turning Obama counties</div></div></a>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="10" slide="chartH"><a href='#'><div><div>Swing state status</div></div></a>
     </li>
-    <li class="raceSwitch mnzoom" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="11" slide="countiesChartD"><a href='#'><div><div>Redshift</div></div></a>
+    <li class="raceSwitch uszoom" data="president" legend="legendFlip" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="us" index="11" slide="maps"><a href='#'><div><div>Turning Obama counties</div></div></a>
+    </li>
+    <li class="raceSwitch" data="president" legend="legendWinners" type="geo" layer="countiesShift" dLabel="Clinton" rLabel="Trump" stateKey="false" infobox="mn" index="12" slide="chartR"><a href='#'><div><div>Shifting red</div></div></a>
     </li>
   </ul>
 </ul>
@@ -704,132 +723,13 @@ function spillInfo(data){
  $("#infobox").html(data);
 } //end spillInfo
 
-//CARTOGRAM DATA UPDATE
-function electoralCarto(data){
-    $('.cartoState').each(function(i, obj) {
-        var color = fetchData($(this).attr("name"),$(this).attr("name"),"lean",data,"president");
-        $(this).attr("fill", color);
-    });
-} //end electoralCarto
-
-//US HOUSE CARTOGRAM
-function houseCarto(data){
-(function(){
-    var margin = {top: 3, left: 10, bottom: 40, right: 10}
-    , width = 800
-    // , width = width - margin.left - margin.right
-    , mapRatio = .5
-    , height = 600;
-
-    var projection = d3.geo.equirectangular()
-              .scale(width/1.1)//this makes it larger or smaller for the space you have
-              .translate([width / 4, height / 2.5])
-              .center([-102, 40 ]); //move the map center to fit in the spsace
-
-    var path = d3.geo.path()
-          .projection(projection);
-
-    var svg = d3.select("#cartoHouse svg")
-          .attr("width", width)
-          .attr("height", height);
-
-    var g = svg.append("g").attr('transform',"translate(150,25)").attr('class','house-group-g');
-
-    makeCartogram();
-
-function makeCartogram() {
-        d3.json("shapefiles/usdistricts_cartogram.json", function(error, us) {
-
-            g.append("g").attr("id", "districts").selectAll("path")
-            .data(topojson.feature(us, us.objects['uscd']).features)
-            .enter().append("path")
-                .attr("d", path)
-                .attr("class","cd")
-                .attr("fill", function(d){
-                    var color = fetchData("District " + d.properties['d'],d.properties.State,"lean",data,"ushouse",null,"District " + d.properties['d']);
-                    return color;
-                })
-                .attr('id',function(d){ return d.properties.State + '' + d.properties['d'] + "c"; })
-                .attr('data-hash-key',function(d){ return d.properties.State + '-' + d.properties['d']; })
-                .on("mousedown", function(d, i){
-                    d3.selectAll(".cd").classed("active",false);
-                    d3.select(this).classed("active",true);
-                    $(".tableRow").removeClass("selectedBox");
-                    if (d.properties.State == "Minnesota") { $(".tableRow[name=" + d.properties.State + "" + d.properties['d'] + "]").addClass("selectedBox"); }
-                    if (d.properties['d'] == 0) { var thisDistrict = "1"; }
-                    else { var thisDistrict = d.properties['d']; }
-                    
-                      spillInfo(fetchData("District " + d.properties['d'],d.properties.State,"table",data,"ushouse",null,"District " + thisDistrict));
-                })
-                .call(d3.helper.tooltip(function(d, i){
-                    if ($(window).width() > 500) { 
-                    return fetchData("District " + d.properties['d'],d.properties.State,"tooltip",data,"ushouse",null,"District " + d.properties['d']);
-                } else { $(".tooltip").hide(); }}));
-        })
-    }
-})();
-
-d3.helper = {};
-
-d3.helper.tooltip = function(accessor){
-    return function(selection){
-        var tooltipDiv;
-        var bodyNode = d3.select('body').node();
-        selection.on("mouseover", function(d, i){
-            // Clean up lost tooltips
-            d3.select('body').selectAll('div.tooltip').remove();
-            // Append tooltip
-            tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
-            var absoluteMousePos = d3.mouse(bodyNode);
-            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
-                .style('top', (absoluteMousePos[1] - 15)+'px')
-                .style('position', 'absolute')
-                .style('z-index', 1001);
-            // Add text using the accessor function
-            var tooltipText = accessor(d, i) || '';
-            // Crop text arbitrarily
-            //tooltipDiv.style('width', function(d, i){return (tooltipText.length > 80) ? '300px' : null;})
-            //    .html(tooltipText);
-        })
-        .on('mousemove', function(d, i) {
-            // Move tooltip
-            var absoluteMousePos = d3.mouse(bodyNode);
-            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
-                .style('top', (absoluteMousePos[1] - 15)+'px');
-            var tooltipText = accessor(d, i) || '';
-            tooltipDiv.html(tooltipText);
-        })
-        .on("mouseout", function(d, i){
-            // Remove tooltip
-            tooltipDiv.remove();
-        });
-
-    };
-};
-
-var aspect = 800 / 600, chart = $("#cartoHouse svg"); //, chart2 = $(".carto svg")
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-  if ($(window).width() <= 420) { $("#cartogram svg").attr("viewBox","0 0 500 400"); }
-
-$(window).on("resize", function() {
-  if ($(window).width() >= 970) { $("#mobmenu").hide(); }
-  chart.attr("style","");
-  $("#cartogram svg").attr("style","");
-  var targetWidth = chart.parent().width();
-  chart.attr("width", targetWidth);
-  chart.attr("height", targetWidth / aspect);
-});
-
-} //end houseCarto
 
 //ALL OTHER MAPS
 function mapBuild(container, boxContainer, chartContainer, shape, race, geo, level, dataCompare, dataCompare2012, index, visible) {
 
 if (geo=="us") { var width = 800, height = 600, centered; var projection = d3.geo.albersUsa().scale(1000).translate([400, 210]); }
-else if (geo=="mn") { var width = 400, height = 400, centered; var projection = d3.geo.mercator().scale([3200]).center([-89.736328,46.377254]); }
-else if (geo=="metro") { var width = 400, height = 400, centered; var projection = d3.geo.mercator().scale([16500]).center([-92.403259,44.988113]); }
+else if (geo=="mn") { var width = 800, height = 600, centered; var projection = d3.geo.albersUsa().scale(5037).translate([50, 970]); }
+else if (geo=="metro") { var width = 800, height = 600, centered; var projection = d3.geo.mercator().scale([21000]).center([-92.7,45.059134]); }
 
 var path = d3.geo.path()
     .projection(projection);
@@ -849,6 +749,17 @@ d3.json("shapefiles/" + shape, function(error, us) {
       .on("click", clicked)
       .attr("precinctName", function(d){ return d.properties.NAME })
       .style("fill", function(d){
+        if (race == "precinct"){
+        for (var i=0; i<dataCompare.length; i++){
+          if (dataCompare[i].vtd == d.properties.VTDID){
+            if (dataCompare[i].votes >= 400){ return "#000"; }
+            else if (dataCompare[i].votes >= 320){ return "#000"; }
+            else if (dataCompare[i].votes >= 240){ return "#000"; }
+            else if (dataCompare[i].votes >= 160){ return "#000"; }
+            else if (dataCompare[i].votes >= 0){ return "#000"; }
+          }
+        }
+       }
          if (race == "president") { 
         $('#president .sideStates .block').each(function(i, obj) {
             if ($(this).hasClass(d.properties.STUSPS)){
@@ -2336,7 +2247,7 @@ d3.json("./data/pollster.json", function(error, dataLoad) {
 
   var data = dataLoad.pollster;
 
-  function spillChart(container, data){
+function spillChart(container, data){
 var clintonAxis = [];
 var trumpAxis = [];
 var uAxis = [];
@@ -2476,7 +2387,7 @@ var chart = c3.generate({
 
 });
 
-    $(".raceSwitch").click(function(event) { chart.flush(); });
+   $(".raceSwitch").click(function(event) { chart.flush(); }); 
 
 }
 
@@ -2485,7 +2396,8 @@ function chartN(){
 d3.csv("./data/turnout.csv", function(d) {
   return {
     state: d.ab,
-    turnout: +d.turnout
+    turnout: +d.turnout,
+    turnout2012: +d.turnout2012
   };
 }, function(error, rows) {
 
@@ -2493,15 +2405,18 @@ var dataT = rows;
 
 var x = [];
 var turnout = [];
+var turnout2012 = [];
 
 x[0] = "x";
-turnout[0] = "Voter Turnout";
+turnout[0] = "2016 Turnout";
+turnout2012[0] = "2012 Turnout";
 // gop[0] = "DFL Vote %";
 // dfl[0] = "GOP Vote %";
 
 for (var i=1; i <= dataT.length; i++){
   x[i] = dataT[i-1].state;
   turnout[i] = dataT[i-1].turnout;
+  turnout2012[i] = dataT[i-1].turnout2012;
 }
 
 var  padding = {
@@ -2518,10 +2433,12 @@ var chartT = c3.generate({
             x: 'x',
             columns: [
                 x,
-                turnout
+                turnout,
+                turnout2012
             ],
         types: {
-          'Voter Turnout':'bar'
+          '2016 Turnout':'bar',
+          '2012 Turnout':'bar'
          },
          colors: {
               'Voter Turnout': function(d) { 
@@ -2533,11 +2450,11 @@ var chartT = c3.generate({
           }
             }
         },
-        legend: {
-            show: false
-        },
+        // legend: {
+        //     show: false
+        // },
         color:{
-          pattern: ["#333"]
+          pattern: ["#333","#aaa"]
         },
         axis: {
               rotated: true,
@@ -2590,15 +2507,376 @@ chartT.resize({
 
 }
 
+  function chartShift(container){
+d3.csv("./data/countyShift.csv", function(d) {
+  return {
+    abb: d.abb,
+    rDIFF: +d.rDIFF,
+    county: d.county,
+    votes: +d.votes
+  };
+}, function(error, rows) {
+
+var data = rows; 
+var axis = [];
+var votes = [];
+
+axis[0] = 'shift_x';
+votes[0] = 'Votes';
+
+var index = 1;
+
+for (var i=0; i < data.length; i++){
+  // if (data[i].pollster != "Google Consumer Surveys" && data[i].observations >= 500){
+  // if (data[i].pollster == filter){
+  axis[index] = data[i].rDIFF; //d3.time.format("%m-%d-%Y")(new Date(data[i].entry_date));
+  votes[index] = data[i].votes;
+  index++;
+ // }
+}
+
+var  padding = {
+        top: 20,
+        right: 30,
+        bottom: 20,
+        left: 80,
+    };
+
+var chart = c3.generate({
+      bindto: container,
+      padding: padding,
+      point: {
+        r: 3
+    },
+    data: {
+        xs: { "Votes": 'shift_x' },
+        colors:  { 
+          'Votes': "#8C1B17"
+        },
+        columns: [
+            axis,
+            votes
+        ],
+        type: 'scatter'
+    },
+    legend: { show: false },
+    axis: {
+      y: {
+            padding: {bottom: 0, top:0},
+            label: "Total votes",
+            tick: {
+             format: d3.format(',.0f'),
+             count: 3
+            }
+        },
+        x: {
+            // type: 'timeseries',
+            // categories: ['Contributions'],
+            label: "GOP % change",
+            tick: {
+                // format: "%m-%d-%Y",
+                count: 3,
+                format: d3.format('+%'),
+                multiline: false
+            }
+          }
+        },
+    grid: {
+        x: {
+          lines: [
+                {value: 0, text: '0% change', position: 'end', class:'powerline'},
+          ]
+        }
+    },
+        tooltip: {
+      contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+          var $$ = this, config = $$.config,
+              titleFormat = config.tooltip_format_title || defaultTitleFormat,
+              nameFormat = config.tooltip_format_name || function (name) { return name; },
+              valueFormat = config.tooltip_format_value || defaultValueFormat,
+              text, i, title, value, name, bgcolor, raw;
+          for (i = 0; i < d.length; i++) {
+              if (! (d[i] && (d[i].value || d[i].value === 0))) { continue; }
+
+              if (! text) {
+                  title = titleFormat ? titleFormat(d[i].x) : d[i].x;
+                  raw = d[i].x;
+                  text = "<table class='" + $$.CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
+              }
+
+              var county = "";
+
+              name = nameFormat(d[i].name);
+              value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
+              bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
+
+              // console.log(title);
+
+              for (var k=0; k < data.length; k++){
+                if (data[k].rDIFF == raw){
+                  county = "<td class='value pollster' colspan='2'>" + data[k].county + ", " + data[k].abb + "</td>";
+                  break;
+                }
+              }
+
+              // if (name != "Undecided/Other") { pollster = ""; }
+
+              text += "<tr class='" + $$.CLASS.tooltipName + "-" + d[i].id + "'>";
+              text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
+              text += "<td class='value'>" + value + "</td>";
+              text += "</tr><tr>";
+              text +=  county;
+              text += "</tr>";
+              
+          }
+          return text + "</table>";
+      }
+    }
+
+});
+
+   $(".raceSwitch").click(function(event) { chart.flush(); }); 
+});
+}
+
+
+
 chartN();
 chartCounties();
 chartPVI();
 chartBuilder();
 spillChart("#chartP", data);
+chartShift("#chartR");
 
 // window.setTimeout(function () { $(".chart").hide(); }, 10000);
 
+d3.csv("./data/votes.csv", function(d) {
+  return {
+    votes: +d.votes,
+    vtd: d.vtdcode
+  };
+}, function(error, rows) {
 
+data = rows;
+
+function mapBuildPCT(container, boxContainer, chartContainer, shape, race, geo, dataCompare, index) {
+
+var width = 600,
+    height = 800,
+    centered;
+
+if (geo=="us") { var projection = d3.geo.albersUsa().scale(700).translate([330, 200]); }
+else if (geo=="mn") { var projection = d3.geo.albersUsa().scale(5037).translate([50, 970]); }
+else if (geo=="metro") { var projection = d3.geo.mercator().scale([21000]).center([-92.7,45.059134]); }
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select(container + " svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("rect")
+    .attr("class", "background")
+    .attr("width", width)
+    .attr("height", height);
+
+var g = svg.append("g");
+
+d3.json("shapefiles/" + shape, function(error, us) {
+
+  g.append("g")
+      .attr("class", "states")
+    .selectAll("path")
+      .data(us.features)
+    .enter().append("path")
+      .attr("d", path)
+      // .on("click", clicked)
+      .attr("id", function(d) { return d.properties.county_id; })
+      .attr("class", function(d){
+        if (race == "precinct"){
+        for (var i=0; i<data.length; i++){
+          if (dataCompare[i].vtd == d.properties.VTDID){
+            if (dataCompare[i].votes >= 400){ return "purple5"; }
+            else if (dataCompare[i].votes >= 320){ return "purple4"; }
+            else if (dataCompare[i].votes >= 240){ return "purple3"; }
+            else if (dataCompare[i].votes >= 160){ return "purple2"; }
+            else if (dataCompare[i].votes >= 0){ return "purple1"; }
+          }
+        }
+       }
+        return "null";
+       })
+      .style("stroke-width", function(d, i){
+        if (race == "counties"){ return "0.5px" }
+        else { return "0"; }
+        })
+      .style("stroke", "#bbb")
+      .call(d3.helper.tooltip(function(d, i){
+        if (race == "counties"){
+        for (var i=0; i < dataC.length; i++){
+            if (dataC[i].pct >= .18){ var color = "purple5"; }
+            else if (dataC[i].pct >= .15){ var color = "purple4"; }
+            else if (dataC[i].pct >= .10){ var color = "purple3"; }
+            else if (dataC[i].pct >= .05){ var color = "purple2"; }
+            else if (dataC[i].pct >= 0){ var color = "purple1"; }
+
+          if (dataC[i].county == d.properties.COUNTYNAME){
+            return "<div class='countyName'>" + d.properties.COUNTYNAME + " County</div><div class='" + color + "'>" + d3.format("%")(dataC[i].pct) + " absentee voters</div>"
+          }
+        }  
+        return "<div class='countyName'>" + d.properties.COUNTYNAME + " County</div><div>No data</div>"; 
+        }
+      }));
+
+  g.append("path")
+      //.datum(topojson.mesh(us, us.features, function(a, b) { return a !== b; }))
+      .attr("id", "state-borders")
+      .attr("d", path);
+
+});
+
+// d3.json("shapefiles/counties.json", function(error, us) {
+
+//   g.append("g")
+//       .attr("class", "states")
+//     .selectAll("path")
+//       .data(us.features)
+//     .enter().append("path")
+//       .attr("d", path)
+//       .attr("class", "null")
+//       .style("stroke-width", "2px")
+//       .style("stroke", "#000");
+
+//   g.append("path")
+//       .attr("id", "state-borders")
+//       .attr("d", path);
+
+// });
+
+var zoom = d3.behavior.zoom()
+    .on("zoom",function() {
+        g.attr("transform","translate("+ 
+            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+        g.selectAll("circle")
+            .attr("d", path.projection(projection));
+        g.selectAll("path")  
+            .attr("d", path.projection(projection)); 
+
+  });
+
+$(".zoom, .switch, #close, .mapSwitch").click(function() {
+  clicked2();
+});
+
+function clicked(d) {
+  var x, y, k;
+
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 6;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 3;
+    centered = null;
+  }
+
+  d3.selectAll("#mapMetro path, #mapState path")
+      .classed("faded", false)
+      .classed("active", false);
+
+  g.selectAll("path")
+      .classed("faded", true)
+      .classed("active", centered && function (d) { return d === centered; });
+}
+
+function clicked2(d) {
+  var x, y, k;
+
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 1;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 1;
+    centered = null;
+  }
+
+  g.selectAll("path")
+      .classed("faded", false)
+      .classed("active", centered && function (d) { return d === centered; });
+}
+
+d3.helper = {};
+
+d3.helper.tooltip = function(accessor){
+    return function(selection){
+        var tooltipDiv;
+        var bodyNode = d3.select('body').node();
+        selection.on("mouseover", function(d, i){
+            // Clean up lost tooltips
+            d3.select('body').selectAll('div.tooltip').remove();
+            // Append tooltip
+            tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px')
+                .style('position', 'absolute')
+                .style('z-index', 1001);
+            // Add text using the accessor function
+            var tooltipText = accessor(d, i) || '';
+            // Crop text arbitrarily
+            //tooltipDiv.style('width', function(d, i){return (tooltipText.length > 80) ? '300px' : null;})
+            //    .html(tooltipText);
+        })
+        .on('mousemove', function(d, i) {
+            // Move tooltip
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px');
+            var tooltipText = accessor(d, i) || '';
+            tooltipDiv.html(tooltipText);
+        })
+        .on("mouseout", function(d, i){
+            // Remove tooltip
+            tooltipDiv.remove();
+        });
+
+    };
+};
+
+$(".raceSwitch").click(function(event) { $(container + " svg").width(320); $(container + " svg").height(400); }); 
+
+var aspect = 600 / 800, chart = $(container + " svg"); //, chart2 = $(".carto svg")
+$(document).ready(function() {
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+});
+
+$(window).on("resize", function() {
+  chart.attr("style","");
+  var targetWidth = chart.parent().width();
+  chart.attr("width", targetWidth);
+  chart.attr("height", targetWidth / aspect);
+});
+
+}
+
+mapBuildPCT("#mapPrecinct", "#infobox", "#chart", "mnprecincts.json", "precinct", "mn", data, 0);
+mapBuildPCT("#mapMetro", "#infobox", "#chart", "metro_precincts.json", "precinct", "metro", data, 0);
+
+
+
+});
 
 });
 
