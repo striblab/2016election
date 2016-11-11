@@ -123,7 +123,7 @@ To secure his stunning presidential upset, Donald Trump managed, in defiance of 
 On a more granular county-level analysis of 2016's presidential vote, Trump continued the Republican trend of dominating areas outside major metropolitan cities, not just in key battlegrounds, but across the country.</div>
 <div class="chatter" id="chatter3">
 <div class="chartTitle">Tilting Minnesota</div>
-This trend was felt across Minnesota too, as only nine counties in a state that has gone Democratic in all but three elections since 1932 leaned toward Clinton. Heavy Democratic voting in Hennepin and Ramsey counties was the primary force that barely kept Minnesota in the blue column. Clinton carried the state by only about 42,000 votes, the slimmest margin of any Democrat to claim Minnesota's electoral votes.
+This trend was felt across Minnesota too, as only nine counties in a state that has gone Democratic in all but three elections since 1932 leaned toward Clinton. Heavy Democratic voting in Hennepin and Ramsey counties was the primary force that barely kept Minnesota in the blue column. Clinton carried the state by only about 43,000 votes, the slimmest margin of any Democrat to claim Minnesota's electoral votes since John F. Kennedy in 1960.
 </div>
 <div class="chatter" id="chatter4">
 <div class="chartTitle">Outstate domination</div>
@@ -155,7 +155,7 @@ A vast majority of the polls and forecasts got the election wrong, both nationwi
 </div>
 <div class="chatter" id="chatter11">
 <div class="chartTitle">A new swing state?</div>
-Minnesota, as determined by the Cook Partisan Voting Index (PVI), which averages presidential results, has long been more Democratic in presidential elections than the country's average. But that's been changing over the years, and 2016 may have finally pushed the state out of the Democratic blue wall and into the realm of swing states. While Cook hasn't yet released its ratings after this year's election, a Star Tribune estimate of comparisons between the state and national two-party vote averages from the past two elections gives Minnesota a new PVI of D+1.
+Minnesota, as determined by the Cook Partisan Voting Index (PVI), which averages presidential results, <a href="http://strib.mn/2e9DWS7" target="new_">has long been more Democratic in presidential elections than the country's average</a>. But that's been changing over the years, and 2016 may have finally pushed the state out of the Democratic blue wall and into the realm of swing states. While Cook hasn't yet released its ratings after this year's election, a Star Tribune estimate of comparisons between the state and national two-party vote averages from the past two elections gives Minnesota a new PVI of D+1.
 </div>
 <div class="chatter" id="chatter12">
 <div class="chartTitle">Turning Obama counties</div>
@@ -163,7 +163,7 @@ Across the country, Trump flipped 221 counties that had gone for Obama in 2012, 
 </div>
 <div class="chatter" id="chatter13">
 <div class="chartTitle">Shifting red</div>
-Not only did a significant number of counties flip from being Democratic to Republican, 605 counties -- 20 percent of all counties in the nation -- voted for Trump at higher rates than they did Romney in 2016, signifying high Republican turnout across the country. The scatterplot shows those 605 counties, plotting by total number of votes (vertical axis) and the percentage change in Republican votes compared to 2012 (horizontal axis).
+Not only did a significant number of counties flip from being Democratic to Republican, 605 counties -- 20 percent of all counties in the nation -- voted for Trump at higher rates than they did Romney in 2016, signifying high Republican turnout across the country. The scatterplot shows all U.S. counties that reported presidential results, plotted by total number of votes (vertical axis) and the percentage change in Republican votes compared to 2012 (horizontal axis).
 </div>
 </div>
 
@@ -1930,9 +1930,6 @@ window.setTimeout(function () {
 }); //end data stream initialization
 
 
-
-
-
 function chartCounties(){
 
 var  padding = {
@@ -1947,7 +1944,7 @@ var chartPopD = c3.generate({
       padding: padding,
       data: {
             columns: [
-                ['Clinton', .75, .90],
+                ['Clinton', .75, .42],
                 ['Trump', .90, .24]
             ],
         type: 'bar'
@@ -2245,8 +2242,8 @@ var chart = c3.generate({
     grid: {
         y: {
           lines: [
-                {value: .46, text: 'Clinton:47%', position: 'start', class:'blueline'},
-                {value: .44, text: 'Trump:45%', position: 'start', class:'redline'}
+                {value: .46, text: 'Clinton:46%', position: 'start', class:'blueline'},
+                {value: .44, text: 'Trump:44%', position: 'start', class:'redline'}
           ]
         }
     },
