@@ -432,6 +432,7 @@ var sortAll = [];
               winner[k] = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
            } //end k loop
          } //end if
+         break;
      } //end j loop
     } //end if
      }
@@ -454,6 +455,7 @@ var sortAll = [];
               voteCount[k] = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
               winner[k] = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
            } //end k loop
+           break;
          }
       } else if (state != null){
          if (dataCompare.races[i].reportingUnits[j].stateName == state){
@@ -472,6 +474,7 @@ var sortAll = [];
               voteCount[k] = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
               winner[k] = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
            } //end k loop
+           break;
          }
       } else if (district != null) {
          if (dataCompare.races[i].reportingUnits[j].fipsCode == district){
@@ -490,6 +493,7 @@ var sortAll = [];
               voteCount[k] = dataCompare.races[i].reportingUnits[j].candidates[k].voteCount;
               winner[k] = dataCompare.races[i].reportingUnits[j].candidates[k].winner;
            } //end k loop
+           break;
          }
       } 
      } //end j loop
@@ -814,7 +818,6 @@ d3.json("shapefiles/" + shape, function(error, us) {
           var d2016 = fetchData(d.properties.GEOID,null,"votesD",dataCompare,race); 
           var r2012 = fetchData(d.properties.GEOID,null,"votesR",dataCompare2012,race);
           var d2012 = fetchData(d.properties.GEOID,null,"votesD",dataCompare2012,race);
-          // var lean = fetchData(d.properties.GEOID,null,"colors",dataCompare,race);
 
           if (r2016 > d2016 && d2012 > r2012) { return "#550000"; }
           // if (r2016 > d2016 && r2012 > d2012) { return "#d34A44"; }
@@ -1921,7 +1924,7 @@ window.setTimeout(function () {
   $("#wrapper").show();
   $("#cssmenu, .sideStates").css("opacity",1);
 
-}, 10000);
+}, 5000);
 
 // });
 // });
