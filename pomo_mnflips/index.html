@@ -42,6 +42,7 @@
     .blueline, .blueline line { fill:#3585BC !important; stroke:#3585BC !important; }
     .chart .c3-line { stroke-width:5px !important; }
     .adjacent { display:inline-block; width:48%; text-align:center; }
+    .tooltip { width:100px !important; }
 
     #viewSwitch { display:none; }
     .wrapper-demo { width:100%; }
@@ -1080,7 +1081,9 @@ function clicked2(d) {
   g.selectAll("path").style("stroke-width", ".5px");
 }
 
-d3.helper = {};
+
+
+  d3.helper = {};
 
 d3.helper.tooltip = function(accessor){
     return function(selection){
@@ -1092,9 +1095,9 @@ d3.helper.tooltip = function(accessor){
             // Append tooltip
             tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
             var absoluteMousePos = d3.mouse(bodyNode);
-            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
                 .style('top', (absoluteMousePos[1] - 15)+'px')
-                .style('position', 'absolute') 
+                .style('position', 'absolute')
                 .style('z-index', 1001);
             // Add text using the accessor function
             var tooltipText = accessor(d, i) || '';
@@ -1105,7 +1108,7 @@ d3.helper.tooltip = function(accessor){
         .on('mousemove', function(d, i) {
             // Move tooltip
             var absoluteMousePos = d3.mouse(bodyNode);
-            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+            tooltipDiv.style('left', (absoluteMousePos[0] - 160)+'px')
                 .style('top', (absoluteMousePos[1] - 15)+'px');
             var tooltipText = accessor(d, i) || '';
             tooltipDiv.html(tooltipText);
@@ -1117,6 +1120,7 @@ d3.helper.tooltip = function(accessor){
 
     };
 };
+
 
 var aspect = 800 / 600, chart = $(container + " svg"); //, chart2 = $(".carto svg")
 $(document).ready(function() {
