@@ -23,7 +23,7 @@
     .sideStates { opacity:0; }
     .dataviz { width:80%; float:right; }
     .sideStates { top:162px; }
-    #chatterBox { width:100%; clear:both; height:130px; }
+    #chatterBox { width:100%; clear:both; height:100px; }
     .chatter { display:none; text-align:left; }
     #chatter1 { display:block; }
     path:hover { cursor:default !important; }
@@ -56,12 +56,16 @@
     @media (max-width:880px) { 
       #viewSwitch { display:block; }
       #cssmenu { display:none; }
+      .partyBlock { width:33%; }
       .chart { width:100%; height:auto; }
       #chartNational svg { width:100%; height:700px !important; max-height:700px !important; }
-      #chatterBox { width:100%; clear:both; height:155px; font-size:0.9em; }
+      #chatterBox { width:100%; clear:both; height:155px; font-size:0.8em; }
       text { display:block !important; opacity:1 !important; }
  /*     #cssmenu { display:block; float:none; width:100%; clear:both; }*/
       .dataviz { width:100%; float:none; display:block; }
+    }
+    @media (max-width:400px) { 
+      .chart svg { height:500px !important; }
     }
 </style>
 
@@ -2553,6 +2557,8 @@ chartPVI();
 chartBuilder();
 spillChart("#chartP", data);
 chartShift("#chartR");
+
+if ((window.width() < 500)) { $(".raceSwitch").click(function(event) { $(".chart:not(#chartNational) svg").height(500); $(".chart:not(#chartNational) svg").css("height","500px !important"); }); }
 
 // window.setTimeout(function () { $(".chart").hide(); }, 10000);
 
