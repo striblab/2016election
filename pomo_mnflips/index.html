@@ -18,7 +18,7 @@
 
 <style>
     #wrapper { display:none; }
-    body, tr { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+    body, tr, td { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
     #cssmenu { width:19%; float:left; opacity:0; }
     .sideStates { opacity:0; }
     .dataviz { width:80%; float:right; }
@@ -164,7 +164,7 @@ Minnesota, as determined by the Cook Partisan Voting Index (PVI), which averages
 </div>
 <div class="chatter" id="chatter12">
 <div class="chartTitle">Turning Obama counties</div>
-Across the country, Trump flipped 221 counties that had gone for Obama in 2012, while Clinton managed to turn only 22 that had gone for Romney. Many of Trump's pickups were in the Rust Belt and Midwest, in states where he scored his biggest upsets.
+Across the country, Trump flipped 221 counties that had gone for Obama in 2012, while Clinton managed to turn only 21 that had gone for Romney. Many of Trump's pickups were in the Rust Belt and Midwest, in states where he scored his biggest upsets.
 </div>
 <div class="chatter" id="chatter13">
 <div class="chartTitle">Shifting red</div>
@@ -318,6 +318,7 @@ Not only did a significant number of counties flip from being Democratic to Repu
 </div> <!-- end cssmenu -->
 
 </div>
+
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -815,14 +816,25 @@ d3.json("shapefiles/" + shape, function(error, us) {
          }
          else if (race == "county") { return fetchData(d.properties.GEOID,null,"colors",dataCompare,race); }
          else if (race == "countyShift") { 
-          var r2016 = fetchData(d.properties.GEOID,null,"votesR",dataCompare,race); 
-          var d2016 = fetchData(d.properties.GEOID,null,"votesD",dataCompare,race); 
-          var r2012 = fetchData(d.properties.GEOID,null,"votesR",dataCompare2012,race);
-          var d2012 = fetchData(d.properties.GEOID,null,"votesD",dataCompare2012,race);
 
-          if (r2016 > d2016 && d2012 > r2012) { return "#550000"; }
+          var rFlips = ["01005","08015","12103","13007","17003","19045","23025","23031","25005","27069","28107","35007","36077","36103","37017","37117","37127","45031","51029","53009","53015","53045","55023","05147","19111","23007","23027","19171","09009","09011","12065","18035","36105","36115","37155","38005","39043","26053","26099","27013","27023","27027","27073","27107","30005","30085","33009","34033","51057","53049","42049","45029","45065","46137","18123","21063","55011","55029","55069","55121","01035","06099","10001","13289","33017","34015","36053","42095","45017","36063","36075","36091","36113","23003","26115","27061","08055","51033","51125","55001","55043","55057","08071","17155","25027","36071","48245","44007","26073","50009","39123","36031","37153","23013","13239","17187","19089","19099","19105","19115","18091","19019","19175","26101","46031","36011","26159","36027","27055","39155","27155","37077","38073","39007","41057","26017","45011","51580","53027","19127","55033","55053","19033","19043","55099","19131","55139","19005","19015","19031","19067","46091","50001","23001","13099","17131","19187","19191","17195","17201","35061","17071","17085","36033","17095","36083","36085","36089","36099","12087","51550","28149","25013","26025","27007","31173","27087","27103","33013","27131","27151","28017","30041","35023","44003","45023","50015","18167","19017","39093","47069","19037","19039","19061","19065","39113","39133","19101","39143","19139","19179","19195","36007","38081","55021","55059","17057","55065","55091","17073","55101","55123","12111","13093","39173","21073","23019","27071","26155","41009","50021","18127","51193","55113","27099","27169","37073","27045","46037","46109","55041","26045","19057","23017","28113","55077","19097","36023","19157","50013","27047","13225","38091","42079","26085","26145","55103","08021","17015"]
+          dFlips = ["06019","13135","13151","49035","06059","06065","30031","48261","51121","42029","06057","42027","24003","49043","53075","13067","31109","37189","31055","48157","33011"]
+
+          // var r2016 = fetchData(d.properties.GEOID,null,"votesR",dataCompare,race); 
+          // var d2016 = fetchData(d.properties.GEOID,null,"votesD",dataCompare,race); 
+          // var r2012 = fetchData(d.properties.GEOID,null,"votesR",dataCompare2012,race);
+          // var d2012 = fetchData(d.properties.GEOID,null,"votesD",dataCompare2012,race);
+
+          for (var i=0; i<rFlips.length; i++){
+            if (rFlips[i] == d.properties.GEOID) {  return "#550000"; }
+          }
+          for (var i=0; i<dFlips.length; i++){
+            if (dFlips[i] == d.properties.GEOID) {  return "#0B4474"; }
+          }
+
+          // if (r2016 > d2016 && d2012 > r2012) {  return "#550000"; }
           // if (r2016 > d2016 && r2012 > d2012) { return "#d34A44"; }
-          if (d2016 > r2016 && r2012 > d2012) { return "#0B4474"; }
+          // if (d2016 > r2016 && r2012 > d2012) {  $("#spill").append("<div>" + d.properties.GEOID + "</div>"); return "#0B4474"; }
           // if (d2016 > r2016 && d2012 > r2012) { return "#3585BC"; }
 
           // return lean;
@@ -1155,12 +1167,12 @@ function mapShow(container, race){
  });
 } //end mapShow
 
-function mapSpill(race, data, data2012, dataPCT){
+function mapSpill(race, data, dataPCT){
 
   if (race == "president"){
     mapBuild("#president .geo", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
     mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "county", "us", "counties", data);
-    mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "countyShift", "us", "countiesShift", data, data2012);
+    mapBuild("#president .geo", "#districtName", "#chart", "us_counties.json", "countyShift", "us", "countiesShift", data);
     mapBuild("#president .geo", "#infobox", "#chart", "mnprecincts.json", "precincts", "us", "precincts", dataPCT);
     // electoralCarto(data);
     // mapBuild("#mapStates", "#districtName", "#chart", "us_states.json", race, "us", "country", data);
@@ -1845,7 +1857,7 @@ $(".raceSwitch").click(function(event) {
 
 //INITIAL DATAMANCY TO CONJURE RESULTS FROM THE ASSOCIATED PRESS
 var apiStringPrez = "./data/prezCounty2016.json";
-var apiStringPrez12 = "./data/prezCounty2012.json";
+// var apiStringPrez12 = "./data/prezCounty2012.json";
 var apiStringPCT = "./data/pct.json";
 // var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
 // var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-governors-by-state/full.json";
@@ -1855,7 +1867,7 @@ var apiStringPCT = "./data/pct.json";
 var apiStringEVCD = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-nebraska-maine/full.json";
 
 d3.json(apiStringPrez + '?' + (Math.floor(Math.random() * 1000)), function(error1, jsonSpillPrez) {
-d3.json(apiStringPrez12 + '?' + (Math.floor(Math.random() * 1000)), function(error1, jsonSpillPrez12) {
+// d3.json(apiStringPrez12 + '?' + (Math.floor(Math.random() * 1000)), function(error1, jsonSpillPrez12) {
 // d3.json(apiStringSen + '?' + (Math.floor(Math.random() * 1000)), function(error2, jsonSpillSen) {
 // d3.json(apiStringGov + '?' + (Math.floor(Math.random() * 1000)), function(error3, jsonSpillGov) {
 // d3.json(apiStringMNS + '?' + (Math.floor(Math.random() * 1000)), function(error4, jsonSpillMNS) {
@@ -1881,7 +1893,7 @@ function fallback(){
 
 var dataPrez = jsonSpillPrez;
 var dataPCT = jsonSpillPCT.pct;
-var dataPrez12 = jsonSpillPrez12;
+// var dataPrez12 = jsonSpillPrez12;
 // var dataSen = jsonSpillSen;
 // var dataGov = jsonSpillGov;
 // var dataMNS = jsonSpillMNS;
@@ -1889,7 +1901,7 @@ var dataPrez12 = jsonSpillPrez12;
 // var dataHouse = jsonSpillHouse;
 var dataEVCD = jsonSpillEVCD;
 
-mapSpill("president",dataPrez,dataPrez12,dataPCT);
+mapSpill("president",dataPrez,dataPCT);
 // if ($(window).width() > 500) { mapSpill("senate",dataSen); }
 // if ($(window).width() > 500) { mapSpill("governors",dataGov); }
 // mapSpill("mnsenate",dataMNS);
@@ -1935,7 +1947,7 @@ window.setTimeout(function () {
 // });
 // });
 // });
-});
+// });
 });
 });
 }); //end data stream initialization
