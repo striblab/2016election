@@ -2577,7 +2577,7 @@ chartBuilder();
 spillChart("#chartP", data);
 chartShift("#chartR");
 
-if ((window.width() < 500)) { $(".raceSwitch").click(function(event) { $(".chart:not(#chartNational) svg").height(500); $(".chart:not(#chartNational) svg").css("height","500px !important"); }); }
+if (($(window).width() < 500)) { $(".raceSwitch").click(function(event) { $(".chart:not(#chartNational) svg").height(500); $(".chart:not(#chartNational) svg").css("height","500px !important"); }); }
 
 // window.setTimeout(function () { $(".chart").hide(); }, 10000);
 

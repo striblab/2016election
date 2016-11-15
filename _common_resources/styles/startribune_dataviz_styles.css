@@ -208,7 +208,7 @@
   font-weight: normal;
 }
 
-  ::selection { background: #ddd; }
+  ::selection { background: #bbb !important; }
 
   body { overflow-x:hidden; }
   a { color:#ccc; text-decoration:none; }
@@ -349,7 +349,6 @@
 
 /*FANCY DROPDOWNS*/
   *, *:after, *:before { box-sizing:border-box; margin:0; moz-box-sizing:border-box; padding:0; webkit-box-sizing:border-box; }
-  ::selection { background:transparent; }
   ::-moz-selection { background:transparent; }
   .wrapper-demo { font-weight:400; zoom:1; z-index:999; display:inline-block; width:100%; }
   .wrapper-demo:after { clear:both; content:""; display:table; }
@@ -473,25 +472,39 @@
   .grayblue5 { fill:#556E7F; background-color:#556E7F; }
   .grayblue6 { fill:#2C3942; background-color:#2C3942; }
 
+/*PURPLE SHADED RAMP*/
+  .purple5 { fill:#4c1926; background-color:#4c1926; color:#ffffff; }
+  .purple4 { fill:#693c46; background-color:#693c46; color:#ffffff; }
+  .purple3 { fill:#865f67; background-color:#865f67; color:#ffffff; }
+  .purple2 { fill:#a3858b; background-color:#a3858b; color:#ffffff; }
+  .purple1 { fill:#C1ACB1; background-color:#C1ACB1; }
+
 /*POLITICAL SHADED RAMP*/
   .gopDark { fill:#9C0004; background-color:#9C0004; }
   .gopLight { fill:#F2614C; background-color:#F2614C; }
   .neutral { fill:#F7F7F7; background-color:#F7F7F7; }
   .dflLight { fill:#67B4C2; background-color:#67B4C2; }
   .dflDark { fill:#0D4673; background-color:#0D4673; }
-  .republican { color:#9C0004; fill:#9C0004 !important; pointer-events: all; font-weight:bold; }
-  .r1 { background-color:#FF8572; fill:#FF8572 !important; color:white !important; pointer-events: all; font-weight:bold; }
-  .r2 { background-color:#F2634C; fill:#F2634C !important; color:white !important; pointer-events: all; font-weight:bold; }
-  .r3 { background-color:#9C0004; fill:#9C0004 !important; color:white !important; pointer-events: all; font-weight:bold; }
-  .r4 { background-color:#4E0002; fill:#4E0002 !important; color:white !important; pointer-events: all; font-weight:bold; }
-  .mid { background-color:#ddd; fill:#ddd !important; color:black !important; pointer-events: all; font-weight:bold; }
-  .democrat { color:#0D4773; fill:#0D4773 !important; pointer-events: all; font-weight:bold; }
-  .d1 { background-color:#67B4C2; fill:#67B4C2 !important; color:white !important; pointer-events: all; font-weight:bold; }
-  .d2 { background-color:#4192A1; fill:#4192A1 !important; color:white !important; pointer-events: all; font-weight:bold; }
-  .d3 { background-color:#0D4773; fill:#0D4773 !important; color:white !important; pointer-events: all; font-weight:bold; }
-  .d4 { background-color:#022642; fill:#022642 !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .republican { fill:#8C1B17 !important; pointer-events: all; font-weight:bold; color:#fff; }
+  .rlikely { background-color:#A5484D; fill:#A5484D !important; pointer-events: all; font-weight:bold; }
+  .rlean { background-color:#f7816E; fill:#f7816E !important; pointer-events: all; font-weight:bold; }
+  .r1 { background-color:#C68985; fill:#C68985 !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .r2 { background-color:#A5484D; fill:#A5484D !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .r3 { background-color:#A52129; fill:#A52129 !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .r4 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .r0 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .gray3 { color:white !important; pointer-events: all; font-weight:bold; }
+  .mid { background-color:#aaa; fill:#aaa !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .democrat { fill:#3F88C5 !important; pointer-events: all; font-weight:bold; color:#fff;  }
+  .dlikely { background-color:#5ca5c3; fill:#5ca5c3 !important; pointer-events: all; font-weight:bold; }
+  .dlean { background-color:#72A9D6; fill:#72A9D6 !important; pointer-events: all; font-weight:bold; }
+  .d1 { background-color:#ABCEE8; fill:#ABCEE8 !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .d2 { background-color:#5ca5c3; fill:#5ca5c3 !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .d3 { background-color:#4f97c4; fill:#4f97c4 !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .d4 { background-color:#3f88c5; fill:#3f88c5 !important; color:white !important; pointer-events: all; font-weight:bold; }
+  .d0 { background-color:#3F88C5; fill:#3F88C5 !important; color:white !important; pointer-events: all; font-weight:bold; }
 
-/*background-colorBLIND SAFE DIVERGENCE RAMP*/
+/*BLIND SAFE DIVERGENCE RAMP*/
   .negDark { fill:#271D42; background-color:#271D42; color:#fff; }
   .negMid { fill:#61538F; background-color:#61538F; color:#fff; }
   .negLight { fill:#AFA8C9; background-color:#AFA8C9; }

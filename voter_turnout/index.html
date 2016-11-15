@@ -26,8 +26,8 @@
     .mid { background-color:#aaa; fill:#aaa !important; color:black !important; pointer-events: all; font-weight:bold; }
     .democrat text { background-color:#3F88C5; fill:#3F88C5 !important; pointer-events: all; color:#3F88C5;  }
     .democrat line { background-color:#3F88C5; fill:#3F88C5 !important; stroke:#3F88C5 !important; pointer-events: all; color:#3F88C5;  }
-
-    .chart { display:none; }
+/*
+    .chart { display:none; }*/
 
     @media (max-width:920px) { 
       .map { display:block; width:100%; text-align:center; }
@@ -129,14 +129,16 @@
 
 $.urlParam = function(name){
   var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-  return results[1] || 0;
+  if (results != null) { return results[1] || 0; }
+  else { return null; }
 }
 
 var selected = $.urlParam('chart');
 
+if (selected != null){
 $(".chart").hide();
 $("#" + selected).show();
-
+}
 
 function chartBuild(){
 
@@ -212,7 +214,7 @@ var chartPop = c3.generate({
                 },
             x: {
                  tick: {
-                     values: [1990,1996,2000,2004,2008,2012,2014],
+                     values: [1990,1996,2000,2004,2008,2012,2016],
                      count: 7
                 }
             }
@@ -233,6 +235,7 @@ var chartPop = c3.generate({
                 {value: '2010', text: 'Midterm: GOP House', position: 'start', class: 'republican'},
                 {value: '2012', text: 'Presidential: DFL House', position: 'start', class: 'democrat'},
                 {value: '2014', text: 'Midterm: GOP House', position: 'start', class: 'republican'},
+                {value: '2016', text: 'Presidential: GOP House', position: 'start', class: 'republican'},
             ]
         }
     }
@@ -310,7 +313,7 @@ var chartT = c3.generate({
                 },
             x: {
                  tick: {
-                     values: [1950,1964,1980,1996,2012],
+                     values: [1950,1964,1980,1996,2016],
                      count: 5
                 }
             }
@@ -618,7 +621,7 @@ var chartT = c3.generate({
                 },
             x: {
                  tick: {
-                     values: [1950,1964,1980,1996,2012],
+                     values: [1950,1964,1980,1996,2016],
                      count: 5
                 }
             }
@@ -644,7 +647,8 @@ var chartT = c3.generate({
                 {value: '2000', text: 'Presidential', position: 'start'},
                 {value: '2004', text: 'Presidential', position: 'start'},
                 {value: '2008', text: 'Presidential', position: 'start'},
-                {value: '2012', text: 'Presidential', position: 'start'}
+                {value: '2012', text: 'Presidential', position: 'start'},
+                {value: '2016', text: 'Presidential', position: 'start'}
             ]
         }
     },

@@ -70,7 +70,7 @@
     <div class="adjacent" id="house">
     <div class="chartTitle">U.S. Presidency</div>
     <div class="powerbar">
-    <div class="bar d democrat" style="width:100%; text-align:center;">President Hillary Clinton (D)</div>
+    <div class="bar d republican" style="width:100%; text-align:center;">President Donald Trump (R)</div>
     </div>
     </div>
 
@@ -79,7 +79,7 @@
     <div class="adjacent chart" id="house">
     <div class="chartTitle">U.S. House Seats</div>
     <div class="powerbar">
-    <div class="bar d democrat" style="width:43%; padding-left:7px;">188</div><div class="bar i mid" style="width:0;">&nbsp;</div><div class="bar r republican" style="width:56%; padding-right:7px;">247</div>
+    <div class="bar d democrat" style="width:44%; padding-left:7px;">193</div><div class="bar i mid" style="width:0;">&nbsp;</div><div class="bar r republican" style="width:55%; padding-right:7px;">239</div>
     </div>
     <div class="map" id="houseMap"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
         <div class="legends">
@@ -105,7 +105,7 @@
     <div class="adjacent chart" id="senate">
     <div class="chartTitle">U.S. Senate Seats</div>
     <div class="powerbar">
-    <div class="bar d democrat" style="width:44%; padding-left:7px;">44</div><div class="bar i mid" style="width:2%">2</div><div class="bar r republican" style="width:53%; padding-right:7px;">54</div>
+    <div class="bar d democrat" style="width:44%; padding-left:7px;">48</div><div class="bar i mid" style="width:2%">2</div><div class="bar r republican" style="width:53%; padding-right:7px;">51</div>
     </div>
     <div class="map" id="senateMap"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
             <div class="legends" style="width:350px !important;">
@@ -135,7 +135,7 @@
     <div class="chartTitle">State Legislative Chambers</div>
     <div class="powerbar">
 <!--     <div class="bar d democrat">12</div><div class="bar i mid">8</div><div class="bar r republican">30</div> -->
-    <div class="bar d democrat" style="width:31%; padding-left:7px;">36</div><div class="bar i mid" style="width:2%">1</div><div class="bar r republican" style="width:66%; padding-right:7px;">64</div>
+    <div class="bar d democrat" style="width:33%; padding-left:7px;">33</div><div class="bar i mid" style="width:2%">1</div><div class="bar r republican" style="width:65%; padding-right:7px;">65</div>
     </div>
     <div class="map" id="legMap"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
             <div class="legends" style="width:350px !important;">
@@ -148,8 +148,8 @@
                   <span style='background:#fff;'>DEM</span>
                   <span class='p3'></span>
                   <span style='background:#fff;'>SPLIT</span>
-                  <span class='mid'></span>
-                  <span style='background:#fff;'>BICAMERAL</span>
+<!--                   <span class='mid'></span>
+                  <span style='background:#fff;'>BICAMERAL</span> -->
                 </nav>
               </span>
             </div>
@@ -164,7 +164,7 @@
     <div class="adjacent chart" id="gov">
     <div class="chartTitle">Governorships</div>
     <div class="powerbar">
-    <div class="bar d democrat" style="width:36%; padding-left:7px;">18</div><div class="bar i mid" style="width:2%">1</div><div class="bar r republican" style="width:61%; padding-right:7px;">31</div>
+    <div class="bar d democrat" style="width:30%; padding-left:7px;">15</div><div class="bar i mid" style="width:2%">1</div><div class="bar r republican" style="width:66%; padding-right:7px;">33</div>
     </div>
     <div class="map" id="govMap"><svg width="800" height="600" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid"></svg></div>
             <div class="legends">
@@ -278,7 +278,7 @@ cartogram[index] = {
                     else if (d.state_postal == "GA") { return "d3"; }
                     else if (d.state_postal == "HI") { return "d3"; }
                     else if (d.state_postal == "ID") { return "r3"; }
-                    else if (d.state_postal == "IL") { return "p3"; }
+                    else if (d.state_postal == "IL") { return "d3"; }
                     else if (d.state_postal == "IN") { return "p3"; }
                     else if (d.state_postal == "IA") { return "r3"; }
                     else if (d.state_postal == "KS") { return "r3"; }
@@ -294,7 +294,7 @@ cartogram[index] = {
                     else if (d.state_postal == "MT") { return "p3"; }
                     else if (d.state_postal == "NE") { return "r3"; }
                     else if (d.state_postal == "NV") { return "p3"; }
-                    else if (d.state_postal == "NH") { return "p3"; }
+                    else if (d.state_postal == "NH") { return "d3"; }
                     else if (d.state_postal == "NJ") { return "d3"; }
                     else if (d.state_postal == "NM") { return "d3"; }
                     else if (d.state_postal == "NY") { return "d3"; }
@@ -319,13 +319,13 @@ cartogram[index] = {
                 }
                 if (race == "leg"){
                       if (d.state_postal == "AL") { return "r3"; }
-                    else if (d.state_postal == "AK") { return "r3"; }
+                    else if (d.state_postal == "AK") { return "p3"; }
                     else if (d.state_postal == "AZ") { return "r3"; }
                     else if (d.state_postal == "AR") { return "r3"; }
                     else if (d.state_postal == "CA") { return "d3"; }
                     else if (d.state_postal == "CO") { return "p3"; }
                     else if (d.state_postal == "CT") { return "d3"; }
-                    else if (d.state_postal == "DC") { return "d3"; }
+                    else if (d.state_postal == "DC") { return "none"; }
                     else if (d.state_postal == "DE") { return "d3"; }
                     else if (d.state_postal == "FL") { return "r3"; }
                     else if (d.state_postal == "GA") { return "r3"; }
@@ -333,23 +333,23 @@ cartogram[index] = {
                     else if (d.state_postal == "ID") { return "r3"; }
                     else if (d.state_postal == "IL") { return "d3"; }
                     else if (d.state_postal == "IN") { return "r3"; }
-                    else if (d.state_postal == "IA") { return "p3"; }
+                    else if (d.state_postal == "IA") { return "r3"; }
                     else if (d.state_postal == "KS") { return "r3"; }
-                    else if (d.state_postal == "KY") { return "p3"; }
+                    else if (d.state_postal == "KY") { return "r3"; }
                     else if (d.state_postal == "LA") { return "r3"; }
                     else if (d.state_postal == "ME") { return "p3"; }
                     else if (d.state_postal == "MD") { return "d3"; }
                     else if (d.state_postal == "MA") { return "d3"; }
                     else if (d.state_postal == "MI") { return "r3"; }
-                    else if (d.state_postal == "MN") { return "p3"; }
+                    else if (d.state_postal == "MN") { return "r3"; }
                     else if (d.state_postal == "MS") { return "r3"; }
                     else if (d.state_postal == "MO") { return "r3"; }
                     else if (d.state_postal == "MT") { return "r3"; }
-                    else if (d.state_postal == "NE") { return "mid"; }
-                    else if (d.state_postal == "NV") { return "r3"; }
+                    else if (d.state_postal == "NE") { return "r3"; }
+                    else if (d.state_postal == "NV") { return "d3"; }
                     else if (d.state_postal == "NH") { return "r3"; }
                     else if (d.state_postal == "NJ") { return "d3"; }
-                    else if (d.state_postal == "NM") { return "p3"; }
+                    else if (d.state_postal == "NM") { return "d3"; }
                     else if (d.state_postal == "NY") { return "d3"; }
                     else if (d.state_postal == "NC") { return "r3"; }
                     else if (d.state_postal == "ND") { return "r3"; }
@@ -366,9 +366,9 @@ cartogram[index] = {
                     else if (d.state_postal == "VT") { return "d3"; }
                     else if (d.state_postal == "VA") { return "r3"; }
                     else if (d.state_postal == "WA") { return "p3"; }
-                    else if (d.state_postal == "WV") { return "d3"; }
-                    else if (d.state_postal == "WI") { return "d3"; }
-                    else if (d.state_postal == "WY") { return "d3"; }                  
+                    else if (d.state_postal == "WV") { return "r3"; }
+                    else if (d.state_postal == "WI") { return "r3"; }
+                    else if (d.state_postal == "WY") { return "r3"; }                  
                 }
                 if (race == "gov"){
                     if (d.state_postal == "AL") { return "r3"; }
@@ -378,7 +378,7 @@ cartogram[index] = {
                     else if (d.state_postal == "CA") { return "d3"; }
                     else if (d.state_postal == "CO") { return "d3"; }
                     else if (d.state_postal == "CT") { return "d3"; }
-                    else if (d.state_postal == "DC") { return "d3"; }
+                    else if (d.state_postal == "DC") { return "none"; }
                     else if (d.state_postal == "DE") { return "d3"; }
                     else if (d.state_postal == "FL") { return "r3"; }
                     else if (d.state_postal == "GA") { return "r3"; }
@@ -397,14 +397,14 @@ cartogram[index] = {
                     else if (d.state_postal == "MN") { return "d3"; }
                     else if (d.state_postal == "MS") { return "r3"; }
                     else if (d.state_postal == "MO") { return "r3"; }
-                    else if (d.state_postal == "MT") { return "r3"; }
+                    else if (d.state_postal == "MT") { return "d3"; }
                     else if (d.state_postal == "NE") { return "r3"; }
                     else if (d.state_postal == "NV") { return "r3"; }
-                    else if (d.state_postal == "NH") { return "d3"; }
+                    else if (d.state_postal == "NH") { return "r3"; }
                     else if (d.state_postal == "NJ") { return "r3"; }
                     else if (d.state_postal == "NM") { return "r3"; }
                     else if (d.state_postal == "NY") { return "d3"; }
-                    else if (d.state_postal == "NC") { return "r3"; }
+                    else if (d.state_postal == "NC") { return "d3"; }
                     else if (d.state_postal == "ND") { return "r3"; }
                     else if (d.state_postal == "OH") { return "r3"; }
                     else if (d.state_postal == "OK") { return "r3"; }
@@ -416,7 +416,7 @@ cartogram[index] = {
                     else if (d.state_postal == "TN") { return "r3"; }
                     else if (d.state_postal == "TX") { return "r3"; }
                     else if (d.state_postal == "UT") { return "r3"; }
-                    else if (d.state_postal == "VT") { return "d3"; }
+                    else if (d.state_postal == "VT") { return "r3"; }
                     else if (d.state_postal == "VA") { return "d3"; }
                     else if (d.state_postal == "WA") { return "d3"; }
                     else if (d.state_postal == "WV") { return "d3"; }
@@ -1159,7 +1159,7 @@ var legChart = c3.generate({
                 },
             x: {
                  tick: {
-                     values: [1938,1950,1960,1970,1980,1990,2000,2014],
+                     values: [1938,1950,1960,1970,1980,1990,2000,2016],
                      count: 8
                 }
             }
@@ -1249,7 +1249,7 @@ var govChart = c3.generate({
                 },
             x: {
                  tick: {
-                     values: [1922,1930,1950,1960,1970,1980,1990,2000,2014],
+                     values: [1922,1930,1950,1960,1970,1980,1990,2000,2016],
                      count: 9
                 }
             }
@@ -1339,7 +1339,7 @@ var senateChart = c3.generate({
                 },
             x: {
                  tick: {
-                     values: [1854,1880,1900,1920,1940,1960,1980,2000,2014],
+                     values: [1854,1880,1900,1920,1940,1960,1980,2000,2016],
                      count: 9
                 }
             }
@@ -1429,7 +1429,7 @@ var houseChart = c3.generate({
                 },
             x: {
                  tick: {
-                     values: [1854,1880,1900,1920,1940,1960,1980,2000,2014],
+                     values: [1854,1880,1900,1920,1940,1960,1980,2000,2016],
                      count: 9
                 }
             }
