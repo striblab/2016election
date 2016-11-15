@@ -147,11 +147,11 @@
 
 d3.json("./data/polls.json", function(error, json) {
 
+data = json.polls;
+
 var url = window.location.href; 
 var captured = /poll=([^&]+)/.exec(url)[1];
 var poll = captured ? captured : 'test';
-
-data = json.polls;
 
 //GENERATE POLL SELECTION MENU
 var holder = "test";

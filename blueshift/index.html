@@ -196,7 +196,7 @@
 
 <div class="slide" id="electoral">
 <div class="chatterHead">Minnesota: A state to watch?</div>
-<div class="chatter">While Minnesota is still listed as a likely Democrat state in November, it currently rests outside the column of solidly blue states.</div>
+<div class="chatter">While Minnesota is still listed as a likely Democrat state in November, it rested outside the column of solidly blue states prior to the 2016 election.</div>
 <p></p>
 <div id="cartogram">
 <svg id="FULLCARTO" version="1.1" x="0px" y="0px" width="90%" viewBox="0 0 600 450" enable-background="new 0 0 860 696.572" xml:space="preserve">
@@ -1165,7 +1165,7 @@
 
 <div class="slide" id="blueshift">
 <div class="chatterHead">Gradual shifting</div>
-<div class="chatter">Minnesota's PVI score has dramatically pulled closer to even since its Democrat heights in the 1980s.</div>
+<div class="chatter">Minnesota's PVI score has dramatically pulled closer to even since its Democrat heights in the 1980s. After a close race in 2016, it drew even closer to even.</div>
 <div id="chartH"></div>
 </div>
 
@@ -1253,7 +1253,7 @@ var chart = c3.generate({
         x: 'x',
         columns: [
             ['x',1860,1864,1868,1872,1876,1880,1884,1888,1892,1896,1900,1904,1908,1912,1916,1920,1924,1928,1932,1936,1940,1944,1948,1952,1956,1960,1964,1968,1972,1976,1980,1984,1988,1992,1996,2000,2004,2008,2012,2016],
-            ['DEM Win',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,11,11,11,11,11,null,null,11,10,10,null,10,10,10,10,10,10,10,10,10,10,null],
+            ['DEM Win',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,11,11,11,11,11,null,null,11,10,10,null,10,10,10,10,10,10,10,10,10,10,10],
             ['GOP Win',4,4,4,5,5,5,7,7,9,9,9,11,11,null,12,12,12,12,null,null,null,null,null,11,11,null,null,null,10,null,null,null,null,null,null,null,null,null,null,null],
             ['PROG Win',null,null,null,null,null,null,null,null,null,null,null,null,null,12,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]
         ],
@@ -1272,7 +1272,7 @@ var chart = c3.generate({
         },
         x: {
             tick: {
-                values: ['1860', '1900', '1948', '1972', '2012'],
+                values: ['1860', '1900', '1948', '1972', '2016'],
                 count: 5,
                 multiline: false
             },
@@ -1320,12 +1320,12 @@ var chartH = c3.generate({
     data: {
         x: 'x',
         columns: [
-            ['x',1982,1986,1990,1994,1998,2002,2006,2010,2014],
+            ['x',1982,1986,1990,1994,1998,2002,2006,2010,2014,2018],
             // ['MN DEM Vote %',0.549,0.465,0.497,0.529,0.435,0.511,0.479,0.511,0.541,0.527],
             // // ['MN GOP Vote %',0.420,0.425,0.495,0.459,0.319,0.350,0.455,0.477,0.438,0.450],
             // ['National DEM Vote %',0.501,0.410,0.406,0.457,0.430,0.492,0.484,0.482,0.529,0.51]
             // ['Minnesota PVI Score',5.15,7.3,8.15,3.85,1.2,0.7,1.2,2.05,1.45]
-            ['Minnesota PVI',7,8,8,6,4,3,2,2,2]
+            ['Minnesota PVI',7,8,8,6,4,3,2,2,2,1]
         ],
         type: 'area'
     },
