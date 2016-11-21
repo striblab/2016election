@@ -129,8 +129,8 @@
         }
     </style>
 </head>
-<body>
 
+<body>
 <div id="wrapper">
 
 <div id="leg" class="raceType">
@@ -142,7 +142,7 @@
   <div id="mapMetroS" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
   <div class="chatter">Total expenditures: Senate districts</div>
   <div class="quantize">
-<span class='legend' id="aidQ">
+<span class='legend'>
   <nav class='legend clearfix'>
     <span style='background:#fff;'>Less</span>
     <span class="purple1"></span>
@@ -151,6 +151,7 @@
     <span class="purple4"></span>
     <span class="purple5"></span>
     <span style='background:#fff;'>More</span>
+  </nav>
 </span>
 </div>
 </div>
@@ -160,7 +161,7 @@
   <div id="mapMetroH" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
   <div class="chatter">Total expenditures: House districts</div>
   <div class="quantize">
-<span class='legend' id="aidQ">
+<span class='legend'>
   <nav class='legend clearfix'>
     <span style='background:#fff;'>Less</span>
     <span class="purple1"></span>
@@ -169,6 +170,7 @@
     <span class="purple4"></span>
     <span class="purple5"></span>
     <span style='background:#fff;'>More</span>
+  </nav>
 </span>
 </div>
 </div>
@@ -191,13 +193,6 @@
 
 <div id="races" class="results">
 <div id="fundraising">Candidate fundraising</div>
-<!-- <div id="partyD" class="adjacent"></div>
-<div id="partyR" class="adjacent"></div> -->
-<!-- <div id="mapD" class="adjacent"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
-<div id="mapR" class="adjacent"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div> -->
-<!-- <div id="versus"><div class="linebar" style="border-left:1px solid #000; padding-bottom:6px; margin-top:3px;"></div><div class="vs">VS</div><div class="linebar" style="border-right:1px solid #000; padding-bottom:6px; margin-top:3px;"></div></div> -->
-
-<!-- <div class="chartTitle">Candidate fundraising</div> -->
 
 <div id="candD" class="adjacent"></div>
 <div id="candR" class="adjacent"></div>
@@ -208,8 +203,6 @@
 <div id="breakdownD" class="adjacent"></div>
 <div id="breakdownR" class="adjacent"></div>
 <div id="listLabels">
-<!-- <h3 id="listDLabel" class="adjacent">DFL Donors</h3>
-<h3 id="listRLabel" class="adjacent">GOP Donors</h3> -->
 </div>
 <div id="listD" class="adjacent"></div>
 <div id="listR" class="adjacent"></div>
@@ -219,16 +212,13 @@
 </div>
 
 <div class="offlink"><a href="http://www.gis.leg.mn/iMaps/districts/" target="new_">Who represents me?</a></div>
-<div id="filter"><input type="search" id="filter_box" placeholder="Search by district, candidate or chamber"></input></div>
+<div id="filter"><input type="search" id="filter_box" placeholder="Search by district, candidate or chamber"></div>
 <div class="breaker"></div>
-
-<!-- <div id="filterButtons"><button class="switchFilter selected">All</button><button class="switchFilter">Watching</button><button class="switchFilter">Open</button></div> -->
 
 <div id="raceSelection">
 <div class="cell">District</div><div class="cell democrat">DFL</div><div class="cell republican">GOP</div><div class="cell kill">Chamber</div>
 </div>
 </div>
-
 
 </div>
 
@@ -236,8 +226,7 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script>
 
@@ -697,6 +686,5 @@ $("#leftSide").hide();
 });
 
 </script>
-
 </body>
 </html>

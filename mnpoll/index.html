@@ -50,46 +50,21 @@
 
   .forNum { color:#00222D; }
   .againstNum { color:#315F66; }
-/*  .nv-legendWrap { -ms-transform:translate(-100%,-30px); -webkit-transform:translate(-100%,-30px); transform:translate(-100%,-30px); }*/
 
   .bigNum { font-family:3em; font-family:"Benton Sans" !important; text-align:center; font-weight:900; padding-top:15px; padding-left:15px; padding-right:15px; padding-bottom:5px; }
-
-  /*#question { display:none; }*/
-
-/*  @media (max-width:845px) {
-  .legendBox { text-align:left; }*/
   .result { display:inline-block; text-align:center; margin:0; width:48%; white-space:nowrap; }
-/*  .icon, .category { text-align:left; }*/
-/*  }*/
+
   @media (max-width:740px) {
-/*   .nv-legendWrap { display:none !important; }*/
    .adjacent, #chartBox0 { display:block !important; width:100% !important; }
   }
-/*   @media only screen and (min-device-width: 200px) and (max-device-width: 640px) {
- .bigNum { font-size:2.5em;}
- .forLabel,.againstLabel{font-size:.85em;white-space:normal;}
- #bigResults { text-align:center; width:100%; margin:0; }
- #wrapper{width:100%;}
- #primary_gop_0{height:313px;}
- #primary_gop_0 .nvd3.nv-wrap.nv-multiBarHorizontalChart{transform: translate(40px,172px);}
- }*/
+
   </style>
 </head>
 <body>
 
 <div id="wrapper">
 
-
 <div class="clearfix"></div>
-<!-- <div id="menu">
-<button id="all" class="myButton2">All</button>
-<button id="party" class="myButton2">Party</button>
-<button id="income" class="myButton2">Income</button>
-<button id="region" class="myButton2">Region</button>
-<button id="gender" class="myButton2">Gender</button>
-<button id="age" class="myButton2">Age</button>
-<button id="race" class="myButton2">Race</button>
-</div> -->
 
 <div id="question"></div>
 
@@ -118,7 +93,6 @@
 
 </div>
 
-
 <div id="selector">
   <section class="main">
         <div class="wrapper-demo">
@@ -129,12 +103,11 @@
         ​</div>
 </section>
 </div>
-
-</body>
+</div>
 
 <!--SCRIPTS-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/nvd3-master/build/nv.d3.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/utils.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/tooltip.js"></script>
@@ -143,8 +116,6 @@
 <script src="../_common_resources/charts/nvd3-master/test/stream_layers.js"></script>
 
 <script>
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1T7sXD_Vvp60707sC6g_Ws7trmpsMHXwz2dl7S-oW67k&sheet=polls", function(error, json) {
-
 d3.json("./data/polls.json", function(error, json) {
 
 data = json.polls;
@@ -174,14 +145,6 @@ $(document).ready(function() {
   });
 });
 
-// redrawGraph = function(data) {
-
-//     d3.select('#pie1 svg').datum(data).transition().duration(500).call(chart0);
-//     nv.utils.windowResize(chart0.update);
-// };
-
-// colors = ['#2c3942', '#556e7f', '#7f98aa', '#a8b9c5', '#c6d1d9', '#dae1e7'];
-// colors = ['#002222', '#315F66', '#8F9ABC', '#B8ABD6', '#B5BAF2', '#E2DBCE'];
 colors = ['#000000', '#737373', '#969696', '#bdbdbd', '#d9d9d9', '#f0f0f0'];
 
 var tag = poll;
@@ -1152,3 +1115,5 @@ $({countNum: $('.for').text()}).animate({countNum: Math.round(againstNum)}, {
 
       });
 </script>
+</body>
+</html>

@@ -5,185 +5,85 @@
   <title>Star Tribune election results</title>
   <meta name="generator" content="BBEdit 10.5" />
   
-  
 <style type="text/css">
+    body { font-family:sans-serif; }
+    #demBarPres { width:45.5%; }
+    #repBarPres { width:35.2%; }
+    #presReport { }
+    #dem-US-house { width:22%; }
+    #rep-US-house { width:42%; }
+    #US-house-report { }
+    #dem-US-senate { width:42%; }
+    #rep-US-senate { width:32%; }
+    #US-senate-report { }
+    #dem-MN-senate { width:22%; }
+    #rep-MN-senate { width:42%; }
+    #MN-senate-report { }
+    #dem-MN-house { width:42%; }
+    #rep-MN-house { width:32%; }
+    #MN-house-report { }
+    #local-race { }
+    #local-race-dem { }
+    #local-race-rep { }
+    #local-prop { }
+    #local-race-pro { }
+    #local-race-con { }
+    .resultsBar { background-color:white; width:320px; }
+    #snapshot { height:480px; }
+    .resultsLogo { display:block; float:left; font-size:12px; height:45px; letter-spacing:.25px; margin-bottom:8px; width:100%; }
+    .logoLeft { float:left; font-weight:bold; margin:18px 5px 0 0; }
+    .logoRight { float:right; margin-top:18px; }
+    .resultsLogoSVG { float:left; height:45px; width:45px; }
+    .resultsPres { background-color:#fff; float:left; margin-bottom:24px; width:100%; }
+    .resultsCong { background-color:white; float:left; min-height:60px; padding:0 0px; width:100%; }
+    .resultsCongBreaks { background-color:white; float:left; height:auto; margin:0 0 24px 0; padding-right:8%; width:46%; }
+    .resultsCongRight { padding-right:0; }
+    .resultsLocal { float:left; margin-top:5px; padding:0; width:46%; }
+    .localLeft { padding-right:8%; }
+    .balanceBar { background-color:#ccc; display:block; float:left; height:10px; margin-bottom:5px; position:relative; width:100%; }
+    .demBar { background-color:#21409A; float:left; height:10px; z-index:8; }
+    .repBar { background-color:#DA2128; float:right; height:10px; z-index:8; }
+    .numBig { font-size:28px; font-weight:bold; margin-bottom:0em; }
+    .numMed { font-size:18px; font-weight:bold; margin-bottom:2px; }
+    .numLeft { float:left; }
+    .numRight { float:right; text-align:right; }
+    .demBlue { color:#21409A; }
+    .repRed { color:#DA2128; }
+    .hashMark { background:#000; height:13px; left:50%; position:absolute; top:-3px; width:1px; }
+    .label { font-size:10px; font-weight:bold; height:12px; line-height:10px; margin-bottom:6px; }
+    .labelPres { margin-bottom:0; text-align:center; }
+    .labelSm { font-size:9px; font-weight:bold; height:12px; line-height:9px; }
+    .labelClinton { float:left; width:31%; }
+    .labelTrump { float:right; text-align:right; width:25%; }
+    .labelD { float:left; width:15%; }
+    .labelR { float:right; text-align:right; width:15%; }
+    .reporting { color:#757575; display:block; font-size:9px; height:12px; line-height:9px; text-align:center; }
+    .presReport { float:right; min-width:44%; }
+    .congReport { float:right; min-width:70%; }
+    .localReport { float:left; text-align:left; width:100%; }
+    .toWin { color:#000; display:block; font-size:9px; height:12px; line-height:9px; position:absolute; text-align:center; }
+    .toWinPres { left:150px; top:-24px; width:auto; }
+    .toWinUSsen { left:57px; top:-24px; width:auto; }
+    .toWinUShouse { left:66px; top:-15px; width:auto; }
+    .toWinMNsen { left:68px; top:-15px; width:auto; }
+    .toWinMNhouse { left:68px; top:-15px; width:auto; }
+    .localItemOne { border-bottom:1px solid #ccc; float:left; font-size:10px; font-weight:bold; line-height:11px; padding-bottom:4px; width:100%; }
+    .localItemTwo { float:left; font-size:10px; font-weight:bold; line-height:11px; padding:4px 0 8px 0; width:100%; }
+    .localCheck { float:left; width:12%; }
+    .localName { float:left; font-weight:normal; width:70%; }
+    .localResult { float:left; text-align:right; width:18%; }
+    #done { display:none; }
 
-body {font-family:sans-serif;}  
-  
+    @media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
 
-
-#demBarPres {width:45.5%;}
-#repBarPres {width:35.2%;}
-#presReport {}  
-  
-#dem-US-house {width:22%;}
-#rep-US-house {width:42%;}
-#US-house-report {}  
-  
-#dem-US-senate {width:42%;}
-#rep-US-senate {width:32%;}
-#US-senate-report {}  
-  
-#dem-MN-senate {width:22%;}
-#rep-MN-senate {width:42%;}
-#MN-senate-report {} 
-  
-#dem-MN-house {width:42%;}
-#rep-MN-house {width:32%;}
-#MN-house-report {} 
-    
-#local-race {}  
-#local-race-dem {}
-#local-race-rep {}
-  
-#local-prop {}  
-#local-race-pro {}
-#local-race-con {}
-
-  
-  .resultsBar {width:320px; background-color:white;} 
-
-  #snapshot { height:480px; }
-  
-  .resultsLogo {
-    float:left;
-    display:block;
-    width:100%;
-    height:45px;
-/*    font-family:'Benton Sans',Helvetica,Arial,sans-serif,san-serif !important;*/
-    letter-spacing:.25px;
-    font-size:12px;
-    margin-bottom:8px;
-  }
-  .logoLeft {float:left;margin:18px 5px 0 0;font-weight:bold;}
-  .logoRight {float:right;margin-top:18px;}
-  
-  .resultsLogoSVG {float:left;width:45px;height:45px;}
-
-  .resultsPres {float:left;width:100%;margin-bottom:24px;background-color:#fff;}
-  
-  .resultsCong {float:left;width:100%;min-height:60px;padding:0 0px;background-color:white;}
-  .resultsCongBreaks {float:left;width:46%;height:auto;margin:0 0 24px 0;padding-right:8%;background-color:white;}
-  .resultsCongRight {padding-right:0;}
-  
-  .resultsLocal {float:left;width:46%;padding:0;margin-top:5px;}
-  .localLeft {padding-right:8%;}
-  
-  
-  .balanceBar {position:relative;display:block;float:left;width:100%;height:10px;background-color:#ccc;margin-bottom:5px;}
-  .demBar {float:left;height:10px;background-color:#21409A;z-index:8;}
-  .repBar {float:right;height:10px;background-color:#DA2128;z-index:8;}
-  
-  
-  .numBig {
-    font-weight:bold;
-    font-size:28px;
-    margin-bottom:0em;
-  }
-  
-  .numMed {
-    font-weight:bold;
-    font-size:18px;
-    margin-bottom:2px;
-  }
-  
-  .numLeft {float:left;}
-  .numRight {float:right;text-align:right;}
-  
-  .demBlue {color:#21409A;}
-  .repRed {color:#DA2128;}
-
-  .hashMark {width:1px;height:13px;background:#000;position:absolute;top:-3px;left:50%;}
-  
-  .label {
-    font-weight:bold;
-    font-size:10px;
-    line-height:10px;
-    height:12px;
-    margin-bottom:6px;
-  }
-  
-  .labelPres {text-align:center;margin-bottom:0;}
-  
-  .labelSm {
-    font-weight:bold;
-    font-size:9px;
-    line-height:9px;
-    height:12px;
-  }
-
-  .labelClinton {float:left;width:31%;}
-  .labelTrump {float:right;width:25%;text-align:right;}
-  .labelD {float:left;width:15%;}
-  .labelR {float:right;text-align:right;width:15%;}
-  
-  .reporting {
-    display:block;
-    font-size:9px;
-    line-height:9px;
-    height:12px; 
-    color:#757575;
-    text-align:center;
-  }
-
-  .presReport {float:right;min-width:44%;}
-  .congReport {float:right;min-width:70%;}
-  .localReport {float:left;text-align:left;width:100%;}
-
-  
-  .toWin {
-    position:absolute;
-    display:block;
-    font-size:9px;
-    line-height:9px;
-    height:12px; 
-    color:#000;
-    text-align:center;
-  }
-
-  .toWinPres {width:auto;left:150px;top:-24px;;}
-  .toWinUSsen {width:auto;left:57px;top:-24px;}
-  .toWinUShouse {width:auto;left:66px;top:-15px;}
-  .toWinMNsen {width:auto;left:68px;top:-15px;}
-  .toWinMNhouse {width:auto;left:68px;top:-15px;}
-
-  .localItemOne {
-    font-weight:bold;
-    font-size:10px;
-    line-height:11px;
-    float:left;
-    width:100%;
-    padding-bottom:4px;
-    border-bottom: 1px solid #ccc;
-  }
-  .localItemTwo {
-    font-weight:bold;
-    font-size:10px;
-    line-height:11px;
-    float:left;
-    width:100%;
-    padding:4px 0 8px 0;}
-  
-   .localCheck {float:left;width:12%;}
-   .localName {float:left;width:70%;font-weight:normal;}
-   .localResult {float:left;width:18%;text-align:right;}
-
-   #done { display:none; }
-
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
-
-body {
-  font-size: 100%;
+    body {
+      font-size: 100%;
+        }
     }
-    
-}
-
 </style>  
 </head>
-<body>
-  
-            
+
+<body>      
 <!--MAIN CONTAINER--> 
 <div id="snapshot">
 <div class="resultsBar" id="snapme">
@@ -327,30 +227,10 @@ body {
 </div> 
 </div>
 
-</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 
 <script>
-// var apiStringUS = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G";
-// var apiStringCounty = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G&level=RU";
-
-// var apiStringSenate = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=S&raceTypeID=G&level=RU";
-// var apiStringGov = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=G&raceTypeID=G&level=RU";
-
-// var apiStringHouse = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=H&raceTypeID=G&level=RU";
-// var apiStringMNH = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&statePostal=MN&officeID=Y&raceTypeID=G";
-// var apiStringMNS = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&statePostal=MN&officeID=Z&raceTypeID=G";
-
-// var apiStringCounty = "data/prezCounty.json";
-
-// var apiStringSenate = "data/senate.json";
-// var apiStringGov = "data/gov.json";
-
-// var apiStringHouse = "data/house.json";
-// var apiStringMNH = "data/mnhouse.json";
-// var apiStringMNS = "data/mnsenate.json";
-
 var apiStringCounty = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
 var apiStringSenate = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
 var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
@@ -949,4 +829,5 @@ $(document).ready(function() {
 });
 });
 </script>
+</body>
 </html>

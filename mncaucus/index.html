@@ -111,8 +111,6 @@
   .grayblue3 { fill:#cba093; background-color:#cba093; font-weight:900; }
   .grayblue2 { fill:#e2c2b4; background-color:#e2c2b4; font-weight:900; }
 
-
-
   .demoRow { text-align:center; }
   .demoRow .legends { width: 289px;}
   .demoRow h3 { margin-right:75px; }
@@ -144,7 +142,7 @@
 <div id="rTables" data="gop">
 <div id="toggleR" class="toggleTables" data="gop">DISTRICT SELECT</div>
 <div id="tableR" class="tables">
-<div id="filterR" class="table"><input type="search" class="filter_box" placeholder="Search by keyword"></input></div>
+<div id="filterR" class="table"><input type="search" class="filter_box" placeholder="Search by keyword"></div>
 
       <div id="rtablehere" class="table president"><div class='tableHead rSort selected' candidate="city">District</div><div class='tableHead rSort' candidate="rubio">Rubio</div><div class='tableHead rSort' candidate="cruz">Cruz</div><div class='tableHead rSort' candidate="trump">Trump</div><div class='tableHead rSort' candidate="kasich">Kasich</div><div class='tableHead rSort' candidate="carson">Carson</div>
       
@@ -511,31 +509,18 @@
 
 <div class="source">Source: Minnesota Secretary of State, Minnesota State Demographic Center</div>
   </div>
-</body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/topojson.v1.min.js"></script>
 <script src="../_common_resources/charts/nvd3-master/build/nv.d3.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/utils.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/tooltip.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/models/legend.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/models/axis.js"></script>
 <script src="../_common_resources/charts/nvd3-master/test/stream_layers.js"></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
 
 <script>
-// $("#headerDiv").sticky({topSpacing:1});
-
-</script>
-<script>
-//LIVE JSON MAGIC
-
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=r2016Summary", function(error, dataLoadRS) {
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=demographics", function(error, dataLoadDemo) {
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=d2016Summary", function(error, dataLoadDS) {
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=r2008Summary", function(error, dataLoadR2008) {
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1hMk2CmaUFpLlKD65mosMxkYvOZgWmqS4JKH8aNPgUFs&sheet=d2008Summary", function(error, dataLoadD2008) {
-
 d3.json("./data/r2016Summary.json", function(error, dataLoadRS) {
 d3.json("./data/demographics.json", function(error, dataLoadDemo) {
 d3.json("./data/d2016Summary.json", function(error, dataLoadDS) {
@@ -1751,5 +1736,5 @@ $( document ).ready(function() {
 });
 });
 </script>
-
+</body>
 </html>

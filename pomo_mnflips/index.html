@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="./css/datastyles.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
-</head>
 
 <style>
     #wrapper { display:none; }
@@ -69,11 +68,12 @@
       .chart svg { height:500px !important; }
     }
 </style>
+</head>
 
 <body>
 
   <div class="loading-mask" id="loader">  
-  <div id="message"><div class='message'>Retrieving results...</div><img src='http://stmedia.startribune.com/designimages/ajax-loader.gif' class='loader-img'></div>
+  <div id="message"><div class='message'>Retrieving results...</div><img src='http://stmedia.startribune.com/designimages/ajax-loader.gif' alt="loading" class='loader-img'></div>
 </div>
 
 <!-- HOW CAN I HOLD ALL THESE TAGS??? -->
@@ -319,15 +319,14 @@ Not only did a significant number of counties flip from being Democratic to Repu
 
 </div>
 
-</body>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/topojson.v1.min.js"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 
 <script>
 var thisView = "us";
+var rflips = 0;
 
 //D3 CLICKY MAP BINDINGS
 jQuery.fn.d3Click = function () {
@@ -826,7 +825,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
           // var d2012 = fetchData(d.properties.GEOID,null,"votesD",dataCompare2012,race);
 
           for (var i=0; i<rFlips.length; i++){
-            if (rFlips[i] == d.properties.GEOID) {  return "#550000"; }
+            if (rFlips[i] == d.properties.GEOID) { rflips++; return "#550000"; }
           }
           for (var i=0; i<dFlips.length; i++){
             if (dFlips[i] == d.properties.GEOID) {  return "#0B4474"; }
@@ -964,6 +963,8 @@ if (race == "president" || race == "senate" ||  race == "governors"){
       //.datum(topojson.mesh(us, us.features, function(a, b) { return a !== b; }))
       .attr("class", "state-borders")
       .attr("d", path);
+
+      console.log(rflips);
 });
 
 var zoom = d3.behavior.zoom()
@@ -2631,4 +2632,5 @@ if (($(window).width() < 500)) { $(".raceSwitch").click(function(event) { $(".ch
       });
 
 </script>
+</body>
 </html>

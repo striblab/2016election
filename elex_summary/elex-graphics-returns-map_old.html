@@ -7,167 +7,79 @@
   
   
 <style type="text/css">
+    @font-face {
+    font-family: "Benton Sans RE";
+    src: url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-2.eot?") format("embedded-opentype"),
+    url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-3.woff") format("woff"),
+    url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-1.ttf") format("truetype"),
+    url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: normal;
+    }
+    @font-face {
+    font-family: "Benton Sans RE";
+    src: url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-2.eot?") format("embedded-opentype"),
+    url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-3.woff") format("woff"),
+    url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-1.ttf") format("truetype"),
+    url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-4.svg#web") format("svg");
+    font-style: normal;
+    font-weight: bold;
+    }
+                                                        
+    @font-face{
+      font-family:"Poynter Serif RE";
+      src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-2.eot");
+      src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-2.eot?") format("embedded-opentype"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-3.woff") format("woff"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-1.ttf") format("truetype");
+      font-style:normal;
+      font-weight:normal
+    }
 
+    @font-face{
+      font-family:"Poynter Serif RE";
+      src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-2.eot");
+      src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-2.eot?") format("embedded-opentype"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-3.woff") format("woff"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-1.ttf") format("truetype");
+      font-style:normal;
+      font-weight:bold
+    }
 
-@font-face {
-font-family: "Benton Sans RE";
-src: url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-2.eot?") format("embedded-opentype"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-3.woff") format("woff"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-1.ttf") format("truetype"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE/ca6b19ab-ed20-414e-b84c-30c7172ed5b9-4.svg#web") format("svg");
-font-style: normal;
-font-weight: normal;
-}
-@font-face {
-font-family: "Benton Sans RE";
-src: url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-2.eot?") format("embedded-opentype"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-3.woff") format("woff"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-1.ttf") format("truetype"),
-url("https://apps.startribune.com/fonts/Benton-Sans-RE-Bold/047384a7-04e4-454f-9c67-cb8e5506c8d4-4.svg#web") format("svg");
-font-style: normal;
-font-weight: bold;
-}
-                                                    
-@font-face{
-  font-family:"Poynter Serif RE";
-  src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-2.eot");
-  src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-2.eot?") format("embedded-opentype"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-3.woff") format("woff"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-1.ttf") format("truetype");
-  font-style:normal;
-  font-weight:normal
-}
+    @font-face {
+      font-family: "Whitman Display Condensed Bold";
+      src: url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-2.eot");
+      src: url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-2.eot?") format("embedded-opentype"),
+           url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-3.woff") format("woff"),
+           url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-1.ttf") format("truetype");
+      font-style: normal;
+      font-weight: bold;
+    }
 
-@font-face{
-  font-family:"Poynter Serif RE";
-  src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-2.eot");
-  src:url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-2.eot?") format("embedded-opentype"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-3.woff") format("woff"),url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-1.ttf") format("truetype");
-  font-style:normal;
-  font-weight:bold
-}
-
-@font-face {
-  font-family: "Whitman Display Condensed Bold";
-  src: url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-2.eot");
-  src: url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-2.eot?") format("embedded-opentype"),
-       url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-3.woff") format("woff"),
-       url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-1.ttf") format("truetype");
-  font-style: normal;
-  font-weight: bold;
-}
-
-#us-pop-trump {}
-#us-pop-clinton {}
-#mn-pop-trump {}
-#mn-pop-clinton {}
-#us-timestamp {}
-#mn-timestamp {}
-  
-.resultsMap {width:640px;min-height:340px;background-color:#fff; margin: 50px auto;} 
-  
-.demBlue {color:#3585BC;}
-.repRed {color:#d34A44;}
-
-.demBlueKey {background-color:#3585BC;fill:#3585BC;}
-.demLean {background-color:#72A9D6;fill:#72A9D6;}
-.tossUp {background-color:#ccc;fill:#ccc;}
-.repLean {background-color:#f7816E;fill:#f7816E;}
-.repRedKey {background-color:#d34A44;fill:#d34A44;}
-  
-
-.graphicLabel {
-    float:left;
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:bold;
-    font-size:12px;
-    line-height:13px;
-    height:14px;
-    margin-bottom:18px;
-    width:20%;
-  }
-
-  
-.keyHolder {display:block;float:right;margin-bottom:18px;}
-  
-  .keyLabel {
-    float:left;
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:normal;
-    font-size:12px;
-    line-height:13px;
-    height:14px;
-    margin:0 0 0 7px;
- 
-  }
-  
-.keyBlock {float:left;width:12px;height:12px;margin-left:15px;}
-  
-
-  #usMap { float:left;width:380px;min-height:240px;margin: -20px 20px 0px 0px; }
-  #mnMap {float:right;width:240px;min-height:240px;margin: -20px 0px 0px 0px; }
-
-.timestamp {
-    float:left;
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:normal;
-    font-size:11px;
-    line-height:16px;
-    color:#999;
-}
-  
-  .usTimestamp {float:left;width:340px;min-height:20px;background-color:white; margin: 0px 20px 0px 0px; }
-  .mnTimestamp {float:right;width:240px;min-height:20px;background-color:white; margin: 0px 0px 0px 0px; }
-
-  .popBarUS {display:block;float:left;width:310px;height:32px;margin-right:20px;background-color:#fff;z-index:10}
-  .popBarMN {display:block;float:right;width:240px;height:32px;margin-right:0px;background-color:#fff;z-index:10}
-  
-  .numberBox {float:right;width:60px;text-align:center}
-  .numberBoxMN {float:right;width:72px;text-align:center}
-  
-.popvoteLabel {
-    float:left;
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:normal;
-    font-size:11px;
-    line-height:14px;
-    color:#666;
-    text-align:left;
-  }
-  
-.popvote {    
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:bold;
-    font-size:9px;
-    line-height:14px;
-    color:#333;
-    text-align:center;
-  }
-  
-.popNum {
-    text-align:center;
-    font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:bold;
-    font-size:26px;
-    line-height:26px;
-    margin-bottom:1px;
-  }
-
-.swing { 
-  float:right;
-    font-family: "Benton Sans",Helvetica,Arial,sans-serif,san-serif!important;
-    font-weight:bold;
-    font-size:11px;
-    line-height:16px;
-    color:#333;
-    text-align:right;
-  margin-left:5px;
-  }
-  
-.swingBlock {float:right;width:10px;height:10px;background-color:#fff;border:2px solid orange;}
-
-#done { display:none; }
-    
+    .resultsMap { background-color:#fff; margin:50px auto; min-height:340px; width:640px; }
+    .demBlue { color:#3585BC; }
+    .repRed { color:#d34A44; }
+    .demBlueKey { background-color:#3585BC; fill:#3585BC; }
+    .demLean { background-color:#72A9D6; fill:#72A9D6; }
+    .tossUp { background-color:#ccc; fill:#ccc; }
+    .repLean { background-color:#f7816E; fill:#f7816E; }
+    .repRedKey { background-color:#d34A44; fill:#d34A44; }
+    .graphicLabel { float:left; font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important; font-size:12px; font-weight:bold; height:14px; line-height:13px; margin-bottom:18px; width:20%; }
+    .keyHolder { display:block; float:right; margin-bottom:18px; }
+    .keyLabel { float:left; font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important; font-size:12px; font-weight:normal; height:14px; line-height:13px; margin:0 0 0 7px; }
+    .keyBlock { float:left; height:12px; margin-left:15px; width:12px; }
+    #usMap { float:left; margin:-20px 20px 0px 0px; min-height:240px; width:380px; }
+    #mnMap { float:right; margin:-20px 0px 0px 0px; min-height:240px; width:240px; }
+    .timestamp { color:#999; float:left; font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important; font-size:11px; font-weight:normal; line-height:16px; }
+    .usTimestamp { background-color:white; float:left; margin:0px 20px 0px 0px; min-height:20px; width:340px; }
+    .mnTimestamp { background-color:white; float:right; margin:0px 0px 0px 0px; min-height:20px; width:240px; }
+    .popBarUS { background-color:#fff; display:block; float:left; height:32px; margin-right:20px; width:310px; z-index:10; }
+    .popBarMN { background-color:#fff; display:block; float:right; height:32px; margin-right:0px; width:240px; z-index:10; }
+    .numberBox { float:right; text-align:center; width:60px; }
+    .numberBoxMN { float:right; text-align:center; width:72px; }
+    .popvoteLabel { color:#666; float:left; font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important; font-size:11px; font-weight:normal; line-height:14px; text-align:left; }
+    .popvote { color:#333; font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important; font-size:9px; font-weight:bold; line-height:14px; text-align:center; }
+    .popNum { font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important; font-size:26px; font-weight:bold; line-height:26px; margin-bottom:1px; text-align:center; }
+    .swing { color:#333; float:right; font-family:"Benton Sans",Helvetica,Arial,sans-serif,san-serif!important; font-size:11px; font-weight:bold; line-height:16px; margin-left:5px; text-align:right; }
+    .swingBlock { background-color:#fff; border:2px solid orange; float:right; height:10px; width:10px; }
+    #done { display:none; }
 </style>
-
-
 </head>
 <body>
   
@@ -250,30 +162,11 @@ font-weight: bold;
  
 </div> 
 </div>
-</body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
-// var apiStringUS = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G";
-// var apiStringCounty = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=P&raceTypeID=G&level=RU";
-
-// var apiStringSenate = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=S&raceTypeID=G&level=RU";
-// var apiStringGov = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=G&raceTypeID=G&level=RU";
-
-// var apiStringHouse = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&officeID=H&raceTypeID=G&level=RU";
-// var apiStringMNH = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&statePostal=MN&officeID=Y&raceTypeID=G";
-// var apiStringMNS = "https://api.ap.org/v2/elections/2012-11-06?apiKey=7Uj4Dz9P8Na2GGpsOztXI57PRpx9h400&format=json&statePostal=MN&officeID=Z&raceTypeID=G";
-
-// var apiStringCounty = "data/prezCounty.json";
-
-// var apiStringSenate = "data/senate.json";
-// var apiStringGov = "data/gov.json";
-
-// var apiStringHouse = "data/house.json";
-// var apiStringMNH = "data/mnhouse.json";
-// var apiStringMNS = "data/mnsenate.json";
-
 var apiStringCounty = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
 var apiStringSenate = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
 var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
@@ -281,10 +174,6 @@ var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn
 var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
 var apiStringEVCD = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-nebraska-maine/full.json";
 
-// var apiString = "./data/" + year + "_" + race + "_" + district + "_" + geo +".json"
-
-// d3.json(apiStringUS, function(error, jsonUS) {
-// d3.json(apiStringUS, function(error, jsonUS) {
 d3.json(apiStringCounty, function(error, jsonCounty) {
 d3.json(apiStringSenate, function(error, jsonSenate) {
 d3.json(apiStringHouse, function(error, jsonHouse) {
@@ -292,7 +181,6 @@ d3.json(apiStringMNH, function(error, jsonMNH) {
 d3.json(apiStringMNS, function(error, jsonMNS) {
 d3.json(apiStringEVCD, function(error7, jsonSpillEVCD) {
 
-// var dataUS = jsonUS;
 var dataCounty = jsonCounty;
 var dataSenate = jsonSenate;
 var dataHouse = jsonHouse;
@@ -809,46 +697,6 @@ d3.json("shapefiles/" + shape, function(error, us) {
          else if (level == "county") { return fetchData(d.properties.COUNTYFIPS,null,"colors",dataCompare,race); }
 
         })
-//        .on("mousedown", function(d, i){
-
-//         var str = d.properties.NAME; 
-//         $(".district").removeClass("selected");
-//         // $("#" + str.replace(new RegExp(" ", "g"),"-")).addClass("selected");
-        
-      
-// if (race == "president" || race == "senate" ||  race == "governors"){ $("#infobox").html(fetchData(d.properties.NAME,d.properties.NAME,"table",dataCompare,race)); }
-// else if (race == "county"){ $("#infobox").html(fetchData(d.properties.GEOID,null,"table",dataCompare,race,null,d.properties.NAME)); }
-// else if (race == "mnsenate" || race == "mnhouse") { $("#infobox").html(fetchData("District " + d.properties.DISTRICT,"Minnesota","table",dataCompare,race,null,"District " + d.properties.DISTRICT)); }
-
-// else if (race == "pct"){
-//               $("#candidatePCTR, #candidatePCTD").removeClass("d4");
-//               $("#candidatePCTR, #candidatePCTD").removeClass("d3");
-//               $("#candidatePCTR, #candidatePCTD").removeClass("d2");
-//               $("#candidatePCTR, #candidatePCTD").removeClass("d1");
-//               $("#candidatePCTR, #candidatePCTD").removeClass("r4");
-//               $("#candidatePCTR, #candidatePCTD").removeClass("r3");
-//               $("#candidatePCTR, #candidatePCTD").removeClass("r2");
-//               $("#candidatePCTR, #candidatePCTD").removeClass("r1");
-//               $("#pctReported").html(0);
-//               $("#pctAll").html(0);
-//               $("#pctPCT").html(0);
-
-//     for (var i=0; i < dataCompare.length; i++){
-//     if (Number(d.properties.PCTCODE) == Number(dataCompare[i].pct_id)){
-//       if (dataCompare[i].party_id == "R" && dataCompare[i].vote_pct >= 48) { 
-//         $("#candidatePCTR").html(dataCompare[i].vote_pct + "%");
-//         $("#candidateVotesR").html(0);
-//         $("#candidatePCTR").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
-//       }
-//       if (dataCompare[i].party_id == "DFL" && dataCompare[i].vote_pct >= 48) { 
-//         $("#candidateVotesD").html(0);
-//         $("#candidatePCTD").html(dataCompare[i].vote_pct + "%");
-//         $("#candidatePCTD").css("background-color", mapColor(d.properties.PCTCODE, race, dataCompare));
-//       }
-//     }
-//   }
-// }
-//        })
       .style("stroke-width", function(d){
         if (d.properties.NAME == "Arizona" || d.properties.NAME == "Colorado" || d.properties.NAME == "Florida" || d.properties.NAME == "Georgia" || d.properties.NAME == "Iowa" || d.properties.NAME == "Maine" || d.properties.NAME == "Michigan" || d.properties.NAME == "Minnesota" || d.properties.NAME == "Nevada" || d.properties.NAME == "New Hampshire" || d.properties.NAME == "North Carolina" || d.properties.NAME == "Ohio" || d.properties.NAME == "Pennsylvania" || d.properties.NAME == "Virginia" || d.properties.NAME == "Wisconsin") { return "5px"; }
         else { return "1px"; }
@@ -857,12 +705,6 @@ d3.json("shapefiles/" + shape, function(error, us) {
         if (d.properties.NAME == "Arizona" || d.properties.NAME == "Colorado" || d.properties.NAME == "Florida" || d.properties.NAME == "Georgia" || d.properties.NAME == "Iowa" || d.properties.NAME == "Maine" || d.properties.NAME == "Michigan" || d.properties.NAME == "Minnesota" || d.properties.NAME == "Nevada" || d.properties.NAME == "New Hampshire" || d.properties.NAME == "North Carolina" || d.properties.NAME == "Ohio" || d.properties.NAME == "Pennsylvania" || d.properties.NAME == "Virginia" || d.properties.NAME == "Wisconsin") { return "orange"; }
         else { return "#fff"; }
       });
-      // .call(d3.helper.tooltip(function(d, i){
-      //    if (race == "president" || race == "senate" || race == "governors") { return fetchData(d.properties.NAME,d.properties.NAME,"tooltip",dataCompare,race); }
-      //    else if (race == "county") { return fetchData(d.properties.GEOID,null,"tooltip",dataCompare,race,"Minnesota",d.properties.NAME); }
-      //    else if (race == "pct") { return mapTips(d, race, dataCompare, level); }
-      //    else if (race == "mnsenate" || race == "mnhouse") { return fetchData("District " + d.properties.DISTRICT,"Minnesota","tooltip",dataCompare,race,null,"District " + d.properties.DISTRICT); }
-      // }));
 
   g.append("path")
       //.datum(topojson.mesh(us, us.features, function(a, b) { return a !== b; }))
@@ -1172,4 +1014,5 @@ $(document).ready(function() {
 });
 });
 </script>
+</body>
 </html>

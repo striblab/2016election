@@ -32,7 +32,7 @@
     #gopMaps { float:right; text-align:center; }
     #demMaps { float:left; text-align:center; }
     #demMaps path:hover, #gopMaps path:hover { cursor:default !important; }
-    #quantize { width:345px; margin-left:auto; }
+    .legend { width:345px; margin-left:auto; }
 
 /*CARTOGRAM*/
     .dem rect { fill:#3F88C5 !important; }
@@ -223,12 +223,6 @@
 <div id="chartAge"></div>
 </div>
 
-<!-- <div class="slide" id="polling">
-<div class="chatterHead">Presidential polling in 2016</div>
-<div class="chatter">The political divide is very stark in Star Tribune Minnesota Polls with the heaviest Trump support found in outstate and the suburbs while Clinton overwhelmingly leads in the Twin Cities.</div>
-<div id="chartPolls"></div>
-</div> -->
-
 <div class="slide" id="whitedistress">
 <div class="chatterHead">White distress in outstate</div>
 <div class="chatter">Nationally, presidential candidate <span class="republican">Donald Trump (R)</span> is leading in few demographics, but a recent Gallup survey of more than 87,000 respondents revealed the typical Trump voter to be white, male, older, less education and living in areas with high premature death rates, which when indexed together paints a picture of white distress primarily found more commonly in outstate counties compared to the metro.</div>
@@ -236,27 +230,29 @@
 <div class="adjacent">
 <div id="chartD"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
 <h4>White Distress Index</h4>
-<div id="quantize">
-<span class='legend' id="aidQ">
+<div>
+<span class='legend'>
   <nav class='legend clearfix'>
     <span style='background:#fff;'>Less</span>
     <span style='background:#cccccc;'></span>
     <span style='background:#969696'></span>
     <span style='background:#525252'></span>
     <span style='background:#fff;'>More</span>
+  </nav>
 </span>
 </div>
 </div>
 <div class="adjacent">
 <div id="voteMap"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
 <h4>2012 Presidential Results</h4>
-<div id="quantize">
-<span class='legend' id="aidQ">
+<div>
+<span class='legend'>
   <nav class='legend clearfix'>
     <span style='background:#fff;'>DEM</span>
     <span style='background:#3F88C5'></span>
     <span style='background:#8C1B17'></span>
     <span style='background:#fff;'>GOP</span>
+  </nav>
 </span>
 </div>
 </div>
@@ -271,13 +267,11 @@
 </div>
 
   </div>
-</body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/topojson.v1.min.js"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
 <script src="../_common_resources/charts/nvd3-master/build/nv.d3.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/utils.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/tooltip.js"></script>
@@ -1014,6 +1008,6 @@ var chartFinance = c3.generate({
 }
 
 chartFinance();
-
 </script>
+</body>
 </html>

@@ -92,12 +92,7 @@
 
 <div id="wrapper">
 
-<!-- 392909811 -->
-
-<!-- <div class='filter selected3' data="card" id="mn"><img src="img/mnbutton.png" /><p>Minnesota</p></div> <div class='filter' data="RPM" id="us"><img src="img/usbutton.png" /><p>National</p></div> -->
-
 <div id="mnpolls" class="poll">
-<!-- <div class="chartTitle">Minnesota poll tracker: Clinton vs. Trump</div> -->
 <h4>Latest Star Tribune Minnesota Poll results</h4>
 <br />
 <div class="pctBox">
@@ -116,7 +111,6 @@
 <div class="breaker"></div>
 
 <div class="hide">
-  <!-- <div id="chart"></div> -->
   <div class="tinycharts">
     <h4>Star Tribune Minnesota Poll</h4>
     <div id="stribChart"></div>
@@ -145,15 +139,11 @@
 
   <iframe  style="display:none;" class="pollster-chart" src="https://elections.huffingtonpost.com/pollster/2016-minnesota-president-trump-vs-clinton.desktop.svg" scrolling="no" frameborder="no"></iframe>
 
-<!--   <div class="breaker"></div> -->
-
 <div id="filter"><input type="search" id="filter_box" placeholder="Search polls"></input></div>
   <div id="pollTable">
     <div class='cell th first' data="pollster">Pollster</div><div class='cell th selected kill first' data="updated">Date</div><div class='cell th kill' data="observations">Sample</div><div class='cell kill th' data="mode">Type</div><div class='cell th keep' data="clinton">Clinton</div><div class='cell th keep' data="trump">Trump</div><div class='cell th keep' data="undecided">UND/OTHER</div><div class='cell spread kill th' data="spread">Spread</div>
   </div>
 </div>
-
-<!-- <div class="source">Source: <a href="https://elections.huffingtonpost.com/pollster" target="new_">HuffPost Pollster</a>, <a href="https://projects.fivethirtyeight.com/2016-election-forecast/minnesota/#plus" target="new_">FiveThirtyEight 2016 Election Forecast</a></div> -->
 
 <div class="breaker"></div>
 
@@ -188,14 +178,9 @@
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
-
-//https://elections.huffingtonpost.com/pollster/2016-minnesota-president-trump-vs-clinton
-
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1T7sXD_Vvp60707sC6g_Ws7trmpsMHXwz2dl7S-oW67k&sheet=pollster", function(error, dataLoad) {
-
 d3.json("./data/pollster.json", function(error, dataLoad) {
 
 var data = dataLoad.pollster;
@@ -430,7 +415,6 @@ var chart = c3.generate({
 
 }
 
-// spillChart("#chart", data);
 spillChart("#stribChart", data, "Star Tribune Minnesota Poll");
 spillChart("#irChart", data, "Ipsos/Reuters");
 spillChart("#mcChart", data, "Morning Consult");
@@ -438,135 +422,7 @@ spillChart("#gcsChart", data, "Google Consumer Surveys");
 spillChart("#wapoChart", data, "UPI/CVOTER International");
 spillChart("#kstpChart", data, "SurveyUSA/KSTP-TV");
 spillPolls("#pollTable", data);
-
-// function chartFinance(){
-
-//     d3.csv("./data/prez.csv", function(d) {
-//   return {
-//     candidate: d.candidate,
-//     total: +d.total,
-//     where: d.where,
-//     region: d.region
-//   };
-// }, function(error, rows) {
-
-// var dataT = rows;
-
-// var  padding = {
-//         top: 20,
-//         right: 60,
-//         bottom: 20,
-//         left: 90,
-//     };
-
-// var chartFinance = c3.generate({
-//       bindto: "#chartFinance",
-//       padding: padding,
-//         data: {
-//                 x: 'x',
-//                 columns: [
-//                     ['x','Clinton','Trump'],
-//                     ['Twin Cities', 1837566, 112326],
-//                     ['Suburbs', 582841, 140790],
-//                     ['Central', 30117, 35591],
-//                     ['Duluth', 28439, 6159],
-//                     ['Iron Range', 25473, 9249],
-//                     ['Northern', 43824, 13216],
-//                     ['Southern', 120009, 44733]
-//                 ],
-//             type: 'bar',
-//             colors:  { 
-//               'Twin Cities': function(d) { 
-//                 // console.log(d)
-//                   if (d.index == 1) { return "#8C1B17"; }
-//                   else { return "#3f88c5"; }
-//               },              
-//               'Suburbs': function(d) { 
-//                   if (d.index == 1) { return "#8C1B17"; }
-//                   else { return "#3f88c5"; }
-//               },
-//               'Central': function(d) { 
-//                   if (d.index == 1) { return "#8C1B17"; }
-//                   else { return "#3f88c5"; }
-//               },
-//               'Duluth': function(d) { 
-//                   if (d.index == 1) { return "#8C1B17"; }
-//                   else { return "#3f88c5"; }
-//               },
-//               'Iron Range': function(d) { 
-//                   if (d.index == 1) { return "#8C1B17"; }
-//                   else { return "#3f88c5"; }
-//               },
-//               'Northern': function(d) { 
-//                   if (d.index == 1) { return "#8C1B17"; }
-//                   else { return "#3f88c5"; }
-//               },              
-//               'Southern': function(d) { 
-//                   if (d.index == 1) { return "#8C1B17"; }
-//                   else { return "#3f88c5"; }
-//               }
-//             },
-//             groups: [
-//                 ['Twin Cities','Suburbs','Central','Duluth','Iron Range','Northern','Southern']
-//             ]
-//             },
-//             legend: {
-//                 show: false
-//             },
-//             axis: {
-//               y: {
-//                     min: 0,
-//                     padding: {bottom: 0, top: 0},
-//                     tick: {
-//                      count: 4,
-//                      format: d3.format('$,.0f')
-//                     }
-//                 },
-//                 x: {
-//                     type: 'category'
-//                     // categories: ['Trump','Clinton']
-//                 }
-//             },        
-//             tooltip: {
-//       contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-//           var $$ = this, config = $$.config,
-//               titleFormat = config.tooltip_format_title || defaultTitleFormat,
-//               nameFormat = config.tooltip_format_name || function (name) { return name; },
-//               valueFormat = config.tooltip_format_value || defaultValueFormat,
-//               text, i, title, value, name, bgcolor;
-//           for (i = 0; i < d.length; i++) {
-//               if (! (d[i] && (d[i].value || d[i].value === 0))) { continue; }
-
-//               if (! text) {
-//                   title = titleFormat ? titleFormat(d[i].x) : d[i].x;
-//                   text = "<table class='" + $$.CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
-//               }
-
-//               name = nameFormat(d[i].name);
-//               value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
-//               bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
-
-//               if (d[i].index == 1) { bgcolor = "#8C1B17"; }
-//               else { bgcolor = "#3f88c5"; }
-
-//               text += "<tr class='" + $$.CLASS.tooltipName + "-" + d[i].id + "'>";
-//               text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
-//               text += "<td class='value'>" + value + "</td>";
-//               text += "</tr><tr>";
-//               text += "</tr>";
-              
-//           }
-//           return text + "</table>";
-//       }
-//     }
-// });
-// });
-// }
-
-// chartFinance();
-
 });
 </script>
-
 </body>
 </html>
