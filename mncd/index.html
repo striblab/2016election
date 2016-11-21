@@ -9,7 +9,6 @@
   <meta name="description" content="The Battle for the U.S. House of Representatives">
   <meta name="author" content="Frey Hargarten - StarTribune">
 
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.19.1/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
   
@@ -200,7 +199,7 @@
 
 <div class="breaker"></div>
 
-<div id="leftArrow" class="arrow"><<</div><div id="rightArrow" class="arrow">>></div>
+<div id="leftArrow" class="arrow">&lt;&lt;</div><div id="rightArrow" class="arrow">&gt;&gt;</div>
 
 <div id="districtList">
 <!-- CD1 -->
@@ -212,7 +211,7 @@
 
 <p>He is running against <strong>Republican Jim Hagedorn</strong>.</p>
 
-<img src="img/1.png" class="mappage" /> 
+<img src="img/1.png" alt="District 1" class="mappage" /> 
 
 <p>The district has a median income of <strong>$57,321</strong> and has a minority population of <strong>8 percent</strong>, compared to 19% of the state as a whole. About <strong>16 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>27 percent</strong> have bachelor's degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
@@ -235,7 +234,7 @@
 
 <p><strong>Republican Jason Lewis</strong> and <strong>Democrat Angie Craig</strong> are facing off to fill this vacancy.</p>
 
-<img src="img/2.png" class="mappage" /> 
+<img src="img/2.png" alt="District 2" class="mappage" /> 
 
 <p>It has a median income of <strong>$76,409</strong> and has a minority population of <strong>15 percent</strong>, compared to 19% of the state as a whole. About <strong>12 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>38 percent</strong> have bachelor's degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
@@ -259,7 +258,7 @@
 
 <p>He is running against <strong>Democrat Terri Bonoff</strong>.</p>
 
-<img src="img/3.png" class="mappage" /> 
+<img src="img/3.png" alt="District 3" class="mappage" /> 
 
 <p>The district has a median income of <strong>$79,965</strong> and has a minority population of <strong>19 percent</strong>, compared to 19% of the state as a whole. About <strong>14 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>48 percent</strong> have bachelor's degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
@@ -283,7 +282,7 @@
 
 <p>She is running against <strong>Republican Greg Ryan</strong>.</p>
 
-<img src="img/4.png" class="mappage" />
+<img src="img/4.png" alt="District 4" class="mappage" />
 
 <p>The district has a median income of <strong>$61,244</strong> and has a minority population of <strong>28 percent</strong>, compared to 19% of the state as a whole. About <strong>13 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>43 percent</strong> have bachelor's degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
@@ -307,7 +306,7 @@
 
 <p>He is running against <strong>Republican Frank Drake</strong>.</p>
 
-<img src="img/5.png" class="mappage" /> 
+<img src="img/5.png" alt="District 5" class="mappage" /> 
 
 <p>The district has a median income of <strong>$52,447</strong> and has a minority population of <strong>31 percent</strong>, compared to 19% of the state as a whole. About <strong>11 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>44 percent</strong> have bachelor's degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
@@ -331,7 +330,7 @@
 
 <p>He is running against <strong>Democrat David Snyder</strong>.</p>
 
-<img src="img/6.png" class="mappage" /> 
+<img src="img/6.png" alt="District 6" class="mappage" /> 
 
 <p>The district has a median income of <strong>$71,604</strong> and has a minority population of <strong>8 percent</strong>, compared to 19% of the state as a whole. About <strong>10 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>30 percent</strong> have bachelor's degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
@@ -355,7 +354,7 @@
 
 <p>He is running against <strong>Republican Dave Hughes</strong>.</p>
 
-<img src="img/7.png" class="mappage" />  
+<img src="img/7.png" alt="District 7" class="mappage" />  
 
 <p>The district has a median income of <strong>$51,880</strong> and has a minority population of <strong>7 percent</strong>, compared to 19% of the state as a whole. About <strong>18 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>21 percent</strong> have bachelor's degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
@@ -379,7 +378,7 @@
 
 <p>He is running against <strong>Republican Stewart Mills</strong> in a rematch from 2014.</p>
 
-<img src="img/8.png" class="mappage" /> 
+<img src="img/8.png" alt="District 8" class="mappage" /> 
 
 <p>The district has a median income of <strong>$51,322</strong> and has a minority population of <strong>7 percent</strong>, compared to 19% of the state as a whole. About <strong>18 percent</strong> of the district's residents are age 65 and older, compared to 14 percent statewide. Roughly <strong>23 percent</strong> have bachelor's degrees or higher, compared to about 33 percent throughout Minnesota.</p>
 
@@ -398,10 +397,9 @@
   </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/topojson.v1.min.js"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.19.1/mapbox-gl.js'></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
 <script>
 
 d3.json("./data/ushouse2014.json", function(error, dataLoad) {

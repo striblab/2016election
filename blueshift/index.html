@@ -9,10 +9,8 @@
   <meta name="description" content="Minnesota's Political Leanings">
   <meta name="author" content="Frey Hargarten - StarTribune">
 
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
-  <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css">
   
   <style>
 /*BASE*/
@@ -98,19 +96,19 @@
     #legendMain .legends { display:inline-block; width:13%; text-align:center; }
 
 /*SWATCHES*/
-    .republican { fill:#8C1B17 !important; pointer-events: all; font-weight:bold; color:#8C1B17; stroke:#8C1B17 !important; }
-    .rlikely { color:#A5484D; fill:#A5484D !important; pointer-events: all; font-weight:bold; }
-    .rlean { color:#C68985; fill:#C68985 !important; pointer-events: all; font-weight:bold; }
-    .democrat { fill:#3F88C5 !important; pointer-events: all; font-weight:bold; color:#3F88C5; stroke:#3F88C5 !important; }
-    .dlikely { color:#5ca5c3; fill:#5ca5c3 !important; pointer-events: all; font-weight:bold; }
-    .dlean { color:#ABCEE8; fill:#ABCEE8 !important; pointer-events: all; font-weight:bold; }
+    .republican { background-color:#8C1B17 !important; pointer-events: all; font-weight:bold; color:#ffffff; stroke:#8C1B17 !important; }
+    .rlikely { background-color:#A5484D; fill:#A5484D !important; pointer-events: all; color:#ffffff; font-weight:bold; }
+    .rlean { background-color:#C68985; fill:#C68985 !important; pointer-events: all; color:#ffffff; font-weight:bold; }
+    .democrat { background-color:#3F88C5 !important; pointer-events: all; font-weight:bold; color:#ffffff; stroke:#3F88C5 !important; }
+    .dlikely { background-color:#5ca5c3; fill:#5ca5c3 !important; pointer-events: all; color:#ffffff; font-weight:bold; }
+    .dlean { background-color:#ABCEE8; fill:#ABCEE8 !important; pointer-events: all; color:#ffffff; font-weight:bold; }
 
     .r1 { background-color:#C68985; fill:#C68985 !important; color:black !important; pointer-events: all; font-weight:bold; }
     .r2 { background-color:#A5484D; fill:#A5484D !important; color:white !important; pointer-events: all; font-weight:bold; }
     .r3 { background-color:#A52129; fill:#A52129 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .r4 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
     .r0 { background-color:#8C1B17; fill:#8C1B17 !important; color:white !important; pointer-events: all; font-weight:bold; }
-    .mid { background-color:#fff !important; fill:#ddd !important; color:#bbb !important; pointer-events: all; font-weight:bold; }
+    .mid { background-color:#bbbbbb !important; fill:#ddd !important; color:#ffffff !important; pointer-events: all; font-weight:bold; }
     .gray3 { color:black !important; }
     .d1 { background-color:#ABCEE8; fill:#ABCEE8 !important; color:black !important; pointer-events: all; font-weight:bold; }
     .d2 { background-color:#5ca5c3; fill:#5ca5c3 !important; color:white !important; pointer-events: all; font-weight:bold; }
@@ -181,8 +179,6 @@
     }
   </style> 
 </head>
-
-<!-- 393152021 -->
 
 <body>
   <div id="wrapper">
@@ -1014,7 +1010,7 @@
 <h4 style="text-align:center;">Electoral College votes by Cook Political Report ranking</h4>
 <div id="legendMain">
   <div class="legends dleg">
-<div id="mnlegend">
+<div>
     <div class="legendContainer">
       <span>
         <nav class='clearfix'>
@@ -1043,7 +1039,7 @@
     </div>
   </div>
   <div class="legends dleg">
-<div id="mnlegend">
+<div>
     <div class="legendContainer">
       <span>
         <nav class='clearfix'>
@@ -1059,7 +1055,7 @@
   </div>
     </div>
   <div class="legends dleg">
-<div id="mnlegend">
+<div>
     <div class="legendContainer">
       <span>
         <nav class='clearfix'>
@@ -1078,7 +1074,7 @@
   </div>
     </div>
   <div class="legends tleg">
-<div id="mnlegend">
+<div>
     <div class="legendContainer">
       <span>
         <nav class='clearfix'>
@@ -1095,7 +1091,7 @@
   </div>
     </div>
   <div class="legends rleg">
-<div id="mnlegend">
+<div>
     <div class="legendContainer">
       <span>
         <nav class='clearfix'>
@@ -1113,7 +1109,7 @@
   </div>
     </div>
   <div class="legends rleg">
-<div id="mnlegend">
+<div>
     <div class="legendContainer">
       <span>
         <nav class='clearfix'>
@@ -1131,7 +1127,7 @@
   </div>
     </div>
   <div class="legends rleg">
-<div id="mnlegend">
+<div>
     <div class="legendContainer">
       <span>
         <nav class='clearfix'>
@@ -1170,13 +1166,13 @@
 </div>
 
   </div>
-</body>
+
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/topojson.v1.min.js"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
 <script src="../_common_resources/charts/nvd3-master/build/nv.d3.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/utils.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/tooltip.js"></script>
@@ -1184,7 +1180,6 @@
 <script src="../_common_resources/charts/nvd3-master/src/models/axis.js"></script>
 <script src="../_common_resources/charts/nvd3-master/test/stream_layers.js"></script>
 <script>
-
 $.urlParam = function(name){
   var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
   if (results != null) { return results[1] || 0; }
@@ -1401,6 +1396,6 @@ var chartH = c3.generate({
 }
 
 chartPVI();
-
 </script>
+</body>
 </html>

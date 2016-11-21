@@ -10,7 +10,6 @@
   <meta name="author" content="Frey Hargarten - StarTribune">
 
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   
@@ -577,24 +576,16 @@
 <!-- end wrapper -->
 <div id="dump" style="display:none;">
   </div>
-</body>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script>
-
-//=IF(I2="DFL", IF(K2=0, M2, M2*K2)*J2, IF(K2=0, M2, M2*K2))
-//=IF(I2="GOP", IF(L2=0, N2, N2*L2)*J2, IF(L2=0, N2, N2*L2))
 
   $("#dLeanCount").parent().parent().hide();
   $("#tossupCount").parent().parent().hide();
   $("#rLeanCount").parent().parent().hide();
-
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=17N3mrwSRe6BJScRby9auxtQ8o7UwhfXv2IuTxbmlakY&sheet=power_index", function(error, dataLoad) {
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=17N3mrwSRe6BJScRby9auxtQ8o7UwhfXv2IuTxbmlakY&sheet=mnleg_chatter", function(error, dataLoadC) {
 
 d3.json("./data/mnleg.json", function(error, dataLoad) {
 d3.json("./data/mnleg_chatter.json", function(error, dataLoadC) {
@@ -3339,6 +3330,6 @@ map.on('mousemove', function(e) {
         });
 
       });
-
 </script>
+</body>
 </html>
