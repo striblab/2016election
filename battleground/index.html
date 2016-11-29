@@ -2779,13 +2779,21 @@ $(".raceSwitch").click(function(event) {
 
 
 //INITIAL DATAMANCY TO CONJURE RESULTS FROM THE ASSOCIATED PRESS
-var apiStringPrez = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
-var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
-var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-governors-by-state/full.json";
-var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
-var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnhouse-by-district/full.json";
-var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
-var apiStringEVCD = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-nebraska-maine/full.json";
+// var apiStringPrez = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-by-county/full.json";
+// var apiStringSen = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ussenate-by-state/full.json";
+// var apiStringGov = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-governors-by-state/full.json";
+// var apiStringMNS = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnsenate-by-district/full.json";
+// var apiStringMNH = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/mn-mnhouse-by-district/full.json";
+// var apiStringHouse = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-ushouse-by-state/full.json";
+// var apiStringEVCD = "https://s3-us-west-2.amazonaws.com/strib-elections-ap-api/us-uspresident-nebraska-maine/full.json";
+
+var apiStringPrez = "./data/prezCounty2016.json";
+var apiStringSen = "./data/ussenate2016.json";
+var apiStringGov = "./data/usgov2016.json";
+var apiStringMNS = "./data/mnsenate2016.json";
+var apiStringMNH = "./data/mnhouse2016.json";
+var apiStringHouse = "./data/ushouse2016.json";
+var apiStringEVCD = "./data/prezEVCD2016.json";
 
 d3.json(apiStringPrez + '?' + (Math.floor(Math.random() * 1000)), function(error1, jsonSpillPrez) {
 d3.json(apiStringSen + '?' + (Math.floor(Math.random() * 1000)), function(error2, jsonSpillSen) {
