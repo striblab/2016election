@@ -104,6 +104,7 @@
     @media (max-width:500px) {
       #wrapper { width:100%; margin-right:auto; margin-left:auto; }
       .metro { display:none; }
+      .map { width:100%; text-align:center; }
     }
 </style> 
 </head>
@@ -268,26 +269,26 @@ var chart = c3.generate({
 }
 
 function mapColor(d, race, dataCompare){
-   if (race != "redistrict"){ 
+   // if (race != "redistrict"){ 
     for (var i=0; i < dataCompare.length; i++){
         if (d.properties.DISTRICT == dataCompare[i].district){
             if (dataCompare[i].gop > dataCompare[i].dfl) { return "r3"; }
             else if (dataCompare[i].gop < dataCompare[i].dfl) { return "d3"; }
         }
     } 
-   }
-   else { 
-    for (var i=0; i < dataCompare.length; i++){
-        if (d.properties.NAME == dataCompare[i].district){
-            if (dataCompare[i].gop > dataCompare[i].dfl) { return "r3"; }
-            else if (dataCompare[i].gop < dataCompare[i].dfl) { return "d3"; }
-        }
-    }
-   }
+   // }
+   // else { 
+   //  for (var i=0; i < dataCompare.length; i++){
+   //      if (d.properties.NAME == dataCompare[i].district){
+   //          if (dataCompare[i].gop > dataCompare[i].dfl) { return "r3"; }
+   //          else if (dataCompare[i].gop < dataCompare[i].dfl) { return "d3"; }
+   //      }
+   //  }
+   // }
 }
 
 function mapTips(d, subject, dataCompare){
-   if (subject != "redistrict"){ 
+   // if (subject != "redistrict"){ 
     for (var i=0; i < dataCompare.length; i++){
         if (d.properties.DISTRICT == dataCompare[i].district){
             if (dataCompare[i].gop > dataCompare[i].dfl) { return "<div class='districtName'>District " + d.properties.DISTRICT + "</div><div class='republican'>" + d3.format(".1f")(dataCompare[i].gop) + "% GOP</div><div class='democrat'>" + d3.format(".1f")(dataCompare[i].dfl) + "% DFL</div>"; }
@@ -295,16 +296,16 @@ function mapTips(d, subject, dataCompare){
         }
     } 
     return "<div class='districtName'>District " + d.properties.DISTRICT + "</div>"
-   }
-   else { 
-    for (var i=0; i < dataCompare.length; i++){
-        if (d.properties.NAME == dataCompare[i].district){
-            if (dataCompare[i].gop > dataCompare[i].dfl) { return "<div class='districtName'>District " + d.properties.NAME + "</div><div class='republican'>" + d3.format(".1f")(dataCompare[i].gop) + "% GOP</div><div class='democrat'>" + d3.format(".1f")(dataCompare[i].dfl) + "% DFL</div>"; }
-            else if (dataCompare[i].gop < dataCompare[i].dfl) { return "<div class='districtName'>District " + d.properties.NAME + "</div><div class='democrat'>" + d3.format(".1f")(dataCompare[i].dfl) + "% DFL</div><div class='republican'>" + d3.format(".1f")(dataCompare[i].gop) + "% GOP</div>"; }
-        }
-    }
-    return "<div class='districtName'>District " + d.properties.NAME + "</div>"
-   }
+   // }
+   // else { 
+   //  for (var i=0; i < dataCompare.length; i++){
+   //      if (d.properties.NAME == dataCompare[i].district){
+   //          if (dataCompare[i].gop > dataCompare[i].dfl) { return "<div class='districtName'>District " + d.properties.NAME + "</div><div class='republican'>" + d3.format(".1f")(dataCompare[i].gop) + "% GOP</div><div class='democrat'>" + d3.format(".1f")(dataCompare[i].dfl) + "% DFL</div>"; }
+   //          else if (dataCompare[i].gop < dataCompare[i].dfl) { return "<div class='districtName'>District " + d.properties.NAME + "</div><div class='democrat'>" + d3.format(".1f")(dataCompare[i].dfl) + "% DFL</div><div class='republican'>" + d3.format(".1f")(dataCompare[i].gop) + "% GOP</div>"; }
+   //      }
+   //  }
+   //  return "<div class='districtName'>District " + d.properties.NAME + "</div>"
+   // }
        
 }
 
@@ -479,7 +480,7 @@ d3.helper.tooltip = function(accessor){
   mapBuild("#mapState2012", "#infobox", "#chart", "mnleg.json", "house", "mn", data2012, 0);
 
   mapBuild("#mapMetro2008", "#infobox", "#chart", "mnleg2008_metro.json", "redistrict", "metro", data2008, 0);
-  mapBuild("#mapState2008", "#infobox", "#chart", "mnleg2008.json", "redistrict", "mn", data2008, 0);
+  mapBuild("#mapState2008", "#infobox", "#chart", "mnleg2002.json", "redistrict", "mn", data2008, 0);
 
 });
 });
