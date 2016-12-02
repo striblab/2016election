@@ -1,4 +1,4 @@
-Star Tribune Battleground Minnesota 2016 - How the GOP took the Minnesota House
+Star Tribune Battleground Minnesota 2016 - The DFL's presidential election year slide
 ================
 
 by Frey Hargarten
