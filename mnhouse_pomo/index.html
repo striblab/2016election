@@ -266,6 +266,19 @@ var chart = c3.generate({
         }
     }
 });
+
+
+    path = d3.selectAll("#chart path");
+
+      var totalLength = path.node().getTotalLength();
+
+    path
+      .attr("stroke-dasharray", totalLength + " " + totalLength)
+      .attr("stroke-dashoffset", totalLength)
+      .transition()
+        .duration(1500)
+        .ease("linear")
+        .attr("stroke-dashoffset", 0);
 }
 
 function mapColor(d, race, dataCompare){
