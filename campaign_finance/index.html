@@ -376,7 +376,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
           }
         }
 
-        return "<div class='districtName'> District " + d.properties.DISTRICT + "</div><div class='" + color + "'>" + d3.format("$,")(total) + " spent</div>";
+        return "<div class='districtName'> District " + d.properties.DISTRICT + "</div><div class='" + color + "'>" + d3.format("$,.0f")(total) + " spent</div>";
       }));
 
   g.append("path")
@@ -556,7 +556,7 @@ function getDonors(container, candidate, party){
       .attr("class",function(d) { return "donor"; })
       .on("click",function(d){ })
       .html(function(d){ 
-        return "<div class='adjacent'>" + d.donor + "</div><div class='adjacent'>" + d3.format("$,.2f")(d.amount) + "</div>";
+        return "<div class='adjacent'>" + d.donor + "</div><div class='adjacent'>" + d3.format("$,.0f")(d.amount) + "</div>";
       });
 }
 
@@ -574,7 +574,7 @@ var miscPCT = d3.format("%")(amount[6] / amount[0]);
 var notepayPCT = d3.format("%")(amount[7] / amount[0]);
 var noterecPCT = d3.format("%")(amount[8] / amount[0]);
 
-$(container).html("<div class='bigNum'>" + d3.format("$,.2f")(amount[0]) + "</div><div class='bigBar'><div class='inBar' style='height:" + pct + "'><div class='ind' title='"  + d3.format("$,.2f")(amount[1]) +  " independent contributions' style='height:" + indPCT + "'></div><div class='pp' title='"  + d3.format("$,.2f")(amount[2]) +  " political party' style='height:" + ppPCT + "'></div><div class='pf' title='" + d3.format("$,.2f")(amount[3]) +  " political committees' style='height:" + pfPCT + "'></div><div class='lb' title='"  + d3.format("$,.2f")(amount[4]) +  " lobbyist contributions' style='height:" + lbPCT + "'></div><div class='pubfin' title='"  + d3.format("$,.2f")(amount[5]) +  " public financing' style='height:" + pubfinPCT + "'></div><div class='misc' title='"  + d3.format("$,.2f")(amount[6]) +  " miscellaneous' style='height:" + miscPCT + "'></div><div class='notepay' title='"  + d3.format("$,.2f")(amount[7]) +  " receipts loans payable' style='height:" + notepayPCT + "'></div><div class='noterec' title='"  + d3.format("$,.2f")(amount[8]) +  " noterec' style='height:" + noterecPCT + "'></div></div></div><div class='subtotal'><div class='left'>Begin 1/1/16</div><div class='right'>" +  d3.format("$,.2f")(amount[11]) + "</div></div><div class='subtotal'><div class='left'>Raised</div><div class='right'>+" +  d3.format("$,.2f")(amount[0]) + "</div></div><div class='subtotal'><div class='left'>Expenditures</div><div class='right'>-" + d3.format("$,.2f")(amount[9]) + "</div></div><div class='subtotal'><div class='left'>End 12/31/16</div><div class='right'>" + d3.format("$,.2f")(amount[10]) + "</div></div>");
+$(container).html("<div class='bigNum'>" + d3.format("$,.0f")(amount[0]) + "</div><div class='bigBar'><div class='inBar' style='height:" + pct + "'><div class='ind' title='"  + d3.format("$,.0f")(amount[1]) +  " independent contributions' style='height:" + indPCT + "'></div><div class='pp' title='"  + d3.format("$,.0f")(amount[2]) +  " political party' style='height:" + ppPCT + "'></div><div class='pf' title='" + d3.format("$,.0f")(amount[3]) +  " political committees' style='height:" + pfPCT + "'></div><div class='lb' title='"  + d3.format("$,.0f")(amount[4]) +  " lobbyist contributions' style='height:" + lbPCT + "'></div><div class='pubfin' title='"  + d3.format("$,.0f")(amount[5]) +  " public financing' style='height:" + pubfinPCT + "'></div><div class='misc' title='"  + d3.format("$,.0f")(amount[6]) +  " miscellaneous' style='height:" + miscPCT + "'></div><div class='notepay' title='"  + d3.format("$,.0f")(amount[7]) +  " receipts loans payable' style='height:" + notepayPCT + "'></div><div class='noterec' title='"  + d3.format("$,.0f")(amount[8]) +  " noterec' style='height:" + noterecPCT + "'></div></div></div><div class='subtotal'><div class='left'>Begin 1/1/16</div><div class='right'>" +  d3.format("$,.0f")(amount[11]) + "</div></div><div class='subtotal'><div class='left'>Raised</div><div class='right'>+" +  d3.format("$,.0f")(amount[0]) + "</div></div><div class='subtotal'><div class='left'>Expenditures</div><div class='right'>-" + d3.format("$,.0f")(amount[9]) + "</div></div><div class='subtotal'><div class='left'>End 12/31/16</div><div class='right'>" + d3.format("$,.0f")(amount[10]) + "</div></div>");
 
  $( function() {
     $( document ).tooltip();
