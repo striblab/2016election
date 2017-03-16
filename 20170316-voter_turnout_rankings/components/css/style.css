@@ -5250,5 +5250,17 @@ a.ui-button:active,
 
 .source {
   color:#333;
-  padding:5px;
+  margin:7px;
+}
+
+.purple3 {
+  background-color:#A270A7 !important; fill:#A270A7 !important; color:#333; padding:3px;
+}
+
+.purple2 {
+  background-color:#7a0177 !important; fill:#7a0177 !important; color:#fff; padding:3px;
+}
+
+.purple1 {
+  background-color:#fa9fb5 !important; fill:#fa9fb5 !important; color:#333; padding:3px;
 }
