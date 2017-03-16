@@ -401,7 +401,7 @@ var chartT = c3.generate({
             x: {
                  tick: {
                      // values: [1996,2000,2004,2008,2012,2016],
-                     count: 6
+                     count: 5
                 }
             }
         }
