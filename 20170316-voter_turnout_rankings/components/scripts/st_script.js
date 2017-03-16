@@ -85,7 +85,7 @@ var chartT = c3.generate({
                 },
             x: {
                  tick: {
-                     values: [1950,1964,1980,1996,2016],
+                     values: [1972,1980,1988,1996,2016],
                      count: 5
                 }
             }
