@@ -1,3 +1,5 @@
 *.zip
 *.docx
 node_modules/
+interviews/
+drafts/
