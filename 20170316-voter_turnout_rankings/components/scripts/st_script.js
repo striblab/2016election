@@ -79,13 +79,13 @@ var chartT = c3.generate({
                     min: 0,
                     padding: {bottom: 0, top: 0},
                     tick: {
-                     count: 4,
+                     count: 5,
                      format: d3.format('%')
                     }
                 },
             x: {
                  tick: {
-                     values: [1972,1980,1988,1996,2016],
+                     // values: [1972,1980,1988,1996,2016],
                      count: 5
                 }
             }
@@ -234,13 +234,13 @@ var chartPop = c3.generate({
                     min: 0,
                     padding: {bottom: 0, top: 0},
                     tick: {
-                     count: 4,
+                     count: 5,
                      format: d3.format('%')
                     }
                 },
             x: {
                  tick: {
-                     values: [1992,1996,2000,2004,2008,2012,2016],
+                     // values: [1992,1996,2000,2004,2008,2012,2016],
                      count: 7
                 }
             }
@@ -314,13 +314,13 @@ var chartT = c3.generate({
                     min: 0,
                     padding: {bottom: 0, top: 0},
                     tick: {
-                     count: 4,
+                     count: 5,
                      format: d3.format('%')
                     }
                 },
             x: {
                  tick: {
-                     values: [1996,2000,2004,2008,2012,2016],
+                     // values: [1996,2000,2004,2008,2012,2016],
                      count: 6
                 }
             }
@@ -393,13 +393,13 @@ var chartT = c3.generate({
                     min: 0,
                     padding: {bottom: 0, top: 0},
                     tick: {
-                     count: 4,
+                     count: 5,
                      format: d3.format('%')
                     }
                 },
             x: {
                  tick: {
-                     values: [1996,2000,2004,2008,2012,2016],
+                     // values: [1996,2000,2004,2008,2012,2016],
                      count: 6
                 }
             }
@@ -470,13 +470,13 @@ var chartT = c3.generate({
                     min: 0,
                     padding: {bottom: 0, top: 0},
                     tick: {
-                     count: 4,
+                     count: 5,
                      format: d3.format('%')
                     }
                 },
             x: {
                  tick: {
-                     values: [1972,1984,1992,2008,2016],
+                     // values: [1972,1984,1992,2008,2016],
                      count: 5
                 }
             }
@@ -554,18 +554,18 @@ var chart = c3.generate({
             padding: {bottom: 0, top:0},
             label: "Turnout",
             tick: {
-             format: d3.format('%'),
-             count: 3
+             count: 5,
+             format: d3.format('%')
             }
         },
         x: {
             max: 0.5,
+            min: 0,
             label: "Margin",
             tick: {
-                // format: "%m-%d-%Y",
-                count: 5,
+               values: [0,.15,.35,.50],
+                count: 4,
                 format: d3.format('%'),
-                multiline: false
             }
           }
         },
@@ -732,7 +732,7 @@ var cartogram2 = {
         {'state_full':'New Mexico','state_postal':'NM','row':4,'column':2,'state_total_old':'24','state_total_new':'14','state_change':'-100%','color':'gray2'},
         {'state_full':'New York','state_postal':'NY','row':1,'column':8,'state_total_old':'203','state_total_new':'135','state_change':'-38%','color':'gray2'},
         {'state_full':'North Carolina','state_postal':'NC','row':4,'column':6,'state_total_old':'156','state_total_new':'111','state_change':'-35%','color':'purple1'},
-        {'state_full':'North Dakota','state_postal':'ND**','row':1,'column':3,'state_total_old':'84','state_total_new':'117','state_change':'+36%','color':'gray2'},
+        {'state_full':'North Dakota','state_postal':'ND**','row':1,'column':3,'state_total_old':'84','state_total_new':'117','state_change':'+36%','color':'purple3'},
         {'state_full':'Ohio','state_postal':'OH','row':2,'column':6,'state_total_old':'258','state_total_new':'217','state_change':'-18%','color':'gray2'},
         {'state_full':'Oklahoma','state_postal':'OK','row':5,'column':3,'state_total_old':'46','state_total_new':'53','state_change':'-30%','color':'gray2'},
         {'state_full':'Oregon','state_postal':'OR','row':2,'column':0,'state_total_old':'40','state_total_new':'61','state_change':'+20%','color':'purple2'},
