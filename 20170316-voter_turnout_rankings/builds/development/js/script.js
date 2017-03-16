@@ -144,7 +144,7 @@ var chartT = c3.generate({
          },
          colors: {
               '2016 Turnout': function(d) { 
-              if (d.index == 0 || d.index == 1 || d.index == 2 || d.index == 3 || d.index == 4 || d.index == 5 || d.index == 8 || d.index == 14 || d.index == 15 || d.index == 18 || d.index == 22 || d.index == 24 || d.index == 25 || d.index == 27) { return "#A270A7"; }
+              if (d.index == 0 || d.index == 1 || d.index == 2 || d.index == 3 || d.index == 4 || d.index == 5 || d.index == 8 || d.index == 14 || d.index == 15 || d.index == 18 || d.index == 22 || d.index == 24 || d.index == 26 || d.index == 27) { return "#A270A7"; }
               else { return "#333"; }
           }
             }
