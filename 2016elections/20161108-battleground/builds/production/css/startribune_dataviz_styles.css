@@ -1,0 +1,3636 @@
+/*FONT STACK*/
+
+@font-face {
+font-family: "Benton Sans";
+src: url("https://apps.startribune.com/fonts/Benton-Sans-Regular/c80c8df9-343a-4ee8-a64b-6213022724fd-2.eot");
+src: url("https://apps.startribune.com/fonts/Benton-Sans-Regular/c80c8df9-343a-4ee8-a64b-6213022724fd-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Benton-Sans-Regular/c80c8df9-343a-4ee8-a64b-6213022724fd-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Benton-Sans-Regular/c80c8df9-343a-4ee8-a64b-6213022724fd-1.ttf") format("truetype");
+font-style: normal;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Benton Sans";
+src: url("https://apps.startribune.com/fonts/Benton-Sans-Regular-Italic/2c74d4f4-5f5a-4841-9646-6cb371baa21a-2.eot");
+src: url("https://apps.startribune.com/fonts/Benton-Sans-Regular-Italic/2c74d4f4-5f5a-4841-9646-6cb371baa21a-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Benton-Sans-Regular-Italic/2c74d4f4-5f5a-4841-9646-6cb371baa21a-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Benton-Sans-Regular-Italic/2c74d4f4-5f5a-4841-9646-6cb371baa21a-1.ttf") format("truetype");
+font-style: italic;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Benton Sans";
+src: url("https://apps.startribune.com/fonts/Benton-Sans-Bold/34ba72ff-8e42-428e-b0a6-d43e43d09b7f-2.eot");
+src: url("https://apps.startribune.com/fonts/Benton-Sans-Bold/34ba72ff-8e42-428e-b0a6-d43e43d09b7f-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Benton-Sans-Bold/34ba72ff-8e42-428e-b0a6-d43e43d09b7f-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Benton-Sans-Bold/34ba72ff-8e42-428e-b0a6-d43e43d09b7f-1.ttf") format("truetype");
+font-style: normal;
+font-weight: bold
+}
+
+@font-face {
+font-family: "Benton Sans Condensed Medium";
+src: url("https://apps.startribune.com/fonts/Benton-Sans-Condensed-Medium/06f4dbf6-2449-4b99-9621-e8abb9e595a2-2.eot");
+src: url("https://apps.startribune.com/fonts/Benton-Sans-Condensed-Medium/06f4dbf6-2449-4b99-9621-e8abb9e595a2-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Benton-Sans-Condensed-Medium/06f4dbf6-2449-4b99-9621-e8abb9e595a2-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Benton-Sans-Condensed-Medium/06f4dbf6-2449-4b99-9621-e8abb9e595a2-1.ttf") format("truetype");
+font-style: normal;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Popular Light";
+src: url("https://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-2.eot");
+src: url("https://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-1.ttf") format("truetype");
+font-style: normal;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Popular";
+src: url("https://apps.startribune.com/fonts/Popular-Regular/a6cd39cd-f989-4756-ba40-dfd8fdcee7ca-2.eot");
+src: url("https://apps.startribune.com/fonts/Popular-Regular/a6cd39cd-f989-4756-ba40-dfd8fdcee7ca-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Popular-Regular/a6cd39cd-f989-4756-ba40-dfd8fdcee7ca-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Popular-Regular/a6cd39cd-f989-4756-ba40-dfd8fdcee7ca-1.ttf") format("truetype");
+font-style: normal;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Popular Medium";
+src: url("https://apps.startribune.com/fonts/Popular-Medium/ce490641-b5d9-4eff-a05c-38dbe1948f17-2.eot");
+src: url("https://apps.startribune.com/fonts/Popular-Medium/ce490641-b5d9-4eff-a05c-38dbe1948f17-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Popular-Medium/ce490641-b5d9-4eff-a05c-38dbe1948f17-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Popular-Medium/ce490641-b5d9-4eff-a05c-38dbe1948f17-1.ttf") format("truetype");
+font-style: normal;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Popular";
+src: url("https://apps.startribune.com/fonts/Popular-Bold/cec9083e-fac8-488a-8891-4f7eacf77220-2.eot");
+src: url("https://apps.startribune.com/fonts/Popular-Bold/cec9083e-fac8-488a-8891-4f7eacf77220-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Popular-Bold/cec9083e-fac8-488a-8891-4f7eacf77220-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Popular-Bold/cec9083e-fac8-488a-8891-4f7eacf77220-1.ttf") format("truetype");
+font-style: normal;
+font-weight: bold
+}
+
+@font-face {
+font-family: "Poynter Serif RE";
+src: url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-2.eot");
+src: url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Poynter-Serif-RE/6da0e483-5b55-412e-9685-611b9bb101fd-1.ttf") format("truetype");
+font-style: normal;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Poynter Serif RE";
+src: url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Italic/fcc7dbe8-7d79-4278-a765-8e1eb8535c3f-2.eot");
+src: url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Italic/fcc7dbe8-7d79-4278-a765-8e1eb8535c3f-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Italic/fcc7dbe8-7d79-4278-a765-8e1eb8535c3f-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Italic/fcc7dbe8-7d79-4278-a765-8e1eb8535c3f-1.ttf") format("truetype");
+font-style: italic;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Poynter Serif RE";
+src: url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-2.eot");
+src: url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold/a9cccbf1-281e-4903-b5f3-4b5dcd9d9cfa-1.ttf") format("truetype");
+font-style: normal;
+font-weight: bold
+}
+
+@font-face {
+font-family: "Poynter Serif RE";
+src: url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold-Italic/8cf6fa2c-d12a-46b5-b282-c93fbad37343-2.eot");
+src: url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold-Italic/8cf6fa2c-d12a-46b5-b282-c93fbad37343-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold-Italic/8cf6fa2c-d12a-46b5-b282-c93fbad37343-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Poynter-Serif-RE-Bold-Italic/8cf6fa2c-d12a-46b5-b282-c93fbad37343-1.ttf") format("truetype");
+font-style: italic;
+font-weight: bold
+}
+
+@font-face {
+font-family: "Whitman Display Compressed Bold";
+src: url("https://apps.startribune.com/fonts/Whitman-Display-Comp-Bold/c1ec7b66-657a-4549-9c44-00ae270517c5-2.eot");
+src: url("https://apps.startribune.com/fonts/Whitman-Display-Comp-Bold/c1ec7b66-657a-4549-9c44-00ae270517c5-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Whitman-Display-Comp-Bold/c1ec7b66-657a-4549-9c44-00ae270517c5-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Whitman-Display-Comp-Bold/c1ec7b66-657a-4549-9c44-00ae270517c5-1.ttf") format("truetype");
+font-style: normal;
+font-weight: bold
+}
+
+@font-face {
+font-family: "Whitman Display Condensed Bold";
+src: url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-2.eot");
+src: url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Whitman-Display-Cond-Bold/8406d32c-8dc4-4285-a5ee-200b97edd2ab-1.ttf") format("truetype");
+font-style: normal;
+font-weight: bold
+}
+
+@font-face {
+font-family: "Whitman Display";
+src: url("https://apps.startribune.com/fonts/Whitman-Display-Regular/afc69d83-243c-4a7f-8d26-1795692dfade-2.eot");
+src: url("https://apps.startribune.com/fonts/Whitman-Display-Regular/afc69d83-243c-4a7f-8d26-1795692dfade-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Whitman-Display-Regular/afc69d83-243c-4a7f-8d26-1795692dfade-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Whitman-Display-Regular/afc69d83-243c-4a7f-8d26-1795692dfade-1.ttf") format("truetype");
+font-style: normal;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Whitman Display";
+src: url("https://apps.startribune.com/fonts/Whitman-Display-Regular-Italic/e9683d36-3a41-45c2-8aeb-f461fa1825f1-2.eot");
+src: url("https://apps.startribune.com/fonts/Whitman-Display-Regular-Italic/e9683d36-3a41-45c2-8aeb-f461fa1825f1-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Whitman-Display-Regular-Italic/e9683d36-3a41-45c2-8aeb-f461fa1825f1-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Whitman-Display-Regular-Italic/e9683d36-3a41-45c2-8aeb-f461fa1825f1-1.ttf") format("truetype");
+font-style: italic;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Whitman Display";
+src: url("https://apps.startribune.com/fonts/Whitman-Display-Bold/d34b615f-025d-471c-a1a0-a5a039248094-2.eot");
+src: url("https://apps.startribune.com/fonts/Whitman-Display-Bold/d34b615f-025d-471c-a1a0-a5a039248094-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Whitman-Display-Bold/d34b615f-025d-471c-a1a0-a5a039248094-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Whitman-Display-Bold/d34b615f-025d-471c-a1a0-a5a039248094-1.ttf") format("truetype");
+font-style: normal;
+font-weight: bold
+}
+
+@font-face {
+font-family: "Whitman OSF";
+src: url("https://apps.startribune.com/fonts/Whitman-Roman-OSF/c35df3ea-93e1-47b6-9629-bc761414cf65-2.eot");
+src: url("https://apps.startribune.com/fonts/Whitman-Roman-OSF/c35df3ea-93e1-47b6-9629-bc761414cf65-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Whitman-Roman-OSF/c35df3ea-93e1-47b6-9629-bc761414cf65-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Whitman-Roman-OSF/c35df3ea-93e1-47b6-9629-bc761414cf65-1.ttf") format("truetype");
+font-style: normal;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Whitman OSF";
+src: url("https://apps.startribune.com/fonts/Whitman-Bold-OSF/90508854-65ad-4bc0-b4f5-13734269e40e-2.eot");
+src: url("https://apps.startribune.com/fonts/Whitman-Bold-OSF/90508854-65ad-4bc0-b4f5-13734269e40e-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Whitman-Bold-OSF/90508854-65ad-4bc0-b4f5-13734269e40e-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Whitman-Bold-OSF/90508854-65ad-4bc0-b4f5-13734269e40e-1.ttf") format("truetype");
+font-style: normal;
+font-weight: bold
+}
+
+@font-face {
+font-family: "Whitman OSF";
+src: url("https://apps.startribune.com/fonts/Whitman-Italic-OSF/4227a9bf-e403-4086-8d26-9a6d738858e0-2.eot");
+src: url("https://apps.startribune.com/fonts/Whitman-Italic-OSF/4227a9bf-e403-4086-8d26-9a6d738858e0-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Whitman-Italic-OSF/4227a9bf-e403-4086-8d26-9a6d738858e0-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Whitman-Italic-OSF/4227a9bf-e403-4086-8d26-9a6d738858e0-1.ttf") format("truetype");
+font-style: italic;
+font-weight: normal
+}
+
+@font-face {
+font-family: "Popular Light";
+src: url("https://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-2.eot");
+src: url("https://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-2.eot?") format("embedded-opentype"), url("https://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-3.woff") format("woff"), url("https://apps.startribune.com/fonts/Popular-Light/64136bfc-6015-473a-b534-6f235774c8ab-1.ttf") format("truetype");
+font-style: normal;
+font-weight: normal;
+}
+
+::selection {
+background: #ddd;
+}
+
+body {
+overflow-x: hidden;
+}
+
+a {
+color: #ccc;
+text-decoration: none;
+}
+
+a:hover {
+color: #333;
+}
+
+.byline {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+font-weight: 900;
+color: #888;
+}
+
+.byline a {
+color: #888;
+}
+
+
+/*COLOR LEGENDS*/
+
+.legend label,
+.legend span {
+display: block;
+float: left;
+height: 15px;
+width: 35px;
+text-align: center;
+font-size: 12px;
+color: #808080;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
+
+
+/*SEARCH BOX FILTERS*/
+
+#filter {
+font-family: "Benton Sans";
+font-size: .9em;
+width: 100% !important;
+}
+
+#filter input {
+width: 100% !important;
+padding: 0 10px 0 10px;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+border-radius: 5px !important;
+margin: 0;
+width: 100%;
+height: 30px;
+line-height: 120%;
+font-size: 1em;
+-webkit-appearance: none;
+-webkit-border-radius: 0;
+border-radius: 0;
+box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+color: rgba(0, 0, 0, 0.75);
+-webkit-transition: all 0.30s ease-in-out;
+-moz-transition: all 0.30s ease-in-out;
+-ms-transition: all 0.30s ease-in-out;
+-o-transition: all 0.30s ease-in-out;
+background-color: #fff !important;
+font-family: inherit;
+border: 1px solid #eee !important;
+background-size: 14px 14px;
+background-repeat: no-repeat;
+background-position: 98% 50%;
+}
+
+#filter input:focus {
+width: 100% !important;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+box-shadow: 0 0 5px #999;
+padding: 1px 10px 1px 10px;
+border: 1px solid #61bd1a;
+}
+
+
+/*VARIOUS TITLES AND CHATTER*/
+
+.chartTitle {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+font-weight: 900;
+margin-top: 15px;
+font-size: 1.2em;
+}
+
+.chatter {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+font-size: .9em;
+margin-top: 5px;
+}
+
+p {
+font-family: "Poynter Serif RE", Georgia, Times, serif;
+font-size: 15px;
+line-height: 140%;
+margin-bottom: 14px;
+letter-spacing: -0.3px;
+}
+
+.demographic {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+font-size: .9em;
+}
+
+.source {
+font-size: .5em;
+color: #ccc;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
+
+
+/*HIGHLIGHTED NUMBERS*/
+
+.num {
+font-family: "Popular";
+font-weight: 900;
+}
+
+.bigNum {
+font-family: "Popular";
+font-weight: 900;
+font-size: 3.5em;
+}
+
+
+/*BOOTSTRAP BUTTON CHECKBOX STYLES*/
+
+.btn-group {
+margin-left: 0;
+width: 100%;
+text-align: center;
+}
+
+.btn-primary {
+width: 19.6%;
+text-align: center;
+background-color: #333;
+border: 0;
+border-radius: 0;
+color: #ffffff;
+cursor: pointer;
+display: inline-block;
+font-family: arial;
+font-size: 13px;
+font-weight: 900;
+moz-border-radius: 0;
+padding: 13px 26px;
+text-decoration: none;
+webkit-border-radius: 0;
+}
+
+.btn-primary input[type=checkbox] {
+border: none;
+display: none !important;
+}
+
+.btn-primary:hover {
+background-color: #5cbf2a;
+}
+
+.active {
+background-color: #5cbf2a;
+}
+
+
+/*D3 SLIDER STYLES*/
+
+#sliderDiv {
+height: 20px;
+padding: 15px;
+}
+
+.d3-slider-handle {
+position: absolute;
+width: 1.2em;
+height: 1.2em;
+border: 1px solid #ddd !important;
+border-radius: 0;
+background: #ddd !important;
+z-index: 3;
+}
+
+.d3-slider-handle:hover {
+background: #333 !important;
+cursor: pointer;
+}
+
+
+/*D3 MAP STYLES*/
+
+.background {
+fill: none;
+pointer-events: all;
+}
+
+.states {
+fill: #aaa;
+}
+
+#state-borders {
+fill: none;
+stroke: #fff;
+stroke-width: 2px;
+stroke-linejoin: round;
+stroke-linecap: round;
+pointer-events: none;
+}
+
+.tooltip {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+background-color: rgba(255, 255, 255, 1);
+height: auto;
+width: auto;
+padding: 10px;
+border-radius: 0;
+border: 1px solid black;
+font-size: 13px;
+font-family: Arial;
+}
+
+.states .active {
+fill: #333 !important;
+fill-opacity: 1 !important;
+}
+
+.faded {
+fill-opacity: 0.5 !important;
+}
+
+.states path:hover {
+fill: #333 !important;
+cursor: pointer;
+}
+
+
+/*C3 TOOLTIPS*/
+
+th,
+text {
+color: #000 !important;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+font-size: 11px;
+}
+
+.tips th {
+background-color: #fff !important;
+}
+
+.tips {
+border: none !important;
+}
+
+.value {
+color: #000 !important;
+font-family: "Popular";
+font-weight: 900;
+}
+
+.name {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
+
+
+/*NVD3 STYLES*/
+
+.nvd3 .nv-x .nv-axis .tick line,
+.nvd3 .nv-y .nv-axis .tick line {
+fill: none;
+display: none !important;
+stroke: #fff;
+shape-rendering: crispEdges;
+opacity: 0 !important;
+}
+
+.nvtooltip {
+border-radius: 0 !important;
+background-color: #fff;
+border-color: #000;
+}
+
+text {
+font-family: "Benton Sans" !important;
+}
+
+.nv-axisMaxMin {
+font-family: "Popular" !important;
+}
+
+
+/*NAV BUTTONS*/
+
+.myButtonNav {
+background-color: #ddd;
+border: 0;
+border-radius: 0;
+color: #000;
+cursor: pointer;
+display: block;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+font-size: 1em;
+font-weight: 900;
+moz-border-radius: 0;
+padding: 6px;
+text-decoration: none;
+webkit-border-radius: 0;
+width: 100%;
+margin: 5px;
+}
+
+.myButtonNav:hover {
+background-color: #378f00 !important;
+}
+
+.myButtonNav:active {
+background-color: #5cbf2a;
+}
+
+
+/*STANDARD TOGGLE BUTTONS*/
+
+.myButton {
+background-color: #61bd1a;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+border: 0;
+display: inline-block;
+cursor: pointer;
+color: #000;
+font-family: arial;
+font-size: 1em;
+padding: 13px 26px;
+text-decoration: none;
+font-weight: 900;
+}
+
+.myButton:active {
+background-color: #5cbf2a;
+}
+
+.myButton:hover {
+background-color: #5cbf2a !important;
+}
+
+.myButton2 {
+background-color: #61bd1a;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+border: 0;
+display: inline-block;
+cursor: pointer;
+color: #000;
+font-family: arial;
+font-size: 1em;
+padding: 13px 26px;
+text-decoration: none;
+font-weight: 900;
+}
+
+.myButton2:active {
+background-color: #5cbf2a;
+}
+
+.myButton2:hover {
+background-color: #5cbf2a !important;
+}
+
+.myButton3 {
+background-color: #61bd1a;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+border: 0;
+display: inline-block;
+cursor: pointer;
+color: #000;
+font-family: arial;
+font-size: 1em;
+padding: 13px 26px;
+text-decoration: none;
+font-weight: 900;
+}
+
+.myButton3:active {
+background-color: #5cbf2a;
+}
+
+.myButton3:hover {
+background-color: #5cbf2a !important;
+}
+
+.myButton4 {
+background-color: #61bd1a;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+border: 0;
+display: inline-block;
+cursor: pointer;
+color: #000;
+font-family: arial;
+font-size: 1em;
+padding: 13px 26px;
+text-decoration: none;
+font-weight: 900;
+}
+
+.myButton4:active {
+background-color: #5cbf2a;
+}
+
+.myButton4:hover {
+background-color: #5cbf2a !important;
+}
+
+.myButton5 {
+background-color: #61bd1a;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+border: 0;
+display: inline-block;
+cursor: pointer;
+color: #000;
+font-family: arial;
+font-size: 1em;
+padding: 13px 26px;
+text-decoration: none;
+font-weight: 900;
+}
+
+.myButton5:active {
+background-color: #5cbf2a;
+}
+
+.myButton5:hover {
+background-color: #5cbf2a !important;
+}
+
+.switch {
+padding: 10px;
+display: inline-block;
+text-align: center;
+width: 127px;
+background-color: #fff;
+font-weight: 900;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+border: 1px solid black;
+margin-top: 4px;
+}
+
+.switch:hover,
+.selected {
+background-color: #333 !important;
+color: #fff !important;
+cursor: pointer;
+margin-bottom: 4px;
+}
+
+
+/*SECONDARY TOGGLE BUTTONS*/
+
+.myButton_ {
+background-color: #8B2219;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+border: 0;
+display: inline-block;
+cursor: pointer;
+color: #ffffff;
+font-family: arial;
+font-size: 12px;
+padding: 3px 5px;
+text-decoration: none;
+font-weight: 900;
+}
+
+.myButton_:active {
+background-color: #ad645e;
+}
+
+
+/*KILL BUTTON FOCUS BORDER*/
+
+button:focus {
+outline: 0 !important;
+}
+
+:focus {
+outline: 0;
+}
+
+
+/*BREAKER*/
+
+.breaker {
+clear: both;
+margin: 7px;
+padding: 10px;
+}
+
+
+/*RESET BUTTON*/
+
+.zoom {
+text-decoration: none;
+font-weight: normal !important;
+color: steelblue;
+float: right !important;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+}
+
+.zoom:hover {
+cursor: pointer;
+}
+
+
+/*CONTENT WRAPPER*/
+
+#wrapper {
+width: 98%;
+}
+
+
+/*DATATABLE STYLES*/
+
+tr.odd td.sorting_1 {
+background-color: #efefef;
+}
+
+tr.even td.sorting_1 {
+background-color: #efefef;
+}
+
+tr.even {
+background-color: #fff !important;
+}
+
+tr.odd {
+background-color: #fff !important;
+}
+
+.dataTables_length {
+display: none;
+}
+
+.dataTable {
+margin-bottom: 18px;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+text-align: center;
+}
+
+.dataTables_length,
+.dataTables_info {
+display: none;
+}
+
+.dataTables_info {
+display: none;
+}
+
+.dataTables_scrollHead {
+display: none;
+}
+
+.dataTables_wrapper .dataTables_filter {
+float: left;
+}
+
+input {
+margin-left: 0 !important;
+margin: 0;
+width: 100%;
+height: 30px;
+line-height: 120%;
+font-size: 1em;
+-webkit-appearance: none;
+-webkit-border-radius: 0;
+border-radius: 0;
+box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+color: rgba(0, 0, 0, 0.75);
+-webkit-transition: all 0.30s ease-in-out;
+-moz-transition: all 0.30s ease-in-out;
+-ms-transition: all 0.30s ease-in-out;
+-o-transition: all 0.30s ease-in-out;
+background-color: #fff !important;
+font-family: inherit;
+border: 1px solid #ddd !important;
+}
+
+#events_filter {
+width: 100%;
+height: 50px;
+}
+
+input:focus {
+outline: 0 !important;
+}
+
+input:focus {
+box-shadow: 0 0 5px #61bd1a;
+padding: 3px 0px 3px 3px;
+border: 1px solid #61bd1a;
+}
+
+td {
+padding: 8.88px !important;
+font-family: Arial;
+font-size: 10px !important;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
+
+th {
+background: #ccc !important;
+font-size: 1em;
+font-family: "Poynter Serif RE", Georgia, Times, serif;
+}
+
+table.dataTable.no-footer {
+margin-bottom: 0 !important;
+}
+
+table {
+font-size: 12px;
+}
+
+.dataTables_scrollBody thead {
+visibility: hidden;
+height: 0 !important;
+}
+
+th.sorting_asc,
+th.sorting_desc {
+background: #333 !important;
+font-weight: bold;
+color: #fff !important;
+}
+
+th {
+display: table-cell;
+vertical-align: initial;
+}
+
+th {
+padding: 5px !important;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+height: 20px;
+width: 20px;
+display: block;
+color: white;
+border: 2px solid white;
+position: static !important;
+border-radius: 16px;
+text-align: center;
+line-height: 20px;
+box-shadow: 0 0 0 #444;
+box-sizing: content-box;
+content: '';
+float: left;
+font-weight: bold;
+margin-right: 6px;
+background-color: #61bd1a;
+font-size: 16px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+background: #ddd !important;
+}
+
+.paginate_button:hover {
+background: #333 !important;
+color: #fff !important;
+cursor: pointer !important;
+}
+
+.dataTables_paginate {
+text-align: center !important;
+width: 100%;
+}
+
+.paginate_button {
+font-family: "Popular";
+}
+
+.dataTable {
+min-height: 500px;
+}
+
+
+/*FANCY DROPDOWNS*/
+
+*,
+*:after,
+*:before {
+box-sizing: border-box;
+margin: 0;
+moz-box-sizing: border-box;
+padding: 0;
+webkit-box-sizing: border-box;
+}
+
+::selection {
+background: transparent;
+}
+
+::-moz-selection {
+background: transparent;
+}
+
+.wrapper-demo {
+font-weight: 400;
+zoom: 1;
+z-index: 999;
+display: inline-block;
+width: 100%;
+}
+
+.wrapper-demo:after {
+clear: both;
+content: "";
+display: table;
+}
+
+.wrapper-dropdown-1 {
+display: inline-block;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+z-index: 900;
+background: #ddd;
+color: #333;
+cursor: pointer;
+font-weight: bold;
+outline: none;
+padding: 8px;
+position: relative;
+width: 200px;
+border: 1px solid #aaa;
+box-shadow: 0 2px 1px rgba(0, 0, 0, 0.10);
+font-size: 14px;
+width: 100%;
+}
+
+.wrapper-dropdown-1:after {
+border-color: transparent #333;
+border-style: solid;
+border-width: 6px 0 6px 6px;
+content: "";
+height: 0;
+margin-top: -6px;
+position: absolute;
+right: 16px;
+top: 50%;
+width: 0;
+}
+
+.wrapper-dropdown-1 .dropdown {
+font-weight: normal;
+left: 0;
+list-style: none;
+opacity: 0;
+pointer-events: none;
+position: absolute;
+right: 0;
+top: 100%;
+border: 1px solid #aaa;
+background: #fff;
+box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+margin-top: 0px !important;
+}
+
+.wrapper-dropdown-1 .dropdown li a {
+color: #9e9e9e;
+display: block;
+padding: 10px 20px;
+text-decoration: none;
+}
+
+.wrapper-dropdown-1 .dropdown li:hover a {
+background: #ddd;
+}
+
+.wrapper-dropdown-1 .dropdown {
+font-weight: normal;
+left: 0;
+list-style: none;
+opacity: 0;
+pointer-events: none;
+position: absolute;
+right: 0;
+top: 100%;
+border: 1px solid #aaa;
+background: #fff;
+box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+margin-top: 0px !important;
+}
+
+.wrapper-dropdown-1 .dropdown li:hover a {
+background: #EFEFEF;
+}
+
+.wrapper-dropdown-1.active .dropdown {
+opacity: 1;
+pointer-events: auto;
+}
+
+.wrapper-dropdown-1.active:after {
+border-color: #333 transparent;
+border-width: 6px 6px 0 6px;
+margin-top: -3px;
+}
+
+.wrapper-dropdown-1.active {
+background: #ddd;
+background: linear-gradient(to right, #ddd 0%, #ddd 78%, #ffffff 78%, #ffffff 100%);
+background: -moz-linear-gradient(left, #9bc7de 0%, #9bc7de 78%, #ffffff 78%, #ffffff 100%);
+background: -ms-linear-gradient(left, #ddd 0%, #ddd 78%, #ffffff 78%, #ffffff 100%);
+background: -o-linear-gradient(left, #ddd 0%, #ddd 78%, #ffffff 78%, #ffffff 100%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ddd), color-stop(78%, #ddd), color-stop(78%, #ffffff), color-stop(100%, #ffffff));
+background: -webkit-linear-gradient(left, #ddd 0%, #ddd 78%, #ffffff 78%, #ffffff 100%);
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#9bc7de', endColorstr='#ffffff', GradientType=1);
+}
+
+ul.dropdown.months {
+box-sizing: border-box;
+margin: 0;
+moz-box-sizing: border-box;
+padding: 0;
+webkit-box-sizing: border-box;
+margin-top: -1px;
+border-radius: 0 0 4px 4px;
+background-clip: padding-box;
+}
+
+.no-opacity .wrapper-dropdown-1 .dropdown,
+.no-pointerevents .wrapper-dropdown-1 .dropdown {
+display: none;
+opacity: 1;
+pointer-events: auto;
+}
+
+.no-opacity .wrapper-dropdown-1.active .dropdown,
+.no-pointerevents .wrapper-dropdown-1.active .dropdown {
+display: block;
+}
+
+header[role="banner"] {
+width: 100%;
+height: 40px;
+z-index: 1000;
+background: #f0f0f0;
+}
+
+
+/*DOWNLOAD BUTTON STYLES*/
+
+.downloadButton {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+font-weight: bold;
+color: #333333;
+border: none;
+font-size: .9em;
+text-align: center;
+margin-top: 15px;
+margin-left: 1%;
+padding-top: 10px;
+width: 99%;
+background-color: #fff;
+color: #333;
+border-top: 1px solid #ccc;
+background-size: 20px 20px;
+background-repeat: no-repeat;
+background-position: 2% 50%;
+}
+
+.downloadButton:hover {
+background-color: #fff !important;
+opacity: .5;
+cursor: pointer;
+}
+
+.downloadButton:active {
+background-color: #fff !important;
+}
+
+
+/*MAPBOX STYLES*/
+
+.mapbox-logo,
+.leaflet-control-attribution {
+display: none !important;
+}
+
+.map-legend .swatch {
+width: 20px;
+height: 20px;
+float: left;
+margin-right: 10px;
+}
+
+.leaflet-popup-close-button {
+display: none !important;
+}
+
+.leaflet-popup-content-wrapper {
+pointer-events: none;
+}
+
+.leaflet-tile-pane {
+opacity: .5;
+}
+
+.leaflet-popup {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
+
+
+/*DATADROP WRAPPER STYLES*/
+
+.chartHeader {
+padding: 12px;
+height: auto;
+}
+
+.chartFooter {
+padding: 12px;
+height: auto;
+}
+
+.sources {
+font-family: "Benton Sans" !important;
+float: left;
+height: inherit;
+}
+
+.branding {
+font-weight: 900;
+float: right;
+height: inherit;
+font-family: "Benton Sans" !important;
+}
+
+.branding a {
+color: #333;
+}
+
+.branding a:hover {
+opacity: .5;
+}
+
+@media (max-width:600px) {
+.sources,
+.branding {
+width: 100%;
+float: none;
+}
+}
+
+
+/*DEMOCRATIC PARTY QUANTILE*/
+
+.dq1 {
+fill: #99D0E5;
+background-color: #99D0E5;
+}
+
+.dq2 {
+fill: #79B0C5;
+background-color: #79B0C5;
+}
+
+.dq3 {
+fill: #629ABB;
+background-color: #629ABB;
+}
+
+.dq4 {
+fill: #4B85B1;
+background-color: #4B85B1;
+}
+
+.dq5 {
+fill: #356FA7;
+background-color: #356FA7;
+}
+
+.dq6 {
+fill: #1E5A9D;
+background-color: #1E5A9D;
+}
+
+
+/*REPUBLICAN PARTY QUANTILE*/
+
+.rq1 {
+fill: #C6A29E;
+background-color: #C6A29E;
+}
+
+.rq2 {
+fill: #A7706B;
+background-color: #A7706B;
+}
+
+.rq3 {
+fill: #A45958;
+background-color: #A45958;
+}
+
+.rq4 {
+fill: #A14345;
+background-color: #A14345;
+}
+
+.rq5 {
+fill: #9E2C32;
+background-color: #9E2C32;
+}
+
+.rq6 {
+fill: #9B161F;
+background-color: #9B161F;
+}
+
+
+/*GREEN MAP QUANTILE*/
+
+.mq1 {
+fill: #74C476;
+background-color: #74C476;
+}
+
+.mq2 {
+fill: #49ab4b;
+background-color: #49ab4b;
+}
+
+.mq3 {
+fill: #347c36;
+background-color: #347c36;
+}
+
+.mq4 {
+fill: #204c21;
+background-color: #204c21;
+}
+
+.mq5 {
+fill: #1E5A9D;
+background-color: #163417;
+}
+
+
+/*HIGHLIGHT background-color SWATCHES*/
+
+.b_swatch {
+background-color: #1F6D6D;
+font-weight: 900;
+}
+
+.r_swatch {
+background-color: #B53434;
+font-weight: 900;
+}
+
+.o_swatch {
+background-color: #B56E34;
+font-weight: 900;
+}
+
+.g_swatch {
+background-color: #299129;
+font-weight: 900;
+}
+
+
+/*CATEGORICAL CHARTS*/
+
+.leaf {
+fill: #66AF50;
+background-color: #66AF50;
+}
+
+.clay {
+fill: #BF603C;
+background-color: #BF603C;
+}
+
+.swedish {
+fill: #59A897;
+background-color: #59A897;
+}
+
+.bark {
+fill: #4C4C39;
+background-color: #4C4C39;
+}
+
+
+/*RED SHADED RAMP*/
+
+.red1 {
+fill: #F2AC93;
+background-color: #F2AC93;
+}
+
+.red2 {
+fill: #F28670;
+background-color: #F28670;
+}
+
+.red3 {
+fill: #F2614C;
+background-color: #F2614C;
+}
+
+.red4 {
+fill: #C22A22;
+background-color: #C22A22;
+}
+
+.red5 {
+fill: #9C0004;
+background-color: #9C0004;
+}
+
+
+/*ORANGE SHADED RAMP*/
+
+.orange1 {
+fill: #F2D2A4;
+background-color: #F2D2A4;
+}
+
+.orange2 {
+fill: #F2AF80;
+background-color: #F2AF80;
+}
+
+.orange3 {
+fill: #E07242;
+background-color: #E07242;
+}
+
+.orange4 {
+fill: #C2421F;
+background-color: #C2421F;
+}
+
+.orange5 {
+fill: #822010;
+background-color: #822010;
+}
+
+
+/*BLUE SHADED RAMP*/
+
+.blue1 {
+fill: #D1E6E1;
+background-color: #D1E6E1;
+}
+
+.blue2 {
+fill: #A7E6E3;
+background-color: #A7E6E3;
+}
+
+.blue3 {
+fill: #67B4C2;
+background-color: #67B4C2;
+}
+
+.blue4 {
+fill: #3580A3;
+background-color: #3580A3;
+}
+
+.blue5 {
+fill: #0D4673;
+background-color: #0D4673;
+}
+
+
+/*GREEN SHADED RAMP*/
+
+.green1 {
+fill: #C7E5B5;
+background-color: #C7E5B5;
+}
+
+.green2 {
+fill: #9EE384;
+background-color: #9EE384;
+}
+
+.green3 {
+fill: #5BBF48;
+background-color: #5BBF48;
+}
+
+.green4 {
+fill: #299E3D;
+background-color: #299E3D;
+}
+
+.green5 {
+fill: #118241;
+background-color: #118241;
+}
+
+
+/*GREY SHADED RAMP*/
+
+.gray1 {
+fill: #ddd;
+background-color: #ddd;
+}
+
+.gray2 {
+fill: #CCC;
+background-color: #CCC;
+}
+
+.gray3 {
+fill: #969696;
+background-color: #969696;
+}
+
+.gray4 {
+fill: #636363;
+background-color: #636363;
+color: #fff;
+}
+
+.gray5 {
+fill: #252525;
+background-color: #252525;
+color: #fff;
+}
+
+
+/*BLUE-GREY SHADED RAMP*/
+
+.grayblue1 {
+fill: #DAE1E7;
+background-color: #DAE1E7;
+}
+
+.grayblue2 {
+fill: #C6D1D9;
+background-color: #C6D1D9;
+}
+
+.grayblue3 {
+fill: #A8B9C5;
+background-color: #A8B9C5;
+}
+
+.grayblue4 {
+fill: #7F98AA;
+background-color: #7F98AA;
+}
+
+.grayblue5 {
+fill: #556E7F;
+background-color: #556E7F;
+}
+
+.grayblue6 {
+fill: #2C3942;
+background-color: #2C3942;
+}
+
+
+/*POLITICAL SHADED RAMP*/
+
+.gopDark {
+fill: #9C0004;
+background-color: #9C0004;
+}
+
+.gopLight {
+fill: #F2614C;
+background-color: #F2614C;
+}
+
+.neutral {
+fill: #F7F7F7;
+background-color: #F7F7F7;
+}
+
+.dflLight {
+fill: #67B4C2;
+background-color: #67B4C2;
+}
+
+.dflDark {
+fill: #0D4673;
+background-color: #0D4673;
+}
+
+.republican {
+color: #9C0004;
+fill: #9C0004 !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+.r1 {
+background-color: #FF8572;
+fill: #FF8572 !important;
+color: white !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+.r2 {
+background-color: #F2634C;
+fill: #F2634C !important;
+color: white !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+.r3 {
+background-color: #9C0004;
+fill: #9C0004 !important;
+color: white !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+.r4 {
+background-color: #4E0002;
+fill: #4E0002 !important;
+color: white !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+.mid {
+background-color: #ddd;
+fill: #ddd !important;
+color: black !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+.democrat {
+color: #0D4773;
+fill: #0D4773 !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+.d1 {
+background-color: #67B4C2;
+fill: #67B4C2 !important;
+color: white !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+.d2 {
+background-color: #4192A1;
+fill: #4192A1 !important;
+color: white !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+.d3 {
+background-color: #0D4773;
+fill: #0D4773 !important;
+color: white !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+.d4 {
+background-color: #022642;
+fill: #022642 !important;
+color: white !important;
+pointer-events: all;
+font-weight: bold;
+}
+
+
+/*background-colorBLIND SAFE DIVERGENCE RAMP*/
+
+.negDark {
+fill: #271D42;
+background-color: #271D42;
+color: #fff;
+}
+
+.negMid {
+fill: #61538F;
+background-color: #61538F;
+color: #fff;
+}
+
+.negLight {
+fill: #AFA8C9;
+background-color: #AFA8C9;
+}
+
+.neutral {
+fill: #ddd;
+background-color: #ddd;
+}
+
+.posLight {
+fill: #82D870;
+background-color: #82D870;
+}
+
+.posMid {
+fill: #3FAA29;
+background-color: #3FAA29;
+color: #fff;
+}
+
+.posDark {
+fill: #118241;
+background-color: #118241;
+color: #fff;
+}
+
+
+/* PAGE BASE */
+
+body {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+overflow-x: hidden !important;
+}
+
+p {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+}
+
+a {
+color: #000;
+}
+
+a:link {
+webkit-tap-highlight-color: #1d78af;
+}
+
+#wrapper {
+display: none;
+height: auto;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+width: 1080px;
+}
+
+.l-elections-wrapper {
+font-size: 1.2em;
+}
+
+.l-election-results-header {
+border-bottom: 1px solid #e7e7e7;
+margin-bottom: 2em;
+padding-bottom: 1.5em;
+padding-top: 1em;
+text-align: center;
+}
+
+.group {
+zoom: 1;
+}
+
+.section {
+clear: both;
+margin: 0px;
+padding: 0px;
+}
+
+.group:before,
+.group:after {
+content: "";
+display: table;
+}
+
+.col {
+background: #fff;
+padding: 1em 0;
+text-align: center;
+}
+
+.col:first-child {
+margin-left: 0;
+}
+
+.span_1_of_3 {
+width: 32.26%;
+}
+
+.col {
+display: block;
+float: left;
+margin: 1% 0 1% 1.6%;
+}
+
+.span_2_of_3 {
+width: 66.13%;
+}
+
+.col {
+display: block;
+float: left;
+margin: 0 0 0 1.6%;
+}
+
+#datavizPane {
+zoom: 80%;
+}
+
+
+/* SECTION HEADER */
+
+.resultsBanner {
+border-bottom: 1px solid #e7e7e7;
+float: left;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif!important;
+font-size: .65em;
+font-weight: 700;
+line-height: 100%;
+margin: 0;
+padding: 10px 0 0 0;
+width: 100%;
+}
+
+.resultsLogo {
+float: left;
+margin: 0 18px 0 10px;
+}
+
+.resultsLogo h4 {
+float: left;
+margin: 0;
+padding: 0;
+}
+
+h4 {
+font-weight: bold;
+}
+
+.resultsLogoSVG {
+background: url(http://stmedia.startribune.com/images/elex-logo-fallback-100.png);
+background: url(http://static.startribune.com/preview/elections-2016/homepage/elex-logo-40.svg), none;
+background-repeat: no-repeat;
+background-size: 35px 35px;
+float: right;
+height: 35px;
+margin: -12px 12px 0 6px;
+width: 35px;
+}
+
+.coverageLinks {
+float: right;
+margin-right: 10px;
+text-transform: uppercase;
+}
+
+.coverageLinks a:hover {
+color: #999;
+}
+
+
+/* SWITCHES */
+
+#bottomSwitches {
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+width: 100%;
+}
+
+#viewSwitches {
+border-right: 1px solid #ddd;
+display: inline-block;
+}
+
+.switch {
+background-color: #efefef;
+border: 1px solid #aaa;
+display: inline-block;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+font-weight: 900;
+padding: 10px;
+text-align: center;
+width: 24.5%;
+}
+
+.switch:hover,
+.selected2,
+.mapSwitch:hover,
+.typeSwitch:hover,
+.layerSwitch:hover {
+background-color: #cccccc !important;
+color: #000 !important;
+cursor: pointer;
+opacity: 1 !important;
+}
+
+.selected3 {
+color: #000 !important;
+}
+
+.typeSwitch,
+.layerSwitch,
+.stateSwitch {
+display: inline-block;
+margin: 5px;
+opacity: .4;
+width: 60px;
+}
+
+.switch img {
+width: 40px;
+}
+
+.mapSwitch img,
+.typeSwitch img,
+.layerSwitch img,
+.stateSwitch img {
+width: 100%;
+}
+
+#raceSwitcher {
+float: left;
+font-size: 0.9em;
+width: 20%;
+}
+
+.raceSwitch {
+background: transparent;
+}
+
+
+/* PANES */
+
+#datavizPane {
+float: right;
+width: 77.9%;
+background-color: #f3f3f3;
+border-left: 1px solid #e7e7e7;
+}
+
+.dataviz {
+width: 100%;
+}
+
+#rightSide {
+font-size: .8em;
+width: 100%;
+padding: 0 0 0 10px;
+}
+
+div#fulldataviz {
+position: relative;
+width: 100%;
+}
+
+
+/* MAPS */
+
+.map,
+.carto {
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+width: 800px;
+}
+
+.noclicky {
+opacity: 0.7;
+pointer-events: none !important;
+}
+
+.gone {
+opacity: 0;
+pointer-events: none !important;
+}
+
+rect:hover,
+text:hover {
+background-color: #333 !important;
+cursor: pointer;
+opacity: .5;
+}
+
+#mnhouse .map,
+#mnhouse .carto,
+#mnsenate .map,
+#mnsenate .carto,
+#mnhouse .map svg,
+#mnhouse .carto svg,
+#mnsenate .map svg,
+#mnsenate .carto svg {
+display: inline-block;
+height: 600px !important;
+width: 375px !important;
+}
+
+.carto,
+#mnhouse .carto,
+#mnsenate .carto {
+display: none;
+}
+
+.tooltip {
+min-width: 150px;
+width: auto !important;
+}
+
+.passthrough {
+font-family: Arial !important;
+pointer-events: none !important;
+}
+
+.sideStates {
+position: absolute;
+right: 2%;
+top: 240px;
+}
+
+.sideStates .block {
+color: #fff;
+font-size: 0.8em;
+font-weight: 900;
+height: 30px;
+padding-top: 7px;
+width: 30px;
+}
+
+.sideStates .block:hover {
+border: 2px solid #333 !important;
+cursor: pointer;
+}
+
+.stateSelect {
+background-color: #333 !important;
+}
+
+.blockSelect {
+border: 2px solid #333 !important;
+}
+
+.mapBox {
+height: 600px !important;
+}
+
+.zoom {
+float: right !important;
+margin-right: 20px;
+}
+
+path {
+stroke-opacity: 0.7 !important;
+}
+
+
+/* POWER BAR */
+
+#powerbar {
+padding: 15px 10px 20px 10px;
+background-color: #fff;
+border-bottom: 1px solid #e7e7e7;
+}
+
+#partyLabels,
+#partyBar,
+#partyCount {
+width: 100%;
+}
+
+.bar,
+.count,
+.label {
+display: inline-block;
+}
+
+.dlabel,
+.rlabel {
+font-size: 1.5em;
+}
+
+.count {
+font-size: 1.5em;
+font-weight: 900;
+width: 13%;
+}
+
+.backbar {
+background-color: #cccccc;
+height: 24px;
+margin: 0!important;
+padding: 0 !important;
+}
+
+.label {
+width: 48%;
+}
+
+.bar {
+height: 24px;
+width: 0;
+}
+
+.gopLabel,
+.gopCount,
+.gopVotes {
+text-align: right !important;
+}
+
+.demsLabel,
+.demsCount,
+.demsVotes {
+text-align: left !important;
+}
+
+#demsBar {
+background-color: #0D4773;
+}
+
+#gopBar {
+background-color: #9C0004;
+}
+
+#undBar {
+background-color: #ddd;
+}
+
+#indBar {
+background-color: #E07242;
+}
+
+#dWin {
+float: left;
+}
+
+#rWin {
+float: right;
+}
+
+#indLabel,
+#undLabel,
+#indCount,
+#undCount {
+text-align: center;
+}
+
+#remaining {
+width: 100%;
+}
+
+.check {
+font-size: 1.5em;
+height: 20px;
+width: 20px;
+}
+
+.demWin {
+float: left;
+}
+
+.gopWin {
+float: right;
+}
+
+.change {
+font-size: 1.5em;
+color: #bbbbbb;
+font-weight: 900;
+margin-right: 8px;
+margin-left: 8px;
+}
+
+
+/* SWATCHES */
+
+.republican {
+background-color: #d34A44 !important;
+fill: #d34A44 !important;
+font-weight: bold;
+pointer-events: all;
+stroke: #8C1B17 !important;
+}
+
+.rlikely {
+background-color: #A5484D;
+fill: #A5484D !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.rlean {
+background-color: #f7816E;
+fill: #f7816E !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.democrat {
+background-color: #3585BC !important;
+fill: #3585BC !important;
+font-weight: bold;
+pointer-events: all;
+stroke: #3F88C5 !important;
+}
+
+.dlikely {
+background-color: #5ca5c3;
+fill: #5ca5c3 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.dlean {
+background-color: #72A9D6;
+fill: #72A9D6 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.r1 {
+background-color: #eca795;
+color: black !important;
+fill: #eca795 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.r2 {
+background-color: #e58970;
+color: white !important;
+fill: #e58970 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.r3 {
+background-color: #df6a4c;
+color: white !important;
+fill: #df6a4c !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.r4 {
+background-color: #d84c27;
+color: white !important;
+fill: #d84c27 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.r1b {
+border: 1px solid #eca795;
+color: black !important;
+fill: #eca795 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.r2b {
+border: 1px solid #e58970;
+color: black !important;
+fill: #e58970 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.r3b {
+border: 1px solid #df6a4c;
+color: black !important;
+fill: #df6a4c !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.r4b {
+border: 1px solid #d84c27;
+color: black !important;
+fill: #d84c27 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.mid {
+background-color: #fff !important;
+color: #bbb !important;
+fill: #ddd !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.gray3 {
+color: black !important;
+}
+
+.d1 {
+background-color: #97bedb;
+color: black !important;
+fill: #97bedb !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.d2 {
+background-color: #73a7ce;
+color: black !important;
+fill: #73a7ce !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.d3 {
+background-color: #4f90c1;
+color: black !important;
+fill: #4f90c1 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.d4 {
+background-color: #2b7ab5;
+color: black !important;
+fill: #2b7ab5 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.d1b {
+border: 1px solid #97bedb;
+color: black !important;
+fill: #97bedb !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.d2b {
+border: 1px solid #73a7ce;
+color: black !important;
+fill: #73a7ce !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.d3b {
+border: 1px solid #4f90c1;
+color: black !important;
+fill: #4f90c1 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.d4b {
+border: 1px solid #2b7ab5;
+color: black !important;
+fill: #2b7ab5 !important;
+font-weight: bold;
+pointer-events: all;
+}
+
+.independent {
+border: 1px solid #7CB342;
+color: #333 !important;
+fill: #7CB342;
+}
+
+.none {
+background-color: #cccccc !important;
+fill: #cccccc !important;
+}
+
+
+/* LEGENDS */
+
+#legends {
+float: left;
+}
+
+#legendMain {
+font-size: 0.75em;
+}
+
+.legendLabel {
+display: inline-block;
+height: 15px;
+width: 50px;
+}
+
+.brick {
+color: #bbb;
+display: inline-block;
+height: 10px;
+width: 26px;
+}
+
+.partyBlock {
+display: inline-block;
+}
+
+.tinybreak {
+clear: both;
+display: block;
+}
+
+#legendMargins {
+display: none;
+}
+
+.legendBlock {
+text-align: left;
+}
+
+.smallLabel {
+font-size: 0.8em;
+text-align: center;
+}
+
+.legendLabel {
+color: #333;
+font-weight: 900;
+text-align: center;
+}
+
+.footnote {
+clear: both;
+color: #bbbbbb;
+display: block;
+display: none;
+font-size: 0.7em;
+}
+
+.green2 {
+background-color: #AED581 !important;
+fill: #AED581 !important;
+}
+
+.green4 {
+background-color: #7CB342 !important;
+fill: #7CB342 !important;
+}
+
+
+/* CARTOGRAMS */
+
+.dem rect {
+fill: #3F88C5 !important;
+}
+
+.rep rect {
+fill: #D90429 !important;
+}
+
+.battleground rect {
+fill: #cccccc !important;
+}
+
+.cartoState:hover {
+cursor: pointer;
+opacity: 0.5;
+}
+
+.cartoState rect {
+stroke: #fff !important;
+stroke-width: 0.8px;
+}
+
+#cartogram {
+height: 600px;
+text-align: center;
+width: 800px;
+}
+
+#cartogram text {
+fill: #000 !important;
+font-family: Arial !important;
+font-size: 0.9em;
+font-weight: 900;
+pointer-events: none !important;
+}
+
+polygon {
+stroke: #fff !important;
+stroke-width: 1px;
+}
+
+.stateLabel {
+background-color: transparent !important;
+display: inline-block;
+text-align: left;
+width: 68%;
+}
+
+.votes {
+background-color: transparent !important;
+display: inline-block;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+text-align: left;
+width: 30%;
+}
+
+.stateLabel {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+font-weight: 400;
+}
+
+.num:hover {
+opacity: 0.5;
+}
+
+.thisThing {
+opacity: 0.5;
+}
+
+.totalNum {
+font-size: 1.4em;
+font-weight: 900;
+}
+
+.slide {
+display: none;
+}
+
+.cd {
+stroke: #fff !important;
+stroke-width: 1px !important;
+}
+
+.cd:hover {
+cursor: pointer;
+opacity: 0.5 !important;
+}
+
+.cd.active {
+opacity: 0.5 !important;
+}
+
+
+/* TABLES */
+
+#table {
+height: auto;
+padding: 10px;
+vertical-align: top;
+}
+
+#allResults {
+border-right: 0;
+height: 1200px;
+overflow-x: hidden;
+overflow-y: auto;
+}
+
+.column {
+display: inline-block;
+vertical-align: top;
+width: 48%;
+}
+
+.tableHead {
+border-bottom: 1px solid #ddd;
+display: inline-block;
+font-family: "Poynter Serif RE";
+font-weight: 900;
+padding: 10px;
+width: 24%;
+}
+
+.tableCell {
+border-bottom: 1px solid #ddd;
+display: inline-block;
+font-family: "Benton Sans";
+padding: 10px;
+width: 24%;
+}
+
+.tableBreak {
+clear: both;
+display: block;
+}
+
+input {
+border-radius: 0 !important;
+margin-bottom: 15px !important;
+padding: 0 12px;
+}
+
+input:focus {
+border: 1px solid #bbbbbb;
+box-shadow: 0 0 5px #bbbbbb;
+padding: 3px 0px 3px 3px;
+}
+
+.district {
+display: inline-block;
+}
+
+.box {
+border: 1px solid #000;
+font-size: .7em;
+height: 40px;
+margin: 2px;
+padding: 3px;
+vertical-align: middle;
+width: 60px;
+}
+
+.box:hover {
+background-color: #333;
+cursor: pointer;
+}
+
+.tableCol {
+display: inline-block;
+text-align: left;
+vertical-align: top;
+width: 32%;
+}
+
+.dColumn {
+border-top: 2px solid #72A9D6;
+font-size: 0.7em;
+}
+
+.rColumn {
+border-top: 2px solid #d34A44;
+font-size: 0.7em;
+}
+
+.mColumn {
+border-top: 2px solid #cccccc;
+font-size: 0.7em;
+}
+
+.bigBoard {
+display: none;
+vertical-align: top;
+}
+
+.th {
+font-weight: 900;
+}
+
+.tableRow {
+border-right: 1px solid #ddd;
+display: inline-block;
+margin: 3px;
+text-align: left !important;
+vertical-align: top;
+width: 32%;
+}
+
+.searchTerms {
+display: none !important;
+}
+
+.bigBoard {
+text-align: left;
+}
+
+.tableRow div {
+display: inline-block;
+text-align: center;
+width: 24%;
+}
+
+.tableRow:hover {
+cursor: pointer;
+opacity: 0.5;
+}
+
+.selectedBox {
+opacity: 0.5 !important;
+}
+
+.president .tableRow div {
+display: inline-block;
+text-align: center;
+width: 19%;
+}
+
+.stateBlock,
+.stateBlockR {
+color: #fff;
+font-weight: 900;
+}
+
+.reporting {
+color: #bbbbbb !important;
+}
+
+.tableRow {
+background-color: white;
+border: 1px solid #ccc;
+border-radius: 2px;
+display: inline-block;
+font-size: .8em;
+margin: 3px;
+padding: 5px 0px;
+text-align: left !important;
+vertical-align: top;
+width: 32%;
+}
+
+.tableRow .d1 {
+border-radius: 2px;
+color: black !important;
+fill: #97bedb !important;
+font-weight: bold;
+padding: 4px;
+pointer-events: all;
+}
+
+.tableRow .pctBox {
+border-radius: 2px;
+color: #000 !important;
+font-weight: bold;
+padding: 6px 0px;
+pointer-events: all;
+}
+
+.pctBox.democrat {
+/*margin-right: 4px;*/
+}
+
+.pctBox.republican {
+/*margin-left: 4px;*/
+}
+
+.stateBlockR {
+color: #000;
+font-weight: 900;
+}
+
+.tableRow .democrat,
+#infobox .democrat {
+color: #fff !important;
+fill: #3585BC !important;
+font-weight: bold;
+pointer-events: all;
+stroke: none;
+}
+
+.tableRow .republican,
+#infobox .republican {
+color: #fff !important;
+fill: #d34A44 !important;
+font-weight: bold;
+pointer-events: all;
+stroke: none;
+}
+
+
+/* INFOBOXES */
+
+.smallbreak {
+clear: both;
+}
+
+#infobox .pct.republican {
+max-width: 85px;
+text-align: center;
+border-radius: 2px;
+border: 0 !important;
+padding: 2px;
+}
+
+#infobox {
+height: 122px;
+text-align: left;
+width: 100%;
+}
+
+.districtName {
+font-size: 1.2em;
+font-weight: 900;
+}
+
+.name {
+font-weight: 900 !important;
+}
+
+.statRow {
+width: 100%;
+}
+
+.cell {
+display: inline-block;
+text-align: center;
+}
+
+.stats .label {
+font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+font-size: .5em;
+text-align: center;
+width: 66% !important;
+}
+
+.pct path {
+stroke-width: .02px !important;
+}
+
+h2 {
+padding: 10px;
+text-align: center;
+}
+
+.candidate {
+float: left;
+width: 78%;
+}
+
+.pct {
+float: right;
+width: 20%;
+}
+
+.tooltip {
+width: 150px;
+}
+
+.resultsRow div {
+display: inline-block;
+text-align: left;
+width: 33%;
+}
+
+.resultsRow div:nth-child(3) {
+max-width: 85px;
+text-align: center;
+border-radius: 2px;
+border: 0 !important;
+padding: 2px;
+}
+
+.resultsRow {
+border-bottom: 1px solid #e8e8e8;
+padding: 0 0 6px 0;
+clear: both;
+}
+
+.resultsHead {
+color: #bbbbbb;
+display: none !important;
+font-size: 0.9em;
+font-weight: bold;
+}
+
+.reportingRow {
+color: #aaa;
+font-size: 0.8em;
+margin-top: 5px;
+}
+
+.hideIT {
+display: none;
+}
+
+#infobox {
+float: none;
+height: 133px;
+margin-right: auto;
+margin-left: auto;
+margin-bottom: 15px;
+text-align: left;
+width: 100%;
+}
+
+#infobox .resultsRow:nth-child(2) {
+border-bottom: 0px;
+}
+
+#infobox .resultsRow:nth-child(5) {
+border-bottom: 0px;
+}
+
+
+/* DESKTOP NAV */
+
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+border: 0;
+box-sizing: border-box;
+display: block;
+line-height: 1;
+list-style: none;
+margin: 0;
+moz-box-sizing: border-box;
+padding: 0;
+position: relative;
+webkit-box-sizing: border-box;
+}
+
+#raceSwitcher {
+float: left;
+font-family: "Benton Sans", Helvetica, Arial, sans-serif!important;
+font-size: .65em;
+line-height: 100%;
+margin: 64px auto 14px;
+max-width: 238px;
+padding: 10px 0 0 0;
+position: absolute;
+width: 100%;
+}
+
+#cssmenu li,
+#mobmenu li {
+background-color: #fff !important;
+text-align: left;
+}
+
+#cssmenu ul ul {
+display: none;
+}
+
+#cssmenu > ul > li.active > ul {
+display: block;
+}
+
+.align-right {
+float: right;
+}
+
+#cssmenu > ul > li > a {
+background: #ffffff;
+color: #757575;
+border-bottom: 1px solid #e7e7e7;
+cursor: pointer;
+font-size: 16px;
+o-transition: color .2s ease;
+padding: 16px 22px;
+text-decoration: none;
+transition: color .2s ease;
+webkit-transition: color .2s ease;
+z-index: 2;
+}
+
+#cssmenu > ul > li > a:hover {
+color: #000;
+}
+
+#cssmenu ul > li.has-sub > a img.test-chev {
+position: absolute;
+right: 20px;
+top: 16px;
+z-index: 5;
+display: block;
+height: 16px;
+width: 16px;
+content: "";
+-webkit-transition: all 0.1s ease-out;
+-moz-transition: all 0.1s ease-out;
+-ms-transition: all 0.1s ease-out;
+-o-transition: all 0.1s ease-out;
+transition: all 0.1s ease-out;
+}
+
+#cssmenu ul > li.has-sub > a img.test-chev {
+position: absolute;
+right: 20px;
+top: 16px;
+display: block;
+width: 16px;
+height: 16px;
+content: "";
+-webkit-transition: all 0.2s ease-out;
+-moz-transition: all 0.2s ease-out;
+-ms-transition: all 0.2s ease-out;
+-o-transition: all 0.2s ease-out;
+transition: all 0.2s ease-out;
+}
+
+#cssmenu ul > li.has-sub.open > a img.test-chev {
+-webkit-transform: rotate(180deg);
+-moz-transform: rotate(180deg);
+-ms-transform: rotate(180deg);
+-o-transform: rotate(180deg);
+transform: rotate(180deg);
+}
+
+#cssmenu ul ul li a {
+border-bottom: 1px solid #ddd;
+background: #efefef;
+color: #989898;
+cursor: pointer;
+font-size: 14px;
+o-transition: color .2s ease;
+padding: 14px 22px;
+text-decoration: none;
+transition: color .2s ease;
+webkit-transition: color .2s ease;
+z-index: 2;
+}
+
+#cssmenu ul ul ul li a {
+padding-left: 32px;
+}
+
+#cssmenu ul ul li a:hover {
+color: #000;
+}
+
+#cssmenu ul ul > li.has-sub > a:after {
+background: #dddddd;
+right: 26px;
+top: 16px;
+}
+
+#cssmenu ul ul > li.has-sub > a:before {
+background: #dddddd;
+top: 20px;
+}
+
+#cssmenu > ul > li > a:hover {
+color: #000;
+}
+
+#cssmenu {
+display: block;
+}
+
+a img.test-chev:hover {
+opacity: 1;
+}
+
+a img.test-chev {
+opacity: .5;
+}
+
+
+/* MOBILE NAV */
+
+.drop {
+display: none;
+float: left;
+position: relative;
+}
+
+.coverageLinks.cl-dsktp {
+display: none;
+}
+
+.coverageLinks.cl-mobile {
+display: block;
+}
+
+.switch {
+margin: 0 !important;
+width: auto !important;
+display: inline-block;
+max-width: 402px;
+}
+
+.switch:hover {
+margin: 0 !important;
+}
+
+#mobmenu {
+display: none;
+}
+
+#mobmenu,
+#mobmenu ul,
+#mobmenu ul li,
+#mobmenu ul li a {
+border: 0;
+box-sizing: border-box;
+display: block;
+line-height: 1;
+list-style: none;
+margin: 0;
+moz-box-sizing: border-box;
+padding: 0;
+position: relative;
+webkit-box-sizing: border-box;
+}
+
+#mobmenu {
+background: white;
+border-right: 1px solid #c5c5c5;
+bottom: 0;
+color: #ffffff;
+display: none;
+font-family: "Benton Sans", sans-serif;
+left: 0;
+position: absolute;
+top: 0;
+width: 220px;
+}
+
+#mobmenu ul ul {
+display: none;
+}
+
+#mobmenu > ul > li.active > ul {
+display: block;
+}
+
+#mobmenu > ul > li > a {
+background: #ffffff;
+color: #757575;
+border-bottom: 1px solid #e7e7e7;
+cursor: pointer;
+font-size: 16px;
+o-transition: color .2s ease;
+padding: 16px 22px;
+text-decoration: none;
+transition: color .2s ease;
+webkit-transition: color .2s ease;
+z-index: 2;
+}
+
+#mobmenu > ul > li > a:hover {
+color: #000;
+}
+
+#mobmenu ul > li.has-sub > a img.test-chev {
+position: absolute;
+right: 20px;
+top: 16px;
+z-index: 5;
+display: block;
+height: 16px;
+width: 16px;
+content: "";
+-webkit-transition: all 0.1s ease-out;
+-moz-transition: all 0.1s ease-out;
+-ms-transition: all 0.1s ease-out;
+-o-transition: all 0.1s ease-out;
+transition: all 0.1s ease-out;
+}
+
+#mobmenu ul > li.has-sub > a img.test-chev {
+position: absolute;
+right: 20px;
+top: 16px;
+display: block;
+width: 16px;
+height: 16px;
+content: "";
+-webkit-transition: all 0.2s ease-out;
+-moz-transition: all 0.2s ease-out;
+-ms-transition: all 0.2s ease-out;
+-o-transition: all 0.2s ease-out;
+transition: all 0.2s ease-out;
+}
+
+#mobmenu ul > li.has-sub.open > a img.test-chev {
+-webkit-transform: rotate(180deg);
+-moz-transform: rotate(180deg);
+-ms-transform: rotate(180deg);
+-o-transform: rotate(180deg);
+transform: rotate(180deg);
+}
+
+#mobmenu ul ul li a {
+border-bottom: 1px solid #ddd;
+background: #efefef;
+color: #989898;
+cursor: pointer;
+font-size: 14px;
+o-transition: color .2s ease;
+padding: 14px 22px;
+text-decoration: none;
+transition: color .2s ease;
+webkit-transition: color .2s ease;
+z-index: 2;
+}
+
+#mobmenu ul ul ul li a {
+padding-left: 32px;
+}
+
+#mobmenu ul ul li a:hover {
+color: #000;
+}
+
+#mobmenu ul ul > li.has-sub > a:after {
+background: #dddddd;
+right: 26px;
+top: 16px;
+}
+
+#mobmenu ul ul > li.has-sub > a:before {
+background: #dddddd;
+top: 20px;
+}
+
+
+/* LOADING MASK */
+
+.loading-mask {
+position: relative;
+}
+
+.loading-mask::before {
+background-color: rgba(255, 255, 255, 1);
+bottom: 0;
+content: '';
+left: 0;
+position: absolute;
+right: 0;
+top: 0;
+}
+
+.loader-img {
+display: block;
+margin: 18px auto;
+}
+
+@keyframes spin {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(359deg);
+}
+}
+
+#message {
+margin: 0 auto;
+position: absolute;
+text-align: center;
+top: 20%;
+width: 100%;
+}
+
+#loader {
+bottom: 0;
+left: 0;
+position: absolute;
+right: 0;
+top: 0;
+}
+
+
+/* FALLBACK STUFF */
+
+#fallback {
+display: none;
+margin-left: auto;
+margin-right: auto;
+width: 85%;
+}
+
+
+/* COUNTER */
+
+#countdown {
+color: #000;
+margin-left: 18px;
+padding: 5px;
+text-align: left;
+}
+
+#timestamp {
+margin-left: 18px;
+text-align: left;
+}
+
+.counter div {
+display: inline-block;
+width: 48%;
+}
+
+#countdownMobile {
+display: none;
+}
+
+
+/* SHARING */
+
+.shareRow {
+background-color: #fff;
+float: left;
+margin-bottom: 18px;
+padding-left: 23px;
+text-align: left;
+width: 100%;
+}
+
+.shareRow a {
+cursor: pointer;
+}
+
+.shareRow a:hover {
+opacity: 0.5;
+}
+
+.shareLeft {
+display: inline-block;
+}
+
+.shareRight {
+display: inline-block;
+}
+
+.shareRow {
+padding: 16px 22px;
+}
+
+.shareRight a img {
+width: 20px !important;
+display: inline-block;
+border-radius: 2px;
+}
+
+.shareLeft a img {
+width: 20px !important;
+display: inline-block;
+margin-right: 4px;
+border-radius: 2px;
+}
+
+
+/* MOBILE BREAKPOINTS */
+
+@media (max-width: 970px) {
+#infobox {
+width: 100%;
+}
+#countdownMobile {
+display: block;
+}
+.switch img {
+width: 16px;
+height: 16px
+}
+.drop {
+display: inline-block;
+}
+.sideStates {
+display: none !important;
+}
+.footnote {
+display: none;
+}
+.tableRow {
+width: 48.3%;
+}
+#allResults {
+height: 1700px;
+}
+.dlabel,
+.rlabel {
+font-size: 1em;
+}
+.metroMap {
+display: none !important;
+}
+.resultsRow {
+font-size: 0.85em;
+}
+.label {
+width: 48%;
+}
+.count {
+font-size: 1em;
+width: 20%;
+}
+.change {
+font-size: 1em;
+}
+#cssmenu {
+display: none;
+}
+#mobmenu {
+display: block;
+}
+#datavizPane {
+width: 100%;
+zoom: 100%;
+}
+#wrapper {
+width: 100%;
+}
+#infobox {
+font-size: 0.9em;
+}
+.map {
+width: 100%;
+}
+.carto {
+width: 100%;
+}
+.count {
+width: 14%;
+}
+#rightSide,
+.dataviz {
+float: none;
+width: 100%;
+}
+#historyview {
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+}
+#viewSwitches {
+border-right: 0;
+display: block;
+}
+.mapBox {
+height: auto !important;
+}
+#mnhouse .map,
+#mnsenate .map,
+#mnhouse .map svg,
+#mnsenate .map svg {
+height: 400px !important;
+}
+.coverageLinks.cl-dsktp {
+display: block;
+float: none;
+text-align: right;
+font-size: 0.9em !important;
+font-weight: normal;
+}
+.coverageLinks.cl-mobile {
+display: none;
+}
+.drop {
+float: left;
+display: block;
+width: 100%;
+}
+.switch {
+width: 100% !important;
+}
+.resultsLogo {
+float: left;
+margin-left: 10px;
+}
+#cartogram {
+height: 500px !important;
+overflow: hidden !important;
+width: 100%;
+}
+.coverageLinks.cl-dsktp {
+float: none;
+text-align: left;
+clear: both;
+font-size: 0.9em !important;
+font-weight: normal;
+}
+.coverageLinks.cl-mobile {
+display: none;
+}
+}
+
+
+/*@media (max-width: 770px) {
+#powerbar {
+padding: 6px;
+}
+.map {
+height: 600px;
+width: 700px;
+}
+.mapBox {
+height: 454px !important;
+}
+#raceSwitcher {
+margin: 77px auto 14px;
+}
+.carto {
+height: 529px;
+width: 700px;
+}
+.coverageLinks.cl-dsktp {
+float: none;
+text-align: left;
+clear: both;
+font-size: 0.9em !important;
+font-weight: normal;
+}
+.mapState,
+#mnhouse .map svg,
+#mnsenate .map svg {
+height: 400px !important;
+}
+#cartogram {
+height: 454px !important;
+overflow: hidden !important;
+width: 100%;
+}
+}*/
+
+@media (max-width: 970px) {
+.mapBox {
+height: 454px !important;
+}
+.count {
+width: 20%;
+}
+#raceSwitcher {
+margin: 90px auto 14px;
+}
+#powerbar {
+padding: 6px;
+}
+.map {
+height: auto;
+width: 600px;
+}
+.carto {
+width: 600px;
+height: 454px;
+}
+.coverageLinks.cl-dsktp {
+float: none;
+text-align: left;
+clear: both;
+font-size: 0.9em !important;
+font-weight: normal;
+}
+.mapState,
+#mnhouse .map svg,
+#mnsenate .map svg {
+height: 400px !important;
+}
+#mnhouse .map,
+#mnsenate .map,
+#mnhouse .map svg,
+#mnsenate .map svg {
+height: 450px !important;
+}
+#cartogram {
+height: 454px !important;
+overflow: hidden !important;
+width: 100%;
+}
+}
+
+@media (max-width: 500px) {
+.mapBox {
+height: 311px !important;
+}
+text {
+display: none !important;
+}
+.menukill {
+display: none !important;
+}
+#powerbar {
+padding: 6px;
+}
+.map {
+height: auto;
+width: 450px;
+}
+.carto {
+height: auto !important;
+width: 450px;
+}
+.coverageLinks.cl-dsktp {
+float: right;
+text-align: right;
+font-size: 0.9em !important;
+font-weight: normal;
+position: absolute;
+right: 0;
+}
+#mnhouse .map,
+#mnsenate .map,
+#mnhouse .map svg,
+#mnsenate .map svg {
+height: 300px !important;
+}
+#cartogram {
+height: 244px !important;
+overflow: hidden !important;
+width: 100%;
+}
+}
+
+@media only screen and (max-width: 480px) {
+.mapBox {
+height: auto !important;
+}
+.resultsRow .candidate {
+width: 43% !important;
+}
+.resultsRow .counts {
+width: 23% !important;
+}
+.resultsRow .pct {
+width: 23% !important;
+}
+.col {
+margin: 0 0 0 0%;
+padding: 0 0;
+}
+.resultsLogo {
+float: left;
+margin-left: 10px;
+}
+.span_1_of_3 {
+width: 100%;
+padding-bottom: 8px;
+}
+.span_2_of_3 {
+width: 100%;
+}
+.switch {
+width: 100% !important;
+}
+.coverageLinks.cl-desktop {
+float: none;
+text-align: right;
+font-size: 0.9em !important;
+}
+.coverageLinks.cl-mobile {
+display: none;
+}
+.drop {
+float: left;
+width: 100%;
+}
+#raceSwitcher {
+max-width: none;
+}
+#cssmenu {
+display: none;
+}
+#mobmenu {
+display: none;
+margin-top: -18px !important;
+width: 100%;
+border-right: none;
+}
+#mnhouse .map,
+#mnsenate .map,
+#mnhouse .map svg,
+#mnsenate .map svg {
+height: 306.667px !important;
+}
+#datavizPane {
+border-left: 0;
+}
+.shareRow {
+box-shadow: 0px 0px 68px rgba(0, 0, 0, .6);
+padding: 16px 22px;
+border-bottom: 1px solid #bbbbbb;
+}
+.resultsBanner {
+padding: 10px 0 16px 0;
+}
+#cartogram {
+height: 306.667px !important;
+overflow: hidden !important;
+width: 100%;
+}
+.test-chev.button-drop {
+position: absolute;
+display: block;
+width: 16px;
+height: 16px;
+margin: 0 auto;
+left: 100px;
+right: 0px;
+top: 10px;
+}
+}
+
+@media (max-width: 420px) {
+.mapBox {
+height: auto !important;
+}
+.partyBlock {
+width: 18%;
+}
+.legendLabel {
+height: auto;
+}
+.mobileKill {
+display: none;
+}
+.label,
+#dCheck,
+#rCheck {
+font-size: 0.8em;
+}
+.zoom {
+clear: both;
+float: none !important;
+padding-top: 10px;
+text-align: center !important;
+margin-right: 0;
+}
+#infobox {
+font-size: 0.8em;
+}
+#powerbar {
+padding: 1px;
+}
+#mobmenu {
+margin-top: -17px !important;
+}
+.mobileHide {
+display: none;
+}
+.bigBoard {
+font-size: 0.7em;
+}
+.map {
+height: auto;
+width: 100%;
+}
+.resultsRow {
+border: none !important;
+}
+#mnhouse .map,
+#mnsenate .map,
+#mnhouse .map svg,
+#mnsenate .map svg {
+height: 298.89px !important;
+width: 300px !important;
+}
+.carto {
+height: auto;
+width: 100%;
+}
+#cartogram,
+#cartogram svg {
+height: 213.333px !important;
+overflow: hidden !important;
+width: 100%;
+}
+.tableRow {
+width: 48% !important;
+}
+.reporting {
+display: none !important;
+}
+.tableRow .pctBox {
+width: 23% !important;
+}
+}
