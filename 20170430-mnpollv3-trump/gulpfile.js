@@ -64,14 +64,13 @@ librarySources = [
   // 'components/scripts/template.js',
   // 'components/scripts/jquery-ui.js',
   'components/scripts/d3.v3.min.js',
-  // 'components/scripts/three.min.js',
   // 'components/scripts/queue.v1.min.js',
   // 'components/scripts/topojson.v1.min.js',
   // 'components/scripts/datatables.min.js',
   // 'components/scripts/dataTables.responsive.min.js',
   // 'components/scripts/d3.slider.js',
-  // 'components/scripts/nv.d3.min.js',
-  // 'components/scripts/c3.min.js',
+  'components/scripts/nv.d3.min.js',
+  'components/scripts/c3.min.js',
   // 'components/scripts/mapbox.js',
   // 'components/scripts/Leaflet.fullscreen.min.js',
   // 'components/scripts/leaflet.markercluster-src.js',
@@ -184,4 +183,4 @@ gulp.task('geojson_data', function() {
    .pipe(browserSync.stream())
 });
 
-gulp.task('default', ['html', 'json', 'geojson_data', 'coffee', 'libraries', 'js', 'shapefiles', 'compass', 'watch', 'browserSync']);
+gulp.task('default', ['html', 'json', 'geojson_data', 'compass', 'libraries', 'js', 'shapefiles', 'watch', 'browserSync']);
