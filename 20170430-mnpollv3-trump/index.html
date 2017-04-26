@@ -1,0 +1,296 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MNPOLL</title>
+  	<meta name="description" content="MNPOLL">
+ 	<meta name="author" content="Frey Hargarten - StarTribune">
+	<meta name="generator" content="BBEdit 10.5" />
+	
+	<link rel="stylesheet" href="./builds/development/css/style.css">
+
+	<style type="text/css">
+
+	#change svg {
+	    text-align:center;
+	    height:200px;
+	}
+
+	#change {
+	    text-align:center;
+	    height:200px;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
+
+	#change .c3-line {
+	  stroke-width: 6px !important;
+	}
+
+	.dataframe { 
+		height:2400px;
+	} 
+
+	#bigResults {
+	    text-align: center;
+	    width: 100%;
+	    margin: 20px;
+	}
+
+	.question {
+	    font-family: "Benton Sans";
+	    font-size: 1.3em;
+	    font-weight: 900;
+	}
+
+	.result {
+	    display: inline-block !important;
+	    text-align: center;
+	    margin: 20px;
+	    width: 112px;
+	}
+
+	.bigNum {
+	    font-size: 3em;
+	    font-family: "Benton Sans" !important;
+	    text-align: center;
+	    font-weight: 900;
+	    padding-top: 15px;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    padding-bottom: 5px;
+	}
+
+	.forNum {
+	    color: #00222D;
+	}
+
+	.againstNum {
+	    color: rgb(115, 115, 115);
+	}
+
+/*	.questionBlock:hover {
+		cursor:pointer;
+		opacity:0.5;
+	}*/
+
+	#selector { 
+		display:block !important ;
+	}
+
+	@media only screen and (min-width: 200px) and (max-width: 767px) { 
+		.dataframe { 
+			height:2400px; 
+		}
+	}
+	</style>
+</head>
+
+<body>
+	<div id="questions_list">
+		<div class="questionBlock" slug="null">
+			<div class="question">Question 1</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">0</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">0</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+
+			<div id="historyBox">
+			  <div class="icon"></div>
+			  <div class="category">History</div>
+			<div id="change"></div>
+			</div>
+
+		</div>
+
+
+		<div class="questionBlock" slug="null">
+			<div class="question">Question 2</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">0</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">0</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="questionBlock" slug="null">
+			<div class="question">Question 3</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">0</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">0</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="questionBlock" slug="null">
+			<div class="question">Question 4</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">0</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">0</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="questionBlock" slug="null">
+			<div class="question">Question 5</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">0</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">0</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="viewSwitch">
+	<div id="selector">
+	  <section class="main">
+	        <div class="wrapper-demo">
+	          <div id="dd" class="wrapper-dropdown-1" tabindex="1">
+	            <span>Question 1</span>
+	              <ul class="dropdown months" tabindex="1">
+			        <li class="thisSwitch"><a href="#" data="trump1">Question 1</a></li>
+			        <li class="thisSwitch"><a href="#" data="trump2">Question 2</a></li>
+			        <li class="thisSwitch"><a href="#" data="trump3">Question 3</a></li>
+			        <li class="thisSwitch"><a href="#" data="trump4">Question 4</a></li>
+			        <li class="thisSwitch"><a href="#" data="trump5">Question 5</a></li>
+	              </ul>
+	          </div>
+	        ​</div>
+	</section>
+	</div>
+	</div>
+
+
+    <div id="results" class="embed"><iframe id="dataframe" class="dataframe" src="./builds/development/?poll=terrorism2" border="0" frameborder="0" scrolling="no" width="100%" height="2400"></iframe></div>
+
+</body>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="./builds/development/js/c3.min.js"></script>
+<script src="./builds/development/js/d3.v3.min.js"></script>
+
+<script>
+
+	$(".thisSwitch").on("click",function(){
+		$("#dataframe").attr("src","./builds/development/?poll=" + $(this).find("a").attr("data"));
+	});
+
+	function trendChart(){
+
+      var  padding = {
+            top: 40,
+            right: 40,
+            bottom: 30,
+            left: 40,
+        };
+
+      chart = c3.generate({
+            bindto: '#change',
+            size: { height: 250 },
+            padding: padding,
+        data: {
+            // x: 'x',
+            columns: [
+                ["Approve",0.4,0.3,0.6],
+                ["Disapprove",0.6,0.7,.04]
+            ],
+            type: 'line'
+        },
+        color:  { pattern: ['#000000', '#737373'] },
+        axis: {
+          y: {
+                min: 0,
+                padding: {bottom: 0, top:0},
+                tick: {
+                 count: 4,
+                 format: d3.format('%')
+                }
+            },
+            x: {
+            type: 'category',
+            categories: ["Bush: 1989", "Clinton: 1992", "Obama: 2008"]
+        }
+          }
+    });
+}
+
+trendChart();
+</script>
+
+<script type="text/javascript">
+      
+      function DropDown(el)  { 
+        this.dd = el;
+        this.placeholder = this.dd.children('span');
+        this.opts = this.dd.find('ul.dropdown > li');
+        this.val = '';
+        this.index = -1;
+        this.initEvents();
+      }
+      DropDown.prototype =  { 
+        initEvents : function()  { 
+          var obj = this;
+
+          obj.dd.on('click', function(event) { 
+            $(this).toggleClass('active');
+            return false;
+          });
+
+          obj.opts.on('click',function() { 
+            var opt = $(this);
+            obj.val = opt.text();
+            obj.index = opt.index();
+            obj.placeholder.text(obj.val);
+          });
+        },
+        getValue : function()  { 
+          return this.val;
+        },
+        getIndex : function()  { 
+          return this.index;
+        }
+      }
+
+      $(function()  { 
+
+        var dd = new DropDown( $('#dd') );
+        var dd2 = new DropDown( $('#ddY') );
+
+        $(document).click(function()  { 
+          // all dropdowns
+          $('.wrapper-dropdown-1').removeClass('active');
+        });
+
+      });
+
+</script>
+</html>
