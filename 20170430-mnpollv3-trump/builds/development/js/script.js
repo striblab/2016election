@@ -44,43 +44,43 @@ function spillResults(tag,section0,section1,section2) {
   if (verifySections(tag,"Total") > 1) {  chartPolls(tag,"Total",section0,0); }
 
   if (verifySections(tag,"Democrat") > 1 || verifySections(tag,"Republican") > 1) {  pinCategory("Party",section1); }
-  if (verifySections(tag,"Democrat") > 1) {  chartPolls(tag,"Democrat",section1,1); }
-  if (verifySections(tag,"Republican") > 1) {  chartPolls(tag,"Republican",section1,2); }
-  if (verifySections(tag,"Independent") > 1) {  chartPolls(tag,"Independent",section1,3); }
-  if (verifySections(tag,"Other/None") > 1) {  chartPolls(tag,"Other/None",section1,4); }
+  if (verifySections(tag,"Democrat") > 1) {  chartPolls(tag,"Democrat",section1,1); spitTables(tag,"Democrat",section1,1); }
+  if (verifySections(tag,"Republican") > 1) {  chartPolls(tag,"Republican",section1,2); spitTables(tag,"Republican",section1,2); }
+  if (verifySections(tag,"Independent") > 1) {  chartPolls(tag,"Independent",section1,3); spitTables(tag,"Independent",section1,3); }
+  if (verifySections(tag,"Other/None") > 1) {  chartPolls(tag,"Other/None",section1,4); spitTables(tag,"Other/None",section1,4); }
 
   if (verifySections(tag,"Men") > 1) {  pinCategory("Gender",section1); }
   if (verifySections(tag,"Men") > 1) {  chartPolls(tag,"Men",section1,5); }
   if (verifySections(tag,"Women") > 1) {  chartPolls(tag,"Women",section1,6); }
 
   if (verifySections(tag,"Hennepin/Ramsey") > 1) {  pinCategory("Region",section1); }
-  if (verifySections(tag,"Hennepin/Ramsey") > 1) {  chartPolls(tag,"Hennepin/Ramsey",section1,9); }
-  if (verifySections(tag,"Metro Suburbs") > 1) {  chartPolls(tag,"Metro Suburbs",section1,10); }
-  if (verifySections(tag,"Rest of State") > 1) {  chartPolls(tag,"Rest of State",section1,11); }
-  if (verifySections(tag,"No. Minnesota") > 1) {  chartPolls(tag,"No. Minnesota",section1,22); }
-  if (verifySections(tag,"So. Minnesota") > 1) {  chartPolls(tag,"So. Minnesota",section1,23); }
+  if (verifySections(tag,"Hennepin/Ramsey") > 1) {  chartPolls(tag,"Hennepin/Ramsey",section1,9); spitTables(tag,"Hennepin/Ramsey",section1,9); }
+  if (verifySections(tag,"Metro Suburbs") > 1) {  chartPolls(tag,"Metro Suburbs",section1,10); spitTables(tag,"Metro Suburbs",section1,10); }
+  if (verifySections(tag,"Rest of State") > 1) {  chartPolls(tag,"Rest of State",section1,11); spitTables(tag,"Rest of State",section1,11); }
+  if (verifySections(tag,"No. Minnesota") > 1) {  chartPolls(tag,"No. Minnesota",section1,22); spitTables(tag,"No. Minnesota",section1,22); }
+  if (verifySections(tag,"So. Minnesota") > 1) {  chartPolls(tag,"So. Minnesota",section1,23); spitTables(tag,"So. Minnesota",section1,23); }
 
-  if (verifySections(tag,"< $50,000") > 1) {  pinCategory("Income",section2); }
-  if (verifySections(tag,"< $50,000") > 1) {  chartPolls(tag,"< $50,000",section2,7); }
-  if (verifySections(tag,"> $50,000") > 1) {  chartPolls(tag,"> $50,000",section2,8); }
+  if (verifySections(tag,"< $50,000") > 1) {  pinCategory("Income",section2);  }
+  if (verifySections(tag,"< $50,000") > 1) {  chartPolls(tag,"< $50,000",section2,7); spitTables(tag,"So. Minnesota",section2,23);  }
+  if (verifySections(tag,"> $50,000") > 1) {  chartPolls(tag,"> $50,000",section2,8); spitTables(tag,"So. Minnesota",section2,23);  }
 
   if (verifySections(tag,"Age 18-34") > 1) {  pinCategory("Age",section2); }
-  if (verifySections(tag,"Age 18-34") > 1) {  chartPolls(tag,"Age 18-34",section2,12); }
-  if (verifySections(tag,"Age 35-49") > 1) {  chartPolls(tag,"Age 35-49",section2,13); }
-  if (verifySections(tag,"Age 50-64") > 1) {  chartPolls(tag,"Age 50-64",section2,14); }
-  if (verifySections(tag,"Age 65+") > 1) {  chartPolls(tag,"Age 65+",section2,15); }
+  if (verifySections(tag,"Age 18-34") > 1) {  chartPolls(tag,"Age 18-34",section2,12); spitTables(tag,"Age 18-34",section2,12); }
+  if (verifySections(tag,"Age 35-49") > 1) {  chartPolls(tag,"Age 35-49",section2,13); spitTables(tag,"Age 35-49",section2,13); }
+  if (verifySections(tag,"Age 50-64") > 1) {  chartPolls(tag,"Age 50-64",section2,14); spitTables(tag,"Age 50-64",section2,14); }
+  if (verifySections(tag,"Age 65+") > 1) {  chartPolls(tag,"Age 65+",section2,15); spitTables(tag,"Age 65+",section2,15); }
 
   if (verifySections(tag,"White") > 1) {  pinCategory("Race",section1); }
-  if (verifySections(tag,"White") > 1) {  chartPolls(tag,"White",section1,16); }
-  if (verifySections(tag,"Black") > 1) {  chartPolls(tag,"Black",section1,17); }
-  if (verifySections(tag,"Hispanic") > 1) {  chartPolls(tag,"Hispanic",section1,18); }
-  if (verifySections(tag,"Asian") > 1) {  chartPolls(tag,"Asian",section1,19); }
-  if (verifySections(tag,"Native") > 1) {  chartPolls(tag,"Native",section1,20); }
-  if (verifySections(tag,"Other") > 1) {  chartPolls(tag,"Other",section1,21); }
+  if (verifySections(tag,"White") > 1) {  chartPolls(tag,"White",section1,16); spitTables(tag,"White",section1,16); }
+  if (verifySections(tag,"Black") > 1) {  chartPolls(tag,"Black",section1,17); spitTables(tag,"Black",section1,17); }
+  if (verifySections(tag,"Hispanic") > 1) {  chartPolls(tag,"Hispanic",section1,18); spitTables(tag,"Hispanic",section1,18); }
+  if (verifySections(tag,"Asian") > 1) {  chartPolls(tag,"Asian",section1,19); spitTables(tag,"Asian",section1,19); }
+  if (verifySections(tag,"Native") > 1) {  chartPolls(tag,"Native",section1,20); spitTables(tag,"Native",section1,20); }
+  if (verifySections(tag,"Other") > 1) {  chartPolls(tag,"Other",section1,21); spitTables(tag,"Other",section1,21); }
 
   if (verifySections(tag,"Yes") > 1) {  pinCategory("Gun Ownership",section2); }
-  if (verifySections(tag,"Yes") > 1) {  chartPolls(tag,"Yes",section2,24); }
-  if (verifySections(tag,"No") > 1) {  chartPolls(tag,"No",section2,25); }
+  if (verifySections(tag,"Yes") > 1) {  chartPolls(tag,"Yes",section2,24); spitTables(tag,"Yes",section2,24); }
+  if (verifySections(tag,"No") > 1) {  chartPolls(tag,"No",section2,25); spitTables(tag,"No",section2,25); }
     overview(tag);
     buildLegend(tag,"#legendBox");
 }
@@ -955,9 +955,15 @@ function spitTables(tag,demographic,section,index) {
   .key(function(d) { return d.tag == tag && d.demographic == demographic; })
   .entries(data);
 
-  var resultsString = count[1].values[0];
+  console.log(count);
+
+  var boxID = tag + "_" + index + "Table";
+
+  $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='table'>TABLES HERE</div>");
 
 }
+
+
 
 $(".switchIcon").on("click",function(){
   $(".switchIcon").removeClass("thisView");
