@@ -1,6 +1,6 @@
 var page = require('webpage').create();
 
-page.open('https://striblab.github.io/2016election/elex_summary/elex-graphics-banner.html', function() {
+page.open('https://striblab.github.io/2016election/2016elections/20161108-elex_summary/elex-graphics-returns-map.html/elex-graphics-banner.html', function() {
   // being the actual size of the headless browser
   page.viewportSize = { width: 1020, height: 90 };
 
