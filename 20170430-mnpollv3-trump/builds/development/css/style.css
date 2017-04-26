@@ -1854,7 +1854,6 @@ a:visited {
 }
 
 #wrapper {
-    width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -6267,7 +6266,6 @@ body {
 }
 
 #wrapper {
-    width:800px;
     margin-right:auto;
     margin-left:auto;
 }
@@ -6427,6 +6425,7 @@ text {
 
 .switchIcon img {
     width:56px;
+    padding:3px;
 }
 
 .switchIcon:hover {
