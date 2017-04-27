@@ -60,8 +60,8 @@ function spillResults(tag,section0,section1,section2) {
   if (verifySections(tag,"So. Minnesota") > 1) {  chartPolls(tag,"So. Minnesota",section1,23); spitTables(tag,"So. Minnesota",section1,23); }
 
   if (verifySections(tag,"< $50,000") > 1) {  pinCategory("Income",section2);  }
-  if (verifySections(tag,"< $50,000") > 1) {  chartPolls(tag,"< $50,000",section2,7); spitTables(tag,"So. Minnesota",section2,23);  }
-  if (verifySections(tag,"> $50,000") > 1) {  chartPolls(tag,"> $50,000",section2,8); spitTables(tag,"So. Minnesota",section2,23);  }
+  if (verifySections(tag,"< $50,000") > 1) {  chartPolls(tag,"< $50,000",section2,7); spitTables(tag,"< $50,000",section2,23);  }
+  if (verifySections(tag,"> $50,000") > 1) {  chartPolls(tag,"> $50,000",section2,8); spitTables(tag,"> $50,000",section2,23);  }
 
   if (verifySections(tag,"Age 18-34") > 1) {  pinCategory("Age",section2); }
   if (verifySections(tag,"Age 18-34") > 1) {  chartPolls(tag,"Age 18-34",section2,12); spitTables(tag,"Age 18-34",section2,12); }
@@ -954,11 +954,77 @@ function spitTables(tag,demographic,section,index) {
   .key(function(d) { return d.tag == tag && d.demographic == demographic; })
   .entries(data);
 
-  console.log(count);
-
   var boxID = tag + "_" + index + "Table";
 
-  $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='table'>TABLES HERE</div>");
+  $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='table'></div>");
+
+    var table = d3.select("#" + boxID).append('table')
+    var thead = table.append('thead')
+    var tbody = table.append('tbody');
+
+    var columns = [];
+    var rows = [];
+
+    var resultsString = count[1].values[0];
+
+    var trigger = [];
+    trigger[0] = null;
+
+    // console.log(resultsString);
+
+    columns[0] = "Demographic";
+    if (resultsString.answer1 != "null") { columns[1] = resultsString.answer1; }
+    if (resultsString.answer2 != "null") { columns[2] = resultsString.answer2; }
+    if (resultsString.answer3 != "null") { columns[3] = resultsString.answer3; }
+    if (resultsString.answer4 != "null") { columns[4] = resultsString.answer4; }
+    if (resultsString.answer5 != "null") { columns[5] = resultsString.answer5; }
+    if (resultsString.answer6 != "null") { columns[6] = resultsString.answer6; }
+    if (resultsString.answer7 != "null") { columns[7] = resultsString.answer7; }
+    if (resultsString.answer8 != "null") { columns[8] = resultsString.answer8; }
+    if (resultsString.answer9 != "null") { columns[9] = resultsString.answer9; }
+    if (resultsString.answer10 != "null") { columns[10] = resultsString.answer10; }
+    if (resultsString.answer11 != "null") { columns[11] = resultsString.answer11; }
+    if (resultsString.answer12 != "null") { columns[12] = resultsString.answer12; }
+  
+
+    rows[0] = demographic;
+    if (resultsString.answer1 != "null") { rows[1] = resultsString.answer1_pct; }
+    if (resultsString.answer2 != "null") { rows[2] = resultsString.answer2_pct; }
+    if (resultsString.answer3 != "null") { rows[3] = resultsString.answer3_pct; }
+    if (resultsString.answer4 != "null") { rows[4] = resultsString.answer4_pct; }
+    if (resultsString.answer5 != "null") { rows[5] = resultsString.answer5_pct; }
+    if (resultsString.answer6 != "null") { rows[6] = resultsString.answer6_pct; }
+    if (resultsString.answer7 != "null") { rows[7] = resultsString.answer7_pct; }
+    if (resultsString.answer8 != "null") { rows[8] = resultsString.answer8_pct; }
+    if (resultsString.answer9 != "null") { rows[9] = resultsString.answer9_pct; }
+    if (resultsString.answer10 != "null") { rows[10] = resultsString.answer10_pct; }
+    if (resultsString.answer11 != "null") { rows[11] = resultsString.answer11_pct; }
+    if (resultsString.answer12 != "null") { rows[12] = resultsString.answer12_pct; }
+
+    // append the header row
+    thead.append('tr')
+      .selectAll('th')
+      .data(columns).enter()
+      .append('th')
+        .text(function (column) { return column; });
+
+    // create a row for each object in the data
+    var rowsAll = tbody.selectAll('tr')
+      .data(trigger)
+      .enter()
+      .append('tr');
+
+    // create a cell in each row for each column
+    var cells = rowsAll.selectAll('td')
+      .data(rows)
+      .enter()
+      .append('td')
+        .text(function (d) { console.log(d); 
+          if (isNaN(d)) { return d; }
+          else { return d3.format("%")(d) }
+      });
+
+    return table;
 
 }
 
