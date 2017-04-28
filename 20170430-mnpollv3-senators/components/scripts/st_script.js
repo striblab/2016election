@@ -926,8 +926,8 @@ for (i=0; i<data.length; i++){
     }
  }
 
-$(".forLabel").html("said  " + forLabel);
-$(".againstLabel").html("said " + againstLabel);
+$(".forLabel").html("" + forLabel);
+$(".againstLabel").html("" + againstLabel);
 
 $({countNum: $('.for').text()}).animate({countNum: Math.round(forNum)}, {
   duration: 1000,
