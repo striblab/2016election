@@ -14,7 +14,6 @@ d3.select(".dropdown").selectAll(".list")
 .data(data).enter().append("div")
 .attr("class","list")
 .html(function (d){ 
-  // console.log(holder);
   if (d.tag != holder) { holder = d.tag; return "<a href='index.html?poll='" + d.tag + " class='loadLink'><li class='card' data='" + d.tag + "''>" + d.year + " | " + d.question + "</li></a>"; }
 });
 
@@ -49,20 +48,25 @@ function spillResults(tag,section0,section1,section2) {
   if (verifySections(tag,"Independent") > 1) {  chartPolls(tag,"Independent",section1,3); spitTables(tag,"Independent",section1,3); }
   if (verifySections(tag,"Other/None") > 1) {  chartPolls(tag,"Other/None",section1,4); spitTables(tag,"Other/None",section1,4); }
 
+  if (verifySections(tag,"Trump voters") > 1) {  pinCategory("Voters",section1); }
+  if (verifySections(tag,"Trump voters") > 1) {  chartPolls(tag,"Trump voters",section1,26); spitTables(tag,"Trump voters",section1,26); }
+  if (verifySections(tag,"Clinton voters") > 1) {  chartPolls(tag,"Clinton voters",section1,27); spitTables(tag,"Clinton voters",section1,27); }
+  if (verifySections(tag,"Other/Did not vote") > 1) {  chartPolls(tag,"Other/Did not vote",section1,28); spitTables(tag,"Other/Did not vote",section1,28); }
+
   if (verifySections(tag,"Men") > 1) {  pinCategory("Gender",section1); }
-  if (verifySections(tag,"Men") > 1) {  chartPolls(tag,"Men",section1,5); }
-  if (verifySections(tag,"Women") > 1) {  chartPolls(tag,"Women",section1,6); }
+  if (verifySections(tag,"Men") > 1) {  chartPolls(tag,"Men",section1,5); spitTables(tag,"Men",section1,5); }
+  if (verifySections(tag,"Women") > 1) {  chartPolls(tag,"Women",section1,6); spitTables(tag,"Women",section1,6); }
 
   if (verifySections(tag,"Hennepin/Ramsey") > 1) {  pinCategory("Region",section1); }
   if (verifySections(tag,"Hennepin/Ramsey") > 1) {  chartPolls(tag,"Hennepin/Ramsey",section1,9); spitTables(tag,"Hennepin/Ramsey",section1,9); }
   if (verifySections(tag,"Metro Suburbs") > 1) {  chartPolls(tag,"Metro Suburbs",section1,10); spitTables(tag,"Metro Suburbs",section1,10); }
   if (verifySections(tag,"Rest of State") > 1) {  chartPolls(tag,"Rest of State",section1,11); spitTables(tag,"Rest of State",section1,11); }
-  if (verifySections(tag,"No. Minnesota") > 1) {  chartPolls(tag,"No. Minnesota",section1,22); spitTables(tag,"No. Minnesota",section1,22); }
-  if (verifySections(tag,"So. Minnesota") > 1) {  chartPolls(tag,"So. Minnesota",section1,23); spitTables(tag,"So. Minnesota",section1,23); }
+  if (verifySections(tag,"Northern Minnesota") > 1) {  chartPolls(tag,"Northern Minnesota",section1,22); spitTables(tag,"Northern Minnesota",section1,22); }
+  if (verifySections(tag,"Southern Minnesota") > 1) {  chartPolls(tag,"Southern Minnesota",section1,23); spitTables(tag,"Southern Minnesota",section1,23); }
 
   if (verifySections(tag,"< $50,000") > 1) {  pinCategory("Income",section2);  }
-  if (verifySections(tag,"< $50,000") > 1) {  chartPolls(tag,"< $50,000",section2,7); spitTables(tag,"So. Minnesota",section2,23);  }
-  if (verifySections(tag,"> $50,000") > 1) {  chartPolls(tag,"> $50,000",section2,8); spitTables(tag,"So. Minnesota",section2,23);  }
+  if (verifySections(tag,"< $50,000") > 1) {  chartPolls(tag,"< $50,000",section2,7); spitTables(tag,"< $50,000",section2,7);  }
+  if (verifySections(tag,"> $50,000") > 1) {  chartPolls(tag,"> $50,000",section2,8); spitTables(tag,"> $50,000",section2,8);  }
 
   if (verifySections(tag,"Age 18-34") > 1) {  pinCategory("Age",section2); }
   if (verifySections(tag,"Age 18-34") > 1) {  chartPolls(tag,"Age 18-34",section2,12); spitTables(tag,"Age 18-34",section2,12); }
@@ -143,6 +147,7 @@ function chartPolls(tag,demographic,section,index) {
   
   var boxID = tag + "_" + index;
   // $(section).append("<div class='demo' rel="  + demographic + ">" + demographic + "</div>");
+  $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='chartLabel'>" + demographic + "</div>");
   $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='chart'><svg></svg></div>");
 
   var chart;
@@ -150,7 +155,7 @@ nv.addGraph(function() {
   chart = nv.models.multiBarHorizontalChart()
       .x(function(d) { return d.label })
       .y(function(d) { return d.value })
-      .margin({top: 10, right: 20, bottom: 15, left: 115})
+      .margin({top: 10, right: 20, bottom: 15, left: 20})
       .color(colors)
       .stacked(true)
       .showValues(false)
@@ -955,11 +960,78 @@ function spitTables(tag,demographic,section,index) {
   .key(function(d) { return d.tag == tag && d.demographic == demographic; })
   .entries(data);
 
-  console.log(count);
-
   var boxID = tag + "_" + index + "Table";
 
-  $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='table'>TABLES HERE</div>");
+  $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='table'></div>");
+
+    var table = d3.select("#" + boxID).append('table')
+    var thead = table.append('thead')
+    var tbody = table.append('tbody');
+
+    var columns = [];
+    var rows = [];
+
+    var resultsString = count[1].values[0];
+
+    var trigger = [];
+    trigger[0] = null;
+
+    columns[0] = "Demographic";
+    if (resultsString.answer1 != "null") { columns[1] = resultsString.answer1; }
+    if (resultsString.answer2 != "null") { columns[2] = resultsString.answer2; }
+    if (resultsString.answer3 != "null") { columns[3] = resultsString.answer3; }
+    if (resultsString.answer4 != "null") { columns[4] = resultsString.answer4; }
+    if (resultsString.answer5 != "null") { columns[5] = resultsString.answer5; }
+    if (resultsString.answer6 != "null") { columns[6] = resultsString.answer6; }
+    if (resultsString.answer7 != "null") { columns[7] = resultsString.answer7; }
+    if (resultsString.answer8 != "null") { columns[8] = resultsString.answer8; }
+    if (resultsString.answer9 != "null") { columns[9] = resultsString.answer9; }
+    if (resultsString.answer10 != "null") { columns[10] = resultsString.answer10; }
+    if (resultsString.answer11 != "null") { columns[11] = resultsString.answer11; }
+    if (resultsString.answer12 != "null") { columns[12] = resultsString.answer12; }
+  
+
+    rows[0] = demographic;
+    if (resultsString.answer1 != "null") { rows[1] = resultsString.answer1_pct; }
+    if (resultsString.answer2 != "null") { rows[2] = resultsString.answer2_pct; }
+    if (resultsString.answer3 != "null") { rows[3] = resultsString.answer3_pct; }
+    if (resultsString.answer4 != "null") { rows[4] = resultsString.answer4_pct; }
+    if (resultsString.answer5 != "null") { rows[5] = resultsString.answer5_pct; }
+    if (resultsString.answer6 != "null") { rows[6] = resultsString.answer6_pct; }
+    if (resultsString.answer7 != "null") { rows[7] = resultsString.answer7_pct; }
+    if (resultsString.answer8 != "null") { rows[8] = resultsString.answer8_pct; }
+    if (resultsString.answer9 != "null") { rows[9] = resultsString.answer9_pct; }
+    if (resultsString.answer10 != "null") { rows[10] = resultsString.answer10_pct; }
+    if (resultsString.answer11 != "null") { rows[11] = resultsString.answer11_pct; }
+    if (resultsString.answer12 != "null") { rows[12] = resultsString.answer12_pct; }
+
+    // append the header row
+    if (demographic == "Age 18-34" || demographic == "< $50,000" || demographic == "Men" || demographic == "Democrat" || demographic == "Hennepin/Ramsey" || demographic == "Trump voters"){
+    thead.append('tr')
+      .attr("class","headers")
+      .selectAll('th')
+      .data(columns).enter()
+      .append('th')
+        .text(function (column) { return column; });
+      }
+
+    // create a row for each object in the data
+    var rowsAll = tbody.selectAll('tr')
+      .data(trigger)
+      .enter()
+      .append('tr');
+
+    // create a cell in each row for each column
+    var cells = rowsAll.selectAll('td')
+      .data(rows)
+      .enter()
+      .append('td')
+        .text(function (d) {  
+          if (isNaN(d)) { return d; }
+          else { return d3.format("%")(d) }
+      });
+
+    $(boxID + " .headers:not(:first)").hide();
 
 }
 
@@ -968,9 +1040,11 @@ function spitTables(tag,demographic,section,index) {
 $(".switchIcon").on("click",function(){
   $(".switchIcon").removeClass("thisView");
   $(this).addClass("thisView");
-  $(".chart, .table").hide();
+  $(".chart, .chartLabel, .table").hide();
   $("." + $(this).attr("view")).show();
+  if ($(this).attr("view") == "chart") { $(".chartLabel").show(); }
   $("#chartBox0 .chart").show();
+  $("#chartBox0 .chartLabel").show();
 });
 
 });
