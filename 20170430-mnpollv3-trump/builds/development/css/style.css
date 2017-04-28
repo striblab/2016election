@@ -107,6 +107,7 @@ ul {
 .table th,
 .table td {
     text-align:center;
+    word-wrap:break-word;
     font-weight: normal;
     vertical-align: middle;
 }
@@ -6417,6 +6418,10 @@ text {
     color: rgb(115, 115, 115);
 }
 
+.forLabel, .againstLabel {
+    text-transform: lowercase;
+}
+
 #viewSwitches {
     width:97%;
     margin-left:auto;
@@ -6492,5 +6497,17 @@ text {
     #chartBox0 {
         display: block !important;
         width: 100% !important;
+    }
+}
+
+@media (max-width:520px) {
+    .table table {
+        font-size: 0.65em !important;
+    }
+    .table td {
+        font-size: 1em !important;
+    }
+    .result {
+        width:48% !important;
     }
 }
