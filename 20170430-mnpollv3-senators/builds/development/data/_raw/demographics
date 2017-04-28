@@ -1,0 +1,193 @@
+<h3>Demographic breakdown of polling sample</h3>
+
+<p>In the last presidential election, did you vote for Donald Trump, Hillary Clinton, a different candidate, or did you not vote in that election?</p>
+<table>
+  <tbody>
+    <tr class="firstRow">
+      <td class="val0-cell">Trump</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">270 (34%)</td>
+    </tr>
+    <tr>
+      <td class="val0-cell">Clinton</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">299 (37%)</td>
+    </tr>
+    <tr>
+      <td class="val0-cell">Other/Refused</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">  66   (8%)</td>
+    </tr>
+    <tr class="lastRow">
+      <td class="val0-cell">Did Not Vote</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">165 (21%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In terms of your political party identification, do you generally consider yourself DFL or Democrat, Republican or an independent?</p>
+<table>
+  <tbody>
+    <tr class="firstRow">
+      <td class="val0-cell">DFL/Democrat  </td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">277 (35%)</td>
+    </tr>
+    <tr>
+      <td class="val0-cell">Republican</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">264 (33%) </td>
+    </tr>
+    <tr class="lastRow">
+      <td class="val0-cell">Independent/Other</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">259 (32%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr class="firstRow">
+      <td class="val0-cell">AGE:</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell"></td>
+    </tr>
+    <tr>
+      <td class="val0-cell">18-34  </td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">149 (19%)    </td>
+    </tr>
+    <tr>
+      <td class="val0-cell">35-49  </td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">247 (31%)    </td>
+    </tr>
+    <tr>
+      <td class="val0-cell">50-64  </td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">240 (30%)    </td>
+    </tr>
+    <tr>
+      <td class="val0-cell">65+  </td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">161 (20%)    </td>
+    </tr>
+    <tr class="lastRow">
+      <td class="val0-cell">Refused  </td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">                 3   -     </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr class="firstRow">
+      <td class="val0-cell">INCOME:</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell"></td>
+    </tr>
+    <tr>
+      <td class="val0-cell"><$25,000</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">  89 (11%)</td>
+    </tr>
+    <tr>
+      <td class="val0-cell">$25,000-$49,999</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">144 (18%)</td>
+    </tr>
+    <tr>
+      <td class="val0-cell">$50,000-$74,999</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">162 (20%)</td>
+    </tr>
+    <tr>
+      <td class="val0-cell">$75,000-$99,999</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">118 (15%)</td>
+    </tr>
+    <tr>
+      <td class="val0-cell">$100,000+</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">120 (15%)</td>
+    </tr>
+    <tr class="lastRow">
+      <td class="val0-cell">Refused</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">167 (21%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr class="firstRow">
+      <td class="val0-cell">GENDER:</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell"></td>
+    </tr>
+    <tr>
+      <td class="val0-cell">Male  </td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">387 (48%)             </td>
+    </tr>
+    <tr class="lastRow">
+      <td class="val0-cell">Female  </td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">413 (52%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr class="firstRow">
+      <td class="val0-cell">REGION:</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell"></td>
+    </tr>
+    <tr>
+      <td class="val0-cell">Hennepin/Ramsey</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">260 (33%)</td>
+    </tr>
+    <tr>
+      <td class="val0-cell">Metro Suburbs</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">230 (29%) </td>
+    </tr>
+    <tr>
+      <td class="val0-cell">Southern Minnesota</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">160 (20%)</td>
+    </tr>
+    <tr class="lastRow">
+      <td class="val0-cell">Northern Minnesota</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">150 (19%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr class="firstRow">
+      <td class="val0-cell">INTERVIEW:</td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell"></td>
+    </tr>
+    <tr>
+      <td class="val0-cell">Land-line </td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">554 (69%)             </td>
+    </tr>
+    <tr class="lastRow">
+      <td class="val0-cell">Cell Phone  </td>
+      <td class="val1-cell"></td>
+      <td class="val2-cell">246 (31%)</td>
+    </tr>
+  </tbody>
+</table>
