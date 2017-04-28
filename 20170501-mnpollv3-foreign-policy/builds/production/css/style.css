@@ -96,15 +96,18 @@ ul {
     list-style: none;
 }
 
-table {
+.table table {
     border-collapse: collapse;
     border-spacing: 0;
+    width:100%;
+    table-layout: fixed;
 }
 
-caption,
-th,
-td {
-    text-align: left;
+.table caption,
+.table th,
+.table td {
+    text-align:center;
+    word-wrap:break-word;
     font-weight: normal;
     vertical-align: middle;
 }
@@ -1854,7 +1857,6 @@ a:visited {
 }
 
 #wrapper {
-    width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1905,7 +1907,6 @@ a:visited {
 }
 
 .bigNum {
-    font-size: 1.8em;
     font-family: "Popular", Helvetica, Arial, sans-serif;
     font-weight: 900;
 }
@@ -6267,6 +6268,11 @@ body {
     font-family: "Benton Sans";
 }
 
+#wrapper {
+    margin-right:auto;
+    margin-left:auto;
+}
+
 .myButton2 {
     background-color: #ddd;
     width: 13%;
@@ -6281,14 +6287,14 @@ body {
 }
 
 #chartBox0 {
-    width: 96%;
+    width: 100%;
     clear: both;
     margin-bottom: 10px;
 }
 
 .chart svg {
     width: 100%;
-    height: 35px;
+    height: 80px;
 }
 
 .wrapper-dropdown-1 {
@@ -6316,16 +6322,19 @@ text {
 .category {
     font-weight: 900;
     font-family: "Benton Sans";
-    font-size: 1em;
+    font-size: 1.5em;
     text-align: center;
     margin-bottom: 10px;
-    width: 113%;
 }
 
 .question {
     font-family: "Benton Sans";
     font-size: 1.3em;
-    font-weight: 900;
+    font-weight: 400;
+}
+
+.qhighlight {
+    font-weight:900;
 }
 
 .card {
@@ -6352,13 +6361,24 @@ text {
 
 .adjacent {
     display: inline-block;
-    width: 48%;
+    width: 100%;
     vertical-align: top;
     text-align: center;
 }
 
 .loadLink {
     color: steelblue !important;
+}
+
+.nvd3 .nv-axis {
+    pointer-events: none;
+    opacity: 1;
+    display: none;
+}
+
+.chartLabel {
+    text-align:left;
+    margin-left:18px;
 }
 
 .loadLink:hover {
@@ -6377,19 +6397,13 @@ text {
     margin: 20px;
 }
 
-.result {
-    display: inline-block;
-    text-align: center;
-    margin: 20px;
-}
-
 .icon img {
-    width: 50px;
+    width: 70px;
 }
 
 .icon {
     text-align: center;
-    display: none;
+/*    display: none;*/
 }
 
 #selector {
@@ -6401,11 +6415,46 @@ text {
 }
 
 .againstNum {
-    color: #315F66;
+    color: rgb(115, 115, 115);
+}
+
+#viewSwitches {
+    width:97%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+}
+
+.thisView {
+    opacity:1 !important;
+}
+
+.switchIcon {
+    opacity:0.5;
+/*    width:48%;*/
+    display:inline-block;
+}
+
+.switchIcon img {
+    width:40px;
+    padding:0;
+}
+
+.switchIcon:hover {
+    cursor:pointer;
+    opacity:1;
+}
+
+.smallbreaker {
+    clear:both;
+    padding:10px;
+}
+
+.table {
+    display:none;
 }
 
 .bigNum {
-    font-family: 3em;
     font-family: "Benton Sans" !important;
     text-align: center;
     font-weight: 900;
@@ -6415,18 +6464,46 @@ text {
     padding-bottom: 5px;
 }
 
+#viewIcons {
+    float:right;
+    text-align:right;
+}
+
+#breakdownLabel {
+    float:left !important;
+    text-align:left !important;
+    font-weight:900;
+    font-size:2em;
+}
+
 .result {
+    margin: 20px;
     display: inline-block;
     text-align: center;
     margin: 0;
-    width: 48%;
+    width: 40% !important;
     white-space: nowrap;
 }
 
-@media (max-width:740px) {
+@media (max-width:800px) {
+    #wrapper, .chart {
+        width:100%;
+    }
     .adjacent,
     #chartBox0 {
         display: block !important;
         width: 100% !important;
+    }
+}
+
+@media (max-width:520px) {
+    .table table {
+        font-size: 0.65em !important;
+    }
+    .table td {
+        font-size: 1em !important;
+    }
+    .result {
+        width:48% !important;
     }
 }

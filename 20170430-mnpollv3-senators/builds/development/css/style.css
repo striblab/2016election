@@ -6418,6 +6418,10 @@ text {
     color: rgb(115, 115, 115);
 }
 
+.forLabel, .againstLabel {
+    text-transform: lowercase;
+}
+
 #viewSwitches {
     width:97%;
     margin-left:auto;
