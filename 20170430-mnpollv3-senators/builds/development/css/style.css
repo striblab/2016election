@@ -88,7 +88,7 @@ video {
 }
 
 html {
-    line-height: 1;
+    line-height: 1.2;
 }
 
 ol,
@@ -6403,6 +6403,7 @@ text {
 
 .icon {
     text-align: center;
+    margin-top:2em;
 /*    display: none;*/
 }
 
