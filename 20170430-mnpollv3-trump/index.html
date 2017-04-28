@@ -41,19 +41,13 @@
 	}
 
 	.dataframe { 
-		height:2650px;
+		height:2950px;
 	} 
 
 	#bigResults {
 	    text-align: center;
 	    width: 100%;
 	    margin: 20px;
-	}
-
-	.question {
-	    font-family: "Benton Sans";
-	    font-size: 1.3em;
-	    font-weight: 900;
 	}
 
 	.result {
@@ -119,7 +113,7 @@
 
 	@media only screen and (min-width: 200px) and (max-width: 767px) { 
 		.dataframe { 
-			height:2650px; 
+			height:2950px; 
 		}
 	}
 	</style>
@@ -129,7 +123,7 @@
 	<div id="wrapper">
 	<div id="questions_list">
 		<div class="questionBlock section" id="question1">
-			<div class="question">Do you approve or disapprove of Donald Trump’s job performance as president?</div>
+			<div class="question">Do you <span class="qhighlight forNum">approve</span> or <span class="qhighlight againstNum">disapprove</span> of Donald Trump’s job performance as president?</div>
 			<div class="bigResults">
 				<div class="result">
 				  <div class="bigNum forNum"><span class="for">40</span>%</div>
@@ -143,23 +137,24 @@
 
 			<div id="historyBox" class="sectionBox">
 			  <div class="icon"></div>
-			  <div class="chartTitle">Trump's historically low approval ratings</div>
-			  <div class="chatter">Minnesota Poll data collected by the Star Tribune shows that Trump has the lowest approval rating among Minnesotans since 1945.</div>
+			  <div class="chartTitle">President Trump's historically low approval ratings</div>
+			  <div class="chatter">Star Tribune Minnesota Poll data shows that Trump has the lowest approval rating of any president since 1945.</div>
 			  <div id="change" class="chart"></div>
 			</div>
 
 			<div id="divideBox" class="sectionBox">
 			  <div class="icon"></div>
 			  <div class="chartTitle">A big regional divide</div>
-			  <div class="chatter">Minnesotans are also regionally divided over Trump, with very low approval ratings in the Twin Cities compared to the metro suburbs and outstate.</div>
+			  <div class="chatter">Minnesotans are also regionally divided over President Trump, with very low approval ratings in the Twin Cities compared to the metro suburbs and outstate.</div>
 			  <div id="regionalDivideChart" class="chart"></div>
 			</div>
 
 		</div>
 
+		<div class="breaker"></div>
 
 		<div class="questionBlock section" id="question2">
-			<div class="question">Would you say Donald Trump has the right temperament to be president, or not?</div>
+			<div class="question">Would you say Donald Trump <span class="qhighlight forNum">has the right temperament</span> to be president, or <span class="qhighlight againstNum">not</span>?</div>
 			<div class="bigResults">
 				<div class="result">
 				  <div class="bigNum forNum"><span class="for">40</span>%</div>
@@ -167,14 +162,13 @@
 				</div>
 				<div class="result">
 				  <div class="bigNum againstNum"><span class="against">55</span>%</div>
-				  <div class="stat againstLabel">said no</div>
+				  <div class="stat againstLabel">said not</div>
 				</div>
 			</div>
 		</div>
 
-
 		<div class="questionBlock section" id="question3">
-			<div class="question">Do you think Donald Trump generally speaks the truth, or not?</div>
+			<div class="question">Do you think Donald Trump <span class="qhighlight forNum">generally speaks the truth</span>, or <span class="qhighlight againstNum">not</span>?</div>
 			<div class="bigResults">
 				<div class="result">
 				  <div class="bigNum forNum"><span class="for">44</span>%</div>
@@ -182,22 +176,20 @@
 				</div>
 				<div class="result">
 				  <div class="bigNum againstNum"><span class="against">52</span>%</div>
-				  <div class="stat againstLabel">said no</div>
+				  <div class="stat againstLabel">said not</div>
 				</div>
 			</div>
 
-			  <div class="chartTitle">Republican divisions over Trump</div>
-			  <div class="chatter">Trump's support among Republicans overall is far more tepid than among his voters.</div>
+			  <div class="chartTitle">Trump's supporters remain loyal</div>
+			  <div class="chatter">President Trump's voters have more favorable views of him and his performance than Republicans.</div>
 			 <div id="trumpGOPChart" class="chart"></div>
 
-			  <div class="chartTitle">Never-Trumpers still down on Trump</div>
-			  <div class="chatter">Clinton-voting Republicans are less forgiving of Trump's temperament than Democrats who voted for Trump.</div>
-			 <div id="neverTrumpChart" class="chart"></div>
 		</div>
 
+		<div class="breaker"></div>
 
 		<div class="questionBlock section" id="question4">
-			<div class="question">How important is it to you that Donald Trump releases his tax returns?  Is it very important, somewhat Important, not too important or not at all important?</div>
+			<div class="question">How important is it to you that Donald Trump releases his tax returns?  Is it <span class="qhighlight forNum">very important</span>, <span class="qhighlight forNum">somewhat</span> important, <span class="qhighlight againstNum">not too</span> important or <span class="qhighlight againstNum">not at all</span> important?</div>
 			<div class="bigResults">
 				<div class="result">
 				  <div class="bigNum forNum"><span class="for">36</span>%</div>
@@ -205,14 +197,22 @@
 				</div>
 				<div class="result">
 				  <div class="bigNum againstNum"><span class="against">30</span>%</div>
-				  <div class="stat againstLabel">said not important</div>
+				  <div class="stat againstLabel">said not at all important</div>
 				</div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">Democrats are more concerned over Trump's taxes</div>
+			  <div class="chatter">Republicans and independents care far less about Trump's tax returns than Democrats and Clinton voters.</div>
+			  <div id="taxChart" class="chart"></div>
 			</div>
 		</div>
 
+		<div class="breaker"></div>
 
 		<div class="questionBlock section" id="question5">
-			<div class="question">Do you approve or disapprove of Amy Klobuchar’s job performance as U.S. Senator?</div>
+			<div class="question">Do you <span class="qhighlight forNum">approve</span> or <span class="qhighlight againstNum">disapprove</span> of Amy Klobuchar’s job performance as U.S. Senator?</div>
 			<div class="bigResults">
 				<div class="result">
 				  <div class="bigNum forNum"><span class="for">72</span>%</div>
@@ -224,24 +224,25 @@
 				</div>
 			</div>
 
-			<div id="partyBox" class="sectionBox">
-			  <div class="icon"></div>
-			  <div class="chartTitle">Bridging the partisan divide</div>
-			  <div class="chatter">A majority of Minnesotans regardless of party identification approve of Klobuchar's performance as senator.</div>
-			  <div id="klobuChart" class="chart"></div>
-			</div>
-
-			<div id="partyBox" class="sectionBox">
+			<div class="sectionBox">
 			  <div class="icon"></div>
 			  <div class="chartTitle">More popular than ever</div>
-			  <div class="chatter">Sen. Klobuchar is more popular than she's ever been in the history of the Minnesota Poll.</div>
+			  <div class="chatter">Sen. Klobuchar has reached new heights of popularity in the Minnesota Poll's history.</div>
 			  <div id="klobuChartTime" class="chart"></div>
 			</div>
 
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">Bridging the partisan divide</div>
+			  <div class="chatter">A majority of Minnesotans -- regardless of party identification -- approve of Sen. Klobuchar's job performance.</div>
+			  <div id="klobuChart" class="chart"></div>
+			</div>
 		</div>
 
+		<div class="breaker"></div>
+
 		<div class="questionBlock section" id="question6">
-			<div class="question">Do you approve or disapprove of Al Franken’s job performance as U.S. Senator?</div>
+			<div class="question">Do you <span class="qhighlight forNum">approve</span> or <span class="qhighlight againstNum">disapprove</span> of Al Franken’s job performance as U.S. Senator?</div>
 			<div class="bigResults">
 				<div class="result">
 				  <div class="bigNum forNum"><span class="for">58</span>%</div>
@@ -253,15 +254,17 @@
 				</div>
 			</div>
 
-			<div id="partyBox" class="sectionBox">
+			<div class="sectionBox">
 			  <div class="icon"></div>
 			  <div class="chartTitle">A polarizing senator</div>
-			  <div class="chatter">Unlike Sen. Klobuchar, Sen. Franken's enjoys overwhelming support from Democrats but is deeply unpopular with Republicans.</div>
+			  <div class="chatter">Sen. Franken enjoys overwhelming support from Democrats but is deeply unpopular with Republicans.</div>
 			  <div id="frankenChart" class="chart"></div>
 			</div>
 
 		</div>
 	</div>
+
+	<div class="breaker"></div>
 
 	<div class="section" id="breakdowns">
 		<div id="exploreLayer" class="chartTitle">Explore the data</div>
@@ -286,9 +289,9 @@
 		</div>
 		</div>
 
-	    <div id="results" class="embed"><iframe id="dataframe" class="dataframe" src="./builds/development/?poll=trump1" border="0" frameborder="0" scrolling="no" width="100%" height="2650"></iframe></div>
+	    <div id="results" class="embed"><iframe id="dataframe" class="dataframe" src="./builds/development/?poll=trump1" border="0" frameborder="0" scrolling="no" width="100%" height="2950"></iframe></div>
 
-	    <a href="https://github.com/striblab/20170430-mnpollv3-trump/tree/master/builds/development/data/_raw/20170430-mnpollv3-trump.csv"><button class="downloadButton9">Download Data</button></a>
+	    <a href="https://github.com/striblab/20170430-mnpollv3-trump/tree/master/builds/development/data/_raw/20170430-mnpollv3-trump.xlsx"><button class="downloadButton9">Download Data</button></a>
 	</div>
 
 </div>
@@ -373,7 +376,7 @@
 	q1trendChart1();
 
 //Q1: REGIONAL DIVIDE
-	function q1trendChart3(){
+	function q1trendChart2(){
 
 		var  padding = {
 		        top: 20,
@@ -384,53 +387,6 @@
 
 		var chartPopD = c3.generate({
 		      bindto: "#regionalDivideChart",
-		      padding: padding,
-		      data: {
-		            columns: [
-		                ['Clinton', .75, .42],
-		                ['Trump', .90, .24]
-		            ],
-		        type: 'bar'
-		        },
-		        // legend: {
-		        //     show: false
-		        // },
-		            color: {
-		              pattern: ['#3585BC','#d34A44']
-		            },
-		        axis: {
-		              // rotated: true,
-		              y: {
-		                    min: 0,
-		                    padding: {bottom: 0},
-		                    tick: {
-		                     count: 4,
-		                     format: d3.format('%')
-		                    }
-		                },
-		            x: {
-		                type: 'category',
-		                categories: ['White Non-Hispanic','Bachelors or Higher']
-		            }
-		        }
-
-		});
-}
-
-	q1trendChart3();
-
-//Q2: GOP DIVIDE
-	function q2trendChart1(){
-
-		var  padding = {
-		        top: 20,
-		        right: 60,
-		        bottom: 20,
-		        left: 40,
-		    };
-
-		var chartPopD = c3.generate({
-		      bindto: "#trumpGOPChart",
 		      padding: padding,
 		      data: {
 		            columns: [
@@ -445,7 +401,7 @@
 		        //     show: false
 		        // },
 		            color: {
-		              pattern: ['#3585BC','#d34A44']
+		              pattern: ['#a3858b','#865f67','#693c46','#4c1926']
 		            },
 		        axis: {
 		              // rotated: true,
@@ -474,10 +430,10 @@
 		});
 }
 
-	q2trendChart1();
+	q1trendChart2();
 
-//Q2: NEVER TRUMPERs
-	function q2trendChart2(){
+//Q2: GOP DIVIDE
+	function q2trendChart1(){
 
 		var  padding = {
 		        top: 20,
@@ -487,14 +443,14 @@
 		    };
 
 		var chartPopD = c3.generate({
-		      bindto: "#neverTrumpChart",
+		      bindto: "#trumpGOPChart",
 		      padding: padding,
 		      data: {
 		            columns: [
-		                ['Twin Cities', .24],
-		                ['Suburbs', .43],
-		                ['South MN', .50],
-		                ['North MN', .53]
+		                ['Trump voters', .87, .89, .91],
+		                ['GOP', .82, .84, .86],
+		                ['Clinton voters', .05, .04, .04],
+		                ['DEM', .04, .02, .06],
 		            ],
 		        type: 'bar'
 		        },
@@ -502,7 +458,7 @@
 		        //     show: false
 		        // },
 		            color: {
-		              pattern: ['#3585BC','#d34A44']
+		              pattern: ['#8F120B','#d34A44','#085388','#3585BC']
 		            },
 		        axis: {
 		              // rotated: true,
@@ -517,7 +473,7 @@
 		                },
 		            x: {
 		                type: 'category',
-		                categories: ['Approve']
+		                categories: ['Approval',"Right Temperament", "Speaks Truth"]
 		            }
 		        },
 			    grid: {
@@ -531,7 +487,66 @@
 		});
 }
 
-	q2trendChart2();
+	q2trendChart1();
+
+//Q3: TAXES
+	function q3trendChart1(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#taxChart",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['Trump voters', .05, .06, .29, .60],
+		                ['GOP', .09, .05, .28, .57],
+		                ['Clinton voters', .64, .25, .04, .06],
+		                ['DEM', .66, .26, .04, .03],
+		                ['Other', .33, .26, .15, .242],
+		                ['IND', .31, .20, .16, .31]
+		            ],
+		        type: 'bar'
+		        },
+		        // legend: {
+		        //     show: false
+		        // },
+		            color: {
+		              pattern: ['#8F120B','#d34A44','#085388','#3585BC',"#096F16","#35A443"]
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['Very',"Somewhat", "Not Too", "Not"]
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	q3trendChart1();
 
 //Q4: KLOBUCHART
 	function q4trendChart1(){

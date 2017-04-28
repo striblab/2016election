@@ -6329,7 +6329,11 @@ text {
 .question {
     font-family: "Benton Sans";
     font-size: 1.3em;
-    font-weight: 900;
+    font-weight: 400;
+}
+
+.qhighlight {
+    font-weight:900;
 }
 
 .card {
@@ -6363,6 +6367,17 @@ text {
 
 .loadLink {
     color: steelblue !important;
+}
+
+.nvd3 .nv-axis {
+    pointer-events: none;
+    opacity: 1;
+    display: none;
+}
+
+.chartLabel {
+    text-align:left;
+    margin-left:18px;
 }
 
 .loadLink:hover {
@@ -6403,7 +6418,7 @@ text {
 }
 
 #viewSwitches {
-    width:100%;
+    width:97%;
     margin-left:auto;
     margin-right:auto;
     text-align:left;
@@ -6420,13 +6435,18 @@ text {
 }
 
 .switchIcon img {
-    width:56px;
-    padding:3px;
+    width:40px;
+    padding:0;
 }
 
 .switchIcon:hover {
     cursor:pointer;
     opacity:1;
+}
+
+.smallbreaker {
+    clear:both;
+    padding:10px;
 }
 
 .table {
@@ -6441,10 +6461,6 @@ text {
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 5px;
-}
-
-#viewSwitches {
-    width:80%;
 }
 
 #viewIcons {

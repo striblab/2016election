@@ -14,7 +14,6 @@ d3.select(".dropdown").selectAll(".list")
 .data(data).enter().append("div")
 .attr("class","list")
 .html(function (d){ 
-  // console.log(holder);
   if (d.tag != holder) { holder = d.tag; return "<a href='index.html?poll='" + d.tag + " class='loadLink'><li class='card' data='" + d.tag + "''>" + d.year + " | " + d.question + "</li></a>"; }
 });
 
@@ -52,7 +51,7 @@ function spillResults(tag,section0,section1,section2) {
   if (verifySections(tag,"Trump voters") > 1) {  pinCategory("Voters",section1); }
   if (verifySections(tag,"Trump voters") > 1) {  chartPolls(tag,"Trump voters",section1,26); spitTables(tag,"Trump voters",section1,26); }
   if (verifySections(tag,"Clinton voters") > 1) {  chartPolls(tag,"Clinton voters",section1,27); spitTables(tag,"Clinton voters",section1,27); }
-  if (verifySections(tag,"Didn't vote") > 1) {  chartPolls(tag,"Didn't vote",section1,28); spitTables(tag,"Didn't vote",section1,28); }
+  if (verifySections(tag,"Other/Did not vote") > 1) {  chartPolls(tag,"Other/Did not vote",section1,28); spitTables(tag,"Other/Did not vote",section1,28); }
 
   if (verifySections(tag,"Men") > 1) {  pinCategory("Gender",section1); }
   if (verifySections(tag,"Men") > 1) {  chartPolls(tag,"Men",section1,5); spitTables(tag,"Men",section1,5); }
@@ -148,6 +147,7 @@ function chartPolls(tag,demographic,section,index) {
   
   var boxID = tag + "_" + index;
   // $(section).append("<div class='demo' rel="  + demographic + ">" + demographic + "</div>");
+  $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='chartLabel'>" + demographic + "</div>");
   $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='chart'><svg></svg></div>");
 
   var chart;
@@ -155,7 +155,7 @@ nv.addGraph(function() {
   chart = nv.models.multiBarHorizontalChart()
       .x(function(d) { return d.label })
       .y(function(d) { return d.value })
-      .margin({top: 10, right: 20, bottom: 15, left: 115})
+      .margin({top: 10, right: 20, bottom: 15, left: 20})
       .color(colors)
       .stacked(true)
       .showValues(false)
@@ -976,8 +976,6 @@ function spitTables(tag,demographic,section,index) {
     var trigger = [];
     trigger[0] = null;
 
-    // console.log(resultsString);
-
     columns[0] = "Demographic";
     if (resultsString.answer1 != "null") { columns[1] = resultsString.answer1; }
     if (resultsString.answer2 != "null") { columns[2] = resultsString.answer2; }
@@ -1028,7 +1026,7 @@ function spitTables(tag,demographic,section,index) {
       .data(rows)
       .enter()
       .append('td')
-        .text(function (d) { console.log(d); 
+        .text(function (d) {  
           if (isNaN(d)) { return d; }
           else { return d3.format("%")(d) }
       });
@@ -1042,9 +1040,11 @@ function spitTables(tag,demographic,section,index) {
 $(".switchIcon").on("click",function(){
   $(".switchIcon").removeClass("thisView");
   $(this).addClass("thisView");
-  $(".chart, .table").hide();
+  $(".chart, .chartLabel, .table").hide();
   $("." + $(this).attr("view")).show();
+  if ($(this).attr("view") == "chart") { $(".chartLabel").show(); }
   $("#chartBox0 .chart").show();
+  $("#chartBox0 .chartLabel").show();
 });
 
 });
