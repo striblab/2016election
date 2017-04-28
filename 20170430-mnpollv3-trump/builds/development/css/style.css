@@ -96,16 +96,17 @@ ul {
     list-style: none;
 }
 
-table {
+.table table {
     border-collapse: collapse;
     border-spacing: 0;
     width:100%;
+    table-layout: fixed;
 }
 
-caption,
-th,
-td {
-    text-align: left;
+.table caption,
+.table th,
+.table td {
+    text-align:center;
     font-weight: normal;
     vertical-align: middle;
 }
@@ -6297,6 +6298,8 @@ body {
 
 .wrapper-dropdown-1 {
     width: 100%;
+    height:auto;
+    font-size:1.2em !important;
 }
 
 .wrapper-demo {
@@ -6380,12 +6383,6 @@ text {
     margin: 20px;
 }
 
-.result {
-    display: inline-block;
-    text-align: center;
-    margin: 20px;
-}
-
 .icon img {
     width: 70px;
 }
@@ -6465,15 +6462,16 @@ text {
 }
 
 .result {
+    margin: 20px;
     display: inline-block;
     text-align: center;
     margin: 0;
-    width: 48%;
+    width: 40% !important;
     white-space: nowrap;
 }
 
 @media (max-width:800px) {
-    #wrapper, #change {
+    #wrapper, .chart {
         width:100%;
     }
     .adjacent,

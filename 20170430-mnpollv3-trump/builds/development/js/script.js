@@ -49,20 +49,25 @@ function spillResults(tag,section0,section1,section2) {
   if (verifySections(tag,"Independent") > 1) {  chartPolls(tag,"Independent",section1,3); spitTables(tag,"Independent",section1,3); }
   if (verifySections(tag,"Other/None") > 1) {  chartPolls(tag,"Other/None",section1,4); spitTables(tag,"Other/None",section1,4); }
 
+  if (verifySections(tag,"Trump voters") > 1) {  pinCategory("Voters",section1); }
+  if (verifySections(tag,"Trump voters") > 1) {  chartPolls(tag,"Trump voters",section1,26); spitTables(tag,"Trump voters",section1,26); }
+  if (verifySections(tag,"Clinton voters") > 1) {  chartPolls(tag,"Clinton voters",section1,27); spitTables(tag,"Clinton voters",section1,27); }
+  if (verifySections(tag,"Didn't vote") > 1) {  chartPolls(tag,"Didn't vote",section1,28); spitTables(tag,"Didn't vote",section1,28); }
+
   if (verifySections(tag,"Men") > 1) {  pinCategory("Gender",section1); }
-  if (verifySections(tag,"Men") > 1) {  chartPolls(tag,"Men",section1,5); }
-  if (verifySections(tag,"Women") > 1) {  chartPolls(tag,"Women",section1,6); }
+  if (verifySections(tag,"Men") > 1) {  chartPolls(tag,"Men",section1,5); spitTables(tag,"Men",section1,5); }
+  if (verifySections(tag,"Women") > 1) {  chartPolls(tag,"Women",section1,6); spitTables(tag,"Women",section1,6); }
 
   if (verifySections(tag,"Hennepin/Ramsey") > 1) {  pinCategory("Region",section1); }
   if (verifySections(tag,"Hennepin/Ramsey") > 1) {  chartPolls(tag,"Hennepin/Ramsey",section1,9); spitTables(tag,"Hennepin/Ramsey",section1,9); }
   if (verifySections(tag,"Metro Suburbs") > 1) {  chartPolls(tag,"Metro Suburbs",section1,10); spitTables(tag,"Metro Suburbs",section1,10); }
   if (verifySections(tag,"Rest of State") > 1) {  chartPolls(tag,"Rest of State",section1,11); spitTables(tag,"Rest of State",section1,11); }
-  if (verifySections(tag,"No. Minnesota") > 1) {  chartPolls(tag,"No. Minnesota",section1,22); spitTables(tag,"No. Minnesota",section1,22); }
-  if (verifySections(tag,"So. Minnesota") > 1) {  chartPolls(tag,"So. Minnesota",section1,23); spitTables(tag,"So. Minnesota",section1,23); }
+  if (verifySections(tag,"Northern Minnesota") > 1) {  chartPolls(tag,"Northern Minnesota",section1,22); spitTables(tag,"Northern Minnesota",section1,22); }
+  if (verifySections(tag,"Southern Minnesota") > 1) {  chartPolls(tag,"Southern Minnesota",section1,23); spitTables(tag,"Southern Minnesota",section1,23); }
 
   if (verifySections(tag,"< $50,000") > 1) {  pinCategory("Income",section2);  }
-  if (verifySections(tag,"< $50,000") > 1) {  chartPolls(tag,"< $50,000",section2,7); spitTables(tag,"< $50,000",section2,23);  }
-  if (verifySections(tag,"> $50,000") > 1) {  chartPolls(tag,"> $50,000",section2,8); spitTables(tag,"> $50,000",section2,23);  }
+  if (verifySections(tag,"< $50,000") > 1) {  chartPolls(tag,"< $50,000",section2,7); spitTables(tag,"< $50,000",section2,7);  }
+  if (verifySections(tag,"> $50,000") > 1) {  chartPolls(tag,"> $50,000",section2,8); spitTables(tag,"> $50,000",section2,8);  }
 
   if (verifySections(tag,"Age 18-34") > 1) {  pinCategory("Age",section2); }
   if (verifySections(tag,"Age 18-34") > 1) {  chartPolls(tag,"Age 18-34",section2,12); spitTables(tag,"Age 18-34",section2,12); }
@@ -1003,11 +1008,14 @@ function spitTables(tag,demographic,section,index) {
     if (resultsString.answer12 != "null") { rows[12] = resultsString.answer12_pct; }
 
     // append the header row
+    if (demographic == "Age 18-34" || demographic == "< $50,000" || demographic == "Men" || demographic == "Democrat" || demographic == "Hennepin/Ramsey" || demographic == "Trump voters"){
     thead.append('tr')
+      .attr("class","headers")
       .selectAll('th')
       .data(columns).enter()
       .append('th')
         .text(function (column) { return column; });
+      }
 
     // create a row for each object in the data
     var rowsAll = tbody.selectAll('tr')
@@ -1025,7 +1033,7 @@ function spitTables(tag,demographic,section,index) {
           else { return d3.format("%")(d) }
       });
 
-    return table;
+    $(boxID + " .headers:not(:first)").hide();
 
 }
 
