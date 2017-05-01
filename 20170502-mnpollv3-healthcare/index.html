@@ -350,15 +350,13 @@
 		                ['Men', .45, .50, .05],
 		                ['Women', .53, .38, .09]
 		            ],
-		        type: 'bar'
-		        // labels: {
-		        //     format: {
-		        //         'Trump voters': d3.format('%'),
-		        //         'GOP': d3.format('%'),
-		        //         'Clinton voters': d3.format('%'),
-		        //         'DEM': d3.format('%')
-		        //     }
-		        // }
+		        type: 'bar',
+		        labels: {
+		            format: {
+		                'Men': d3.format('%'),
+		                'Women': d3.format('%')
+		            }
+		        }
 		        },
 		        // legend: {
 		        //     show: false
