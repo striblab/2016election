@@ -146,6 +146,7 @@ function chartPolls(tag,demographic,section,index) {
   
   var boxID = tag + "_" + index;
   // $(section).append("<div class='demo' rel="  + demographic + ">" + demographic + "</div>");
+  if (demographic == "Metro Suburbs") { demographic = "Rest of Metro Suburbs"; }
   $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='chartLabel'>" + demographic + "</div>");
   $(section).append("<div rel='"  + demographic + "' id='" + boxID + "' class='chart'><svg></svg></div>");
 
