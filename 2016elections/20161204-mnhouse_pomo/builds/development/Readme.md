@@ -1,7 +1,7 @@
 Star Tribune Battleground Minnesota 2016 - The DFL's presidential election year slide
 ================
 
-by Frey Hargarten
+by [Frey Hargarten](https://github.com/jeffhargarten)
 
 Built using Mike Bostock's [D3](https://github.com/mbostock/d3), [C3](https://github.com/masayuki0812/c3) and [jQuery](https://github.com/jquery/jquery).
 
