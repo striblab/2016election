@@ -1,7 +1,7 @@
 Star Tribune - NPM Project Template
 ================
 
-by Frey Hargarten and Dave Braunger
+by [Frey Hargarten](https://github.com/jeffhargarten) and Dave Braunger
 
 Built using Mike Bostock's [D3](https://github.com/mbostock/d3) and [jQuery](https://github.com/jquery/jquery).
 
