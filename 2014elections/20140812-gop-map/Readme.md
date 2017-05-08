@@ -1,7 +1,7 @@
 Star Tribune - Who Will Control the Minnesota House of Representatives?
 ================
 
-by Frey Hargarten
+by [Frey Hargarten](https://github.com/jeffhargarten)
 
 Built using Mike Bostock's [D3](https://github.com/mbostock/d3), [NVD3](http://nvd3.org/), [jQuery](https://github.com/jquery/jquery) and [DataTables](https://www.datatables.net/).
 

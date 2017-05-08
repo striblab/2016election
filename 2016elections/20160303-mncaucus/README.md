@@ -1,7 +1,7 @@
 Star Tribune - 2016 Minnesota Caucus Results
 ================
 
-by Frey Hargarten
+by [Frey Hargarten](https://github.com/jeffhargarten)
 
 Built using Mike Bostock's [D3](https://github.com/mbostock/d3), [NVD3](https://github.com/novus/nvd3) and [jQuery](https://github.com/jquery/jquery).
 
