@@ -1,48 +1,163 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+body {
+    font-family: Arial;
+    font-family: "Benton sans";
+}
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+#wrapper {
+    width: 540px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+.state-groups:hover {
+    cursor: pointer;
+    fill: #000;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+rect {
+    fill: #ddd;
+}
 
-    .chatter { padding:20px; }  
+text {
+    fill: #000 !important;
+}
 
-    p { font-family:$bentonSans; }  
+.tooltip {
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+}
 
-    #info { display:none; }
+.dq1 {
+    fill: #99D0E5;
+}
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+.dq2 {
+    fill: #79B0C5;
+}
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.dq3 {
+    fill: #629ABB;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+.dq4 {
+    fill: #4B85B1;
+}
+
+.dq5 {
+    fill: #356FA7;
+}
+
+.dq6 {
+    fill: #1E5A9D;
+}
+
+.dq7 {
+    color: white !important;
+    fill: #084594;
+}
+
+.rq1 {
+    fill: #C6A29E;
+}
+
+.rq2 {
+    fill: #A7706B;
+}
+
+.rq3 {
+    fill: #A45958;
+}
+
+.rq4 {
+    fill: #A14345;
+}
+
+.rq5 {
+    fill: #9E2C32;
+}
+
+.rq6 {
+    fill: #9B161F;
+}
+
+.rq7 {
+    color: white !important;
+    fill: #99000d;
+}
+
+.none {
+    cursor: default;
+    fill: #ddd;
+}
+
+.none:hover {
+    stroke: white;
+}
+
+#franken,
+#mcfadden {
+    color: blue;
+    font-weight: 900;
+}
+
+.selected {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.legend label,
+.legend span {
+    color: #808080;
+    display: block;
+    float: left;
+    font-size: 9px;
+    height: 15px;
+    text-align: center;
+    width: 30px;
+}
+
+#legend-text {
+    font-family: Popular, sans-serif;
+    font-size: 16px;
+}
+
+#legend-text a {
+    color: #0B478D;
+}
+
+#map,
+#map2 {
+    font-size: .75em;
+}
+
+nav.legend span {
+    font-size: .85em;
+    width: 35px;
+}
+
+#rleg {
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Popular";
+}
+
+#dleg {
+    display: block;
+}
+
+@media (max-width:539px) {
+    #wrapper {
+        width: 100%;
     }
+}

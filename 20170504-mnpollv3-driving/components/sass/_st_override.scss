@@ -1,48 +1,249 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+body {
+    font-family: "Benton Sans";
+}
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+#wrapper {
+    margin-right:auto;
+    margin-left:auto;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+.myButton2 {
+    background-color: #ddd;
+    width: 13%;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+.myButton2:hover {
+    background-color: #5cbf2a !important;
+}
 
-    .chatter { padding:20px; }  
+.myButton2:active {
+    background-color: #5cbf2a;
+}
 
-    p { font-family:$bentonSans; }  
+#chartBox0 {
+    width: 100%;
+    clear: both;
+    margin-bottom: 10px;
+}
 
-    #info { display:none; }
+.chart svg {
+    width: 100%;
+    height: 80px;
+}
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+.wrapper-dropdown-1 {
+    width: 100%;
+}
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.wrapper-demo {
+    width: 100%;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+.filterBreak {
+    height: 7px;
+    border-bottom: 1px solid #333;
+    clear: both;
+}
+
+text {
+    font-family: "Benton Sans" !important;
+}
+
+.nv-axisMaxMin {
+    font-family: "Popular" !important;
+}
+
+.category {
+    font-weight: 900;
+    font-family: "Benton Sans";
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.question {
+    font-family: "Benton Sans";
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+.qhighlight {
+    font-weight:900;
+}
+
+.card {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.year {
+    display: inline-block;
+    width: 15%;
+    vertical-align: top;
+}
+
+.legendBlock {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+
+.legendText {
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.adjacent {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.loadLink {
+    color: steelblue !important;
+}
+
+.nvd3 .nv-axis {
+    pointer-events: none;
+    opacity: 1;
+    display: none;
+}
+
+.chartLabel {
+    text-align:left;
+    margin-left:18px;
+}
+
+.loadLink:hover {
+    color: black !important;
+}
+
+.legendBox {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 106%;
+}
+
+#bigResults {
+    text-align: center;
+    width: 100%;
+    margin: 20px;
+}
+
+.icon img {
+    width: 70px;
+}
+
+.icon {
+    text-align: center;
+    margin-top:2em;
+/*    display: none;*/
+}
+
+#selector {
+    display: none;
+}
+
+.forNum {
+    color: #00222D;
+}
+
+.againstNum {
+    color: rgb(115, 115, 115);
+}
+
+.forLabel, .againstLabel {
+    text-transform: lowercase;
+}
+
+#viewSwitches {
+    width:97%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+}
+
+.thisView {
+    opacity:1 !important;
+}
+
+.switchIcon {
+    opacity:0.5;
+/*    width:48%;*/
+    display:inline-block;
+}
+
+.switchIcon img {
+    width:40px;
+    padding:0;
+}
+
+.switchIcon:hover {
+    cursor:pointer;
+    opacity:1;
+}
+
+.smallbreaker {
+    clear:both;
+    padding:10px;
+}
+
+.table {
+    display:none;
+}
+
+.bigNum {
+    font-family: "Benton Sans" !important;
+    text-align: center;
+    font-weight: 900;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+}
+
+#viewIcons {
+    float:right;
+    text-align:right;
+}
+
+#breakdownLabel {
+    float:left !important;
+    text-align:left !important;
+    font-weight:900;
+    font-size:2em;
+}
+
+.result {
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    width: 40% !important;
+    white-space: nowrap;
+}
+
+@media (max-width:800px) {
+    #wrapper, .chart {
+        width:100%;
     }
+    .adjacent,
+    #chartBox0 {
+        display: block !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width:520px) {
+    .table table {
+        font-size: 0.65em !important;
+    }
+    .table td {
+        font-size: 1em !important;
+    }
+    .result {
+        width:48% !important;
+    }
+}

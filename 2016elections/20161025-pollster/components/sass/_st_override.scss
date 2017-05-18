@@ -1,48 +1,350 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+body,
+p {
+    margin: 0;
+    padding: 0;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+#wrapper {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+a {
+    color: steelblue;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+#filter input:focus {
+    width: 100% !important;
+}
 
-    .chatter { padding:20px; }  
+#filter input {
+    width: 100% !important;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+    border-radius: 0 !important;
+}
 
-    p { font-family:$bentonSans; }  
+#chart .c3-line,
+#chartUS .c3-line {
+    stroke-width: 4px !important;
+}
 
-    #info { display:none; }
+.chatter {
+    padding-bottom: 10px;
+}
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+.pctBox {
+    display: inline-block;
+    width: 32.5%;
+    text-align: center;
+}
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.timestamp {
+    font-size: .8em;
+    text-align: center;
+    color: #888;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left !important;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+.source {
+    padding-top: 10px;
+    text-align: left !important;
+    color: #888;
+}
+
+.source a {
+    color: steelblue;
+}
+
+.cell a {
+    color: #000;
+}
+
+.adjacent {
+    width: 45%;
+    display: inline-block;
+    text-align: left;
+}
+
+.fBlock {
+    width: 48%;
+    display: inline-block;
+    text-align: left;
+}
+
+.fNum {
+    text-align: right;
+}
+
+.fTop {
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 4px;
+}
+
+.filter {
+    display: inline-block;
+    width: 60px;
+    margin: 12px;
+    opacity: .5;
+}
+
+.filter:hover,
+.selected3 {
+    opacity: 1 !important;
+    cursor: pointer;
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+.filter img {
+    width: 100%;
+}
+
+.selected {
+    margin: 0 !important;
+}
+
+.spread {
+    font-weight: 900;
+    text-align: right !important;
+}
+
+.tinycharts {
+    display: inline-block;
+    width: 49%;
+}
+
+.name,
+.chartTitle,
+.pollster,
+.chatter {
+    text-align: left !important;
+}
+
+.major {
+    color: #fff !important;
+}
+
+.pollster-chart,
+#chart,
+#chartUS,
+#chartFinance {
+    width: 100%;
+    height: 300px;
+}
+
+.republican {
+    color: #8C1B17;
+    fill: #8C1B17 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r1 {
+    background-color: #C68985;
+    fill: #C68985 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.r2 {
+    background-color: #A5484D;
+    fill: #A5484D !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.r3 {
+    background-color: #A52129;
+    fill: #A52129 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.r4 {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.r0 {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.mid {
+    background-color: #bbb;
+    fill: #bbb !important;
+    color: black !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.blank {
+    background-color: #fff;
+    fill: #bbb !important;
+    color: black !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.democrat {
+    color: #3F88C5;
+    fill: #3F88C5 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.ind {
+    color: #aaaaaa;
+    fill: #aaaaaa !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d1 {
+    background-color: #ABCEE8;
+    fill: #ABCEE8 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.d2 {
+    background-color: #5ca5c3;
+    fill: #5ca5c3 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.d3 {
+    background-color: #4f97c4;
+    fill: #4f97c4 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.d4 {
+    background-color: #3f88c5;
+    fill: #3f88c5 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.d0 {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.text {
+    fill: #ffffff !important;
+}
+
+h4 {
+    color: #000;
+    text-align: left;
+}
+
+.card {
+    font-size: 0.8em;
+}
+
+.cell {
+    display: inline-block;
+    width: 10%;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.first {
+    text-align: left;
+    overflow-x: hidden;
+    white-space: nowrap;
+    width: 20%;
+}
+
+.th {
+    font-weight: 900;
+    font-size: 0.8em;
+}
+
+.th:hover {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width:800px) {
+    .tinycharts {
+        display: inline-block;
+        width: 100%;
     }
+    .pctBox {
+        width: 32% !important;
+    }
+    .adjacent {
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    #wrapper {
+        width: 100%;
+    }
+    .card,
+    .th {
+        font-size: 0.7em;
+        background-color: #fff;
+    }
+    .cell {
+        width: 43% !important;
+        overflow-x: hidden;
+        white-space: nowrap;
+    }
+    .major,
+    .keep {
+        width: 16% !important;
+    }
+    .bigNum {
+        font-size: 2.3em;
+    }
+    .kill {
+        display: none !important;
+    }
+    .canLabel {
+        font-size: 0.7em;
+    }
+    .pollster-chart,
+    #chart {
+        width: 100%;
+        height: 250px;
+    }
+}

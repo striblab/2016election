@@ -1,48 +1,168 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+body {
+    font-family: "Benton Sans";
+}
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+.myButton2 {
+    background-color: #ddd;
+    width: 13%;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+.myButton2:hover {
+    background-color: #5cbf2a !important;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+.myButton2:active {
+    background-color: #5cbf2a;
+}
 
-    .chatter { padding:20px; }  
+#chartBox0 {
+    width: 96%;
+    clear: both;
+    margin-bottom: 10px;
+}
 
-    p { font-family:$bentonSans; }  
+.chart svg {
+    width: 100%;
+    height: 35px;
+}
 
-    #info { display:none; }
+.wrapper-dropdown-1 {
+    width: 100%;
+}
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+.wrapper-demo {
+    width: 100%;
+}
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.filterBreak {
+    height: 7px;
+    border-bottom: 1px solid #333;
+    clear: both;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+text {
+    font-family: "Benton Sans" !important;
+}
+
+.nv-axisMaxMin {
+    font-family: "Popular" !important;
+}
+
+.category {
+    font-weight: 900;
+    font-family: "Benton Sans";
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 10px;
+    width: 113%;
+}
+
+.question {
+    font-family: "Benton Sans";
+    font-size: 1.3em;
+    font-weight: 900;
+}
+
+.card {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.year {
+    display: inline-block;
+    width: 15%;
+    vertical-align: top;
+}
+
+.legendBlock {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+
+.legendText {
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.adjacent {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.loadLink {
+    color: steelblue !important;
+}
+
+.loadLink:hover {
+    color: black !important;
+}
+
+.legendBox {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 106%;
+}
+
+#bigResults {
+    text-align: center;
+    width: 100%;
+    margin: 20px;
+}
+
+.result {
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+}
+
+.icon img {
+    width: 50px;
+}
+
+.icon {
+    text-align: center;
+    display: none;
+}
+
+#selector {
+    display: none;
+}
+
+.forNum {
+    color: #00222D;
+}
+
+.againstNum {
+    color: #315F66;
+}
+
+.bigNum {
+    font-family: 3em;
+    font-family: "Benton Sans" !important;
+    text-align: center;
+    font-weight: 900;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+}
+
+.result {
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    width: 48%;
+    white-space: nowrap;
+}
+
+@media (max-width:740px) {
+    .adjacent,
+    #chartBox0 {
+        display: block !important;
+        width: 100% !important;
     }
+}
