@@ -1,48 +1,529 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+#wrapper {
+    width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+#leftSide {
+    width: 48%;
+    float: left;
+    vertical-align: top;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+#rightSide {
+    width: 45%;
+    float: right;
+    vertical-align: top;
+}
 
-    .chatter { padding:20px; }  
+.adjacent {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+    text-align: center;
+    padding: 0 7px 0 7px;
+}
 
-    p { font-family:$bentonSans; }  
+#raceSelection {
+    height: 250px;
+    overflow-y: auto;
+}
 
-    #info { display:none; }
+#filterButtons {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+.switchFilter {
+    padding: 1px;
+    display: inline-block;
+    text-align: center;
+    width: 32%;
+    background-color: #fff;
+    font-weight: 900;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    border: 1px solid white;
+    color: #000 !important;
+    margin: 0 !important;
+    font-size: 1em;
+    border: 1px solid #000;
+}
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.switchFilter:hover,
+{
+    background-color: #4C4C39 !important;
+    color: #fff !important;
+    cursor: pointer;
+    margin: 0 !important;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+#chartD {
+    color: #3F88C5;
+    text-align: left;
+}
+
+#chartR {
+    color: #8C1B17;
+    text-align: left;
+}
+
+
+/*        #chartD .inBar { background-color:#3F88C5 !important; }
+        #chartR .inBar { background-color:#8C1B17 !important; }*/
+
+#chartD .lb,
+#chartD .pubfin,
+#chartD .notepay,
+#chartD .noterec,
+#chartD .misc {
+    background-color: #ABCEE8;
+}
+
+#chartD .pf {
+    background-color: #5ca5c3;
+}
+
+#chartD .pp {
+    background-color: #4f97c4;
+}
+
+#chartD .ind {
+    background-color: #3f88c5;
+}
+
+#chartR .lb,
+#chartR .pubfin,
+#chartR .notepay,
+#chartR .noterec,
+#chartR .misc {
+    background-color: #C68985;
+}
+
+#chartR .pf {
+    background-color: #A5484D;
+}
+
+#chartR .pp {
+    background-color: #A52129;
+}
+
+#chartR .ind {
+    background-color: #8C1B17;
+}
+
+.bigBar {
+    height: 180px;
+}
+
+.bigNum {
+    text-align: center;
+    font-size: 2em;
+}
+
+.subtotal {
+    text-align: left;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.9em;
+}
+
+.right {
+    text-align: right;
+    display: inline-block;
+    width: 48%;
+}
+
+.left {
+    text-align: left;
+    display: inline-block;
+    width: 48%;
+}
+
+.activeB {
+    stroke-width: 6px !important;
+    stroke: #000 !important;
+}
+
+.offlink {
+    text-align: center;
+    display: none;
+}
+
+a {
+    color: steelblue;
+}
+
+.cell {
+    width: 24%;
+    display: inline-block;
+}
+
+#filter input:focus {
+    width: 100% !important;
+}
+
+#filter input {
+    width: 100% !important;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+    border-radius: 0 !important;
+}
+
+.switch {
+    padding: 1px;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    background-color: #fff;
+    font-weight: 900;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    border: 1px solid white;
+    color: #000 !important;
+    margin: 0 !important;
+    font-size: .8em;
+}
+
+.switch:hover,
+.selected,
+.step:hover {
+    background-color: #4C4C39 !important;
+    color: #fff !important;
+    cursor: pointer;
+    margin: 0 !important;
+}
+
+.ui-tooltip {
+    border: 1px solid #000 !important;
+    border-radius: 0 !important;
+}
+
+.inBar div:hover {
+    opacity: 0.5;
+}
+
+.swatch {
+    height: 20px;
+    width: 20px;
+}
+
+#districtInfo {
+    font-size: 1.2em;
+    font-weight: 900;
+    text-align: center;
+}
+
+#fundraising {
+    font-weight: 900;
+    text-align: center;
+    color: #bbbbbb;
+}
+
+#versus {
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 15px;
+}
+
+#versus div {
+    display: inline-block;
+}
+
+.linebar {
+    border-top: 1px solid #000;
+    width: 20%;
+    margin-bottom: 5px;
+}
+
+.sift {
+    display: inline-block;
+    width: 19% !important;
+    text-align: center;
+    padding: 10px !important;
+    margin: 0 !important;
+    font-size: .8em !important;
+    opacity: .5;
+    border: 0 !important;
+}
+
+.sift:hover,
+.selected2 {
+    background-color: #fff !important;
+    color: #333 !important;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.greyed {
+    pointer-events: none;
+    background-color: #ddd !important;
+    color: #888;
+    opacity: .3;
+}
+
+.sift img {
+    width: 50px;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#candD,
+#candR {
+    text-align: center;
+    font-weight: 900;
+}
+
+.donor .adjacent {
+    width: 24%;
+    text-align: right;
+}
+
+.donor .adjacent:first-of-type {
+    width: 75% !important;
+    text-align: left;
+}
+
+#listLabels {
+    text-align: center;
+}
+
+#listLabels:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#listD {
+    font-size: 0.8em;
+    text-align: left;
+    display: none;
+    float: left;
+    height: 255px;
+    overflow-y: auto;
+}
+
+#listR {
+    font-size: 0.8em;
+    text-align: left;
+    display: none;
+    float: right;
+    height: 255px;
+    overflow-y: auto;
+}
+
+.map {
+    display: inline-block;
+    width: 48%;
+}
+
+.mapBox {
+    /*display:inline-block; width:48%;*/
+    text-align: center;
+}
+
+.quantize {
+    width: 245px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.districtName {
+    font-weight: 900;
+}
+
+.republican {
+    color: #8C1B17;
+    fill: #8C1B17 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r1 {
+    background-color: #C68985;
+    fill: #C68985 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r2 {
+    background-color: #A5484D;
+    fill: #A5484D !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r3 {
+    background-color: #A52129;
+    fill: #A52129 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r4 {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r0 {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.mid {
+    background-color: #ddd;
+    fill: #ddd !important;
+    color: black !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.democrat {
+    color: #3F88C5;
+    fill: #3F88C5 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d1 {
+    background-color: #ABCEE8;
+    fill: #ABCEE8 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d2 {
+    background-color: #5ca5c3;
+    fill: #5ca5c3 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d3 {
+    background-color: #4f97c4;
+    fill: #4f97c4 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d4 {
+    background-color: #3f88c5;
+    fill: #3f88c5 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d0 {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.purple5 {
+    fill: #4c1926;
+    background-color: #4c1926;
+    color: #ffffff;
+}
+
+.purple4 {
+    fill: #693c46;
+    background-color: #693c46;
+    color: #ffffff;
+}
+
+.purple3 {
+    fill: #865f67;
+    background-color: #865f67;
+    color: #ffffff;
+}
+
+.purple2 {
+    fill: #a3858b;
+    background-color: #a3858b;
+    color: #ffffff;
+}
+
+.purple1 {
+    fill: #C1ACB1;
+    background-color: #C1ACB1;
+}
+
+@media (max-width:920px) {
+    .mapBox {
+        display: block;
+        width: 100%;
     }
+    #wrapper {
+        width: 100%;
+    }
+    /*        .adjacent { width:100%; }*/
+    .bigNum {
+        font-size: 1.3em;
+    }
+    .bigBar {
+        height: 100px;
+    }
+    .cell {
+        width: 32%;
+        display: inline-block;
+    }
+    .kill {
+        display: none;
+    }
+    #candD,
+    #candR {
+        font-size: 0.8em;
+    }
+    #raceSelection {
+        height: 200px;
+    }
+    #leftSide {
+        width: 100%;
+        float: none;
+    }
+    #rightSide {
+        width: 100%;
+        float: none;
+    }
+}
+
+@media (max-width:550px) {
+    .subtotal {
+        font-size: 0.8em;
+    }
+    .map {
+        width: 100%;
+    }
+    #mapMetroH,
+    #mapMetroS {
+        display: none;
+    }
+}
