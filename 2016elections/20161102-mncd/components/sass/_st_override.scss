@@ -1,48 +1,632 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+/*BASE*/
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+body,
+p {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+#wrapper {
+    width: 540px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+.slide {
+    margin-bottom: 30px;
+}
 
-    .chatter { padding:20px; }  
+a {
+    color: steelblue !important;
+}
 
-    p { font-family:$bentonSans; }  
 
-    #info { display:none; }
+/*MAPS*/
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+#vMap,
+#dMap {
+    width: 100%;
+    height: 300px;
+}
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.map-overlay-container {
+    position: absolute;
+    width: 400px;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 1;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+.map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+.map-overlay h2,
+.map-overlay p {
+    margin: 0 0 10px;
+}
+
+.mapboxgl-ctrl-attrib {
+    display: none;
+}
+
+.text {
+    fill: #ffffff !important;
+}
+
+#mnmap {
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+rect:hover,
+text:hover {
+    background-color: #333 !important;
+    cursor: pointer;
+    opacity: .5;
+}
+
+#mapFull path:hover,
+#mnmap path:hover {
+    cursor: default !important;
+}
+
+.districtLabel {
+    font-weight: 900;
+}
+
+.mappage {
+    text-align: center;
+    width: 57%;
+}
+
+
+/*BUTTONS*/
+
+.switch,
+.step {
+    padding: 2px;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    font-weight: 900;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    border: 1px solid black;
+    margin: 0 !important;
+    margin: 2px !important;
+}
+
+.switch:hover,
+.selected,
+.step:hover {
+    background-color: #4C4C39 !important;
+    color: #fff !important;
+    cursor: pointer;
+    margin: 2px !important;
+}
+
+
+/*CHATTER*/
+
+.chatterHead {
+    font-weight: 900;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.chatter {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+}
+
+.smallchart {
+    display: none;
+}
+
+
+/*CHARTS*/
+
+#chart .c3-line {
+    stroke-width: 5px !important;
+}
+
+#chartV .c3-line {
+    stroke-width: 5px !important;
+}
+
+.fadeline {
+    opacity: 0.5;
+}
+
+.powerline {
+    stroke-dasharray: 5, 5;
+    stroke: #333;
+}
+
+
+/*    .c3-axis-y .domain, .c3-axis-y .domain line { stroke:#fff !important; }*/
+
+#infobox {
+    float: right;
+    width: 95%;
+    padding: 20px;
+}
+
+#fChart {
+    height: 500px;
+}
+
+.rBar,
+.rLabel {
+    display: inline-block;
+    width: 32%;
+}
+
+.districtProfile .pct {
+    float: right;
+}
+
+.bars {
+    height: 200px;
+}
+
+#infobox {
+    font-size: 0.8em;
+}
+
+.cell {
+    display: inline-block;
+    width: 22%;
+    vertical-align: top;
+    margin-right: 2px;
+}
+
+.th {
+    font-weight: 900;
+}
+
+.hottest {
+    fill: #a70518;
+}
+
+.adjacent {
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+}
+
+.smallchart {
+    height: 200px;
+}
+
+.rank {
+    width: 12%;
+    text-align: center;
+    display: inline-block;
+}
+
+.rankbar {
+    width: 12%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: bottom !important;
+}
+
+.rank:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.selected3 {
+    opacity: 0.5;
+}
+
+.zoom {
+    float: none !important;
+    text-align: center;
+    padding: 10px;
+}
+
+#darrow {
+    float: left;
+}
+
+#rarrow {
+    float: right;
+}
+
+#ranking {
+    text-align: center;
+}
+
+#range {
+    width: 96%;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+#districtList {
+    padding-top: 15px;
+}
+
+#chart1 .c3-line,
+#chart2 .c3-line,
+#chart3 .c3-line,
+#chart4 .c3-line,
+#chart5 .c3-line,
+#chart6 .c3-line,
+#chart7 .c3-line,
+#chart8 .c3-line {
+    stroke-width: 5px !important;
+    opacity: 0 !important;
+}
+
+#chart1 .c3-area,
+#chart2 .c3-area,
+#chart3 .c3-area,
+#chart4 .c3-area,
+#chart5 .c3-area,
+#chart6 .c3-area,
+#chart7 .c3-area,
+#chart8 .c3-area,
+#chart1 .c3-area {
+    opacity: 0.8 !important;
+}
+
+.rfade text {
+    background-color: #bbb;
+    fill: #8C1B17 !important;
+    pointer-events: all;
+    color: #8C1B17;
+}
+
+.rfade line {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    pointer-events: all;
+    stroke: #8C1B17 !important;
+    pointer-events: all;
+    color: #8C1B17;
+    opacity: 0.7 !important;
+}
+
+.dfade text {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    pointer-events: all;
+    color: #3F88C5;
+}
+
+.dfade line {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    pointer-events: all;
+    stroke: #3F88C5 !important;
+    pointer-events: all;
+    color: #3F88C5;
+    opacity: 0.7 !important;
+}
+
+.slide {
+    display: none;
+}
+
+
+/*POWERBAR*/
+
+.powerBar {
+    text-align: center;
+    vertical-align: top;
+}
+
+.rows {
+    width: 47px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.rowMid {
+    width: 85%;
+    display: inline-block;
+}
+
+#dBar {
+    width: 37%;
+    margin-bottom: 21px;
+    padding: 1px;
+}
+
+#rBar {
+    width: 53%;
+    margin-bottom: 21px;
+    padding: 1px;
+}
+
+#dlBar {
+    width: 0;
+    margin-bottom: 21px;
+}
+
+#rlBar {
+    width: 0;
+    margin-bottom: 21px;
+}
+
+#dwBar {
+    width: 0;
+    margin-bottom: 21px;
+}
+
+#rwBar {
+    width: 0;
+    margin-bottom: 21px;
+}
+
+#tBar {
+    width: 0;
+    margin-bottom: 21px;
+}
+
+.bar {
+    height: 20px;
+    width: 100%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.half {
+    display: inline-block;
+    height: 20px;
+}
+
+.bigNum {
+    font-size: 2.5em !important;
+}
+
+
+/*SWATCHES*/
+
+.republican {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    pointer-events: all;
+    font-weight: bold;
+    color: #fff;
+}
+
+.rlikely {
+    background-color: #A5484D;
+    fill: #A5484D !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.rlean {
+    background-color: #f7816E;
+    fill: #f7816E !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r1 {
+    background-color: #C68985;
+    fill: #C68985 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r2 {
+    background-color: #A5484D;
+    fill: #A5484D !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r3 {
+    background-color: #A52129;
+    fill: #A52129 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r4 {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r0 {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.gray3 {
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.mid {
+    background-color: #aaa;
+    fill: #aaa !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.democrat {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    pointer-events: all;
+    font-weight: bold;
+    color: #fff;
+}
+
+.dlikely {
+    background-color: #5ca5c3;
+    fill: #5ca5c3 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.dlean {
+    background-color: #72A9D6;
+    fill: #72A9D6 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d1 {
+    background-color: #ABCEE8;
+    fill: #ABCEE8 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d2 {
+    background-color: #5ca5c3;
+    fill: #5ca5c3 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d3 {
+    background-color: #4f97c4;
+    fill: #4f97c4 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d4 {
+    background-color: #3f88c5;
+    fill: #3f88c5 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d0 {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+
+/* LEGENDS */
+
+#legends {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.legendBlock {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.6em;
+}
+
+.legendLabel {
+    display: inline-block;
+    height: 15px;
+    width: 50px;
+}
+
+.brick {
+    height: 15px;
+    width: 70px;
+    display: inline-block;
+}
+
+.partyBlock {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.tinybreak {
+    clear: both;
+    display: block;
+}
+
+#legendMargins {
+    display: none;
+}
+
+.arrow {
+    font-size: 2em;
+    font-weight: 900;
+}
+
+.arrow:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#leftArrow {
+    float: left;
+    padding-right: 11px;
+}
+
+#rightArrow {
+    float: right;
+}
+
+
+/*BREAKPOINTS*/
+
+@media (max-width:539px) {
+    .chatterHead {
+        font-size: 1em;
     }
+    .mappage {
+        text-align: center;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .adjacent {
+        width: 100%;
+        display: block;
+    }
+    #wrapper {
+        width: 100%;
+    }
+    .slide {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #mnmap {
+        float: none;
+        width: 100%;
+    }
+    #infobox {
+        float: none;
+        width: 100%;
+    }
+    .cell {
+        width: 24%;
+    }
+}

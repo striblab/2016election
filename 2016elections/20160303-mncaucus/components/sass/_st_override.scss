@@ -1,48 +1,529 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+body {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+#wrapper {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+#viewSelect {
+    text-align: center;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+.switch {
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    width: 49%;
+    background-color: #fff;
+    font-weight: 900;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    border: 1px solid black;
+}
 
-    .chatter { padding:20px; }  
+.switch:hover,
+.precinctR:hover,
+.precinctD:hover,
+.selected,
+.metroSwitch:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
 
-    p { font-family:$bentonSans; }  
+.precinctR,
+.precinctD {
+    font-size: .73em;
+}
 
-    #info { display:none; }
+.toggleTables {
+    text-align: center;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    font-weight: 900;
+}
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+.toggleTables:hover {
+    cursor: pointer;
+    color: #4C4C39;
+}
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.tableHead {
+    display: inline-block;
+    padding: 3px;
+    border-bottom: 1px solid #ddd;
+    width: 15.8%;
+    font-weight: 900;
+    font-family: "Poynter Serif RE";
+    vertical-align: top;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+.rSort:hover,
+.dSort:hover {
+    cursor: pointer;
+    color: #4C4C39;
+}
+
+.tableCell {
+    display: inline-block;
+    padding: 3px;
+    border-bottom: 1px solid #ddd;
+    width: 15.8%;
+    font-family: "Benton Sans";
+    vertical-align: top;
+    min-height: 100%;
+    font-size: .73em;
+}
+
+.tableBreak {
+    clear: both;
+    display: block;
+}
+
+.table {
+    text-align: center;
+    width: 100%;
+}
+
+.zoom {
+    text-align: center;
+    float: none !important;
+    padding: 15px;
+}
+
+.legends {
+    width: 390px;
+    height: auto;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#chart svg {
+    height: 404px;
+}
+
+#infobox {
+    text-align: center;
+}
+
+.states .active {
+    fill: #4C4C39 !important;
+    fill-opacity: 1 !important;
+}
+
+.faded {
+    fill-opacity: 0.5 !important;
+}
+
+.states path:hover {
+    fill: #4C4C39 !important;
+    cursor: pointer;
+}
+
+#precinctName {
+    font-family: "Benton Sans";
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.3em;
+}
+
+.source {
+    text-align: center;
+    padding: 5px;
+}
+
+#dResults .cell {
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+}
+
+#rResults .cell {
+    display: inline-block;
+    width: 32.5%;
+    text-align: center;
+}
+
+.bigResults {
+    text-align: center;
+}
+
+.breaker_small {
+    padding: 5px;
+    clear: both;
+}
+
+.gopSmallLegend .legend span:nth-child(even),
+.demSmallLegend .legend span:nth-child(even) {
+    width: 61px !important;
+}
+
+#viewSwitch {
+    text-align: center;
+}
+
+#viewSwitch div {
+    display: inline-block;
+}
+
+.metroSwitch {
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    width: 150px;
+    background-color: #fff;
+    font-weight: 900;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    border: 1px solid black;
+}
+
+.republican {
+    color: #9C0004;
+    fill: #9C0004 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r1 {
+    background-color: #FF8572;
+    fill: #FF8572 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r2 {
+    background-color: #F2634C;
+    fill: #F2634C !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r3 {
+    background-color: #9C0004;
+    fill: #9C0004 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r4 {
+    background-color: #4E0002;
+    fill: #4E0002 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.mid {
+    background-color: #ddd;
+    fill: #ddd !important;
+    color: black !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.democrat {
+    color: #0D4773;
+    fill: #0D4773 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d1 {
+    background-color: #67B4C2;
+    fill: #67B4C2 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d2 {
+    background-color: #4192A1;
+    fill: #4192A1 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d3 {
+    background-color: #0D4773;
+    fill: #0D4773 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d4 {
+    background-color: #022642;
+    fill: #022642 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.grayblue1 {
+    fill: #A4EBEB;
+    background-color: #A4EBEB;
+    color: #fff;
+    font-weight: 900;
+}
+
+.grayblue2 {
+    fill: #6ED5D5;
+    background-color: #6ED5D5;
+    color: #fff;
+    font-weight: 900;
+}
+
+.grayblue3 {
+    fill: #46BCBC;
+    background-color: #46BCBC;
+    color: #fff;
+    font-weight: 900;
+}
+
+.grayblue4 {
+    fill: #28A3A3;
+    background-color: #28A3A3;
+    color: #fff;
+    font-weight: 900;
+}
+
+.grayblue5 {
+    fill: #099393;
+    background-color: #099393;
+    color: #fff;
+    font-weight: 900;
+}
+
+.demSwatch {
+    background-color: #0D4773;
+    fill: #0D4773 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.gopSwatch {
+    background-color: #9C0004;
+    fill: #9C0004 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.president {
+    height: 640px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#leftPane {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+#rightPane {
+    float: right;
+    width: 48%;
+}
+
+#tableR,
+#tableD,
+#rTables,
+div[data='gop'],
+.metro {
+    display: none;
+}
+
+.carson {
+    fill: #D97171;
+    background-color: #D97171;
+    font-weight: 900;
+    color: #fff;
+}
+
+.kasich {
+    fill: #DF95AF;
+    background-color: #DF95AF;
+    font-weight: 900;
+    color: #fff;
+}
+
+.gray3 {
+    font-weight: 900;
+    color: #fff;
+}
+
+.blue5 {
+    fill: #325998;
+    background-color: #325998;
+    font-weight: 900;
+}
+
+.blue4 {
+    fill: #5a82ad;
+    background-color: #5a82ad;
+    font-weight: 900;
+}
+
+.blue3 {
+    fill: #83acc3;
+    background-color: #83acc3;
+    font-weight: 900;
+}
+
+.blue2 {
+    fill: #abd5d8;
+    background-color: #abd5d8;
+    font-weight: 900;
+}
+
+.green5 {
+    fill: #604a8f;
+    background-color: #604a8f;
+    font-weight: 900;
+}
+
+.green4 {
+    fill: #8672a8;
+    background-color: #8672a8;
+    font-weight: 900;
+}
+
+.green3 {
+    fill: #ad9ac1;
+    background-color: #ad9ac1;
+    font-weight: 900;
+}
+
+.green2 {
+    fill: #d3c2da;
+    background-color: #d3c2da;
+    font-weight: 900;
+}
+
+.orange5 {
+    fill: #c73d2b;
+    background-color: #c73d2b;
+    font-weight: 900;
+}
+
+.orange4 {
+    fill: #d76256;
+    background-color: #d76256;
+    font-weight: 900;
+}
+
+.orange3 {
+    fill: #e78682;
+    background-color: #e78682;
+    font-weight: 900;
+}
+
+.orange2 {
+    fill: #f7abad;
+    background-color: #f7abad;
+    font-weight: 900;
+}
+
+.purple5 {
+    fill: #cc7133;
+    background-color: #cc7133;
+    font-weight: 900;
+}
+
+.purple4 {
+    fill: #d58e4e;
+    background-color: #d58e4e;
+    font-weight: 900;
+}
+
+.purple3 {
+    fill: #ddac6a;
+    background-color: #ddac6a;
+    font-weight: 900;
+}
+
+.purple2 {
+    fill: #e6c985;
+    background-color: #e6c985;
+    font-weight: 900;
+}
+
+.grayblue5 {
+    fill: #9e5d52;
+    background-color: #9e5d52;
+    font-weight: 900;
+}
+
+.grayblue4 {
+    fill: #b57f73;
+    background-color: #b57f73;
+    font-weight: 900;
+}
+
+.grayblue3 {
+    fill: #cba093;
+    background-color: #cba093;
+    font-weight: 900;
+}
+
+.grayblue2 {
+    fill: #e2c2b4;
+    background-color: #e2c2b4;
+    font-weight: 900;
+}
+
+.demoRow {
+    text-align: center;
+}
+
+.demoRow .legends {
+    width: 289px;
+}
+
+.demoRow h3 {
+    margin-right: 75px;
+}
+
+.demoMap {
+    display: inline-block;
+    width: 48%;
+}
+
+.demoMap path:hover {
+    cursor: normal !important;
+}
+
+@media (max-width:750px) {
+    #leftPane {
+        float: none;
+        width: 100%;
     }
+    #rightPane {
+        float: none;
+        width: 100%;
+    }
+    .tableHead,
+    .tableCell {
+        font-size: 0.6em;
+    }
+    .legends {
+        width: 100%;
+    }
+    .legend span {
+        width: 8.7%;
+    }
+    .demoMap {
+        display: block;
+        width: 100%;
+    }
+    .president {
+        height: 440px;
+    }
+}

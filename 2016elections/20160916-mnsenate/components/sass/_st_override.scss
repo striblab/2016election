@@ -1,48 +1,1397 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+/*BASE LAYOUT*/
+body,
+p {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+#wrapper {
+    /*width:960px;*/
+    margin-right: auto;
+    margin-left: auto;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+.leftSide {
+    width: 63%;
+    float: right;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+.rightSide {
+    width: 30%;
+    float: left;
+}
 
-    .chatter { padding:20px; }  
+.right {
+    float: left;
+    width: 48%;
+}
 
-    p { font-family:$bentonSans; }  
+.left {
+    float: right;
+    width: 48%;
+}
 
-    #info { display:none; }
+.labelTop {
+    display: inline-block;
+    padding-top: 5px;
+    font-size:0.9em;
+    padding-bottom: 5px;
+    font-weight: normal;
+}
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+#changeView {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    visibility: hidden;
+}
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.leftHalf {
+    float: left;
+    color: inherit !important;
+    background-color: inherit !important;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+.rightHalf {
+    float: right;
+    color: #000 !important;
+}
+
+.breaker {
+    display: block !important;
+    clear: both !important;
+    width: 100% !important;
+}
+
+.layer {
+    height: 460px;
+}
+
+#viewSwitch {
+    display: none;
+}
+
+#viewSwitch .step {
+    border: 0 !important;
+}
+
+
+/*TOP DECK */
+
+.byline {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.bigTitle {
+    text-align: center;
+    font-family: "Whitman";
+    font-size: 1.9em;
+}
+
+.topChatter {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#topDeck {
+    margin-bottom: 35px;
+}
+
+.linebar {
+    border-top: 1px solid #000;
+    width: 30%;
+    margin-bottom: 5px;
+}
+
+
+/*INFOBOX*/
+
+#infobox {
+    float: left;
+    height: auto;
+    width: 30%;
+}
+
+#infobox .chatter {
+    height: auto !important;
+}
+
+#infobox .chatter span {
+    background-color: none !important;
+    background: none !important;
+    fill: none !important;
+    color: #333 !important;
+}
+
+.statRow {
+    padding: 5px;
+}
+
+.stat {
+    font-weight: 900;
+}
+
+.stats {
+    clear: both;
+}
+
+.chatter {
+    float: left;
+    padding: 0 5px 15px 5px;
+}
+
+h4 {
+    clear: both;
+}
+
+.labelStat {
+    float: left;
+    width: 100%;
+    padding: 2px 0 6px 6px;
+}
+
+.stat {
+    text-align: center;
+}
+
+#close {
+    float: right;
+    padding-right: 10px;
+    font-weight: 900;
+    font-size: 2.1em;
+    line-height: 50%;
+}
+
+#close:hover {
+    color: #888;
+    cursor: pointer;
+}
+
+#profile {
+    display: none;
+}
+
+.embed {
+    height: 400px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+#more {
+    padding: 20px;
+    text-align: center;
+}
+
+#more a {
+    color: steelblue;
+}
+
+#more:hover a {
+    color: #000;
+    cursor: pointer;
+}
+
+.moreStuff {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.offlink a {
+    color: steelblue;
+}
+
+.offlink {
+    text-align: left !important;
+    padding-top: 5px;
+}
+
+.hideit {
+    display: none;
+}
+
+
+/*SWITCHES AND BUTTONS*/
+
+.step {
+    padding: 10px 15px 10px 15px;
+    display: inline-block;
+    text-align: left;
+    width: 15.8%;
+    font-size: 1em;
+    background-color: #ddd;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    border: 1px solid #ddd;
+    margin: 2px !important;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.mapSwitch {
+    padding: 5px;
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+    background-color: #fff;
+    font-weight: 900;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    opacity: .5;
+    border: 0;
+    margin: 5px;
+}
+
+.selected2,
+.mapSwitch:hover {
+    opacity: 1 !important;
+    cursor: pointer;
+}
+
+.zoom {
+    float: none !important;
+    padding: 15px;
+    text-align: center !important;
+    display: none;
+}
+
+.switch {
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background-color: #fff;
+    font-weight: 900;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    border: 1px solid black;
+    margin: 0 !important;
+    margin: 2px !important;
+}
+
+.switch:hover,
+.selected,
+.step:hover {
+    background-color: #4C4C39 !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+
+/*BALANCE OF POWER BAR*/
+
+.powerBar {
+    text-align: center;
+    vertical-align: top;
+}
+
+.rows {
+    width: 47px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.rowMid {
+    width: 80%;
+    display: inline-block;
+}
+
+#dBar {
+    width: 45%;
+    margin-bottom: 21px;
+}
+
+#rBar {
+    width: 54%;
+    margin-bottom: 21px;
+}
+
+#dlBar {
+    width: 0;
+    margin-bottom: 21px;
+}
+
+#rlBar {
+    width: 0;
+    margin-bottom: 21px;
+}
+
+#dwBar {
+    width: 0;
+    margin-bottom: 21px;
+}
+
+#rwBar {
+    width: 0;
+    margin-bottom: 21px;
+}
+
+#tBar {
+    width: 0;
+    margin-bottom: 21px;
+}
+
+.bar {
+    height: 20px;
+    width: 100%;
+    vertical-align: top;
+}
+
+.half {
+    display: inline-block;
+    height: 20px;
+}
+
+.bigNum {
+    font-size: 2.5em !important;
+}
+
+
+/*CHARTS*/
+
+#chart {
+    width: 100%;
+    height: 430px;
+}
+
+#chartM {
+    display: none !important;
+}
+
+.powerline {
+    stroke-dasharray: 5, 5;
+    stroke: #333;
+}
+
+.chartTitle {
+    margin-top: 0 !important;
+    padding-left: 5px;
+    font-weight: normal;
+    font-size: 1.3em;
+}
+
+#chart .c3-line {
+    stroke-width: 5px !important;
+}
+
+#voteChart .c3-line {
+    stroke-width: 5px !important;
+}
+
+#voteChart {
+    height: 330px;
+}
+
+
+/*SEARCH*/
+
+#filter input:focus {
+    width: 100% !important;
+}
+
+#filter input {
+    width: 100% !important;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+    border-radius: 0 !important;
+}
+
+.listCell {
+    display: inline-block;
+    width: 24.875%;
+    text-align: center;
+    padding: 5px 0 5px 0;
+    vertical-align: top;
+}
+
+
+/*LEGENDS*/
+
+#legends {
+    display: block;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    clear: both;
+}
+
+#legendMain {
+    text-align: center;
+    display: none;
+}
+
+#legendMap {
+    text-align: center;
+}
+
+.legends {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+
+
+/*MAPS*/
+
+#mapBox {
+    text-align: center;
+}
+
+.map {
+    display: inline-block;
+    width: 48%;
+}
+
+#findMap {
+    width: 707px;
+    height: 250px;
+    display: none;
+}
+
+.map-overlay-container {
+    position: static !important;
+    width: 707px !important;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 1;
+}
+
+.mapboxgl-canvas {
+    width: 707px;
+}
+
+.map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+.map-overlay h2,
+.map-overlay p {
+    margin: 0 0 10px;
+}
+
+.mapboxgl-ctrl-attrib {
+    display: none;
+}
+
+
+/*SWATCHES*/
+
+.republican {
+    color: #8C1B17;
+    fill: #8C1B17 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.r1 {
+    background-color: #C68985;
+    fill: #C68985 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.r2 {
+    background-color: #A5484D;
+    fill: #A5484D !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.r3 {
+    background-color: #A52129;
+    fill: #A52129 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.r4 {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.r0 {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.mid {
+    background-color: #bbb;
+    fill: #bbb !important;
+    color: black !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.blank {
+    background-color: #fff;
+    fill: #bbb !important;
+    color: black !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.democrat {
+    color: #3F88C5;
+    fill: #3F88C5 !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.d1 {
+    background-color: #ABCEE8;
+    fill: #ABCEE8 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.d2 {
+    background-color: #5ca5c3;
+    fill: #5ca5c3 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.d3 {
+    background-color: #4f97c4;
+    fill: #4f97c4 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.d4 {
+    background-color: #3f88c5;
+    fill: #3f88c5 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.d0 {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    color: white !important;
+    pointer-events: all;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+}
+
+.text {
+    fill: #ffffff !important;
+    font-size: 1em;
+}
+
+rect:hover,
+text:hover {
+    background-color: #333 !important;
+    cursor: pointer;
+    opacity: .5;
+}
+
+
+/*SEATS*/
+
+.box {
+    display: inline-block;
+    width: 29px !important;
+    height: 15px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 2px;
+    font-size: .8em;
+    padding: 2px !important;
+}
+
+#chamberPower {
+    text-align: center;
+}
+
+.boxes {
+    clear: both;
+    margin: 4px;
+}
+
+.chamberLabel {
+    width: 100%;
+    display: block !important;
+    text-align: left !important;
+    padding-bottom: 7px;
+    font-size: 1.3em;
+    clear: both;
+    height: 39px;
+}
+
+.describe {
+    vertical-align: middle;
+    padding-top: 7px;
+    padding-left: 7px;
+}
+
+.district {
+    display: inline-block;
+}
+
+#inPlay {
+    /*padding:7px; margin:5px; */
+}
+
+.district:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+.fadeBox {
+    opacity: .1;
+    -webkit-transition: width 2s;
+    transition: opacity 1s ease-in-out;
+}
+
+.thisBox {
+    opacity: 1 !important;
+    border: 5px solid #333;
+    -webkit-transition: width 2s;
+    transition: opacity 1s ease-in-out;
+}
+
+#clickDistrict {
+    color: #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.count {
+    font-size: 1em;
+    letter-spacing: 1.1px;
+    font-weight: bold;
+    font-family: "Benton Sans", sans-serif;
+    width: 40px;
+    height: 40px;
+    float: left;
+    text-align: center;
+    padding-top: 7px;
+    background: none !important;
+    background-color: none !important;
+    fill: none !important;
+    color: #333 !important;
+    margin-right: 0px !important;
+}
+
+#districtList {
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 0.9em;
+}
+
+#districtList .selected {
+    margin: 0 !important;
+}
+
+.districtList {
+    text-align: left;
+}
+
+.districtList:hover {
+    cursor: pointer;
+    background-color: #4C4C39;
+}
+
+
+/*FANCY DROPDOWNS*/
+
+.wrapper-demo {
+    width: 100%;
+}
+
+.wrapper-dropdown-1 {
+    display: inline-block;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    z-index: 900;
+    background: #ddd;
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    padding: 8px;
+    position: relative;
+    width: 200px;
+    border: 1px solid #aaa;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.10);
+    font-size: 14px;
+    width: 100%;
+}
+
+.wrapper-dropdown-1 .dropdown {
+    font-weight: normal;
+    left: 0;
+    list-style: none;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    border: 1px solid #aaa;
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+    margin-top: 0px !important;
+}
+
+ul.dropdown.months {
+    box-sizing: border-box;
+    margin: 0;
+    moz-box-sizing: border-box;
+    padding: 0;
+    webkit-box-sizing: border-box;
+    margin-top: -1px;
+    border-radius: 0 0 4px 4px;
+    background-clip: padding-box;
+}
+
+.wrapper-dropdown-1 .dropdown {
+    font-weight: normal;
+    left: 0;
+    list-style: none;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    border: 1px solid #aaa;
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+    margin-top: 0px !important;
+}
+
+.wrapper-dropdown-1 .dropdown li:hover a {
+    background: #EFEFEF;
+}
+
+header[role="banner"] {
+    width: 100%;
+    height: 40px;
+    z-index: 1000;
+    background: #f0f0f0;
+}
+
+#mChatter {
+    display: none;
+}
+
+.chatterBox {
+    display: block;
+    min-height: 120px;
+    margin-top: 20px;
+}
+
+.legend .num {
+    font-size: .6em;
+    padding-top: 3px;
+}
+
+.columnD {
+    vertical-align: top;
+    margin: 0 0 20px 0;
+}
+
+.columnR {
+    vertical-align: top;
+    margin: 0 0 20px 0;
+}
+
+.middle {
+    background-color: #fff;
+    margin: 0 0 20px 0;
+}
+
+
+/*TABLET BREAKPOINTS*/
+
+@media (max-width:839px) {
+    .chatter {
+        float: left;
+        padding: 0 5px 10px 5px;
+        height: auto !important;
     }
+    .step {
+        padding: 5px;
+        display: inline-block;
+        text-align: left;
+        width: 100%;
+        font-size: .9em;
+        background-color: #fff;
+        font-weight: 900;
+        font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+        border: 1px solid black;
+        margin: 2px !important;
+        border-radius: 0;
+    }
+    .labelTop {
+        display: none;
+    }
+    #wrapper {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .layer {
+        height: 770px;
+    }
+    #mapState,
+    #cartoState {
+        width: 300px !important;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hide {
+        display: none;
+    }
+    #cartoMetro {
+        display: none;
+    }
+    #cButton {
+        display: none;
+    }
+    #legendMain,
+    #legendMap {
+        display: none !important;
+    }
+    .leftSide {
+        width: 100%;
+        float: right;
+    }
+    .rightSide {
+        width: 100%;
+        display: none !important;
+    }
+    #infobox {
+        float: none;
+        height: auto;
+        width: 100%;
+        clear: both;
+    }
+    .box {
+        display: inline-block;
+        width: 31px !important;
+        height: 20px;
+        padding: 5px !important;
+        text-align: center;
+        vertical-align: middle;
+        margin: 2px;
+        font-size: .6em;
+    }
+    #chamberPower {
+        text-align: center;
+    }
+    #midBreak {
+        display: none !important;
+    }
+    #viewSwitch {
+        display: block;
+    }
+    #clickDistrict {
+        display: none;
+    }
+    #stepper {
+        display: none;
+    }
+    #status,
+    .rightHalf {
+        text-align: center;
+    }
+    #chart {
+        width: 100%;
+        height: 300px;
+        display: none !important;
+    }
+    #chartM {
+        display: block !important;
+    }
+    #dChatter {
+        height: 150px !important;
+        font-size: 1em;
+        margin: 0;
+    }
+    #filter/*, #changeView*/
+    {
+        display: none !important;
+    }
+    #legends {
+        display: none;
+    }
+    .rowMid {
+        width: 80% !important;
+    }
+    .bigNum {
+        font-size: 2em !important;
+    }
+    .right {
+        float: none;
+        width: 100%;
+    }
+    .left {
+        float: none;
+        width: 100%;
+    }
+    .describe {
+        font-size: 1em !important;
+    }
+    .rowMid {
+        width: 73%;
+    }
+    .map {
+        display: inline-block;
+    }
+    .mapSwitch {
+        width: 47%;
+    }
+    #marker {
+        font-size: .6em;
+        color: #bbb;
+    }
+    .moreStuff {
+        width: 100%;
+        display: block;
+    }
+}
+
+
+/*MOBILE BREAKPOINTS*/
+
+@media (max-width:500px) {
+    .chatter {
+        float: left;
+        padding: 0 5px 10px 5px;
+        height: auto !important;
+    }
+    .step {
+        padding: 5px;
+        display: inline-block;
+        text-align: left;
+        width: 100%;
+        font-size: .9em;
+        background-color: #fff;
+        font-weight: 900;
+        font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+        border: 1px solid black;
+        margin: 2px !important;
+        border-radius: 0;
+    }
+    .labelTop {
+        display: none;
+    }
+    #wrapper {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .layer {
+        height: 770px;
+    }
+    #mapState,
+    #cartoState {
+        width: 300px !important;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hide {
+        display: none;
+    }
+    #cartoMetro {
+        display: none;
+    }
+    #cButton {
+        display: none;
+    }
+    #legendMain,
+    #legendMap {
+        display: none !important;
+    }
+    .leftSide {
+        width: 100%;
+        float: right;
+    }
+    .rightSide {
+        width: 100%;
+        display: none !important;
+    }
+    #infobox {
+        float: none;
+        height: auto;
+        width: 100%;
+        clear: both;
+    }
+    #mappage {
+        width: 135px;
+    }
+    .box {
+        display: inline-block;
+        width: 11px !important;
+        height: 11px;
+        padding: 5px !important;
+        text-align: center;
+        vertical-align: middle;
+        margin: 2px;
+        font-size: .01em;
+        text-indent: -9999px;
+    }
+    #chamberPower {
+        text-align: center;
+    }
+    #midBreak {
+        display: none !important;
+    }
+    #viewSwitch {
+        display: block;
+    }
+    #clickDistrict {
+        display: none;
+    }
+    #stepper {
+        display: none;
+    }
+    #status,
+    .rightHalf {
+        text-align: center;
+    }
+    #chart {
+        width: 100%;
+        height: 200px;
+        display: none !important;
+    }
+    #chartM {
+        display: block !important;
+    }
+    #dChatter {
+        height: 150px !important;
+        font-size: 0.8em;
+        margin: 0;
+    }
+    #filter/*, #changeView*/
+    {
+        display: none !important;
+    }
+    #legends {
+        display: none;
+    }
+    .rowMid {
+        width: 65% !important;
+    }
+    .bigNum {
+        font-size: 2em !important;
+    }
+    .count {
+        width: 25px;
+        font-size: 0.7em;
+    }
+    .right {
+        float: none;
+        width: 100%;
+    }
+    .left {
+        float: none;
+        width: 100%;
+    }
+    .describe {
+        font-size: 0.6em !important;
+    }
+    .rowMid {
+        width: 73%;
+    }
+    .mapSwitch {
+        width: 47%;
+    }
+    #marker {
+        font-size: .6em;
+        color: #bbb;
+    }
+    .moreStuff {
+        width: 100%;
+        display: block;
+    }
+    .listCell {
+        font-size: 0.7em;
+    }
+}
+
+.adjacent {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+    text-align: center;
+    padding: 0 7px 0 7px;
+}
+
+#raceSelection {
+    height: 577px;
+    overflow-y: auto;
+}
+
+#chartD {
+    color: #3F88C5;
+    text-align: left;
+}
+
+#chartR {
+    color: #8C1B17;
+    text-align: left;
+}
+
+
+/*        #chartD .inBar { background-color:#3F88C5 !important; }
+        #chartR .inBar { background-color:#8C1B17 !important; }*/
+
+#chartD .lb,
+#chartD .pubfin,
+#chartD .notepay,
+#chartD .noterec,
+#chartD .misc {
+    background-color: #ABCEE8;
+}
+
+#chartD .pf {
+    background-color: #5ca5c3;
+}
+
+#chartD .pp {
+    background-color: #4f97c4;
+}
+
+#chartD .ind {
+    background-color: #3f88c5;
+}
+
+#chartR .lb,
+#chartR .pubfin,
+#chartR .notepay,
+#chartR .noterec,
+#chartR .misc {
+    background-color: #C68985;
+}
+
+#chartR .pf {
+    background-color: #A5484D;
+}
+
+#chartR .pp {
+    background-color: #A52129;
+}
+
+#chartR .ind {
+    background-color: #8C1B17;
+}
+
+.bigBar {
+    height: 200px;
+}
+
+.bigNum {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.subtotal {
+    text-align: left;
+    padding-bottom: 7px;
+}
+
+.right {
+    text-align: right;
+    display: inline-block;
+    width: 48%;
+}
+
+.left {
+    text-align: left;
+    display: inline-block;
+    width: 48%;
+}
+
+#filter input:focus {
+    width: 100% !important;
+}
+
+#filter input {
+    width: 100% !important;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+    border-radius: 0 !important;
+}
+
+.ui-tooltip {
+    border: 1px solid #000 !important;
+    border-radius: 0 !important;
+}
+
+.inBar div:hover {
+    opacity: 0.5;
+}
+
+.swatch {
+    height: 20px;
+    width: 20px;
+}
+
+#districtInfo {
+    font-size: 1.2em;
+    font-weight: 900;
+    text-align: center;
+    padding: 15px;
+}
+
+.th:hover {
+    background-color: #333;
+    cursor: pointer;
+    color: #fff !important;
+}
+
+#versus {
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 15px;
+}
+
+#versus div {
+    display: inline-block;
+}
+
+.linebar {
+    border-top: 1px solid #000;
+    width: 20%;
+    margin-bottom: 5px;
+}
+
+.sift {
+    display: inline-block;
+    width: 32% !important;
+    text-align: center;
+    padding: 10px !important;
+    margin: 0 !important;
+    font-size: .8em !important;
+    opacity: .5;
+    border: 0 !important;
+}
+
+.sift:hover,
+.selected2 {
+    background-color: #fff !important;
+    color: #333 !important;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.greyed {
+    pointer-events: none;
+    background-color: #ddd !important;
+    color: #888;
+    opacity: .3;
+}
+
+.sift img {
+    width: 50px;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#candD,
+#candR {
+    text-align: center;
+    font-weight: 900;
+}
+
+.donor .adjacent {
+    width: 24%;
+    text-align: right;
+}
+
+.donor .adjacent:first-of-type {
+    width: 75% !important;
+    text-align: left;
+}
+
+#listLabels {
+    text-align: center;
+    display: none;
+}
+
+#listLabels:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#listD {
+    font-size: 0.8em;
+    text-align: left;
+    display: none;
+    float: left;
+    height: 255px;
+    overflow-y: auto;
+}
+
+#listR {
+    font-size: 0.8em;
+    text-align: left;
+    display: none;
+    float: right;
+    height: 255px;
+    overflow-y: auto;
+}
+
+@media (max-width:920px) {
+    #wrapper {
+        width: 100%;
+    }
+    /*        .adjacent { width:100%; }*/
+    .bigNum {
+        font-size: 1.3em;
+    }
+    .bigBar {
+        height: 100px;
+    }
+    #candD,
+    #candR {
+        font-size: 0.8em;
+    }
+    #raceSelection {
+        height: 200px;
+    }
+    #leftSide {
+        width: 100%;
+        float: none;
+    }
+    #rightSide {
+        width: 100%;
+        float: none;
+    }
+}

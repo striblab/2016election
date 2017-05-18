@@ -1,48 +1,168 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+body,
+p,
+text,
+td {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+}
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+#wrapper {
+    width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+.map {
+    display: inline-block;
+    width: 48%;
+    text-align: center;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+.quantize {}
 
-    .chatter { padding:20px; }  
+path:hover {
+    cursor: default !important;
+}
 
-    p { font-family:$bentonSans; }  
+.hottest {
+    fill: #a70518;
+}
 
-    #info { display:none; }
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+/*SWATCHES*/
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.republican text {
+    background-color: #bbb;
+    fill: #8C1B17 !important;
+    pointer-events: all;
+    color: #8C1B17;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+.republican line {
+    background-color: #8C1B17;
+    fill: #8C1B17 !important;
+    stroke: #8C1B17 !important;
+    pointer-events: all;
+    color: #8C1B17;
+}
+
+.mid {
+    background-color: #aaa;
+    fill: #aaa !important;
+    color: black !important;
+    pointer-events: all;
+    font-weight: bold;
+}
+
+.democrat text {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    pointer-events: all;
+    color: #3F88C5;
+}
+
+.democrat line {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    stroke: #3F88C5 !important;
+    pointer-events: all;
+    color: #3F88C5;
+}
+
+.countyName {
+    font-weight: bold;
+}
+
+.chart {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.chartTitle {
+    text-align: left;
+}
+
+.chatter {
+    text-align: left !important;
+    font-size: 0.8em;
+}
+
+#compareChart .c3-line,
+#dateChart .c3-line {
+    stroke-width: 5px !important;
+}
+
+#compare {
+    display: none !important;
+}
+
+.purple5 {
+    fill: #4c1926;
+    background-color: #4c1926;
+    color: #ffffff;
+}
+
+.purple4 {
+    fill: #693c46;
+    background-color: #693c46;
+    color: #ffffff;
+}
+
+.purple3 {
+    fill: #865f67;
+    background-color: #865f67;
+    color: #ffffff;
+}
+
+.purple2 {
+    fill: #a3858b;
+    background-color: #a3858b;
+    color: #ffffff;
+}
+
+.purple1 {
+    fill: #C1ACB1;
+    background-color: #C1ACB1;
+}
+
+.source {
+    clear: both;
+    text-align: left;
+    padding-top: 5px;
+}
+
+.map {
+    text-align: center;
+}
+
+#countyChart {
+    height: 1200px;
+}
+
+.null {
+    /*fill-opacity:0 !important;*/
+    fill: #fff !important;
+}
+
+#mapPrecinct path,
+#mapMetro path {
+    pointer-events: none !important;
+}
+
+@media (max-width:520px) {
+    #wrapper {
+        width: 100%;
     }
+    .map {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .quantize {
+        padding-left: 72px;
+    }
+    .metro {
+        display: none;
+    }
+}
