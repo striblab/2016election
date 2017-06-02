@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Minnesota 2016 Voter Demographics</title>
+  <meta name="description" content="Minnesota 2016 Voter Demographics">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+ 
+<div id="wrapper">
+
+<div class="slide" id="age">
+	<div class="chartTitle">Fewer of the youngest voters</div>
+	<div class="chatter">The percent of 18 to 14-year-old voters dropped about seven points in 2016 compared to 2012.</div>
+	<div class="chart" id="ageChart"></div>
+
+	<div class="source">Source: U.S. Census Bureau</div>
+</div>
+
+<div class="slide" id="ageChange">
+  <div class="chartTitle">Millennial voter percent change</div>
+  <div class="chatter">Shows positive or negative percent change of voters aged 18 to 34 between the 2012 and 2016 elections.</div>
+
+  <div class="breaker"></div>
+
+  <div class='legend'>
+      <span style='background:#fff;'>-</span>
+      <span class="purple3"></span>
+      <span class="gray3"></span>
+      <span class="green3"></span>
+      <span style='background:#fff;'>+</span>
+  </div>
+
+  <div class="breaker"></div>
+
+  <div id="mapAge"><svg width="550" height="400" viewBox="0 0 440 300" preserveAspectRatio="xMidYMid"></svg></div>
+
+  <div class="source">Source: U.S. Census Bureau</div>
+</div>
+
+<div class="slide" id="race" style="display:none !important;">
+	<div class="chartTitle">A boost in black turnout</div>
+	<div class="chatter">Though Minnesota's black vote was up, the Hispanic vote was down considerably between elections.</div>
+	<div class="chart" id="raceChart"></div>
+	<div class="source">Source: U.S. Census Bureau</div>
+</div>
+
+<div class="slide" id="raceChange">
+  <div class="chartTitle">Minority voter percent change</div>
+  <div class="chatter">Shows positive or negative percent change of non-white voters between the 2012 and 2016 elections.</div>
+
+  <div class="breaker"></div>
+
+  <div class='legend'>
+      <span style='background:#fff;'>-</span>
+      <span class="purple3"></span>
+      <span class="gray3"></span>
+      <span class="green3"></span>
+      <span style='background:#fff;'>+</span>
+  </div>
+
+  <div class="breaker"></div>
+
+  <div id="mapRace"><svg width="550" height="400" viewBox="0 0 440 300" preserveAspectRatio="xMidYMid"></svg></div>
+
+  <div class="source">Source: U.S. Census Bureau</div>
+</div>
+
+</div>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/c3.min.js"></script> 
+<script src="js/d3.tip.v0.6.3.js"></script>
+
+<script src="js/script.js"></script>
+ 
+</body>
+</html>
