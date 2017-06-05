@@ -13,6 +13,8 @@ var selected = $.urlParam('chart');
 if (selected != null){
 $(".slide").hide();
 $("#" + selected).show();
+} else {
+    $(".slide").show();
 }
 
 var aspect = 550 / 400, chart = $("#mapAge svg, #mapRace svg");
