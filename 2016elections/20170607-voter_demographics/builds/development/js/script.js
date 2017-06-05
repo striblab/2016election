@@ -29,54 +29,66 @@ $(window).on("load", function() {
   chart.attr("height", targetWidth / aspect);
 });
 
-  function chart1(){
+function chartNational(){
 
-    var  padding = {
-            top: 20,
-            right: 60,
-            bottom: 20,
-            left: 40,
-        };
+var  padding = {
+        top: 20,
+        right: 60,
+        bottom: 20,
+        left: 60,
+    };
 
-    var chartPopD = c3.generate({
-          bindto: "#ageChart",
-          padding: padding,
-          data: {
-                columns: [
-                    ['2012', .57, .59, .68, .77, .81],
-                    ['2016', .50, .61, .64, .70, .72]
-                ],
-            type: 'bar',
-            labels: {
-                format: {
-                    '2012': d3.format('%'),
-                    '2016': d3.format('%')
+var white = ["White",62.8,63.3,61.8,66.9,59.6,60.4,65.8,64.8,63.0,64.1];
+var black = ["Black",50.5,55.8,51.5,54.1,50.6,53.5,56.3,60.8,62.0,55.9];
+var asian = ["Asian",0,0,0,27.3,25.7,25.4,29.8,32.1,31.3,33.9];
+var hispanic = ["Hispanic",29.9,32.7,28.8,28.9,26.8,27.5,28.0,31.6,31.8,32.5];
+
+for (var i=1; i < white.length; i++){
+    white[i] = white[i] / 100;
+    black[i] = black[i] / 100;
+    asian[i] = asian[i] / 100;
+    hispanic[i] = hispanic[i] / 100;
+}
+
+var chartT = c3.generate({
+      bindto: "#chartNational",
+      padding: padding,
+      data: {
+            x: 'x',
+            columns: [
+                ["x",1980,1984,1988,1992,1996,2000,2004,2008,2012,2016],
+                white,
+                black,
+                hispanic,
+                asian
+            ],
+        types: {
+          'White':'line',
+          'Black':'line',
+          'Asian':'line',
+          'Hispanic':'line'
+         }
+        },        
+        color: {
+              pattern: ['#CCC','#333','#636363','#969696']
+            },
+        axis: {
+              y: {
+                    max: 1,
+                    min: 0,
+                    padding: {bottom: 0, top: 0},
+                    tick: {
+                     count: 5,
+                     format: d3.format('%.0f')
+                    }
+                },
+            x: {
+                 tick: {
+                     values: [1980,1990,2000,2008,2016],
+                     count: 5
                 }
             }
-            },
-            // legend: {
-            //     show: false
-            // },
-                color: {
-                  pattern: ['#a3858b','#865f67','#693c46','#4c1926','#1E0108']
-                },
-            axis: {
-                  // rotated: true,
-                  y: {
-                        max: 1,
-                        min: 0,
-                        padding: {bottom: 0},
-                        tick: {
-                         count: 4,
-                         values: [0,0.25,0.50,0.75,1],
-                         format: d3.format('%')
-                        }
-                    },
-                x: {
-                    type: 'category',
-                    categories: ['18-24', '25-34', '35-44', '45-64', '65+']
-                }
-            },
+        },
           grid: {
               y: {
               lines: [
@@ -84,135 +96,111 @@ $(window).on("load", function() {
               ]
               }
           }
+});
 
-    });
 }
 
-  chart1();
+chartNational();
 
 
-  function chart2(){
+function chartM(){
 
-    var  padding = {
-            top: 20,
-            right: 60,
-            bottom: 20,
-            left: 40,
-        };
+d3.csv("./data/turnoutM.csv", function(d) {
+  return {
+    year: +d.year,
+    all_voters: +d.all_voters,
+    voted: +d.voted,
+    turnout: +d.turnout,
+    reg: +d.reg,
+    reg_pct: d.reg_pct
+  };
+}, function(error, rows) {
 
-    var chartPopD = c3.generate({
-          bindto: "#raceChart",
-          padding: padding,
-          data: {
-                columns: [
-                    ['2012', .56, .49, .33, .74],
-                    ['2016', .37, .58, .19, .71]
-                ],
-            type: 'bar',
-            labels: {
-                format: {
-                    '2012': d3.format('%'),
-                    '2016': d3.format('%')
+var dataT = rows;
+
+var x = [];
+var turnout = [];
+
+x[0] = "x";
+turnout[0] = "Voter Turnout";
+// gop[0] = "DFL Vote %";
+// dfl[0] = "GOP Vote %";
+
+for (var i=1; i <= dataT.length; i++){
+  x[i] = dataT[i-1].year;
+  turnout[i] = dataT[i-1].turnout;
+}
+
+var  padding = {
+        top: 20,
+        right: 60,
+        bottom: 20,
+        left: 60,
+    };
+
+var chartT = c3.generate({
+      bindto: "#chartMidterms",
+      padding: padding,
+      data: {
+            x: 'x',
+            columns: [
+                x,
+                turnout
+            ],
+        types: {
+          'Voter Turnout':'line'
+         }
+        },        
+        legend: {
+            show: false
+        },
+        color: {
+              pattern: ['#333']
+        },
+        axis: {
+              y: {
+                    max: 1,
+                    min: 0,
+                    padding: {bottom: 0, top: 0},
+                    tick: {
+                     count: 4,
+                     format: d3.format('%')
+                    }
+                },
+            x: {
+                 tick: {
+                     values: [1950,1964,1980,1996,2014],
+                     count: 5
                 }
             }
-            },
-            // legend: {
-            //     show: false
-            // },
-                color: {
-                  pattern: ['#a3858b','#865f67','#693c46','#4c1926']
-                },
-            axis: {
-                  // rotated: true,
-                  y: {
-                        max: 1,
-                        min: 0,
-                        padding: {bottom: 0},
-                        tick: {
-                         count: 4,
-                         values: [0,0.25,0.50,0.75,1],
-                         format: d3.format('%')
-                        }
-                    },
-                x: {
-                    type: 'category',
-                    categories: ['Asian', 'Black', 'Hispanic', 'White']
-                }
-            },
-          grid: {
-              y: {
-              lines: [
-                    {value: 0.5, text: '', position: 'start', class:'powerline'}
-              ]
-              }
-          }
+        },
+        // regions: [
+        //     {axis: 'x', start: '1980', end: '1990', class: 'hottest'},
+        // ],
+        grid: {
+        x: {
+            // lines: [
+            //     {value: '2000', text: 'Bush (R) Win', position: 'start'},
+            //     {value: '2002', text: 'Midterm', position: 'start'},
+            //     {value: '2004', text: 'Bush (R) Win', position: 'start'},
+            //     {value: '2006', text: 'Midterm', position: 'start'},
+            //     {value: '2008', text: 'Obama (D) Win', position: 'start'},
+            //     {value: '2010', text: 'Midterm', position: 'start'},
+            //     {value: '2012', text: 'Obama (D) Win', position: 'start'},
+            //     {value: '2014', text: 'Midterm', position: 'start'},
+            // ]
+        }
+    },
+         regions: [
+        {axis: 'x', start: 2002, end: 2014, class: 'hottest'},
+    ]
+});
 
-    });
+});
+
 }
 
-  chart2();
-
-
-    function chart3(){
-
-    var  padding = {
-            top: 20,
-            right: 60,
-            bottom: 20,
-            left: 40,
-        };
-
-    var chartPopD = c3.generate({
-          bindto: "#genderChart",
-          padding: padding,
-          data: {
-                columns: [
-                    ['Female', .72, .67],
-                    ['Male', .69, .64]
-                ],
-            type: 'bar',
-            labels: {
-                format: {
-                    'Female': d3.format('%'),
-                    'Male': d3.format('%')
-                }
-            }
-            },
-            // legend: {
-            //     show: false
-            // },
-                color: {
-                  pattern: ['#a3858b','#4c1926']
-                },
-            axis: {
-                  // rotated: true,
-                  y: {
-                        max: 1,
-                        min: 0,
-                        padding: {bottom: 0, top: 0},
-                        tick: {
-                         count: 4,
-                         values: [0,0.25,0.50,0.75,1],
-                         format: d3.format('%')
-                        }
-                    },
-                x: {
-                    type: 'category',
-                    categories: ['2012', '2016']
-                }
-            },
-          grid: {
-              y: {
-              lines: [
-                    {value: 0.5, text: '', position: 'start', class:'powerline'}
-              ]
-              }
-          }
-
-    });
-}
-
-  chart3();
+chartM();
 
 
 var cartogram1 = {

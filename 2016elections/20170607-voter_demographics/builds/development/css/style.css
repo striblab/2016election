@@ -1856,7 +1856,7 @@ header[role="banner"] {
 .legend {
   margin-left: auto;
   margin-right: auto;
-  width: 340px;
+  width: 177px;
 }
 
 .state:hover {
@@ -1865,6 +1865,10 @@ header[role="banner"] {
 
 .state-label {
   pointer-events: none !important;
+}
+
+.c3-line {
+  stroke-width: 5px !important;
 }
 
 @media only screen and (max-width: 520px) {
