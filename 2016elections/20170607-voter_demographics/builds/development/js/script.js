@@ -40,10 +40,10 @@ var  padding = {
         left: 60,
     };
 
-var white = ["White",62.8,63.3,61.8,66.9,59.6,60.4,65.8,64.8,63.0,64.1];
-var black = ["Black",50.5,55.8,51.5,54.1,50.6,53.5,56.3,60.8,62.0,55.9];
-var asian = ["Asian",0,0,0,27.3,25.7,25.4,29.8,32.1,31.3,33.9];
-var hispanic = ["Hispanic",29.9,32.7,28.8,28.9,26.8,27.5,28.0,31.6,31.8,32.5];
+var white = ["White",66.2,66.4,64.2,70.2,60.7,61.8,67.2,66.1,64.1,65.3];
+var black = ["Black",53.9,60.6,55.0,59.2,53.0,56.8,60.0,64.7,66.2,59.4];
+var asian = ["Asian",null,null,null,53.9,45.0,43.4,44.1,47.6,47.3,49.0];
+var hispanic = ["Hispanic",46.1,50.0,48.0,51.6,44.0,45.1,47.2,49.9,48.0,47.6];
 
 for (var i=1; i < white.length; i++){
     white[i] = white[i] / 100;
@@ -72,7 +72,7 @@ var chartT = c3.generate({
          }
         },        
         color: {
-              pattern: ['#CCC','#333','#636363','#969696']
+              pattern: ['#C22A22','#7F98AA','#3580A3','#F2AF80']
             },
         axis: {
               y: {
@@ -255,7 +255,7 @@ var cartogram1 = {
                 if (data[i].ab == d.state_postal){
                   if (data[i].AGEDIFF > 0){ return "state green3"; }
                   if (data[i].AGEDIFF == 0){ return "state gray3"; }
-                  if (data[i].AGEDIFF < 0){ return "state purple3"; }
+                  if (data[i].AGEDIFF < 0){ return "state orange3"; }
                 }
               }
             })
@@ -393,7 +393,7 @@ var cartogram2 = {
                 if (data[i].ab == d.state_postal){
                   if (data[i].RACEDIFF > 0){ return "state green3"; }
                   if (data[i].RACEDIFF == 0){ return "state gray3"; }
-                  if (data[i].RACEDIFF < 0){ return "state purple3"; }
+                  if (data[i].RACEDIFF < 0){ return "state orange3"; }
                 }
               }
             })
