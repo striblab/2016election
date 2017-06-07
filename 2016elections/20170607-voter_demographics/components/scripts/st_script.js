@@ -45,9 +45,10 @@ var asian = ["Asian",null,null,null,53.9,45.0,43.4,44.1,47.6,47.3,49.0];
 var hispanic = ["Hispanic",46.1,50.0,48.0,51.6,44.0,45.1,47.2,49.9,48.0,47.6];
 
 for (var i=1; i < white.length; i++){
+
     white[i] = white[i] / 100;
     black[i] = black[i] / 100;
-    asian[i] = asian[i] / 100;
+    if (asian[i] != null) { asian[i] = asian[i] / 100; }
     hispanic[i] = hispanic[i] / 100;
 }
 
