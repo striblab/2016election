@@ -290,10 +290,10 @@ chartM();
                 type: 'bar',
                 labels: {
                     format: {
-                        'Hennepin/Ramsey': d3.format('%'),
-                        'Rest of Metro': d3.format('%'),
-                        'South MN': d3.format('%'),
-                        'North MN': d3.format('%')
+                        'White': d3.format('%'),
+                        'Black': d3.format('%'),
+                        'Asian': d3.format('%'),
+                        'Hispanic': d3.format('%')
                     }
                 }
             },
