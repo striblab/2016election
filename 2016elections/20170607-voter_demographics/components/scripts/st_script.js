@@ -203,6 +203,131 @@ var chartT = c3.generate({
 
 chartM();
 
+    function mnage(){
+
+        var  padding = {
+                top: 20,
+                right: 60,
+                bottom: 20,
+                left: 40,
+            };
+
+        var chartPopD = c3.generate({
+              bindto: "#chartMNAge",
+              padding: padding,
+              data: {
+                    columns: [
+                        ['18 to 24', .547],
+                        ['25 to 34', .645],
+                        ['35 to 54', .701],
+                        ['45 to 64', .726],
+                        ['65+', .726]
+                    ],
+                type: 'bar',
+                labels: {
+                    format: {
+                        '18 to 24': d3.format('%'),
+                        '25 to 34': d3.format('%'),
+                        '35 to 54': d3.format('%'),
+                        '45 to 64': d3.format('%'),
+                        '65+': d3.format('%')
+                    }
+                }
+            },
+                    color: {
+                      pattern: ['#a3858b','#865f67','#693c46','#4c1926','#1E0108']
+                    },
+                axis: {
+                      // rotated: true,
+                      y: {
+                            max: 1,
+                            min: 0,
+                            padding: {bottom: 0, top: 0},
+                            tick: {
+                             count: 4,
+                             values: [0,0.25,0.50,1],
+                             format: d3.format('%')
+                            }
+                        },
+                    x: {
+                        type: 'category',
+                        categories: ['Voter turnout']
+                    }
+                },
+                grid: {
+                    y: {
+                  lines: [
+                        {value: 0.5, text: '', position: 'start', class:'powerline'}
+                  ]
+                    }
+                }
+
+        });
+}
+
+    mnage();
+
+    function mnrace(){
+
+        var  padding = {
+                top: 20,
+                right: 60,
+                bottom: 20,
+                left: 40,
+            };
+
+        var chartPopD = c3.generate({
+              bindto: "#chartMNRace",
+              padding: padding,
+              data: {
+                    columns: [
+                        ['White', .71],
+                        ['Black', .663],
+                        ['Asian', .516],
+                        ['Hispanic', .366]
+                    ],
+                type: 'bar',
+                labels: {
+                    format: {
+                        'Hennepin/Ramsey': d3.format('%'),
+                        'Rest of Metro': d3.format('%'),
+                        'South MN': d3.format('%'),
+                        'North MN': d3.format('%')
+                    }
+                }
+            },
+                    color: {
+                      pattern: ['#a3858b','#865f67','#693c46','#4c1926','#1E0108']
+                    },
+                axis: {
+                      // rotated: true,
+                      y: {
+                            max: 1,
+                            min: 0,
+                            padding: {bottom: 0, top: 0},
+                            tick: {
+                             count: 4,
+                             values: [0,0.25,0.50,1],
+                             format: d3.format('%')
+                            }
+                        },
+                    x: {
+                        type: 'category',
+                        categories: ['Voter turnout']
+                    }
+                },
+                grid: {
+                    y: {
+                  lines: [
+                        {value: 0.5, text: '', position: 'start', class:'powerline'}
+                  ]
+                    }
+                }
+
+        });
+}
+
+    mnrace();
 
 var cartogram1 = {
     margin: {
