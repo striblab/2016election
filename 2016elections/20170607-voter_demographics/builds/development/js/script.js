@@ -246,7 +246,7 @@ chartM();
                             padding: {bottom: 0, top: 0},
                             tick: {
                              count: 4,
-                             values: [0,0.25,0.50,1],
+                             values: [0,0.25,0.50,0.75,1],
                              format: d3.format('%')
                             }
                         },
@@ -308,7 +308,7 @@ chartM();
                             padding: {bottom: 0, top: 0},
                             tick: {
                              count: 4,
-                             values: [0,0.25,0.50,1],
+                             values: [0,0.25,0.50,0.75,1],
                              format: d3.format('%')
                             }
                         },
