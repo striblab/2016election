@@ -1,7 +1,6 @@
-Star Tribune - Minnesota's voter turnout by county
-================
+# Star Tribune - Minnesota's voter turnout by county
 
-by CJ Sinner
+Created by CJ Sinner
 
 Built using [DataWrapper](https://github.com/datawrapper/datawrapper).
 
