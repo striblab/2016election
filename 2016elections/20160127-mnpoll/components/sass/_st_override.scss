@@ -35,6 +35,17 @@ body {
     width: 100%;
 }
 
+.byline {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size:0.6em;
+    color: #888;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:left;
+}
+
+
 .filterBreak {
     height: 7px;
     border-bottom: 1px solid #333;
