@@ -1,4 +1,4 @@
-# Star Tribune - Campaign finance in the Twin Cities mayoral races
+# Star Tribune - Campaign finance in the St. Paul mayoral race
 
 Created by [Frey Hargarten](https://github.com/jeffhargarten).
 
