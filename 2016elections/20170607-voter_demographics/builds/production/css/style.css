@@ -1875,6 +1875,16 @@ header[role="banner"] {
   stroke-width: 5px !important;
 }
 
+.byline {
+  font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.6em;
+  color: #888;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
 @media only screen and (max-width: 520px) {
   #wrapper {
     width: 100%;
@@ -1906,4 +1916,19 @@ header[role="banner"] {
   margin: -1px 0 0 0;
   top: 100%;
   left: 0;
+}
+
+.byline a {
+  color: #888;
+}
+
+.byline {
+  line-height: 140%;
+  font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.6em;
+  color: #888;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
 }
