@@ -29,6 +29,7 @@ var map = new mapboxgl.Map({
 });
 
 map.addControl(new mapboxgl.NavigationControl());
+map.scrollZoom.disable();
 
 map.on('load', function() {
 $(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by city or address");
@@ -197,18 +198,18 @@ $(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by city or address
         data: wards
     });
 
-      map.addLayer({
-       'id': 'wards-layer',
-       'interactive': true,
-       'source': 'wards',
-       'layout': {},
-       'type': 'fill',
-          'paint': {
-           'fill-color': "#ffffff",
-           'fill-opacity': 0.3,
-           'fill-outline-color': 'rgba(0, 0, 0, 1)'
-            }
-   }, 'place-neighbourhood');
+   //    map.addLayer({
+   //     'id': 'wards-layer',
+   //     'interactive': true,
+   //     'source': 'wards',
+   //     'layout': {},
+   //     'type': 'fill',
+   //        'paint': {
+   //         'fill-color': "#ffffff",
+   //         'fill-opacity': 0.3,
+   //         'fill-outline-color': 'rgba(0, 0, 0, 1)'
+   //          }
+   // }, 'place-neighbourhood');
 
   map.setLayoutProperty('carter-layer', 'visibility', 'none');
   map.setLayoutProperty('dickenson-layer', 'visibility', 'none');
@@ -367,6 +368,66 @@ chartTotals();
 }
 
 chartState();
+
+
+  function chartRegion(){
+
+    var  padding = {
+            top: 20,
+            right: 60,
+            bottom: 20,
+            left: 100,
+        };
+
+    var chartRegion = c3.generate({
+          bindto: "#chartRegion",
+          padding: padding,
+          data: {
+                columns: [
+                  ["St. Paul",0.532827592,0.660617466,0.859464432,0.57128978,0.261934588],
+                  ["Minneapolis",0.098148958,0.015748868,0.038327882,0.066755089,0.019626243],
+                  ["Metro",0.156982129,0.066244593,0.051103843,0.285785863,0.246529573],
+                  ["Outstate",0.006270877,0.00668543,0,0.031922626,0.000704712],
+                  ["Elsewhere",0.205770445,0.250703642,0.051103843,0.044246642,0.471204884]
+                ],
+            type: 'bar',
+            // groups: [
+            //     ['St. Paul', 'Minneapolis','Metro','Outstate','Elsewhere']
+            // ]
+            },
+            legend: {
+                show: false
+            },
+            point: {
+                show: false
+            },
+                color: {
+                  pattern: ['#1b9e77','#d95f02','#7570b3','#e7298a',"#66a61e"]
+                },
+            axis: {
+                  y: {
+                        max: 1,
+                        min: 0,
+                        padding: {bottom: 0, top: 0},
+                        tick: {
+                        values: [0,0.25,0.50,0.75,1],
+                        format: d3.format('%')
+                        }
+                    },
+                 x: {
+                    type: 'category',
+                    categories: ['Carter','Dickenson','Goldstein','Harris','Thao'],
+                    tick: {
+                        // count: 4,
+                        multiline: false,
+                        // format: d3.format('.0f')
+                    }
+                 }
+            }
+    });
+}
+
+chartRegion();
 
 });
 });
