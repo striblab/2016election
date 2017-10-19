@@ -274,7 +274,7 @@ map.on('mousemove', function(e) {
           padding: padding,
           data: {
                 columns: [
-                  ['Contributions',256742,14957,15654,292113,141902]
+                  ['Contributions',256742,13044,18668,285403,142697]
                 ],
             type: 'bar',
             labels: {
@@ -304,10 +304,10 @@ map.on('mousemove', function(e) {
                     type: 'category',
                     categories: ['Carter','Dickenson','Goldstein','Harris','Thao'],
                     tick: {
-                        // count: 4,
-                        multiline: false,
-                        // format: d3.format('.0f')
-                    }
+                        rotate: -75,
+                        multiline: false
+                    },
+                    height: 50
                  }
             }
     });
@@ -358,10 +358,10 @@ chartTotals();
                     type: 'category',
                     categories: ['Carter','Dickenson','Goldstein','Harris','Thao'],
                     tick: {
-                        // count: 4,
-                        multiline: false,
-                        // format: d3.format('.0f')
-                    }
+                        rotate: -75,
+                        multiline: false
+                    },
+                    height: 50
                  }
             }
     });
@@ -402,7 +402,7 @@ chartState();
                 show: false
             },
                 color: {
-                  pattern: ['#1b9e77','#d95f02','#7570b3','#e7298a',"#66a61e"]
+                  pattern: ['#000000','#252525','#737373','#bdbdbd',"#d9d9d9"]
                 },
             axis: {
                   y: {
@@ -418,10 +418,10 @@ chartState();
                     type: 'category',
                     categories: ['Carter','Dickenson','Goldstein','Harris','Thao'],
                     tick: {
-                        // count: 4,
-                        multiline: false,
-                        // format: d3.format('.0f')
-                    }
+                        rotate: -75,
+                        multiline: false
+                    },
+                    height: 50
                  }
             }
     });
