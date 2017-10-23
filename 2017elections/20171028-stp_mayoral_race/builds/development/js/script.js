@@ -251,9 +251,13 @@ map.on('mousemove', function(e) {
     // Populate the popup and set its coordinates
     // based on the feature found.
     popup.setLngLat(e.lngLat)
-        .setHTML("<div>" + feature.properties.ZCTA5CE10 + "</div><div class='legend gray3'><div class='label'>Total</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_total) + "</div></div><div class='legend green3'><div class='label'>Carter</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_carter) + "</div></div><div class='legend orange3'><div class='label'>Dickinson</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_dickenson) + "</div></div><div class='legend blue3'><div class='label'>Goldstein</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_goldstein) + "</div></div><div class='legend red4'><div class='label'>Harris</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_harris) + "</div></div><div class='legend purple3'><div class='label'>Thao</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_thao) + "</div></div>")
-        .addTo(map);
+        .setHTML("<div class='districtName'>" + feature.properties.ZCTA5CE10 + "</div><div class='legend gray3'><div class='label'>Total</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_total) + "</div></div><div class='legend green3'><div class='label'>Carter</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_carter) + "</div></div><div class='legend orange3'><div class='label'>Dickinson</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_dickenson) + "</div></div><div class='legend blue3'><div class='label'>Goldstein</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_goldstein) + "</div></div><div class='legend red4'><div class='label'>Harris</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_harris) + "</div></div><div class='legend purple3'><div class='label'>Thao</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_thao) + "</div></div>");
+        // .addTo(map);
+
+        $("#tooltip").html("<div class='districtName'>" + feature.properties.ZCTA5CE10 + "</div><div class='legend gray3'><div class='label'>Total</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_total) + "</div></div><div class='legend green3'><div class='label'>Carter</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_carter) + "</div></div><div class='legend orange3'><div class='label'>Dickinson</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_dickenson) + "</div></div><div class='legend blue3'><div class='label'>Goldstein</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_goldstein) + "</div></div><div class='legend red4'><div class='label'>Harris</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_harris) + "</div></div><div class='legend purple3'><div class='label'>Thao</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_thao) + "</div></div>")
 });
+
+
 
 });
 
@@ -290,7 +294,7 @@ map.on('mousemove', function(e) {
                 show: false
             },
                 color: {
-                  pattern: ['#333333']
+                  pattern: ['#2C3942']
                 },
             axis: {
                   y: {
@@ -344,7 +348,7 @@ chartTotals();
                 show: false
             },
                 color: {
-                  pattern: ['#333333','#aaaaaa']
+                  pattern: ['#DAE1E7']
                 },
             axis: {
                   y: {
@@ -384,11 +388,11 @@ chartState();
           padding: padding,
           data: {
                 columns: [
-                  ["St. Paul",0.509423433,0.614651293,0.876794053,0.476449686,0.295930297],
-                  ["Minneapolis",0.090105877,0.018059783,0.032140682,0.066852939,0.027732177],
-                  ["Metro",0.188429368,0.07979822,0.042854243,0.387058897,0.255112727],
-                  ["Outstate",0.006270877,0.007666419,0,0.014540865,0.004952175],
-                  ["Other States",0.205770445,0.203160098,0.048211023,0.05457204,0.411990799]
+                  ["St. Paul",0.509423433,0.622317712,0.877222684,0.476449686,0.297095515],
+                  ["Minneapolis",0.090105877,0.018059783,0.033183058,0.066852939,0.027732177],
+                  ["Metro",0.188429368,0.072131801,0.036501364,0.388635617,0.253947509],
+                  ["Outstate",0.006270877,0.007666419,0,0.012964144,0.004952175],
+                  ["Other States",0.205770445,0.203160098,0.053092893,0.05457204,0.411990799]
                 ],
             type: 'bar',
             // groups: [
@@ -402,7 +406,7 @@ chartState();
                 show: false
             },
                 color: {
-                  pattern: ['#000000','#252525','#737373','#bdbdbd',"#d9d9d9"]
+                  pattern: ['#2C3942','#556E7F','#7F98AA','#A8B9C5',"#DAE1E7"]
                 },
             axis: {
                   y: {
