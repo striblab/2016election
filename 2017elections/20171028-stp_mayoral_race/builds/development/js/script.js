@@ -261,8 +261,6 @@ map.on('mousemove', function(e) {
 
 });
 
-
-
 //populate charts
   function chartTotals(){
 
@@ -278,7 +276,7 @@ map.on('mousemove', function(e) {
           padding: padding,
           data: {
                 columns: [
-                  ['Contributions',256742,13044,18668,285403,171642]
+                  ['Contributions',264643,15744,19954,287608,171542]
                 ],
             type: 'bar',
             labels: {
@@ -318,61 +316,6 @@ map.on('mousemove', function(e) {
 }
 
 chartTotals();
-
-  function chartState(){
-
-    var  padding = {
-            top: 20,
-            right: 60,
-            bottom: 20,
-            left: 100,
-        };
-
-    var chartState = c3.generate({
-          bindto: "#chartState",
-          padding: padding,
-          data: {
-                columns: [
-                  ['Minnesota',203412,11208,14854,279188,75037],
-                  ['Out-of-state',53330,3750,800,12925,66865]
-                ],
-            type: 'bar',
-            groups: [
-                ['Minnesota', 'Out-of-state']
-            ],
-            },
-            legend: {
-                show: false
-            },
-            point: {
-                show: false
-            },
-                color: {
-                  pattern: ['#DAE1E7']
-                },
-            axis: {
-                  y: {
-                        min: 0,
-                        padding: {bottom: 0, top: 15},
-                        tick: {
-                        format: d3.format('$,')
-                        }
-                    },
-                 x: {
-                    type: 'category',
-                    categories: ['Carter','Dickinson','Goldstein','Harris','Thao'],
-                    tick: {
-                        rotate: -75,
-                        multiline: false
-                    },
-                    height: 50
-                 }
-            }
-    });
-}
-
-chartState();
-
 
   function chartRegion(){
 
