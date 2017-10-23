@@ -24,7 +24,7 @@ var map = new mapboxgl.Map({
     style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
     // center: [-93.179770, 44.877039],
     center: [-93.089958, 44.953703],
-    zoom: 9,
+    zoom: 8.8,
     minZoom: 2
 });
 
