@@ -94,7 +94,7 @@ $(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by city or address
    }, 'place-neighbourhood');
 
       map.addLayer({
-       'id': 'dickenson-layer',
+       'id': 'dickinson-layer',
        'interactive': true,
        'source': 'zip',
        'layout': {},
@@ -212,7 +212,7 @@ $(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by city or address
    // }, 'place-neighbourhood');
 
   map.setLayoutProperty('carter-layer', 'visibility', 'none');
-  map.setLayoutProperty('dickenson-layer', 'visibility', 'none');
+  map.setLayoutProperty('dickinson-layer', 'visibility', 'none');
   map.setLayoutProperty('goldstein-layer', 'visibility', 'none');
   map.setLayoutProperty('harris-layer', 'visibility', 'none');
   map.setLayoutProperty('thao-layer', 'visibility', 'none');
@@ -224,7 +224,7 @@ $(".clicky").click(function() {
 
   map.setLayoutProperty('overall-layer', 'visibility', 'none');
   map.setLayoutProperty('carter-layer', 'visibility', 'none');
-  map.setLayoutProperty('dickenson-layer', 'visibility', 'none');
+  map.setLayoutProperty('dickinson-layer', 'visibility', 'none');
   map.setLayoutProperty('goldstein-layer', 'visibility', 'none');
   map.setLayoutProperty('harris-layer', 'visibility', 'none');
   map.setLayoutProperty('thao-layer', 'visibility', 'none');
@@ -237,7 +237,7 @@ var popup = new mapboxgl.Popup({
 });
 
 map.on('mousemove', function(e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['overall-layer','carter-layer','dickenson-layer','goldstein-layer','harris-layer','thao-layer'] });
+    var features = map.queryRenderedFeatures(e.point, { layers: ['overall-layer','carter-layer','dickinson-layer','goldstein-layer','harris-layer','thao-layer'] });
     // Change the cursor style as a UI indicator.
     map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
 
@@ -251,7 +251,7 @@ map.on('mousemove', function(e) {
     // Populate the popup and set its coordinates
     // based on the feature found.
     popup.setLngLat(e.lngLat)
-        .setHTML("<div>" + feature.properties.ZCTA5CE10 + "</div><div class='legend gray3'><div class='label'>Total</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_total) + "</div></div><div class='legend green3'><div class='label'>Carter</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_carter) + "</div></div><div class='legend orange3'><div class='label'>Dickenson</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_dickenson) + "</div></div><div class='legend blue3'><div class='label'>Goldstein</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_goldstein) + "</div></div><div class='legend red4'><div class='label'>Harris</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_harris) + "</div></div><div class='legend purple3'><div class='label'>Thao</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_thao) + "</div></div>")
+        .setHTML("<div>" + feature.properties.ZCTA5CE10 + "</div><div class='legend gray3'><div class='label'>Total</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_total) + "</div></div><div class='legend green3'><div class='label'>Carter</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_carter) + "</div></div><div class='legend orange3'><div class='label'>Dickinson</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_dickenson) + "</div></div><div class='legend blue3'><div class='label'>Goldstein</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_goldstein) + "</div></div><div class='legend red4'><div class='label'>Harris</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_harris) + "</div></div><div class='legend purple3'><div class='label'>Thao</div><div class='total'>" + d3.format("$,")(feature.properties.zip_summary_thao) + "</div></div>")
         .addTo(map);
 });
 
@@ -274,7 +274,7 @@ map.on('mousemove', function(e) {
           padding: padding,
           data: {
                 columns: [
-                  ['Contributions',256742,13044,18668,285403,142697]
+                  ['Contributions',256742,13044,18668,285403,171642]
                 ],
             type: 'bar',
             labels: {
@@ -302,7 +302,7 @@ map.on('mousemove', function(e) {
                     },
                  x: {
                     type: 'category',
-                    categories: ['Carter','Dickenson','Goldstein','Harris','Thao'],
+                    categories: ['Carter','Dickinson','Goldstein','Harris','Thao'],
                     tick: {
                         rotate: -75,
                         multiline: false
@@ -356,7 +356,7 @@ chartTotals();
                     },
                  x: {
                     type: 'category',
-                    categories: ['Carter','Dickenson','Goldstein','Harris','Thao'],
+                    categories: ['Carter','Dickinson','Goldstein','Harris','Thao'],
                     tick: {
                         rotate: -75,
                         multiline: false
@@ -384,11 +384,11 @@ chartState();
           padding: padding,
           data: {
                 columns: [
-                  ["St. Paul",0.532827592,0.660617466,0.859464432,0.57128978,0.261934588],
-                  ["Minneapolis",0.098148958,0.015748868,0.038327882,0.066755089,0.019626243],
-                  ["Metro",0.156982129,0.066244593,0.051103843,0.285785863,0.246529573],
-                  ["Outstate",0.006270877,0.00668543,0,0.031922626,0.000704712],
-                  ["Elsewhere",0.205770445,0.250703642,0.051103843,0.044246642,0.471204884]
+                  ["St. Paul",0.509423433,0.614651293,0.877222684,0.476449686,0.295930297],
+                  ["Minneapolis",0.090105877,0.018059783,0.033183058,0.066852939,0.027149569],
+                  ["Metro",0.188429368,0.07979822,0.036501364,0.387058897,0.255112727],
+                  ["Outstate",0.006270877,0.007666419,0,0.014540865,0.004952175],
+                  ["Other States",0.205770445,0.203160098,0.053092893,0.05457204,0.412573408]
                 ],
             type: 'bar',
             // groups: [
@@ -416,7 +416,7 @@ chartState();
                     },
                  x: {
                     type: 'category',
-                    categories: ['Carter','Dickenson','Goldstein','Harris','Thao'],
+                    categories: ['Carter','Dickinson','Goldstein','Harris','Thao'],
                     tick: {
                         rotate: -75,
                         multiline: false
