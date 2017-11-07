@@ -8,8 +8,13 @@
 }
 
 .source {
-  color:#333;
-  margin:7px;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size:0.6em;
+    color: #888;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:left;
 }
 
 .purple3 {
@@ -32,4 +37,8 @@
     padding-top:10px;
     padding-bottom:10px;
     text-align:left;
+}
+
+.source a {
+  color: #888;
 }
