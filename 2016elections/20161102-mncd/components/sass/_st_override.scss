@@ -17,7 +17,7 @@ p {
 }
 
 a {
-    color: steelblue !important;
+    color: steelblue;
 }
 
 .byline {
@@ -28,6 +28,10 @@ a {
     padding-top:10px;
     padding-bottom:10px;
     text-align:left;
+}
+
+.byline a {
+    color:#888 !important;
 }
 
 /*MAPS*/

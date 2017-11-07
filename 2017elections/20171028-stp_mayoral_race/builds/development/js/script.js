@@ -291,9 +291,12 @@ map.on('mousemove', function(e) {
             point: {
                 show: false
             },
-                color: {
-                  pattern: ['#2C3942']
-                },
+            tooltip: {
+                show: false
+            },
+            color: {
+              pattern: ['#2C3942']
+            },
             axis: {
                   y: {
                         min: 0,

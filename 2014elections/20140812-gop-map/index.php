@@ -100,7 +100,7 @@ fclose($file); // Close the file
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="Control of the Minnesota House"/>
 	<meta property="og:type" content="website"/>
-	<meta property="og:image" content="http://apps.startribune.com/news/tileserver/mnleg.png"/>
+	<meta property="og:image" content="./tileserver/mnleg.png"/>
 	<meta property="og:description" content="I predicted a <?php echo $results; ?> Minnesota House majority after the 2014 midterm elections. Take the quiz and make your prediction!"/>
 	<link rel="image_src" href="mnleg.png" />
 	<script async="" src="http://www.google-analytics.com/analytics.js"></script>
@@ -110,7 +110,7 @@ fclose($file); // Close the file
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
 <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/leaflet.fullscreen.css' rel='stylesheet' />
-<link href="nvd3-master/src/nv.d3.css" rel="stylesheet" type="text/css">
+<link href="./js/nvd3-master/src/nv.d3.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <link href='//cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css' rel='stylesheet' />
 <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
@@ -1347,7 +1347,7 @@ The most vulnerable seats this election cycle are in DFL-held districts.
 <br />
 You predicted <label for="61" id="tallyMeR2">61</label> GOP seats and <label for="73" id="tallyMeD2">73</label> DFL seats resulting in <label id="house_control2" for="DFL">DFL Control</label> of the Minnesota House of Representatives. <br />
 
-<div class="fb-share-button" data-href="http://apps.startribune.com/news/tileserver/index.php" data-type="button_count" data-width="300"></div>
+<div class="fb-share-button" data-href="./tileserver/index.php" data-type="button_count" data-width="300"></div>
 </div>
 
 <div id='tally'>
@@ -1378,15 +1378,15 @@ DFL Seats <label for="73" id="tallyMeD">73</label> | <label for="61" id="tallyMe
 <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
 <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/Leaflet.fullscreen.min.js'></script>
 <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-<script src="nvd3-master/lib/d3.v3.js"></script>
-<script src="nvd3-master/nv.d3.js"></script>
-<script src="nvd3-master/src/utils.js"></script>
-<script src="nvd3-master/src/tooltip.js"></script>
-<script src="nvd3-master/src/models/legend.js"></script>
-<script src="nvd3-master/src/models/axis.js"></script>
-<script src="nvd3-master/src/models/multiBarHorizontal.js"></script>
-<script src="nvd3-master/src/models/multiBarHorizontalChart.js"></script>
-<script src="nvd3-master/examples/stream_layers.js"></script>
+<script src="./js/nvd3-master/lib/d3.v3.js"></script>
+<script src="./js/nvd3-master/nv.d3.js"></script>
+<script src="./js/nvd3-master/src/utils.js"></script>
+<script src="./js/nvd3-master/src/tooltip.js"></script>
+<script src="./js/nvd3-master/src/models/legend.js"></script>
+<script src="./js/nvd3-master/src/models/axis.js"></script>
+<script src="./js/nvd3-master/src/models/multiBarHorizontal.js"></script>
+<script src="./js/nvd3-master/src/models/multiBarHorizontalChart.js"></script>
+<script src="./js/nvd3-master/examples/stream_layers.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script> 
 
@@ -1625,102 +1625,102 @@ gridControl: false // Disable default gridControl interactivity.
 
 map.setView([46.8527,-93.5595], 6);
 
-var openseat = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_open.tilejson', {format: 'png'});
-var lean = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_lean.tilejson', {format: 'png'});
-var prez = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_prez.tilejson', {format: 'png'});
-var gov = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_gov.tilejson', {format: 'png'});
-var marriage = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_marriage.tilejson', {format: 'png'});
-var unopposed = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_unopposed.tilejson', {format: 'png'});
-var rematch = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_rematch.tilejson', {format: 'png'});
-var now = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2012.tilejson', {format: 'png'});
-var now2 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2010.tilejson', {format: 'png'});
-var now3 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2008.tilejson', {format: 'png'});
-var now4 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2006.tilejson', {format: 'png'});
-var now5 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2004.tilejson', {format: 'png'});
-var party = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_2012.tilejson', {format: 'png'}).addTo(map);
-var paint_me = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_predict.tilejson', {format: 'png'});
-var vulnerable = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/mnleg_vul.tilejson', {format: 'png'});
+var openseat = L.mapbox.tileLayer('./tileserver/mnleg_open.tilejson', {format: 'png'});
+var lean = L.mapbox.tileLayer('./tileserver/mnleg_lean.tilejson', {format: 'png'});
+var prez = L.mapbox.tileLayer('./tileserver/mnleg_prez.tilejson', {format: 'png'});
+var gov = L.mapbox.tileLayer('./tileserver/mnleg_gov.tilejson', {format: 'png'});
+var marriage = L.mapbox.tileLayer('./tileserver/mnleg_marriage.tilejson', {format: 'png'});
+var unopposed = L.mapbox.tileLayer('./tileserver/mnleg_unopposed.tilejson', {format: 'png'});
+var rematch = L.mapbox.tileLayer('./tileserver/mnleg_rematch.tilejson', {format: 'png'});
+var now = L.mapbox.tileLayer('./tileserver/mnleg_2012.tilejson', {format: 'png'});
+var now2 = L.mapbox.tileLayer('./tileserver/mnleg_2010.tilejson', {format: 'png'});
+var now3 = L.mapbox.tileLayer('./tileserver/mnleg_2008.tilejson', {format: 'png'});
+var now4 = L.mapbox.tileLayer('./tileserver/mnleg_2006.tilejson', {format: 'png'});
+var now5 = L.mapbox.tileLayer('./tileserver/mnleg_2004.tilejson', {format: 'png'});
+var party = L.mapbox.tileLayer('./tileserver/mnleg_2012.tilejson', {format: 'png'}).addTo(map);
+var paint_me = L.mapbox.tileLayer('./tileserver/mnleg_predict.tilejson', {format: 'png'});
+var vulnerable = L.mapbox.tileLayer('./tileserver/mnleg_vul.tilejson', {format: 'png'});
 
-var dem1 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/02Ad.tilejson', {format: 'png'});
-var rep1 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/02Ar.tilejson', {format: 'png'});
-var dem2 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/04Ad.tilejson', {format: 'png'});
-var rep2 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/04Ar.tilejson', {format: 'png'});
-var dem3 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/10Bd.tilejson', {format: 'png'});
-var rep3 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/10Br.tilejson', {format: 'png'});
-var dem4 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/11Bd.tilejson', {format: 'png'});
-var rep4 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/11Br.tilejson', {format: 'png'});
-var dem5 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/12Ad.tilejson', {format: 'png'});
-var rep5 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/12Ar.tilejson', {format: 'png'});
-var dem6 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/13Ad.tilejson', {format: 'png'});
-var rep6 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/13Ar.tilejson', {format: 'png'});
-var dem7 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/14Bd.tilejson', {format: 'png'});
-var rep7 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/14Br.tilejson', {format: 'png'});
-var dem8 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/17Bd.tilejson', {format: 'png'});
-var rep8 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/17Br.tilejson', {format: 'png'});
-var dem9 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/24Ad.tilejson', {format: 'png'});
-var rep9 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/24Ar.tilejson', {format: 'png'});
-var dem10 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/24Bd.tilejson', {format: 'png'});
-var rep10 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/24Br.tilejson', {format: 'png'});
-var dem11 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/05Ad.tilejson', {format: 'png'});
-var rep11 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/05Ar.tilejson', {format: 'png'});
-var dem12 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/27Ad.tilejson', {format: 'png'});
-var rep12 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/27Ar.tilejson', {format: 'png'});
-var dem13 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/36Ad.tilejson', {format: 'png'});
-var rep13 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/36Ar.tilejson', {format: 'png'});
-var dem14 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/42Bd.tilejson', {format: 'png'});
-var rep14 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/42Br.tilejson', {format: 'png'});
-var dem15 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/44Ad.tilejson', {format: 'png'});
-var rep15 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/44Ar.tilejson', {format: 'png'});
-var dem16 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/48Ad.tilejson', {format: 'png'});
-var rep16 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/48Ar.tilejson', {format: 'png'});
-var dem17 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/49Ad.tilejson', {format: 'png'});
-var rep17 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/49Ar.tilejson', {format: 'png'});
-var dem18 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/49Bd.tilejson', {format: 'png'});
-var rep18 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/49Br.tilejson', {format: 'png'});
-var dem19 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/51Ad.tilejson', {format: 'png'});
-var rep19 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/51Ar.tilejson', {format: 'png'});
-var dem20 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/51Bd.tilejson', {format: 'png'});
-var rep20 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/51Br.tilejson', {format: 'png'});
-var dem21 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/54Ad.tilejson', {format: 'png'});
-var rep21 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/54Ar.tilejson', {format: 'png'});
-var dem22 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/56Bd.tilejson', {format: 'png'});
-var rep22 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/56Br.tilejson', {format: 'png'});
-var dem23 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/01Bd.tilejson', {format: 'png'});
-var rep23 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/01Br.tilejson', {format: 'png'});
-var dem24 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/02Bd.tilejson', {format: 'png'});
-var rep24 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/02Br.tilejson', {format: 'png'});
-var dem25 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/04Bd.tilejson', {format: 'png'});
-var rep25 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/04Br.tilejson', {format: 'png'});
-var dem26 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/10Ad.tilejson', {format: 'png'});
-var rep26 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/10Ar.tilejson', {format: 'png'});
-var dem27 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/15Ad.tilejson', {format: 'png'});
-var rep27 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/15Ar.tilejson', {format: 'png'});
-var dem28 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/17Ad.tilejson', {format: 'png'});
-var rep28 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/17Ar.tilejson', {format: 'png'});
-var dem29 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/32Bd.tilejson', {format: 'png'});
-var rep29 = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/32Br.tilejson', {format: 'png'});
+var dem1 = L.mapbox.tileLayer('./tileserver/02Ad.tilejson', {format: 'png'});
+var rep1 = L.mapbox.tileLayer('./tileserver/02Ar.tilejson', {format: 'png'});
+var dem2 = L.mapbox.tileLayer('./tileserver/04Ad.tilejson', {format: 'png'});
+var rep2 = L.mapbox.tileLayer('./tileserver/04Ar.tilejson', {format: 'png'});
+var dem3 = L.mapbox.tileLayer('./tileserver/10Bd.tilejson', {format: 'png'});
+var rep3 = L.mapbox.tileLayer('./tileserver/10Br.tilejson', {format: 'png'});
+var dem4 = L.mapbox.tileLayer('./tileserver/11Bd.tilejson', {format: 'png'});
+var rep4 = L.mapbox.tileLayer('./tileserver/11Br.tilejson', {format: 'png'});
+var dem5 = L.mapbox.tileLayer('./tileserver/12Ad.tilejson', {format: 'png'});
+var rep5 = L.mapbox.tileLayer('./tileserver/12Ar.tilejson', {format: 'png'});
+var dem6 = L.mapbox.tileLayer('./tileserver/13Ad.tilejson', {format: 'png'});
+var rep6 = L.mapbox.tileLayer('./tileserver/13Ar.tilejson', {format: 'png'});
+var dem7 = L.mapbox.tileLayer('./tileserver/14Bd.tilejson', {format: 'png'});
+var rep7 = L.mapbox.tileLayer('./tileserver/14Br.tilejson', {format: 'png'});
+var dem8 = L.mapbox.tileLayer('./tileserver/17Bd.tilejson', {format: 'png'});
+var rep8 = L.mapbox.tileLayer('./tileserver/17Br.tilejson', {format: 'png'});
+var dem9 = L.mapbox.tileLayer('./tileserver/24Ad.tilejson', {format: 'png'});
+var rep9 = L.mapbox.tileLayer('./tileserver/24Ar.tilejson', {format: 'png'});
+var dem10 = L.mapbox.tileLayer('./tileserver/24Bd.tilejson', {format: 'png'});
+var rep10 = L.mapbox.tileLayer('./tileserver/24Br.tilejson', {format: 'png'});
+var dem11 = L.mapbox.tileLayer('./tileserver/05Ad.tilejson', {format: 'png'});
+var rep11 = L.mapbox.tileLayer('./tileserver/05Ar.tilejson', {format: 'png'});
+var dem12 = L.mapbox.tileLayer('./tileserver/27Ad.tilejson', {format: 'png'});
+var rep12 = L.mapbox.tileLayer('./tileserver/27Ar.tilejson', {format: 'png'});
+var dem13 = L.mapbox.tileLayer('./tileserver/36Ad.tilejson', {format: 'png'});
+var rep13 = L.mapbox.tileLayer('./tileserver/36Ar.tilejson', {format: 'png'});
+var dem14 = L.mapbox.tileLayer('./tileserver/42Bd.tilejson', {format: 'png'});
+var rep14 = L.mapbox.tileLayer('./tileserver/42Br.tilejson', {format: 'png'});
+var dem15 = L.mapbox.tileLayer('./tileserver/44Ad.tilejson', {format: 'png'});
+var rep15 = L.mapbox.tileLayer('./tileserver/44Ar.tilejson', {format: 'png'});
+var dem16 = L.mapbox.tileLayer('./tileserver/48Ad.tilejson', {format: 'png'});
+var rep16 = L.mapbox.tileLayer('./tileserver/48Ar.tilejson', {format: 'png'});
+var dem17 = L.mapbox.tileLayer('./tileserver/49Ad.tilejson', {format: 'png'});
+var rep17 = L.mapbox.tileLayer('./tileserver/49Ar.tilejson', {format: 'png'});
+var dem18 = L.mapbox.tileLayer('./tileserver/49Bd.tilejson', {format: 'png'});
+var rep18 = L.mapbox.tileLayer('./tileserver/49Br.tilejson', {format: 'png'});
+var dem19 = L.mapbox.tileLayer('./tileserver/51Ad.tilejson', {format: 'png'});
+var rep19 = L.mapbox.tileLayer('./tileserver/51Ar.tilejson', {format: 'png'});
+var dem20 = L.mapbox.tileLayer('./tileserver/51Bd.tilejson', {format: 'png'});
+var rep20 = L.mapbox.tileLayer('./tileserver/51Br.tilejson', {format: 'png'});
+var dem21 = L.mapbox.tileLayer('./tileserver/54Ad.tilejson', {format: 'png'});
+var rep21 = L.mapbox.tileLayer('./tileserver/54Ar.tilejson', {format: 'png'});
+var dem22 = L.mapbox.tileLayer('./tileserver/56Bd.tilejson', {format: 'png'});
+var rep22 = L.mapbox.tileLayer('./tileserver/56Br.tilejson', {format: 'png'});
+var dem23 = L.mapbox.tileLayer('./tileserver/01Bd.tilejson', {format: 'png'});
+var rep23 = L.mapbox.tileLayer('./tileserver/01Br.tilejson', {format: 'png'});
+var dem24 = L.mapbox.tileLayer('./tileserver/02Bd.tilejson', {format: 'png'});
+var rep24 = L.mapbox.tileLayer('./tileserver/02Br.tilejson', {format: 'png'});
+var dem25 = L.mapbox.tileLayer('./tileserver/04Bd.tilejson', {format: 'png'});
+var rep25 = L.mapbox.tileLayer('./tileserver/04Br.tilejson', {format: 'png'});
+var dem26 = L.mapbox.tileLayer('./tileserver/10Ad.tilejson', {format: 'png'});
+var rep26 = L.mapbox.tileLayer('./tileserver/10Ar.tilejson', {format: 'png'});
+var dem27 = L.mapbox.tileLayer('./tileserver/15Ad.tilejson', {format: 'png'});
+var rep27 = L.mapbox.tileLayer('./tileserver/15Ar.tilejson', {format: 'png'});
+var dem28 = L.mapbox.tileLayer('./tileserver/17Ad.tilejson', {format: 'png'});
+var rep28 = L.mapbox.tileLayer('./tileserver/17Ar.tilejson', {format: 'png'});
+var dem29 = L.mapbox.tileLayer('./tileserver/32Bd.tilejson', {format: 'png'});
+var rep29 = L.mapbox.tileLayer('./tileserver/32Br.tilejson', {format: 'png'});
 
 
 
 //Pull interactive, data-infused vector layers from the .mbtiles hosted on the server
-var dataTiles = L.mapbox.tileLayer('http://apps.startribune.com/news/tileserver/main_grid.tilejson');
-var dataGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/main_grid.tilejson').addTo(map);
+var dataTiles = L.mapbox.tileLayer('./tileserver/main_grid.tilejson');
+var dataGrid = L.mapbox.gridLayer('./tileserver/main_grid.tilejson').addTo(map);
 var dataControl = L.mapbox.gridControl(dataGrid).addTo(map);
 
-var prezGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/prez_grid.tilejson');
+var prezGrid = L.mapbox.gridLayer('./tileserver/prez_grid.tilejson');
 var prezControl = L.mapbox.gridControl(prezGrid);
 
-var rematchGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/rematch_grid.tilejson');
+var rematchGrid = L.mapbox.gridLayer('./tileserver/rematch_grid.tilejson');
 var rematchControl = L.mapbox.gridControl(rematchGrid);
 
-var flipGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/flip_grid.tilejson');
+var flipGrid = L.mapbox.gridLayer('./tileserver/flip_grid.tilejson');
 var flipControl = L.mapbox.gridControl(flipGrid);
 
-var govGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/gov_grid.tilejson');
+var govGrid = L.mapbox.gridLayer('./tileserver/gov_grid.tilejson');
 var govControl = L.mapbox.gridControl(govGrid);
 
 //Pull interactive, data-infused vector layers from the .mbtiles hosted on the server
-var marriageGrid = L.mapbox.gridLayer('http://apps.startribune.com/news/tileserver/marriage_grid.tilejson');
+var marriageGrid = L.mapbox.gridLayer('./tileserver/marriage_grid.tilejson');
 var marriageControl = L.mapbox.gridControl(marriageGrid);
 
 

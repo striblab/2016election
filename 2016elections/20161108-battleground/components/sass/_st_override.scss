@@ -3,13 +3,6 @@
      padding: 0;
  }
 
-    #map  {
-     position: absolute;
-     top: 0;
-     bottom: 0;
-     width: 100%;
- }
-
     .bottom  {
      position: absolute;
      bottom: 0;
@@ -91,7 +84,7 @@
      display: block;
  }
 
-    #toggle: hover  {
+    #toggle:hover  {
      background-color: #333 !important;
      color: #fff;
      cursor: pointer;
@@ -110,7 +103,7 @@
      font-weight: 900;
  }
 
-    .navButtons: hover  {
+    .navButtons:hover  {
      background-color: #333 !important;
      color: #fff;
      cursor: pointer;
@@ -139,7 +132,7 @@
      background-color: #ddd;
  }
 
-    .trackDot: hover,  .current  {
+    .trackDot:hover,  .current  {
      background-color: #333;
      cursor: pointer;
  }
