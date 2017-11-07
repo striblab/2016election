@@ -1843,8 +1843,8 @@ function reloadData(){
    if ($(window).width() > 500) { mapReshade("#USGOV .country", "us_states.json", "country", "governors", dataGov); }   
 
    //house updates
-   mapReshade("#USHOUSE .country", "uscongress.json", "country", "house", dataHouse);
    mapReshade("#cartoHouse svg", "usdistricts_cartogram.json", "country", "cartoHouse", dataHouse);
+   mapReshade("#USHOUSE .country", "uscongress.json", "country", "house", dataHouse);
    // mapReshade("#USHOUSEMN .country", "us_cd_mn_2012.json", "country", "house", dataHouse);   
 
    //mnhouse updates
