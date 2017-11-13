@@ -6,12 +6,8 @@
   display:none !important;
 }
 
-.slide {
-  display:none;
-}
-
 #wrapper {
-    width:520px;
+    width:800px;
     margin-left:auto;
     margin-right:auto;
 }
@@ -37,6 +33,10 @@
 
 .red5 {
   color:#ffffff;
+}
+
+.map {
+	display:inline-block;
 }
 
 .chart .c3-line {
@@ -65,7 +65,12 @@
 	text-align:center;
 }
 
-@media (max-width:520px) {
+.breaker {
+	margin:7px;
+	padding:5px;
+}
+
+@media (max-width:800px) {
     #wrapper {
         width:100%;
     }
