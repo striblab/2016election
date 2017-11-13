@@ -1,173 +1,189 @@
 /**
- * Main/default front-end app/visual generator
+ * Main JS file for project.
  */
+
+// Define globals that are added through the config.json file, here like this:
+// /* global _ */
 'use strict';
 
 // Dependencies
-const path = require('path');
-const _ = require('lodash');
-const ejs = require('ejs');
-const chalk = require('chalk');
-const Generator = require('yeoman-generator');
-const inputs = require('./input.js');
-const dependencies = require('./dependencies.json');
-const common = {
-  inputs: require('../common/lib/input.js'),
-  output: require('../common/lib/output.js'),
-  package: require('../common/lib/package.js')
-};
+import utilsFn from './utils.js';
 
-// Common locations
-common.parts = path.join(__dirname, '../', 'common', 'template-parts');
-common.files = path.join(__dirname, '../', 'common', 'template-files');
+// Import local ES6 modules like this:
+//import utilsFn from './utils.js';
 
-// Data location
-const dataTemplate = path.join(__dirname, '../', 'data', 'templates');
+// Or import libraries installed with npm like this:
+// import module from 'module';
 
-// App generator
-const App = class extends Generator {
-  constructor(args, opts) {
-    super(args, opts);
+// Setup utils function
+utilsFn({ });
 
-    this.dependencies = dependencies;
+
+//MAPPAGE
+function mapColor(d, race, dataCompare){
+
+  
+}
+
+function mapTips(d, subject, dataCompare){
+
+
+
+}
+
+function mapBuild(container, boxContainer, chartContainer, shape, race, geo, dataCompare, index) {
+
+var width = 260,
+    height = 300,
+    centered;
+
+if (geo=="us") { var projection = d3.geo.albersUsa().scale(700).translate([330, 200]); }
+else if (geo=="mn") { var projection = d3.geo.albersUsa().scale(5037).translate([50, 970]); }
+else if (geo=="metro") { var projection = d3.geo.mercator().scale([80000]).center([-92.877045,44.907867]); }
+else if (geo=="metro2") { var projection = d3.geo.mercator().scale([80000]).center([-92.877045,44.907867]); }
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select(container + " svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// svg.append("rect")
+    // .attr("class", "background")
+    // .attr("width", width)
+    // .attr("height", height);
+
+var g = svg.append("g");
+
+d3.json("data/" + shape, function(error, us) {
+
+  g.append("g")
+      .attr("class", "states")
+    .selectAll("path")
+      .data(us.features)
+    .enter().append("path")
+      .attr("d", path)
+      // .on("click", clicked)
+      .attr("id", function(d) { var str = geo + "_" + d.properties.ward; return str.replace(new RegExp(" ", "g"),"-"); })
+      .attr("precinctName", function(d){ return d.properties.ward })
+      .attr("class", function(d){
+         return mapColor(d, race, dataCompare);
+        })
+      .style("stroke-width", "1px")
+      .style("stroke", "#fff")
+      .call(d3.helper.tooltip(function(d, i){
+        return mapTips(d, race, dataCompare);
+      }));
+
+  g.append("path")
+      //.datum(topojson.mesh(us, us.features, function(a, b) { return a !== b; }))
+      .attr("id", "state-borders")
+      .attr("d", path);
+
+});
+
+var zoom = d3.behavior.zoom()
+    .on("zoom",function() {
+        g.attr("transform","translate("+ 
+            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+        g.selectAll("circle")
+            .attr("d", path.projection(projection));
+        g.selectAll("path")  
+            .attr("d", path.projection(projection)); 
+
+  });
+
+
+function clicked(d) {
+  var x, y, k;
+
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 6;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 3;
+    centered = null;
   }
 
-  // Input prompts
-  prompting() {
-    this.log(common.output.welcome());
+  d3.selectAll("#mapMetro path, #mapState path")
+      .classed("faded", false)
+      .classed("active", false);
 
-    return this.prompt(inputs(this)).then((answers) => {
-      this.answers = answers;
-    });
+  g.selectAll("path")
+      .classed("faded", true)
+      .classed("active", centered && function (d) { return d === centered; });
+}
+
+function clicked2(d) {
+  var x, y, k;
+
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 1;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 1;
+    centered = null;
   }
 
-  // Determine parts (sub generators)
-  default() {
-    if (this.answers.dataTemplate) {
-      this.composeWith(require.resolve('../data'), {
-        answers: this.answers,
-        skipInstall: true,
-        composedWith: this
-      });
-    }
-  }
+  g.selectAll("path")
+      .classed("faded", false)
+      .classed("active", centered && function (d) { return d === centered; });
+}
 
-  // Write files
-  writing() {
-    // Package.json
-    if (this.answers.dataTemplate) {
-      const d = require(path.join(dataTemplate, '../', 'dependencies.json'));
-      dependencies.devDependencies = _.extend({}, d.devDependencies, d.dependencies, dependencies.devDependencies);
-    }
-    this.pkg = common.package(this.answers, dependencies);
-    this.fs.writeJSON(this.destinationPath('package.json'), this.pkg);
+}
 
-    // Templating context
-    const tContext = {
-      _: _,
-      answers: this.answers,
-      package: this.pkg,
-      env: process.env
+d3.helper = {};
+
+d3.helper.tooltip = function(accessor){
+    return function(selection){
+        var tooltipDiv;
+        var bodyNode = d3.select('body').node();
+        selection.on("mouseover", function(d, i){
+            // Clean up lost tooltips
+            d3.select('body').selectAll('div.tooltip').remove();
+            // Append tooltip
+            tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px')
+                .style('position', 'absolute') 
+                .style('z-index', 1001);
+            // Add text using the accessor function
+            var tooltipText = accessor(d, i) || '';
+            // Crop text arbitrarily
+            //tooltipDiv.style('width', function(d, i){return (tooltipText.length > 80) ? '300px' : null;})
+            //    .html(tooltipText);
+        })
+        .on('mousemove', function(d, i) {
+            // Move tooltip
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px');
+            var tooltipText = accessor(d, i) || '';
+            tooltipDiv.html(tooltipText);
+        })
+        .on("mouseout", function(d, i){
+            // Remove tooltip
+            tooltipDiv.remove();
+        });
+
     };
-
-    // Copy common files to pass through template
-    this.fs.copyTpl(
-      path.join(common.files, '**/*'),
-      this.destinationPath('./'),
-      tContext, null, { globOptions: { dot: true }});
-
-    // Copy files to pass through template
-    this.fs.copyTpl(
-      this.templatePath('./**/*'),
-      this.destinationPath('./'),
-      tContext,
-      null,
-      {
-        globOptions: {
-          dot: true,
-          // Ignore assets (and data if needed)
-          ignore: this.answers.dataTemplate ?
-            [this.templatePath('./assets/**/*')] :
-            [this.templatePath('./assets/**/*'), this.templatePath('./tests/data/**/*')]
-        }
-      }
-    );
-
-    // Copy assets (since these are not text files, we don't want to pass
-    // through copyTpl)
-    this.fs.copy(this.templatePath('./assets/**/*'), this.destinationPath('./assets'));
-
-    // Copy random assets that needs templating
-    this.fs.copyTpl(this.templatePath('./assets/**/*.json'), this.destinationPath('./assets'), tContext);
-
-    // Specifics that should be combined with common elements
-    this.fs.write(this.destinationPath('.gitignore'),
-      ejs.render([
-        this.fs.read(this.templatePath('.gitignore')),
-        (this.answers.dataTemplate) ? this.fs.read(path.join(dataTemplate, '.gitignore')) : '',
-        this.fs.read(path.join(common.parts, '.gitignore'))
-      ].join('\n\n'), tContext));
-
-    this.fs.write(this.destinationPath('README.md'),
-      ejs.render([
-        this.fs.read(path.join(common.parts, 'README-header.md')),
-        (this.answers.dataTemplate) ? this.fs.read(path.join(dataTemplate, 'README.md')) : '',
-        this.fs.read(this.templatePath('README.md')),
-        this.fs.read(path.join(common.parts, 'README-footer.md'))
-      ].join('\n\n'), tContext));
-  }
-
-  // Install
-  install() {
-    this.npmInstall(undefined, undefined, () => {
-      // Do Google Spreadsheet steps here
-      if (this.answers.googleSpreadsheet) {
-        this._createSpreadsheet();
-      }
-    });
-  }
-
-  // All done
-  end() {
-    this.log(common.output.done());
-    this.log(chalk.cyan('Run ') + chalk.bgYellow.black(' gulp develop ') + chalk.cyan(' to start developing.'));
-    this.log();
-  }
-
-  // Create google spreadsheet step
-  _createSpreadsheet() {
-    this.log();
-    this.log(chalk.cyan('Setting up the Google Spreadsheet.'));
-    this.log();
-
-    // TODO: Find a way to make these commands not show output.
-    let create = this.spawnCommandSync('gulp', ['content:create', '--quiet', '--email', this.answers.googleSpreadsheetOwner]);
-    if (create && create.error) {
-      this.log(chalk.red('Error creating spreadsheet.'));
-      throw create.error;
-    }
-
-    let owner = this.spawnCommandSync('gulp', ['content:owner', '--email', this.answers.googleSpreadsheetOwner]);
-    if (owner && owner.error) {
-      this.log(chalk.red('Error changing owner to: ' + this.answers.googleSpreadsheetOwner));
-      throw owner.error;
-    }
-
-    this.log();
-    this.log(
-      chalk.cyan('Spreadsheet setup successfully. We changed the owner to this \nemail address:\n\n') +
-      '  ' + chalk.green(this.answers.googleSpreadsheetOwner) +
-      '\n\n' +
-      chalk.cyan('If you want to share this speadsheet with other \nGoogle accounts, you can run something like:\n\n') +
-      '  ' + chalk.bgYellow.black('gulp content:share --email XXXXXX@XXXXX.COM') +
-      '\n\n' +
-      chalk.cyan('To open the spreadsheet in your browser, use:\n\n') +
-      '  ' + chalk.bgYellow.black('gulp content:open'));
-    this.log();
-    this.log();
-  }
 };
 
 
-// Export
-module.exports = App;
+mapBuild("#mpls1", "#infobox", "#chart", "minneapolis-precincts-results.geo.json", "round1", "metro", null, 0);
+mapBuild("#mpls2", "#infobox", "#chart", "minneapolis-precincts-results.geo.json", "round2", "metro", null, 0);
+mapBuild("#mpls3", "#infobox", "#chart", "minneapolis-precincts-results.geo.json", "round3", "metro", null, 0);
+mapBuild("#stp", "#infobox", "#chart", "st-paul-precincts-results.geo.json", "stp", "metro", null, 0);
+
