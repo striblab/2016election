@@ -18,8 +18,7 @@
       "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js",
       "//code.jquery.com/jquery-latest.js",
       "js/d3.v3.min.js",
-      "js/c3.min.js",
-      "js/mapbox-gl.js"
+      "js/c3.min.js"
     ]
   },
 
