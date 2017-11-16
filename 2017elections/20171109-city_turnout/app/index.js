@@ -48,8 +48,8 @@ $("#" + selected).show();
           		x: 'x',
                 columns: [
                 	['x',1993,1997,2001,2005,2009,2013,2017],
-                  ['Minneapolis',0.45,0.46,0.41,0.30,0.20,0.33,0],
-                  ['St. Paul',0.43,0.43,0.41,0.36,0.22,0.20,0]
+                  ['Minneapolis',0.45,0.46,0.41,0.30,0.20,0.33,0.42],
+                  ['St. Paul',0.43,0.43,0.41,0.36,0.22,0.20,0.27]
                 ],
             type: 'line',
             labels: {
@@ -120,8 +120,8 @@ chartTrend();
               x: 'x',
                 columns: [
                   ['x',1993,1997,2001,2005,2009,2013,2017],
-                  ['Minneapolis',222101,200311,217802,229593,231078,233351,0],
-                  ['St. Paul',143878,138198,144213,160414,157859,154672,0]
+                  ['Minneapolis',222101,200311,217802,229593,231078,233351,239750],
+                  ['St. Paul',143878,138198,144213,160414,157859,154672,156543]
                 ],
             type: 'bar',
             labels: {
@@ -156,7 +156,7 @@ chartTrend();
                     // padding: {right: 0, left: 0},
                     tick: {
                         count: 6,
-                        values: [1993,1997,2001,2005,2009,2013],
+                        values: [1993,1997,2001,2005,2009,2013,2017],
                         multiline: false,
                         format: d3.format('.0f')
                     }
@@ -262,19 +262,19 @@ chartCandidates();
           		x: 'x',
                 columns: [
                 	['x',1993,1997,2001,2005,2009,2013,2017],
-                    ["Ward 1",0.51,0.48,0.41,0.31,0.23,0.3,0],
-          					["Ward 2",0.3,0.29,0.27,0.26,0.14,0.27,0],
-          					["Ward 3",0.42,0.41,0.35,0.22,0.14,0.31,0],
-          					["Ward 4",0.49,0.47,0.39,0.24,0.21,0.23,0],
-          					["Ward 5",0.37,0.4,0.37,0.24,0.17,0.24,0],
-          					["Ward 6",0.32,0.35,0.26,0.21,0.14,0.34,0],
-          					["Ward 7",0.44,0.46,0.39,0.28,0.19,0.34,0],
-          					["Ward 8",0.47,0.45,0.41,0.35,0.2,0.35,0],
-          					["Ward 9",0.48,0.49,0.43,0.32,0.21,0.34,0],
-          					["Ward 10",0.4,0.45,0.37,0.28,0.18,0.3,0],
-          					["Ward 11",0.54,0.54,0.5,0.35,0.21,0.39,0],
-          					["Ward 12",0.53,0.54,0.49,0.38,0.23,0.4,0],
-          					["Ward 13",0.56,0.6,0.51,0.41,0.27,0.46,0]
+                    ["Ward 1",0.51,0.48,0.41,0.31,0.23,0.3,0.45],
+          					["Ward 2",0.3,0.29,0.27,0.26,0.14,0.27,0.40],
+          					["Ward 3",0.42,0.41,0.35,0.22,0.14,0.31,0.40],
+          					["Ward 4",0.49,0.47,0.39,0.24,0.21,0.23,0.31],
+          					["Ward 5",0.37,0.4,0.37,0.24,0.17,0.24,0.28],
+          					["Ward 6",0.32,0.35,0.26,0.21,0.14,0.34,0.47],
+          					["Ward 7",0.44,0.46,0.39,0.28,0.19,0.34,0.45],
+          					["Ward 8",0.47,0.45,0.41,0.35,0.2,0.35,0.46],
+          					["Ward 9",0.48,0.49,0.43,0.32,0.21,0.34,0.43],
+          					["Ward 10",0.4,0.45,0.37,0.28,0.18,0.3,0.38],
+          					["Ward 11",0.54,0.54,0.5,0.35,0.21,0.39,0.47],
+          					["Ward 12",0.53,0.54,0.49,0.38,0.23,0.4,0.47],
+          					["Ward 13",0.56,0.6,0.51,0.41,0.27,0.46,0.50]
                 ],
             type: 'line',
             labels: {
@@ -429,28 +429,28 @@ function mapColor(d, race, dataCompare){
   if (race == "diff"){ 
     for (var i=0; i < dataCompare.length; i++){
       if (String(d.properties.city).toUpperCase() == String(dataCompare[i].city).toUpperCase() && d.properties.ward == String("Ward " + dataCompare[i].ward)) {
-        if (dataCompare[i].vtDIFF <= -0.20) { return "red5"; }
-        else if (dataCompare[i].vtDIFF <= -0.10) { return "red3"; }
-        else if (dataCompare[i].vtDIFF < 0) { return "red1"; }
-        else if (dataCompare[i].vtDIFF > 0) { return "gray2"; }
+        if (dataCompare[i].vtDIFF >= 0.13) { return "gray5"; }
+        else if (dataCompare[i].vtDIFF >= 0.11) { return "gray4"; }
+        else if (dataCompare[i].vtDIFF >= 0.06) { return "gray3"; }
+        else if (dataCompare[i].vtDIFF > 0) { return "gray1"; }
       }
   }
 
   } else if (race == "turnout") {
       for (var i=0; i < dataCompare.length; i++){
         if (String(d.properties.city).toUpperCase() == String(dataCompare[i].city).toUpperCase() && d.properties.ward == String("Ward " + dataCompare[i].ward)) {
-          if (dataCompare[i].vt2013 >= 0.40) { return "gray5"; }
-          else if (dataCompare[i].vt2013 >= 0.30) { return "gray4"; }
-          else if (dataCompare[i].vt2013 >= 0.20) { return "gray3"; }
-          else if (dataCompare[i].vt2013 > 0) { return "gray2"; }
+          if (dataCompare[i].vt2017 >= 0.45) { return "gray5"; }
+          else if (dataCompare[i].vt2017 >= 0.35) { return "gray4"; }
+          else if (dataCompare[i].vt2017 >= 0.30) { return "gray3"; }
+          else if (dataCompare[i].vt2017 > 0) { return "gray2"; }
         }
     }
   } else if (race == "average") {
       for (var i=0; i < dataCompare.length; i++){
         if (String(d.properties.city).toUpperCase() == String(dataCompare[i].city).toUpperCase() && d.properties.ward == String("Ward " + dataCompare[i].ward)) {
-          if (dataCompare[i].vtAVG >= 0.35) { return "gray5"; }
+          if (dataCompare[i].vtAVG >= 0.40) { return "gray5"; }
           else if (dataCompare[i].vtAVG >= 0.30) { return "gray4"; }
-          else if (dataCompare[i].vtAVG >= 0.25) { return "gray3"; }
+          else if (dataCompare[i].vtAVG >= 0.2) { return "gray3"; }
           else if (dataCompare[i].vtAVG > 0) { return "gray2"; }
         }
     }
@@ -466,10 +466,10 @@ function mapTips(d, subject, dataCompare){
 
     for (var i=0; i < dataCompare.length; i++){
       if (String(d.properties.city).toUpperCase() == String(dataCompare[i].city).toUpperCase() && d.properties.ward == String("Ward " + dataCompare[i].ward)) {
-        if (dataCompare[i].vtDIFF <= -0.20) { color = "red5"; }
-        else if (dataCompare[i].vtDIFF <= -0.10) { color = "red3"; }
-        else if (dataCompare[i].vtDIFF < 0) { color = "red1"; }
-        else if (dataCompare[i].vtDIFF > 0) { color = "gray2"; }
+        if (dataCompare[i].vtDIFF >= 0.13) { color = "gray4"; }
+        else if (dataCompare[i].vtDIFF >= 0.11) { color = "gray4"; }
+        else if (dataCompare[i].vtDIFF >= 0.06) { color = "gray3"; }
+        else if (dataCompare[i].vtDIFF > 0) { color = "gray1"; }
         diff = dataCompare[i].vtDIFF;
       }
   }
@@ -479,11 +479,11 @@ function mapTips(d, subject, dataCompare){
   } else if (subject == "turnout") {
       for (var i=0; i < dataCompare.length; i++){
         if (String(d.properties.city).toUpperCase() == String(dataCompare[i].city).toUpperCase() && d.properties.ward == String("Ward " + dataCompare[i].ward)) {
-          if (dataCompare[i].vt2013 >= 0.40) { color = "gray5"; }
-          else if (dataCompare[i].vt2013 >= 0.30) { color = "gray4"; }
-          else if (dataCompare[i].vt2013 >= 0.20) { color = "gray3"; }
-          else if (dataCompare[i].vt2013 > 0) { color = "gray2"; }
-          diff = dataCompare[i].vt2013;
+          if (dataCompare[i].vt2017 >= 0.45) { color = "gray5"; }
+          else if (dataCompare[i].vt2017 >= 0.35) { color = "gray4"; }
+          else if (dataCompare[i].vt2017 >= 0.30) { color = "gray3"; }
+          else if (dataCompare[i].vt2017 > 0) { color = "gray2"; }
+          diff = dataCompare[i].vt2017;
         }
     }
     return "<div class='districtName'>" + d.properties.city + " - " + d.properties.ward + "</div><div class='districtName " + color + "'>" + d3.format("%")(diff)  + " turnout</div>";
@@ -491,9 +491,9 @@ function mapTips(d, subject, dataCompare){
   } else if (subject == "average") {
       for (var i=0; i < dataCompare.length; i++){
         if (String(d.properties.city).toUpperCase() == String(dataCompare[i].city).toUpperCase() && d.properties.ward == String("Ward " + dataCompare[i].ward)) {
-          if (dataCompare[i].vtAVG >= 0.35) { color = "gray5"; }
+          if (dataCompare[i].vtAVG >= 0.40) { color = "gray5"; }
           else if (dataCompare[i].vtAVG >= 0.30) { color = "gray4"; }
-          else if (dataCompare[i].vtAVG >= 0.25) { color = "gray3"; }
+          else if (dataCompare[i].vtAVG >= 0.20) { color = "gray3"; }
           else if (dataCompare[i].vtAVG > 0) { color = "gray2"; }
           diff = dataCompare[i].vtAVG;
         }
@@ -511,7 +511,7 @@ var width = 320,
 
 if (geo=="us") { var projection = d3.geo.albersUsa().scale(700).translate([330, 200]); }
 else if (geo=="mn") { var projection = d3.geo.albersUsa().scale(5037).translate([50, 970]); }
-else if (geo=="metro") { var projection = d3.geo.mercator().scale([60000]).center([-92.877045,44.907867]); }
+else if (geo=="metro") { var projection = d3.geo.mercator().scale([80000]).center([-93.070335,44.930977]); }
 
 var path = d3.geo.path()
     .projection(projection);
@@ -654,10 +654,10 @@ d3.helper.tooltip = function(accessor){
 
 
 mapBuild("#map2017", "#infobox", "#chart", "mpls_wards.geojson", "turnout", "metro", dataDIFF, 0);
-mapBuild("#map2017", "#infobox", "#chart", "stp_wards.geojson", "turnout", "metro", dataDIFF, 0);
+// mapBuild("#map2017", "#infobox", "#chart", "stp_wards.geojson", "turnout", "metro", dataDIFF, 0);
 mapBuild("#mapPCT", "#infobox", "#chart", "mpls_wards.geojson", "diff", "metro", dataDIFF, 0);
-mapBuild("#mapPCT", "#infobox", "#chart", "stp_wards.geojson", "diff", "metro", dataDIFF, 0);
+// mapBuild("#mapPCT", "#infobox", "#chart", "stp_wards.geojson", "diff", "metro", dataDIFF, 0);
 mapBuild("#mapAVG", "#infobox", "#chart", "mpls_wards.geojson", "average", "metro", dataDIFF, 0);
-mapBuild("#mapAVG", "#infobox", "#chart", "stp_wards.geojson", "average", "metro", dataDIFF, 0);
+// mapBuild("#mapAVG", "#infobox", "#chart", "stp_wards.geojson", "average", "metro", dataDIFF, 0);
 
 });
