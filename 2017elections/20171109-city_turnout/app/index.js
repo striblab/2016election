@@ -93,7 +93,7 @@ $("#" + selected).show();
           grid: {
               x: {
               lines: [
-                    {value: 2009, text: 'Rank choice introduced', position: 'end', class:'powerline'}
+                    {value: 2009, text: 'Ranked choice introduced', position: 'end', class:'powerline'}
               ]
               }
           }
@@ -165,7 +165,7 @@ chartTrend();
           grid: {
               x: {
               lines: [
-                    {value: 2009, text: 'Rank choice introduced', position: 'end', class:'powerline'}
+                    {value: 2009, text: 'Ranked choice introduced', position: 'end', class:'powerline'}
               ]
               }
           }
@@ -235,7 +235,7 @@ chartReg();
           grid: {
               x: {
               lines: [
-                    {value: 2009, text: 'Rank choice introduced', position: 'end', class:'powerline'}
+                    {value: 2009, text: 'Ranked choice introduced', position: 'end', class:'powerline'}
               ]
               }
           }
@@ -318,7 +318,7 @@ chartCandidates();
           grid: {
               x: {
               lines: [
-                    {value: 2009, text: 'Rank choice introduced', position: 'end', class:'powerline'}
+                    {value: 2009, text: 'Ranked choice introduced', position: 'end', class:'powerline'}
               ]
               }
           }
@@ -395,7 +395,7 @@ chartMPLS();
           grid: {
               x: {
               lines: [
-                    {value: 2009, text: 'Rank choice introduced', position: 'end', class:'powerline'}
+                    {value: 2009, text: 'Ranked choice introduced', position: 'end', class:'powerline'}
               ]
               }
           }
