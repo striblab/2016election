@@ -170,11 +170,11 @@ fclose($file); // Close the file
 	.partyD { color: #79B0C5; font-weight: bold; }
 	circle { stroke: none; }
 	.explain_text { background: transparent; height: 600px; padding: 0 0 0 24px; position: absolute; right: 1px; top: 64px; width: 483px; z-index: 1; }
-	#2004_text { display: none; }
-	#2006_text { display: none; }
-	#2008_text { display: none; }
-	#2010_text { display: none; }
-	#2012_text { display: block; }
+	#text_2004 { display: none; }
+	#text_2006 { display: none; }
+	#text_2008 { display: none; }
+	#text_2010 { display: none; }
+	#text_2012 { display: block; }
 	#lean_text { display: none; }
 	#unopposed_text { display: none; }
 	#rematch_text { display: none; }
@@ -205,9 +205,9 @@ fclose($file); // Close the file
 	.zoomCheckbox input[type="checkbox"]:checked + label.metroOff { display: none; }
 	h1, h3, h5, h6 { font-family: "Popular"; margin-top: 0; }
 	h4 { font-size: 14px !important; }
-	#container { display: table; font-size: 10px !important; width: 100%; }
-	#row { display: table-row; font-size: 10px !important; }
-	#left, #right, #middle { display: table-cell; font-size: 1.1em !important; }
+	.container { display: table; font-size: 10px !important; width: 100%; }
+	.row { display: table-row; font-size: 10px !important; }
+	.left, .right, .middle { display: table-cell; font-size: 1.1em !important; }
 	.candidates { left: 0; position: absolute; top: 635px; width: 100%; z-index: 9998; }
 	.hidden_candidates { display: none; font-size: .85em !important; }
 	td { font-size: .85em !important; }
@@ -238,14 +238,14 @@ fclose($file); // Close the file
 
 <div id="wrapper">
 	<div class="btn-group" id="menu_main" data-toggle="buttons">
-		<label class="btn btn-primary first-btn active" id="2012HouseWin"><input type="radio" id="2012HouseWin2" name="options" onchange="map.removeLayer(party);party.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2004_text', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('2012_text', 'block');setVisibility('thanks', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'block');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Current<br>Standing</label>
-		<label class="btn btn-primary" id="lean"><input type="radio" id="unopposed2" name="options" onchange="map.removeLayer(lean);lean.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);flipGrid.addTo(map);flipControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('lean_text', 'none');setVisibility('2004_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('unopposed_text', 'block');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'block');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(dataControl);map.removeLayer(dataGrid);">Swing<br>Seats</label>
-		<label class="btn btn-primary" id="RaceStatus"><input type="radio" id="lean2" name="options" onchange="map.removeLayer(vulnerable);vulnerable.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('2004_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('lean_text', 'none');setVisibility('thanks', 'none');setVisibility('vul_text', 'block');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'block');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Seat<br>Vulnerability</label>
-		<label class="btn btn-primary" id="rematch"><input type="radio" id="rematch3" name="options" onchange="map.removeLayer(rematch);rematch.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);rematchGrid.addTo(map);rematchControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('2004_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('rematch_text', 'block');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'block');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(dataControl);map.removeLayer(dataGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Political<br>Rematches</label>
-		<label class="btn btn-primary" id="openseat"><input type="radio" id="openseat2" name="options" onchange="map.removeLayer(openseat);openseat.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('2004_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('open_text', 'block');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'block');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Open<br>Seats</label>
-		<label class="btn btn-primary" id="MarriageFlags"><input type="radio" id="marriage2" name="options" onchange="map.removeLayer(marriage);map.removeLayer(dataGrid);map.removeLayer(dataControl);marriage.addTo(map);marriageGrid.addTo(map);marriageControl.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('2004_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('marriage_text', 'block');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'block');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Marriage<br>Amendment</label>
-		<label class="btn btn-primary" id="PresFlag"><input type="radio" id="marriage2" name="options" onchange="map.removeLayer(prez);prez.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);prezGrid.addTo(map);prezControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('2004_text', 'none');setVisibility('gov_text', 'none');setVisibility('prez_text', 'block');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'block');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(dataControl);map.removeLayer(dataGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Presidential<br>Factors</label>
-		<label class="btn btn-primary last-btn" id="GovFlag"><input type="radio" id="marriage2" name="options" onchange="map.removeLayer(gov);gov.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);govGrid.addTo(map);govControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('2004_text', 'none');setVisibility('gov_text', 'block');setVisibility('prez_text', 'none');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'block');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(dataControl);map.removeLayer(dataGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Gubernatorial<br>Factors</label>
+		<label class="btn btn-primary first-btn active" id="2012HouseWin"><input type="radio" id="2012HouseWin2" name="options" onchange="map.removeLayer(party);party.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2004', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('text_2012', 'block');setVisibility('thanks', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'block');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Current<br>Standing</label>
+		<label class="btn btn-primary" id="lean"><input type="radio" id="unopposed2" name="options" onchange="map.removeLayer(lean);lean.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);flipGrid.addTo(map);flipControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('lean_text', 'none');setVisibility('text_2004', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('unopposed_text', 'block');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'block');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(dataControl);map.removeLayer(dataGrid);">Swing<br>Seats</label>
+		<label class="btn btn-primary" id="RaceStatus"><input type="radio" id="lean2" name="options" onchange="map.removeLayer(vulnerable);vulnerable.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('text_2004', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('lean_text', 'none');setVisibility('thanks', 'none');setVisibility('vul_text', 'block');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'block');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Seat<br>Vulnerability</label>
+		<label class="btn btn-primary" id="rematch"><input type="radio" id="rematch3" name="options" onchange="map.removeLayer(rematch);rematch.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);rematchGrid.addTo(map);rematchControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('text_2004', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('rematch_text', 'block');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'block');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(dataControl);map.removeLayer(dataGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Political<br>Rematches</label>
+		<label class="btn btn-primary" id="openseat"><input type="radio" id="openseat2" name="options" onchange="map.removeLayer(openseat);openseat.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('text_2004', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('open_text', 'block');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'block');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Open<br>Seats</label>
+		<label class="btn btn-primary" id="MarriageFlags"><input type="radio" id="marriage2" name="options" onchange="map.removeLayer(marriage);map.removeLayer(dataGrid);map.removeLayer(dataControl);marriage.addTo(map);marriageGrid.addTo(map);marriageControl.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('text_2004', 'none');setVisibility('prez_text', 'none');setVisibility('gov_text', 'none');setVisibility('marriage_text', 'block');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'block');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Marriage<br>Amendment</label>
+		<label class="btn btn-primary" id="PresFlag"><input type="radio" id="pres" name="options" onchange="map.removeLayer(prez);prez.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);prezGrid.addTo(map);prezControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('text_2004', 'none');setVisibility('gov_text', 'none');setVisibility('prez_text', 'block');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'block');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');map.removeLayer(dataControl);map.removeLayer(dataGrid);map.removeLayer(govControl);map.removeLayer(govGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Presidential<br>Factors</label>
+		<label class="btn btn-primary last-btn" id="GovFlag"><input type="radio" id="gov" name="options" onchange="map.removeLayer(gov);gov.addTo(map);setVisibility('paint_me', 'none');setVisibility('map', 'block');setVisibility('chart', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);govGrid.addTo(map);govControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('text_2004', 'none');setVisibility('gov_text', 'block');setVisibility('prez_text', 'none');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'block');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'block');setVisibility('vul_can', 'none');map.removeLayer(prezControl);map.removeLayer(prezGrid);map.removeLayer(dataControl);map.removeLayer(dataGrid);map.removeLayer(rematchControl);map.removeLayer(rematchGrid);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);map.removeLayer(flipControl);map.removeLayer(flipGrid);">Gubernatorial<br>Factors</label>
 	</div>
 
 <div class="breaker"></div>
@@ -509,20 +509,20 @@ fclose($file); // Close the file
   </tbody>
 </table>
 </div>
-<div class="predictThis" style="width:100%;position:absolute;bottom:0;padding-left:30%;"><input type="submit" id="Vote" name="Vote" value="Vote!" onclick="setVisibility('paint_me', 'none');setVisibility('chart', 'none');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('2004_text', 'none');setVisibility('gov_text', 'none');setVisibility('prez_text', 'none');setVisibility('thanks', 'block');"><input type="reset" onclick="map.removeLayer(paint_me);paint_me.addTo(map);map.setView([46.8527,-93.5595], 6);" value="Reset"></div>
+<div class="predictThis" style="width:100%;position:absolute;bottom:0;padding-left:30%;"><input type="submit" id="Vote" name="Vote" value="Vote!" onclick="setVisibility('paint_me', 'none');setVisibility('chart', 'none');setVisibility('tracker', 'none');setVisibility('tally', 'none');map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('text_2004', 'none');setVisibility('gov_text', 'none');setVisibility('prez_text', 'none');setVisibility('thanks', 'block');"><input type="reset" onclick="map.removeLayer(paint_me);paint_me.addTo(map);map.setView([46.8527,-93.5595], 6);" value="Reset"></div>
 </form>
 </div>
 
 
-<div id="2010_text" class="explain_text">
+<div id="text_2010" class="explain_text">
 </div>
-<div id="2008_text" class="explain_text">
+<div id="text_2008" class="explain_text">
 </div>
-<div id="2006_text" class="explain_text">
+<div id="text_2006" class="explain_text">
 </div>
-<div id="2004_text" class="explain_text">
+<div id="text_2004" class="explain_text">
 </div>
-<div id="2012_text" class="explain_text">
+<div id="text_2012" class="explain_text">
 <h3>The Upcoming Election</h3>
 The 2012 election gave Democrats control of the Minnesota House and Senate, in a year that saw heavy turnout for Democratic President Obama. With only the 134-seat House up for election this year, Republicans need a net increase of seven seats to regain House control. Currently the DFL holds 73 seats and the GOP has 61 seats.
 </div>
@@ -567,78 +567,78 @@ The most vulnerable seats this election cycle are in DFL-held districts.
 <div class="candidates">
 <div id="prez_can" class="hidden_candidates">
 <h3>Races to watch for effects of presidential leanings</h3>
-<div id="container">
-  <div id="row">
+<div class="container">
+  <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">21A</h4>
   		<p><strong>Kelly(R)</strong><br />Schoen(D)</p>
   	</div>
 
-  	<div id="middle">
+  	<div class="middle">
   		<h4 class="partyR">28B</h4>
   		<p><strong>Davids(R)</strong><br />Pieper(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">57A</h4>
     	<p><strong>Mack(R)</strong><br />Slaten(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">54B</h4>
     	<p><strong>McNamara(R)</strong><br />Folken(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">02A</h4>
     	<p><strong>Erickson(D)</strong><br />Hancock(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">10B</h4>
     	<p><strong>Radinovich(D)</strong><br />Lueck(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">11B</h4>
     	<p><strong>Faust(D)</strong><br />Rarick(R)</p>
   	</div>
 
 	</div>
- <div id="row">
+ <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">17B</h4>
   		<p><strong>Sawatzky(D)</strong><br />Baker(R)</p>
   	</div>
 
-  	<div id="middle">
+  	<div class="middle">
   		<h4 class="partyD">24B</h4>
   		<p><strong>Fritz(D)</strong><br />Daniels(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">04B</h4>
     	<p><strong>Marquart(D)</strong><br />Laduke(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">10A</h4>
     	<p><strong>Ward(D)</strong><br />Heintzeman(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">12A</h4>
     	<p><strong>McNamar(D)</strong><br />Backer(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">17A</h4>
     	<p><strong>Falk(D)</strong><br />Miller(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD"></h4>
     	<p></p>
   	</div>
@@ -649,89 +649,89 @@ The most vulnerable seats this election cycle are in DFL-held districts.
 
 <div id="vul_can" class="hidden_candidates">
 <h3>Races for vulnerable seats</h3>
-<div id="container">
-  <div id="row">
+<div class="container">
+  <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">48A</h4>
   		<p><strong>Selcer(D)</strong><br />Stensrud(R)</p>
   	</div>
 
-  	<div id="middle">
+  	<div class="middle">
   		<h4 class="partyD">11B</h4>
   		<p><strong>Faust(D)</strong><br />Rarick(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">42A</h4>
     	<p><strong>Yarusso(D)</strong><br />Jessup(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">51A</h4>
     	<p><strong>Masin(D)</strong><br />Harlin(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">54A</h4>
     	<p><strong>Schoen(D)</strong><br />Kowalski(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">49B</h4>
     	<p><strong>Sutter(D)</strong><br />Rosenthal(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">10B</h4>
     	<p><strong>Lueck(D)</strong><br />Radinovich(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">56B</h4>
     	<p><strong>Peterson(D)</strong><br />Morgan(R)</p>
   	</div>
 
 	</div>
 
-  <div id="row">
+  <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">27A</h4>
   		<p><strong>Savick(D)</strong><br />Bennett(R)</p>
   	</div>
 
-  	<div id="middle">
+  	<div class="middle">
   		<h4 class="partyD">02A</h4>
   		<p><strong>Erickson(D)</strong><br />Hancock(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">02A</h4>
     	<p><strong>Erickson(D)</strong><br />Hancock(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">05B</h4>
     	<p><strong>Anzelc(D)</strong><br />Eichorn(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">14B</h4>
     	<p><strong>Dorholt(D)</strong><br />Knoblach(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">17B</h4>
     	<p><strong>Baker(D)</strong><br />Sawatzky(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">24B</h4>
     	<p><strong>Fritz(D)</strong><br />Daniels(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD"></h4>
     	<p></p>
   	</div>
@@ -743,138 +743,138 @@ The most vulnerable seats this election cycle are in DFL-held districts.
 
 <div id="marriage_can" class="hidden_candidates">
 <h3>Races to watch for effects of the marriage amendment</h3>
-<div id="container">
-  <div id="row">
+<div class="container">
+  <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">02A</h4>
   		<p><strong>Erickson(D)</strong><br />Hancock(R)</p>
   	</div>
 
-  	<div id="middle">
+  	<div class="middle">
   		<h4 class="partyD">03A</h4>
   		<p><strong>Dill(D)</strong><br />Johnson(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">05A</h4>
     	<p>Nelson(R)<br />Persell(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">05B</h4>
     	<p><strong>Anzelc(D)</strong><br />Eichorn(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">06A</h4>
     	<p>Melin(D)<br />Weber(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">06B</h4>
     	<p><strong>Metsa(D)</strong><br />Matasich(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">11A</h4>
     	<p><strong>Sundin(D)</strong><br />Hafvenstein(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">10B</h4>
     	<p><strong>Radinovich(D)</strong><br />Lueck(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">10A</h4>
     	<p><strong>Ward(D)</strong><br />Heintzeman(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">11B</h4>
     	<p><strong>Faust(D)</strong><br />Rarick(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">04B</h4>
     	<p><strong>Marquart(D)</strong><br />Laduke(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">12A</h4>
     	<p><strong>McNamar(D)</strong><br />Backer(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">17A</h4>
     	<p><strong>Falk(D)</strong><br />Miller(R)</p>
   	</div>
 
 	</div>
- <div id="row">
+ <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">27A</h4>
   		<p><strong>Savick(D)</strong><br />Bennett(R)</p>
   	</div>
 
-  	<div id="middle">
+  	<div class="middle">
   		<h4 class="partyD">27B</h4>
   		<p><strong>Poppe(D)</strong><br />Schminke(R)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">55B</h4>
     	<p><strong>Albright(R)</strong><br />Burkart(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">58A</h4>
     	<p><strong>Koznick(R)</strong><br />Willingham(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">57A</h4>
     	<p><strong>Folken(R)</strong><br />Mack(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">58B</h4>
     	<p><strong>Garofalo(R)</strong><br />Vagts(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">57B</h4>
     	<p><strong>Wills(R)</strong><br />Packard(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">54BA</h4>
     	<p><strong>McNamara(R)</strong><br />Slaten(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">39B</h4>
     	<p><strong>Lohmer(R)</strong><br />Degree(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">39A</h4>
     	<p><strong>Dettmer(R)</strong><br />Stender(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">37B</h4>
     	<p><strong>Sanders(R)</strong><br />Witt(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">38B</h4>
     	<p><strong>Dean(R)</strong><br />Pariseau(D)</p>
   	</div>
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyR">14A</h4>
     	<p><strong>Erickson(R)</strong><br />Wolgamott(D)</p>
   	</div>
@@ -885,118 +885,118 @@ The most vulnerable seats this election cycle are in DFL-held districts.
 
 <div id="safe_can" class="hidden_candidates">
 <h3>Races for swings seats</h3>
-<div id="container">
-  <div id="row">
+<div class="container">
+  <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">02A</h4>
   		<p><strong>Erickson(D)</strong><br />Hancock(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">04A</h4>
   		<p><strong>Lien(D)</strong><br />Gramer(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">05A</h4>
   		<p><strong>Nelson(D)</strong><br />Persell(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">10B</h4>
   		<p><strong>Radinovich(D)</strong><br />Lueck(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">11B</h4>
   		<p><strong>Rarick(D)</strong><br />Faust(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">12A</h4>
   		<p><strong>McNamar(D)</strong><br />Backer(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">13A</h4>
   		<p><strong>Jensen(D)</strong><br />Home(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">14B</h4>
   		<p><strong>Zachary(D)</strong><br />Knoblach(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">17B</h4>
   		<p><strong>Sawatzky(D)</strong><br />Baker(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">24A</h4>
   		<p><strong>Petersburg(R)</strong><br />Cashman(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">24B</h4>
   		<p><strong>Fritz(D)</strong><br />Daniels(R)</p>
   	</div>
 
   </div>
- <div id="row">
+ <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">27A</h4>
   		<p><strong>Savick(D)</strong><br />Bennett(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">32B</h4>
   		<p><strong>Warner(D)</strong><br />Barrett(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">36A</h4>
   		<p><strong>Uglem(R)</strong><br />Fietek(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">42B</h4>
   		<p><strong>Yarusso(D)</strong><br />Jessup(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">44A</h4>
   		<p><strong>Britton(D)</strong><br />Anderson(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">48A</h4>
   		<p><strong>Selcer(D)</strong><br />Stensrud(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">49A</h4>
   		<p><strong>Erhardt(D)</strong><br />Anselmo(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">51A</h4>
     	<p><strong>Masin(D)</strong><br />Harlin(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">51B</h4>
   		<p><strong>Halverson(D)</strong><br />Wilson(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">54A</h4>
   		<p><strong>Schoen(D)</strong><br />Kowalski(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">56B</h4>
   		<p><strong>Morgan(D)</strong><br />Peterson(R)</p>
   	</div>
@@ -1007,93 +1007,93 @@ The most vulnerable seats this election cycle are in DFL-held districts.
 
 <div id="gov_can" class="hidden_candidates">
 <h3>Races to watch for effects of gubernatorial leanings</h3>
-<div id="container">
-  <div id="row">
-  	<div id="right">
+<div class="container">
+  <div class="row">
+  	<div class="right">
     	<h4 class="partyR">01B</h4>
     	<p><strong>Kiel(R)</strong><br />Bergeson(D)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">02A</h4>
     	<p><strong>Erickson(D)</strong><br />Hancock(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">04B</h4>
     	<p><strong>Marquart(D)</strong><br />Laduke(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">12A</h4>
     	<p><strong>Mcnamar(D)</strong><br />Backer(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">17A</h4>
     	<p><strong>Falk(D)</strong><br />Miller(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">17B</h4>
     	<p><strong>Sawatzky(D)</strong><br />Baker(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">25B</h4>
     	<p><strong>Norton(D)</strong><br /></p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">48A</h4>
     	<p><strong>Selcer(D)</strong><br />Stensrud(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">36B</h4>
     	<p><strong>Hortman(D)</strong><br />Crema(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">42A</h4>
     	<p><strong>Yarusso(D)</strong><br />Jessup(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">44B</h4>
     	<p>Rutzick(R)<br />Applebaum(D)</p>
   	</div>
 
 	</div>
- <div id="row">
+ <div class="row">
 
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">49B</h4>
     	<p><strong>Rosenthal(D)</strong><br />Sutter(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">51A</h4>
     	<p><strong>Masin(D)</strong><br />Harlin(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">51B</h4>
     	<p><strong>Halverson(D)</strong><br />Wilson(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">56B</h4>
     	<p><strong>Morgan(D)</strong><br />Peterson(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">52B</h4>
     	<p><strong>Atkins(D)</strong><br />Lee(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">24B</h4>
     	<p><strong>Fritz(D)</strong><br />Daniels(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">11B</h4>
     	<p><strong>Faust(D)</strong><br />Rarick(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">10B</h4>
     	<p><strong>Lueck(D)</strong><br />Radinovich(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD">10A</h4>
     	<p><strong>Ward(D)</strong><br />Heintzeman(R)</p>
   	</div>
-  	<div id="right">
+  	<div class="right">
     	<h4 class="partyD"></h4>
     	<p></p>
   	</div>
@@ -1103,11 +1103,11 @@ The most vulnerable seats this election cycle are in DFL-held districts.
 </div>
 
 <div id="now">
-<div id="container">
-  <div id="row">
+<div class="container">
+  <div class="row">
 
 	</div>
-  <div id="row">
+  <div class="row">
 
 
 	</div>
@@ -1116,73 +1116,73 @@ The most vulnerable seats this election cycle are in DFL-held districts.
 
 <div id="open_can" class="hidden_candidates">
 <h3>Races for open seats</h3>
-<div id="container">
-  <div id="row">
+<div class="container">
+  <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">20A</h4>
   		<p>Vogel(R)<br />Lofgren(D)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">26B</h4>
   		<p>Pierson(R)</strong><br />Wright(D)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">47A</h4>
   		<p>Gieseke(D)<br />Nash(R)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">58A</h4>
   		<p>Koznick(R)</strong><br />Willingham(D)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">56A</h4>
   		<p>Christensen(R)<br />Kimmel(D)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">35A</h4>
   		<p>Perovich(D)<br />Whelan(R)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">30B</h4>
   		<p>Shimek(D)<br />Lucero(D)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">53BA</h4>
   		<p><strong>Fenton(R)</strong><br />Hendrikson(D)</p>
   	</div>
 
   </div>
- <div id="row">
-  	<div id="left">
+ <div class="row">
+  	<div class="left">
   		<h4 class="partyR">55A</h4>
   		<p><strong>Loonan(R)</strong><br />Whiting(D)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">64B</h4>
   		<p>Pinto(D)<br />Surman(R)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">46B</h4>
   		<p>Youakim(D)<br />Bjornson(R)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">19B</h4>
   		<p>Considine(D)<br />Kruse(R)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">07A</h4>
   		<p>Schultz(D)<br />Hall(R)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">40B</h4>
   		<p><strong>Hilstrom(D)</strong><br />Marvin(R)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">44B</h4>
   		<p>Rutzick(D)<br />Applebaum(D)</p>
   	</div>
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD"></h4>
   		<p></p>
   	</div>
@@ -1197,129 +1197,129 @@ The most vulnerable seats this election cycle are in DFL-held districts.
 
 <div id="rematch_can" class="hidden_candidates">
 <h3>Races featuring political rematches</h3>
-<div id="container">
-  <div id="row">
+<div class="container">
+  <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">38A</h4>
   		<p><strong>Runbeck(R)</strong><br />Davern(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">38B</h4>
   		<p><strong>Dean(R)</strong><br />Pariseau(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">33A</h4>
   		<p><strong>Hertaus(R)</strong><br />Mikkelson(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">39B</h4>
   		<p><strong>Lohmer(R)</strong><br />Degree(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">44A</h4>
   		<p><strong>Anderson(R)</strong><br />Britton(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">32A</h4>
   		<p><strong>Johnson(R)</strong><br />Gammel(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">22B</h4>
   		<p><strong>Hamilton(R)</strong><br />Avenel-Navara(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">35B</h4>
   		<p><strong>Scott(R)</strong><br />Beard(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">01A</h4>
   		<p><strong>Fabian(R)</strong><br />Patterson(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyR">15B</h4>
   		<p><strong>Newburger(R)</strong><br />Johnson(D)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">02A</h4>
   		<p><strong>Erickson(D)</strong><br />Hancock(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">06A</h4>
   		<p>Melin(D)<br />Weber(R)</p>
   	</div>
 
 
   </div>
-  <div id="row">
+  <div class="row">
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">10B</h4>
   		<p><strong>Lueck(D)</strong><br />Radinovich(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">37A</h4>
   		<p><strong>Benz(D)</strong><br />Newton(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">60A</h4>
   		<p><strong>Millsop(D)</strong><br />Loeffler(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">67B</h4>
   		<p><strong>Quinn(D)</strong><br />Johnson(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">56B</h4>
   		<p><strong>Peterson(D)</strong><br />Morgan(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">17A</h4>
   		<p><strong>Miller(D)</strong><br />Falk(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">43A</h4>
   		<p><strong>Fischer(D)</strong><br />Stout(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">26A</h4>
   		<p><strong>Leibling(D)</strong><br />Bly(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">07B</h4>
   		<p><strong>Simonson(D)</strong><br />Silvers(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">52A</h4>
   		<p><strong>Hansen(D)</strong><br />Blum(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD">48A</h4>
   		<p><strong>Selcer(D)</strong><br />Stensrud(R)</p>
   	</div>
 
-  	<div id="left">
+  	<div class="left">
   		<h4 class="partyD"></h4>
   		<p></p>
   	</div>
@@ -1334,16 +1334,16 @@ The most vulnerable seats this election cycle are in DFL-held districts.
 <div class="outerMap">
 	<div id="survey">
 	<label class="btn btn-primary round vote" id="Predict">
-	<input type="radio" id="predict2" name="options" onchange="setVisibility('paint_me', 'block');map.removeLayer(paint_me);paint_me.addTo(map);setVisibility('chart', 'none');setVisibility('tracker', 'none');setVisibility('map', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'block');map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('2004_text', 'none');setVisibility('gov_text', 'none');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'none');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');"> Make Your Election 2014 Predictions
+	<input type="radio" id="predict2" name="options" onchange="setVisibility('paint_me', 'block');map.removeLayer(paint_me);paint_me.addTo(map);setVisibility('chart', 'none');setVisibility('tracker', 'none');setVisibility('map', 'block');setVisibility('tracker', 'none');setVisibility('tally', 'block');map.setView([46.8527,-93.5595], 6);dataGrid.addTo(map);dataControl.addTo(map);map.removeLayer(marriageControl);map.removeLayer(marriageGrid);setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('text_2004', 'none');setVisibility('gov_text', 'none');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('metro').checked = false;setVisibility('zoomMe', 'none');setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');"> Make Your Election 2014 Predictions
 	</label>
 	<label class="btn btn-primary round results" id="Results">
-	<input type="radio" id="predict2" name="options" onchange="setVisibility('map', 'none');setVisibility('paint_me', 'none');setVisibility('chart', 'none');setVisibility('tally', 'none');setVisibility('tracker', 'block');setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('2004_text', 'none');setVisibility('gov_text', 'none');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');setVisibility('zoomMe', 'none');document.getElementById('metro').checked = false;setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');"> See Results
+	<input type="radio" id="predict2" name="options" onchange="setVisibility('map', 'none');setVisibility('paint_me', 'none');setVisibility('chart', 'none');setVisibility('tally', 'none');setVisibility('tracker', 'block');setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('text_2004', 'none');setVisibility('gov_text', 'none');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');setVisibility('zoomMe', 'none');document.getElementById('metro').checked = false;setVisibility('now', 'none');setVisibility('safe_can', 'none');setVisibility('rematch_can', 'none');setVisibility('open_can', 'none');setVisibility('marriage_can', 'none');setVisibility('prez_can', 'none');setVisibility('gov_can', 'none');setVisibility('vul_can', 'none');"> See Results
 	</label>
 	</div>
 	
 	
 	<div id="zoomMe" class="zoomCheckbox"><input type="checkbox" id="metro" name="zoomMetro" onclick="if (document.getElementById('metro').checked) {map.setView([44.9648,-93.2519], 9);} else {map.setView([46.8527,-93.5595], 6);}" value="1" /><label for="metro"></label></div><div id="map"></div></div>
-<div id="thanks"><h3>Thanks for submitting your prediction. Your data have been tabulated into the overall <a href="#" onclick="setVisibility('map', 'none');setVisibility('paint_me', 'none');setVisibility('chart', 'none');setVisibility('tally', 'none');setVisibility('tracker', 'block');setVisibility('2006_text', 'none');setVisibility('2008_text', 'none');setVisibility('2010_text', 'none');setVisibility('2012_text', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('2004_text', 'none');setVisibility('gov_text', 'none');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('Results').className = 'active btn btn-primary round';document.getElementById('Predict').className = 'btn btn-primary round';">survey results</a>.</h3>
+<div id="thanks"><h3>Thanks for submitting your prediction. Your data have been tabulated into the overall <a href="#" onclick="setVisibility('map', 'none');setVisibility('paint_me', 'none');setVisibility('chart', 'none');setVisibility('tally', 'none');setVisibility('tracker', 'block');setVisibility('text_2006', 'none');setVisibility('text_2008', 'none');setVisibility('text_2010', 'none');setVisibility('text_2012', 'none');setVisibility('lean_text', 'none');setVisibility('unopposed_text', 'none');setVisibility('rematch_text', 'none');setVisibility('open_text', 'none');setVisibility('marriage_text', 'none');setVisibility('prez_text', 'none');setVisibility('text_2004', 'none');setVisibility('gov_text', 'none');setVisibility('thanks', 'none');setVisibility('vul_text', 'none');document.getElementById('Results').className = 'active btn btn-primary round';document.getElementById('Predict').className = 'btn btn-primary round';">survey results</a>.</h3>
 <br />
 You predicted <label for="61" id="tallyMeR2">61</label> GOP seats and <label for="73" id="tallyMeD2">73</label> DFL seats resulting in <label id="house_control2" for="DFL">DFL Control</label> of the Minnesota House of Representatives. <br />
 

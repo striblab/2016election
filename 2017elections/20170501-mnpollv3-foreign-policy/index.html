@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MNPOLL Spring 2017: Foreign Policy</title>
+  	<meta name="description" content="MNPOLL Spring 2017: Senators">
+ 	<meta name="author" content="Frey Hargarten - StarTribune">
+	<meta name="generator" content="BBEdit 10.5" />
+	
+	<link rel="stylesheet" href="./builds/development/css/style.css">
+
+	<style>
+
+	#wrapper {
+		margin-right:auto;
+		margin-left:auto;
+		width:100%;
+	}
+
+	.chart svg {
+	    text-align:center;
+	    height:300px !important;
+	    max-height:300px !important;
+	}
+
+	.chart {
+	    text-align:center;
+	    height:300px !important;
+	    margin-left: auto;
+	    margin-right: auto;
+	    max-height:300px !important;
+	}
+
+	.powerline {
+	    stroke-dasharray: 5;
+	    stroke: #333;
+	}
+
+	.chart .c3-line {
+	  stroke-width: 6px !important;
+	}
+
+	.dataframe { 
+		height:3150px;
+	} 
+
+	#bigResults {
+	    text-align: center;
+	    width: 100%;
+	    margin: 20px;
+	}
+
+	.byline {
+	    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+	    font-weight: 400;
+	    font-size:0.6em;
+	    color: #888;
+	    padding-top:10px;
+	    padding-bottom:10px;
+	    text-align:left;
+	}
+
+	.byline a {
+		color: #888;
+	}
+	
+	.result {
+	    display: inline-block !important;
+	    text-align: center;
+	    margin: 20px;
+	    width: 112px;
+	}
+
+	.bigNum {
+	    font-size: 3em;
+	    font-family: "Benton Sans" !important;
+	    text-align: center;
+	    font-weight: 900;
+	    padding-top: 15px;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    padding-bottom: 5px;
+	}
+
+	.forNum {
+	    color: #00222D;
+	}
+
+	.againstNum {
+	    color: rgb(115, 115, 115);
+	}
+
+	.downloadButton9 {
+	    font-family: "Benton Sans",Helvetica,Arial,sans-serif;
+	    font-weight: bold;
+	    color: #333333;
+	    border: none;
+	    font-size: .9em;
+	    text-align: center;
+	    margin-top: 14px;
+	    margin-left: 1%;
+	    padding-top: 0px;
+	    width: 99%;
+	    background-color: #fff;
+	    color: #333;
+/*	    background-image: url(./builds/development/img/downloadDoc.svg);*/
+	    background-size: 18px 18px;
+	    background-repeat: no-repeat;
+	    background-position: 42% 76%;
+	}
+
+	.downloadButton9:hover {
+	    background-color: #fff !important;
+	    opacity: .5;
+	    cursor: pointer;
+	}
+
+	#selector { 
+		display:block !important ;
+	}
+
+	@media (max-width:500px) {
+		#wrapper {
+			width:100%;
+		}
+		.result {
+			width:35% !important;
+		}
+	}
+
+	@media only screen and (min-width: 200px) and (max-width: 767px) { 
+		.dataframe { 
+			height:3150px; 
+		}
+	}
+	</style>
+</head>
+<!-- 420509654 -->
+<body>
+	<div id="wrapper">
+	<div id="questions_list">
+		<div class="questionBlock section" id="question1">
+			<div class="question">Do you <span class="qhighlight forNum">approve</span> or <span class="qhighlight againstNum">disapprove</span> of President Trump’s decision to order missile strikes against Syria in response to the use of chemical weapons?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">70</span>%</div>
+				  <div class="stat forLabel">approve</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">21</span>%</div>
+				  <div class="stat againstLabel">disapprove</div>
+				</div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">Significant bipartisan support</div>
+			  <div class="chatter">Republicans and independents supported the strike overwhelmingly, along with about half of Democrats and Clinton voters.</div>
+			  <div id="chart1" class="chart"></div>
+			</div>
+
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question2">
+			<div class="question">Do you think President Trump’s revised executive order temporarily banning travelers from six Muslim-majority nations and all refugees makes the United States <span class="qhighlight forNum">safer</span> or <span class="qhighlight againstNum">less safe</span>, or does it <span class="qhighlight againstNum">not make much of a difference</span>?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">33</span>%</div>
+				  <div class="stat forLabel">safer</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">38</span>%</div>
+				  <div class="stat againstLabel">no difference</div>
+				</div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">The millennial gap</div>
+			  <div class="chatter">While many see the travel ban as making no difference to national security, far fewer of those aged 18 to 34 saw it as making the country safer.</div>
+			  <div id="chart2" class="chart"></div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question3">
+			<div class="question">Do you <span class="qhighlight forNum">support</span> or <span class="qhighlight againstNum">oppose</span> building a wall along the Mexican border if the U.S. has to pay for it?
+			</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">29</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">65</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+			  <div class="chartTitle">Trump supporters still want the wall</div>
+			  <div class="chatter">Trump supporters outweigh Republicans overall by 15 points in their support for the wall.</div>
+			  <div id="chart3" class="chart"></div>
+
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question4">
+			<div class="question">The Trump administration has moved to accelerate the deportation of people living in the United States illegally, including those who haven’t committed a serious crime. Do you <span class="qhighlight forNum">support</span> or <span class="qhighlight againstNum">oppose</span> this policy?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">40</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">53</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">Less support in the cities</div>
+			  <div class="chatter">Support for accelerated deportation of undocumented immigrants is significantly lower in Hennepin and Ramsey counties than the rest of the state.</div>
+			  <div id="chart4" class="chart"></div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question5" style="display:none !important;">
+			<div class="question">Do you think people connected to Donald Trump’s presidential campaign <span class="qhighlight forNum">were</span> or <span class="qhighlight againstNum">were not</span> in contact with Russian agents who tried to interfere in the U.S. election?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">42</span>%</div>
+				  <div class="stat forLabel">yes</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">39</span>%</div>
+				  <div class="stat againstLabel">no</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="questionBlock section" id="question6" style="display:none !important;">
+			<div class="question">Do you think there <span class="qhighlight forNum">should</span> or <span class="qhighlight againstNum">should not</span> be an outside, independent investigation into possible contact between Russia and Trump associates during the campaign?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">55</span>%</div>
+				  <div class="stat forLabel">should</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">39</span>%</div>
+				  <div class="stat againstLabel">should not</div>
+				</div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">Deep partisan differences</div>
+			  <div class="chatter">Responses to two questions about potential contact between Russia and Trump associates during the campaign were vastly different depending on who they voted for in November's election.</div>
+			  <div id="chart5" class="chart"></div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="breaker" style="border-bottom:3px solid #000; width:100%; margin:0;"></div>
+
+	<div class="section" id="breakdowns">
+		<div id="exploreLayer" class="chartTitle" style="text-align:center; padding:10px">Explore the data</div>
+		<div style="padding:10px;">Select a question to see a breakdown on the answers across parties, geography and demographics.</div>
+
+		<div id="viewSwitch">
+		<div id="selector">
+		  <section class="main">
+		        <div class="wrapper-demo">
+		          <div id="dd" class="wrapper-dropdown-1" tabindex="1">
+		            <span>Do you approve or disapprove of President Trump’s decision to order missile strikes against Syria in response to the use of chemical weapons?</span>
+		              <ul class="dropdown months" tabindex="1">
+			        <li class="thisSwitch"><a href="#" data="policy1">Do you approve or disapprove of President Trump’s decision to order missile strikes against Syria in response to the use of chemical weapons?</a></li>
+			        <li class="thisSwitch"><a href="#" data="policy2">Do you think President Trump’s revised executive order temporarily banning travelers from six Muslim-majority nations and all refugees makes the United States safer or less safe, or does it not make much of a difference?</a></li>
+		        	<li class="thisSwitch"><a href="#" data="policy3">Do you support or oppose building a wall along the Mexican border if the U.S. has to pay for it?</a></li>
+		        	<li class="thisSwitch"><a href="#" data="policy4">The Trump administration has moved to accelerate the deportation of people living in the United States illegally, including those who haven’t committed a serious crime. Do you support or oppose this policy?</a></li>
+		        	<li class="thisSwitch"><a href="#" data="russia1">Do you think people connected to Donald Trump’s presidential campaign were or were not in contact with Russian agents who tried to interfere in the U.S. election?</a></li>
+		        	<li class="thisSwitch"><a href="#" data="russia2">Do you think there should or should not be an outside, independent investigation into possible contact between Russia and Trump associates during the campaign?</a></li>
+		              </ul>
+		          </div>
+		        ​</div>
+		</section>
+		</div>
+		</div>
+
+	    <div id="results" class="embed"><iframe id="dataframe" class="dataframe" src="./builds/development/?poll=policy1" border="0" frameborder="0" scrolling="no" width="100%" height="3150"></iframe></div>
+
+	    <div class="byline">Source: Star Tribune/Mason Dixon | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./builds/production/data/maindata.xlsx" target="new_">Download Data</a></div>
+	</div>
+</div>
+</body>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="./builds/development/js/c3.min.js"></script>
+<script src="./builds/development/js/d3.v3.min.js"></script>
+
+<script>
+	$.urlParam = function(name){
+	  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	  if (results != null) { return results[1] || 0; }
+	  else { return null; }
+	}
+
+	var selected = $.urlParam('section');
+
+	if (selected != null){
+	$(".section").hide();
+	$("#" + selected).show();
+	} else { $(".section").show(); }
+
+	$(".thisSwitch").on("click",function(){
+		$("#dataframe").attr("src","./builds/development/?poll=" + $(this).find("a").attr("data"));
+	});
+
+
+//Q1: PARTY CHART
+	function chart1(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#chart1",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['Trump voters', .95],
+		                ['GOP', .93],
+		                ['Clinton voters', .51],
+		                ['DEM', .47],
+		                ['Other/non-voters', .65],
+		                ['IND', .71]
+		            ],
+		        type: 'bar',
+		        labels: {
+		            format: {
+		                'Trump voters': d3.format('%'),
+		                'GOP': d3.format('%'),
+		                'Clinton voters': d3.format('%'),
+		                'DEM': d3.format('%'),
+		                'Other/non-voters': d3.format('%'),
+		                'IND': d3.format('%')
+		            }
+		        }
+		        },
+		        // legend: {
+		        //     show: false
+		        // },
+		            color: {
+		              pattern: ['#8F120B','#d34A44','#085388','#3585BC',"#096F16","#35A443"]
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['% Approve']
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	chart1();
+
+//Q2: AGE CHART
+	function chart2(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#chart2",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['Age 18-34', .18,.31,.46],
+		                ['Age 35-49', .34,.30,.34],
+		                ['Age 50-64', .37,.22,.34],
+		                ['Age 65+', .40, .16, .43]
+		            ],
+		        type: 'bar',
+		        labels: {
+		            // format: {
+		            //     'Age 18-34': d3.format('%'),
+		            //     'Age 35-49': d3.format('%'),
+		            //     'Age 50-64': d3.format('%'),
+		            //     'Age 65+': d3.format('%')
+		            // }
+		        }
+		        },
+		        // legend: {
+		        //     show: false
+		        // },
+		            color: {
+		              pattern: ['#a3858b','#865f67','#693c46','#4c1926']
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['Safer','Less Safe','No Difference']
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	chart2();
+
+	function chart3(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#chart3",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['Trump voters', .69],
+		                ['GOP', .54],
+		                ['Clinton voters', .01],
+		                ['DEM', .04],
+		                ['Other/non-voters', .18],
+		                ['IND', .30]
+		            ],
+		        type: 'bar',
+		        labels: {
+		            format: {
+		                'Trump voters': d3.format('%'),
+		                'GOP': d3.format('%'),
+		                'Clinton voters': d3.format('%'),
+		                'DEM': d3.format('%'),
+		                'Other/non-voters': d3.format('%'),
+		                'IND': d3.format('%')
+		            }
+		        }
+		        },
+		        // legend: {
+		        //     show: false
+		        // },
+		            color: {
+		              pattern: ['#8F120B','#d34A44','#085388','#3585BC',"#096F16","#35A443"]
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['% Support']
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	chart3();
+
+//Q4: REGIONAL DIVIDE
+	function chart4(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#chart4",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['Hennepin/Ramsey', .28],
+		                ['Rest of Metro', .40],
+		                ['South MN', .48],
+		                ['North MN', .52]
+		            ],
+		        type: 'bar'
+		        },
+		        // legend: {
+		        //     show: false
+		        // },
+		            color: {
+		              pattern: ['#a3858b','#865f67','#693c46','#4c1926']
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['% Support']
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	chart4();
+
+//Q5: PARTY CHART
+	function chart5(){
+
+		var  padding = {
+		        top: 30,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#chart5",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['Trump voters', .02, .09],
+		                ['GOP', .05, .14],
+		                ['Clinton voters', .77, .91],
+		                ['DEM', .81, .94],
+		                ['Other/non-voters', .44, .63],
+		                ['IND', .36, .54]
+		            ],
+		        type: 'bar',
+		        labels: {
+		            format: {
+		                'Trump voters': d3.format('%'),
+		                'GOP': d3.format('%'),
+		                'Clinton voters': d3.format('%'),
+		                'DEM': d3.format('%'),
+		                'Other/non-voters': d3.format('%'),
+		                'IND': d3.format('%')
+		            }
+		        }
+		        },
+		        // legend: {
+		        //     show: false
+		        // },
+		            color: {
+		              pattern: ['#8F120B','#d34A44','#085388','#3585BC',"#096F16","#35A443"]
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['Suspects Russian Contact', 'Supports Investigation']
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	chart5();
+
+      
+      function DropDown(el)  { 
+        this.dd = el;
+        this.placeholder = this.dd.children('span');
+        this.opts = this.dd.find('ul.dropdown > li');
+        this.val = '';
+        this.index = -1;
+        this.initEvents();
+      }
+      DropDown.prototype =  { 
+        initEvents : function()  { 
+          var obj = this;
+
+          obj.dd.on('click', function(event) { 
+            $(this).toggleClass('active');
+            return false;
+          });
+
+          obj.opts.on('click',function() { 
+            var opt = $(this);
+            obj.val = opt.text();
+            obj.index = opt.index();
+            obj.placeholder.text(obj.val);
+          });
+        },
+        getValue : function()  { 
+          return this.val;
+        },
+        getIndex : function()  { 
+          return this.index;
+        }
+      }
+
+      $(function()  { 
+
+        var dd = new DropDown( $('#dd') );
+        var dd2 = new DropDown( $('#ddY') );
+
+        $(document).click(function()  { 
+          // all dropdowns
+          $('.wrapper-dropdown-1').removeClass('active');
+        });
+
+      });
+
+</script>
+</html>

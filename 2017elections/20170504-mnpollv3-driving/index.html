@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MNPOLL Spring 2017: State Government</title>
+  	<meta name="description" content="MNPOLL Spring 2017: State Government">
+ 	<meta name="author" content="Frey Hargarten - StarTribune">
+	<meta name="generator" content="BBEdit 10.5" />
+	
+	<link rel="stylesheet" href="./builds/development/css/style.css">
+
+	<style>
+
+	#wrapper {
+		margin-right:auto;
+		margin-left:auto;
+		width:520px;
+	}
+
+	.chart svg {
+	    text-align:center;
+	    height:300px !important;
+	    max-height:300px !important;
+	}
+
+	.chart {
+	    text-align:center;
+	    height:300px !important;
+	    margin-left: auto;
+	    margin-right: auto;
+	    max-height:300px !important;
+	}
+
+	.powerline {
+	    stroke-dasharray: 5;
+	    stroke: #333;
+	}
+
+	.chart .c3-line {
+	  stroke-width: 6px !important;
+	}
+
+	.dataframe { 
+		height:2720px;
+	} 
+
+	#bigResults {
+	    text-align: center;
+	    width: 100%;
+	    margin: 20px;
+	}
+
+	.result {
+	    display: inline-block !important;
+	    text-align: center;
+	    margin: 20px;
+	    width: 112px;
+	}
+
+	.bigNum {
+	    font-size: 3em;
+	    font-family: "Benton Sans" !important;
+	    text-align: center;
+	    font-weight: 900;
+	    padding-top: 15px;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    padding-bottom: 5px;
+	}
+
+	.forNum {
+	    color: #00222D;
+	}
+
+	.againstNum {
+	    color: rgb(115, 115, 115);
+	}
+
+	.byline {
+	    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+	    font-weight: 400;
+	    font-size:0.6em;
+	    color: #888;
+	    padding-top:10px;
+	    padding-bottom:10px;
+	    text-align:left;
+	}
+
+	.byline a {
+		color: #888;
+	}
+
+	.downloadButton9 {
+	    font-family: "Benton Sans",Helvetica,Arial,sans-serif;
+	    font-weight: bold;
+	    color: #333333;
+	    border: none;
+	    font-size: .9em;
+	    text-align: center;
+	    margin-top: 14px;
+	    margin-left: 1%;
+	    padding-top: 0px;
+	    width: 99%;
+	    background-color: #fff;
+	    color: #333;
+/*	    background-image: url(./builds/development/img/downloadDoc.svg);*/
+	    background-size: 18px 18px;
+	    background-repeat: no-repeat;
+	    background-position: 42% 76%;
+	}
+
+	.downloadButton9:hover {
+	    background-color: #fff !important;
+	    opacity: .5;
+	    cursor: pointer;
+	}
+
+	#selector { 
+		display:block !important ;
+	}
+
+	@media (max-width:500px) {
+		#wrapper {
+			width:100%;
+		}
+		.result {
+			width:35% !important;
+		}
+	}
+
+	@media only screen and (min-width: 200px) and (max-width: 767px) { 
+		.dataframe { 
+			height:2720px; 
+		}
+	}
+	</style>
+</head>
+<!-- 421170674 -->
+<body>
+	<div id="wrapper">
+	<div id="questions_list">
+
+		<div class="questionBlock section" id="question2">
+			<div class="question">How often do you text, check email, or look at Facebook or other social media on your phone while driving, including while at a stop light?  Would you say <span class="qhighlight forNum">often</span>, occasionally, rarely or <span class="qhighlight againstNum">never</span>?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">3</span>%</div>
+				  <div class="stat forLabel">often</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">66</span>%</div>
+				  <div class="stat againstLabel">never</div>
+				</div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">Claims of safe driving</div>
+			  <div class="chatter">Only about 10 percent of surveyed Minnesotans said they either often or occasionally texted while driving.</div>
+			  <div id="chart1" class="chart"></div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">The age gap</div>
+			  <div class="chatter">While most Minnesotans said they never used their phones while driving, millenials more readily admitted to it than other age groups.</div>
+			  <div id="chart2" class="chart"></div>
+			</div>
+
+		</div>
+
+<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question1">
+			<div class="question">Do you think it should be <span class="qhighlight forNum">legal</span> or <span class="qhighlight againstNum">illegal</span> to talk on a cell phone while driving?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">17</span>%</div>
+				  <div class="stat forLabel">legal</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">79</span>%</div>
+				  <div class="stat againstLabel">illegal</div>
+				</div>
+			</div>
+
+		</div>
+
+<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question3">
+			<div class="question">Should texting or checking Facebook while driving be punished more severely than drunk driving, <span class="qhighlight forNum">less severely</span> or about the <span class="qhighlight againstNum">same</span>?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">21</span>%</div>
+				  <div class="stat forLabel">less severe</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">71</span>%</div>
+				  <div class="stat againstLabel">same</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="breaker" style="border-bottom:3px solid #000; width:100%; margin:0;"></div>
+
+	<div class="section" id="breakdowns">
+		<div id="exploreLayer" class="chartTitle" style="text-align:center; padding:10px">Explore the data</div>
+		<div style="padding:10px;">Select a question to see a breakdown on the answers across parties, geography and demographics.</div>
+
+		<div id="viewSwitch">
+		<div id="selector">
+		  <section class="main">
+		        <div class="wrapper-demo">
+		          <div id="dd" class="wrapper-dropdown-1" tabindex="1">
+		            <span>Do you think it should be legal or illegal to talk on a cell phone while driving?</span>
+		              <ul class="dropdown months" tabindex="1">
+				        <li class="thisSwitch"><a href="#" data="driving1">Do you think it should be legal or illegal to talk on a cell phone while driving?</a></li>
+				        <li class="thisSwitch"><a href="#" data="driving2">How often do you text, check email, or look at Facebook or other social media on your phone while driving, including while at a stop light?  Would you say often, occasionally, rarely or never?</a></li>
+				        <li class="thisSwitch"><a href="#" data="driving3">Should texting or checking Facebook while driving be punished more severely than drunk driving, less severely or about the same?</a></li>
+		              </ul>
+		          </div>
+		        ​</div>
+		</section>
+		</div>
+		</div>
+
+	    <div id="results" class="embed"><iframe id="dataframe" class="dataframe" src="./builds/development/?poll=driving1" border="0" frameborder="0" scrolling="no" width="100%" height="2720"></iframe></div>
+
+	    <div class="byline">Source: Star Tribune/Mason Dixon | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./builds/production/data/maindata.xlsx" target="new_">Download Data</a></div>
+	</div>
+</div>
+</body>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="./builds/development/js/c3.min.js"></script>
+<script src="./builds/development/js/d3.v3.min.js"></script>
+
+<script>
+	$.urlParam = function(name){
+	  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	  if (results != null) { return results[1] || 0; }
+	  else { return null; }
+	}
+
+	var selected = $.urlParam('section');
+
+	if (selected != null){
+	$(".section").hide();
+	$("#" + selected).show();
+	} else { $(".section").show(); }
+
+	$(".thisSwitch").on("click",function(){
+		$("#dataframe").attr("src","./builds/development/?poll=" + $(this).find("a").attr("data"));
+	});
+
+//CHART 1
+	function chart1(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#chart1",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['Total', .03, .07, .24, .66],
+		            ],
+		        type: 'bar',
+		        labels: {
+		            format: {
+		                'Total': d3.format('%')
+		            }
+		        }
+		    },
+		        legend: {
+		            show: false
+		        },
+		            color: {
+		              pattern: ['#4c1926']
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['Often', "Occasional", "Rarely", "Never"]
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	chart1();
+
+//Q2: AGE DIVIDE
+	function chart2(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#chart2",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['18-34', .10, .12, .24, .54],
+		                ['35-49', .02, .07, .27, .64],
+		                ['50-64', .01, .05, .24, .70],
+		                ['65+', 0, .05, .19, .76]
+		            ],
+		        type: 'bar',
+		        labels: {
+		            // format: {
+		            //     '18-34': d3.format('%'),
+		            //     '35-49': d3.format('%'),
+		            //     '50-64': d3.format('%'),
+		            //     '65+': d3.format('%')
+		            // }
+		        }},
+		            color: {
+		              pattern: ['#a3858b','#865f67','#693c46','#4c1926']
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['Often','Occasional','Rarely','Never']
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	chart2();
+      
+      function DropDown(el)  { 
+        this.dd = el;
+        this.placeholder = this.dd.children('span');
+        this.opts = this.dd.find('ul.dropdown > li');
+        this.val = '';
+        this.index = -1;
+        this.initEvents();
+      }
+      DropDown.prototype =  { 
+        initEvents : function()  { 
+          var obj = this;
+
+          obj.dd.on('click', function(event) { 
+            $(this).toggleClass('active');
+            return false;
+          });
+
+          obj.opts.on('click',function() { 
+            var opt = $(this);
+            obj.val = opt.text();
+            obj.index = opt.index();
+            obj.placeholder.text(obj.val);
+          });
+        },
+        getValue : function()  { 
+          return this.val;
+        },
+        getIndex : function()  { 
+          return this.index;
+        }
+      }
+
+      $(function()  { 
+
+        var dd = new DropDown( $('#dd') );
+        var dd2 = new DropDown( $('#ddY') );
+
+        $(document).click(function()  { 
+          // all dropdowns
+          $('.wrapper-dropdown-1').removeClass('active');
+        });
+
+      });
+
+</script>
+</html>
