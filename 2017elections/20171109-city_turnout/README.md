@@ -21,7 +21,7 @@ An analysis of Twin Cities municipal voter turnout and whether rank choice votin
 This project is best used as a full, standalone page, or an embed.  The best way to embed the piece is with the following code:
 
 ```html
-<div data-pym-src="http://static.startribune.com/projects/twin-cities-voter-turnout">Loading...</div>
+<div data-pym-src="http://static.startribune.com/projects/20171109-city_turnout">Loading...</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pym/1.1.2/pym.v1.min.js" type="text/javascript"></script>
 ```
 
@@ -194,13 +194,13 @@ Publishing is configured in the `config.json` file.  The `publish` property can 
   "publish": {
     "default": {
       "bucket": "static.startribune.com",
-      "path": "news/projects-staging/all/twin-cities-voter-turnout/",
-      "url": "http://static.startribune.com/news/projects-staging/all/twin-cities-voter-turnout/"
+      "path": "news/projects-staging/all/20171109-city_turnout/",
+      "url": "http://static.startribune.com/news/projects-staging/all/20171109-city_turnout/"
     },
     "production": {
       "bucket": "static.startribune.com",
-      "path": "news/projects/all/twin-cities-voter-turnout/",
-      "url": "http://static.startribune.com/news/projects/all/twin-cities-voter-turnout/"
+      "path": "news/projects/all/20171109-city_turnout/",
+      "url": "http://static.startribune.com/news/projects/all/20171109-city_turnout/"
     }
   }
 }
