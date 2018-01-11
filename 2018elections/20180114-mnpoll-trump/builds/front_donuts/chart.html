@@ -1,0 +1,89 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MNPOLL Front Page Charts</title>
+  <meta name="description" content="MNPOLL Front Page Charts">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    #wrapper {
+      width:100%;
+    }
+    .c3-tooltip {
+      width:180px !important;
+    }
+    .c3-chart-arc text {
+      opacity:0 !important;
+    }
+    .donut, .donut svg {
+      width: 100%;
+      height:400px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="wrapper">
+
+  	<div class="donut" id="bigChart"></div>
+
+  </div>
+
+</body>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/c3.min.js"></script> 
+
+<script>
+function bakeDonut(container,answer1,pct1,answer2,pct2,answer3,pct3,answer4,pct4,answer5,pct5,text,bigPCT){
+
+var  padding = {
+        top: 40,
+        right: 40,
+        bottom: 30,
+        left: 40,
+    };
+
+var chart = c3.generate({
+    padding: padding,
+    bindto: container,
+    data: {
+        columns: [
+            [answer1, pct1],
+            [answer2, pct2],
+            [answer3, pct3],
+            [answer4, pct4],
+            [answer5, pct5],
+        ],
+        type : 'donut',
+        onclick: function (d, i) { console.log("onclick", d, i); },
+        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+    },
+    legend: { show:false },
+    // tooltip: { show:false },
+    // donut: {
+    //     title: text
+    // },
+    color: { pattern: ['#C7E5B5', '#9EE384', '#5BBF48', '#299E3D', '#118241'] },
+});
+
+d3.select(container + " .c3-chart-arcs").append("text")
+   .attr("class", "c3-chart-arcs-title")
+   .attr("style","text-anchor: middle; opacity: 1;")
+   .html("<tspan class='bigNum'>" + bigPCT + "</tspan><tspan class='bigpct'>%</tspan><tspan x='0' dy='30'>" + text + "</tspan>");
+
+}
+
+bakeDonut("#bigChart","Approve",20,"Disapprove",80,null,0,null,0,null,0,"disapprove","80")
+</script>
+
+</html>
