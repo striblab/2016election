@@ -1,4 +1,4 @@
-# Star Tribune - Minnesota Poll 2017: U.S. Senator Approval Ratings 
+# Star Tribune - Minnesota Poll 2018: Russian collusion survey
 
 Created by [Frey Hargarten](https://github.com/jeffhargarten).
 
@@ -31,7 +31,7 @@ The following are probably already installed on your computer if you have worked
 
 ### Install
 
-1. Get code and enter project: `git clone https://github.com/striblab/20170430-mnpollv3-senators.git && cd 20170430-mnpollv3-senators.git`
+1. Get code and enter project: `git clone https://github.com/striblab/20180115-mnpoll-russia.git && cd 20180115-mnpoll-russia.git`
 2. Install local dependencies: `npm install`
 
 ### Local development
@@ -59,7 +59,7 @@ Deployment is managed in specific repositories:
 The following will change based on which deployment repo this is going to and where you have that repository locally.
 
 1. Build the production version: `NODE_ENV=production gulp`
-2. Copy files (update path as needed): `mkdir -p ../20170430-mnpollv3-senators/ && rsync -rav ./ ../20170430-mnpollv3-senators/ --exclude=".git" --exclude="node_modules" --exclude=".sass-cache" --delete-after`
+2. Copy files (update path as needed): `mkdir -p ../20180115-mnpoll-russia/ && rsync -rav ./ ../20180115-mnpoll-russia/ --exclude=".git" --exclude="node_modules" --exclude=".sass-cache" --delete-after`
 3. Update the relevant deployment repo.
 
 ## Credits
