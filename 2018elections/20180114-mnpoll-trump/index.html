@@ -1,0 +1,812 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MNPOLL Spring 2018: Russia</title>
+  	<meta name="description" content="MNPOLL Spring 2018: Russia">
+ 	<meta name="author" content="Frey Hargarten - StarTribune">
+	<meta name="generator" content="BBEdit 10.5" />
+	
+	<link rel="stylesheet" href="./builds/development/css/style.css">
+
+	<style type="text/css">
+
+	#wrapper {
+		font-family:"Benton Sans Condensed Medium";
+		margin-right:auto;
+		margin-left:auto;
+		width:520px;
+	}
+
+	.chart svg {
+	    text-align:center;
+	    height:300px !important;
+	    max-height:300px !important;
+	}
+
+	.chart {
+	    text-align:center;
+	    height:300px !important;
+	    margin-left: auto;
+	    margin-right: auto;
+	    max-height:300px !important;
+	}
+
+	.powerline {
+	    stroke-dasharray: 5, 5;
+	    stroke: #333;
+	}
+
+	.chart .c3-line {
+	  stroke-width: 6px !important;
+	}
+
+	.dataframe { 
+		height:2720px;
+	} 
+
+	#bigResults {
+	    text-align: center;
+	    width: 100%;
+	    margin: 20px;
+	}
+
+	.chatter {
+		font-size:1.2em;
+	}
+
+	.chartTitle {
+		font-size:1.4em;
+	}
+
+	#breakdowns {
+		font-size:1.2em;
+	}
+
+	.byline {
+	    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+	    font-weight: 400;
+	    font-size:0.6em;
+	    color: #888;
+	    padding-top:10px;
+	    padding-bottom:10px;
+	    text-align:left;
+	}
+
+	.byline a {
+		color: #888;
+	}
+	
+	.result {
+	    display: inline-block !important;
+	    text-align: center;
+	    margin: 20px;
+	    width: 112px;
+	}
+
+	.catIcon {
+		display:inline-block;
+		width:40%;
+		margin:15px;
+		text-align:center;
+	}
+
+	.bigNum {
+	    font-size: 3em;
+	    font-family: "Benton Sans" !important;
+	    text-align: center;
+	    font-weight: 900;
+	    padding-top: 15px;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    padding-bottom: 5px;
+	}
+
+	.forNum {
+	    color: #00222D;
+	}
+
+	.againstNum {
+	    color: rgb(115, 115, 115);
+	}
+
+	.question, .chatter, #breakdowns {
+		line-height:160%;
+	}
+
+	.wrapper-dropdown-1 {
+		padding-right:30px;
+	}
+
+	.downloadButton9 {
+	    font-family: "Benton Sans",Helvetica,Arial,sans-serif;
+	    font-weight: bold;
+	    color: #333333;
+	    border: none;
+	    font-size: .9em;
+	    text-align: center;
+	    margin-top: 14px;
+	    margin-left: 1%;
+	    padding-top: 0px;
+	    width: 99%;
+	    background-color: #fff;
+	    color: #333;
+/*	    background-image: url(./builds/development/img/downloadDoc.svg);*/
+	    background-size: 18px 18px;
+	    background-repeat: no-repeat;
+	    background-position: 42% 76%;
+	}
+
+	.downloadButton9:hover {
+	    background-color: #fff !important;
+	    opacity: .5;
+	    cursor: pointer;
+	}
+
+	#selector { 
+		display:block !important ;
+	}
+
+	.c3-tooltip {
+		width:150px !important;
+	}
+
+	.wrapper-dropdown-1 {
+   		 background: #dddddd !important!;
+    }
+
+	@media (max-width:520px) {
+		#wrapper {
+			width:100%;
+		}
+		.result {
+			width:35% !important;
+		}
+	}
+
+	@media only screen and (min-width: 200px) and (max-width: 767px) { 
+		.dataframe { 
+			height:2720px; 
+		}
+	}
+	</style>
+</head>
+<!-- 420758934 -->
+<body>
+	<div id="wrapper">
+	<div id="questions_list">
+
+		<div class="questionBlock section" id="question5" style="display:none !important;">
+			<div class="question">Do you <span class="legendary gray5">approve</span> or <span class="legendary gray3">disapprove</span> of Donald Trump’s job performance as president?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">72</span>%</div>
+				  <div class="stat forLabel">approve</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">19</span>%</div>
+				  <div class="stat againstLabel">disapprove</div>
+				</div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">More popular than ever</div>
+			  <div class="chatter">Klobuchar has her highest <span class="legendary gray5">job approval rating</span> in Minnesota Poll history.</div>
+			  <div id="klobuChartTime" class="chart"></div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">Approval crosses party lines</div>
+			  <div class="chatter">A majority of Minnesotans -- regardless of party identification, whether <span class="legendary d4">DFL</span>, <span class="legendary r2">GOP</span> or <span class="legendary green4">independent</span> -- approve of Sen. Klobuchar's job performance.</div>
+			  <div id="klobuChart" class="chart"></div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">Klobuchar supporters are more likely to be:</div>
+			  <div class="catIcon">Democratic</div>
+			  <div class="catIcon">Women</div>
+			  <div class="catIcon">Metropolitan</div>
+			  <div class="catIcon">Making over $50k per year</div>
+			  <div id="klobuChart" class="chart"></div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question6" style="display:none !important;">
+			<div class="question">Do you <span class="legendary gray5">approve</span> or <span class="legendary gray3">disapprove</span> of Al Franken’s job performance as U.S. Senator?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">58</span>%</div>
+				  <div class="stat forLabel">approve</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">35</span>%</div>
+				  <div class="stat againstLabel">disapprove</div>
+				</div>
+			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">A polarizing senator</div>
+			  <div class="chatter">Franken enjoys overwhelming support from <span class="legendary d4">Democrats</span> but is deeply unpopular with <span class="legendary r3">Republicans</span>. Those affiliated with other parties and <span class="legendary green4">independents</span> are more split.</div>
+			  <div id="frankenChart" class="chart"></div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="breaker" style="border-bottom:3px solid #000; width:100%; margin:0;"></div>
+
+	<div class="section" id="breakdowns">
+		<div id="exploreLayer" class="chartTitle" style="text-align:center; padding:10px">Explore the data</div>
+		<div style="padding:10px;">Select a question to see a breakdown on the answers across parties, geography and demographics.</div>
+
+		<div id="viewSwitch">
+		<div id="selector">
+		  <section class="main">
+		        <div class="wrapper-demo">
+		          <div id="dd" class="wrapper-dropdown-1" tabindex="1">
+		            <span>Do you approve or disapprove of Amy Klobuchar’s job performance as U.S. Senator?</span>
+		              <ul class="dropdown months" tabindex="1">
+<!-- 				        <li class="thisSwitch"><a href="#" data="trump1">Do you approve or disapprove of Donald Trump’s job performance as president?</a></li>
+				        <li class="thisSwitch"><a href="#" data="trump2">Would you say Donald Trump has the right temperament to be president, or not?</a></li>
+				        <li class="thisSwitch"><a href="#" data="trump3">Do you think Donald Trump generally speaks the truth, or not?</a></li>
+				        <li class="thisSwitch"><a href="#" data="trump4">How important is it to you that Donald Trump releases his tax returns?  Is it very important, somewhat Important, not too important or not at all important?</a></li> -->
+				        <li class="thisSwitch"><a href="#" data="klobuchar1">Do you approve or disapprove of Amy Klobuchar’s job performance as U.S. Senator?</a></li>
+				        <li class="thisSwitch"><a href="#" data="franken1">Do you approve or disapprove of Al Franken’s job performance as U.S. Senator?</a></li>
+		              </ul>
+		          </div>
+		        ​</div>
+		</section>
+		</div>
+		</div>
+
+	    <div id="results" class="embed"><iframe id="dataframe" class="dataframe" src="./builds/development/?poll=klobuchar1" border="0" frameborder="0" scrolling="no" width="100%" height="2720"></iframe></div>
+
+	    <div class="byline">Source: Star Tribune/Mason Dixon | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./builds/production/data/maindata.xlsx" target="new_">Download Data</a></div>
+	</div>
+</div>
+</body>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="./builds/development/js/c3.min.js"></script>
+<script src="./builds/development/js/d3.v3.min.js"></script>
+
+<script>
+	$.urlParam = function(name){
+	  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	  if (results != null) { return results[1] || 0; }
+	  else { return null; }
+	}
+
+	var selected = $.urlParam('section');
+
+	if (selected != null){
+	$(".section").hide();
+	$("#" + selected).show();
+	} else { $(".section").show(); }
+
+	$(".thisSwitch").on("click",function(){
+		$("#dataframe").attr("src","./builds/development/?poll=" + $(this).find("a").attr("data"));
+	});
+
+//Q1: HISTORICAL TREND
+	function q1trendChart1(){
+
+      var  padding = {
+            top: 40,
+            right: 20,
+            bottom: 30,
+            left: 40,
+        };
+
+      chart = c3.generate({
+            bindto: '#change',
+            padding: padding,
+        data: {
+            // x: 'x',
+            columns: [
+                ["Approve",0.74,0.77,0.83,0.75,0.63,0.41,0.73,0.61,0.65,0.54,0.51,0.62,0.40]
+            ],
+            type: 'line'
+        },
+        legend: {
+        	show:false
+        },
+        color:  { pattern: ['#000000', '#737373'] },
+        axis: {
+          y: {
+          		max: 1,
+                min: 0,
+                padding: {bottom: 0, top:0},
+                tick: {
+                 count: 4,
+                 values: [0,0.25,0.50,1],
+                 format: d3.format('%')
+                }
+            },
+            x: {
+            type: 'category',
+            tick: {
+                rotate: 75,
+                multiline: false
+            },
+            categories: ["Truman (1945)","Eisenhower (1953)","Kennedy (1961)","Johnson (1964)","Nixon (1969)","Ford (1974)","Carter (1977)","Reagan (1981)","Bush (1989)","Clinton (1993)","Bush (2001)","Obama (2009)","Trump (2017)"]
+        }
+          },
+	    grid: {
+	        y: {
+          lines: [
+                {value: 0.5, text: '', position: 'start', class:'powerline'}
+          ]
+	        }
+	    }	
+    });
+}
+
+	q1trendChart1();
+
+//Q1: REGIONAL DIVIDE
+	function q1trendChart2(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#regionalDivideChart",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['Hennepin/Ramsey', .24],
+		                ['Rest of Metro', .43],
+		                ['South MN', .50],
+		                ['North MN', .53]
+		            ],
+		        type: 'bar',
+		        labels: {
+		            format: {
+		                'Hennepin/Ramsey': d3.format('%'),
+		                'Rest of Metro': d3.format('%'),
+		                'South MN': d3.format('%'),
+		                'North MN': d3.format('%')
+		            }
+		        }
+		        },
+	            bar: {
+	              width: {
+	                ratio: 0.8
+	              }
+	            },
+		        legend: {
+		            show: false
+		        },
+		            color: {
+		              pattern: ['#a3858b','#865f67','#693c46','#4c1926']
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['% Approve']
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	q1trendChart2();
+
+//Q2: GOP DIVIDE
+	function q2trendChart1(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#trumpGOPChart",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['Trump voters', .87, .89, .91],
+		                ['GOP', .82, .84, .86],
+		                ['Clinton voters', .05, .04, .04],
+		                ['DEM', .04, .02, .06],
+		            ],
+		        type: 'bar'
+		        // labels: {
+		        //     format: {
+		        //         'Trump voters': d3.format('%'),
+		        //         'GOP': d3.format('%'),
+		        //         'Clinton voters': d3.format('%'),
+		        //         'DEM': d3.format('%')
+		        //     }
+		        // }
+		        },
+		        legend: {
+		            show: false
+		        },
+		            color: {
+		              pattern: ['#8F120B','#d34A44','#085388','#3585BC']
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['Approval',"Right Temperament", "Speaks Truth"]
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	q2trendChart1();
+
+//Q3: TAXES
+	function q3trendChart1(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#taxChart",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['Trump voters', .05, .06, .29, .60],
+		                ['GOP', .09, .05, .28, .57],
+		                ['Clinton voters', .64, .25, .04, .06],
+		                ['DEM', .66, .26, .04, .03],
+		                ['Other voters', .33, .26, .15, .242],
+		                ['IND', .31, .20, .16, .31]
+		            ],
+		        type: 'bar'
+		        },
+		        legend: {
+		            show: false
+		        },
+		            color: {
+		              pattern: ['#8F120B','#d34A44','#085388','#3585BC',"#096F16","#35A443"]
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['Very',"Somewhat", "Not Too", "Not"]
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+}
+
+	q3trendChart1();
+
+//Q4: KLOBUCHART
+	function q4trendChart1(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#klobuChart",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['DEM', .95],
+		                ['GOP', .51],
+		                ['IND', .70]
+		            ],
+		        type: 'bar',
+		        labels: {
+		            format: {
+		                'DEM': d3.format('%'),
+		                'GOP': d3.format('%'),
+		                'IND': d3.format('%')
+		            }
+		        }
+		        },
+		        legend: {
+		            show: false
+		        },            
+		        bar: {
+	                width: {
+	                    ratio: 0.6
+	                }
+            	},		        
+		        tooltip: {
+		            show: false
+		        },
+		            color: {
+		              pattern: ['#3585BC','#d34A44',"#35A443"]
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['% Approve']
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+
+d3.selectAll(".c3-target-DEM")
+    .selectAll(".c3-bar, .c3-texts")
+    .attr("transform", "translate(-10, 0)");
+
+d3.selectAll(".c3-target-IND")
+    .selectAll(".c3-bar, .c3-texts")
+    .attr("transform", "translate(10, 0)");
+
+}
+
+	q4trendChart1();
+
+//Q4: KLOBUCHART TREND
+	function q4trendChart2(){
+
+      var  padding = {
+            top: 40,
+            right: 20,
+            bottom: 30,
+            left: 40,
+        };
+
+      chart = c3.generate({
+            bindto: '#klobuChartTime',
+            padding: padding,
+        data: {
+            // x: 'x',
+            columns: [
+                ["Approve",0.61,0.59,0.60,0.72]
+            ],
+            type: 'line'
+        },            
+        legend: {
+        	show:false
+        },
+        color:  { pattern: ['#000000', '#737373'] },
+        axis: {
+          y: {
+          		max: 1,
+                min: 0,
+                padding: {bottom: 0, top:0},
+                tick: {
+                 count: 4,
+                 values: [0,0.25,0.50,1],
+                 format: d3.format('%')
+                }
+            },
+            x: {
+            type: 'category',
+            tick: {
+                // rotate: 75,
+                multiline: false
+            },
+            categories: ["2007","2009","2012","2017"]
+        }
+          },
+		    grid: {
+		        y: {
+	          lines: [
+	                {value: 0.5, text: '', position: 'start', class:'powerline'}
+	          ]
+		        }
+		    }	
+    });
+
+}
+
+	q4trendChart2();
+
+//Q5: FRANKENCHART
+	function q5trendChart1(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#frankenChart",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['DEM', .88],
+		                ['GOP', .26],
+		                ['IND', .57]
+		            ],
+		        type: 'bar',
+		        labels: {
+		            format: {
+		                'DEM': d3.format('%'),
+		                'GOP': d3.format('%'),
+		                'IND': d3.format('%')
+		            }
+		        }
+		        },
+		        legend: {
+		            show: false
+		        },
+		        bar: {
+	                width: {
+	                    ratio: 0.6
+	                }
+            	},		        
+		        tooltip: {
+		            show: false
+		        },
+		            color: {
+		              pattern: ['#3585BC','#d34A44',"#35A443"]
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		                    min: 0,
+		                    padding: {bottom: 0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['% Approve']
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+
+d3.selectAll(".c3-target-DEM")
+    .selectAll(".c3-bar, .c3-texts")
+    .attr("transform", "translate(-10, 0)");
+
+d3.selectAll(".c3-target-IND")
+    .selectAll(".c3-bar, .c3-texts")
+    .attr("transform", "translate(10, 0)");
+
+}
+
+	q5trendChart1();
+</script>
+
+<script type="text/javascript">
+      
+      function DropDown(el)  { 
+        this.dd = el;
+        this.placeholder = this.dd.children('span');
+        this.opts = this.dd.find('ul.dropdown > li');
+        this.val = '';
+        this.index = -1;
+        this.initEvents();
+      }
+      DropDown.prototype =  { 
+        initEvents : function()  { 
+          var obj = this;
+
+          obj.dd.on('click', function(event) { 
+            $(this).toggleClass('active');
+            return false;
+          });
+
+          obj.opts.on('click',function() { 
+            var opt = $(this);
+            obj.val = opt.text();
+            obj.index = opt.index();
+            obj.placeholder.text(obj.val);
+          });
+        },
+        getValue : function()  { 
+          return this.val;
+        },
+        getIndex : function()  { 
+          return this.index;
+        }
+      }
+
+      $(function()  { 
+
+        var dd = new DropDown( $('#dd') );
+        var dd2 = new DropDown( $('#ddY') );
+
+        $(document).click(function()  { 
+          // all dropdowns
+          $('.wrapper-dropdown-1').removeClass('active');
+        });
+
+      });
+
+</script>
+</html>
