@@ -920,10 +920,17 @@ var againstLabel;
 
 for (i=0; i<data.length; i++){
     if (data[i].tag == tag && data[i].demographic == "Total") {
-      var forNum = Number(data[i].answer1_pct * 100);
-      var againstNum = Number(data[i].answer2_pct * 100);
-      forLabel = data[i].answer1;
-      againstLabel = data[i].answer2;
+      if (tag != "russia1") {
+        var forNum = Number(data[i].answer1_pct * 100);
+        var againstNum = Number(data[i].answer2_pct * 100);
+        forLabel = data[i].answer1;
+        againstLabel = data[i].answer2;
+      } else {
+        var forNum = Number(data[i].answer1_pct * 100);
+        var againstNum = Number(data[i].answer4_pct * 100);
+        forLabel = data[i].answer1;
+        againstLabel = data[i].answer4;
+      }
     }
  }
 
