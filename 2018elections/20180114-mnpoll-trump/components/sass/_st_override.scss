@@ -39,7 +39,7 @@ body {
 .legendary {
     padding:4px;
     color: #fff;
-    font-weight:bold;
+    font-weight:normal;
     border-radius: 5px;
     padding: 0 7px;
     margin-bottom: 3px;
@@ -238,7 +238,7 @@ text {
     float:left !important;
     text-align:left !important;
     font-weight:900;
-    font-size:2em;
+    font-size:1.4em;
 }
 
 .result {
@@ -272,10 +272,10 @@ td, th {
 
 @media (max-width:520px) {
     .table table {
-        font-size: 1em !important;
+        font-size: 0.8em !important;
     }
     .table td {
-        font-size: 1em !important;
+        font-size: 0.8em !important;
     }
     .result {
         width:48% !important;

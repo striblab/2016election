@@ -82,9 +82,9 @@ function spillResults(tag,section0,section1,section2) {
   if (verifySections(tag,"Native") > 1) {  chartPolls(tag,"Native",section1,20); spitTables(tag,"Native",section1,20); }
   if (verifySections(tag,"Other") > 1) {  chartPolls(tag,"Other",section1,21); spitTables(tag,"Other",section1,21); }
 
-  if (verifySections(tag,"Yes") > 1) {  pinCategory("Gun Ownership",section2); }
-  if (verifySections(tag,"Yes") > 1) {  chartPolls(tag,"Yes",section2,24); spitTables(tag,"Yes",section2,24); }
-  if (verifySections(tag,"No") > 1) {  chartPolls(tag,"No",section2,25); spitTables(tag,"No",section2,25); }
+  if (verifySections(tag,"High School/Some College") > 1) {  pinCategory("Education",section2); }
+  if (verifySections(tag,"High School/Some College") > 1) {  chartPolls(tag,"High School/Some College",section2,24); spitTables(tag,"High School/Some College",section2,24); }
+  if (verifySections(tag,"College Graduate") > 1) {  chartPolls(tag,"College Graduate",section2,25); spitTables(tag,"College Graduate",section2,25); }
     overview(tag);
     buildLegend(tag,"#legendBox");
 }
@@ -1006,7 +1006,7 @@ function spitTables(tag,demographic,section,index) {
     if (resultsString.answer12 != "null") { rows[12] = resultsString.answer12_pct; }
 
     // append the header row
-    if (demographic == "Age 18-34" || demographic == "< $50,000" || demographic == "Men" || demographic == "Democrat" || demographic == "Hennepin & Ramsey" || demographic == "Trump voters"){
+    if (demographic == "Age 18-34" || demographic == "< $50,000" || demographic == "Men" || demographic == "Democrat" || demographic == "Hennepin & Ramsey" || demographic == "High School/Some College"){
     thead.append('tr')
       .attr("class","headers")
       .selectAll('th')

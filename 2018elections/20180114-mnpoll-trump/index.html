@@ -2,8 +2,8 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>MNPOLL Spring 2018: Russia</title>
-  	<meta name="description" content="MNPOLL Spring 2018: Russia">
+	<title>MNPOLL Winter 2018: Trump</title>
+  	<meta name="description" content="MNPOLL Winter 2018: Trump">
  	<meta name="author" content="Frey Hargarten - StarTribune">
 	<meta name="generator" content="BBEdit 10.5" />
 	
@@ -42,7 +42,7 @@
 	}
 
 	.dataframe { 
-		height:2720px;
+		height:2900px;
 	} 
 
 	#bigResults {
@@ -115,7 +115,11 @@
 	}
 
 	.wrapper-dropdown-1 {
-		padding-right:30px;
+		padding-right:60px;
+	}
+
+	.main {
+		line-height:120%
 	}
 
 	.downloadButton9 {
@@ -175,68 +179,103 @@
 <body>
 	<div id="wrapper">
 	<div id="questions_list">
-
-		<div class="questionBlock section" id="question5" style="display:none !important;">
+		<div class="questionBlock section" id="question1">
 			<div class="question">Do you <span class="legendary gray5">approve</span> or <span class="legendary gray3">disapprove</span> of Donald Trump’s job performance as president?</div>
 			<div class="bigResults">
 				<div class="result">
-				  <div class="bigNum forNum"><span class="for">72</span>%</div>
+				  <div class="bigNum forNum"><span class="for">45</span>%</div>
 				  <div class="stat forLabel">approve</div>
 				</div>
 				<div class="result">
-				  <div class="bigNum againstNum"><span class="against">19</span>%</div>
+				  <div class="bigNum againstNum"><span class="against">47</span>%</div>
 				  <div class="stat againstLabel">disapprove</div>
 				</div>
 			</div>
 
-			<div class="sectionBox">
-			  <div class="icon"></div>
-			  <div class="chartTitle">More popular than ever</div>
-			  <div class="chatter">Klobuchar has her highest <span class="legendary gray5">job approval rating</span> in Minnesota Poll history.</div>
-			  <div id="klobuChartTime" class="chart"></div>
+			<div id="supportBox1" class="sectionBox">
+			  <div class="chartTitle">A deep partisan divide</div>
+			  <div class="chatter"><span class="legendary r3">Republicans</span> have far more favorable views of President Trump's job performance than <span class="legendary d4">Democrats</span> and <span class="legendary green4">independents</span>.</div>
+			 <div id="partyChart" class="chart"></div>
 			</div>
 
-			<div class="sectionBox">
-			  <div class="icon"></div>
-			  <div class="chartTitle">Approval crosses party lines</div>
-			  <div class="chatter">A majority of Minnesotans -- regardless of party identification, whether <span class="legendary d4">DFL</span>, <span class="legendary r2">GOP</span> or <span class="legendary green4">independent</span> -- approve of Sen. Klobuchar's job performance.</div>
-			  <div id="klobuChart" class="chart"></div>
-			</div>
-
-			<div class="sectionBox">
-			  <div class="icon"></div>
-			  <div class="chartTitle">Klobuchar supporters are more likely to be:</div>
-			  <div class="catIcon">Democratic</div>
-			  <div class="catIcon">Women</div>
-			  <div class="catIcon">Metropolitan</div>
-			  <div class="catIcon">Making over $50k per year</div>
-			  <div id="klobuChart" class="chart"></div>
+			<div id="supportBox2" class="sectionBox">
+			  <div class="chartTitle">An educational divide</div>
+			  <div class="chatter">A majority of those <span class="legendary purple2">without college degrees</span> approve of President Trump's job performance, while about half of those <span class="legendary purple5">with college degrees</span> approve.</div>
+			 <div id="eduChart" class="chart"></div>
 			</div>
 		</div>
 
 		<div class="breaker"></div>
 
-		<div class="questionBlock section" id="question6" style="display:none !important;">
-			<div class="question">Do you <span class="legendary gray5">approve</span> or <span class="legendary gray3">disapprove</span> of Al Franken’s job performance as U.S. Senator?</div>
+		<div class="questionBlock section" id="question2">
+			<div class="question">Would you say Donald Trump <span class="legendary gray5">has the right temperament</span> to be president, or <span class="legendary gray3">not</span>?</div>
 			<div class="bigResults">
 				<div class="result">
-				  <div class="bigNum forNum"><span class="for">58</span>%</div>
+				  <div class="bigNum forNum"><span class="for">36</span>%</div>
+				  <div class="stat forLabel">yes</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">58</span>%</div>
+				  <div class="stat againstLabel">no</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="questionBlock section" id="question3">
+			<div class="question">Do you think Donald Trump <span class="legendary gray5">generally speaks the truth</span>, or <span class="legendary gray3">not</span>?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">42</span>%</div>
+				  <div class="stat forLabel">yes</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">53</span>%</div>
+				  <div class="stat againstLabel">no</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question4">
+			<div class="question">Do you <span class="legendary gray5">approve</span> or <span class="legendary gray3">disapprove</span> of the way Donald Trump is handling North Korea?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">42</span>%</div>
 				  <div class="stat forLabel">approve</div>
 				</div>
 				<div class="result">
-				  <div class="bigNum againstNum"><span class="against">35</span>%</div>
+				  <div class="bigNum againstNum"><span class="against">47</span>%</div>
+				  <div class="stat againstLabel">disapprove</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question5">
+			<div class="question">Do you <span class="legendary gray5">approve</span> or <span class="legendary gray3">disapprove</span> of the way Donald Trump is handling the economy and jobs?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">54</span>%</div>
+				  <div class="stat forLabel">approve</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">39</span>%</div>
 				  <div class="stat againstLabel">disapprove</div>
 				</div>
 			</div>
 
-			<div class="sectionBox">
-			  <div class="icon"></div>
-			  <div class="chartTitle">A polarizing senator</div>
-			  <div class="chatter">Franken enjoys overwhelming support from <span class="legendary d4">Democrats</span> but is deeply unpopular with <span class="legendary r3">Republicans</span>. Those affiliated with other parties and <span class="legendary green4">independents</span> are more split.</div>
-			  <div id="frankenChart" class="chart"></div>
+			<div id="supportBox3" class="sectionBox">
+			  <div class="chartTitle">A good economy boosts Trump</div>
+			  <div class="chatter">A majority of <span class="legendary r3">Republicans</span> and <span class="legendary green4">independents</span> approve of President Trump's handling of the economy, while <span class="legendary d4">Democrats</span> strongly disapprove.</div>
+			 <div id="econChart" class="chart"></div>
 			</div>
-
 		</div>
+
+		<div class="breaker"></div>
+
 	</div>
 
 	<div class="breaker" style="border-bottom:3px solid #000; width:100%; margin:0;"></div>
@@ -250,14 +289,13 @@
 		  <section class="main">
 		        <div class="wrapper-demo">
 		          <div id="dd" class="wrapper-dropdown-1" tabindex="1">
-		            <span>Do you approve or disapprove of Amy Klobuchar’s job performance as U.S. Senator?</span>
+		            <span>Do you approve or disapprove of Donald Trump’s job performance as president?</span>
 		              <ul class="dropdown months" tabindex="1">
-<!-- 				        <li class="thisSwitch"><a href="#" data="trump1">Do you approve or disapprove of Donald Trump’s job performance as president?</a></li>
+				        <li class="thisSwitch"><a href="#" data="trump1">Do you approve or disapprove of Donald Trump’s job performance as president?</a></li>
 				        <li class="thisSwitch"><a href="#" data="trump2">Would you say Donald Trump has the right temperament to be president, or not?</a></li>
 				        <li class="thisSwitch"><a href="#" data="trump3">Do you think Donald Trump generally speaks the truth, or not?</a></li>
-				        <li class="thisSwitch"><a href="#" data="trump4">How important is it to you that Donald Trump releases his tax returns?  Is it very important, somewhat Important, not too important or not at all important?</a></li> -->
-				        <li class="thisSwitch"><a href="#" data="klobuchar1">Do you approve or disapprove of Amy Klobuchar’s job performance as U.S. Senator?</a></li>
-				        <li class="thisSwitch"><a href="#" data="franken1">Do you approve or disapprove of Al Franken’s job performance as U.S. Senator?</a></li>
+				        <li class="thisSwitch"><a href="#" data="trump4">Do you approve or disapprove of the way Donald Trump is handling North Korea?</a></li>
+				        <li class="thisSwitch"><a href="#" data="trump5">Do you approve or disapprove of the way Donald Trump is handling the economy and jobs?</a></li>
 		              </ul>
 		          </div>
 		        ​</div>
@@ -265,9 +303,9 @@
 		</div>
 		</div>
 
-	    <div id="results" class="embed"><iframe id="dataframe" class="dataframe" src="./builds/development/?poll=klobuchar1" border="0" frameborder="0" scrolling="no" width="100%" height="2720"></iframe></div>
+	    <div id="results" class="embed"><iframe id="dataframe" class="dataframe" src="./builds/development/?poll=trump1" border="0" frameborder="0" scrolling="no" width="100%" height="2900"></iframe></div>
 
-	    <div class="byline">Source: Star Tribune/Mason Dixon | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./builds/production/data/maindata.xlsx" target="new_">Download Data</a></div>
+	    <div class="byline">Source: Star Tribune Minnesota Poll | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a><!--  | <a href="./builds/production/data/maindata.xlsx" target="new_">Download Data</a></div> -->
 	</div>
 </div>
 </body>
@@ -294,64 +332,9 @@
 		$("#dataframe").attr("src","./builds/development/?poll=" + $(this).find("a").attr("data"));
 	});
 
-//Q1: HISTORICAL TREND
-	function q1trendChart1(){
 
-      var  padding = {
-            top: 40,
-            right: 20,
-            bottom: 30,
-            left: 40,
-        };
-
-      chart = c3.generate({
-            bindto: '#change',
-            padding: padding,
-        data: {
-            // x: 'x',
-            columns: [
-                ["Approve",0.74,0.77,0.83,0.75,0.63,0.41,0.73,0.61,0.65,0.54,0.51,0.62,0.40]
-            ],
-            type: 'line'
-        },
-        legend: {
-        	show:false
-        },
-        color:  { pattern: ['#000000', '#737373'] },
-        axis: {
-          y: {
-          		max: 1,
-                min: 0,
-                padding: {bottom: 0, top:0},
-                tick: {
-                 count: 4,
-                 values: [0,0.25,0.50,1],
-                 format: d3.format('%')
-                }
-            },
-            x: {
-            type: 'category',
-            tick: {
-                rotate: 75,
-                multiline: false
-            },
-            categories: ["Truman (1945)","Eisenhower (1953)","Kennedy (1961)","Johnson (1964)","Nixon (1969)","Ford (1974)","Carter (1977)","Reagan (1981)","Bush (1989)","Clinton (1993)","Bush (2001)","Obama (2009)","Trump (2017)"]
-        }
-          },
-	    grid: {
-	        y: {
-          lines: [
-                {value: 0.5, text: '', position: 'start', class:'powerline'}
-          ]
-	        }
-	    }	
-    });
-}
-
-	q1trendChart1();
-
-//Q1: REGIONAL DIVIDE
-	function q1trendChart2(){
+//party breakdown chart
+	function partyChart(){
 
 		var  padding = {
 		        top: 20,
@@ -361,207 +344,13 @@
 		    };
 
 		var chartPopD = c3.generate({
-		      bindto: "#regionalDivideChart",
+		      bindto: "#partyChart",
 		      padding: padding,
 		      data: {
 		            columns: [
-		                ['Hennepin/Ramsey', .24],
-		                ['Rest of Metro', .43],
-		                ['South MN', .50],
-		                ['North MN', .53]
-		            ],
-		        type: 'bar',
-		        labels: {
-		            format: {
-		                'Hennepin/Ramsey': d3.format('%'),
-		                'Rest of Metro': d3.format('%'),
-		                'South MN': d3.format('%'),
-		                'North MN': d3.format('%')
-		            }
-		        }
-		        },
-	            bar: {
-	              width: {
-	                ratio: 0.8
-	              }
-	            },
-		        legend: {
-		            show: false
-		        },
-		            color: {
-		              pattern: ['#a3858b','#865f67','#693c46','#4c1926']
-		            },
-		        axis: {
-		              // rotated: true,
-		              y: {
-		                    min: 0,
-		                    padding: {bottom: 0},
-		                    tick: {
-		                     count: 4,
-		                     values: [0,0.25,0.50,1],
-		                     format: d3.format('%')
-		                    }
-		                },
-		            x: {
-		                type: 'category',
-		                categories: ['% Approve']
-		            }
-		        },
-			    grid: {
-			        y: {
-		          lines: [
-		                {value: 0.5, text: '', position: 'start', class:'powerline'}
-		          ]
-			        }
-			    }
-
-		});
-}
-
-	q1trendChart2();
-
-//Q2: GOP DIVIDE
-	function q2trendChart1(){
-
-		var  padding = {
-		        top: 20,
-		        right: 60,
-		        bottom: 20,
-		        left: 40,
-		    };
-
-		var chartPopD = c3.generate({
-		      bindto: "#trumpGOPChart",
-		      padding: padding,
-		      data: {
-		            columns: [
-		                ['Trump voters', .87, .89, .91],
-		                ['GOP', .82, .84, .86],
-		                ['Clinton voters', .05, .04, .04],
-		                ['DEM', .04, .02, .06],
-		            ],
-		        type: 'bar'
-		        // labels: {
-		        //     format: {
-		        //         'Trump voters': d3.format('%'),
-		        //         'GOP': d3.format('%'),
-		        //         'Clinton voters': d3.format('%'),
-		        //         'DEM': d3.format('%')
-		        //     }
-		        // }
-		        },
-		        legend: {
-		            show: false
-		        },
-		            color: {
-		              pattern: ['#8F120B','#d34A44','#085388','#3585BC']
-		            },
-		        axis: {
-		              // rotated: true,
-		              y: {
-		                    min: 0,
-		                    padding: {bottom: 0},
-		                    tick: {
-		                     count: 4,
-		                     values: [0,0.25,0.50,1],
-		                     format: d3.format('%')
-		                    }
-		                },
-		            x: {
-		                type: 'category',
-		                categories: ['Approval',"Right Temperament", "Speaks Truth"]
-		            }
-		        },
-			    grid: {
-			        y: {
-		          lines: [
-		                {value: 0.5, text: '', position: 'start', class:'powerline'}
-		          ]
-			        }
-			    }
-
-		});
-}
-
-	q2trendChart1();
-
-//Q3: TAXES
-	function q3trendChart1(){
-
-		var  padding = {
-		        top: 20,
-		        right: 60,
-		        bottom: 20,
-		        left: 40,
-		    };
-
-		var chartPopD = c3.generate({
-		      bindto: "#taxChart",
-		      padding: padding,
-		      data: {
-		            columns: [
-		                ['Trump voters', .05, .06, .29, .60],
-		                ['GOP', .09, .05, .28, .57],
-		                ['Clinton voters', .64, .25, .04, .06],
-		                ['DEM', .66, .26, .04, .03],
-		                ['Other voters', .33, .26, .15, .242],
-		                ['IND', .31, .20, .16, .31]
-		            ],
-		        type: 'bar'
-		        },
-		        legend: {
-		            show: false
-		        },
-		            color: {
-		              pattern: ['#8F120B','#d34A44','#085388','#3585BC',"#096F16","#35A443"]
-		            },
-		        axis: {
-		              // rotated: true,
-		              y: {
-		                    min: 0,
-		                    padding: {bottom: 0},
-		                    tick: {
-		                     count: 4,
-		                     values: [0,0.25,0.50,1],
-		                     format: d3.format('%')
-		                    }
-		                },
-		            x: {
-		                type: 'category',
-		                categories: ['Very',"Somewhat", "Not Too", "Not"]
-		            }
-		        },
-			    grid: {
-			        y: {
-		          lines: [
-		                {value: 0.5, text: '', position: 'start', class:'powerline'}
-		          ]
-			        }
-			    }
-
-		});
-}
-
-	q3trendChart1();
-
-//Q4: KLOBUCHART
-	function q4trendChart1(){
-
-		var  padding = {
-		        top: 20,
-		        right: 60,
-		        bottom: 20,
-		        left: 40,
-		    };
-
-		var chartPopD = c3.generate({
-		      bindto: "#klobuChart",
-		      padding: padding,
-		      data: {
-		            columns: [
-		                ['DEM', .95],
-		                ['GOP', .51],
-		                ['IND', .70]
+		                ['DEM', .04],
+		                ['GOP', .89],
+		                ['IND', .46]
 		            ],
 		        type: 'bar',
 		        labels: {
@@ -589,11 +378,12 @@
 		        axis: {
 		              // rotated: true,
 		              y: {
+		              		max: 1,
 		                    min: 0,
-		                    padding: {bottom: 0},
+		                    padding: {bottom: 0, top:0},
 		                    tick: {
 		                     count: 4,
-		                     values: [0,0.25,0.50,1],
+		                     values: [0,0.25,0.50,0.75,1],
 		                     format: d3.format('%')
 		                    }
 		                },
@@ -622,67 +412,11 @@ d3.selectAll(".c3-target-IND")
 
 }
 
-	q4trendChart1();
+	partyChart();
 
-//Q4: KLOBUCHART TREND
-	function q4trendChart2(){
 
-      var  padding = {
-            top: 40,
-            right: 20,
-            bottom: 30,
-            left: 40,
-        };
-
-      chart = c3.generate({
-            bindto: '#klobuChartTime',
-            padding: padding,
-        data: {
-            // x: 'x',
-            columns: [
-                ["Approve",0.61,0.59,0.60,0.72]
-            ],
-            type: 'line'
-        },            
-        legend: {
-        	show:false
-        },
-        color:  { pattern: ['#000000', '#737373'] },
-        axis: {
-          y: {
-          		max: 1,
-                min: 0,
-                padding: {bottom: 0, top:0},
-                tick: {
-                 count: 4,
-                 values: [0,0.25,0.50,1],
-                 format: d3.format('%')
-                }
-            },
-            x: {
-            type: 'category',
-            tick: {
-                // rotate: 75,
-                multiline: false
-            },
-            categories: ["2007","2009","2012","2017"]
-        }
-          },
-		    grid: {
-		        y: {
-	          lines: [
-	                {value: 0.5, text: '', position: 'start', class:'powerline'}
-	          ]
-		        }
-		    }	
-    });
-
-}
-
-	q4trendChart2();
-
-//Q5: FRANKENCHART
-	function q5trendChart1(){
+//party breakdown chart
+	function eduChart(){
 
 		var  padding = {
 		        top: 20,
@@ -692,13 +426,92 @@ d3.selectAll(".c3-target-IND")
 		    };
 
 		var chartPopD = c3.generate({
-		      bindto: "#frankenChart",
+		      bindto: "#eduChart",
 		      padding: padding,
 		      data: {
 		            columns: [
-		                ['DEM', .88],
-		                ['GOP', .26],
-		                ['IND', .57]
+		                ['NONE', .58],
+		                ['DEGREE', .49]
+		            ],
+		        type: 'bar',
+		        labels: {
+		            format: {
+		                'NONE': d3.format('%'),
+		                'DEGREE': d3.format('%')
+		            }
+		        }
+		        },
+		        legend: {
+		            show: false
+		        },            
+		        bar: {
+	                width: {
+	                    ratio: 0.6
+	                }
+            	},		        
+		        tooltip: {
+		            show: false
+		        },
+		            color: {
+		              pattern: ['#865f67','#4c1926']
+		            },
+		        axis: {
+		              // rotated: true,
+		              y: {
+		              		max: 1,
+		                    min: 0,
+		                    padding: {bottom: 0, top:0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,0.75,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                categories: ['% Approve']
+		            }
+		        },
+			    grid: {
+			        y: {
+		          lines: [
+		                {value: 0.5, text: '', position: 'start', class:'powerline'}
+		          ]
+			        }
+			    }
+
+		});
+
+d3.selectAll(".c3-target-NONE")
+    .selectAll(".c3-bar, .c3-texts")
+    .attr("transform", "translate(-10, 0)");
+
+d3.selectAll(".c3-target-DEGREE")
+    .selectAll(".c3-bar, .c3-texts")
+    .attr("transform", "translate(10, 0)");
+
+}
+
+	eduChart();
+
+//econ breakdown chart
+	function econChart(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 40,
+		    };
+
+		var chartPopD = c3.generate({
+		      bindto: "#econChart",
+		      padding: padding,
+		      data: {
+		            columns: [
+		                ['DEM', .09],
+		                ['GOP', .92],
+		                ['IND', .63]
 		            ],
 		        type: 'bar',
 		        labels: {
@@ -711,7 +524,7 @@ d3.selectAll(".c3-target-IND")
 		        },
 		        legend: {
 		            show: false
-		        },
+		        },            
 		        bar: {
 	                width: {
 	                    ratio: 0.6
@@ -726,11 +539,12 @@ d3.selectAll(".c3-target-IND")
 		        axis: {
 		              // rotated: true,
 		              y: {
+		              		max: 1,
 		                    min: 0,
-		                    padding: {bottom: 0},
+		                    padding: {bottom: 0, top:0},
 		                    tick: {
 		                     count: 4,
-		                     values: [0,0.25,0.50,1],
+		                     values: [0,0.25,0.50,0.75,1],
 		                     format: d3.format('%')
 		                    }
 		                },
@@ -759,10 +573,7 @@ d3.selectAll(".c3-target-IND")
 
 }
 
-	q5trendChart1();
-</script>
-
-<script type="text/javascript">
+	econChart();
       
       function DropDown(el)  { 
         this.dd = el;
