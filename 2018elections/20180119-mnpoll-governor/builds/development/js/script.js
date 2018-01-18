@@ -31,7 +31,7 @@ var tag = poll;
 
 
 if (tag == "gov1") { colors = ['#084594', '#2171b5', '#4292c6', '#6baed6', '#9ecae1', '#c6dbef','#deebf7','#f7fbff','#f7fbff']; }
-else if (tag == "gov2") { colors = ['#a50f15', '#de2d26', '#fb6a4a', '#fc9272', '#fcbba1', '#fee5d9']; }
+else if (tag == "gov2") { colors = ['#99000d', '#cb181d', '#ef3b2c', '#fb6a4a', '#fc9272', '#fcbba1', '#fee5d9']; }
 else { colors = ['#000000', '#737373', '#969696', '#bdbdbd', '#d9d9d9', '#f0f0f0','#bcbddc','#756bb1','#4a1486']; }
 
 
@@ -932,10 +932,10 @@ for (i=0; i<data.length; i++){
         $(".forNum").addClass("neutral1");
         $(".againstNum").addClass("neutral2");
       } else if (tag == "gov2") {
-        var forNum = Number(data[i].answer1_pct * 100);
-        var againstNum = Number(data[i].answer6_pct * 100);
-        forLabel = data[i].answer1;
-        againstLabel = data[i].answer6;
+        var forNum = Number(data[i].answer2_pct * 100);
+        var againstNum = Number(data[i].answer7_pct * 100);
+        forLabel = data[i].answer2;
+        againstLabel = data[i].answer7;
         $(".forNum").addClass("gop1");
         $(".againstNum").addClass("gop2");
       } else if (tag == "gov1") {
