@@ -121,18 +121,20 @@ function buildLegend(tag,section) {
   // var colorRange = ['#9B9382', '#A39F97', '#BFBAAF', '#E2D4B7', '#DBD4C7', '#E2DBCE'];
   for (i=0; i<data.length; i++){
     if (data[i].tag == tag && data[i].demographic == "main") {
-      if (data[i].answer1 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[0] + "'></div> <div class='legendText'>" + data[i].answer1 + "</div>"; }
-      if (data[i].answer2 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[1] + "'></div> <div class='legendText'>" + data[i].answer2 + "</div>"; }
-      if (data[i].answer3 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[2] + "'></div> <div class='legendText'>" + data[i].answer3 + "</div>"; }
-      if (data[i].answer4 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[3] + "'></div> <div class='legendText'>" + data[i].answer4 + "</div>"; }
-      if (data[i].answer5 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[4] + "'></div> <div class='legendText'>" + data[i].answer5 + "</div>"; }
-      if (data[i].answer6 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[5] + "'></div> <div class='legendText'>" + data[i].answer6 + "</div>"; }
-      if (data[i].answer7 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[6] + "'></div> <div class='legendText'>" + data[i].answer7 + "</div>"; }
-      if (data[i].answer8 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[7] + "'></div> <div class='legendText'>" + data[i].answer8 + "</div>"; }
-      if (data[i].answer9 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[8] + "'></div> <div class='legendText'>" + data[i].answer9 + "</div>"; }
-      if (data[i].answer10 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[9] + "'></div> <div class='legendText'>" + data[i].answer10 + "</div>"; }
-      if (data[i].answer11 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[10] + "'></div> <div class='legendText'>" + data[i].answer11 + "</div>"; }
-      if (data[i].answer12 != "null") { legendString += "<div class='legendBlock' style='background-color:" + colors[11] + "'></div> <div class='legendText'>" + data[i].answer12 + "</div>"; }
+      var answer6 = data[i].answer6;
+      if (tag == "gov2") { answer6 = "Mary G. Stephens"; }
+      if (data[i].answer1 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[0] + "'></div> <div class='legendText'>" + data[i].answer1 + "</div></div>"; }
+      if (data[i].answer2 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[1] + "'></div> <div class='legendText'>" + data[i].answer2 + "</div></div>"; }
+      if (data[i].answer3 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[2] + "'></div> <div class='legendText'>" + data[i].answer3 + "</div></div>"; }
+      if (data[i].answer4 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[3] + "'></div> <div class='legendText'>" + data[i].answer4 + "</div></div>"; }
+      if (data[i].answer5 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[4] + "'></div> <div class='legendText'>" + data[i].answer5 + "</div></div>"; }
+      if (data[i].answer6 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[5] + "'></div> <div class='legendText'>" + answer6 + "</div></div>"; }
+      if (data[i].answer7 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[6] + "'></div> <div class='legendText'>" + data[i].answer7 + "</div></div>"; }
+      if (data[i].answer8 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[7] + "'></div> <div class='legendText'>" + data[i].answer8 + "</div></div>"; }
+      if (data[i].answer9 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[8] + "'></div> <div class='legendText'>" + data[i].answer9 + "</div></div>"; }
+      if (data[i].answer10 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[9] + "'></div> <div class='legendText'>" + data[i].answer10 + "</div></div>"; }
+      if (data[i].answer11 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[10] + "'></div> <div class='legendText'>" + data[i].answer11 + "</div></div>"; }
+      if (data[i].answer12 != "null") { legendString += "<div class='legendEntry'><div class='legendBlock' style='background-color:" + colors[11] + "'></div> <div class='legendText'>" + data[i].answer12 + "</div></div>"; }
     }
   }
   $(".legendBox").html(legendString);
@@ -932,9 +934,9 @@ for (i=0; i<data.length; i++){
         $(".forNum").addClass("neutral1");
         $(".againstNum").addClass("neutral2");
       } else if (tag == "gov2") {
-        var forNum = Number(data[i].answer2_pct * 100);
+        var forNum = Number(data[i].answer1_pct * 100);
         var againstNum = Number(data[i].answer7_pct * 100);
-        forLabel = data[i].answer2;
+        forLabel = data[i].answer1;
         againstLabel = data[i].answer7;
         $(".forNum").addClass("gop1");
         $(".againstNum").addClass("gop2");
@@ -1004,9 +1006,13 @@ function spitTables(tag,demographic,section,index) {
     trigger[0] = null;
 
     columns[0] = "Category";
+
+    var answer3 = resultsString.answer3;
+    if (tag == "gov3") { answer3 = "Jobs/Econ"; }
+
     if (resultsString.answer1 != "null") { columns[1] = resultsString.answer1; }
     if (resultsString.answer2 != "null") { columns[2] = resultsString.answer2; }
-    if (resultsString.answer3 != "null") { columns[3] = resultsString.answer3; }
+    if (resultsString.answer3 != "null") { columns[3] = answer3; }
     if (resultsString.answer4 != "null") { columns[4] = resultsString.answer4; }
     if (resultsString.answer5 != "null") { columns[5] = resultsString.answer5; }
     if (resultsString.answer6 != "null") { columns[6] = resultsString.answer6; }
