@@ -1968,6 +1968,15 @@ text {
   margin-right: 7px;
 }
 
+.legendEntry {
+  display: inline-block;
+  width: 32%;
+  text-align: left;
+  word-wrap: break-word;
+  white-space: pre;
+  padding: 4px;
+}
+
 .adjacent {
   display: inline-block;
   width: 100%;
@@ -2120,6 +2129,7 @@ table {
 td, th {
   font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
   line-height: 160%;
+  text-align: center;
 }
 
 @media (max-width: 800px) {
