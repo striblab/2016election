@@ -215,6 +215,14 @@
 				  <div class="stat againstLabel">undecided</div>
 				</div>
 			</div>
+
+			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">DFL preferences</div>
+			  <div class="chatter">Shows percentage of those surveyed who voiced support for each <span class="legendary d4">DFL gubernatorial candidate</span>.
+			  </div>
+			  <div id="dflChart" class="chart"></div>
+			</div>
 		</div>
 
 		<div class="breaker"></div>
@@ -231,6 +239,15 @@
 				  <div class="bigNum gop2"><span class="against">54</span>%</div>
 				  <div class="stat againstLabel">undecided</div>
 				</div>
+			</div>
+
+
+		<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">GOP preferences</div>
+			  <div class="chatter">Shows percentage of those surveyed who voiced support for each <span class="legendary r4">GOP gubernatorial candidate</span>.
+			  </div>
+			  <div id="gopChart" class="chart"></div>
 			</div>
 		</div>
 
@@ -328,9 +345,9 @@
 		      padding: padding,
 		      data: {
 		            columns: [
-		                ['DEM', 0.04, 0.36, 0.32],
-		                ['GOP', 0.20, 0.16, 0.39],
-		                ['IND', 0.11, 0.20, 0.40]
+		                ['DEM', 0.04],
+		                ['GOP', 0.20],
+		                ['IND', 0.11]
 		            ],
 		        type: 'bar',
 		        labels: {
@@ -393,6 +410,130 @@ d3.selectAll(".c3-target-IND")
 }
 
 	partyChart();
+
+
+//dfl breakdown chart
+function dflChart(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 100,
+		    };
+
+		var dflChart = c3.generate({
+		      bindto: "#dflChart",
+		      padding: padding,
+		        data: {
+		            x: 'x',
+		            columns:
+		            [
+		                ['x', 'Tim  Walz', 'Lori Swanson', 'Chris Coleman', 'Rebecca Otto', 'Erin Murpy', 'Paul Thissen', 'Tina Liebling', 'Undecided'],
+		                ['value', 0.21, 0.16, 0.12, 0.09, 0.06, 0.04, 0.02, 0.30]
+		            ],
+		            type: 'bar',
+		        labels: {
+		            format: {
+		                'value': d3.format('%')
+		            }
+		        }
+		        },
+		        legend: {
+		            show: false
+		        },
+		         tooltip: {
+		            show: false
+		        },
+		        color: {
+		              pattern: ['#3585BC']
+		            },
+		        axis: {
+		            rotated: true,
+		             y: {
+		              		max: 1,
+		                    min: 0,
+		                    padding: {bottom: 0, top:0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,0.75,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                tick: {
+		                	multiline:false
+		                }
+		            }
+		        }
+		});
+
+}
+
+	dflChart();
+
+
+//gop breakdown chart
+function gopChart(){
+
+		var  padding = {
+		        top: 20,
+		        right: 60,
+		        bottom: 20,
+		        left: 100,
+		    };
+
+		var gopChart = c3.generate({
+		      bindto: "#gopChart",
+		      padding: padding,
+		        data: {
+		            x: 'x',
+		            columns:
+		            [
+		                ['x', 'Jeff Johnson', 'Kurt Daudt', 'Julie Rosen', 'Matt Dean', 'Keith Downey', 'Mary G. Stephens', 'Undecided'],
+		                ['value', 0.24, 0.14, 0.04, 0.02, 0.01, 0.01, 0.54]
+		            ],
+		            type: 'bar',
+		        labels: {
+		            format: {
+		                'value': d3.format('%')
+		            }
+		        }
+		        },
+		        legend: {
+		            show: false
+		        },
+		         tooltip: {
+		            show: false
+		        },
+		        color: {
+		              pattern: ['#d34A44']
+		            },
+		        axis: {
+		            rotated: true,
+		             y: {
+		              		max: 1,
+		                    min: 0,
+		                    padding: {bottom: 0, top:0},
+		                    tick: {
+		                     count: 4,
+		                     values: [0,0.25,0.50,0.75,1],
+		                     format: d3.format('%')
+		                    }
+		                },
+		            x: {
+		                type: 'category',
+		                tick: {
+		                	multiline:false
+		                }
+		            }
+		        }
+		});
+
+}
+
+	gopChart();
 </script>
 
 <script type="text/javascript">
