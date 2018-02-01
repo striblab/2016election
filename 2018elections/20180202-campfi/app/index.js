@@ -553,7 +553,7 @@ function partyChart(){
                     columns:
                     [
                         ['x', 'DFL', 'GOP'],
-                        ['Fundraising', 2504520, 459068]
+                        ['Fundraising', 2779469, 459068]
                     ],
                     type: 'bar',
                 labels: {
