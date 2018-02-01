@@ -24,6 +24,10 @@
 	margin-bottom:40px;
 }
 
+.topline.republican {
+  text-align:right !important;
+}
+
 .label {
 	margin-left:5px;
 	margin-right:5px;
@@ -75,8 +79,16 @@
   height:80px;
 }
 
+.hideMe {
+  display:none;
+}
+
 .bigBar div {
   height:80px;
+}
+
+.spacer {
+  height:30px;
 }
 
 .dfl .lb,
@@ -106,7 +118,6 @@
 .breaker {
   clear:both;
   display:block;
-  margin:10px;
 }
 
 .gop .lb,
@@ -216,6 +227,14 @@
 
 .red5 {
   color:#ffffff;
+}
+
+.raised {
+  font-size:1.1em;
+}
+
+.photo, .photo img {
+  border-radius:50%;
 }
 
 .chart .c3-line {
