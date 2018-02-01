@@ -130,6 +130,10 @@ d3.csv("./data/races.csv", function(d) {
 
             $(container + " .divide").html("");
 
+
+            $(container + " .d").append('<div class="topline democrat">DFL</div>');
+            $(container + " .r").append('<div class="topline republican">GOP</div>');
+
             for (var i = 0; i < dataFilings.length; i++) {
                 var divide = "";
                 var topline = "";
@@ -169,19 +173,18 @@ d3.csv("./data/races.csv", function(d) {
                                     total[10] = Number(dataFilings[i].endcash);
                                     total[11] = Number(dataFilings[i].begin);
 
-                                    console.log(total);
 
-                                    var pct = d3.format("%")((total[0] / bigTotal) + .01);
+                                    var pct = d3.format("%")((total[0] / bigTotal) + 0.20);
                                     var indPCT = d3.format("%")((total[1] / total[0]));
                                     var ppPCT = d3.format("%")(total[2] / total[0]);
                                     var pfPCT = d3.format("%")(total[3] / total[0]);
-                                    var lbPCT = d3.format("%")(total[4] / total[0]);
+                                    var lbPCT = d3.format("%")((total[4] / total[0]) - 0.1);
                                     var pubfinPCT = d3.format("%")(total[5] / total[0]);
                                     var miscPCT = d3.format("%")(total[6] / total[0]);
                                     var notepayPCT = d3.format("%")(total[7] / total[0]);
                                     var noterecPCT = d3.format("%")(total[8] / total[0]);
 
-                            $(container + ' .' + divide).append('<div class="topline ' + topline + '">' + dataFilings[i].party + ': +' + d3.format("$,")(dataFilings[i].total) + '</div> \
+                            $(container + ' .' + divide).append('<div class="topline ' + topline + '"><span class="hideMe">' + dataFilings[i].party + ': +' + d3.format("$,")(dataFilings[i].total) + '</span></div> \
                                 <div class="label">' + dataFilings[i].first + ' ' + dataFilings[i].last + ' ' + incumbant + '</div>\
                                 <div class="line ' + line + '"><div class="photo"><img src="img/' + dataFilings[i].photo + '" width="98%" /></div><div class="bar"><div class="bigBar"><div class="inBar" style="width:' + pct + '"><div class="ind" title="'  + d3.format("$,.0f")(total[1]) +  ' independent contributions" style="width:' + indPCT + '"></div><div class="pp" title="'  + d3.format("$,.0f")(total[2]) +  ' political party" style="width:' + ppPCT + '"></div><div class="pf" title="' + d3.format("$,.0f")(total[3]) +  ' PAC contributions" style="width:' + pfPCT + '"></div><div class="lb" title="'  + d3.format("$,.0f")(total[4]) +  ' lobbyist contributions" style="width:' + lbPCT + '"></div><div class="pubfin" title="'  + d3.format("$,.0f")(total[5]) +  ' public financing" style="width:' + pubfinPCT + '"></div><div class="misc" title="'  + d3.format("$,.0f")(total[6]) +  ' miscellaneous" style="width:' + miscPCT + '"></div><div class="notepay" title="'  + d3.format("$,.0f")(total[7]) +  ' receipts loans payable" style="width:' + notepayPCT + '"></div><div class="noterec" title="'  + d3.format("$,.0f")(total[8]) +  ' noterec" style="width:' + noterecPCT + '"></div></div></div></div></div>\
                                 <div class="subtotal">\
@@ -189,7 +192,7 @@ d3.csv("./data/races.csv", function(d) {
                                     <div class="raised ' + fill + '">+' + d3.format("$,")(dataFilings[i].total) + '</div>\
                                     <div class="spent">-' + d3.format("$,")(dataFilings[i].expend) + '</div>\
                                     <div class="end">' + d3.format("$,")(dataFilings[i].endcash) + '</div>\
-                            </div>');
+                            </div><div class="spacer"></div>');
                         
                     }
                 }
