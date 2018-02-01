@@ -333,7 +333,7 @@ function getDonors(container, candidate, party){
 function drawChart(container, amount, bigTotal) {
 
 var pct = d3.format("%")(amount[0] / bigTotal);
-var indPCT = d3.format("%")(amount[1] / amount[0]);
+var indPCT = d3.format("%")((amount[1] / amount[0]));
 var ppPCT = d3.format("%")(amount[2] / amount[0]);
 var pfPCT = d3.format("%")(amount[3] / amount[0]);
 var lbPCT = d3.format("%")(amount[4] / amount[0]);

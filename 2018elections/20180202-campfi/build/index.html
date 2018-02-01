@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<title>Minnesota 2018 campaign finance dashboard | Star Tribune</title>
+
+<meta name="author" content="Star Tribune Visuals">
+<meta name="description" content="">
+<meta name="robots" content="index, follow">
+
+<!-- Shortcut and related icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="./assets/images/favicons/manifest.json">
+<link rel="mask-icon" href="./assets/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="./assets/images/favicons/favicon.ico">
+<meta name="msapplication-config" content="./assets/images/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- For proper phone zoom -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Global/external styles -->
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+<!-- Project-specific styles-->
+<link rel="stylesheet" href="./styles.bundle.css" type="text/css">
+
+<!-- Social Media Tags -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://static.startribune.com/news/projects/all/20180202-campfi/">
+<meta property="og:title" content="Minnesota 2018 campaign finance dashboard">
+<meta property="og:description" content="">
+
+  <meta property="og:image" content="http://static.startribune.com/news/projects/all/20180202-campfi/assets/images/strib/strib-logo-name-social-card.png">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@StarTribune">
+<meta name="twitter:title" content="Minnesota 2018 campaign finance dashboard">
+<meta name="twitter:description" content="">
+
+  <meta name="twitter:image" content="http://static.startribune.com/news/projects/all/20180202-campfi/assets/images/strib/strib-logo-name-social-card.png">
+
+
+<!-- Google structured data -->
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http://static.startribune.com/news/projects/all/20180202-campfi/"
+    },
+    "headline": "Minnesota 2018 campaign finance dashboard",,
+    "description": ""
+    
+    "image": {
+      "@type": "ImageObject",
+      "url": "http://static.startribune.com/news/projects/all/20180202-campfi/assets/images/strib/strib-logo-name-social-card.png"
+    },
+    
+    "author": {
+      "@type": "Person",
+      "name": "Star Tribune Visuals"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Star Tribune",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http://static.startribune.com/news/projects/all/20180202-campfi/assets/images/strib/strib-logo-transparent-307.png",
+        "width": 307,
+        "height": 292
+      }
+    }
+  }
+</script>
+
+
+
+  </head>
+
+  <body class="strib">
+    
+    <!-- Screen reader announcements -->
+    <div aria-live="polite" id="announcer" class="sr-only"></div>
+
+    <!-- Skip to main content -->
+    <a href="#main-content" class="to-main-content">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="project-header" role="banner">
+      
+
+    </header>
+
+    <!-- Main content here -->
+    <main id="main-content" class="content" role="main">
+      <div id="wrapper">
+
+<div id="gov" class="slide">
+<!-- <div class="chartTitle">Minnesota Governor</div> -->
+
+	<div class="chartTitle">Total fundraising in Minnesota's governor's race</div>
+	<div class="chatter">Shows total fundraising among major gubernatorial candidates by party, as of the last filing.</div>
+	<div id="partyChart"></div>
+	
+
+<div class="chart" id="govChart">
+<div class="divide d">
+
+</div>
+<div class="divide r">
+
+</div>
+<div class="breaker"></div>
+<div class="divide i">
+
+</div>
+</div>
+</div>
+
+<div class="breaker"></div>
+
+<div id="ag" class="slide">
+<div class="chartTitle">Minnesota Attorney General</div>
+
+<div class="chart" id="agChart">
+<div class="divide d">
+
+</div>
+<div class="divide r">
+
+</div>
+<div class="breaker"></div>
+<div class="divide i">
+
+</div>
+</div>
+</div>
+
+<div class="breaker"></div>
+
+<div id="sos" class="slide">
+<div class="chartTitle">Minnesota Secretary of State</div>
+
+<div class="chart" id="sosChart">
+<div class="divide d">
+
+</div>
+<div class="divide r">
+
+</div>
+<div class="breaker"></div>
+<div class="divide i">
+
+</div>
+</div>
+</div>
+
+<div class="breaker"></div>
+
+<div id="sa" class="slide">
+<div class="chartTitle">Minnesota State Auditor</div>
+
+<div class="chart" id="saChart">
+<div class="divide d">
+
+</div>
+<div class="divide r">
+
+</div>
+<div class="breaker"></div>
+<div class="divide i">
+
+</div>
+</div>
+</div>
+
+<div class="breaker"></div>
+
+<div id="house" class="slide">
+<div class="chartTitle">Minnesota House of Representatives</div>
+
+<div class="mapBox">
+  <div id="mapStateH" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+  <div id="mapMetroH" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+</div>
+		<div id="viewSwitchH">
+			<div id="districtSelectH"><span class="directions down">&#9660;</span> <span class="directions left">&#9658;</span> Click to select a House district | <span class="thisDistrict">District 01A</span> </div>
+
+			<div id="filterH" class="filter"><input type="search" class="filter_box" placeholder="Filter by district name" /></div>
+			<ul id="listedH" class="dropdown" tabindex="1">
+			</ul>
+		</div>
+
+<div class="chart" id="houseChart">
+<div class="divide d">
+
+</div>
+<div class="divide r">
+
+</div>
+<div class="breaker"></div>
+<div class="divide i">
+
+</div>
+</div>
+</div>
+
+<div class="breaker"></div>
+
+<div id="senate" class="slide">
+<div class="chartTitle">Minnesota Senate</div>
+
+<div class="mapBox">
+  <div id="mapStateS" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+  <div id="mapMetroS" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+</div>
+
+		<div id="viewSwitchS">
+			<div id="districtSelectS"><span class="directions down">&#9660;</span> <span class="directions left">&#9658;</span> Click to select a Senate district | <span class="thisDistrict">District 01</span></div>
+
+			<div id="filterS" class="filter"><input type="search" class="filter_box" placeholder="Filter by district name" /></div>
+			<ul id="listedS" class="dropdown" tabindex="1">
+			</ul>
+		</div>
+
+<div class="chart" id="senateChart">
+<div class="divide d">
+
+</div>
+<div class="divide r">
+
+</div>
+<div class="breaker"></div>
+<div class="divide i">
+
+</div>
+</div>
+</div>
+
+<div class="breaker"></div>
+
+<div id="us" class="slide">
+<div class="chartTitle">Minnesota U.S. House of Representatives</div>
+
+<div class="mapBox">
+  <div id="mapState" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+</div>
+
+		<div id="viewSwitchUS">
+			<div id="districtSelectUS"><span class="directions down">&#9660;</span> <span class="directions left">&#9658;</span> Click to select a House district | <span class="thisDistrict">U.S. District MN1</span> </div>
+
+			<div id="filterUS" class="filter"><input type="search" class="filter_box" placeholder="Filter by district name" /></div>
+			<ul id="listedUS" class="dropdown" tabindex="1">
+			</ul>
+		</div>
+
+<div class="chart" id="conChart">
+<div class="divide d">
+
+</div>
+<div class="divide r">
+
+</div>
+<div class="breaker"></div>
+<div class="divide i">
+
+</div>
+</div>
+</div>
+
+<div class="breaker"></div>
+
+<div id="sen1" class="slide">
+<div class="chartTitle">Minnesota Senate 1</div>
+
+<div class="chart" id="senChart">
+<div class="divide d">
+
+</div>
+<div class="divide r">
+
+</div>
+<div class="divide i">
+
+</div>
+</div>
+</div>
+
+<div class="breaker"></div>
+
+<div id="sen2" class="slide">
+<div class="chartTitle">Minnesota Senate 2</div>
+
+<div class="chart" id="senChart2">
+<div class="divide d">
+
+</div>
+<div class="divide r">
+
+</div>
+<div class="breaker"></div>
+<div class="divide i">
+
+</div>
+</div>
+</div>
+
+<div class="breaker"></div>
+
+<div id="party" class="slide">
+<div class="chartTitle">Party and committee fundraising</div>
+
+<div class="chart" id="partyChart">
+<div class="divide d">
+
+</div>
+<div class="divide r">
+
+</div>
+<div class="breaker"></div>
+<div class="divide i">
+
+</div>
+</div>
+</div>
+
+<div class="breaker"></div>
+
+<div class="byline">Source: Minnesota Campaign Finance Board | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+</div>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+      
+    </footer>
+
+    <!-- Global/external scripts -->
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pym/1.2.2/pym.v1.min.js"></script>
+    
+      <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    
+      <script src="js/d3.v3.min.js"></script>
+    
+      <script src="js/c3.min.js"></script>
+    
+
+    <!-- Scripts -->
+    <script src="./app.bundle.js"></script>
+    
+  </body>
+</html>
