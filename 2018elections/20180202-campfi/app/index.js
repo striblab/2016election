@@ -120,7 +120,7 @@ d3.csv("./data/races.csv", function(d) {
             var bigTotal = 0;
 
             for (var i = 0; i < dataFilings.length; i++) {
-                 if (String(dataFilings[i].office).toUpperCase() == chamber.toUpperCase()){
+                if (String(dataFilings[i].office).toUpperCase() == chamber.toUpperCase()) {
                     if (dataFilings[i].district == district && dataFilings[i].out == 0) {
                         bigTotal = bigTotal + dataFilings[i].total;
                     }
@@ -140,7 +140,7 @@ d3.csv("./data/races.csv", function(d) {
                 var line = "";
                 var incumbant = "";
                 var fill = "";
-                if (String(dataFilings[i].office).toUpperCase() == chamber.toUpperCase()){
+                if (String(dataFilings[i].office).toUpperCase() == chamber.toUpperCase()) {
                     if (dataFilings[i].district == district && dataFilings[i].out == 0) {
                         if (dataFilings[i].party == "DFL") {
                             divide = "d";
@@ -159,49 +159,51 @@ d3.csv("./data/races.csv", function(d) {
                             fill = "indy";
                         }
 
-                                    var total = [];
-                                    total[0] = Number(dataFilings[i].total);
-                                    total[1] = Number(dataFilings[i].indcontrib);
-                                    total[2] = Number(dataFilings[i].ppcontrib);
-                                    total[3] = Number(dataFilings[i].pfcontrib);
-                                    total[4] = Number(dataFilings[i].lbcontrib);
-                                    total[5] = Number(dataFilings[i].pubfin);
-                                    total[6] = Number(dataFilings[i].miscinc);
-                                    total[7] = Number(dataFilings[i].notepayinc);
-                                    total[8] = Number(dataFilings[i].noterecinc);
-                                    total[9] = Number(dataFilings[i].expend);
-                                    total[10] = Number(dataFilings[i].endcash);
-                                    total[11] = Number(dataFilings[i].begin);
+                        var total = [];
+                        total[0] = Number(dataFilings[i].total);
+                        total[1] = Number(dataFilings[i].indcontrib);
+                        total[2] = Number(dataFilings[i].ppcontrib);
+                        total[3] = Number(dataFilings[i].pfcontrib);
+                        total[4] = Number(dataFilings[i].lbcontrib);
+                        total[5] = Number(dataFilings[i].pubfin);
+                        total[6] = Number(dataFilings[i].miscinc);
+                        total[7] = Number(dataFilings[i].notepayinc);
+                        total[8] = Number(dataFilings[i].noterecinc);
+                        total[9] = Number(dataFilings[i].expend);
+                        total[10] = Number(dataFilings[i].endcash);
+                        total[11] = Number(dataFilings[i].begin);
 
 
-                                    var pct = d3.format("%")((total[0] / bigTotal) + 0.20);
-                                    var indPCT = d3.format("%")((total[1] / total[0]));
-                                    var ppPCT = d3.format("%")(total[2] / total[0]);
-                                    var pfPCT = d3.format("%")(total[3] / total[0]);
-                                    var lbPCT = d3.format("%")((total[4] / total[0]) - 0.1);
-                                    var pubfinPCT = d3.format("%")(total[5] / total[0]);
-                                    var miscPCT = d3.format("%")(total[6] / total[0]);
-                                    var notepayPCT = d3.format("%")(total[7] / total[0]);
-                                    var noterecPCT = d3.format("%")(total[8] / total[0]);
+                        var pct = d3.format("%")((total[0] / bigTotal) + 0.20);
+                        var indPCT = d3.format("%")((total[1] / total[0]));
+                        var ppPCT = d3.format("%")(total[2] / total[0]);
+                        var pfPCT = d3.format("%")(total[3] / total[0]);
+                        var lbPCT = d3.format("%")((total[4] / total[0]) - 0.1);
+                        var pubfinPCT = d3.format("%")(total[5] / total[0]);
+                        var miscPCT = d3.format("%")(total[6] / total[0]);
+                        var notepayPCT = d3.format("%")(total[7] / total[0]);
+                        var noterecPCT = d3.format("%")(total[8] / total[0]);
 
-                            $(container + ' .' + divide).append('<div class="topline ' + topline + '"><span class="hideMe">' + dataFilings[i].party + ': +' + d3.format("$,")(dataFilings[i].total) + '</span></div> \
+                        $(container + ' .' + divide).append('<div class="topline ' + topline + '"><span class="hideMe">' + dataFilings[i].party + ': +' + d3.format("$,")(dataFilings[i].total) + '</span></div> \
                                 <div class="label">' + dataFilings[i].first + ' ' + dataFilings[i].last + ' ' + incumbant + '</div>\
-                                <div class="line ' + line + '"><div class="photo"><img src="img/' + dataFilings[i].photo + '" width="98%" /></div><div class="bar"><div class="bigBar"><div class="inBar" style="width:' + pct + '"><div class="ind" title="'  + d3.format("$,.0f")(total[1]) +  ' individual contributions" style="width:' + indPCT + '"></div><div class="pp" title="'  + d3.format("$,.0f")(total[2]) +  ' political party" style="width:' + ppPCT + '"></div><div class="pf" title="' + d3.format("$,.0f")(total[3]) +  ' PAC contributions" style="width:' + pfPCT + '"></div><div class="lb" title="'  + d3.format("$,.0f")(total[4]) +  ' lobbyist contributions" style="width:' + lbPCT + '"></div><div class="pubfin" title="'  + d3.format("$,.0f")(total[5]) +  ' public financing" style="width:' + pubfinPCT + '"></div><div class="misc" title="'  + d3.format("$,.0f")(total[6]) +  ' miscellaneous" style="width:' + miscPCT + '"></div><div class="notepay" title="'  + d3.format("$,.0f")(total[7]) +  ' receipts loans payable" style="width:' + notepayPCT + '"></div><div class="noterec" title="'  + d3.format("$,.0f")(total[8]) +  ' noterec" style="width:' + noterecPCT + '"></div></div></div></div></div>\
+                                <div class="line ' + line + '"><div class="photo"><img src="img/' + dataFilings[i].photo + '" width="98%" /></div><div class="bar"><div class="bigBar"><div class="inBar" style="width:' + pct + '"><div class="ind" title="' + d3.format("$,.0f")(total[1]) + ' individual contributions" style="width:' + indPCT + '"></div><div class="pp" title="' + d3.format("$,.0f")(total[2]) + ' political party" style="width:' + ppPCT + '"></div><div class="pf" title="' + d3.format("$,.0f")(total[3]) + ' PAC contributions" style="width:' + pfPCT + '"></div><div class="lb" title="' + d3.format("$,.0f")(total[4]) + ' lobbyist contributions" style="width:' + lbPCT + '"></div><div class="pubfin" title="' + d3.format("$,.0f")(total[5]) + ' public financing" style="width:' + pubfinPCT + '"></div><div class="misc" title="' + d3.format("$,.0f")(total[6]) + ' miscellaneous" style="width:' + miscPCT + '"></div><div class="notepay" title="' + d3.format("$,.0f")(total[7]) + ' receipts loans payable" style="width:' + notepayPCT + '"></div><div class="noterec" title="' + d3.format("$,.0f")(total[8]) + ' noterec" style="width:' + noterecPCT + '"></div></div></div></div></div>\
                                 <div class="subtotal">\
                                     <div class="begin">' + d3.format("$,")(dataFilings[i].begin) + '</div>\
                                     <div class="raised ' + fill + '">+' + d3.format("$,")(dataFilings[i].total) + '</div>\
                                     <div class="spent">-' + d3.format("$,")(dataFilings[i].expend) + '</div>\
                                     <div class="end">' + d3.format("$,")(dataFilings[i].endcash) + '</div>\
                             </div><div class="spacer"></div>');
-                        
+
                     }
                 }
 
             }
 
-             $( function() {
-                $( document ).tooltip({tooltipClass: "tooltip",});
-              } );
+            $(function() {
+                $(document).tooltip({
+                    tooltipClass: "tooltip",
+                });
+            });
 
         }
 
@@ -332,7 +334,7 @@ d3.csv("./data/races.csv", function(d) {
                             }
                         }
 
-                        return "<div class='districtName'> District " + d.properties.DISTRICT + "</div><div class='" + control + "'>" + incumbant  + " (" + party + ")</div>";
+                        return "<div class='districtName'> District " + d.properties.DISTRICT + "</div><div class='" + control + "'>" + incumbant + " (" + party + ")</div>";
                     }));
 
                 g.append("path")
@@ -536,65 +538,70 @@ d3.csv("./data/races.csv", function(d) {
     });
 });
 
-function partyChart(){
+function partyChart() {
 
-        var  padding = {
-                top: 20,
-                right: 0,
-                bottom: 20,
-                left: 0,
-            };
+    var padding = {
+        top: 20,
+        right: 0,
+        bottom: 20,
+        left: 0,
+    };
 
-        var partyChart = c3.generate({
-              bindto: "#partyChart",
-              padding: padding,
-                data: {
-                    x: 'x',
-                    columns:
-                    [
-                        ['x', 'DFL', 'GOP'],
-                        ['Fundraising', 2779469, 459068]
-                    ],
-                    type: 'bar',
-                labels: {
-                    format: {
-                        'Fundraising': d3.format('$,')
-                    }
-                },
-                colors: {
-                  'Fundraising': function(d) { 
-                  if (d.index == 0 ) { return "#3585BC"; }
-                  else { return "#d34A44"; }
+    var partyChart = c3.generate({
+        bindto: "#partyChart",
+        padding: padding,
+        data: {
+            x: 'x',
+            columns: [
+                ['x', 'DFL', 'GOP'],
+                ['Fundraising', 2779469, 459068]
+            ],
+            type: 'bar',
+            labels: {
+                format: {
+                    'Fundraising': d3.format('$,')
                 }
-                }
-                },
-                legend: {
-                    show: false
-                },
-                 tooltip: {
-                    show: false
-                },
-                axis: {
-                    // rotated: true,
-                     y: {
-                            max: 3000000,
-                            min: 0,
-                            padding: {bottom: 0, top:0},
-                            tick: {
-                             count: 4,
-                             values: [0,1000000,2000000,3000000],
-                             format: d3.format('$,')
-                            }
-                        },
-                    x: {
-                        type: 'category',
-                        tick: {
-                            multiline:false
-                        }
+            },
+            colors: {
+                'Fundraising': function(d) {
+                    if (d.index == 0) {
+                        return "#3585BC";
+                    } else {
+                        return "#d34A44";
                     }
                 }
-        });
+            }
+        },
+        legend: {
+            show: false
+        },
+        tooltip: {
+            show: false
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 3000000,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [0, 1000000, 2000000, 3000000],
+                    format: d3.format('$,')
+                }
+            },
+            x: {
+                type: 'category',
+                tick: {
+                    multiline: false
+                }
+            }
+        }
+    });
 
 }
 
-    partyChart();
+partyChart();
