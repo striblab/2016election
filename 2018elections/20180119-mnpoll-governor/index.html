@@ -314,274 +314,286 @@
 <script src="./builds/development/js/d3.v3.min.js"></script>
 
 <script>
-	$.urlParam = function(name){
-	  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-	  if (results != null) { return results[1] || 0; }
-	  else { return null; }
+	$.urlParam = function(name) {
+	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	    if (results != null) {
+	        return results[1] || 0;
+	    } else {
+	        return null;
+	    }
 	}
 
 	var selected = $.urlParam('section');
 
-	if (selected != null){
-	$(".section").hide();
-	$("#" + selected).show();
-	} else { $(".section").show(); }
+	if (selected != null) {
+	    $(".section").hide();
+	    $("#" + selected).show();
+	} else {
+	    $(".section").show();
+	}
 
-	$(".thisSwitch").on("click",function(){
-		$("#dataframe").attr("src","./builds/development/?poll=" + $(this).find("a").attr("data"));
+	$(".thisSwitch").on("click", function() {
+	    $("#dataframe").attr("src", "./builds/development/?poll=" + $(this).find("a").attr("data"));
 	});
 
-//party breakdown chart
-	function partyChart(){
+	//party breakdown chart
+	function partyChart() {
 
-		var  padding = {
-		        top: 20,
-		        right: 60,
-		        bottom: 20,
-		        left: 40,
-		    };
+	    var padding = {
+	        top: 20,
+	        right: 60,
+	        bottom: 20,
+	        left: 40,
+	    };
 
-		var partyChart = c3.generate({
-		      bindto: "#partyChart",
-		      padding: padding,
-		      data: {
-		            columns: [
-		                ['DEM', 0.04, 0.36, 0.32],
-		                ['GOP', 0.20, 0.16, 0.39],
-		                ['IND', 0.11, 0.20, 0.40]
-		            ],
-		        type: 'bar',
-		        labels: {
-		            format: {
-		                'DEM': d3.format('%'),
-		                'GOP': d3.format('%'),
-		                'IND': d3.format('%')
-		            }
-		        }
-		        },
-		        legend: {
-		            show: false
-		        },            
-		        bar: {
-	                width: {
-	                    ratio: 0.6
+	    var partyChart = c3.generate({
+	        bindto: "#partyChart",
+	        padding: padding,
+	        data: {
+	            columns: [
+	                ['DEM', 0.04, 0.36, 0.32],
+	                ['GOP', 0.20, 0.16, 0.39],
+	                ['IND', 0.11, 0.20, 0.40]
+	            ],
+	            type: 'bar',
+	            labels: {
+	                format: {
+	                    'DEM': d3.format('%'),
+	                    'GOP': d3.format('%'),
+	                    'IND': d3.format('%')
 	                }
-            	},		        
-		        tooltip: {
-		            show: false
-		        },
-		            color: {
-		              pattern: ['#3585BC','#d34A44',"#8b62a8"]
-		            },
-		        axis: {
-		              // rotated: true,
-		              y: {
-		              		max: 1,
-		                    min: 0,
-		                    padding: {bottom: 0, top:0},
-		                    tick: {
-		                     count: 4,
-		                     values: [0,0.25,0.50,0.75,1],
-		                     format: d3.format('%')
-		                    }
-		                },
-		            x: {
-		                type: 'category',
-		                categories: ['% taxes','% health care', '% jobs & economy']
-		            }
-		        },
-			    grid: {
-			        y: {
-		          lines: [
-		                {value: 0.5, text: '', position: 'start', class:'powerline'}
-		          ]
-			        }
-			    }
+	            }
+	        },
+	        legend: {
+	            show: false
+	        },
+	        bar: {
+	            width: {
+	                ratio: 0.6
+	            }
+	        },
+	        tooltip: {
+	            show: false
+	        },
+	        color: {
+	            pattern: ['#3585BC', '#d34A44', "#8b62a8"]
+	        },
+	        axis: {
+	            // rotated: true,
+	            y: {
+	                max: 1,
+	                min: 0,
+	                padding: {
+	                    bottom: 0,
+	                    top: 0
+	                },
+	                tick: {
+	                    count: 4,
+	                    values: [0, 0.25, 0.50, 0.75, 1],
+	                    format: d3.format('%')
+	                }
+	            },
+	            x: {
+	                type: 'category',
+	                categories: ['% taxes', '% health care', '% jobs & economy']
+	            }
+	        },
+	        grid: {
+	            y: {
+	                lines: [{
+	                    value: 0.5,
+	                    text: '',
+	                    position: 'start',
+	                    class: 'powerline'
+	                }]
+	            }
+	        }
 
-		});
+	    });
 
-d3.selectAll(".c3-target-DEM")
-    .selectAll(".c3-bar, .c3-texts")
-    .attr("transform", "translate(-10, 0)");
+	    d3.selectAll(".c3-target-DEM")
+	        .selectAll(".c3-bar, .c3-texts")
+	        .attr("transform", "translate(-10, 0)");
 
-d3.selectAll(".c3-target-IND")
-    .selectAll(".c3-bar, .c3-texts")
-    .attr("transform", "translate(10, 0)");
+	    d3.selectAll(".c3-target-IND")
+	        .selectAll(".c3-bar, .c3-texts")
+	        .attr("transform", "translate(10, 0)");
 
-}
+	}
 
 	partyChart();
 
 
-//dfl breakdown chart
-function dflChart(){
+	//dfl breakdown chart
+	function dflChart() {
 
-		var  padding = {
-		        top: 20,
-		        right: 60,
-		        bottom: 20,
-		        left: 100,
-		    };
+	    var padding = {
+	        top: 20,
+	        right: 60,
+	        bottom: 20,
+	        left: 100,
+	    };
 
-		var dflChart = c3.generate({
-		      bindto: "#dflChart",
-		      padding: padding,
-		        data: {
-		            x: 'x',
-		            columns:
-		            [
-		                ['x', 'Tim  Walz', 'Lori Swanson', 'Chris Coleman', 'Rebecca Otto', 'Erin Murphy', 'Paul Thissen', 'Tina Liebling', 'Undecided'],
-		                ['value', 0.21, 0.16, 0.12, 0.09, 0.06, 0.04, 0.02, 0.30]
-		            ],
-		            type: 'bar',
-		        labels: {
-		            format: {
-		                'value': d3.format('%')
-		            }
-		        }
-		        },
-		        legend: {
-		            show: false
-		        },
-		         tooltip: {
-		            show: false
-		        },
-		        color: {
-		              pattern: ['#3585BC']
-		            },
-		        axis: {
-		            rotated: true,
-		             y: {
-		              		max: 1,
-		                    min: 0,
-		                    padding: {bottom: 0, top:0},
-		                    tick: {
-		                     count: 4,
-		                     values: [0,0.25,0.50,0.75,1],
-		                     format: d3.format('%')
-		                    }
-		                },
-		            x: {
-		                type: 'category',
-		                tick: {
-		                	multiline:false
-		                }
-		            }
-		        }
-		});
+	    var dflChart = c3.generate({
+	        bindto: "#dflChart",
+	        padding: padding,
+	        data: {
+	            x: 'x',
+	            columns: [
+	                ['x', 'Tim  Walz', 'Lori Swanson', 'Chris Coleman', 'Rebecca Otto', 'Erin Murphy', 'Paul Thissen', 'Tina Liebling', 'Undecided'],
+	                ['value', 0.21, 0.16, 0.12, 0.09, 0.06, 0.04, 0.02, 0.30]
+	            ],
+	            type: 'bar',
+	            labels: {
+	                format: {
+	                    'value': d3.format('%')
+	                }
+	            }
+	        },
+	        legend: {
+	            show: false
+	        },
+	        tooltip: {
+	            show: false
+	        },
+	        color: {
+	            pattern: ['#3585BC']
+	        },
+	        axis: {
+	            rotated: true,
+	            y: {
+	                max: 1,
+	                min: 0,
+	                padding: {
+	                    bottom: 0,
+	                    top: 0
+	                },
+	                tick: {
+	                    count: 4,
+	                    values: [0, 0.25, 0.50, 0.75, 1],
+	                    format: d3.format('%')
+	                }
+	            },
+	            x: {
+	                type: 'category',
+	                tick: {
+	                    multiline: false
+	                }
+	            }
+	        }
+	    });
 
-}
+	}
 
 	dflChart();
 
 
-//gop breakdown chart
-function gopChart(){
+	//gop breakdown chart
+	function gopChart() {
 
-		var  padding = {
-		        top: 20,
-		        right: 60,
-		        bottom: 20,
-		        left: 100,
-		    };
+	    var padding = {
+	        top: 20,
+	        right: 60,
+	        bottom: 20,
+	        left: 100,
+	    };
 
-		var gopChart = c3.generate({
-		      bindto: "#gopChart",
-		      padding: padding,
-		        data: {
-		            x: 'x',
-		            columns:
-		            [
-		                ['x', 'Jeff Johnson', 'Kurt Daudt', 'Julie Rosen', 'Matt Dean', 'Keith Downey', 'Mary G. Stephens', 'Undecided'],
-		                ['value', 0.24, 0.14, 0.04, 0.02, 0.01, 0.01, 0.54]
-		            ],
-		            type: 'bar',
-		        labels: {
-		            format: {
-		                'value': d3.format('%')
-		            }
-		        }
-		        },
-		        legend: {
-		            show: false
-		        },
-		         tooltip: {
-		            show: false
-		        },
-		        color: {
-		              pattern: ['#d34A44']
-		            },
-		        axis: {
-		            rotated: true,
-		             y: {
-		              		max: 1,
-		                    min: 0,
-		                    padding: {bottom: 0, top:0},
-		                    tick: {
-		                     count: 4,
-		                     values: [0,0.25,0.50,0.75,1],
-		                     format: d3.format('%')
-		                    }
-		                },
-		            x: {
-		                type: 'category',
-		                tick: {
-		                	multiline:false
-		                }
-		            }
-		        }
-		});
+	    var gopChart = c3.generate({
+	        bindto: "#gopChart",
+	        padding: padding,
+	        data: {
+	            x: 'x',
+	            columns: [
+	                ['x', 'Jeff Johnson', 'Kurt Daudt', 'Julie Rosen', 'Matt Dean', 'Keith Downey', 'Mary G. Stephens', 'Undecided'],
+	                ['value', 0.24, 0.14, 0.04, 0.02, 0.01, 0.01, 0.54]
+	            ],
+	            type: 'bar',
+	            labels: {
+	                format: {
+	                    'value': d3.format('%')
+	                }
+	            }
+	        },
+	        legend: {
+	            show: false
+	        },
+	        tooltip: {
+	            show: false
+	        },
+	        color: {
+	            pattern: ['#d34A44']
+	        },
+	        axis: {
+	            rotated: true,
+	            y: {
+	                max: 1,
+	                min: 0,
+	                padding: {
+	                    bottom: 0,
+	                    top: 0
+	                },
+	                tick: {
+	                    count: 4,
+	                    values: [0, 0.25, 0.50, 0.75, 1],
+	                    format: d3.format('%')
+	                }
+	            },
+	            x: {
+	                type: 'category',
+	                tick: {
+	                    multiline: false
+	                }
+	            }
+	        }
+	    });
 
-}
+	}
 
 	gopChart();
-</script>
 
-<script type="text/javascript">
-      
-      function DropDown(el)  { 
-        this.dd = el;
-        this.placeholder = this.dd.children('span');
-        this.opts = this.dd.find('ul.dropdown > li');
-        this.val = '';
-        this.index = -1;
-        this.initEvents();
-      }
-      DropDown.prototype =  { 
-        initEvents : function()  { 
-          var obj = this;
 
-          obj.dd.on('click', function(event) { 
-            $(this).toggleClass('active');
-            return false;
-          });
+	function DropDown(el) {
+	    this.dd = el;
+	    this.placeholder = this.dd.children('span');
+	    this.opts = this.dd.find('ul.dropdown > li');
+	    this.val = '';
+	    this.index = -1;
+	    this.initEvents();
+	}
+	DropDown.prototype = {
+	    initEvents: function() {
+	        var obj = this;
 
-          obj.opts.on('click',function() { 
-            var opt = $(this);
-            obj.val = opt.text();
-            obj.index = opt.index();
-            obj.placeholder.text(obj.val);
-          });
-        },
-        getValue : function()  { 
-          return this.val;
-        },
-        getIndex : function()  { 
-          return this.index;
-        }
-      }
+	        obj.dd.on('click', function(event) {
+	            $(this).toggleClass('active');
+	            return false;
+	        });
 
-      $(function()  { 
+	        obj.opts.on('click', function() {
+	            var opt = $(this);
+	            obj.val = opt.text();
+	            obj.index = opt.index();
+	            obj.placeholder.text(obj.val);
+	        });
+	    },
+	    getValue: function() {
+	        return this.val;
+	    },
+	    getIndex: function() {
+	        return this.index;
+	    }
+	}
 
-        var dd = new DropDown( $('#dd') );
-        var dd2 = new DropDown( $('#ddY') );
+	$(function() {
 
-        $(document).click(function()  { 
-          // all dropdowns
-          $('.wrapper-dropdown-1').removeClass('active');
-        });
+	    var dd = new DropDown($('#dd'));
+	    var dd2 = new DropDown($('#ddY'));
 
-      });
+	    $(document).click(function() {
+	        // all dropdowns
+	        $('.wrapper-dropdown-1').removeClass('active');
+	    });
 
+	});
 </script>
 </html>
