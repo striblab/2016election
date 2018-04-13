@@ -1973,10 +1973,6 @@ text:hover {
   text-align: left;
 }
 
-.smallchart {
-  display: none;
-}
-
 /*CHARTS*/
 #chart .c3-line {
   stroke-width: 5px !important;
