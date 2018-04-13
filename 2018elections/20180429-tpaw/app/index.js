@@ -660,7 +660,7 @@ function chartTestScores() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['8th Grade Reading', null, null, null, null, null, null, null, 0.57,0.59,0.58,0.60,0.59,0.53,0.62,0.59,0.60,0.58,0.58],
+                ['8th Grade Math', null, null, null, null, null, null, null, 0.57,0.59,0.58,0.60,0.59,0.53,0.62,0.59,0.60,0.58,0.58],
                 ['3rd Grade Reading', null, null, null, null, null, null, null, 0.82,0.80,0.79,0.78,0.76,0.79,0.80,0.57,0.58,0.59,0.57,0.57]
             ],
             type: 'line',
