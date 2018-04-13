@@ -714,11 +714,11 @@ function chartTestScores() {
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-          return '<div class="chart-tooltip">' + '<div>' + d[0].x + '</div>' + '<span class="tooltip-label">' + d[0].id + ':</span>' +
-            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
-            '</div><div class="chart-tooltip">' +
-            '<span class="tooltip-label">' + d[1].id + ':</span>' +
+          return '<div class="chart-tooltip">' + '<div>' + d[0].x + '</div>' + '<span class="tooltip-label">' + d[1].id + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[1].value) + '</span>' +
+            '</div><div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].id + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
         }
       }
@@ -962,8 +962,10 @@ function chartPavement() {
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-          return '<div class="chart-tooltip">' +
-            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+          return '<div class="chart-tooltip">' + '<div>' + d[0].x + '</div>' + '<span class="tooltip-label">' + d[1].id + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[1].value) + '</span>' +
+            '</div><div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].id + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
         }
