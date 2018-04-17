@@ -299,6 +299,96 @@ function chartUnemployment() {
 chartUnemployment();
 
 
+//unemployment chart
+function chartHousing() {
+    var padding = {
+        top: 0,
+        right: 60,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartTrend = c3.generate({
+        bindto: "#chartHousing",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+                ['Rate', null,0.22,0.26,0.26,0.27,0.29,0.31,0.33,0.33,0.34,0.33,0.33,0.33,0.30,0.28,0.28,0.27, null]
+            ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1f')
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+        point: {
+            show: true
+        },
+        color: {
+            pattern: ['#333333']
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 1,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 0.25, 0.50, 0.75, 1],
+                    format: d3.format('%,.0f')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2016],
+                    multiline: false,
+                }
+            }
+        },
+         regions: [
+          {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+          {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+          {axis: 'x', start: 2011, end: 2016, class: 'dfl'},
+        ],
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
+        }
+      },
+        grid: {
+        x: {
+            lines: [
+                {value: '2007', text: 'Great Recession starts', position: 'end', class: 'grayline'},
+                {value: '2009', text: 'Great Recession ends', position: 'end', class: 'grayline'}
+            ]
+        }
+     }
+    });
+}
+
+chartHousing();
+
+
 //jobs chart chart
 function chartJobs() {
     var padding = {
