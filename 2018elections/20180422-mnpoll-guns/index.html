@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MNPOLL Spring 2018: Gun control</title>
+  	<meta name="description" content="MNPOLL Spring 2018: Gun Control">
+ 	<meta name="author" content="Frey Hargarten - StarTribune">
+	<meta name="generator" content="BBEdit 10.5" />
+	
+	<link rel="stylesheet" href="./builds/development/css/style.css">
+
+	<style type="text/css">
+
+	#wrapper {
+		font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+		margin-right:auto;
+		margin-left:auto;
+		width:520px;
+	}
+
+	.chart svg {
+	    text-align:center;
+	    height:300px !important;
+	    max-height:300px !important;
+	}
+
+	.chart {
+	    text-align:center;
+	    height:300px !important;
+	    margin-left: auto;
+	    margin-right: auto;
+	    max-height:300px !important;
+	}
+
+	.powerline {
+	    stroke-dasharray: 5, 5;
+	    stroke: #333;
+	}
+
+	.chart .c3-line {
+	  stroke-width: 6px !important;
+	}
+
+	.chartTitle {
+		line-height:140%;
+		font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+	}
+
+	.dataframe { 
+		height:2900px;
+	} 
+
+	#bigResults {
+	    text-align: center;
+	    width: 100%;
+	    margin: 20px;
+	}
+
+	.chatter {
+		font-size:1.2em;
+	}
+
+	.chartTitle {
+		font-size:1.4em;
+	}
+
+	#breakdowns {
+		font-size:1.2em;
+	}
+
+	.byline {
+	    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+	    font-weight: 400;
+	    font-size:0.6em;
+	    color: #888;
+	    padding-top:10px;
+	    padding-bottom:10px;
+	    text-align:left;
+	}
+
+	.byline a {
+		color: #888;
+	}
+	
+	.result {
+	    display: inline-block !important;
+	    text-align: center;
+	    margin: 20px;
+	    width: 112px;
+	}
+
+	.catIcon {
+		display:inline-block;
+		width:40%;
+		margin:15px;
+		text-align:center;
+	}
+
+	.bigNum {
+	    font-size: 3em;
+	    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+	    text-align: center;
+	    font-weight: 900;
+	    padding-top: 15px;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    padding-bottom: 5px;
+	}
+
+	.forNum {
+	    color: #00222D;
+	}
+
+	.forNumD {
+	    color: #3f88c5;
+	}
+
+	.againstNum {
+	    color: rgb(115, 115, 115);
+	}
+
+	.againstNumR {
+	    color: #8C1B17;
+	}
+
+	.question, .chatter, #breakdowns {
+		line-height:160%;
+	}
+
+	.wrapper-dropdown-1 {
+		padding-right:60px;
+	}
+
+	.main {
+		line-height:120%
+	}
+
+	.downloadButton9 {
+	    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+	    font-weight: bold;
+	    color: #333333;
+	    border: none;
+	    font-size: .9em;
+	    text-align: center;
+	    margin-top: 14px;
+	    margin-left: 1%;
+	    padding-top: 0px;
+	    width: 99%;
+	    background-color: #fff;
+	    color: #333;
+/*	    background-image: url(./builds/development/img/downloadDoc.svg);*/
+	    background-size: 18px 18px;
+	    background-repeat: no-repeat;
+	    background-position: 42% 76%;
+	}
+
+	.downloadButton9:hover {
+	    background-color: #fff !important;
+	    opacity: .5;
+	    cursor: pointer;
+	}
+
+	#selector { 
+		display:block !important ;
+	}
+
+	.c3-tooltip {
+		width:150px !important;
+	}
+
+	.wrapper-dropdown-1 {
+   		 background: #dddddd !important!;
+    }
+
+    .green4 { fill:#8b62a8; background-color:#8b62a8 !important; }
+
+	@media (max-width:520px) {
+		#wrapper {
+			width:100%;
+		}
+		.result {
+			width:35% !important;
+		}
+	}
+
+	@media only screen and (min-width: 200px) and (max-width: 767px) { 
+		.dataframe { 
+			height:2860px; 
+		}
+	}
+	</style>
+</head>
+<!-- 420758934 -->
+<body>
+	<div id="wrapper">
+	<div id="questions_list">
+
+		<div class="questionBlock section" id="question1">
+			<div class="question">Do you <span class="legendary gray5">support</span> or <span class="legendary gray3">oppose</span> stricter gun laws in the United States?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">56</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">31</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question2">
+			<div class="question">Do you <span class="legendary gray5">support</span> or <span class="legendary gray3">oppose</span> training some teachers and allowing them to carry guns in school?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">35</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">59</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+
+<!-- 			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">A deeply partisan issue</div>
+			  <div class="chatter">The tax law enjoys overwhelming <span class="legendary r2">Republican</span> support and almost none from <span class="legendary d4">Democrats</span>, while <span class="legendary green4">independents</span> are more split.</div>
+			  <div id="partyChart" class="chart"></div>
+			</div> -->
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question3">
+			<div class="question">Do you <span class="legendary gray5">support</span> or <span class="legendary gray3">oppose</span> raising the legal age to buy a gun from 18 to 21??</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">63</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">27</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+
+<!-- 			<div class="sectionBox">
+			  <div class="icon"></div>
+			  <div class="chartTitle">Varying expectations</div>
+			  <div class="chatter"><span class="legendary r2">Republicans</span> are more likely than <span class="legendary d4">Democrats</span> and <span class="legendary green4">independents</span> to expect their taxes to go down under the new law.
+			  </div>
+			  <div id="taxChart" class="chart"></div>
+			</div> -->
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question4">
+			<div class="question">Do you <span class="legendary gray5">support</span> or <span class="legendary gray3">oppose</span> a proposal in the Minnesota Legislature to make it mandatory to report lost or stolen guns?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">86</span>%</div>
+				  <div class="stat forLabel">suppose</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">9</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question5">
+			<div class="question">Do you <span class="legendary gray5">support</span> or <span class="legendary gray3">oppose</span> banning military-styled rifles with detachable magazines, such as the AR-15?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">59</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">31</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question6">
+			<div class="question">Do you <span class="legendary gray5">support</span> or <span class="legendary gray3">oppose</span> a mandatory criminal background check on all gun sales, including those sold privately and at gun shows?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">90</span>%</div>
+				  <div class="stat forLabel">support</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">8</span>%</div>
+				  <div class="stat againstLabel">oppose</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question7">
+			<div class="question">If more people carried guns, do you believe that your community would be <span class="legendary gray5">safer</span> or <span class="legendary gray3">less safe</span>?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">36</span>%</div>
+				  <div class="stat forLabel">safer</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">54</span>%</div>
+				  <div class="stat againstLabel">less safe</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question8">
+			<div class="question">Do you think Congress is going <span class="legendary gray5">too far</span> with gun control, is <span class="legendary gray3">not going far enough</span> or is taking just the right approach?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">23</span>%</div>
+				  <div class="stat forLabel">too far</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">45</span>%</div>
+				  <div class="stat againstLabel">not far enough</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question9">
+			<div class="question">Do you think the Minnesota Legislature is going <span class="legendary gray5">too far</span> with gun control, is <span class="legendary gray3">not going far enough</span> or is taking just the right approach?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">20</span>%</div>
+				  <div class="stat forLabel">too far</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">41</span>%</div>
+				  <div class="stat againstLabel">not going far enough</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question10">
+			<div class="question">How worried are you that you yourself or a loved one will be a victim of a mass shooting?  Are you: very worried, <span class="legendary gray5">somewhat worried</span>, <span class="legendary gray3">not too worried</span> or not at all worried.</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">21</span>%</div>
+				  <div class="stat forLabel">somewhat worried</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">40</span>%</div>
+				  <div class="stat againstLabel">not too worried</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question11">
+			<div class="question">Do you have a <span class="legendary gray5">favorable opinion</span>, <span class="legendary gray3">unfavorable opinion </span> or no opinion of the students from Marjory Stoneman Douglas High School in Florida, who have been speaking out about gun violence?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">52</span>%</div>
+				  <div class="stat forLabel">favorable</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">16</span>%</div>
+				  <div class="stat againstLabel">unfavorable</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question12">
+			<div class="question">Do you have a <span class="legendary gray5">favorable opinion</span>, <span class="legendary gray3">unfavorable opinion </span> or no opinion of the National Rifle Association?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">35</span>%</div>
+				  <div class="stat forLabel">favorable</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">43</span>%</div>
+				  <div class="stat againstLabel">unfavorable</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question13">
+			<div class="question">Does anyone in your household own a firearm?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">52</span>%</div>
+				  <div class="stat forLabel">yes</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">44</span>%</div>
+				  <div class="stat againstLabel">no</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+		<div class="questionBlock section" id="question14">
+			<div class="question">Have you or anyone in your household fired a gun in the last 12 months?</div>
+			<div class="bigResults">
+				<div class="result">
+				  <div class="bigNum forNum"><span class="for">45</span>%</div>
+				  <div class="stat forLabel">yes</div>
+				</div>
+				<div class="result">
+				  <div class="bigNum againstNum"><span class="against">54</span>%</div>
+				  <div class="stat againstLabel">no</div>
+				</div>
+			</div>
+		</div>
+
+
+	<div class="breaker" style="border-bottom:3px solid #000; width:100%; margin:0;"></div>
+
+	<div class="section" id="breakdowns">
+		<div id="exploreLayer" class="chartTitle" style="text-align:center; padding:10px">Explore the data</div>
+		<div style="padding:10px;">Select a question to see a breakdown on the answers across parties, geography and demographics.</div>
+
+		<div id="viewSwitch">
+		<div id="selector">
+		  <section class="main">
+		        <div class="wrapper-demo">
+		          <div id="dd" class="wrapper-dropdown-1" tabindex="1">
+		            <span>Do you support or oppose stricter gun laws in the United States?</span>
+		              <ul class="dropdown months" tabindex="1">
+				        <li class="thisSwitch"><a href="#" data="guns1">Do you support or oppose stricter gun laws in the United States?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns2">Do you support or oppose training some teachers and allowing them to carry guns in school?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns3">Do you support or oppose raising the legal age to buy a gun from 18 to 21? </a></li>
+				        <li class="thisSwitch"><a href="#" data="guns4">Do you support or oppose a proposal in the Minnesota Legislature to make it mandatory to report lost or stolen guns?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns5">Do you support or oppose banning military-styled rifles with detachable magazines, such as the AR-15?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns6">Do you support or oppose a mandatory criminal background check on all gun sales, including those sold privately and at gun shows?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns7">If more people carried guns, do you believe that your community would be safer or less safe?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns8">Do you think Congress is going too far with gun control, is not going far enough or is taking just the right approach?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns9">Do you think the Minnesota Legislature is going too far with gun control, is not going far enough or is taking just the right approach?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns10">How worried are you that you yourself or a loved one will be a victim of a mass shooting?  Are you: very worried, somewhat worried, not too worried or not at all worried.</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns11">Do you have a favorable opinion, unfavorable opinion or no opinion of the students from Marjory Stoneman Douglas High School in Florida, who have been speaking out about gun violence?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns12">Do you have a favorable opinion, unfavorable opinion or no opinion of the National Rifle Association?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns13">Does anyone in your household own a firearm?</a></li>
+				        <li class="thisSwitch"><a href="#" data="guns14">Have you or anyone in your household fired a gun in the last 12 months?</a></li>
+		              </ul>
+		          </div>
+		        ​</div>
+		</section>
+		</div>
+		</div>
+
+	    <div id="results" class="embed"><iframe id="dataframe" class="dataframe" src="./builds/development/?poll=guns1" border="0" frameborder="0" scrolling="no" width="100%" height="2900"></iframe></div>
+
+	    <div class="byline">Source: Star Tribune Minnesota Poll | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a><!--  | <a href="./builds/production/data/maindata.xlsx" target="new_">Download Data</a></div> -->
+	</div>
+</div>
+	</div>
+</body>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="./builds/development/js/c3.min.js"></script>
+<script src="./builds/development/js/d3.v3.min.js"></script>
+
+<script>
+	$.urlParam = function(name) {
+	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	    if (results != null) {
+	        return results[1] || 0;
+	    } else {
+	        return null;
+	    }
+	}
+
+	var selected = $.urlParam('section');
+
+	if (selected != null) {
+	    $(".section").hide();
+	    $("#" + selected).show();
+	} else {
+	    $(".section").show();
+	}
+
+	$(".thisSwitch").on("click", function() {
+	    $("#dataframe").attr("src", "./builds/development/?poll=" + $(this).find("a").attr("data"));
+	});
+
+	//party breakdown chart
+	function partyChart() {
+
+	    var padding = {
+	        top: 20,
+	        right: 60,
+	        bottom: 20,
+	        left: 40,
+	    };
+
+	    var partyChart = c3.generate({
+	        bindto: "#partyChart",
+	        padding: padding,
+	        data: {
+	            columns: [
+	                ['DEM', 0.05],
+	                ['GOP', 0.83],
+	                ['IND', 0.38]
+	            ],
+	            type: 'bar',
+	            labels: {
+	                format: {
+	                    'DEM': d3.format('%'),
+	                    'GOP': d3.format('%'),
+	                    'IND': d3.format('%')
+	                }
+	            }
+	        },
+	        legend: {
+	            show: false
+	        },
+	        bar: {
+	            width: {
+	                ratio: 0.6
+	            }
+	        },
+	        tooltip: {
+	            show: false
+	        },
+	        color: {
+	            pattern: ['#3585BC', '#d34A44', "#8b62a8"]
+	        },
+	        axis: {
+	            // rotated: true,
+	            y: {
+	                max: 1,
+	                min: 0,
+	                padding: {
+	                    bottom: 0,
+	                    top: 0
+	                },
+	                tick: {
+	                    count: 4,
+	                    values: [0, 0.25, 0.50, 0.75, 1],
+	                    format: d3.format('%')
+	                }
+	            },
+	            x: {
+	                type: 'category',
+	                categories: ['% tax law approval']
+	            }
+	        },
+	        grid: {
+	            y: {
+	                lines: [{
+	                    value: 0.5,
+	                    text: '',
+	                    position: 'start',
+	                    class: 'powerline'
+	                }]
+	            }
+	        }
+
+	    });
+
+	    d3.selectAll(".c3-target-DEM")
+	        .selectAll(".c3-bar, .c3-texts")
+	        .attr("transform", "translate(-10, 0)");
+
+	    d3.selectAll(".c3-target-IND")
+	        .selectAll(".c3-bar, .c3-texts")
+	        .attr("transform", "translate(10, 0)");
+
+	}
+
+	partyChart();
+
+	//gender breakdown chart
+	function taxChart() {
+
+	    var padding = {
+	        top: 20,
+	        right: 60,
+	        bottom: 20,
+	        left: 40,
+	    };
+
+	    var taxChart = c3.generate({
+	        bindto: "#taxChart",
+	        padding: padding,
+	        data: {
+	            columns: [
+	                ['DEM', 0.06, 0.40],
+	                ['GOP', 0.44, 0.40],
+	                ['IND', 0.31, 0.38]
+	            ],
+	            type: 'bar',
+	            labels: {
+	                format: {
+	                    'DEM': d3.format('%'),
+	                    'GOP': d3.format('%'),
+	                    'IND': d3.format('%')
+	                }
+	            }
+	        },
+	        legend: {
+	            show: false
+	        },
+	        bar: {
+	            width: {
+	                ratio: 0.6
+	            }
+	        },
+	        tooltip: {
+	            show: false
+	        },
+	        color: {
+	            pattern: ['#3585BC', '#d34A44', "#8b62a8"]
+	        },
+	        axis: {
+	            // rotated: true,
+	            y: {
+	                max: 1,
+	                min: 0,
+	                padding: {
+	                    bottom: 0,
+	                    top: 0
+	                },
+	                tick: {
+	                    count: 4,
+	                    values: [0, 0.25, 0.50, 0.75, 1],
+	                    format: d3.format('%')
+	                }
+	            },
+	            x: {
+	                type: 'category',
+	                categories: ['% taxes go down', '% taxes stay the same']
+	            }
+	        },
+	        grid: {
+	            y: {
+	                lines: [{
+	                    value: 0.5,
+	                    text: '',
+	                    position: 'start',
+	                    class: 'powerline'
+	                }]
+	            }
+	        }
+
+	    });
+
+	    d3.selectAll(".c3-target-DEM")
+	        .selectAll(".c3-bar, .c3-texts")
+	        .attr("transform", "translate(-10, 0)");
+
+	    d3.selectAll(".c3-target-IND")
+	        .selectAll(".c3-bar, .c3-texts")
+	        .attr("transform", "translate(10, 0)");
+
+	}
+
+	taxChart();
+
+
+	//income chart
+	function chartIncome() {
+	    var padding = {
+	        top: 0,
+	        right: 60,
+	        bottom: 20,
+	        left: 60,
+	    };
+
+	    var chartTrend = c3.generate({
+	        bindto: "#chartIncome",
+	        padding: padding,
+	        data: {
+	            x: 'x',
+	            // xFormat: '%Y-%m-%d %H:%M:%S',
+	            columns: [
+	                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+	                ['Rate', 67807,75638,71416,72898,68932,71287,66630,66914,67207,61228,62745,57597,61686,64598,66279,68172,69599,70218, null, null]
+	            ],
+	            type: 'line',
+	            labels: {
+	                format: {
+	                    // 'Rate': d3.format(',.1f')
+	                }
+	            }
+	        },
+	        legend: {
+	            show: false
+	        },
+	        point: {
+	            show: true,
+	            r: function(d) { if (d.x == 2016) { return 9; } }
+	        },
+	        color: {
+	            pattern: ['#333333']
+	        },
+	        axis: {
+	            // rotated: true,
+	            y: {
+	                max: 80000,
+	                min: 0,
+	                padding: {
+	                    bottom: 0,
+	                    top: 0
+	                },
+	                tick: {
+	                    count: 6,
+	                    values: [0, 20000, 40000, 60000, 80000],
+	                    format: d3.format('$,.0f')
+	                }
+	            },
+	            x: {
+	                // type: 'timeseries',
+	                padding: {
+	                    right: 0,
+	                    left: 0
+	                },
+	                tick: {
+	                    count: 4,
+	                    values: [1999, 2003, 2011, 2018],
+	                    multiline: false,
+	                }
+	            }
+	        },
+	         regions: [
+	          {axis: 'x', start: 1999, end: 2003, class: 'ind','label':'Ventura', 'vertical': false},
+	          {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+	          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+	        ],
+	        grid: {
+	        x: {
+	            lines: [
+	                {value: '2007', text: 'Great Recession starts', position: 'start', class: 'grayline'},
+	                {value: '2009', text: 'Great Recession ends', position: 'start', class: 'grayline'}
+	            ]
+	        }
+	    },
+	      tooltip: {
+	        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+	          return '<div class="chart-tooltip">' +
+	            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+	            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+	            '</div>';
+	        }
+	      }
+	    });
+	}
+
+	chartIncome();
+
+	function DropDown(el) {
+	    this.dd = el;
+	    this.placeholder = this.dd.children('span');
+	    this.opts = this.dd.find('ul.dropdown > li');
+	    this.val = '';
+	    this.index = -1;
+	    this.initEvents();
+	}
+	DropDown.prototype = {
+	    initEvents: function() {
+	        var obj = this;
+
+	        obj.dd.on('click', function(event) {
+	            $(this).toggleClass('active');
+	            return false;
+	        });
+
+	        obj.opts.on('click', function() {
+	            var opt = $(this);
+	            obj.val = opt.text();
+	            obj.index = opt.index();
+	            obj.placeholder.text(obj.val);
+	        });
+	    },
+	    getValue: function() {
+	        return this.val;
+	    },
+	    getIndex: function() {
+	        return this.index;
+	    }
+	}
+
+	$(function() {
+
+	    var dd = new DropDown($('#dd'));
+	    var dd2 = new DropDown($('#ddY'));
+
+	    $(document).click(function() {
+	        // all dropdowns
+	        $('.wrapper-dropdown-1').removeClass('active');
+	    });
+
+	});
+</script>
+</html>
