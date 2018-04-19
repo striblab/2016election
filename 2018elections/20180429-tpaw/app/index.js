@@ -53,8 +53,8 @@ function chartIncome() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['Rate', 67807,75638,71416,72898,68932,71287,66630,66914,67207,61228,62745,57597,61686,64598,66279,68172,69599,70218]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Rate', 67807,75638,71416,72898,68932,71287,66630,66914,67207,61228,62745,57597,61686,64598,66279,68172,69599,70218, null, null]
             ],
             type: 'line',
             labels: {
@@ -67,7 +67,8 @@ function chartIncome() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2016) { return 6; } }
         },
         color: {
             pattern: ['#333333']
@@ -95,7 +96,7 @@ function chartIncome() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2003, 2011, 2016],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -103,7 +104,7 @@ function chartIncome() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind','label':'Ventura', 'vertical': false},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2017, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
         grid: {
         x: {
@@ -143,8 +144,8 @@ function chartTaxes() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['Rate', 2122,2191,2192,2230,2239,2363,2444,2536,2645,2528,2454,2634,2793,3006,3128,null,null,null]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Rate', 2122,2191,2192,2230,2239,2363,2444,2536,2645,2528,2454,2634,2793,3006,3128,null,null,null,null,null]
             ],
             type: 'line',
             labels: {
@@ -157,7 +158,8 @@ function chartTaxes() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2013) { return 6; } }
         },
         color: {
             pattern: ['#333333']
@@ -185,7 +187,7 @@ function chartTaxes() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2005, 2011, 2016],
+                    values: [1999, 2005, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -193,7 +195,7 @@ function chartTaxes() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2017, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -225,8 +227,8 @@ function chartUnemployment() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['Rate', 2.5,3,3.4,4.5,4.5,4.9,4.3,4.1,4.3,4.7,7,7.7,6.9,5.8,5.3,4.6,3.8,3.7]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Rate', 2.5,3,3.4,4.5,4.5,4.9,4.3,4.1,4.3,4.7,7,7.7,6.9,5.8,5.3,4.6,3.8,3.7, null, null]
             ],
             type: 'line',
             labels: {
@@ -239,7 +241,8 @@ function chartUnemployment() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2016) { return 6; } }
         },
         color: {
             pattern: ['#333333']
@@ -267,7 +270,7 @@ function chartUnemployment() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2003, 2011, 2016],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -275,7 +278,7 @@ function chartUnemployment() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2016, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -315,8 +318,8 @@ function chartHousing() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['Rate', null,0.22,0.26,0.26,0.27,0.29,0.31,0.33,0.33,0.34,0.33,0.33,0.33,0.30,0.28,0.28,0.27, null]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Rate', null,0.22,0.26,0.26,0.27,0.29,0.31,0.33,0.33,0.34,0.33,0.33,0.33,0.30,0.28,0.28,0.27, null, null, null]
             ],
             type: 'line',
             labels: {
@@ -329,7 +332,8 @@ function chartHousing() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2015) { return 6; } }
         },
         color: {
             pattern: ['#333333']
@@ -357,7 +361,7 @@ function chartHousing() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2003, 2011, 2016],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -365,7 +369,7 @@ function chartHousing() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2016, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -405,8 +409,8 @@ function chartJobs() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['Rate', 2621400, 2683100, 2687800, 2662900, 2658400, 2678900, 2720900, 2755900, 2768900, 2760400, 2652000, 2638000, 2685000, 2727400, 2775100, 2813500, 2855900, 2895600]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Rate', 2621400, 2683100, 2687800, 2662900, 2658400, 2678900, 2720900, 2755900, 2768900, 2760400, 2652000, 2638000, 2685000, 2727400, 2775100, 2813500, 2855900, 2895600, null, null]
             ],
             type: 'line',
             labels: {
@@ -419,7 +423,8 @@ function chartJobs() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2016) { return 6; } }
         },
         color: {
             pattern: ['#333333']
@@ -447,7 +452,7 @@ function chartJobs() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2005, 2011, 2016],
+                    values: [1999, 2005, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -455,7 +460,7 @@ function chartJobs() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2016, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -495,8 +500,8 @@ function chartHealthCare() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['Rate', null,null,0.061,null,null,0.077,null,null,0.072,null,null,0.09,null,null,0.09,null,0.043,null]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Rate', null,null,0.061,null,null,0.077,null,null,0.072,null,null,0.09,null,null,0.09,null,0.043,null, null, null]
             ],
             type: 'line',
             labels: {
@@ -512,7 +517,8 @@ function chartHealthCare() {
              connectNull: true
          },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2015) { return 6; } }
         },
         color: {
             pattern: ['#333333']
@@ -540,7 +546,7 @@ function chartHealthCare() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2003, 2011, 2016],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -548,7 +554,7 @@ function chartHealthCare() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2016, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -586,8 +592,8 @@ function chartCollege() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['Rate', 4160,4401,5002,5720,6562,7477,8040,8563,8950,9600,10320,11094,11650,12060,12060,12060,12546,12800]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Rate', 5992,6133,6778,7631,8559,9449,9880,10194,10360,10701,11545,12211,12430,12606,12424,12226,12704,12800, null, null]
             ],
             type: 'line',
             labels: {
@@ -600,7 +606,8 @@ function chartCollege() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2016) { return 6; } }
         },
         color: {
             pattern: ['#333333']
@@ -628,7 +635,7 @@ function chartCollege() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2003, 2011, 2016],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -636,7 +643,7 @@ function chartCollege() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2016, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -668,8 +675,8 @@ function chartDebt() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999,2001,2003,2005,2007,2009,2011,2013,2015,2016],
-                ['Rate', 485,568,802,1022,1216,1740,1389,1592,1383,1363]
+                ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
+                ['Rate', 485,null,568,null,802,null,1022,null,1216,null,1740,null,1389,null,1592,null,1383,1363,null,null]
             ],
             type: 'line',
             labels: {
@@ -678,11 +685,15 @@ function chartDebt() {
                 }
             }
         },
+       line: {
+             connectNull: true
+         },
         legend: {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2016) { return 6; } }
         },
         color: {
             pattern: ['#333333']
@@ -710,7 +721,7 @@ function chartDebt() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2003, 2011, 2016],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -718,7 +729,7 @@ function chartDebt() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2016, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -749,9 +760,9 @@ function chartTestScores() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['8th Grade Math', null, null, null, null, null, null, null, 0.57,0.59,0.58,0.60,0.59,0.53,0.62,0.59,0.60,0.58,0.58],
-                ['3rd Grade Reading', null, null, null, null, null, null, null, 0.82,0.80,0.79,0.78,0.76,0.79,0.80,0.57,0.58,0.59,0.57,0.57]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['8th Grade Math', null, null, null, null, null, null, null, 0.57,0.59,0.58,0.60,0.59,0.53,0.62,0.59,0.60,0.58,0.58, null, null],
+                ['3rd Grade Reading', null, null, null, null, null, null, null, 0.82,0.80,0.79,0.78,0.76,0.79,0.80,0.57,0.58,0.59,0.57,0.57, null, null]
             ],
             type: 'line',
             labels: {
@@ -764,7 +775,8 @@ function chartTestScores() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2016) { return 6; } }
         },
         color: {
             pattern: ['#333333', '#cccccc']
@@ -792,7 +804,7 @@ function chartTestScores() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2003, 2011, 2016],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -800,7 +812,7 @@ function chartTestScores() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2017, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -834,8 +846,8 @@ function chartBudget() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['Rate', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Rate', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
             ],
             type: 'line',
             labels: {
@@ -848,7 +860,8 @@ function chartBudget() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2015) { return 6; } }
         },
         color: {
             pattern: ['#333333']
@@ -876,7 +889,7 @@ function chartBudget() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2005, 2011, 2016],
+                    values: [1999, 2005, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -884,7 +897,7 @@ function chartBudget() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2016, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -916,8 +929,8 @@ function chartCommute() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['Rate', 76729,80902,84119,86194,88549,90756,92387,94028,94962,95024,89757,92707,95261,96869,98477,99710,null,null]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Rate', 76729,80902,84119,86194,88549,90756,92387,94028,94962,95024,89757,92707,95261,96869,98477,99710,null,null, null, null]
             ],
             type: 'line',
             labels: {
@@ -930,7 +943,8 @@ function chartCommute() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2014) { return 6; } }
         },
         color: {
             pattern: ['#333333']
@@ -958,7 +972,7 @@ function chartCommute() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2003, 2011, 2016],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -966,7 +980,7 @@ function chartCommute() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2017, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -997,9 +1011,9 @@ function chartPavement() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-                ['Principle PRQI', null,null,null,0.02,0.026,0.027,0.026,0.026,0.034,0.055,0.037,0.048,0.043,0.040,0.040,0.048,0.057,null],
-                ['Non-principle PRQI', null,null,null,0.024,0.043,0.049,0.048,0.052,0.065,0.059,0.085,0.068,0.086,0.096,0.101,0.102,0.112,null]
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Principle PRQI', null,null,null,0.02,0.026,0.027,0.026,0.026,0.034,0.055,0.037,0.048,0.043,0.040,0.040,0.048,0.057,null,null,null],
+                ['Non-principle PRQI', null,null,null,0.024,0.043,0.049,0.048,0.052,0.065,0.059,0.085,0.068,0.086,0.096,0.101,0.102,0.112,null,null,null]
             ],
             type: 'line',
             labels: {
@@ -1012,7 +1026,8 @@ function chartPavement() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2015) { return 6; } }
         },
         color: {
             pattern: ['#333333','#CCCCCC']
@@ -1040,7 +1055,7 @@ function chartPavement() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2003, 2011, 2016],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -1048,7 +1063,7 @@ function chartPavement() {
          regions: [
           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
-          {axis: 'x', start: 2011, end: 2017, class: 'dfl'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
@@ -1064,3 +1079,18 @@ function chartPavement() {
 }
 
 chartPavement();
+
+
+
+    $(".topbar .gop").width($(".c3-region.gop:first rect").width() - 2);
+    $(".topbar .ind").width($(".c3-region.ind:first rect").width());
+    $(".topbar .dfl").width($(".c3-region.dfl:first rect").width() - 3);
+
+// $( window ).resize(function() {
+//     console.log($(".c3-region.ind:first rect").width());
+//     console.log($(".c3-region.gop:first rect").width());
+//     console.log($(".c3-region.dfl:first rect").width());
+//     $(".topbar .gop").width($(".c3-region.gop:first rect").width());
+//     $(".topbar .ind").width($(".c3-region.ind:first rect").width());
+//     $(".topbar .dfl").width($(".c3-region.dfl:first rect").width());
+// });
