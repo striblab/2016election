@@ -109,7 +109,7 @@ function spillResults(tag,section0,section1,section2) {
 
   if (verifySections(tag,"Owns gun") > 1) {  pinCategory("Gun Ownership",section2); }
   if (verifySections(tag,"Owns gun") > 1) {  chartPolls(tag,"Owns gun",section2,30); spitTables(tag,"Owns gun",section2,30); }
-  if (verifySections(tag,"Doesn't own gun") > 1) {  chartPolls(tag,"Doesn't own gun",section2,31); spitTables(tag,"Doesn't own gun",section2,31); }
+  if (verifySections(tag,"Doesn’t own gun") > 1) {  chartPolls(tag,"Doesn’t own gun",section2,31); spitTables(tag,"Doesn’t own gun",section2,31); }
 
     overview(tag);
     buildLegend(tag,"#legendBox");
@@ -946,7 +946,7 @@ var againstLabel;
 
 for (var i=0; i<data.length; i++){
     if (data[i].tag == tag && data[i].demographic == "Total") {
-      if (tag == "taxes4") {
+      if (tag == "guns10") {
         var forNum = Number(data[i].answer2_pct * 100);
         var againstNum = Number(data[i].answer3_pct * 100);
         forLabel = data[i].answer2;
