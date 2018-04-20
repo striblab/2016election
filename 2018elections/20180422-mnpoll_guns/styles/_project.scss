@@ -1,0 +1,462 @@
+/* PROJECT STYLES */
+body {
+    font-family: "Benton Sans";
+}
+
+#wrapper {
+    width:100% !important;
+    margin:0;
+}
+
+#main-content, .container-lg {
+	width:100% !important;
+	max-width:100%;
+	padding:0 !important;
+}
+
+.project-header {
+	display:none !important;
+}
+
+.section {
+	margin-bottom:30px;
+}
+
+.myButton2 {
+    background-color: #ddd;
+    width: 13%;
+}
+
+.myButton2:hover {
+    background-color: #5cbf2a !important;
+}
+
+.myButton2:active {
+    background-color: #5cbf2a;
+}
+
+.byline a {
+    color: #888888 !important;
+}
+
+.byline {
+    line-height:140%;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size:0.6em;
+    color: #888888;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:left;
+}
+
+.legendary {
+    padding:4px;
+    color: #fff;
+    font-weight:normal !important;
+    display:inline-block;
+    border-radius: 5px;
+    padding: 0 7px;
+    margin-bottom: 3px;
+}
+
+#chartBox0 {
+    width: 100%;
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.chart svg {
+    width: 100%;
+    height: 80px;
+}
+
+.wrapper-dropdown-1 {
+    width: 100%;
+}
+
+.wrapper-demo {
+    width: 100%;
+}
+
+.filterBreak {
+    height: 7px;
+    border-bottom: 1px solid #333;
+    clear: both;
+}
+
+
+	.powerline {
+	    stroke-dasharray: 5, 5;
+	    stroke: #333;
+	}
+
+	.chart .c3-line {
+	  stroke-width: 6px !important;
+	}
+
+	.chartTitle {
+		line-height:140%;
+		font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+	}
+
+	.dataframe { 
+		height:2900px;
+	} 
+
+	#bigResults {
+	    text-align: center;
+	    width: 100%;
+	    margin: 20px;
+	}
+
+	.chatter {
+		font-size:1.2em;
+	}
+
+	.chartTitle {
+		font-size:1.4em;
+	}
+
+	#breakdowns {
+		font-size:1.2em;
+	}
+
+	.byline {
+	    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+	    font-weight: 400;
+	    font-size:0.6em;
+	    color: #888;
+	    padding-top:10px;
+	    padding-bottom:10px;
+	    text-align:left;
+	}
+
+	.byline a {
+		color: #888;
+	}
+	
+	.result {
+	    display: inline-block !important;
+	    text-align: center;
+	    margin: 20px;
+	    width: 112px;
+	}
+
+	.catIcon {
+		display:inline-block;
+		width:40%;
+		margin:15px;
+		text-align:center;
+	}
+
+	.bigNum {
+	    font-size: 3em;
+	    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+	    text-align: center;
+	    font-weight: 900;
+	    padding-top: 15px;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    padding-bottom: 5px;
+	}
+
+	.forNum {
+	    color: #00222D;
+	}
+
+	.forNumD {
+	    color: #3f88c5;
+	}
+
+	.againstNum {
+	    color: rgb(115, 115, 115);
+	}
+
+	.againstNumR {
+	    color: #8C1B17;
+	}
+
+	.question, .chatter, #breakdowns {
+		line-height:160%;
+	}
+
+	.wrapper-dropdown-1 {
+		padding-right:60px;
+	}
+
+	.main {
+		line-height:120%
+	}
+
+	.downloadButton9 {
+	    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+	    font-weight: bold;
+	    color: #333333;
+	    border: none;
+	    font-size: .9em;
+	    text-align: center;
+	    margin-top: 14px;
+	    margin-left: 1%;
+	    padding-top: 0px;
+	    width: 99%;
+	    background-color: #fff;
+	    color: #333;
+/*	    background-image: url(./builds/development/img/downloadDoc.svg);*/
+	    background-size: 18px 18px;
+	    background-repeat: no-repeat;
+	    background-position: 42% 76%;
+	}
+
+	.downloadButton9:hover {
+	    background-color: #fff !important;
+	    opacity: .5;
+	    cursor: pointer;
+	}
+
+	#selector { 
+		display:block !important ;
+	}
+
+	.c3-tooltip {
+		width:150px !important;
+	}
+
+	.wrapper-dropdown-1 {
+   		 background: #dddddd !important;
+    }
+
+    .green4 { fill:#8b62a8; background-color:#8b62a8 !important; }
+
+	@media (max-width:520px) {
+		#wrapper {
+			width:100%;
+		}
+		.result {
+			width:35% !important;
+		}
+	}
+
+	@media only screen and (min-width: 200px) and (max-width: 767px) { 
+		.dataframe { 
+			height:2860px; 
+		}
+	}
+
+text {
+    font-family: "Benton Sans" !important;
+}
+
+.nv-axisMaxMin {
+    font-family: "Benton Sans" !important;
+}
+
+.nvtooltip {
+    font-family: "Benton Sans" !important;
+}
+
+.category {
+    font-weight: 900;
+    font-family: "Benton Sans";
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.question {
+    font-family: "Benton Sans";
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+.qhighlight {
+    font-weight:900;
+}
+
+.card {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.year {
+    display: inline-block;
+    width: 15%;
+    vertical-align: top;
+}
+
+.legendBlock {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+
+.legendText {
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.adjacent {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.loadLink {
+    color: steelblue !important;
+}
+
+.nvd3 .nv-axis {
+    pointer-events: none;
+    opacity: 1;
+    display: none;
+}
+
+.chartLabel {
+    text-align:left;
+    margin-left:18px;
+}
+
+.loadLink:hover {
+    color: black !important;
+}
+
+.legendBox {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 106%;
+}
+
+#bigResults {
+    text-align: center;
+    width: 100%;
+    margin: 20px;
+}
+
+.icon img {
+    width: 70px;
+}
+
+.icon {
+    text-align: center;
+    margin-top:2em;
+/*    display: none;*/
+}
+
+#selector {
+    display: none;
+}
+
+.forNum {
+    color: #00222D;
+}
+
+.againstNum {
+    color: rgb(115, 115, 115);
+}
+
+.forLabel, .againstLabel {
+    text-transform: lowercase;
+    padding:15px;
+}
+
+#viewSwitches {
+    width:97%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+}
+
+.thisView {
+    opacity:1 !important;
+    text-decoration:underline;
+}
+
+.switchIcon {
+    opacity:0.5;
+/*    width:48%;*/
+    display:inline-block;
+}
+
+.switchIcon img {
+    width:40px;
+    padding:0;
+}
+
+.switchIcon:hover {
+    cursor:pointer;
+    opacity:1;
+}
+
+.smallbreaker {
+    clear:both;
+    padding:10px;
+}
+
+.table {
+    display:none;
+}
+
+.bigNum {
+    font-family: "Benton Sans" !important;
+    text-align: center;
+    font-weight: 900;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+}
+
+#viewIcons {
+    float:right;
+    text-align:right;
+}
+
+#breakdownLabel {
+    float:left !important;
+    text-align:left !important;
+    font-weight:900;
+    font-size:1.4em;
+}
+
+.result {
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    width: 48% !important;
+    white-space: nowrap;
+}
+
+table {
+    width:100%;
+    table-layout: fixed;
+}
+
+td, th {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+    line-height: 160%;
+}
+
+@media (max-width:800px) {
+    #wrapper, .chart {
+        width:100%;
+    }
+    .adjacent,
+    #chartBox0 {
+        display: block !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width:520px) {
+    .table table {
+        font-size: 0.8em !important;
+    }
+    .table td {
+        font-size: 0.8em !important;
+    }
+    .result {
+        width:48% !important;
+    }
+}
