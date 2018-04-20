@@ -107,9 +107,9 @@ function spillResults(tag,section0,section1,section2) {
   if (verifySections(tag,"High School/Some College") > 1) {  chartPolls(tag,"High School/Some College",section2,24); spitTables(tag,"High School/Some College",section2,24); }
   if (verifySections(tag,"College Graduate") > 1) {  chartPolls(tag,"College Graduate",section2,25); spitTables(tag,"College Graduate",section2,25); }
 
-  if (verifySections(tag,"Owns guns") > 1) {  pinCategory("Gun Ownership",section2); }
-  if (verifySections(tag,"Owns guns") > 1) {  chartPolls(tag,"Owns guns",section2,30); spitTables(tag,"Owns guns",section2,30); }
-  if (verifySections(tag,"Doesn't own guns") > 1) {  chartPolls(tag,"Doesn't own guns",section2,31); spitTables(tag,"Doesn't own guns",section2,31); }
+  if (verifySections(tag,"Owns gun") > 1) {  pinCategory("Gun Ownership",section2); }
+  if (verifySections(tag,"Owns gun") > 1) {  chartPolls(tag,"Owns gun",section2,30); spitTables(tag,"Owns gun",section2,30); }
+  if (verifySections(tag,"Doesn't own gun") > 1) {  chartPolls(tag,"Doesn't own gun",section2,31); spitTables(tag,"Doesn't own gun",section2,31); }
 
     overview(tag);
     buildLegend(tag,"#legendBox");
@@ -1044,7 +1044,7 @@ function spitTables(tag,demographic,section,index) {
     if (resultsString.answer12 != "null") { rows[12] = resultsString.answer12_pct; }
 
     // append the header row
-    if (demographic == "Age <50" || demographic == "< $50,000" || demographic == "Men" || demographic == "Democrat" || demographic == "Hennepin & Ramsey" || demographic == "High School/Some College" || demographic == "Owns guns"){
+    if (demographic == "Age <50" || demographic == "< $50,000" || demographic == "Men" || demographic == "Democrat" || demographic == "Hennepin & Ramsey" || demographic == "High School/Some College" || demographic == "Owns gun"){
     thead.append('tr')
       .attr("class","headers")
       .selectAll('th')
