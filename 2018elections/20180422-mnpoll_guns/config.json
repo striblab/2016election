@@ -1,8 +1,6 @@
 {
   "about this file": "This document defines configuration for this project that is not content or copy.",
   "projectIdentifier": "20180422-mnpoll-guns",
-
-
   "social": {
     "image": "assets/images/strib/strib-logo-name-social-card.png"
   },
@@ -22,12 +20,8 @@
       "js/c3.min.js"
     ]
   },
-
-  "content": {
-
-  },
+  "content": {},
   "publish": {
-
     "default": {
       "bucket": "static.startribune.com",
       "path": "news/projects-staging/all/20180422-mnpoll-guns",
@@ -40,12 +34,12 @@
       "url": "https://s3.amazonaws.com/stribtest-bucket/news/projects/20180422-mnpoll-guns/",
       "cacheSeconds": 30
     },
-
     "production": {
       "bucket": "static.startribune.com",
       "path": "news/projects/all/20180422-mnpoll-guns",
       "url": "http://static.startribune.com/news/projects/all/20180422-mnpoll-guns/",
       "cacheSeconds": 600
     }
-  }
+  },
+  "publishToken": "6bece63947737395584e95f627eb90d9"
 }
