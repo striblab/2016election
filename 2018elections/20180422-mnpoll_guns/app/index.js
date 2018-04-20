@@ -1044,7 +1044,7 @@ function spitTables(tag,demographic,section,index) {
     if (resultsString.answer12 != "null") { rows[12] = resultsString.answer12_pct; }
 
     // append the header row
-    if (demographic == "Age 18-34" || demographic == "< $50,000" || demographic == "Men" || demographic == "Democrat" || demographic == "Hennepin & Ramsey" || demographic == "High School/Some College"){
+    if (demographic == "Age <50" || demographic == "< $50,000" || demographic == "Men" || demographic == "Democrat" || demographic == "Hennepin & Ramsey" || demographic == "High School/Some College" || demographic == "Owns guns"){
     thead.append('tr')
       .attr("class","headers")
       .selectAll('th')
