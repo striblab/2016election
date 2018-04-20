@@ -100,6 +100,11 @@ body {
 		font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
 	}
 
+
+    .breakchart svg, .breakchart {
+        height:300px !important;
+    }
+
 	#bigResults {
 	    text-align: center;
 	    width: 100%;
@@ -178,7 +183,7 @@ body {
 	}
 
 	.wrapper-dropdown-1 {
-		padding-right:60px;
+		padding-right:30px !important;
 	}
 
 	.main {
