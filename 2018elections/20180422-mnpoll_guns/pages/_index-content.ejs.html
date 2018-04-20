@@ -1,0 +1,62 @@
+
+
+
+<!-- Screen reader announcements -->
+<div aria-live="polite" id="announcer" class="sr-only"></div>
+
+<!-- Skip to main content -->
+<a href="#main-content" class="to-main-content">Skip to main content</a>
+
+<!-- Header -->
+<header class="project-header" role="banner">
+  @@include('./_header.ejs.html')
+</header>
+
+<!-- Main content here -->
+<main id="main-content" class="content" role="main">
+  <div class="container-lg">
+    <div id="wrapper">
+
+		<div class="clearfix"></div>
+
+		<div id="question" style="display:none;"></div>
+
+		<div id="bigResults">
+		<div class="result">
+		  <div class="bigNum forNum"><span class="for">0</span>%</div>
+		  <div class="stat forLabel">support</div>
+		</div>
+		<div class="result">
+		  <div class="bigNum againstNum"><span class="against">0</span>%</div>
+		  <div class="stat againstLabel">oppose</div>
+		</div>
+		</div>
+
+		<div class="legendBox"></div>
+
+		<div id="chartBox0">
+
+		</div>
+
+		<div class="breaker"></div>
+
+		<div id="viewSwitches">
+		<div id="breakdownLabel">Breakdowns | <span class="switchIcon thisView" view="chart">Charts<!-- <img src="img/charts.png" /> --></span>
+		<span class="switchIcon" view="table">Tables<!-- <img src="img/tables.png" /> --></span></div>
+
+		</div>
+
+		<div class="smallbreaker"></div>
+
+		<div id="chartBox1" class="adjacent">
+
+		</div>
+
+		<div id="chartBox2" class="adjacent">
+
+		</div>
+
+		</div>
+
+  </div>
+</main>
