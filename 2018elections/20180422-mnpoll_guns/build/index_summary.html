@@ -141,7 +141,7 @@
 
 			<div class="sectionBox">
 			  <div class="icon"></div>
-			  <div class="chartTitle">Bypartisan proposals</div>
+			  <div class="chartTitle">Bypartisan support for proposals</div>
 			  <div class="chatter"><span class="legendary d4">Democrats</span>, <span class="legendary r2">Republicans</span> and <span class="legendary green4">independents</span> overwhelmingly support measures to account for lost or stolen firearms and institute mandatory background checks.</div>
 			  <div id="partyChart2" class="chart breakchart"></div>
 			</div>
@@ -178,7 +178,7 @@
 			<div class="sectionBox">
 			  <div class="icon"></div>
 			  <div class="chartTitle">Where gun owners land on gun control</div>
-			  <div class="chatter">Polled <span class='legendary guns'>gun owners</span> had varying takes on gun control issues.</div>
+			  <div class="chatter">Polled <span class='legendary guns'>gun owners</span> had varying takes on issues surrounding gun rights.</div>
 			  <div id="gunChart" class="chart breakchart"></div>
 			</div>
 		</div>
@@ -249,7 +249,7 @@
 			<div class="sectionBox">
 			  <div class="icon"></div>
 			  <div class="chartTitle">Taking sides in the gun control debate</div>
-			  <div class="chatter"><span class="legendary d4">Democrats</span> and those <span class="legendary green3">younger than 50</span> are more likely to support the student survivors of Stoneman Douglas, while <span class="legendary r2">Republicans</span> and <span class="legendary guns">gun owners</span> more often favored the NRA. <span class="legendary green4">Independents</span> were more evenly split.</div>
+			  <div class="chatter">The student survivors of the Stoneman Douglas shooting were more often supported by <span class="legendary d4">Democrats</span> and those <span class="legendary green3">younger than 50</span>, while the NRA drew more support from <span class="legendary r2">Republicans</span> and <span class="legendary guns">gun owners</span>. <span class="legendary green4">Independents</span> were more evenly split.</div>
 			  <div id="favorChart" class="chart breakchart"></div>
 			</div>
 		</div>
@@ -347,7 +347,7 @@
 	    $(".questionBlock").hide();
 	    $("." + selected).show();
 	    $("#dataframe").attr("src", "index.html?poll=guns4");
-	    $("topQ").html("Do you support or oppose a proposal in the Minnesota Legislature to make it mandatory to report lost or stolen guns?");
+	    $("#topQ").html("Do you support or oppose a proposal in the Minnesota Legislature to make it mandatory to report lost or stolen guns?");
 	}
 
 	$(".thisSwitch").on("click", function() {
@@ -582,7 +582,7 @@
 	            },
 	            x: {
 	                type: 'category',
-	                categories: ['congress too far','arming teachers','AR-15 style ban','stricter gun laws','more guns = safety','raise purchase age', 'background checks',],
+	                categories: ['congress gone too far','arming teachers','AR-15-style ban','stricter gun laws','more guns = safety','raise purchasing age', 'background checks',],
 	                tick: {
 	                	multiline: false
 	                }
@@ -668,7 +668,7 @@
 	            },
 	            x: {
 	                type: 'category',
-	                categories: ['too far', 'not far enough', 'about right', 'not sure'],
+	                categories: ['going too far', 'not far enough', 'about right', 'not sure'],
 	                tick: {
 	                	multiline: false
 	                }
