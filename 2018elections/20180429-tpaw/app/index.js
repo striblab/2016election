@@ -68,11 +68,12 @@ function chartIncome() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
         },
+
         axis: {
             // rotated: true,
             y: {
@@ -107,11 +108,14 @@ function chartIncome() {
           {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
         ],
         grid: {
-        x: {
-            lines: [
-                {value: '2007', text: 'Great Recession starts', position: 'start', class: 'grayline'},
-                {value: '2009', text: 'Great Recession ends', position: 'start', class: 'grayline'}
-            ]
+            focus:{
+                show:false
+              },
+            x: {
+                lines: [
+                    {value: '2007', text: 'Great Recession starts', position: 'start', class: 'grayline'},
+                    {value: '2009', text: 'Great Recession ends', position: 'start', class: 'grayline'}
+                ]
         }
     },
       tooltip: {
@@ -159,7 +163,7 @@ function chartTaxes() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2013) { return 6; } }
+            r: function(d) { if (d.x == 2013) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -204,6 +208,11 @@ function chartTaxes() {
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
         }
+      },
+      grid: {
+        focus:{
+            show:false
+        }
       }
     });
 }
@@ -242,7 +251,7 @@ function chartUnemployment() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -289,6 +298,9 @@ function chartUnemployment() {
         }
       },
         grid: {
+            focus:{
+                show:false
+            },
         x: {
             lines: [
                 {value: '2007', text: 'Great Recession starts', position: 'start', class: 'grayline'},
@@ -333,7 +345,7 @@ function chartHousing() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2015) { return 6; } }
+            r: function(d) { if (d.x == 2015) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -380,12 +392,15 @@ function chartHousing() {
         }
       },
         grid: {
-        x: {
-            lines: [
-                {value: '2007', text: 'Great Recession starts', position: 'end', class: 'grayline'},
-                {value: '2009', text: 'Great Recession ends', position: 'end', class: 'grayline'}
-            ]
-        }
+            focus:{
+                show:false
+            },
+            x: {
+                lines: [
+                    {value: '2007', text: 'Great Recession starts', position: 'end', class: 'grayline'},
+                    {value: '2009', text: 'Great Recession ends', position: 'end', class: 'grayline'}
+                ]
+            }
      }
     });
 }
@@ -424,7 +439,7 @@ function chartJobs() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -471,6 +486,9 @@ function chartJobs() {
         }
       },
         grid: {
+            focus:{
+                show:false
+            },
         x: {
             lines: [
                 {value: '2007', text: 'Great Recession starts', position: 'start', class: 'grayline'},
@@ -518,7 +536,7 @@ function chartHealthCare() {
          },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2015) { return 6; } }
+            r: function(d) { if (d.x == 2015) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -565,6 +583,9 @@ function chartHealthCare() {
         }
       },
         grid: {
+            focus:{
+                show:false
+            },
         x: {
             lines: [
                 {value: '2010', text: 'Affordable Care Act', position: 'start', class: 'grayline'}
@@ -607,7 +628,7 @@ function chartCollege() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -652,6 +673,11 @@ function chartCollege() {
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
         }
+      },
+      grid: {
+           focus:{
+                show:false
+            }
       }
     });
 }
@@ -693,7 +719,7 @@ function chartDebt() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -738,6 +764,11 @@ function chartDebt() {
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
         }
+      },
+      grid: {
+            focus:{
+                show:false
+            }
       }
     });
 }
@@ -776,7 +807,7 @@ function chartTestScores() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333', '#cccccc']
@@ -823,6 +854,11 @@ function chartTestScores() {
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
         }
+      },
+      grid: {
+            focus:{
+                show:false
+            }
       }
     });
 }
@@ -861,7 +897,7 @@ function chartBudget() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2015) { return 6; } }
+            r: function(d) { if (d.x == 2015) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -906,6 +942,11 @@ function chartBudget() {
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
         }
+      },
+      grid: {
+            focus:{
+                show:false
+            }
       }
     });
 }
@@ -944,7 +985,7 @@ function chartCommute() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2014) { return 6; } }
+            r: function(d) { if (d.x == 2014) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -989,6 +1030,11 @@ function chartCommute() {
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
         }
+      },
+      grid: {
+            focus:{
+                show:false
+            }
       }
     });
 }
@@ -1027,7 +1073,7 @@ function chartPavement() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2015) { return 6; } }
+            r: function(d) { if (d.x == 2015) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333','#CCCCCC']
@@ -1074,6 +1120,11 @@ function chartPavement() {
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
         }
+      },
+      grid:  {
+           focus:{
+                show:false
+            }
       }
     });
 }
