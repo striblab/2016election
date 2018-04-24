@@ -149,7 +149,7 @@ function chartTaxes() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
-                ['Rate', 2122,2191,2192,2230,2239,2363,2444,2536,2645,2528,2454,2634,2793,3006,3128,null,null,null,null,null]
+                ['Rate', 3056,3053,2971,2975,2921,3002,3003,3019,3062,2818,2745,2899,2980,3142,3222,null,null,null,null,null]
             ],
             type: 'line',
             labels: {
@@ -191,7 +191,7 @@ function chartTaxes() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2005, 2011, 2018],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -331,7 +331,7 @@ function chartHousing() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
-                ['Rate', null,0.22,0.26,0.26,0.27,0.29,0.31,0.33,0.33,0.34,0.33,0.33,0.33,0.30,0.28,0.28,0.27, null, null, null]
+                ['Rate', 0.22,0.22,0.26,0.26,0.27,0.29,0.31,0.33,0.33,0.34,0.33,0.33,0.33,0.30,0.28,0.28,0.27, 0.27, null, null]
             ],
             type: 'line',
             labels: {
@@ -345,7 +345,7 @@ function chartHousing() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2015) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -467,7 +467,7 @@ function chartJobs() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2005, 2011, 2018],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
@@ -519,7 +519,7 @@ function chartHealthCare() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
-                ['Rate', null,null,0.061,null,null,0.077,null,null,0.072,null,null,0.09,null,null,0.09,null,0.043,null, null, null]
+                ['Rate', 0.08,null,0.061,null,null,0.077,null,null,0.072,null,null,0.09,null,null,0.09,null,0.043,null, 0.063, null]
             ],
             type: 'line',
             labels: {
@@ -536,7 +536,7 @@ function chartHealthCare() {
          },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2015) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -925,7 +925,7 @@ function chartBudget() {
                 },
                 tick: {
                     count: 4,
-                    values: [1999, 2005, 2011, 2018],
+                    values: [1999, 2003, 2011, 2018],
                     multiline: false,
                 }
             }
