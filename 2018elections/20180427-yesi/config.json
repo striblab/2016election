@@ -1,8 +1,6 @@
 {
   "about this file": "This document defines configuration for this project that is not content or copy.",
-  "projectIdentifier": "20180416-yesi",
-
-
+  "projectIdentifier": "201804127-yesi",
   "social": {
     "image": "assets/images/strib/strib-logo-name-social-card.png"
   },
@@ -21,30 +19,26 @@
       "js/c3.min.js"
     ]
   },
-
-  "content": {
-
-  },
+  "content": {},
   "publish": {
-
     "default": {
       "bucket": "static.startribune.com",
-      "path": "news/projects-staging/all/20180416-yesi",
-      "url": "http://static.startribune.com/news/projects-staging/all/20180416-yesi/",
+      "path": "news/projects-staging/all/201804127-yesi",
+      "url": "http://static.startribune.com/news/projects-staging/all/201804127-yesi/",
       "cacheSeconds": 30
     },
     "testing": {
       "bucket": "stribtest-bucket",
-      "path": "news/projects/20180416-yesi",
-      "url": "https://s3.amazonaws.com/stribtest-bucket/news/projects/20180416-yesi/",
+      "path": "news/projects/201804127-yesi",
+      "url": "https://s3.amazonaws.com/stribtest-bucket/news/projects/201804127-yesi/",
       "cacheSeconds": 30
     },
-
     "production": {
       "bucket": "static.startribune.com",
-      "path": "news/projects/all/20180416-yesi",
-      "url": "http://static.startribune.com/news/projects/all/20180416-yesi/",
+      "path": "news/projects/all/201804127-yesi",
+      "url": "http://static.startribune.com/news/projects/all/201804127-yesi/",
       "cacheSeconds": 600
     }
-  }
+  },
+  "publishToken": "58501d6d8a05ce713ec53d863e100acb"
 }
