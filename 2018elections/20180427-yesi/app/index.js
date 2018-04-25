@@ -197,5 +197,89 @@ if (selected != null) {
 
   chartTrend();
 
+  function chartVote() {
+
+      var padding = {
+          top: 20,
+          right: 60,
+          bottom: 20,
+          left: 80,
+      };
+
+      var chartVote = c3.generate({
+          bindto: "#chartVote",
+          padding: padding,
+          data: {
+              columns: [
+                  ['Clinton', 0.55,0.37,0.41,0.64,0.43,0.83,0.7],
+                  ['Trump', 0.37,0.53,0.5,0.26,0.48,0.09,0.24],
+                  ['Other', 0.08,0.1,0.09,0.1,0.09,0.08,0.06]
+              ],
+              type: 'bar',
+              // labels: {
+              //     format: {
+              //         'CLINTON': d3.format('%'),
+              //         'TRUMP': d3.format('%')
+              //     }
+              // },
+              groups: [
+                  ['Trump', 'Other', 'Clinton']
+              ],
+              order: null
+          },
+          legend: {
+              show: false
+          },
+          bar: {
+              width: {
+                  ratio: 0.6
+              }
+          },
+          tooltip: {
+              // show: false
+          },
+          color: {
+              pattern: ['#3580A3','#C22A22','#CCCCCC']
+          },
+          axis: {
+              rotated: true,
+              y: {
+                  max: 1,
+                  min: 0,
+                  padding: {
+                      bottom: 0,
+                      top: 0
+                  },
+                  tick: {
+                      count: 4,
+                      values: [0, 0.25, 0.50, 0.75, 1],
+                      format: d3.format('%')
+                  }
+              },
+              x: {
+                  type: 'category',
+                  categories: ['Overall', 'Rural', 'Suburban', 'Cities >50k', 'White', 'Black', 'Latino',],
+                  tick: {
+                    multiline: false
+                  }
+              }
+          }
+          // grid: {
+          //     y: {
+          //         lines: [{
+          //             value: 0.5,
+          //             text: '',
+          //             position: 'start',
+          //             class: 'powerline'
+          //         }]
+          //     }
+          // }
+
+      });
+
+  }
+
+  chartVote();
+
 $("#top1").height($("#top2").height()-31);
 
