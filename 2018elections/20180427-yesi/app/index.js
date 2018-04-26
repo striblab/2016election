@@ -136,8 +136,8 @@ if (selected != null) {
             x: 'x',
             columns: [
                 ["x",1986,1988,1990,1992,1994,1996,1998,2000,2002,2004,2006,2008,2010,2012,2014,2016,2018],
-                ["Presidential",null,0.36,null,0.43,null,0.33,null,0.35,null,0.45,null,0.48,null,0.41,null,0.43,null],
-                ["Midterm",0.21,null,0.20,null,0.21,null,0.18,null,0.18,null,0.20,null,0.20,null,0.16,null]
+                ["Presidential",null,0.41,null,0.51,null,0.40,null,0.40,null,0.49,null,0.51,null,0.45,null,0.46,null],
+                ["Midterm",0.28,null,0.27,null,0.26,null,0.22,null,0.23,null,0.26,null,0.24,null,0.20,null]
             ],
             type: 'line'
         },
@@ -239,7 +239,7 @@ if (selected != null) {
               // show: false
           },
           color: {
-              pattern: ['#3580A3','#C22A22','#CCCCCC']
+              pattern: ['#3f88c5','#C22A22','#CCCCCC']
           },
           axis: {
               rotated: true,
