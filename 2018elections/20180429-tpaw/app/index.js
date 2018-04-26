@@ -702,7 +702,7 @@ function chartDebt() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
-                ['Rate', 485,null,568,null,802,null,1022,null,1216,null,1740,null,1389,null,1592,null,1383,1363,null,null]
+                ['Rate', 485000000,null,568000000,null,802000000,null,1022000000,null,1216000000,null,1740000000,null,1389000000,null,1592000000,null,1383000000,1363000000,null,null]
             ],
             type: 'line',
             labels: {
@@ -727,7 +727,7 @@ function chartDebt() {
         axis: {
             // rotated: true,
             y: {
-                max: 2000,
+                max: 2000000000,
                 min: 0,
                 padding: {
                     bottom: 0,
@@ -735,8 +735,8 @@ function chartDebt() {
                 },
                 tick: {
                     count: 6,
-                    values: [0, 500, 1000, 1500, 2000],
-                    format: d3.format('$,.0f')
+                    values: [0, 500000000, 1000000000, 1500000000, 2000000000],
+                    format: d3.format('$s')
                 }
             },
             x: {
@@ -792,8 +792,8 @@ function chartTestScores() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
-                ['8th Grade Math', null, null, null, null, null, null, null, 0.57,0.59,0.58,0.60,0.59,0.53,0.62,0.59,0.60,0.58,0.58, null, null],
-                ['3rd Grade Reading', null, null, null, null, null, null, null, 0.82,0.80,0.79,0.78,0.76,0.79,0.80,0.57,0.58,0.59,0.57,0.57, null, null]
+                ['Math', null, 0.66,0.68,0.73,0.70,0.76,0.58,0.61,0.62,0.64,0.66,0.56,0.62,0.61,0.61,0.60,0.59,0.59, null, null],
+                ['Reading', null, 0.71,0.71,0.75,0.74,0.79,0.72,0.68,0.71,0.72,0.72,0.75,0.76,0.58,0.59,0.59,0.60,0.60, null, null]
             ],
             type: 'line',
             labels: {
