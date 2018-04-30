@@ -971,7 +971,7 @@ function chartCommute() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
-                ['Rate', 76729,80902,84119,86194,88549,90756,92387,94028,94962,95024,89757,92707,95261,96869,98477,99710,null,null, null, null]
+                ['Rate', 0.40,0.41,0.41,0.41,0.41,0.41,0.41,0.37,0.37,0.37,0.33,0.34,0.35,null,null,null,null,null,null,null]
             ],
             type: 'line',
             labels: {
@@ -985,7 +985,7 @@ function chartCommute() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2014) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2011) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333']
@@ -993,7 +993,7 @@ function chartCommute() {
         axis: {
             // rotated: true,
             y: {
-                max: 125000,
+                max: 1,
                 min: 0,
                 padding: {
                     bottom: 0,
@@ -1001,8 +1001,8 @@ function chartCommute() {
                 },
                 tick: {
                     count: 6,
-                    values: [0, 25000, 50000, 75000, 100000, 125000],
-                    format: d3.format(',.0f')
+                    values: [0, 0.25, 0.50, 0.75, 1],
+                    format: d3.format('%.0f')
                 }
             },
             x: {
@@ -1058,9 +1058,8 @@ function chartPavement() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
-                ['Principle PRQI', null,null,null,0.02,0.026,0.027,0.026,0.026,0.034,0.055,0.037,0.048,0.043,0.040,0.040,0.048,0.057,null,null,null],
-                ['Non-principle PRQI', null,null,null,0.024,0.043,0.049,0.048,0.052,0.065,0.059,0.085,0.068,0.086,0.096,0.101,0.102,0.112,null,null,null]
-            ],
+                ['Poor Condition', null,null,null,null,null,0.037,0.037,0.037,0.044,0.046,0.068,0.051,0.065,0.054,0.047,0.035,null,null,0.029,null]            
+                ],
             type: 'line',
             labels: {
                 format: {
@@ -1071,9 +1070,12 @@ function chartPavement() {
         legend: {
             show: false
         },
+       line: {
+             connectNull: true
+         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2015) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#333333','#CCCCCC']
@@ -1113,10 +1115,8 @@ function chartPavement() {
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-          return '<div class="chart-tooltip">' + '<div>' + d[0].x + '</div>' + '<span class="tooltip-label">' + d[1].id + ':</span>' +
-            '<span class="tooltip-value">' + defaultValueFormat(d[1].value) + '</span>' +
-            '</div><div class="chart-tooltip">' +
-            '<span class="tooltip-label">' + d[0].id + ':</span>' +
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
         }
