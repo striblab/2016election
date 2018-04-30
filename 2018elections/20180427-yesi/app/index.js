@@ -282,4 +282,3 @@ if (selected != null) {
   chartVote();
 
 $("#top1").height($("#top2").height()-31);
-
