@@ -847,9 +847,9 @@ function chartTestScores() {
         ],
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-          return '<div class="chart-tooltip">' + '<div>' + d[0].x + '</div>' + '<span class="tooltip-label">' + d[1].id + ':</span>' +
+          return '<div class="chart-tooltip"><div>' + d[0].x + '</div></div>' + '<div class="chart-tooltip gray3">' + '<span class="tooltip-label">' + d[1].id + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[1].value) + '</span>' +
-            '</div><div class="chart-tooltip">' +
+            '</div><div class="chart-tooltip gray5">' +
             '<span class="tooltip-label">' + d[0].id + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
