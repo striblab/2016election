@@ -149,7 +149,7 @@ if (selected != null) {
          },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016 || d.x == 2014) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2016 || d.x == 2014) { return 6;} else { return 2.5; } }
         },
         color:  { pattern: ['#8B62A8','#D7C4E5'] },
         axis: {

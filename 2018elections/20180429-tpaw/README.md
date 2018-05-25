@@ -1,6 +1,6 @@
 # Tpaw
 
-An analysis of Minnesota&#39;s economic metrics during the Tim Pawlenty administration.
+An analysis of Minnesota&#39;s economic metrics during the Tim Pawlenty administration. Built using [C3](https://github.com/masayuki0812/c3) and [jQuery](https://github.com/jquery/jquery).
 
 
 ## Data
