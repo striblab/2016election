@@ -1,6 +1,6 @@
 # 20180202 Campfi
 
-Tracking political fundraising for midterms across the state
+Tracking political fundraising for midterms across the state. Built using [C3](https://github.com/masayuki0812/c3) and [jQuery](https://github.com/jquery/jquery).
 
 
 ## Data

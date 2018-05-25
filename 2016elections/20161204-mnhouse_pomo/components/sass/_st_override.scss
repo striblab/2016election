@@ -25,6 +25,21 @@
      z-index:  1;
  }
 
+    .democrat {
+        background-color: #3F88C5 !important;
+        pointer-events: all;
+        font-weight: bold;
+        color: #fff;
+    }
+
+.bar div {
+  display:inline-block;
+}
+
+.map {
+  display:inline-block;
+}
+
     .map-overlay  {
      font:  12px/20px $bentonSans;
      background-color:  #fff;

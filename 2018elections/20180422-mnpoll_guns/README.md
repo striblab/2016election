@@ -1,6 +1,6 @@
 # 20180422 Mnpoll Guns
 
-What Minnesotans think of gun control.
+What Minnesotans think of gun control. Built using [C3](https://github.com/masayuki0812/c3) and [jQuery](https://github.com/jquery/jquery).
 
 
 ## Data

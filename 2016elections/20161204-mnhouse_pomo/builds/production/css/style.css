@@ -397,6 +397,7 @@ p {
   fill: #aaa;
 }
 
+
 #state-borders {
   fill: none;
   stroke: #fff;
@@ -1543,7 +1544,7 @@ header[role="banner"] {
 }
 
 .democrat {
-  fill: #3F88C5 !important;
+  background-color: #3F88C5 !important;
   pointer-events: all;
   font-weight: bold;
   color: #fff;
@@ -1848,8 +1849,16 @@ p {
   font: 12px/20px "Benton Sans", Helvetica, Arial, sans-serif;
 }
 
+.bar div {
+  display:inline-block;
+}
+
 .marker-title {
   font-weight: 700;
+}
+
+.map {
+  display:inline-block;
 }
 
 @media (max-width: 500px) {

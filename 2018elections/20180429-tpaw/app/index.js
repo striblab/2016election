@@ -68,7 +68,7 @@ function chartIncome() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333']
@@ -163,7 +163,7 @@ function chartTaxes() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2013) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2013) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333']
@@ -251,7 +251,7 @@ function chartUnemployment() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333']
@@ -345,7 +345,7 @@ function chartHousing() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333']
@@ -439,7 +439,7 @@ function chartJobs() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333']
@@ -536,7 +536,7 @@ function chartHealthCare() {
          },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333']
@@ -628,7 +628,7 @@ function chartCollege() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333']
@@ -719,7 +719,7 @@ function chartDebt() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333']
@@ -807,7 +807,7 @@ function chartTestScores() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2016) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333', '#cccccc']
@@ -897,7 +897,7 @@ function chartBudget() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2015) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2015) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333']
@@ -971,7 +971,7 @@ function chartCommute() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
-                ['Rate', 0.40,0.41,0.41,0.41,0.41,0.41,0.41,0.37,0.37,0.37,0.33,0.34,0.35,null,null,null,null,null,null,null]
+                ['Rate', 0.40,0.41,0.41,0.41,0.41,0.41,0.41,0.37,0.37,0.37,0.33,0.34,0.35,null,null,0.28,null,null,null,null]
             ],
             type: 'line',
             labels: {
@@ -983,9 +983,12 @@ function chartCommute() {
         legend: {
             show: false
         },
+       line: {
+             connectNull: true
+         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2011) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2014) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333']
@@ -1075,7 +1078,7 @@ function chartPavement() {
          },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#333333','#CCCCCC']

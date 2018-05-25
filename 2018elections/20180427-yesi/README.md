@@ -1,6 +1,6 @@
 # 20180416 Yesi
 
-An analisys of youth voter registration trends prior to November.
+An analisys of youth voter registration trends prior to November. Built using [C3](https://github.com/masayuki0812/c3) and [jQuery](https://github.com/jquery/jquery).
 
 
 ## Data
