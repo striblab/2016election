@@ -1,0 +1,56 @@
+Office of the Secretary of State
+--------------------------------
+
+The election files on OSS web and ftp sites contain ASCII text, separated by semicolons. The information contained in these files is subject to correction and change up until election day. For questions, contact OSS Elections Division at elections.dept@state.mn.us
+
+--------------------------------------------
+
+Federal, State, and County Candidates 
+
+	Office ID
+	Candidate Name (First/Last/Suffix all in one field)
+	Office ID
+	Office Title 
+	County ID (88 = statewide or multi-county race)
+	Party Abbreviation
+	Residence Street Address
+	Residence City
+	Residence State
+	Residence Zip
+	Campaign Address 
+	Campaign City
+	Campaign State
+	Campaign Zip	
+	Campaign Phone
+	Campaign Website
+	Campaign Email
+	Running Mate Website, if applicable
+	Running Mate Email, if applicable
+	Running Mate Phone, if applicable
+
+--------------------------------------------
+
+Municipal and School District Candidates
+
+	Office Code
+	Candidate Name (First/Last/Suffix all in one field)
+	Office ID
+	Office Title 
+	County ID (88 = statewide or multi-county race)
+	MCD FIPS Code, if applicable
+	School District Number, if applicable
+	Party Abbreviation
+	Residence Street Address
+	Residence City
+	Residence State
+	Residence Zip
+	Campaign Address 
+	Campaign City
+	Campaign State
+	Campaign Zip	
+	Campaign Phone
+	Campaign Website
+	Campaign Email
+
+	Note: Party is "NP" in this file since all local candidates are non-partisan.
+
