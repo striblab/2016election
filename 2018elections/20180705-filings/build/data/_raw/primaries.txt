@@ -1,0 +1,11 @@
+file                       type         hasRankedChoice  contests  candidates
+-------------------------  -----------  ---------------  --------  ----------
+attorneygen.txt            state                         1         8         
+Governor.txt               state                         1         8         
+ushouse.txt                us-house                      7         36        
+ussenate.txt               us-senate                     2         18        
+judicialdst.txt            judicial                      3         10        
+LegislativeByDistrict.txt  state-house                   21        75        
+local.txt                  local        true             52        223       
+SDRaceQuestions.txt        school                        15        62        
+cntyRaceQuestions.txt      county                        80        287 
