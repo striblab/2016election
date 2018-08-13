@@ -1,0 +1,54 @@
+{
+  "about this file":
+    "This document defines configuration for this project that is not content or copy.",
+
+  "projectIdentifier": "2018-primaryelex-results",
+
+  "data": {
+    "content": "./content.json",
+    "pkg": "./package.json"
+  },
+
+  "cms": {
+    "id": "489884831",
+    "pages": ["489884831", "489886271"],
+    "lcds": ["489885091", "489886411"],
+    "rewriteMapping": {
+      "article-lcd-body-content": "_index-content.html"
+    }
+  },
+
+  "styles": {
+    "globals": []
+  },
+  "js": {
+    "globals": [
+      "https://cdn.polyfill.io/v2/polyfill.min.js",
+      "https://static.startribune.com/assets/libs/moment.js/2.22.2/moment.min.js"
+    ]
+  },
+  "publishToken": "6713fd55feef9c8b12eaa8b5b5f0f4b6",
+  "publish": {
+    "default": {
+      "bucket": "static.startribune.com",
+      "path": "news/projects-staging/all/2018-primaryelex-results",
+      "url":
+        "http://static.startribune.com/news/projects-staging/all/2018-primaryelex-results/",
+      "cacheSeconds": 30
+    },
+    "testing": {
+      "bucket": "stribtest-bucket",
+      "path": "news/projects/2018-primaryelex-results",
+      "url":
+        "https://s3.amazonaws.com/stribtest-bucket/news/projects/2018-primaryelex-results/",
+      "cacheSeconds": 30
+    },
+    "production": {
+      "bucket": "static.startribune.com",
+      "path": "news/projects/all/2018-primaryelex-results",
+      "url":
+        "http://static.startribune.com/news/projects/all/2018-primaryelex-results/",
+      "cacheSeconds": 600
+    }
+  }
+}
