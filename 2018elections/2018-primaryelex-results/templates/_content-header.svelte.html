@@ -1,0 +1,100 @@
+<header class="results-header container-lg">
+  <h5 class="font-popular-light">Election 2018</h5>
+  <h1>Live: 2018 Minnesota primary results</h1>
+
+  <div class="share-placeholder">
+    <!-- share -->
+  </div>
+
+  <div class="navigation-placeholder" ref:navigationPlaceholder></div>
+  <div id="navigation" class="cf" ref:navigation>
+    <nav id="button-nav" class="hidden-phone">
+      <ul>
+        <li class="main-nav nodrop"><a href="#mn-governor">Governor</a></li>
+
+        <li class="main-nav drop">
+          <a href="#mn-us-senate">Congress<span><img src="//static.startribune.com/news/projects/all/2018-primaryelex-results/assets/images/navcaret.svg"></span></a>
+          <ul class="nav-dropdown">
+            <a href="#mn-us-senate"><li>U.S. Senate</li></a>
+            <a href="#mn-us-house"><li>U.S. House</li></a>
+          </ul>
+        </li>
+
+        <li class="main-nav drop">
+          <a href="#state-offices">State<span><img src="//static.startribune.com/news/projects/all/2018-primaryelex-results/assets/images/navcaret.svg"></span></a>
+          <ul class="nav-dropdown">
+            <a href="#state-offices"><li>Atty. General</li></a>
+            <a href="#mn-auditor"><li>Auditor</li></a>
+            <a href="#mn-secretaryof-state"><li>Sec. of State</li></a>
+            <a href="#mn-state-house"><li>Legislature</li></a>
+            <a href="#courts"><li>Courts</li></a>
+          </ul>
+        </li>
+
+        <li class="main-nav nodrop">
+          <a href="https://electionresults.sos.state.mn.us/20180814/" target="_blank" rel="noopener">Local</a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav id="drop-nav" class="visible-phone">
+      <select onchange="location = this.value">
+        <option value="#mn-governor" class="group">Governor</option>
+        <option value="#mn-us-senate" class="group">Congress</option>
+        <option value="#mn-us-senate" class="sub">U.S. Senate</option>
+        <option value="#mn-us-house" class="sub">U.S. House</option>
+        <option value="#state-offices" class="group">State</option>
+        <option value="#state-offices" class="sub">Attorney General</option>
+        <option value="#mn-auditor" class="sub">Auditor</option>
+        <option value="#mn-secretaryof-state" class="sub">Secretary of State</option>
+        <option value="#mn-state-house" class="sub">Legislature</option>
+        <option value="#courts" class="sub">Courts</option>
+        <option value="https://electionresults.sos.state.mn.us/20180814/" class="group">Local</option>
+      </select>
+    </nav>
+  </div>
+</header>
+
+<script>
+  import { throttle } from "lodash";
+
+  export default {
+    oncreate() {
+      // Mark navigation top
+      this.set({
+        navigationTop: this.refs.navigation.offsetTop
+      });
+
+      // Set place holder.  Some padding? that isn't account for, so
+      // add 20;
+      this.refs.navigationPlaceholder.style.height =
+        this.refs.navigation.offsetHeight + 20 + "px";
+
+      // Make throttled updated
+      this.throttledUpdateStickyNav = throttle(() => {
+        this.updateStickyNav();
+      }, 50);
+
+      // Add to scroll event
+      window.addEventListener("scroll", this.throttledUpdateStickyNav);
+    },
+
+    ondestroy() {
+      if (this.throttledUpdateStickyNav) {
+        window.removeEventListener("scroll", this.throttledUpdateStickyNav);
+      }
+    },
+
+    methods: {
+      updateStickyNav() {
+        if (window.pageYOffset >= this.get().navigationTop) {
+          this.refs.navigationPlaceholder.classList.add("sticky-on");
+          this.refs.navigation.classList.add("sticky");
+        } else {
+          this.refs.navigationPlaceholder.classList.remove("sticky-on");
+          this.refs.navigation.classList.remove("sticky");
+        }
+      }
+    }
+  };
+</script>

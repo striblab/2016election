@@ -1,0 +1,151 @@
+
+<div class="contest-county-map" ref:container>
+  <div class="county-map-tooltip { tooltipActive ? 'tooltip-active' : '' } tooltip-hover-region-{ tooltipHoverRegion }">
+    <h4>{ toolTipResults ? toolTipResults.countyName : '' } County</h4>
+    <table>
+      <thead>
+        <tr>
+          <th class="map-cand">Candidate</th>
+          <th class="map-votes">Votes</th>
+          <th class="map-pct">Pct.</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {#if toolTipResults}
+          {#each toolTipResults as result}
+            <tr>
+              <td class="map-cand">{ keyedResults[result.candidate_id].candidate.last }</td>
+              <td class="map-votes">{ result.votes.toLocaleString() }</td>
+              <td class="map-pct">{ round(result.percent * 100, 1) }%</td>
+            </tr>
+          {/each}
+        {/if}
+      </tbody>
+    </table>
+
+    {#if toolTipResults && toolTipResults[0] && toolTipResults[0].resultDetails}
+      <div class="reporting">
+        { round(toolTipResults[0].resultDetails.totalPrecincts ? toolTipResults[0].resultDetails.reporting / toolTipResults[0].resultDetails.totalPrecincts * 100 : 0, 0) }% precincts reporting in county
+      </div>
+    {/if}
+  </div>
+
+  <svg viewBox="0 0 400 400" style="width: 100%; height: 100%;" ref:svgContainer>
+    <g class="counties">
+      {#if $mnCountiesGeo}
+        {#each $mnCountiesGeo as feature}
+          <path
+            d="{ countyPath(feature) }"
+            class="county-path { pathClass(feature, subResults, keyedResults) }"
+            on:mouseover="showTooltip(event, feature)"
+            on:mouseout="hideTooltip(event)">
+          </path>
+        {/each}
+      {/if}
+    </g>
+  </svg>
+
+  <div class="county-map-legend"></div>
+</div>
+
+<script>
+  import { geoPath } from "d3-geo";
+
+  export default {
+    oncreate() {},
+
+    helpers: {
+      countyPath(feature) {
+        return feature ? geoPath()(feature) : "";
+      },
+
+      pathClass(feature, subResults, keyedResults) {
+        let countyResults =
+          subResults[`2013-mn-county-${feature.properties.COUNTYFP}`];
+        let topCountyResults = countyResults[0];
+
+        // Make sure there is data
+        if (!topCountyResults) {
+          return "no-county-leader";
+        }
+
+        // Look for tie
+        if (
+          countyResults[0].votes &&
+          countyResults[0].votes === countyResults[1].votes
+        ) {
+          console.info("county tie", countyResults);
+          return "no-county-leader";
+        }
+
+        // Determine level of reporting
+        let contestResult = keyedResults[topCountyResults.candidate_id];
+        let reporting =
+          topCountyResults.resultDetails &&
+          topCountyResults.resultDetails.totalPrecincts
+            ? topCountyResults.resultDetails.reporting /
+              topCountyResults.resultDetails.totalPrecincts
+            : 0;
+
+        return `county-leader-${topCountyResults.candidate_id} ${
+          reporting && reporting < 1
+            ? "county-reporting"
+            : reporting && reporting === 1
+              ? "county-fully-reported"
+              : "county-no-reporting"
+        }`;
+      },
+
+      round(input, decimals = 1) {
+        if (parseFloat(input) !== NaN) {
+          return (
+            Math.round(parseFloat(input) * Math.pow(10, decimals)) /
+            Math.pow(10, decimals)
+          );
+        }
+      }
+    },
+
+    computed: {
+      matchedCounties({ $mnCountiesGeo, subResults }) {
+        if ($mnCountiesGeo && subResults) {
+          return $mnCountiesGeo.map(f => {
+            f.properties.results =
+              subResults[`2013-mn-county-${f.properties.COUNTYFP}`];
+            return f;
+          });
+        }
+      }
+    },
+
+    methods: {
+      showTooltip(event, feature) {
+        let yInParent = event.pageY - this.refs.container.offsetTop;
+        let { subResults } = this.get();
+
+        if (feature && feature.properties) {
+          let countyResults =
+            subResults[`2013-mn-county-${feature.properties.COUNTYFP}`];
+          countyResults.countyName = feature.properties.NAME;
+
+          this.set({
+            tooltipHoverRegion:
+              yInParent && yInParent > this.refs.container.offsetHeight / 2
+                ? "bottom"
+                : "top",
+            tooltipActive: true,
+            toolTipResults: countyResults
+          });
+        }
+      },
+
+      hideTooltip(event) {
+        this.set({
+          tooltipActive: false,
+          toolTipResults: undefined
+        });
+      }
+    }
+  };
+</script>
