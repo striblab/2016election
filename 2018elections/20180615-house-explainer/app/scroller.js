@@ -31,6 +31,7 @@ class ScrollyGraphic {
   /********** PRIVATE METHODS **********/
 
   _handleResize() {
+    console.log(window.innerHeight);
     // 1. update height of step elements for breathing room between steps
     var stepHeight = Math.floor(window.innerHeight * step_offset);
     step.style('height', stepHeight + 'px');
@@ -46,7 +47,7 @@ class ScrollyGraphic {
     var textWidth = text.node().offsetWidth;
     var chartWidth = graphic.node().offsetWidth - textWidth - chartMargin;
     // make the height 1/2 of viewport
-    var chartHeight = Math.floor(window.innerHeight / 2);
+    var chartHeight = Math.floor(window.innerHeight / 2 );
 
     chart
         .style('width', chartWidth + 'px')
