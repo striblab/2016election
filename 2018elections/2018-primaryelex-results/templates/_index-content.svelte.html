@@ -1,0 +1,124 @@
+
+<div class="strib-styles ssa ssb ssc">
+  <Header />
+
+  <section class="results container-lg cf">
+    <p class="util">Polls close at 8 p.m. Incumbents have been marked with (i). Uncontested third-party races are not listed.</p>
+    <p class="lead-in"><span>Races to watch:</span> Both the DFL and Republican gubernatorial primaries are expected to be contentious, as party-endorsed candidates face strong and well-funded challengers. In the special election to serve out the term of former DFL Sen. Al Franken, who stepped down in January, his appointed replacement, Tina Smith, is looking to fend off a challenge from ethics lawyer Richard Painter.</p>
+    <p class="lead-in">Meanwhile, the DFL primary in the Fifth Congressional District could determine who goes to Washington, as the Minneapolis-area district has been represented by a DFL congressman since the 1960s.</p>
+    <p class="promo"><a href="http://newsletters.startribune.com/pages/1788361/4540" target="_blank">Follow the Star Tribune's coverage of this campaign season by signing up to our daily politics newsletter.</a></p>
+
+    <Office defaultTitle="Governor"
+      id="mn-governor"
+      supplement="{ supplement }"
+      parties="{ ['dfl', 'dem', 'rep'] }"
+      countyMap="{ true }" />
+
+    <Body defaultTitle="U.S. Senate"
+      id="mn-us-senate"
+      supplement="{ supplement }"
+      likelyOffices="{ 2 }"
+      parties="{ ['dfl', 'dem', 'rep'] }" />
+
+    <Body defaultTitle="U.S. House"
+      id="mn-us-house"
+      supplement="{ supplement }"
+      likelyOffices="{ 8 }"
+      parties="{ ['dfl', 'dem', 'rep'] }" />
+
+    <h3 class="font-benton-sans" id="state-offices">Statewide Offices</h3>
+    <Office defaultTitle="Minnesota Attorney General"
+      id="mn-attorney-general"
+      supplement="{ supplement }"
+      parties="{ ['dfl', 'dem', 'rep'] }" />
+
+    <Office defaultTitle="Minnesota Auditor"
+      id="mn-auditor"
+      supplement="{ supplement }"
+      parties="{ ['dfl', 'dem', 'rep'] }" />
+
+    <Office defaultTitle="Minnesota Secretary of State"
+      id="mn-secretaryof-state"
+      supplement="{ supplement }"
+      parties="{ ['dfl', 'dem', 'rep'] }" />
+
+    <Body defaultTitle="State House"
+      id="mn-state-house"
+      supplement="{ supplement }"
+      parties="{ ['dfl', 'dem', 'rep'] }"
+      contestedFilter="contested"
+      likelyOffices="{ 21 }" />
+
+    <BodyCondensed2Col defaultTitle="Uncontested State House Districts"
+      id="mn-state-house"
+      supplement="{ supplement }"
+      parties="{ ['dfl', 'dem', 'rep'] }"
+      contestedFilter="uncontested"
+      likelyOffices="{ 67 * 2 - 21 }" />
+
+    <h3 class="font-benton-sans" id="courts">Courts</h3>
+    <p class="body-chat">Court races are nonpartisan and most are uncontested. In contested court races, the top two vote-getters advance to the general election.</p>
+
+    <BodyCondensed  defaultTitle="Supreme Court"
+      id="mn-supreme-court"
+      supplement="{ supplement }" />
+
+    <BodyCondensed  defaultTitle="Court of Appeals"
+      id="mn-appeals-court"
+      supplement="{ supplement }" />
+
+    <Body defaultTitle="District Courts"
+      id="mn-district-court"
+      supplement="{ supplement }"
+      contestedFilter="contested"
+      likelyOffices="{ 3 }" />
+
+    <BodyCondensed  defaultTitle="Uncontested District Courts"
+      id="mn-district-court"
+      supplement="{ supplement }"
+      contestedFilter="uncontested" />
+
+    <div class="credits">
+      <p>Source: Associated Press, Minnesota Secretary of State, Star Tribune analysis. Election results and winner calls provided by the Associated Press.</p>
+      <p>Credits: Alan Palazzolo, C.J. Sinner, Jeff Hargarten, Rahul Mukherjee, Matt DeLong, Jamie Hutt, Chase Davis</p>
+    </div>
+  </section>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114906116-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114906116-1');
+  </script>
+
+</div>
+
+<script>
+  // Dependencies and components
+  import Header from "./_content-header.svelte.html";
+  import Office from "./_content-office.svelte.html";
+  import Body from "./_content-body.svelte.html";
+  import BodyCondensed from "./_content-body-condensed.svelte.html";
+  import BodyCondensed2Col from "./_content-body-condensed-2col.svelte.html";
+
+
+  // Svelte logic
+  export default {
+    components: {
+      Header,
+      Office,
+      Body,
+      BodyCondensed,
+      BodyCondensed2Col
+    },
+
+    oncreate: function() {
+      if (this.get().attachShare) {
+        this.get().attachShare();
+      }
+    }
+  };
+</script>

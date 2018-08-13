@@ -1,0 +1,260 @@
+<div class="race-party body-{ partisan ? 'partisan' : 'nonpartisan' }" id="{ alteredId }">
+  <h4 class="font-benton-sans">{ supplementedTitle }</h4>
+  <p class="timestamp">Last updated: { updatedDate ? makeDate(updatedDate) : '-' }</p>
+
+  <div class="race-party-table condensed left">
+    <table>
+      <thead>
+        <tr>
+          <th class="dist">District</th>
+          {#if hasSeat}
+            <th class="seat">Seat</th>
+          {/if}
+          <th><span class="sr-only">Winner</span></th>
+          <th class="cand">Candidate</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {#if !loaded }
+          <tr></tr>
+        {:else}
+          {#each Object.entries(offices).slice(0, Object.entries(offices).length / 2 - 1) as [officeId, office]}
+            {#each office.contests as contest, contestIndex}
+              {#each contest.results as result, resultIndex}
+                <tr class="{ result.winner ? 'winner' : '' }">
+                  {#if contestIndex === 0}
+                    <td class="dist" rowspan="{ office.contests.length }">
+                      { formatDistrictName(office.shortTitle) }
+                    </td>
+                  {/if}
+
+                  {#if hasSeat}
+                    <td class="seat">
+                      { formatSeatName(office.seatName) }
+                    </td>
+                  {/if}
+
+                  <td class="winner">{#if result.winner}&#10004;{/if}</td>
+
+                  <td class="cand">
+                    {#if partisan}
+                      <span class="party party-{ result.candidate.party_id }"></span>
+                    {/if}
+
+                    { result.candidate.fullName }
+
+                    <span>{#if result.incumbent}(i){/if}</span>
+                  </td>
+                </tr>
+              {/each}
+            {/each}
+          {/each}
+        {/if}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="race-party-table condensed right">
+    <table>
+      <thead>
+        <tr>
+          <th class="dist">District</th>
+          {#if hasSeat}
+            <th class="seat">Seat</th>
+          {/if}
+          <th><span class="sr-only">Winner</span></th>
+          <th class="cand">Candidate</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {#if !loaded }
+          <tr></tr>
+        {:else}
+          {#each Object.entries(offices).slice(Object.entries(offices).length / 2 - 1, Object.entries(offices).length) as [officeId, office]}
+            {#each office.contests as contest, contestIndex}
+              {#each contest.results as result, resultIndex}
+                <tr class="{ result.winner ? 'winner' : '' }">
+                  {#if contestIndex === 0}
+                    <td class="dist" rowspan="{ office.contests.length }">
+                      { formatDistrictName(office.shortTitle) }
+                    </td>
+                  {/if}
+
+                  {#if hasSeat}
+                    <td class="seat">
+                      { formatSeatName(office.seatName) }
+                    </td>
+                  {/if}
+
+                  <td class="winner">{#if result.winner}&#10004;{/if}</td>
+
+                  <td class="cand">
+                    {#if partisan}
+                      <span class="party party-{ result.candidate.party_id }"></span>
+                    {/if}
+
+                    { result.candidate.fullName }
+
+                    <span>{#if result.incumbent}(i){/if}</span>
+                  </td>
+                </tr>
+              {/each}
+            {/each}
+          {/each}
+        {/if}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+  import { find } from "lodash";
+
+  export default {
+    oncreate() {
+      if (!this.get().embedded || this.get().countyMap) {
+        this.fetchDataInterval = setInterval(() => {
+          this.fetchData();
+        }, this.adjustedInterval());
+        this.fetchData();
+      }
+    },
+
+    computed: {
+      partisan: ({ offices }) => {
+        return (
+          offices &&
+          find(offices, o => {
+            return find(o.contests, c => c.partisan);
+          })
+        );
+      },
+
+      hasSeat: ({ offices }) => {
+        return offices && find(offices, o => o.seatName);
+      },
+
+      alteredId: ({ id, contestedFilter }) => {
+        return `${id}-${contestedFilter ? contestedFilter : ""}`;
+      },
+
+      supplementedTitle: ({ alteredId, supplement, title, defaultTitle }) => {
+        return supplement &&
+          alteredId &&
+          supplement[alteredId] &&
+          supplement[alteredId].title
+          ? supplement[alteredId].title
+          : defaultTitle
+            ? defaultTitle
+            : title || "-";
+      },
+
+      description: ({ id, supplement }) => {
+        return supplement && id && supplement[id] && supplement[id].description
+          ? supplement[id].description
+          : undefined;
+      },
+
+      updatedDate: ({ offices }) => {
+        if (!offices) {
+          return;
+        }
+
+        let o = Object.entries(offices);
+        if (!o || !o[1] || !o[0][1].contests || !o[0][1].contests[0]) {
+          return;
+        }
+
+        // TODO: Get newest/oldest date
+        return (
+          o[0][1].contests[0].results[0].apUpdated ||
+          o[0][1].contests[0].results[0].last_updated
+        );
+      }
+    },
+
+    helpers: {
+      formatDistrictName: input => {
+        input = input || "";
+        return input
+          .toString()
+          .replace(/district /i, "")
+          .replace(/seat [0-9]+/i, "")
+          .trim();
+      },
+
+      formatSeatName: input => {
+        input = input || "";
+        return input
+          .toString()
+          .replace(/seat /i, "")
+          .trim();
+      },
+
+      makeDate: (date, format) => {
+        let m = moment(date);
+        let now = moment();
+        if (!m || !m.isValid()) {
+          return "";
+        }
+
+        return m.isSame(now, "date")
+          ? m.format("h:mm a")
+          : m.format("MMM Do h:mm a");
+      }
+    },
+
+    methods: {
+      // Add some randomness to the interval, so they all
+      // don't go at once
+      adjustedInterval() {
+        let uncontested = this.get().contestedFilter === "uncontested";
+        return (
+          (this.store.get().interval || 60 * 1000) * (uncontested ? 3 : 1) +
+          Math.random() * 5 * 1000
+        );
+      },
+
+      fetchData() {
+        // Check for ID
+        if (!this.get().id) {
+          // TODO: Handle
+          return;
+        }
+
+        // If embedded, data is managed some other way
+        if (!this.get().countyMap && this.get().embedded) {
+          return;
+        }
+
+        // Filter contested
+        let contestedFilter = this.get().contestedFilter
+          ? this.get().contestedFilter
+          : null;
+
+        window
+          .fetch(
+            `${this.store.get().civixEndpoint}/contests/by-body/${
+              this.get().id
+            }.${this.get().countyMap ? "sub-results." : ""}${
+              contestedFilter ? contestedFilter + "." : ""
+            }json`
+          )
+          .then(response => {
+            return response.json();
+          })
+          .then(body => {
+            this.set(body);
+            this.set({ loaded: true });
+          })
+          .catch(e => {
+            // TODO: Handle error
+            console.error(e);
+          });
+      }
+    }
+  };
+</script>

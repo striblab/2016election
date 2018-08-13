@@ -1,0 +1,52 @@
+<div class="strib-styles ssa ssb ssc">
+  <div class="container-lg elex-header">
+    <h5 class="font-popular-light"><span class="font-popular-medium">Election 2018</span></h5>
+    <h1>{content.Headline}</h1>
+    <p class="byline">By <a href="http://www.startribune.com/jeff-hargarten/274254381/">Jeff Hargarten</a> and Chase Davis • <span>Star Tribune</span></p>
+    <!-- share -->
+  </div>
+
+  <div class="container-lg elex-main">
+
+    <section class="body">
+      {#each content.body as graf}
+
+        {#if graf.type == 'text'}
+        <p>{@html graf.value}</p>
+        {/if}
+
+        {#if graf.type == 'component'}
+          {#if graf.value.name == 'ScrollyMap'}
+            <ScrollyMap {...props} />
+          {:elseif graf.value.name == 'TossupsChart'}
+            <TossupsChart {...props} />
+          {:elseif graf.value.name == 'CVPIChart'}
+            <CVPIChart {...props} />
+          {/if}
+        {/if}
+
+      {/each}
+    </section>
+
+  </div>
+
+</div>
+
+<script>
+import ScrollyMap from './components/_scrolly_map.html';
+import TossupsChart from './components/_tossups_chart.html';
+import CVPIChart from './components/_cvpi_chart.html';
+
+export default {
+  components: {
+    ScrollyMap,
+    TossupsChart,
+    CVPIChart
+  },
+
+  computed: {
+    // Get all properties.  Easy to pass to sub components
+    props: state => state
+  }
+};
+</script>

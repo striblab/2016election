@@ -1,0 +1,337 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="https://www.startribune.com/assets/css/vendor/news/desktop-fonts.css">
+<style>
+	body	{
+		margin: 0;
+	}
+	.widget	{
+		font-family: 'Benton Sans';
+		display: inline-block;
+	}
+	.resultsLogo {
+	    float: left;
+	    margin: 0;
+	    min-width: 108px;
+	}	
+	.resultsLogo > h4 {
+	    position: relative;
+	    font-size: 13px;
+	    color: #000;
+	}	
+	.l-article-container .resultsLogoSVG {
+	    margin: -10px 0 6px 0;
+	}	
+
+	a {
+		color: black;
+	}
+
+	p.fullResults{
+		float: left;
+	    margin-top: -17px;
+	    font-size: 9.5px;
+	}
+
+	#done { 
+		display:none;
+	}
+
+	.resultsLogoSVG {
+	    float: right;
+	    width: 35px;
+	    height: 35px;
+	    background: url(http://stmedia.startribune.com/images/elex18-logo-fallback-100.png);
+	    background: url(http://static.startribune.com/preview/elections-2018/homepage/elex18-logo-40.svg),none;
+	    -webkit-background-size: 35px 35px;
+	    background-size: 35px 35px;
+	    background-repeat: no-repeat;
+	    margin: -44px -2px 7px 0;
+	}	
+	h3.Race	{
+		font-size: 10px;
+		margin-bottom: 0px;
+	}
+	h3.Race > .lightface	{
+		font-weight: 400;
+		font-size: 8px;
+		margin-left: 1px;
+	}
+
+	.column	{
+		display: inline-block;
+		margin-left: 0;
+		margin-right: 25px;
+		vertical-align: top;
+	}
+
+	#govD	{
+		margin-left: 0;
+	}
+
+	#House{
+		margin-right: 0;
+	}
+
+	td.checkmark	{
+		font-weight: bold;
+		font-size: 8px;
+		padding-right: 2px!important;
+	}
+	.candidateName{
+		font-size: 9.5px;
+		letter-spacing: 0.02em;
+	}
+	.percent	{
+		font-size: 9px;
+		text-align: right;
+		letter-spacing: -0.01em;
+	}
+
+	.percent.bold{
+		font-weight: 700;
+	}
+
+	table.results	{
+		border-collapse:collapse;
+		width: 107px;
+	}
+
+	tr.candidateRow	{
+		vertical-align: baseline;
+		border-bottom: 1px solid rgba(0,0,0,0.25);
+		border-spacing: 0;
+	}
+
+	tr.candidateRow:last-child	{
+		border-bottom: none;
+	}
+
+	tr.candidateRow > td	{
+		padding: 3px 0px;
+	}
+	p.Reporting	{
+		font-size: 7px;
+    	color: black;
+    	letter-spacing: 0.03em;
+    	text-transform: uppercase;
+    	margin-top: 5px;
+	}
+
+	@media only screen and (max-width: 600px) {
+    .resultsLogo > *	{
+    	display: inline-block;
+    	margin: 0;
+    }
+
+    .column:last-of-type {
+        display: none;
+    }
+
+    .column.logo{
+    	display: block;
+    	width:100%;
+    }
+
+    p.fullResults	{
+    	float: right;
+    	margin: 6px 0px;
+    	font-size: 9.5px;
+    	letter-spacing: 0.011em;
+    	text-transform: uppercase;
+    }
+
+	.resultsLogo > h4 {
+	    margin: 5px 0px;
+	    font-size: 11px;
+	}    
+
+	.resultsLogo {
+	    width: 100%;
+	    display: block;
+	    position: relative;
+	    border-top: 1px solid rgba(151,151,151,0.5);
+	    border-bottom: 1px solid rgba(151,151,151,0.5);;
+	    margin-top: 5px;
+	    margin-bottom: 10px;
+	}
+    .resultsLogoSVG	{
+    	float: none;
+    	position: absolute;
+		top: -6px;
+	    left: 70px;
+	    background-color: white;
+    }
+
+    .column	{
+    	margin: 0px;
+    	margin-right:5vw;
+    }
+
+    .column:nth-last-child(2)	{
+    	margin-right: 0;
+    }
+
+}
+</style>
+<body>
+<div class="widget">
+<div class="column logo" style="display: none;">
+<a href="/politics/elections">
+<div class="resultsLogo">
+<h4>ELECTION</h4>
+<p class="fullResults">See full results</p>
+<div class="resultsLogoSVG"></div>
+</div>
+</a>
+</div>
+<div class="column" id="govD">
+<h3 class="Race">Governor <span class="lightface">(D)</span></h3>
+<table class="results">
+<tr class="candidateRow can1">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent bold">0%</td>
+</tr>
+<tr class="candidateRow can2">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent">0%</td>
+</tr>
+<tr class="candidateRow can3">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent">0%</td>
+</tr>
+</table>
+<p class="reporting"><span class="number">0%</span> Reporting</p>
+</div>
+<div class="column" id="govR">
+<h3 class="Race">Governor <span class="lightface">(R)</span></h3>
+<table class="results">
+<tr class="candidateRow can1">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent bold">0%</td>
+</tr>
+<tr class="candidateRow can2">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent">0%</td>
+</tr>
+<tr class="candidateRow can3">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent">0%</td>
+</tr>
+</table>
+<p class="reporting"><span class="number">0%</span> Reporting</p>
+</div>
+<div class="column" id="sen">
+<h3 class="Race">U.S. Senate <span class="lightface">(D)</span></h3>
+<table class="results">
+<tr class="candidateRow can1">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent bold">0%</td>
+</tr>
+<tr class="candidateRow can2">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent">0%</td>
+</tr>
+<tr class="candidateRow can3">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent">0%</td>
+</tr>
+</table>
+<p class="reporting"><span class="number">0%</span> Reporting</p>
+</div>
+<div class="column" id="house">
+<h3 class="Race">U.S. House, MN5 <span class="lightface">(D)</span></h3>
+<table class="results">
+<tr class="candidateRow can1">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent bold">0%</td>
+</tr>
+<tr class="candidateRow can2">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent">0%</td>
+</tr>
+<tr class="candidateRow can3">
+<td class="checkmark"></td>
+<td class="candidateName"></td>
+<td class="percent">0%</td>
+</tr>
+</table>
+<p class="reporting"><span class="number">0%</span> Reporting</p>
+</div>
+</div>
+<div id="done"></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+		d3.json("http://static.startribune.com/elections/civix-test/mn-20180814/contests/all.json", function(error, dataLoad) {
+			var data = dataLoad;
+
+			function widgetSpinner(id, target) {
+				var candidates = [];
+				var reporting = 0;
+
+				//COLLECT CANDIDATES DATA BY APID
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].apId == id) {
+						reporting = data[i].reporting / data[i].totalPrecincts;
+						for (var j = 0; j < data[i].results.length; j++) {
+							var check = "";
+							var name = data[i].results[j].candidate.last;
+							if (data[i].results[j].winner == true) { check = "&#10003;"; }
+							if (name == "Anderson Kelliher") { name = "M.A. Kelliher"; }
+							candidates.push([check, name, data[i].results[j].percent]);
+						}
+					}
+				}
+
+				//SORT CANDIDATES BY VOTE PERCENTAGE
+				function sortCandidates(a, b) {
+				    if (a[2] === b[2]) {
+				        return 0;
+				    }
+				    else {
+				        return (a[2] > b[2]) ? -1 : 1;
+				    }
+				}
+
+				candidates.sort(sortCandidates);
+
+				//PRINT RESULTS TO TARGET COLUMN
+				$(target + " .can1 .checkmark").html(candidates[0][0]);
+				$(target + " .can1 .candidateName").html(candidates[0][1]);
+				$(target + " .can1 .percent").html(d3.format("%")(candidates[0][2]));
+
+				$(target + " .can2 .checkmark").html(candidates[1][0]);
+				$(target + " .can2 .candidateName").html(candidates[1][1]);
+				$(target + " .can2 .percent").html(d3.format("%")(candidates[1][2]));
+
+				$(target + " .can3 .checkmark").html(candidates[2][0]);
+				$(target + " .can3 .candidateName").html(candidates[2][1]);
+				$(target + " .can3 .percent").html(d3.format("%")(candidates[2][2]));
+
+				if (isNaN(reporting)) { reporting = 0; }
+				$(target + " .reporting .number").html(d3.format("%")(reporting));
+			}
+
+			widgetSpinner("24702", "#govD"); //DFL Governor
+			widgetSpinner("24703", "#govR"); //GOP Governor
+			widgetSpinner("25332", "#sen"); //DFL Senate Two
+			widgetSpinner("24017", "#house"); //DFL MN5
+
+			$("#done").html("DONE");
+		});
+
+	</script>
+</html>
