@@ -19,7 +19,7 @@
         {#if !loaded }
           <tr></tr>
         {:else}
-          {#each Object.entries(offices).slice(0, Object.entries(offices).length / 2 - 1) as [officeId, office]}
+          {#each Object.entries(offices).slice(0, Object.entries(offices).length / 2 + 1) as [officeId, office]}
             {#each office.contests as contest, contestIndex}
               {#each contest.results as result, resultIndex}
                 <tr class="{ result.winner ? 'winner' : '' }">
@@ -72,7 +72,7 @@
         {#if !loaded }
           <tr></tr>
         {:else}
-          {#each Object.entries(offices).slice(Object.entries(offices).length / 2 - 1, Object.entries(offices).length) as [officeId, office]}
+          {#each Object.entries(offices).slice(Object.entries(offices).length / 2 + 1, Object.entries(offices).length) as [officeId, office]}
             {#each office.contests as contest, contestIndex}
               {#each contest.results as result, resultIndex}
                 <tr class="{ result.winner ? 'winner' : '' }">

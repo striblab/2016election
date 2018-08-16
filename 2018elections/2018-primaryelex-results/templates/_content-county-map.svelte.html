@@ -121,7 +121,24 @@
 
     methods: {
       showTooltip(event, feature) {
-        let yInParent = event.pageY - this.refs.container.offsetTop;
+        let region = "top";
+
+        // Use jQuery if available
+        if (window.$) {
+          let yInParent = event.pageY - $(this.refs.container).offset().top;
+          region =
+            yInParent && yInParent > $(this.refs.container).innerHeight() / 2
+              ? "bottom"
+              : "top";
+        } else {
+          let yInParent = event.pageY - this.refs.container.offsetTop;
+          region =
+            yInParent && yInParent > this.refs.container.offsetHeight / 2
+              ? "bottom"
+              : "top";
+        }
+
+        // Get sub results
         let { subResults } = this.get();
 
         if (feature && feature.properties) {
@@ -130,10 +147,7 @@
           countyResults.countyName = feature.properties.NAME;
 
           this.set({
-            tooltipHoverRegion:
-              yInParent && yInParent > this.refs.container.offsetHeight / 2
-                ? "bottom"
-                : "top",
+            tooltipHoverRegion: region,
             tooltipActive: true,
             toolTipResults: countyResults
           });

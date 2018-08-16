@@ -136,15 +136,29 @@
   .race-group,
   #mn-governor {
     padding-top: 4em;
+
+    @media (max-width: 545px){
+      padding-top: 6em;
+    }
   }
 
   #state-offices,
   #courts {
     padding-top: 3em;
+
+    @media (max-width: 545px){
+      padding-top: 5em;
+    }
   }
 
   #mn-district-court .race-group {
     padding-top: 0px;
+  }
+
+  #mn-auditor, #mn-secretaryof-state{
+    @media (max-width: 545px){
+      padding-top: 6.5em;
+    }
   }
 
   .race-party {
@@ -392,6 +406,7 @@
 
     @media (max-width: 768px) {
       float: none;
+      padding-top: 3em;
     }
   }
 
@@ -424,14 +439,16 @@
 
   // Credits and footers
 
-  .credits p {
-    font-family: "Benton Sans";
-    font-size: 0.8em;
-    color: #808080;
+  .credits {
     clear: both;
+    padding-top: 8em;
+
+    p {
+      font-family: "Benton Sans";
+      font-size: 0.8em;
+      color: #808080;
+    }
+
   }
 
-  footer {
-    padding-top: 350px;
-  }
 }
