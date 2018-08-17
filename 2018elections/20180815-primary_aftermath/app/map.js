@@ -20,10 +20,10 @@ class Map {
         this.scaled = $(target).width() / 520;
         this.colorScale = d3.scaleOrdinal()
             .domain(['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'r1', 'r2', 'r3', 'r4'])
-            .range(['#83bc6d', '#82bae0', '#9d6cb2', '#3b7062', '#999999', '#444444', '#eb6868', '#d6d066', '#F2D2A4', '#F2614C']);
+            .range(['#83bc6d', '#82bae0', '#9d6cb2', '#3b7062', '#999999', '#444444', '#eb6868', '#d6d066', '#F2D2A4', '#ed61a7']);
         this.colorScale2 = d3.scaleOrdinal()
             .domain(['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'r1', 'r2', 'r3', 'r4'])
-            .range(['#83bc6d', '#82bae0', '#9d6cb2', '#3b7062', '#999999', '#444444', '#eb6868', '#d6d066', '#F2D2A4', '#F2614C']);
+            .range(['#83bc6d', '#82bae0', '#9d6cb2', '#3b7062', '#999999', '#444444', '#eb6868', '#d6d066', '#F2D2A4', '#ed61a7']);
         // this.colorScale2 = d3.scaleOrdinal()
         //     .domain(['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'r1', 'r2', 'r3'])
         //     .range(['#43710f', '#3b6e91', '#50156a', '#255a51', '#322a56', '#333333', '#a31616', '#7a7406', '#ae4c04']);
@@ -135,8 +135,8 @@ class Map {
             candidateThread = candidateThread + "<div class='resultRow'><div class='name'><span class='key_legend' style='background-color:" + candidateList[k][0] + ";'></span>&nbsp;" + candidateList[k][1] + "</div><div class='percent'>" + d3.format(".1f")(candidateList[k][2]) + "%</div></div>"
         }
 
-
-        $(self.target + ' .key').html(candidateThread);
+        $(self.target + ' .key').append("<div class='tipTitle'>Overall</div>");
+        $(self.target + ' .key').append(candidateThread);
 
             d3.helper = {};
 
@@ -167,10 +167,18 @@ class Map {
                                 .style('top', (absoluteMousePos[1] - 15) + 'px');
                             var tooltipText = accessor(d, i) || '';
                             tooltipDiv.html(tooltipText);
+                            $("#tip").html(tooltipText);
+                            if (self._detect_mobile() == true) {
+                                $("#tip").show();
+                                $(".key").hide();
+                            }
                         })
                         .on("mouseout", function(d, i) {
                             // Remove tooltip
                             tooltipDiv.remove();
+                            $("#tip").hide();
+                            $(".key").show();
+                            $("#tip").html("");
                         });
 
                 };
@@ -179,6 +187,7 @@ class Map {
             this.g.selectAll('.precincts path')
                 .call(d3.helper.tooltip(function(d, i) {
                     var candidates = [];
+                    var votes = 0;
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].match == (d.properties.COUNTYCODE + d.properties.CONGDIST + d.properties.MNLEGDIST + d.properties.PCTCODE)) {
                             if (party == 'DFL') {
@@ -187,11 +196,13 @@ class Map {
                                 if (data[0].d3_name != null && data[0].d3_name != "null")  {candidates.push([data[i].d3_name, data[i].d3, self.colorScale('d3')]); }
                                 if (data[0].d4_name != null && data[0].d4_name != "null")  {candidates.push([data[i].d4_name, data[i].d4, self.colorScale('d4')]); }
                                 if (data[0].d5_name != null && data[0].d5_name != "null")  {candidates.push([data[i].d5_name, data[i].d5, self.colorScale('d5')]); }
-                                if (data[i].d6_name != null && data[0].d6_name != "null") { candidates.push([data[i].d6_name, data[i].d6, self.colorScale('d6')]); }
+                                if (data[0].d6_name != null && data[0].d6_name != "null") { candidates.push([data[i].d6_name, data[i].d6, self.colorScale('d6')]); }
+                                votes = data[i].dVotes;
                             } else if (party == 'GOP') {
                                 candidates.push([data[i].r1_name, data[i].r1, self.colorScale('r1')]);
                                 candidates.push([data[i].r2_name, data[i].r2, self.colorScale('r2')]);
-                                if (data[i].r3_name != null && data[0].r3_name != "null") { candidates.push([data[i].r3_name, data[i].r3, self.colorScale('r3')]); }
+                                if (data[0].r3_name != null && data[0].r3_name != "null") { candidates.push([data[i].r3_name, data[i].r3, self.colorScale('r3')]); }
+                                votes = data[i].rVotes;
                             }
 
                             function sortCandidates(a, b) {
@@ -207,10 +218,10 @@ class Map {
                             var tipString = "";
 
                             for (var j=0; j < candidates.length; j++){
-                                tipString = tipString + "<div class='tipRow'><div class='canName'>" + candidates[j][0] + "</div><div class='legendary votepct' style='background-color:" + candidates[j][2] + "'>" + d3.format(".1f")(candidates[j][1]) + "%</div></div>"
+                                tipString = tipString + "<div class='tipRow'><div class='canName'>" + candidates[j][0] + "</div><div class='legendary votepct' style='background-color:" + candidates[j][2] + "'>" + d3.format(".1f")(candidates[j][1]) + "%</div></div>";
                             }
                             if (candidates[0][0] == 0) { return d.properties.PCTNAME + "<div>No results</div>"; } 
-                            else { return d.properties.PCTNAME + " " + tipString; }
+                            else { return d.properties.PCTNAME + " " + tipString + "<div class='votes'>Votes: " + d3.format(",")(votes) + "</div>"; }
                         }
                     }
                     return d.properties.PCTNAME + "<div>No results</div>";
@@ -221,6 +232,8 @@ class Map {
                     var winner = '';
                     var winner_sat = '';
                     var margin = '';
+                    var candidates;
+                    var count = 0;
 
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].match == (d.properties.COUNTYCODE + d.properties.CONGDIST + d.properties.MNLEGDIST + d.properties.PCTCODE)) {
@@ -228,13 +241,16 @@ class Map {
                                 winner_sat = self.colorScale2(data[i].dWin);
                                 winner = self.colorScale(data[i].dWin);
                                 margin = data[i].dMargin;
+                                candidates = [data[i].d1,data[i].d2,data[i].d3,data[i].d4,data[i].d5,data[i].d6];
                             } else if (party == 'GOP') {
                                 winner_sat = self.colorScale2(data[i].rWin);
                                 winner = self.colorScale(data[i].rWin);
                                 margin = data[i].rMargin;
+                                candidates = [data[i].r1,data[i].r2,data[i].r3,data[i].r4];
                             }
+                            for (var k=0; k < candidates.length; k++) { if (candidates[k] == margin) { count++; } }
                             var colorIntensity = d3.scaleLinear().domain([1, 100]).range([winner, winner_sat]);
-                            if (margin != 0) { return colorIntensity(margin); }
+                            if (margin != 0 && count < 2) { return colorIntensity(margin); }
                             else { return '#eeeeee'; }
                         }
                     }
@@ -518,6 +534,8 @@ class Map {
                     centered = null;
                     $(this).hide();
                     stroke = 1.5;
+                    $("#tip").hide();
+                    $(".key").show();
                     // self.g.selectAll('path')
                     //     .classed('active', centered && function(d) { return d === centered; });
                     self.g.transition()
