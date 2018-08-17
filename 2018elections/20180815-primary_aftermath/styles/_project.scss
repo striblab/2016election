@@ -78,19 +78,6 @@ a:hover {
   opacity:0.5;
 }
 
-.tipRow {
-  clear:both;
-}
-
-.canName {
-  float:left;
-  margin-right:5px;
-}
-
-.votepct {
-  float:right;
-}
-
 .map {
  width:100%;
  margin-right:auto;
@@ -170,6 +157,33 @@ section.body p {
 
 .key {
   text-align:left;
+  min-height:200px;
+}
+
+#tip {
+  min-height:200px;
+  display:none;
+}
+
+.votes {
+  clear:both !important;
+}
+
+.tipTitle {
+  text-align:center;
+}
+
+.tipRow {
+  clear:both;
+}
+
+.canName {
+  float:left;
+  margin-right:5px;
+}
+
+.votepct {
+  float:right;
 }
 
 .percent {
@@ -598,6 +612,9 @@ section.body p {
     max-width:100%;
     width:100% !important;
     min-width:100% !important;
+  }
+  .tooltip {
+  display:none !important;
   }
   .slide, .map {
     width:100% !important;
