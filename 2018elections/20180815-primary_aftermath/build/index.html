@@ -58,36 +58,83 @@
 <main id="main-content" class="content" role="main">
   <div class="container-lg" id="wrapper">
 
-  <div id="topmenu">
 
-<!-- <div class="chatter">Select race:</div> -->
-<div id="districtSelect"></div>
-<!-- <div id="districtList">
-   <ul class="dropdown months" tabindex="1">
-	    <li class="sort-link" id="senSelectD" filtered="all" magnify="mn" party="DFL" geo="all" race="sen"><div class="d4">&nbsp;DFL Senate Special</div></li>
-	    <li class="sort-link" id="senSelectR" filtered="all" magnify="mn" party="GOP" geo="all" race="sen"><div class="r4">&nbsp;GOP Senate Special</div></li>
-	    <li class="sort-link" id="govSelectD" filtered="all" magnify="mn" party="DFL" geo="all" race="gov"><div class="d4">&nbsp;DFL Governor</div></li>
-	    <li class="sort-link" id="govSelectR" filtered="all" magnify="mn" party="GOP" geo="all" race="gov"><div class="r4">&nbsp;GOP Governor</div></li>
-	    <li class="sort-link" id="agSelectD" filtered="all" magnify="mn" party="DFL" geo="all" race="ag"><div class="d4">&nbsp;DFL Attorney General</div></li>
-	    <li class="sort-link" id="agSelectR" filtered="all" magnify="mn" party="GOP" geo="all" race="ag"><div class="r4">&nbsp;GOP Attorney General</div></li>
-	    <li class="sort-link" id="cd1SelectD" filtered="CD1" magnify="mn" party="DFL" geo="all" race="1"><div class="d4">&nbsp;DFL District One</div></li>
-	    <li class="sort-link" id="cd1SelectR" filtered="CD1" magnify="mn" party="GOP" geo="all" race="1"><div class="r4">&nbsp;GOP District One</div></li>
-	    <li class="sort-link" id="cd5SelectD" filtered="CD5" magnify="metro" party="DFL" geo="all" race="5"><div class="d4">&nbsp;DFL District Five</div></li>
-	    <li class="sort-link" id="cd5SelectR" filtered="CD5" magnify="metro" party="GOP" geo="all" race="5"><div class="r4">&nbsp;GOP District Five</div></li>
-	    <li class="sort-link" id="cd8SelectD" filtered="CD8" magnify="mn" party="DFL" geo="all" race="8"><div class="d4">&nbsp;DFL District Eight</div></li>
-	    <li class="sort-link" id="cd8SelectR" filtered="CD8" magnify="mn" party="GOP" geo="all" race="8"><div class="r4">&nbsp;GOP District Eight</div></li>
-    </ul>
-  </div> -->
- </div>
 
-  	 <div class="slide" id="gov">
+  	 <div class="slide" id="mainmap">
+
+		  <div id="topmenu">
+
+		  	 	<div id="menu">
+		  	 		<div class="col d3"> DFL</div><div class="col r3"> GOP</div>
+		  	 	</div>
+		  	 	<div id="races">
+		  	 		<div class="col"><a href="?scope=all&zoom=mn&party=dfl&race=gov">Governor</a></div><div class="col"><a href="?scope=all&zoom=mn&party=gop&race=gov">Governor</a></div>
+		  	 		<div class="col"><a href="?scope=all&zoom=mn&party=dfl&race=sen">Senate Special</a></div><div class="col"><a href="?scope=all&zoom=mn&party=gop&race=sen">Senate Special</a></div>
+		  	 		<div class="col"><a href="?scope=all&zoom=mn&party=dfl&race=ag">Attorney General</a></div><div class="col"><a href="?scope=all&zoom=mn&party=gop&race=ag">Attorney General</a></div>
+		  	 		<div class="col"><a href="?scope=CD1&zoom=mn&party=dfl&race=1">District 1</a></div><div class="col"><a href="?scope=CD1&zoom=mn&party=gop&race=1">District 1</a></div>
+		  	 		<div class="col"><a href="?scope=CD5&zoom=metro&party=dfl&race=5">District 5</a></div><div class="col"><a href="?scope=CD5&zoom=metro&party=gop&race=5">District 5</a></div>
+		  	 		<div class="col"><a href="?scope=CD8&zoom=mn&party=dfl&race=8">District 8</a></div><div class="col"><a href="?scope=CD8&zoom=mn&party=gop&race=8">District 8</a></div>
+		  	 	</div>
+
+		<div id="districtSelect"></div>
+		 </div>
+
 	     <div class="map" id="mapper">
 	     	<div class="reset legendary gray4">✕</div>
-	     	<svg width="520" height="600" viewBox="0 0 520 600" preserveAspectRatio="xMidYMid"></svg>
+	     	<svg width="520" height="600" viewBox="0 0 520 600" preserveAspectRatio="xMidYMid" class="desktop"></svg>
+	     	<!-- <div id="fallback" class="mobile"></div> -->
 	     	<div class="key"></div>
-
 	     </div>
+	     <div class="byline">Source: Minnesota Secretary of State | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
  	</div>
+
+
+  	 <div class="slide" id="dflGOVmn">
+	     <div class="map fallback dflGOVmn" id="dflGOVmn_map"></div>
+	     <div class="byline">Source: Minnesota Secretary of State | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+ 	</div>
+
+  	 <div class="slide" id="dflGOVmetro">
+	     <div class="map fallback dflGOVmetro" id="dflGOVmetro_map"></div>
+	     <div class="byline">Source: Minnesota Secretary of State | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+ 	</div>
+
+  	 <div class="slide" id="gopGOVmn">
+	     <div class="map fallback gopGOVmn" id="gopGOVmn_map"></div>
+	     <div class="byline">Source: Minnesota Secretary of State | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+ 	</div>
+
+  	 <div class="slide" id="gopGOVmetro">
+	     <div class="map fallback gopGOVmetro" id="gopGOVmetro_map"></div>
+	     <div class="byline">Source: Minnesota Secretary of State | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+ 	</div>
+
+  	 <div class="slide" id="dflAGmn">
+	     <div class="map fallback dflAGmn" id="dflAGmn_map"></div>
+	     <div class="byline">Source: Minnesota Secretary of State | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+ 	</div>
+
+  	 <div class="slide" id="dflAGmetro">
+	     <div class="map fallback dflAGmetro" id="dflAGmetro_map"></div>
+	     <div class="byline">Source: Minnesota Secretary of State | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+ 	</div>
+
+  	 <div class="slide" id="dflCD5metro">
+	     <div class="map fallback dflCD5metro" id="dflCD5metro_map"></div>
+	     <div class="byline">Source: Minnesota Secretary of State | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+ 	</div>
+
+  	 <div class="slide" id="dflCD8mn">
+	     <div class="map fallback dflCD8mn" id="dflCD8mn_map"></div>
+	     <div class="byline">Source: Minnesota Secretary of State | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+ 	</div>
+
+  	 <div class="slide" id="dflCD8metro">
+	     <div class="map fallback dflCD8metro" id="dflCD8metro_map"></div>
+	     <div class="byline">Source: Minnesota Secretary of State | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+ 	</div>
+
+
 
   </div>
 </main>

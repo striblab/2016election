@@ -10,8 +10,32 @@ ul {
   list-style-type: none;
 }
 
+  .desktop {
+    display:block;
+  }
+a {
+  text-decoration:none;
+}
 .body {
  	max-width:100%;
+ }
+
+ #menu {
+ width:100%;
+ }
+
+ .col { 
+  width:50%;
+  display:inline-block;
+ }
+
+ .slide {
+ display:none;
+ }
+
+ .button {
+    font-weight:bold;
+    text-align:center;
  }
 
  #wrapper {
@@ -19,6 +43,15 @@ ul {
    width:520px;
    margin-right:auto;
    margin-left:auto;
+ }
+
+ .fallback {
+  pointer-events:none;
+ }
+
+ .generate:hover {
+   opacity:0.5;
+   cursor:pointer;
  }
 
 .slide {
@@ -45,6 +78,19 @@ a:hover {
   opacity:0.5;
 }
 
+.tipRow {
+  clear:both;
+}
+
+.canName {
+  float:left;
+  margin-right:5px;
+}
+
+.votepct {
+  float:right;
+}
+
 .map {
  width:100%;
  margin-right:auto;
@@ -60,7 +106,7 @@ a:hover {
     margin-left: 3px !important;
     text-anchor: left !important;
     stroke:#333333 !important;
-    stroke-width:0.4px !important;
+    stroke-width:1px !important;
     font-weight:normal;
     pointer-events:none !important;
 }
@@ -138,6 +184,14 @@ section.body p {
   stroke-linecap: round !important;
 }
 
+.precinct {
+  stroke-width: 0.03px !important;
+}
+
+#mapper svg .precinct {
+  stroke-width: 0.1px !important;
+}
+
 .precinct:hover {
   opacity:0.5;
   cursor:pointer;
@@ -151,7 +205,7 @@ section.body p {
 .county {
   fill-opacity:0 !important;
   stroke: white !important;
-  stroke-width: 0.5px !important;
+  stroke-width: 0.3px !important;
 }
 
 .infocus {
@@ -164,23 +218,45 @@ section.body p {
   fill:#eeeeee !important;
 }
 
-.CD1, .CD2, .CD3, .CD4, .CD5, .CD7, .CD8 {
+.CD1, .CD2, .CD3, .CD4, .CD5, .CD6, .CD7, .CD8 {
   stroke: white !important;
-  stroke-opacity: 0.5;
+  stroke-opacity: 0.3 !important;
   stroke-linejoin: round !important;
   stroke-linecap: round !important;
 }
 
-.CD6 {
+.fallback .district {
+  stroke-opacity: 1 !important;
+  stroke-width: 0.3px !important;
   stroke: white !important;
-  stroke-opacity: 0.5;
-  stroke-linejoin: round !important;
-  stroke-linecap: round !important;
+  display:block !important;
 }
 
-.nation-border {
-  fill: none;
 
+.fallback .hidden {
+  opacity:1 !important;
+}
+
+#dflGOVmn_metro .county {
+  opacity:1 !important;
+}
+
+#dflGOVmetro_map .district, #gopGOVmetro_map .district {
+  opacity:0 !important;
+  display:none !important;
+}
+
+#dflGOVmn_map .district, #gopGOVmn_map .district, #dflAGmn_map .district, #dflAGmetro_map .district {
+  stroke-width: 1px !important;
+  stroke-opacity:1 !important;
+}
+
+#dflAGmetro_map .district {
+  opacity:0 !important;
+}
+
+#dflCD8metro_map .district {
+  opacity:0 !important;
 }
 
 /* Base JeffChart styles */
@@ -213,7 +289,7 @@ section.body p {
 
 .legendary {
     padding:4px;
-    color: #fff;
+    color: #000000;
     font-weight:bold;
     border-radius: 5px;
     padding: 0 7px;
@@ -286,9 +362,11 @@ section.body p {
 }
 
 /* Political color ramps */
-.gopDark {
-  fill: #9C0004;
-  background-color: #9C0004;
+.gop {
+  fill: #A52129;
+  background-color: #A52129;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .gopLight {
@@ -306,13 +384,15 @@ section.body p {
   background-color: #67B4C2;
 }
 
-.dflDark {
-  fill: #0D4673;
-  background-color: #0D4673;
+.dfl {
+  fill: #4f97c4;
+  background-color: #4f97c4;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .republican {
-  fill: #8C1B17 !important;
+  fill: #A52129 !important;
   pointer-events: all;
   font-weight: bold;
   color: #fff;
@@ -521,8 +601,14 @@ section.body p {
   }
   .slide, .map {
     width:100% !important;
-    display:block;
   }
+  .fallback { 
+    width: 100%;
+   }
+   .fallback svg {
+    width: 100% !important;
+    height:auto !important;
+   }
 }
 
 @media (max-width:520px) {

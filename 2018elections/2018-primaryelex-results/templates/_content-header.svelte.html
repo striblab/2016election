@@ -1,12 +1,14 @@
 <header class="results-header container-lg">
   <h5 class="font-popular-light">Election 2018</h5>
-  <h1>Live: 2018 Minnesota primary results</h1>
+  <h1>2018 Minnesota primary results</h1>
 
   <div class="share-placeholder">
     <!-- share -->
   </div>
 
+  <div class="navigation-marker" ref:navigationMarker></div>
   <div class="navigation-placeholder" ref:navigationPlaceholder></div>
+
   <div id="navigation" class="cf" ref:navigation>
     <nav id="button-nav" class="hidden-phone">
       <ul>
@@ -60,20 +62,30 @@
 
   export default {
     oncreate() {
-      // Mark navigation top
-      this.set({
-        navigationTop: this.refs.navigation.offsetTop
-      });
-
-      // Set place holder.  Some padding? that isn't account for, so
-      // add 20;
+      // Set place holder.
       this.refs.navigationPlaceholder.style.height =
-        this.refs.navigation.offsetHeight + 20 + "px";
+        $(this.refs.navigation).height() + "px";
+
+      // Nav might move because of ads or something
+      this.updateNavTopInterval = window.setInterval(() => {
+        this.updateNavTop();
+      }, 1000);
+      this.updateNavTop();
 
       // Make throttled updated
       this.throttledUpdateStickyNav = throttle(() => {
         this.updateStickyNav();
       }, 50);
+
+      // Does this go here? Prevent weird iOS select bug.
+      var userAgent = window.navigator.userAgent;
+      if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+        document
+          .querySelector("#drop-nav select")
+          .addEventListener("touchstart", function(event) {
+            event.preventDefault();
+          });
+      }
 
       // Add to scroll event
       window.addEventListener("scroll", this.throttledUpdateStickyNav);
@@ -83,10 +95,14 @@
       if (this.throttledUpdateStickyNav) {
         window.removeEventListener("scroll", this.throttledUpdateStickyNav);
       }
+      if (this.updateNavTopInterval) {
+        window.clearInterval(this.updateNavTopInterval);
+      }
     },
 
     methods: {
       updateStickyNav() {
+        // See if we are past
         if (window.pageYOffset >= this.get().navigationTop) {
           this.refs.navigationPlaceholder.classList.add("sticky-on");
           this.refs.navigation.classList.add("sticky");
@@ -94,6 +110,14 @@
           this.refs.navigationPlaceholder.classList.remove("sticky-on");
           this.refs.navigation.classList.remove("sticky");
         }
+      },
+
+      // Check where the nav container is
+      updateNavTop() {
+        // Mark navigation top.  This can change due to ads or reloads
+        this.set({
+          navigationTop: $(this.refs.navigationMarker).offset().top
+        });
       }
     }
   };
