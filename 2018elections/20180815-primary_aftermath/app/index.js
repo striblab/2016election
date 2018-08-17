@@ -14,6 +14,12 @@ const map = new Map("#mapper");
 
 utilsFn({});
 
+$("body").fadeIn();
+
+$("a").on("click", function(){
+  $("body").fadeOut();
+});
+
 $.urlParam = function(name) {
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results != null) {
