@@ -33,6 +33,11 @@ a {
  display:none;
  }
 
+ .button {
+    font-weight:bold;
+    text-align:center;
+ }
+
  #wrapper {
   padding:0 !important;
    width:520px;
@@ -358,8 +363,8 @@ section.body p {
 
 /* Political color ramps */
 .gop {
-  fill: #9C0004;
-  background-color: #9C0004;
+  fill: #A52129;
+  background-color: #A52129;
   font-weight: bold;
   color: #ffffff;
 }
@@ -380,14 +385,14 @@ section.body p {
 }
 
 .dfl {
-  fill: #0D4673;
-  background-color: #0D4673;
+  fill: #4f97c4;
+  background-color: #4f97c4;
   font-weight: bold;
   color: #ffffff;
 }
 
 .republican {
-  fill: #8C1B17 !important;
+  fill: #A52129 !important;
   pointer-events: all;
   font-weight: bold;
   color: #fff;

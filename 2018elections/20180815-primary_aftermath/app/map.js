@@ -12,16 +12,18 @@ class Map {
 
     constructor(target) {
         this.target = target;
-        this.svg = d3.select(target + ' svg').attr('width', $(target).outerWidth()).attr('height', $(target).outerHeight());
+        this.svg = d3.select(target + ' svg')
+            .attr('width', $(target).outerWidth())
+            .attr('height', $(target).outerHeight());
         this.g = this.svg.append('g');
         this.zoomed = false;
         this.scaled = $(target).width() / 520;
         this.colorScale = d3.scaleOrdinal()
             .domain(['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'r1', 'r2', 'r3', 'r4'])
-            .range(['#b9ee7d', '#82bae0', '#ce91e9', '#3b7062', '#999999', '#444444', '#eb6868', '#f9f37c', '#F2D2A4', '#F2614C']);
+            .range(['#83bc6d', '#82bae0', '#9d6cb2', '#3b7062', '#999999', '#444444', '#eb6868', '#d6d066', '#F2D2A4', '#F2614C']);
         this.colorScale2 = d3.scaleOrdinal()
             .domain(['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'r1', 'r2', 'r3', 'r4'])
-            .range(['#b9ee7d', '#82bae0', '#ce91e9', '#3b7062', '#999999', '#444444', '#eb6868', '#f9f37c', '#F2D2A4', '#F2614C']);
+            .range(['#83bc6d', '#82bae0', '#9d6cb2', '#3b7062', '#999999', '#444444', '#eb6868', '#d6d066', '#F2D2A4', '#F2614C']);
         // this.colorScale2 = d3.scaleOrdinal()
         //     .domain(['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'r1', 'r2', 'r3'])
         //     .range(['#43710f', '#3b6e91', '#50156a', '#255a51', '#322a56', '#333333', '#a31616', '#7a7406', '#ae4c04']);
@@ -257,6 +259,23 @@ class Map {
             var width = 520;
             var height = 600;
             var centered;
+
+            // function zoomed() {         
+            //     self.g.style('transform', 'scale(' + d3.event.transform.k + ')');
+            // }
+
+            // var zoom = d3.zoom()                            
+            //     .scaleExtent([1, 12])
+            //     .translateExtent([[0, 0], [width, height]])
+            //     .extent([[0, 0], [width, height]])
+            //     .on("zoom", zoomed)
+
+            // self.g.call(d3.zoom().on("zoom", function () {
+            //     self.g.attr("transform", d3.event.transform)
+            //     $(".reset").show();
+            //     $(".city-label").addClass("hidden");
+            //     $(".mark").addClass("hidden");
+            // }));
 
             var path = d3.geoPath(projection);
 
