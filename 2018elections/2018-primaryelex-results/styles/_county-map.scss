@@ -34,7 +34,7 @@ $candidateColors: (
 
   // A bit hacky, and probaly needs some adjustment
   .race-party-table {
-    min-height: 240px;
+    min-height: 250px;
 
     @media (max-width: 768px) {
       min-height: 0;
@@ -113,5 +113,12 @@ $candidateColors: (
     &.tooltip-active {
       display: block;
     }
+  }
+}
+
+// IE11 needs a specific height
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .results .has-county-map .contest-county-map {
+    height: 400px;
   }
 }

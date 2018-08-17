@@ -1,6 +1,6 @@
 var page = require('webpage').create();
 
-page.open('http://static.startribune.com/news/elections/widgetMobile.html', function() { //CHANGE THIS
+page.open('http://static.startribune.com/news/elections/widgetMobile.html?dfghsfg', function() { //CHANGE THIS
   // being the actual size of the headless browser
   page.viewportSize = { width: 1020, height: 200 };
 
